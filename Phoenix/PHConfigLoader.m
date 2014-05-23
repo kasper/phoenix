@@ -43,15 +43,20 @@ static NSString* PHConfigPath = @"~/.phoenix.js";
     return self;
 }
 
+- (void)createConfigInFile:(NSString *)filename {
+    [[NSFileManager defaultManager] createFileAtPath:filename
+                                            contents:[@"" dataUsingEncoding:NSUTF8StringEncoding]
+                                          attributes:nil];
+    NSString *message = [NSString stringWithFormat:@"I just created %@ for you :)", filename];
+    [[PHAlerts sharedAlerts] show:message duration:7.0];
+}
+
 - (void) reload {
     NSString* filename = [PHConfigPath stringByStandardizingPath];
     NSString* config = [NSString stringWithContentsOfFile:filename encoding:NSUTF8StringEncoding error:NULL];
     
     if (!config) {
-        [[NSFileManager defaultManager] createFileAtPath:filename
-                                                contents:[@"" dataUsingEncoding:NSUTF8StringEncoding]
-                                              attributes:nil];
-        [[PHAlerts sharedAlerts] show:@"I just created ~/.phoenix.js for you :)" duration:7.0];
+        [self createConfigInFile:filename];
         return;
     }
     
@@ -70,7 +75,7 @@ static NSString* PHConfigPath = @"~/.phoenix.js";
     [self setupAPI:ctx];
     
     [ctx evaluateScript:config];
-    [[PHAlerts sharedAlerts] show:@"Phoenix Config Loaded" duration:1.0];
+    [[PHAlerts sharedAlerts] show:@"Phoenix config loaded" duration:1.0];
 }
 
 - (void) setupAPI:(JSContext*)ctx {
