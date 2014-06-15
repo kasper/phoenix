@@ -30,6 +30,7 @@
 		94CF94D4184C527A00E63DE0 /* PHOpenAtLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CF94D3184C527A00E63DE0 /* PHOpenAtLogin.m */; };
 		94CF94DF184C5F7700E63DE0 /* PHConfigLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CF94DE184C5F7700E63DE0 /* PHConfigLoader.m */; };
 		94FF5A74184B142B001A0315 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FF5A73184B142A001A0315 /* JavaScriptCore.framework */; };
+		9623D39D194DBDE600D1F92A /* Phoenix.icns in Resources */ = {isa = PBXBuildFile; fileRef = 9623D39C194DBDE600D1F92A /* Phoenix.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		94CF94DD184C5F7700E63DE0 /* PHConfigLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHConfigLoader.h; sourceTree = "<group>"; };
 		94CF94DE184C5F7700E63DE0 /* PHConfigLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHConfigLoader.m; sourceTree = "<group>"; };
 		94FF5A73184B142A001A0315 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		9623D39C194DBDE600D1F92A /* Phoenix.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Phoenix.icns; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 		94C602341849D3B9005E7DB3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9623D39C194DBDE600D1F92A /* Phoenix.icns */,
 				94C602351849D3B9005E7DB3 /* Phoenix-Info.plist */,
 				94C602361849D3B9005E7DB3 /* InfoPlist.strings */,
 				94C602391849D3B9005E7DB3 /* main.m */,
@@ -256,6 +259,7 @@
 			files = (
 				949D56E1184D016E008E92DE /* AlertWindow.xib in Resources */,
 				94CF94CD184C509100E63DE0 /* statusitem.png in Resources */,
+				9623D39D194DBDE600D1F92A /* Phoenix.icns in Resources */,
 				94C602381849D3B9005E7DB3 /* InfoPlist.strings in Resources */,
 				94C602461849D3B9005E7DB3 /* Images.xcassets in Resources */,
 				94C6023E1849D3B9005E7DB3 /* Credits.rtf in Resources */,
