@@ -4,7 +4,7 @@
 
 Phoenix is a fork of Zephyros that aims for efficiency and a very small footprint.
 
-* Current version: **1.0**
+* Current version: **1.1**
 * Requires: OS X 10.9 and up
 
 #### Install
