@@ -39,6 +39,10 @@ api.bind('E', ['cmd'], function() {
 
 - In-app upgrade
 
+#### Icon design
+
+Icon and Status bar item image provided by [@jasonm23](https://github.com/jasonm23)
+
 #### License
 
 > Released under MIT license.
