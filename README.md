@@ -37,7 +37,6 @@ api.bind('E', ['cmd'], function() {
 
 #### Todo
 
-- Needs an app icon and status bar icon
 - In-app upgrade
 
 #### License
