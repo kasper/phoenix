@@ -1,5 +1,7 @@
 # Phoenix
 
+![](https://raw.githubusercontent.com/sdegutis/Phoenix/master/Phoenix/Images.xcassets/AppIcon.appiconset/icon_256x256.png)
+
 *The lightweight OS X window manager for hackers*
 
 Phoenix is a fork of Zephyros that aims for efficiency and a very small footprint.
