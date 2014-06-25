@@ -97,6 +97,10 @@ static NSString* PHConfigPath = @"~/.phoenix.js";
         [[PHAlerts sharedAlerts] show:str duration:duration];
     };
     
+    api[@"log"] = ^(NSString* msg) {
+        NSLog(@"@%", msg)  
+    };
+    
     api[@"bind"] = ^(NSString* key, NSArray* mods, JSValue* handler) {
         PHHotKey* hotkey = [PHHotKey withKey:key mods:mods handler:^BOOL{
             return [[handler callWithArguments:@[]] toBool];
