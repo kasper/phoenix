@@ -98,7 +98,7 @@ static NSString* PHConfigPath = @"~/.phoenix.js";
     };
     
     api[@"log"] = ^(NSString* msg) {
-        NSLog(@"@%", msg); 
+        NSLog(@"%@", msg); 
     };
     
     api[@"bind"] = ^(NSString* key, NSArray* mods, JSValue* handler) {
