@@ -33,7 +33,7 @@ api.bind('E', ['cmd'], function() {
 
 #### Documentation
 
-- [JavaScript API Documentation](https://github.com/sdegutis/Phoenix/wiki/JavaScript-API-documentation)
+- [JavaScript API Documentation](https://github.com/sdegutis/Phoenix/wiki/Phoenix-1.1-API)
 
 **Note:** Phoenix can only be scripted in JavaScript.
 
