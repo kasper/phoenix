@@ -1,6 +1,8 @@
-# Phoenix
+## Deprecation Notice
 
-![](https://raw.githubusercontent.com/sdegutis/Phoenix/master/Phoenix/Images.xcassets/AppIcon.appiconset/icon_256x256.png)
+Phoenix is deprecated. See [Hydra](https://github.com/sdegutis/hydra), my fork of Phoenix which I actively maintain.
+
+# Phoenix
 
 *The lightweight OS X window manager for hackers*
 
@@ -44,6 +46,8 @@ api.bind('E', ['cmd'], function() {
 #### Icon design
 
 Icon and Status bar item image provided by [@jasonm23](https://github.com/jasonm23)
+
+![](https://raw.githubusercontent.com/sdegutis/Phoenix/master/Phoenix/Images.xcassets/AppIcon.appiconset/icon_256x256.png)
 
 #### License
 
