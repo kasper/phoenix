@@ -1,57 +1,80 @@
-## Deprecation Notice
+<img align="right" valign="top" src="https://raw.githubusercontent.com/jasonm23/phoenix/master/Phoenix/Images.xcassets/AppIcon.appiconset/icon_256x256.png"/>
 
-Phoenix is deprecated. See [Hydra](https://github.com/sdegutis/hydra), my fork of Phoenix which I actively maintain.
-
-# Phoenix
+<h1>Phoenix</h1>
 
 *The lightweight OS X window manager for hackers*
 
-Phoenix is a fork of Zephyros that aims for efficiency and a very small footprint.
+Phoenix is a fork of Zephyros that aims for efficiency and a very
+small footprint.
 
 * Current version: **1.1**
 * Requires: OS X 10.9 and up
 
+Phoenix was originally authored by
+[Steven Degutis / @sdegutis](https://github.com/sdegutis), it's now
+maintained by [Jason Milkins / @jasonm23](https://github.com/jasonm23)
+
+Steven is continuing work on OSX window management in
+[Mjolnir](https://github.com/mjolnir-io/mjolnir)
+
 #### Install
 
-* Download [Phoenix-LATEST.app.tar.gz](https://raw.github.com/sdegutis/phoenix/master/Builds/Phoenix-LATEST.app.tar.gz), unzip, right-click app, choose "Open"
-* Or, install via [Homebrew Cask](https://github.com/phinze/homebrew-cask) - `brew cask install phoenix`
+Install XCode and XCode command line tools, then from a terminal:
+
+    git clone https://github.com/jasonm23/phoenix.git
+    cd phoenix
+    xcodebuild
+
+When complete you'll find a freshly built **Phoenix** app in
+`build/release`.
+
+To install it just drag-drop it to your `/Applications` folder.
+
+When you first run Phoenix, you'll need to allow it to control UI. OS
+X will alert you of this, and open **System Preferences > Security**
+
+An admin account is required to enable it.
+
+#### No AppStore, No  Pre-Built binaries, No Cask...
+
+For the record, I'm not interested in supporting users who can't build
+Phoenix for themselves, it will do nothing for you without a fair
+degree of scripting knowledge, so I won't be providing any pre-built
+binaries here or via any other distribution methods.
+
+I may add a recipe to Homebrew, because I can assume you'll have (1)
+the ability to use the terminal without weeping, (2) XCode will be
+installed.
+
+I hope I don't hurt anyone's feelings, if you want something shiny
+and app-store-ey, you can use Moom (it's quite nice apparently.)
+
+If you like the idea of scripting your own Window Management toolkit
+with JavaScript, Phoenix is probably going to give you the things you
+want.
 
 #### Usage
 
-Create `~/.phoenix.js`. Then add stuff like this in it:
+For ideas, read other people's configs
+[in the wiki](https://github.com/jasonm23/phoenix/wiki) -
 
-```javascript
-api.bind('E', ['cmd'], function() {
-  var win = Window.focusedWindow();
-  var frame = win.frame();
-  frame.x += 10;
-  frame.height -= 10;
-  win.setFrame(frame);
-  return true;
-});
-```
-
-* For more ideas, read other people's configs [in the wiki](https://github.com/sdegutis/Phoenix/wiki).
+Also add your own config to the wiki to show other people the cool
+things you can do.
 
 #### Documentation
 
-- [JavaScript API Documentation](https://github.com/sdegutis/Phoenix/wiki/Phoenix-1.1-API)
+- [JavaScript API Documentation](https://github.com/jasonm23/phoenix/wiki/JavaScript-API-documentation)
 
-**Note:** Phoenix can only be scripted in JavaScript.
+Phoenix can only be scripted in JavaScript.
 
-#### Todo
-
-- In-app upgrade
-
-#### Icon design
-
-Icon and Status bar item image provided by [@jasonm23](https://github.com/jasonm23)
-
-![](https://raw.githubusercontent.com/sdegutis/Phoenix/master/Phoenix/Images.xcassets/AppIcon.appiconset/icon_256x256.png)
+(...or languages which compile to JavaScript e.g. CoffeeScript,
+LiveScript, ClojureScript, TypeScript etc. etc.)
 
 #### License
 
 > Released under MIT license.
+>
+> Copyright (c) 2014 Jason Milkins
 >
 > Copyright (c) 2013 Steven Degutis
 >
