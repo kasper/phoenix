@@ -35,6 +35,12 @@ X will alert you of this, and open **System Preferences > Security**
 
 An admin account is required to enable it.
 
+Please Note: the default `master` branch will always be
+stable.
+
+Features, bug fixes etc. will be done in topic branches and
+only merged to `master` when stable.
+
 #### No AppStore, No  Pre-Built binaries, No Cask...
 
 For the record, I'm not interested in supporting users who can't build
