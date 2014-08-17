@@ -23,7 +23,7 @@
 @interface PHConfigLoader ()
 
 @property NSMutableArray* hotkeys;
-@property PHPathWatcher* watcher;
+@property NSMutableArray* watchers;
 
 @end
 
@@ -35,12 +35,34 @@ static NSString* PHConfigPath = @"~/.phoenix.js";
 
 - (id) init {
     if (self = [super init]) {
-        self.watcher = [PHPathWatcher watcherFor:PHConfigPath handler:^{
-            [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(reload) object:nil];
-            [self performSelector:@selector(reload) withObject:nil afterDelay:0.25];
-        }];
+        self.watchers = [NSMutableArray new];
+        [self resetConfigListeners];
     }
     return self;
+}
+
+- (void) addConfigListener: (NSString *) path {
+    for(PHPathWatcher *watcher in self.watchers) {
+        if([watcher.path isEqualToString: path]) {
+            // Already watching this path, no need to add another watcher
+            return;
+        }
+    }
+    
+    PHPathWatcher *watcher = [PHPathWatcher watcherFor: path handler:^{
+        [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(reload) object:nil];
+        [self performSelector:@selector(reload) withObject:nil afterDelay:0.25];
+    }];
+    
+    [self.watchers addObject: watcher];
+}
+
+/*!
+ * Clears all config listeners and adds a listener for the default config file
+ */
+- (void) resetConfigListeners {
+    [self.watchers removeAllObjects];
+    [self addConfigListener: PHConfigPath];
 }
 
 - (void)createConfigInFile:(NSString *)filename {
@@ -52,6 +74,8 @@ static NSString* PHConfigPath = @"~/.phoenix.js";
 }
 
 - (void) reload {
+    [self resetConfigListeners];
+    
     NSString* filename = [PHConfigPath stringByStandardizingPath];
     NSString* config = [NSString stringWithContentsOfFile:filename encoding:NSUTF8StringEncoding error:NULL];
     
@@ -135,12 +159,36 @@ static NSString* PHConfigPath = @"~/.phoenix.js";
         }
         CGSetDisplayTransferByTable(CGMainDisplayID(), (int)sizeof(cred) / sizeof(cred[0]), cred, cgreen, cblue);
     };
-
+    
+    __weak JSContext* weakCtx = ctx;
+    
+    ctx[@"require"] = ^(NSString *path) {
+        path = [path stringByStandardizingPath];
+        
+        if(! [path hasPrefix: @"/"]) {
+            NSString *configPath = [PHConfigPath stringByResolvingSymlinksInPath];
+            NSURL *requirePathUrl = [NSURL URLWithString: path relativeToURL: [NSURL URLWithString: configPath]];
+            path = [requirePathUrl absoluteString];
+        }
+        
+        if(! [[NSFileManager defaultManager] fileExistsAtPath: path isDirectory: NULL]) {
+            [self showJsException: [NSString stringWithFormat: @"Require: cannot find path %@", path]];
+        } else {
+            [self addConfigListener: path];
+            
+            NSString* _js = [NSString stringWithContentsOfFile: path encoding: NSUTF8StringEncoding error: NULL];
+            [weakCtx evaluateScript:_js];
+        }
+    };
     
     ctx[@"Window"] = [PHWindow self];
     ctx[@"App"] = [PHApp self];
     ctx[@"Screen"] = [NSScreen self];
     ctx[@"MousePosition"] = [PHMousePosition self];
+}
+
+- (void) showJsException: (id) arg {
+    [[PHAlerts sharedAlerts] show:[NSString stringWithFormat:@"[js exception] %@", arg] duration:3.0];
 }
 
 @end
