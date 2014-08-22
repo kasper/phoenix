@@ -12,6 +12,7 @@
 
 @property FSEventStreamRef stream;
 @property (copy) void(^handler)();
+@property NSString *path;
 
 @end
 
@@ -34,11 +35,12 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
 + (PHPathWatcher*) watcherFor:(NSString*)path handler:(void(^)())handler {
     PHPathWatcher* watcher = [[PHPathWatcher alloc] init];
     watcher.handler = handler;
-    [watcher setup:path];
+    watcher.path = path;
+    [watcher setup];
     return watcher;
 }
 
-- (void) setup:(NSString*)path {
+- (void) setup {
     FSEventStreamContext context;
     context.info = (__bridge void*)self;
     context.version = 0;
@@ -48,7 +50,7 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
     self.stream = FSEventStreamCreate(NULL,
                                       fsEventsCallback,
                                       &context,
-                                      (__bridge CFArrayRef)@[[path stringByStandardizingPath]],
+                                      (__bridge CFArrayRef)@[[self.path stringByStandardizingPath]],
                                       kFSEventStreamEventIdSinceNow,
                                       0.4,
                                       kFSEventStreamCreateFlagWatchRoot | kFSEventStreamCreateFlagNoDefer | kFSEventStreamCreateFlagFileEvents);
