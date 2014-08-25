@@ -23,7 +23,8 @@
 @interface PHConfigLoader ()
 
 @property NSMutableArray* hotkeys;
-@property NSMutableArray* watchers;
+@property NSMutableSet* configPaths;
+@property PHPathWatcher* watcher;
 
 @end
 
@@ -35,34 +36,25 @@ static NSString* PHConfigPath = @"~/.phoenix.js";
 
 - (id) init {
     if (self = [super init]) {
-        self.watchers = [NSMutableArray new];
-        [self resetConfigListeners];
+        self.configPaths = [NSMutableSet new];
     }
     return self;
 }
 
-- (void) addConfigListener: (NSString *) path {
-    for(PHPathWatcher *watcher in self.watchers) {
-        if([watcher.path isEqualToString: path]) {
-            // Already watching this path, no need to add another watcher
-            return;
-        }
-    }
-    
-    PHPathWatcher *watcher = [PHPathWatcher watcherFor: path handler:^{
+- (void) resetConfigPaths {
+    [self.configPaths removeAllObjects];
+    [self.configPaths addObject: PHConfigPath];
+}
+
+- (void) addConfigPath: (NSString *) path {
+    [self.configPaths addObject: path];
+}
+
+- (void) setupConfigWatcher {
+    self.watcher = [PHPathWatcher watcherFor: [self.configPaths allObjects] handler:^{
         [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(reload) object:nil];
         [self performSelector:@selector(reload) withObject:nil afterDelay:0.25];
     }];
-    
-    [self.watchers addObject: watcher];
-}
-
-/*!
- * Clears all config listeners and adds a listener for the default config file
- */
-- (void) resetConfigListeners {
-    [self.watchers removeAllObjects];
-    [self addConfigListener: PHConfigPath];
 }
 
 - (void)createConfigInFile:(NSString *)filename {
@@ -74,7 +66,7 @@ static NSString* PHConfigPath = @"~/.phoenix.js";
 }
 
 - (void) reload {
-    [self resetConfigListeners];
+    [self resetConfigPaths];
     
     NSString* filename = [PHConfigPath stringByStandardizingPath];
     NSString* config = [NSString stringWithContentsOfFile:filename encoding:NSUTF8StringEncoding error:NULL];
@@ -99,6 +91,8 @@ static NSString* PHConfigPath = @"~/.phoenix.js";
     [self setupAPI:ctx];
     
     [ctx evaluateScript:config];
+    [self setupConfigWatcher];
+    
     [[PHAlerts sharedAlerts] show:@"Phoenix config loaded" duration:1.0];
 }
 
@@ -174,7 +168,7 @@ static NSString* PHConfigPath = @"~/.phoenix.js";
         if(! [[NSFileManager defaultManager] fileExistsAtPath: path isDirectory: NULL]) {
             [self showJsException: [NSString stringWithFormat: @"Require: cannot find path %@", path]];
         } else {
-            [self addConfigListener: path];
+            [self addConfigPath: path];
             
             NSString* _js = [NSString stringWithContentsOfFile: path encoding: NSUTF8StringEncoding error: NULL];
             [weakCtx evaluateScript:_js];
