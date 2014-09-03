@@ -22,6 +22,7 @@
 - (BOOL) isHidden;
 - (void) show;
 - (void) hide;
+- (void) activate;
 
 @property (readonly) pid_t pid;
 

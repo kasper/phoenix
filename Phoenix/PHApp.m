@@ -123,6 +123,12 @@
     return [[NSRunningApplication runningApplicationWithProcessIdentifier:self.pid] localizedName];
 }
 
+- (void) activate {
+    NSRunningApplication* app = [NSRunningApplication
+                                 runningApplicationWithProcessIdentifier:self.pid];
+    [app activateWithOptions: NSApplicationActivateAllWindows];
+}
+
 - (void) kill {
     [[NSRunningApplication runningApplicationWithProcessIdentifier:self.pid] terminate];
 }
