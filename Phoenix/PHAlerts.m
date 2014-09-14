@@ -82,11 +82,9 @@
 }
 
 - (void) cancelAlerts {
-    for (int i=0; i<10; i++) {
-        if ([self.visibleAlerts count] > 0) {
-            PHAlertWindowController* alert = self.visibleAlerts[0];
-            [alert fadeWindowOut];
-        }
+    for (int i=[self.visibleAlerts count]; i>0; i--) {
+        PHAlertWindowController* alert = self.visibleAlerts[i-1];
+        [alert fadeWindowOut];
     }
 }
 
