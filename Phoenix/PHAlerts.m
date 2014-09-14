@@ -24,6 +24,7 @@
 @interface PHAlertWindowController : NSWindowController
 
 - (void) show:(NSString*)oneLineMsg duration:(CGFloat)duration pushDownBy:(CGFloat)adjustment;
+- (void) fadeWindowOut;
 
 @property (weak) id<PHAlertHoraMortisNostraeDelegate> delegate;
 
@@ -78,6 +79,15 @@
     alert.delegate = self;
     [alert show:oneLineMsg duration:duration pushDownBy:absoluteTop];
     [self.visibleAlerts addObject:alert];
+}
+
+- (void) cancelAlerts {
+    for (int i=0; i<10; i++) {
+        if ([self.visibleAlerts count] > 0) {
+            PHAlertWindowController* alert = self.visibleAlerts[0];
+            [alert fadeWindowOut];
+        }
+    }
 }
 
 - (void) oraPro:(id)nobis {
