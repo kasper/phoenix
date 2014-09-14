@@ -14,6 +14,7 @@
 
 - (void) show:(NSString*)oneLineMsg;
 - (void) show:(NSString*)oneLineMsg duration:(CGFloat)duration;
+- (void) cancelAlerts;
 
 @property CGFloat alertDisappearDelay;
 @property BOOL alertAnimates;

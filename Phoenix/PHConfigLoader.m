@@ -121,6 +121,10 @@ static NSString* PHConfigPath = @"~/.phoenix.js";
         [[PHAlerts sharedAlerts] show:str duration:duration];
     };
     
+    api[@"cancelAlerts"] = ^() {
+        [[PHAlerts sharedAlerts] cancelAlerts];
+    };
+    
     api[@"log"] = ^(NSString* msg) {
         NSLog(@"%@", msg); 
     };
