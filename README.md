@@ -1,4 +1,6 @@
-# Phoenix
+## Phoenix
+
+<img align="right" valign="top" src="https://raw.githubusercontent.com/jasonm23/phoenix/master/Phoenix/Images.xcassets/AppIcon.appiconset/icon_256x256.png"/>
 
 *The lightweight OS X window manager for hackers*
 
