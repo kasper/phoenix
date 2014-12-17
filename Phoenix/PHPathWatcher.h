@@ -10,7 +10,6 @@
 
 @interface PHPathWatcher : NSObject
 
-+ (PHPathWatcher*) watcherFor:(NSString*)path handler:(void(^)())handler;
-- (NSString *) path;
++ (PHPathWatcher*) watcherFor:(NSArray*)paths handler:(void(^)())handler;
 
 @end
