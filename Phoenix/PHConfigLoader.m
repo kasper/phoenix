@@ -131,7 +131,10 @@ static NSString* PHConfigPath = @"~/.phoenix.js";
     api[@"runCommand"] = ^(NSString* path, NSArray *args) {
         NSTask *task = [[NSTask alloc] init];
 
-        [task setArguments:args];
+        if (args) {
+          [task setArguments:args];
+        }
+
         [task setLaunchPath:path];
         [task launch];
 
