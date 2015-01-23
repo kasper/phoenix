@@ -33,7 +33,7 @@
 }
 
 - (IBAction) reloadConfig:(id)sender {
-    [self.configLoader reload];
+    [self.configLoader reloadWithAlert];
 }
 
 - (IBAction) showAboutPanel:(id)sender {

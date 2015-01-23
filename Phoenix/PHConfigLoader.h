@@ -11,5 +11,6 @@
 @interface PHConfigLoader : NSObject
 
 - (void) reload;
+- (void) reloadWithAlert;
 
 @end
