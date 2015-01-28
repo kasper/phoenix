@@ -52,8 +52,8 @@ static NSString* PHConfigPath = @"~/.phoenix.js";
 
 - (void) setupConfigWatcher {
     self.watcher = [PHPathWatcher watcherFor: [self.configPaths allObjects] handler:^{
-        [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(reload) object:nil];
-        [self performSelector:@selector(reload) withObject:nil afterDelay:0.25];
+        [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(reloadWithAlert) object:nil];
+        [self performSelector:@selector(reloadWithAlert) withObject:nil afterDelay:0.25];
     }];
 }
 
@@ -92,7 +92,10 @@ static NSString* PHConfigPath = @"~/.phoenix.js";
     
     [ctx evaluateScript:config];
     [self setupConfigWatcher];
-    
+}
+
+- (void) reloadWithAlert {
+    [self reload];
     [[PHAlerts sharedAlerts] show:@"Phoenix config loaded" duration:1.0];
 }
 
@@ -101,7 +104,7 @@ static NSString* PHConfigPath = @"~/.phoenix.js";
     ctx[@"api"] = api;
     
     api[@"reload"] = ^(NSString* str) {
-        [self reload];
+        [self reloadWithAlert];
     };
     
     api[@"launch"] = ^(NSString* appName) {
