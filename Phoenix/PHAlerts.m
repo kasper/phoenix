@@ -146,7 +146,7 @@
     CGRect screenRect = [currentScreen frame];
     CGRect winRect = [[self window] frame];
     
-    winRect.origin.x = (screenRect.size.width / 2.0) - (winRect.size.width / 2.0);
+    winRect.origin.x = 0;
     winRect.origin.y = pushDownBy - winRect.size.height;
     
     [self.window setFrame:winRect display:NO];
