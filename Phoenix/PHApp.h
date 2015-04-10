@@ -19,6 +19,7 @@
 - (NSArray*) visibleWindows;
 
 - (NSString*) title;
+- (NSString*) bundleIdentifier;
 - (BOOL) isHidden;
 - (void) show;
 - (void) hide;
