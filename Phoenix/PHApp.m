@@ -123,6 +123,10 @@
     return [[NSRunningApplication runningApplicationWithProcessIdentifier:self.pid] localizedName];
 }
 
+- (NSString*) bundleIdentifier {
+    return [[NSRunningApplication runningApplicationWithProcessIdentifier:self.pid] bundleIdentifier];
+}
+
 - (void) activate {
     NSRunningApplication* app = [NSRunningApplication
                                  runningApplicationWithProcessIdentifier:self.pid];
