@@ -60,9 +60,9 @@
 
 - (void) show:(NSString*)oneLineMsg duration:(CGFloat)duration {
     CGFloat absoluteTop;
-    
+
     NSScreen* currentScreen = [NSScreen mainScreen];
-    
+
     if ([self.visibleAlerts count] == 0) {
         CGRect screenRect = [currentScreen frame];
         absoluteTop = screenRect.size.height / 1.55; // pretty good spot
@@ -71,10 +71,10 @@
         PHAlertWindowController* ctrl = [self.visibleAlerts lastObject];
         absoluteTop = NSMinY([[ctrl window] frame]) - 3.0;
     }
-    
+
     if (absoluteTop <= 0)
         absoluteTop = NSMaxY([currentScreen visibleFrame]);
-    
+
     PHAlertWindowController* alert = [[PHAlertWindowController alloc] init];
     alert.delegate = self;
     [alert show:oneLineMsg duration:duration pushDownBy:absoluteTop];
@@ -127,17 +127,17 @@
 
 - (void) show:(NSString*)oneLineMsg duration:(CGFloat)duration pushDownBy:(CGFloat)adjustment {
     NSDisableScreenUpdates();
-    
+
     [NSAnimationContext beginGrouping];
     [[NSAnimationContext currentContext] setDuration:0.01];
     [[[self window] animator] setAlphaValue:1.0];
     [NSAnimationContext endGrouping];
-    
+
     [self useTitleAndResize:[oneLineMsg description]];
     [self setFrameWithAdjustment:adjustment];
     [self showWindow:self];
     [self performSelector:@selector(fadeWindowOut) withObject:nil afterDelay:duration];
-    
+
     NSEnableScreenUpdates();
 }
 
@@ -145,10 +145,10 @@
     NSScreen* currentScreen = [NSScreen mainScreen];
     CGRect screenRect = [currentScreen frame];
     CGRect winRect = [[self window] frame];
-    
-    winRect.origin.x = (screenRect.size.width / 2.0) - (winRect.size.width / 2.0);
+
+    winRect.origin.x = 50;
     winRect.origin.y = pushDownBy - winRect.size.height;
-    
+
     [self.window setFrame:winRect display:NO];
 }
 
@@ -157,27 +157,27 @@
     [[NSAnimationContext currentContext] setDuration:0.15];
     [[[self window] animator] setAlphaValue:0.0];
     [NSAnimationContext endGrouping];
-    
+
     [self performSelector:@selector(closeAndResetWindow) withObject:nil afterDelay:0.15];
 }
 
 - (void) closeAndResetWindow {
     [[self window] orderOut:nil];
     [[self window] setAlphaValue:1.0];
-    
+
     [self.delegate oraPro:self];
 }
 
 - (void) useTitleAndResize:(NSString*)title {
     [self window]; // sigh; required in case nib hasnt loaded yet
-    
+
     self.textField.stringValue = title;
     [self.textField sizeToFit];
-    
-	NSRect windowFrame = [[self window] frame];
-	windowFrame.size.width = [self.textField frame].size.width + 32.0;
-	windowFrame.size.height = [self.textField frame].size.height + 24.0;
-	[[self window] setFrame:windowFrame display:YES];
+
+  NSRect windowFrame = [[self window] frame];
+  windowFrame.size.width = [self.textField frame].size.width + 32.0;
+  windowFrame.size.height = [self.textField frame].size.height + 24.0;
+  [[self window] setFrame:windowFrame display:YES];
 }
 
 @end

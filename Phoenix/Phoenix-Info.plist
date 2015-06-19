@@ -17,17 +17,17 @@
   <key>CFBundlePackageType</key>
   <string>APPL</string>
   <key>CFBundleShortVersionString</key>
-  <string>1.2</string>
+  <string>1.5</string>
   <key>CFBundleSignature</key>
   <string>????</string>
   <key>CFBundleVersion</key>
-  <string>1.2</string>
+  <string>platinum husky</string>
   <key>LSMinimumSystemVersion</key>
   <string>${MACOSX_DEPLOYMENT_TARGET}</string>
   <key>LSUIElement</key>
   <true/>
   <key>NSHumanReadableCopyright</key>
-  <string>Copyright © 2013 Steven. All rights reserved.</string>
+  <string>© 2013 Steven Degutis, © 2015 Jason Milkins</string>
   <key>NSMainNibFile</key>
   <string>MainMenu</string>
   <key>NSPrincipalClass</key>
