@@ -12,7 +12,7 @@ small footprint.
 
 Phoenix was originally authored by
 [Steven Degutis / @sdegutis](https://github.com/sdegutis), it's now
-maintained by [Kasper](https://github.com/kasper) and [Jason Milkins / @jasonm23](https://github.com/jasonm23) 
+maintained by [Kasper Hirvikoski](https://github.com/kasper) and [Jason Milkins / @jasonm23](https://github.com/jasonm23) 
 
 Steven is continuing work on OSX window management in
 [Mjolnir](https://github.com/mjolnir-io/mjolnir)
