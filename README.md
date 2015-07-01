@@ -1,6 +1,6 @@
 # Phoenix is now retired.
 
-I am now migrated to Hammerspoon, I recommend you do the same.
+I am migrating my workflow to use [Hammerspoon](http://www.hammerspoon.org/), I recommend you do the same.
 
 If you are interested in maintaining Phoenix, [please let me know](https://github.com/jasonm23/phoenix/issues/26)
 
