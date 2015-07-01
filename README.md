@@ -1,9 +1,3 @@
-# Phoenix is now retired.
-
-I am migrating my workflow to use [Hammerspoon](http://www.hammerspoon.org/), I recommend you do the same.
-
-If you are interested in maintaining Phoenix, [please let me know](https://github.com/jasonm23/phoenix/issues/26)
-
 # Phoenix
 
 <img align="right" valign="top" src="https://raw.githubusercontent.com/jasonm23/phoenix/master/Phoenix/Images.xcassets/AppIcon.appiconset/icon_256x256.png"/>
@@ -18,10 +12,12 @@ small footprint.
 
 Phoenix was originally authored by
 [Steven Degutis / @sdegutis](https://github.com/sdegutis), it's now
-maintained by [Jason Milkins / @jasonm23](https://github.com/jasonm23)
+maintained by [Kasper](https://github.com/kasper) and [Jason Milkins / @jasonm23](https://github.com/jasonm23) 
 
 Steven is continuing work on OSX window management in
 [Mjolnir](https://github.com/mjolnir-io/mjolnir)
+
+Jason is primarily using [Hammerspoon](http://hammerspoon.org) (a fork of Mjolnir)
 
 #### Install
 
