@@ -1,3 +1,9 @@
+# Phoenix is now retired.
+
+I am now migrated to Hammerspoon, I recommend you do the same.
+
+If you are interested in maintaining Phoenix, [please let me know](https://github.com/jasonm23/phoenix/issues/26)
+
 # Phoenix
 
 <img align="right" valign="top" src="https://raw.githubusercontent.com/jasonm23/phoenix/master/Phoenix/Images.xcassets/AppIcon.appiconset/icon_256x256.png"/>
