@@ -1,6 +1,6 @@
 # Phoenix
 
-<img align="right" valign="top" src="https://raw.githubusercontent.com/jasonm23/phoenix/master/Phoenix/Images.xcassets/AppIcon.appiconset/icon_256x256.png"/>
+<img align="right" valign="top" src="https://raw.githubusercontent.com/kasper/phoenix/master/Phoenix/Images.xcassets/AppIcon.appiconset/icon_256x256.png"/>
 
 *The lightweight OS X window manager for hackers*
 
@@ -23,7 +23,7 @@ Jason is primarily using [Hammerspoon](http://hammerspoon.org) (a fork of Mjolni
 
 Install XCode and XCode command line tools, then from a terminal:
 
-    git clone https://github.com/jasonm23/phoenix.git
+    git clone https://github.com/kasper/phoenix.git
     cd phoenix
     xcodebuild
 
@@ -64,14 +64,14 @@ want.
 #### Usage
 
 For ideas, read other people's configs
-[in the wiki](https://github.com/jasonm23/phoenix/wiki) -
+[in the wiki](https://github.com/kasper/phoenix/wiki) -
 
 Also add your own config to the wiki to show other people the cool
 things you can do.
 
 #### Documentation
 
-- [JavaScript API Documentation](https://github.com/jasonm23/phoenix/wiki/JavaScript-API-documentation)
+- [JavaScript API Documentation](https://github.com/kasper/phoenix/wiki/JavaScript-API-documentation)
 
 Phoenix can only be scripted in JavaScript.
 
