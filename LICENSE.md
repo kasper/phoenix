@@ -1,4 +1,4 @@
-Released under the MIT License. Phoenix was originally authored by Steven Degutis. It is currently maintained by Kasper Hirvikoski and Jason Milkins. This software consists of contributions made by many individuals.
+Released under the MIT License. Phoenix was originally authored by Steven Degutis. It is currently developed by Kasper Hirvikoski and Jason Milkins. This software consists of contributions made by many individuals.
 
 > Copyright (c) 2015 Kasper Hirvikoski  
 > Copyright (c) 2014 Jason Milkins  

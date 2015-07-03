@@ -13,17 +13,17 @@ with JavaScript, Phoenix is probably going to give you the things you want.
 
 ## Install
 
-To install Phoenix, you will first need to build it. Install Xcode from the App Store, if you do not already have it installed. You will also need Xcode command line tools — you will be prompted for this. Then from a terminal run the following:
+To install Phoenix, you will first need to build it. Install Xcode from the App Store, if you do not already have it installed. You will also need Xcode command line tools — you will be prompted for this. Then, from a terminal run the following:
 
     git clone https://github.com/kasper/phoenix.git
     cd phoenix
     xcodebuild clean build
 
-Once complete you will find a newly built Phoenix app in `build/Release/`. To install, just drag-and-drop it to your `Applications` folder. When you run Phoenix for the first time, you will be asked to allow it to control your UI. OS X will ask you to open `Security & Privacy` in System Preferences. Once open, go to the `Accessibility` section and click the checkbox next to Phoenix to enable control. An admin account is required to accomplish this.
+Once complete, you will find a newly built Phoenix app in `build/Release/`. To install, just drag-and-drop it to your `Applications` folder. When you run Phoenix for the first time, you will be asked to allow it to control your UI. OS X will ask you to open `Security & Privacy` in System Preferences. Once open, go to the `Accessibility` section and click the checkbox next to Phoenix to enable control. An admin account is required to accomplish this.
 
 ## Usage
 
-Phoenix can only be scripted in JavaScript (or languages which compile to JavaScript such as CoffeeScript). See the [JavaScript API](https://github.com/kasper/phoenix/wiki/JavaScript-API-documentation/) to get started with your script. Your script should reside in `~/.phoenix.js` — the file will be created when you launch Phoenix for the first time. For ideas, see what other people use in their configurations in the [Wiki](https://github.com/kasper/phoenix/wiki/). Feel free to add your own configuration to the Wiki to show other people the nice things you can do.
+Phoenix can only be scripted in JavaScript (or languages which compile to JavaScript such as CoffeeScript). See the [JavaScript API](https://github.com/kasper/phoenix/wiki/JavaScript-API-documentation/) to get started with your script. Your script should reside in `~/.phoenix.js` — the file will be created when you launch Phoenix for the first time. For ideas, see what other people have built in their configurations in the [Wiki](https://github.com/kasper/phoenix/wiki/). Feel free to add your own configuration to the Wiki to show other people the nice things you can do.
 
 - [JavaScript API](https://github.com/kasper/phoenix/wiki/JavaScript-API-documentation/)
 - [Examples](https://github.com/kasper/phoenix/wiki#example-configs)
