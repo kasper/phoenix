@@ -1,83 +1,37 @@
-# Phoenix
+Phoenix
+=======
 
-<img align="right" valign="top" src="https://raw.githubusercontent.com/kasper/phoenix/master/Phoenix/Images.xcassets/AppIcon.appiconset/icon_256x256.png"/>
+<img width='128' height='128' align='right' src='https://raw.githubusercontent.com/kasper/phoenix/master/Phoenix/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png'>
 
-*The lightweight OS X window manager for hackers*
+A lightweight OS X window manager for JavaScript. Phoenix aims for efficiency and a very small footprint. If you like the idea of scripting your own window management toolkit
+with JavaScript, Phoenix is probably going to give you the things you want.
 
-Phoenix is a fork of Zephyros that aims for efficiency and a very
-small footprint.
+- Current version: 1.2
+- Requires: OS X 10.9 or higher
 
-* Current version: **1.2**
-* Requires: OS X 10.9 and up
+**Note:** the default `master` branch will always be stable.
 
-Phoenix was originally authored by
-[Steven Degutis / @sdegutis](https://github.com/sdegutis), it's now
-maintained by [Kasper Hirvikoski](https://github.com/kasper) and [Jason Milkins / @jasonm23](https://github.com/jasonm23) 
+## Install
 
-Steven is continuing work on OSX window management in
-[Mjolnir](https://github.com/mjolnir-io/mjolnir)
-
-Jason is primarily using [Hammerspoon](http://hammerspoon.org) (a fork of Mjolnir)
-
-#### Install
-
-Install XCode and XCode command line tools, then from a terminal:
+To install Phoenix, you will first need to build it. Install Xcode from the App Store, if you do not already have it installed. You will also need Xcode command line tools — you will be prompted for this. Then from a terminal run the following:
 
     git clone https://github.com/kasper/phoenix.git
     cd phoenix
-    xcodebuild
+    xcodebuild clean build
 
-When complete you'll find a freshly built **Phoenix** app in
-`build/release`.
+Once complete you will find a newly built Phoenix app in `build/Release/`. To install, just drag-and-drop it to your `Applications` folder. When you run Phoenix for the first time, you will be asked to allow it to control your UI. OS X will ask you to open `Security & Privacy` in System Preferences. Once open, go to the `Accessibility` section and click the checkbox next to Phoenix to enable control. An admin account is required to accomplish this.
 
-To install it just drag-drop it to your `/Applications` folder.
+## Usage
 
-When you first run Phoenix, you'll need to allow it to control UI. OS
-X will alert you of this, and open **System Preferences > Security**
+Phoenix can only be scripted in JavaScript (or languages which compile to JavaScript such as CoffeeScript). See the [JavaScript API](https://github.com/kasper/phoenix/wiki/JavaScript-API-documentation/) to get started with your script. Your script should reside in `~/.phoenix.js` — the file will be created when you launch Phoenix for the first time. For ideas, see what other people use in their configurations in the [Wiki](https://github.com/kasper/phoenix/wiki/). Feel free to add your own configuration to the Wiki to show other people the nice things you can do.
 
-An admin account is required to enable it.
+- [JavaScript API](https://github.com/kasper/phoenix/wiki/JavaScript-API-documentation/)
+- [Examples](https://github.com/kasper/phoenix/wiki#example-configs)
 
-Please Note: the default `master` branch will always be
-stable.
+## Thanks
 
-Features, bug fixes etc. will be done in topic branches and
-only merged to `master` when stable.
+Phoenix is currently developed by Kasper Hirvikoski ([@kasper](https://github.com/kasper/)) and Jason Milkins ([@jasonm23](https://github.com/jasonm23/)) with the generous help of contributions made by many [individuals](https://github.com/kasper/phoenix/graphs/contributors/). It was originally authored by Steven Degutis ([@sdegutis](https://github.com/sdegutis/)) as a fork of Zephyros — also an app of his. Steven is continuing his work on OS X window management in [Mjolnir](https://github.com/sdegutis/mjolnir/).
 
-#### No AppStore, No  Pre-Built binaries, No Cask...
-
-For the record, I'm not interested in supporting users who can't build
-Phoenix for themselves, it will do nothing for you without a fair
-degree of scripting knowledge, so I won't be providing any pre-built
-binaries here or via any other distribution methods.
-
-I may add a recipe to Homebrew, because I can assume you'll have (1)
-the ability to use the terminal without weeping, (2) XCode will be
-installed.
-
-I hope I don't hurt anyone's feelings, if you want something shiny
-and app-store-ey, you can use Moom (it's quite nice apparently.)
-
-If you like the idea of scripting your own Window Management toolkit
-with JavaScript, Phoenix is probably going to give you the things you
-want.
-
-#### Usage
-
-For ideas, read other people's configs
-[in the wiki](https://github.com/kasper/phoenix/wiki) -
-
-Also add your own config to the wiki to show other people the cool
-things you can do.
-
-#### Documentation
-
-- [JavaScript API Documentation](https://github.com/kasper/phoenix/wiki/JavaScript-API-documentation)
-
-Phoenix can only be scripted in JavaScript.
-
-(...or languages which compile to JavaScript e.g. CoffeeScript,
-LiveScript, ClojureScript, TypeScript etc. etc.)
-
-#### License
+## License
 
 Released under the MIT License. See [license](LICENSE.md).
