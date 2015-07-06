@@ -1,0 +1,13 @@
+language: objective-c
+
+osx_image: xcode6.4
+
+xcode_project: Phoenix.xcodeproj
+xcode_scheme: Phoenix
+
+xcode_sdk:
+    - macosx10.9
+    - macosx10.10
+
+notifications:
+    email: false
