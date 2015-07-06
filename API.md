@@ -28,6 +28,10 @@ api.bind('q', [ 'ctrl', 'shift' ], function () {
 });
 ```
 
+## Loading
+
+Your configuration file is loaded when the app launches. All functions are evaluated (and executed if necessary) when this happens. Phoenix also reloads the configuration when any changes are detected to the file. You may also reload to configuration manually from the status bar or programmatically from your script.
+
 ## Valid Keys
 
 All valid keys for binding hot keys are as follows:
