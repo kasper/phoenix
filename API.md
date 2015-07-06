@@ -1,19 +1,19 @@
 JavaScript API
 ==============
 
-This documentation is an overview of the JavaScript API provided by Phoenix. Use this as a guide for writing your window management script. Your script should reside in `~/.phoenix.js`. Phoenix currently includes [Underscore.js](http://underscorejs.org) (1.5.2), you can use its features in your configuration. Underscore provides useful helpers for handling JavaScript functions and objects.
+This documentation is an overview of the JavaScript API provided by Phoenix. Use this as a guide for writing your window management script. Your script should reside in `~/.phoenix.js`. Phoenix includes [Underscore.js](http://underscorejs.org) (1.5.2) — you can use its features in your configuration. Underscore provides useful helpers for handling JavaScript functions and objects.
 
-## Get Started
+## Getting Started
 
-This documentation uses pseudocode to outline the API. Many of the classes represent global objects in the script’s context — functions that are marked as static can be accessed through these global objects. The other functions are instance functions. Instances can also be accessed through the global objects.
+This documentation uses *pseudocode* to outline the API. Many of the classes represent global objects in the script’s context — functions that are marked as static can be accessed through these global objects. All other functions are instance functions. Instance objects can be accessed through the global objects.
 
-For example to bind a key to a function, you call the `bind`-function for the `api`-object.
+For example, to bind a key to a function, you call the `bind`-function for the `api`-object.
 
 ```javascript
 api.bind('q', [ 'ctrl', 'shift' ], function () {});
 ```
 
-To move the focused window to a new coordinate, you can call the `setTopLeft`-function for a `Window`-instance. To get an instance, you can for example get the focused window with the `focusedWindow`-function for the global `Window`-object.
+To move the focused window to a new coordinate, you can call the `setTopLeft`-function for a `Window`-instance. To get a `Window`-instance, you can for example get the focused window with the `focusedWindow`-function for the global `Window`-object.
 
 ```javascript
 Window.focusedWindow().setTopLeft({ x: 0, y: 0 });
@@ -30,12 +30,14 @@ api.bind('q', [ 'ctrl', 'shift' ], function () {
 
 ## Valid Keys
 
-- Valid modifiers: `cmd`, `alt`, `ctrl` and `shift` (case insensitive)
-- Valid keys: case insensitive character or special key including function keys, numpad, arrow keys, etc. as [listed](https://github.com/kasper/phoenix/blob/master/Phoenix/PHHotKey.m#L75-L131).
+All valid keys for binding hot keys are as follows:
+
+- Modifiers: `cmd`, `alt`, `ctrl` and `shift` (case insensitive)
+- Keys: case insensitive character or special key including function keys, numpad, arrow keys, etc. as [listed](https://github.com/kasper/phoenix/blob/master/Phoenix/PHHotKey.m#L75-L131)
 
 ## Require
 
-You can modularise your configuration using the `require`-function. It will load the referenced JavaScript-file and reload it if any changes are detected. If the path is relative, it is resolved relatively to the absolute location of the `.phoenix.js`-file. If the `.phoenix.js`-file is a symlink, it will be resolved before resolving the location of the required file.
+You can modularise your configuration using the `require`-function. It will load the referenced JavaScript-file and reload it if any changes are detected. If the path is relative, it is resolved relatively to the absolute location of the `.phoenix.js`-file. If this file is a symlink, it will be resolved before resolving the location of the required file.
 
 ```javascript
 require('path/to/file.js');
