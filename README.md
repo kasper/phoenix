@@ -28,6 +28,10 @@ Phoenix can only be scripted in JavaScript (or languages which compile to JavaSc
 - [JavaScript API](API.md)
 - [Examples](https://github.com/kasper/phoenix/wiki#examples)
 
+## Contributing
+
+Feel free to contribute to this project by creating issues, pull requests and editing the Wiki. See the [guidelines](CONTRIBUTING.md).
+
 ## Thanks
 
 Phoenix is currently developed by Kasper Hirvikoski ([@kasper](https://github.com/kasper/)) and Jason Milkins ([@jasonm23](https://github.com/jasonm23/)) with the generous help of contributions made by many [individuals](https://github.com/kasper/phoenix/graphs/contributors/). It was originally authored by Steven Degutis ([@sdegutis](https://github.com/sdegutis/)) as a fork of Zephyros — also an app of his. Steven is continuing his work on OS X window management in [Mjolnir](https://github.com/sdegutis/mjolnir/).
