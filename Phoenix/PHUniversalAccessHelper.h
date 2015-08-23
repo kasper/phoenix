@@ -1,15 +1,13 @@
-//
-//  MyUniversalAccessHelper.h
-//  Zephyros
-//
-//  Created by Steven Degutis on 3/1/13.
-//  Copyright (c) 2013 Steven Degutis. All rights reserved.
-//
+/*
+ * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
+ */
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @interface PHUniversalAccessHelper : NSObject
 
-+ (void) complainIfNeeded;
+#pragma mark - Universal Access
+
++ (void) askPermissionIfNeeded;
 
 @end

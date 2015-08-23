@@ -1,162 +1,151 @@
-//
-//  SDAppProxy.m
-//  Zephyros
-//
-//  Created by Steven on 4/21/13.
-//  Copyright (c) 2013 Giant Robot Software. All rights reserved.
-//
+/*
+ * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
+ */
 
 #import "PHApp.h"
-
 #import "PHWindow.h"
-//#import "SDUniversalAccessHelper.h"
-
-//#import "SDAppStalker.h"
-
-//#import "SDObserver.h"
-
 
 @interface PHApp ()
 
-@property AXUIElementRef app;
-@property (readwrite) pid_t pid;
-
-@property NSMutableArray* observers;
-
-- (id) initWithElement:(AXUIElementRef)element;
+@property NSRunningApplication *app;
+@property AXUIElementRef element;
 
 @end
 
-
 @implementation PHApp
 
-+ (NSArray*) runningApps {
-    NSMutableArray* apps = [NSMutableArray array];
+#pragma mark - Initialise
+
+- (instancetype) initWithApp:(NSRunningApplication *)app {
+
+    if (self = [super init]) {
+        self.app = app;
+        self.element = AXUIElementCreateApplication(app.processIdentifier);
+    }
+
+    return self;
+}
+
+#pragma mark - Dealloc
+
+- (void) dealloc {
+
+    CFRelease(self.element);
+}
+
+#pragma mark - Apps
+
++ (NSArray *) runningApps {
+
+    NSMutableArray *apps = [NSMutableArray array];
     
-    for (NSRunningApplication* runningApp in [[NSWorkspace sharedWorkspace] runningApplications]) {
-        PHApp* app = [[PHApp alloc] initWithPID:[runningApp processIdentifier]];
-        [apps addObject:app];
+    for (NSRunningApplication *runningApp in [NSWorkspace sharedWorkspace].runningApplications) {
+        [apps addObject:[[PHApp alloc] initWithApp:runningApp]];
     }
     
     return apps;
 }
 
-- (id) initWithElement:(AXUIElementRef)element {
-    pid_t pid;
-    AXUIElementGetPid(element, &pid);
-    return [self initWithPID:pid];
-}
++ (instancetype) launch:(NSString *)appName {
 
-- (id) initWithRunningApp:(NSRunningApplication*)app {
-    return [self initWithPID:[app processIdentifier]];
-}
+    NSWorkspace *sharedWorkspace = [NSWorkspace sharedWorkspace];
+    NSString *appPath = [sharedWorkspace fullPathForApplication:appName];
 
-- (id) initWithPID:(pid_t)pid {
-    if (self = [super init]) {
-        self.observers = [NSMutableArray array];
-        self.pid = pid;
-        self.app = AXUIElementCreateApplication(pid);
+    if (!appPath) {
+        NSLog(@"Error: Could not find an app with the name %@.", appName);
+        return nil;
     }
-    return self;
-}
 
-- (void) dealloc {
-    self.observers = nil; // this will make them un-observe
-    
-    if (self.app)
-        CFRelease(self.app);
-}
-
-- (BOOL) isEqual:(PHApp*)object {
-    return ([self isKindOfClass: [object class]] &&
-            self.pid == object.pid);
-}
-
-- (NSUInteger) hash {
-    return self.pid;
-}
-
-- (NSArray*) visibleWindows {
-    return [[self allWindows] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(PHWindow* win, NSDictionary *bindings) {
-        return ![[win app] isHidden]
-        && ![win isWindowMinimized]
-        && [win isNormalWindow];
-    }]];
-}
-
-- (NSArray*) allWindows {
-    NSMutableArray* windows = [NSMutableArray array];
-    
-    CFArrayRef _windows;
-    AXError result = AXUIElementCopyAttributeValues(self.app, kAXWindowsAttribute, 0, 100, &_windows);
-    if (result == kAXErrorSuccess) {
-        for (NSInteger i = 0; i < CFArrayGetCount(_windows); i++) {
-            AXUIElementRef win = CFArrayGetValueAtIndex(_windows, i);
-            
-            PHWindow* window = [[PHWindow alloc] initWithElement:win];
-            [windows addObject:window];
-        }
-        CFRelease(_windows);
+    NSError *error;
+    NSRunningApplication *app = [sharedWorkspace launchApplicationAtURL:[NSURL fileURLWithPath:appPath]
+                                                                options:NSWorkspaceLaunchWithoutActivation
+                                                          configuration:nil
+                                                                  error:&error];
+    if (error) {
+        NSLog(@"Error: Could not launch app %@. (%@)", appName, error);
+        return nil;
     }
-    
-    return windows;
+
+    return [[PHApp alloc] initWithApp:app];
+}
+
+#pragma mark - Properties
+
+- (pid_t) processIdentifier {
+
+    return self.app.processIdentifier;
+}
+
+- (NSString *) bundleIdentifier {
+
+    return self.app.bundleIdentifier;
+}
+
+- (NSString *) name {
+
+    return self.app.localizedName;
 }
 
 - (BOOL) isHidden {
-    CFTypeRef _isHidden;
-    NSNumber* isHidden = @NO;
-    if (AXUIElementCopyAttributeValue(self.app, (CFStringRef)NSAccessibilityHiddenAttribute, (CFTypeRef *)&_isHidden) == kAXErrorSuccess) {
-        isHidden = CFBridgingRelease(_isHidden);
+
+    return [self.app isHidden];
+}
+
+#pragma mark - Windows
+
+- (NSArray *) windows {
+
+    NSMutableArray *windows = [NSMutableArray array];
+    NSArray *windowUIElements = [self getValuesForAttribute:NSAccessibilityWindowsAttribute fromIndex:0 count:100];
+
+    for (id windowUIElement in windowUIElements) {
+        [windows addObject:[[PHWindow alloc] initWithElement:(AXUIElementRef) windowUIElement]];
     }
-    return [isHidden boolValue];
+
+    return windows;
 }
 
-- (void) show {
-    [self setAppProperty:NSAccessibilityHiddenAttribute withValue:@NO];
+- (NSArray *) visibleWindows {
+
+    NSPredicate *visibility = [NSPredicate predicateWithBlock:^BOOL (PHWindow *window,
+                                                                     __unused NSDictionary *bindings) {
+
+        return ![[window app] isHidden] && [window isNormal] && ![window isMinimized];
+    }];
+
+    return [[self windows] filteredArrayUsingPredicate:visibility];
 }
 
-- (void) hide {
-    [self setAppProperty:NSAccessibilityHiddenAttribute withValue:@YES];
+#pragma mark - Actions
+
+- (BOOL) activate {
+
+    return [self.app activateWithOptions:NSApplicationActivateAllWindows];
 }
 
-- (NSString*) title {
-    return [[NSRunningApplication runningApplicationWithProcessIdentifier:self.pid] localizedName];
+- (BOOL) focus {
+
+    return [self.app activateWithOptions:NSApplicationActivateIgnoringOtherApps];
 }
 
-- (NSString*) bundleIdentifier {
-    return [[NSRunningApplication runningApplicationWithProcessIdentifier:self.pid] bundleIdentifier];
+- (BOOL) show {
+
+    return [self.app unhide];
 }
 
-- (void) activate {
-    NSRunningApplication* app = [NSRunningApplication
-                                 runningApplicationWithProcessIdentifier:self.pid];
-    [app activateWithOptions: NSApplicationActivateAllWindows];
+- (BOOL) hide {
+
+    return [self.app hide];
 }
 
-- (void) kill {
-    [[NSRunningApplication runningApplicationWithProcessIdentifier:self.pid] terminate];
+- (BOOL) terminate {
+
+    return [self.app terminate];
 }
 
-- (void) kill9 {
-    [[NSRunningApplication runningApplicationWithProcessIdentifier:self.pid] forceTerminate];
-}
+- (BOOL) forceTerminate {
 
-//- (void) sendJustOneNotification:(NSString*)name withThing:(id)thing {
-//    NSNotification* note = [NSNotification notificationWithName:name object:nil userInfo:@{@"thing": thing}];
-//    [[NSNotificationQueue defaultQueue] enqueueNotification:note postingStyle:NSPostNow];
-//}
-
-- (id) getAppProperty:(NSString*)propType withDefaultValue:(id)defaultValue {
-    CFTypeRef _someProperty;
-    if (AXUIElementCopyAttributeValue(self.app, (__bridge CFStringRef)propType, &_someProperty) == kAXErrorSuccess)
-        return CFBridgingRelease(_someProperty);
-    
-    return defaultValue;
-}
-
-- (BOOL) setAppProperty:(NSString*)propType withValue:(id)value {
-    AXError result = AXUIElementSetAttributeValue(self.app, (__bridge CFStringRef)(propType), (__bridge CFTypeRef)(value));
-    return result == kAXErrorSuccess;
+    return [self.app forceTerminate];
 }
 
 @end

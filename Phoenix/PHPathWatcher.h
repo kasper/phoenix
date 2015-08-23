@@ -1,15 +1,13 @@
-//
-//  LVPathWatcher.h
-//  Leviathan
-//
-//  Created by Steven Degutis on 11/6/13.
-//  Copyright (c) 2013 Steven Degutis. All rights reserved.
-//
+/*
+ * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
+ */
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @interface PHPathWatcher : NSObject
 
-+ (PHPathWatcher*) watcherFor:(NSArray*)paths handler:(void(^)())handler;
+#pragma mark - Initialise
+
++ (PHPathWatcher *) watcherFor:(NSArray *)paths handler:(void (^)())handler;
 
 @end

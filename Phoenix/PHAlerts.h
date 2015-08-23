@@ -1,22 +1,30 @@
-//
-//  SDAlertWindowController.h
-//  Zephyros
-//
-//  Created by Steven on 4/14/13.
-//  Copyright (c) 2013 Giant Robot Software. All rights reserved.
-//
+/*
+ * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
+ */
 
-#import <Cocoa/Cocoa.h>
+@import Foundation;
 
-@interface PHAlerts : NSObject
+static NSTimeInterval const PHAlertsDefaultDuration = 2.0;
 
-+ (PHAlerts*) sharedAlerts;
+@protocol PHAlertDelegate <NSObject>
 
-- (void) show:(NSString*)oneLineMsg;
-- (void) show:(NSString*)oneLineMsg duration:(CGFloat)duration;
-- (void) cancelAlerts;
+- (void) alertDidClose:(id)sender;
 
-@property CGFloat alertDisappearDelay;
-@property BOOL alertAnimates;
+@end
+
+@interface PHAlerts : NSObject <PHAlertDelegate>
+
+#pragma mark - Shared Alerts
+
++ (PHAlerts *) sharedAlerts;
+
+#pragma mark - Displaying
+
+- (void) show:(NSString *)message duration:(NSTimeInterval)duration;
+- (void) show:(NSString *)message;
+
+#pragma mark - Closing
+
+- (void) closeAlerts;
 
 @end

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0610"
+   LastUpgradeVersion = "0640"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "94C602291849D3B9005E7DB3"
+               BlueprintIdentifier = "A79C46561B5BF31100C460CF"
                BuildableName = "Phoenix.app"
                BlueprintName = "Phoenix"
+               ReferencedContainer = "container:Phoenix.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A79C46691B5BF31200C460CF"
+               BuildableName = "PhoenixTests.xctest"
+               BlueprintName = "PhoenixTests"
                ReferencedContainer = "container:Phoenix.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,11 +42,21 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A79C46691B5BF31200C460CF"
+               BuildableName = "PhoenixTests.xctest"
+               BlueprintName = "PhoenixTests"
+               ReferencedContainer = "container:Phoenix.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "94C602291849D3B9005E7DB3"
+            BlueprintIdentifier = "A79C46561B5BF31100C460CF"
             BuildableName = "Phoenix.app"
             BlueprintName = "Phoenix"
             ReferencedContainer = "container:Phoenix.xcodeproj">
@@ -52,7 +76,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "94C602291849D3B9005E7DB3"
+            BlueprintIdentifier = "A79C46561B5BF31100C460CF"
             BuildableName = "Phoenix.app"
             BlueprintName = "Phoenix"
             ReferencedContainer = "container:Phoenix.xcodeproj">
@@ -71,7 +95,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "94C602291849D3B9005E7DB3"
+            BlueprintIdentifier = "A79C46561B5BF31100C460CF"
             BuildableName = "Phoenix.app"
             BlueprintName = "Phoenix"
             ReferencedContainer = "container:Phoenix.xcodeproj">

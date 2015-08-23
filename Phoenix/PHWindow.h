@@ -1,78 +1,67 @@
-//
-//  MyWindow.h
-//  Zephyros
-//
-//  Created by Steven Degutis on 2/28/13.
-//  Copyright (c) 2013 Steven Degutis. All rights reserved.
-//
+/*
+ * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
+ */
 
-#import <Foundation/Foundation.h>
+@import Cocoa;
+@import JavaScriptCore;
 
-#import "PHApp.h"
-
-#import <JavaScriptCore/JavaScriptCore.h>
 @class PHWindow;
-@class PHApp;
+
+#import "PHAXUIElement.h"
 
 @protocol PHWindowJSExport <JSExport>
 
-// getting windows
+#pragma mark - Windows
 
-+ (NSArray*) allWindows;
-+ (NSArray*) visibleWindows;
-+ (PHWindow*) focusedWindow;
-+ (NSArray*) visibleWindowsMostRecentFirst;
-- (NSArray*) otherWindowsOnSameScreen;
-- (NSArray*) otherWindowsOnAllScreens;
++ (PHWindow *) focusedWindow;
++ (NSArray *) windows;
++ (NSArray *) visibleWindows;
++ (NSArray *) visibleWindowsInOrder;
 
+- (NSArray *) otherWindowsOnSameScreen;
+- (NSArray *) otherWindowsOnAllScreens;
 
-// window position & size
+#pragma mark - Properties
 
-- (CGRect) frame;
+- (NSString *) title;
+- (BOOL) isNormal;
+- (BOOL) isMinimized;
+- (PHApp *) app;
+- (NSScreen *) screen;
+
+#pragma mark - Position and Size
+
 - (CGPoint) topLeft;
 - (CGSize) size;
+- (CGRect) frame;
+- (BOOL) setTopLeft:(CGPoint)point;
+- (BOOL) setSize:(CGSize)size;
+- (BOOL) setFrame:(CGRect)frame;
+- (BOOL) maximize;
+- (BOOL) minimize;
+- (BOOL) unminimize;
 
-- (void) setFrame:(CGRect)frame;
-- (void) setTopLeft:(CGPoint)thePoint;
-- (void) setSize:(CGSize)theSize;
+#pragma mark - Alignment
 
+- (NSArray *) windowsToWest;
+- (NSArray *) windowsToEast;
+- (NSArray *) windowsToNorth;
+- (NSArray *) windowsToSouth;
 
-- (void) maximize;
-- (void) minimize;
-- (void) unMinimize;
+#pragma mark - Focusing
 
-
-// other
-
-- (NSScreen*) screen;
-- (PHApp*) app;
-
-- (BOOL) isNormalWindow;
-
-// focus
-
-- (BOOL) focusWindow;
-
-- (void) focusWindowLeft;
-- (void) focusWindowRight;
-- (void) focusWindowUp;
-- (void) focusWindowDown;
-
-- (NSArray*) windowsToWest;
-- (NSArray*) windowsToEast;
-- (NSArray*) windowsToNorth;
-- (NSArray*) windowsToSouth;
-
-
-// other window properties
-
-- (NSString*) title;
-- (BOOL) isWindowMinimized;
+- (BOOL) focus;
+- (BOOL) focusClosestWindowInWest;
+- (BOOL) focusClosestWindowInEast;
+- (BOOL) focusClosestWindowInNorth;
+- (BOOL) focusClosestWindowInSouth;
 
 @end
 
-@interface PHWindow : NSObject <PHWindowJSExport>
+@interface PHWindow : PHAXUIElement <PHWindowJSExport>
 
-- (id) initWithElement:(AXUIElementRef)win;
+#pragma mark - Initialise
+
+- (instancetype) initWithElement:(AXUIElementRef)element NS_DESIGNATED_INITIALIZER;
 
 @end

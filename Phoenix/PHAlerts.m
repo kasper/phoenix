@@ -1,183 +1,77 @@
-//
-//  SDAlertWindowController.m
-//  Zephyros
-//
-//  Created by Steven on 4/14/13.
-//  Copyright (c) 2013 Giant Robot Software. All rights reserved.
-//
+/*
+ * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
+ */
+
+@import Cocoa;
 
 #import "PHAlerts.h"
+#import "PHAlertWindowController.h"
 
-#import <QuartzCore/QuartzCore.h>
+@interface PHAlerts ()
 
-
-
-
-@protocol PHAlertHoraMortisNostraeDelegate <NSObject>
-
-- (void) oraPro:(id)nobis;
+@property NSMutableArray *alerts;
 
 @end
-
-
-
-@interface PHAlertWindowController : NSWindowController
-
-- (void) show:(NSString*)oneLineMsg duration:(CGFloat)duration pushDownBy:(CGFloat)adjustment;
-- (void) fadeWindowOut;
-
-@property (weak) id<PHAlertHoraMortisNostraeDelegate> delegate;
-
-@end
-
-
-
-
-
-@interface PHAlerts () <PHAlertHoraMortisNostraeDelegate>
-
-@property NSMutableArray* visibleAlerts;
-
-@end
-
 
 @implementation PHAlerts
 
-+ (PHAlerts*) sharedAlerts {
-    static PHAlerts* sharedAlerts;
+#pragma mark - Shared Alerts
+
++ (PHAlerts *) sharedAlerts {
+
+    static PHAlerts *sharedAlerts;
+
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+
         sharedAlerts = [[PHAlerts alloc] init];
-        sharedAlerts.alertDisappearDelay = 1.0;
-        sharedAlerts.visibleAlerts = [NSMutableArray array];
+        sharedAlerts.alerts = [NSMutableArray array];
     });
+
     return sharedAlerts;
 }
 
-- (void) show:(NSString*)oneLineMsg {
-    [self show:oneLineMsg duration:self.alertDisappearDelay];
+#pragma mark - PHAlertDelegate
+
+- (void) alertDidClose:(id)sender {
+
+    [self.alerts removeObject:sender];
 }
 
-- (void) show:(NSString*)oneLineMsg duration:(CGFloat)duration {
-    CGFloat absoluteTop;
+#pragma mark - Displaying
 
-    NSScreen* currentScreen = [NSScreen mainScreen];
+- (void) show:(NSString *)message duration:(NSTimeInterval)duration {
 
-    if ([self.visibleAlerts count] == 0) {
-        CGRect screenRect = [currentScreen frame];
-        absoluteTop = screenRect.size.height / 1.55; // pretty good spot
+    NSScreen *currentScreen = [NSScreen mainScreen];
+    CGFloat adjustment = currentScreen.frame.size.height / 1.5;
+
+    // Push down to be the last alert
+    if (self.alerts.count > 0) {
+        PHAlertWindowController *lastAlert = self.alerts.lastObject;
+        adjustment = lastAlert.window.frame.origin.y - 3.0;
     }
-    else {
-        PHAlertWindowController* ctrl = [self.visibleAlerts lastObject];
-        absoluteTop = NSMinY([[ctrl window] frame]) - 3.0;
+
+    // End of screen, move to top
+    if (adjustment <= 0) {
+        adjustment = NSMaxY(currentScreen.visibleFrame);
     }
 
-    if (absoluteTop <= 0)
-        absoluteTop = NSMaxY([currentScreen visibleFrame]);
+    PHAlertWindowController *alert = [[PHAlertWindowController alloc] initWithDelegate:self];
+    [alert show:message duration:duration pushDownBy:adjustment];
 
-    PHAlertWindowController* alert = [[PHAlertWindowController alloc] init];
-    alert.delegate = self;
-    [alert show:oneLineMsg duration:duration pushDownBy:absoluteTop];
-    [self.visibleAlerts addObject:alert];
+    [self.alerts addObject:alert];
 }
 
-- (void) cancelAlerts {
-    for (int i=[self.visibleAlerts count]; i>0; i--) {
-        PHAlertWindowController* alert = self.visibleAlerts[i-1];
-        [alert fadeWindowOut];
-    }
+- (void) show:(NSString *)message {
+
+    [self show:message duration:PHAlertsDefaultDuration];
 }
 
-- (void) oraPro:(id)nobis {
-    [self.visibleAlerts removeObject:nobis];
-}
+#pragma mark - Closing
 
-@end
+- (void) closeAlerts {
 
-
-
-
-
-
-
-
-
-@interface PHAlertWindowController ()
-
-@property IBOutlet NSTextField* textField;
-@property IBOutlet NSBox* box;
-
-@end
-
-@implementation PHAlertWindowController
-
-- (NSString*) windowNibName {
-    return @"AlertWindow";
-}
-
-- (void) windowDidLoad {
-    self.window.styleMask = NSBorderlessWindowMask;
-    self.window.backgroundColor = [NSColor clearColor];
-    self.window.opaque = NO;
-    self.window.level = NSFloatingWindowLevel;
-    self.window.ignoresMouseEvents = YES;
-    self.window.animationBehavior = ([PHAlerts sharedAlerts].alertAnimates ? NSWindowAnimationBehaviorAlertPanel : NSWindowAnimationBehaviorNone);
-//    self.collectionBehavior = NSWindowCollectionBehaviorCanJoinAllSpaces | NSWindowCollectionBehaviorStationary;
-}
-
-- (void) show:(NSString*)oneLineMsg duration:(CGFloat)duration pushDownBy:(CGFloat)adjustment {
-    NSDisableScreenUpdates();
-
-    [NSAnimationContext beginGrouping];
-    [[NSAnimationContext currentContext] setDuration:0.01];
-    [[[self window] animator] setAlphaValue:1.0];
-    [NSAnimationContext endGrouping];
-
-    [self useTitleAndResize:[oneLineMsg description]];
-    [self setFrameWithAdjustment:adjustment];
-    [self showWindow:self];
-    [self performSelector:@selector(fadeWindowOut) withObject:nil afterDelay:duration];
-
-    NSEnableScreenUpdates();
-}
-
-- (void) setFrameWithAdjustment:(CGFloat)pushDownBy {
-    NSScreen* currentScreen = [NSScreen mainScreen];
-    CGRect screenRect = [currentScreen frame];
-    CGRect winRect = [[self window] frame];
-
-    winRect.origin.x = 50;
-    winRect.origin.y = pushDownBy - winRect.size.height;
-
-    [self.window setFrame:winRect display:NO];
-}
-
-- (void) fadeWindowOut {
-    [NSAnimationContext beginGrouping];
-    [[NSAnimationContext currentContext] setDuration:0.15];
-    [[[self window] animator] setAlphaValue:0.0];
-    [NSAnimationContext endGrouping];
-
-    [self performSelector:@selector(closeAndResetWindow) withObject:nil afterDelay:0.15];
-}
-
-- (void) closeAndResetWindow {
-    [[self window] orderOut:nil];
-    [[self window] setAlphaValue:1.0];
-
-    [self.delegate oraPro:self];
-}
-
-- (void) useTitleAndResize:(NSString*)title {
-    [self window]; // sigh; required in case nib hasnt loaded yet
-
-    self.textField.stringValue = title;
-    [self.textField sizeToFit];
-
-  NSRect windowFrame = [[self window] frame];
-  windowFrame.size.width = [self.textField frame].size.width + 32.0;
-  windowFrame.size.height = [self.textField frame].size.height + 24.0;
-  [[self window] setFrame:windowFrame display:YES];
+    [[self.alerts reverseObjectEnumerator].allObjects makeObjectsPerformSelector:@selector(fadeWindowOut)];
 }
 
 @end

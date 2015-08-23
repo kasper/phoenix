@@ -7,17 +7,18 @@
 
 @class PHKeyHandler;
 
-@interface PHAppDelegate : NSObject <NSApplicationDelegate, NSMenuDelegate>
+@interface PHContext : NSObject
 
-#pragma mark - Delegate
+#pragma mark - Loading
 
-- (void) reloadContext;
+- (void) load;
+
+#pragma mark - Binding
+
 - (PHKeyHandler *) bindKey:(NSString *)key modifiers:(NSArray *)modifiers callback:(JSValue *)callback;
 
-#pragma mark - IBAction
+#pragma mark - Events
 
-- (IBAction) reloadContext:(id)sender;
-- (IBAction) showAboutPanel:(id)sender;
-- (IBAction) toggleOpenAtLogin:(NSMenuItem *)sender;
+- (void) keyDown:(NSEvent *)event;
 
 @end

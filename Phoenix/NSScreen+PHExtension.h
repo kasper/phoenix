@@ -1,22 +1,21 @@
-//
-//  NSScreenProxy.h
-//  Zephyros
-//
-//  Created by Steven on 4/14/13.
-//  Copyright (c) 2013 Giant Robot Software. All rights reserved.
-//
+/*
+ * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
+ */
 
-#import <Foundation/Foundation.h>
-
-#import <JavaScriptCore/JavaScriptCore.h>
+@import Cocoa;
+@import JavaScriptCore;
 
 @protocol NSScreenJSExport <JSExport>
 
-- (CGRect) frameIncludingDockAndMenu;
-- (CGRect) frameWithoutDockOrMenu;
+#pragma mark - Frame
 
-- (NSScreen*) nextScreen;
-- (NSScreen*) previousScreen;
+- (NSRect) frameInRectangle;
+- (NSRect) visibleFrameInRectangle;
+
+#pragma mark - Screen
+
+- (NSScreen *) next;
+- (NSScreen *) previous;
 
 @end
 

@@ -6,8 +6,9 @@ xcode_project: Phoenix.xcodeproj
 xcode_scheme: Phoenix
 
 xcode_sdk:
-    - macosx10.9
     - macosx10.10
 
 notifications:
     email: false
+
+script: xctool -project $TRAVIS_XCODE_PROJECT -scheme $TRAVIS_XCODE_SCHEME -sdk $TRAVIS_XCODE_SDK build

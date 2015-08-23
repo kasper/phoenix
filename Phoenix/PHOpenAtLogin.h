@@ -1,11 +1,12 @@
-//
-//  Created by Steven Degutis
-//  Copyright (c) 2013 Steven Degutis. All rights reserved.
-//
+/*
+ * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
+ */
 
-#import <Cocoa/Cocoa.h>
+@import Foundation;
 
 @interface PHOpenAtLogin : NSObject
+
+#pragma mark - Login Item
 
 + (BOOL) opensAtLogin;
 + (void) setOpensAtLogin:(BOOL)opensAtLogin;

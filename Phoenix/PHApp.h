@@ -1,42 +1,46 @@
-//
-//  SDAppProxy.h
-//  Zephyros
-//
-//  Created by Steven on 4/21/13.
-//  Copyright (c) 2013 Giant Robot Software. All rights reserved.
-//
+/*
+ * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
+ */
 
-#import <Foundation/Foundation.h>
+@import Cocoa;
+@import JavaScriptCore;
 
-#import <JavaScriptCore/JavaScriptCore.h>
-@class PHApp;
+#import "PHAXUIElement.h"
 
 @protocol PHAppJSExport <JSExport>
 
-+ (NSArray*) runningApps;
+#pragma mark - Apps
 
-- (NSArray*) allWindows;
-- (NSArray*) visibleWindows;
++ (NSArray *) runningApps;
++ (instancetype) launch:(NSString *)appName;
 
-- (NSString*) title;
-- (NSString*) bundleIdentifier;
+#pragma mark - Properties
+
+- (pid_t) processIdentifier;
+- (NSString *) bundleIdentifier;
+- (NSString *) name;
 - (BOOL) isHidden;
-- (void) show;
-- (void) hide;
-- (void) activate;
 
-@property (readonly) pid_t pid;
+#pragma mark - Windows
 
-- (void) kill;
-- (void) kill9;
+- (NSArray *) windows;
+- (NSArray *) visibleWindows;
+
+#pragma mark - Actions
+
+- (BOOL) activate;
+- (BOOL) focus;
+- (BOOL) show;
+- (BOOL) hide;
+- (BOOL) terminate;
+- (BOOL) forceTerminate;
 
 @end
 
-@interface PHApp : NSObject <PHAppJSExport>
+@interface PHApp : PHAXUIElement <PHAppJSExport>
 
-- (id) initWithPID:(pid_t)pid;
-- (id) initWithRunningApp:(NSRunningApplication*)app;
+#pragma mark - Initialise
 
-@property (readonly) pid_t pid;
+- (instancetype) initWithApp:(NSRunningApplication *)app NS_DESIGNATED_INITIALIZER;
 
 @end

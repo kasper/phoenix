@@ -4,7 +4,10 @@
 
 @import Cocoa;
 
-int main(int argc, const char * argv[]) {
+@interface PHKeyTranslator : NSObject
 
-    return NSApplicationMain(argc, argv);
-}
+#pragma mark - Translate
+
++ (NSString *) charactersForEvent:(NSEvent *)event;
+
+@end
