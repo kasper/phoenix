@@ -8,7 +8,7 @@ Phoenix
 A lightweight OS X window manager for JavaScript. Phoenix aims for efficiency and a very small footprint. If you like the idea of scripting your own window management toolkit
 with JavaScript, Phoenix is probably going to give you the things you want.
 
-- Current version: 1.2
+- Current version: 1.5
 - Requires: OS X 10.9 or higher
 
 **Note:** the default `master`-branch will always be stable.
