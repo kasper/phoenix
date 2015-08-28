@@ -21,8 +21,8 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
 
 + (PHWindow *) focusedWindow {
 
-    id focusedApp = [PHAXUIElement getValueForSystemAttribute:(NSString *) kAXFocusedApplicationAttribute];
-    id focusedWindow = [PHAXUIElement getValueForAttribute:NSAccessibilityFocusedWindowAttribute forElement:focusedApp];
+    id focusedWindow = [[PHAXUIElement elementForSystemAttribute:(NSString *) kAXFocusedApplicationAttribute]
+                        valueForAttribute:NSAccessibilityFocusedWindowAttribute];
 
     if (!focusedWindow) {
         return nil;
@@ -119,12 +119,12 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
 
 - (NSString *) subrole {
 
-    return [self getValueForAttribute:NSAccessibilitySubroleAttribute withDefaultValue:@""];
+    return [self valueForAttribute:NSAccessibilitySubroleAttribute withDefaultValue:@""];
 }
 
 - (NSString *) title {
 
-    return [self getValueForAttribute:NSAccessibilityTitleAttribute withDefaultValue:@""];
+    return [self valueForAttribute:NSAccessibilityTitleAttribute withDefaultValue:@""];
 }
 
 - (BOOL) isNormal {
@@ -134,7 +134,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
 
 - (BOOL) isMinimized {
 
-    return [[self getValueForAttribute:NSAccessibilityMinimizedAttribute withDefaultValue:@(NO)] boolValue];
+    return [[self valueForAttribute:NSAccessibilityMinimizedAttribute withDefaultValue:@(NO)] boolValue];
 }
 
 - (PHApp *) app {
@@ -170,7 +170,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
 - (CGPoint) topLeft {
 
     CGPoint topLeft;
-    CFTypeRef positionWrapper = (__bridge CFTypeRef) [self getValueForAttribute:NSAccessibilityPositionAttribute];
+    CFTypeRef positionWrapper = (__bridge CFTypeRef) [self valueForAttribute:NSAccessibilityPositionAttribute];
     AXValueGetValue(positionWrapper, kAXValueCGPointType, (void *) &topLeft);
 
     return topLeft;
@@ -179,7 +179,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
 - (CGSize) size {
 
     CGSize size;
-    CFTypeRef sizeWrapper = (__bridge CFTypeRef) [self getValueForAttribute:NSAccessibilitySizeAttribute];
+    CFTypeRef sizeWrapper = (__bridge CFTypeRef) [self valueForAttribute:NSAccessibilitySizeAttribute];
     AXValueGetValue(sizeWrapper, kAXValueCGSizeType, (void *) &size);
 
     return size;

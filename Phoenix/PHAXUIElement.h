@@ -8,8 +8,7 @@
 
 #pragma mark - Static Accessors
 
-+ (id) getValueForAttribute:(NSString *)attribute forElement:(id)element;
-+ (id) getValueForSystemAttribute:(NSString *)attribute;
++ (instancetype) elementForSystemAttribute:(NSString *)attribute;
 
 #pragma mark - Initialise
 
@@ -18,9 +17,9 @@
 #pragma mark - Element Accessors
 
 - (pid_t) processIdentifier;
-- (id) getValueForAttribute:(NSString *)attribute;
-- (id) getValueForAttribute:(NSString *)attribute withDefaultValue:(id)defaultValue;
-- (NSArray *) getValuesForAttribute:(NSString *)attribute fromIndex:(NSUInteger)index count:(NSUInteger)count;
+- (id) valueForAttribute:(NSString *)attribute;
+- (id) valueForAttribute:(NSString *)attribute withDefaultValue:(id)defaultValue;
+- (NSArray *) valuesForAttribute:(NSString *)attribute fromIndex:(NSUInteger)index count:(NSUInteger)count;
 
 #pragma mark - Setters
 

@@ -88,7 +88,7 @@
 - (NSArray *) windows {
 
     NSMutableArray *windows = [NSMutableArray array];
-    NSArray *windowUIElements = [self getValuesForAttribute:NSAccessibilityWindowsAttribute fromIndex:0 count:100];
+    NSArray *windowUIElements = [self valuesForAttribute:NSAccessibilityWindowsAttribute fromIndex:0 count:100];
 
     for (id windowUIElement in windowUIElements) {
         [windows addObject:[[PHWindow alloc] initWithElement:windowUIElement]];

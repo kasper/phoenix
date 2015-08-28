@@ -15,30 +15,23 @@
 
 #pragma mark - Static Accessors
 
-+ (AXUIElementRef) systemWideElement {
++ (instancetype) systemWideElement {
 
-    static AXUIElementRef systemWideElement;
+    static PHAXUIElement *systemWideElement;
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
 
-        systemWideElement = AXUIElementCreateSystemWide();
+        systemWideElement = [[PHAXUIElement alloc] initWithElement:CFBridgingRelease(AXUIElementCreateSystemWide())];
     });
 
     return systemWideElement;
 }
 
-+ (id) getValueForAttribute:(NSString *)attribute forElement:(id)element {
++ (instancetype) elementForSystemAttribute:(NSString *)attribute {
 
-    CFTypeRef value = NULL;
-    AXUIElementCopyAttributeValue((__bridge AXUIElementRef) element, (__bridge CFStringRef) attribute, &value);
-
-    return CFBridgingRelease(value);
-}
-
-+ (id) getValueForSystemAttribute:(NSString *)attribute {
-
-    return [PHAXUIElement getValueForAttribute:attribute forElement:(__bridge id) [PHAXUIElement systemWideElement]];
+    id element = [[PHAXUIElement systemWideElement] valueForAttribute:attribute];
+    return [[PHAXUIElement alloc] initWithElement:element];
 }
 
 #pragma mark - Initialise
@@ -66,14 +59,17 @@
     return processIdentifier;
 }
 
-- (id) getValueForAttribute:(NSString *)attribute {
+- (id) valueForAttribute:(NSString *)attribute {
 
-    return [PHAXUIElement getValueForAttribute:attribute forElement:self.element];
+    CFTypeRef value = NULL;
+    AXUIElementCopyAttributeValue((__bridge AXUIElementRef) self.element, (__bridge CFStringRef) attribute, &value);
+
+    return CFBridgingRelease(value);
 }
 
-- (id) getValueForAttribute:(NSString *)attribute withDefaultValue:(id)defaultValue {
+- (id) valueForAttribute:(NSString *)attribute withDefaultValue:(id)defaultValue {
 
-    id value = [self getValueForAttribute:attribute];
+    id value = [self valueForAttribute:attribute];
 
     if (value) {
         return value;
@@ -82,7 +78,7 @@
     return defaultValue;
 }
 
-- (NSArray *) getValuesForAttribute:(NSString *)attribute fromIndex:(NSUInteger)index count:(NSUInteger)count {
+- (NSArray *) valuesForAttribute:(NSString *)attribute fromIndex:(NSUInteger)index count:(NSUInteger)count {
 
     CFArrayRef values = NULL;
     AXUIElementCopyAttributeValues((__bridge AXUIElementRef) self.element,
