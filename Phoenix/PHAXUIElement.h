@@ -11,6 +11,10 @@
 + (id) getValueForAttribute:(NSString *)attribute forElement:(id)element;
 + (id) getValueForSystemAttribute:(NSString *)attribute;
 
+#pragma mark - Initialise
+
+- (instancetype) initWithElement:(id)element NS_DESIGNATED_INITIALIZER;
+
 #pragma mark - Element Accessors
 
 - (pid_t) processIdentifier;

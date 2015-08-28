@@ -41,6 +41,6 @@
 
 #pragma mark - Initialise
 
-- (instancetype) initWithApp:(NSRunningApplication *)app NS_DESIGNATED_INITIALIZER;
+- (instancetype) initWithApp:(NSRunningApplication *)app;
 
 @end

@@ -8,7 +8,7 @@
 
 @interface PHWindow ()
 
-@property AXUIElementRef element;
+@property id element;
 
 @end
 
@@ -16,24 +16,6 @@
 
 // XXX: Undocumented private API to get the CGWindowID for an AXUIElementRef
 AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
-
-#pragma mark - Initialise
-
-- (instancetype) initWithElement:(AXUIElementRef)element {
-
-    if (self = [super init]) {
-        self.element = CFRetain(element);
-    }
-
-    return self;
-}
-
-#pragma mark - Dealloc
-
-- (void) dealloc {
-
-    CFRelease(self.element);
-}
 
 #pragma mark - Windows
 
@@ -46,7 +28,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
         return nil;
     }
 
-    return [[PHWindow alloc] initWithElement:(__bridge AXUIElementRef) focusedWindow];
+    return [[PHWindow alloc] initWithElement:focusedWindow];
 }
 
 + (NSArray *) windows {
@@ -109,7 +91,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
     NSPredicate *otherWindowOnSameScreen = [NSPredicate predicateWithBlock:^BOOL (PHWindow *window,
                                                                                   __unused NSDictionary *bindings) {
 
-        return !CFEqual(self.element, window.element) && [[self screen] isEqual:[window screen]];
+        return ![self.element isEqualTo:window.element] && [[self screen] isEqual:[window screen]];
     }];
 
     return [[PHWindow visibleWindows] filteredArrayUsingPredicate:otherWindowOnSameScreen];
@@ -119,7 +101,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
 
     NSPredicate *otherWindowOnAllScreens = [NSPredicate predicateWithBlock:^BOOL (PHWindow *window,
                                                                                   __unused NSDictionary *bindings) {
-        return !CFEqual(self.element, window.element);
+        return ![self.element isEqualTo:window.element];
     }];
 
     return [[PHWindow visibleWindows] filteredArrayUsingPredicate:otherWindowOnAllScreens];
@@ -130,7 +112,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
 - (CGWindowID) identifier {
 
     CGWindowID identifier;
-    _AXUIElementGetWindow(self.element, &identifier);
+    _AXUIElementGetWindow((__bridge AXUIElementRef) self.element, &identifier);
 
     return identifier;
 }

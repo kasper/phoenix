@@ -6,7 +6,8 @@
 
 @interface PHAXUIElement ()
 
-@property AXUIElementRef element;
+// AXUIElementRef
+@property id element;
 
 @end
 
@@ -40,12 +41,23 @@
     return [PHAXUIElement getValueForAttribute:attribute forElement:(__bridge id) [PHAXUIElement systemWideElement]];
 }
 
+#pragma mark - Initialise
+
+- (instancetype) initWithElement:(id)element {
+
+    if (self = [super init]) {
+        self.element = element;
+    }
+
+    return self;
+}
+
 #pragma mark - Element Accessors
 
 - (pid_t) processIdentifier {
 
     pid_t processIdentifier;
-    AXError error = AXUIElementGetPid(self.element, &processIdentifier);
+    AXError error = AXUIElementGetPid((__bridge AXUIElementRef) self.element, &processIdentifier);
 
     if (error != kAXErrorSuccess) {
         NSLog(@"Error: Could not get process identifier for accessibility element %@. (%d)", self.element, error);
@@ -56,7 +68,7 @@
 
 - (id) getValueForAttribute:(NSString *)attribute {
 
-    return [PHAXUIElement getValueForAttribute:attribute forElement:(__bridge id) self.element];
+    return [PHAXUIElement getValueForAttribute:attribute forElement:self.element];
 }
 
 - (id) getValueForAttribute:(NSString *)attribute withDefaultValue:(id)defaultValue {
@@ -73,7 +85,11 @@
 - (NSArray *) getValuesForAttribute:(NSString *)attribute fromIndex:(NSUInteger)index count:(NSUInteger)count {
 
     CFArrayRef values = NULL;
-    AXUIElementCopyAttributeValues(self.element, (__bridge CFStringRef) attribute, index, count, &values);
+    AXUIElementCopyAttributeValues((__bridge AXUIElementRef) self.element,
+                                   (__bridge CFStringRef) attribute,
+                                   index,
+                                   count,
+                                   &values);
 
     return CFBridgingRelease(values);
 }
@@ -82,7 +98,7 @@
 
 - (BOOL) setAttribute:(NSString *)attribute withValue:(id)value {
 
-    AXError error = AXUIElementSetAttributeValue(self.element,
+    AXError error = AXUIElementSetAttributeValue((__bridge AXUIElementRef) self.element,
                                                  (__bridge CFStringRef) attribute,
                                                  (__bridge CFTypeRef) value);
 

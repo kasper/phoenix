@@ -7,8 +7,8 @@
 
 @interface PHApp ()
 
+@property id element;
 @property NSRunningApplication *app;
-@property AXUIElementRef element;
 
 @end
 
@@ -18,19 +18,11 @@
 
 - (instancetype) initWithApp:(NSRunningApplication *)app {
 
-    if (self = [super init]) {
+    if (self = [super initWithElement:CFBridgingRelease(AXUIElementCreateApplication(app.processIdentifier))]) {
         self.app = app;
-        self.element = AXUIElementCreateApplication(app.processIdentifier);
     }
 
     return self;
-}
-
-#pragma mark - Dealloc
-
-- (void) dealloc {
-
-    CFRelease(self.element);
 }
 
 #pragma mark - Apps
@@ -99,7 +91,7 @@
     NSArray *windowUIElements = [self getValuesForAttribute:NSAccessibilityWindowsAttribute fromIndex:0 count:100];
 
     for (id windowUIElement in windowUIElements) {
-        [windows addObject:[[PHWindow alloc] initWithElement:(AXUIElementRef) windowUIElement]];
+        [windows addObject:[[PHWindow alloc] initWithElement:windowUIElement]];
     }
 
     return windows;

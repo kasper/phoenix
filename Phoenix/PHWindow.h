@@ -60,8 +60,4 @@
 
 @interface PHWindow : PHAXUIElement <PHWindowJSExport>
 
-#pragma mark - Initialise
-
-- (instancetype) initWithElement:(AXUIElementRef)element NS_DESIGNATED_INITIALIZER;
-
 @end
