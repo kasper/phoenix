@@ -3,6 +3,21 @@ JavaScript API
 
 This documentation is an overview of the JavaScript API provided by Phoenix. Use this as a guide for writing your window management script. Your script should reside in `~/.phoenix.js`. Phoenix includes [Underscore.js](http://underscorejs.org) (1.8.3) — you can use its features in your configuration. Underscore provides useful helpers for handling JavaScript functions and objects.
 
+## API
+
+1. [Require](#require)
+2. [Phoenix](#phoenix)
+3. [Point](#point)
+4. [Size](#size)
+5. [Rectangle](#rectangle)
+6. [KeyHandler](#keyhandler)
+7. [Modal](#modal)
+8. [Command](#command)
+9. [Screen](#screen)
+10. [Mouse](#mouse)
+11. [App](#app)
+12. [Window](#window)
+
 ## Getting Started
 
 This documentation uses *pseudocode* to outline the API. Many of the classes represent global objects in the script’s context — functions that are marked as static can be accessed through these global objects. All other functions are instance functions. Instance objects can be accessed through the global objects.
