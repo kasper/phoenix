@@ -2,13 +2,13 @@
  * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
  */
 
-#import "PHAlerts.h"
 #import "PHApp.h"
 #import "PHCommand.h"
 #import "PHContext.h"
 #import "PHKeyHandler.h"
 #import "PHKeyTranslator.h"
 #import "PHMouse.h"
+#import "PHNotification.h"
 #import "PHPathWatcher.h"
 #import "PHPhoenix.h"
 #import "PHWindow.h"
@@ -53,8 +53,7 @@
         return;
     }
 
-    [[PHAlerts sharedAlerts] show:[NSString stringWithFormat:@"Configuration file %@ was created.", path]
-                         duration:PHAlertsDefaultDuration * 2.0];
+    [PHNotification deliver:[NSString stringWithFormat:@"Configuration file %@ was created.", path]];
 }
 
 #pragma mark - Resetting
@@ -85,10 +84,10 @@
 
 #pragma mark - Setup
 
-- (void) showJavaScriptException:(id)exception {
+- (void) handleException:(id)exception {
 
     NSLog(@"%@", exception);
-    [[PHAlerts sharedAlerts] show:[NSString stringWithFormat:@"%@", exception]];
+    [PHNotification deliver:[NSString stringWithFormat:@"%@", exception]];
 }
 
 - (NSString *) resolvePath:(NSString *)path {
@@ -134,7 +133,7 @@
 
         if(![[NSFileManager defaultManager] fileExistsAtPath:path]) {
             NSString *message = [NSString stringWithFormat:@"Require: File %@ does not exist.", path];
-            [weakSelf showJavaScriptException:message];
+            [weakSelf handleException:message];
             return;
         }
 
@@ -150,7 +149,7 @@
     self.context = [[JSContext alloc] initWithVirtualMachine:[[JSVirtualMachine alloc] init]];
     self.context.exceptionHandler = ^(__unused JSContext *context, JSValue *value) {
 
-        [weakSelf showJavaScriptException:value];
+        [weakSelf handleException:value];
     };
 
     // Load context

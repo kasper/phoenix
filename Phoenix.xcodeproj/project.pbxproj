@@ -12,6 +12,7 @@
 		A72EAD071B5D00B800DD537B /* PHAlertWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72EAD061B5D00B800DD537B /* PHAlertWindowController.m */; };
 		A72ED7B61B6E25940064E35B /* PHPhoenix.m in Sources */ = {isa = PBXBuildFile; fileRef = A72ED7B51B6E25940064E35B /* PHPhoenix.m */; };
 		A73C2CA81B9078A30004C663 /* PHCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = A73C2CA71B9078A30004C663 /* PHCommand.m */; };
+		A73C2CAB1B9088040004C663 /* PHNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = A73C2CAA1B9088040004C663 /* PHNotification.m */; };
 		A762478A1B81FD3C00ECF209 /* PHAXUIElement.m in Sources */ = {isa = PBXBuildFile; fileRef = A76247891B81FD3C00ECF209 /* PHAXUIElement.m */; };
 		A79B89E01B5E74C1004DDE82 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A79B89DE1B5E74C1004DDE82 /* MainMenu.xib */; };
 		A79B89E21B5E75CA004DDE82 /* AlertWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A79B89E11B5E75CA004DDE82 /* AlertWindow.xib */; };
@@ -52,6 +53,8 @@
 		A72ED7B51B6E25940064E35B /* PHPhoenix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHPhoenix.m; sourceTree = "<group>"; };
 		A73C2CA61B9078A30004C663 /* PHCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHCommand.h; sourceTree = "<group>"; };
 		A73C2CA71B9078A30004C663 /* PHCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHCommand.m; sourceTree = "<group>"; };
+		A73C2CA91B9088040004C663 /* PHNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHNotification.h; sourceTree = "<group>"; };
+		A73C2CAA1B9088040004C663 /* PHNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHNotification.m; sourceTree = "<group>"; };
 		A76247881B81FD3C00ECF209 /* PHAXUIElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHAXUIElement.h; sourceTree = "<group>"; };
 		A76247891B81FD3C00ECF209 /* PHAXUIElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHAXUIElement.m; sourceTree = "<group>"; };
 		A79B89DF1B5E74C1004DDE82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -149,8 +152,8 @@
 		A79C46591B5BF31100C460CF /* Phoenix */ = {
 			isa = PBXGroup;
 			children = (
-				A72F1D761B89CE3E00835FBF /* API */,
 				A79B89E11B5E75CA004DDE82 /* AlertWindow.xib */,
+				A72F1D761B89CE3E00835FBF /* API */,
 				A79C46A91B5BF41900C460CF /* Images.xcassets */,
 				A79B89DE1B5E74C1004DDE82 /* MainMenu.xib */,
 				A79C467C1B5BF3C100C460CF /* PHAlerts.h */,
@@ -165,6 +168,8 @@
 				A79C46831B5BF3C100C460CF /* PHContext.m */,
 				A7D1D9A71B6FD6A300E00CC9 /* PHKeyTranslator.h */,
 				A7D1D9A81B6FD6A300E00CC9 /* PHKeyTranslator.m */,
+				A73C2CA91B9088040004C663 /* PHNotification.h */,
+				A73C2CAA1B9088040004C663 /* PHNotification.m */,
 				A79C468A1B5BF3C100C460CF /* PHOpenAtLogin.h */,
 				A79C468B1B5BF3C100C460CF /* PHOpenAtLogin.m */,
 				A79C468C1B5BF3C100C460CF /* PHPathWatcher.h */,
@@ -317,6 +322,7 @@
 				A72ED7B61B6E25940064E35B /* PHPhoenix.m in Sources */,
 				A79C46961B5BF3C100C460CF /* PHAlerts.m in Sources */,
 				A73C2CA81B9078A30004C663 /* PHCommand.m in Sources */,
+				A73C2CAB1B9088040004C663 /* PHNotification.m in Sources */,
 				A79C46971B5BF3C100C460CF /* PHApp.m in Sources */,
 				A7D1D9A91B6FD6A300E00CC9 /* PHKeyTranslator.m in Sources */,
 				A79C46A01B5BF3C100C460CF /* PHWindow.m in Sources */,
