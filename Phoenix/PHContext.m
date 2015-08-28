@@ -7,6 +7,7 @@
 #import "PHContext.h"
 #import "PHKeyHandler.h"
 #import "PHKeyTranslator.h"
+#import "PHModalWindowController.h"
 #import "PHMouse.h"
 #import "PHNotification.h"
 #import "PHPathWatcher.h"
@@ -121,6 +122,7 @@
     PHContext * __weak weakSelf = self;
 
     self.context[@"Phoenix"] = [PHPhoenix class];
+    self.context[@"Modal"] = [PHModalWindowController class];
     self.context[@"Command"] = [PHCommand class];
     self.context[@"Screen"] = [NSScreen class];
     self.context[@"Mouse"] = [PHMouse class];

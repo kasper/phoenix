@@ -4,7 +4,6 @@
 
 @import Cocoa;
 
-#import "PHAlerts.h"
 #import "PHAppDelegate.h"
 #import "PHKeyHandler.h"
 #import "PHNotification.h"
@@ -39,24 +38,6 @@
 + (void) notify:(NSString *)message {
 
     [PHNotification deliver:message];
-}
-
-+ (void) alertWithMessage:(NSString *)message duration:(NSTimeInterval)duration {
-
-    PHAlerts *alerts = [PHAlerts sharedAlerts];
-
-    // Not a number
-    if (isnan(duration)) {
-        [alerts show:message];
-        return;
-    }
-
-    [alerts show:message duration:duration];
-}
-
-+ (void) closeAlerts {
-
-    [[PHAlerts sharedAlerts] closeAlerts];
 }
 
 @end

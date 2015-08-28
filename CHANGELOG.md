@@ -13,6 +13,7 @@ Release: dd.mm.yyyy
 - Global `api`-object is now called `Phoenix`.
 - Global `MousePosition`-object is now called `Mouse`.
 - `Hotkey`-object is now called `KeyHandler` and its properties have changed. See the [API](API.md#keyhandler).
+- The concept of `Alerts` has been deprecated. A new global `Modal`-object has been created to display messages as modals. See the [API](API.md#modal).
 - A new global `Command`-object has been created to run UNIX-commands. See the [API](API.md#command).
 
 ### Improvements
@@ -26,9 +27,10 @@ Release: dd.mm.yyyy
 #### Phoenix
 
 - New: Function `notify(String message)` delivers the message to the Notification Center.
-- Change: Function `cancelAlerts()` is now called `closeAlerts()`.
 - Change: Function `launch(String appName)` has moved to the global `App`-object.
 - Change: Function `runCommand(String commandPath, Array arguments)` has moved to a new global `Command`-object and is now called `run(String path, Array arguments)`.
+- Deprecation: Function `alert(String message, double durationInSeconds)` has been removed, use `Modal` to display messages as modals.
+- Deprecation: Function `cancelAlerts()` has been removed, you must keep references to modals yourself to close them.
 - Deprecation: Function `setTint(Array<double> red, Array<double> green, Array<double> blue)` has been removed with no replacement.
 
 #### KeyHandler

@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="PHAlertWindowController">
+        <customObject id="-2" userLabel="File's Owner" customClass="PHModalWindowController">
             <connections>
                 <outlet property="textField" destination="Eu9-Hf-kgC" id="Mro-8U-aEF"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="VWl-Ud-pAe"/>

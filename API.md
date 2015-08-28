@@ -58,8 +58,6 @@ class Phoenix
     static KeyHandler bind(String key, Array<String> modifiers, Function callback)
     static void log(String message)
     static void notify(String message)
-    static void alert(String message, double durationInSeconds)
-    static void closeAlerts()
 end
 ```
 
@@ -67,8 +65,6 @@ end
 - `bind(String key, Array<String> modifiers, Function callback)` binds the key character with the specified modifiers to a callback function and returns the handler, the callback function receives no arguments, binding overrides any previous handlers for the same key combination
 - `log(String message)` logs the message to the Console
 - `notify(String message)` delivers the message to the Notification Center
-- `alert(String message, double durationInSeconds)` displays an alert message for a given duration in seconds, defaults to two seconds if no duration is given
-- `closeAlerts()` closes the alerts ahead of time regardless of their duration
 
 ## KeyHandler
 
@@ -85,6 +81,30 @@ end
 - `key` read-only property for the key character
 - `modifiers` read-only property for the key modifiers
 - `enabled` property for whether the handler is enabled, by default `true`
+
+## Modal
+
+Use the `Modal`-object to display messages as modal windows.
+
+```java
+class Modal
+    property Point origin
+    property double duration
+    property String message
+    constructor Modal Modal()
+    Rectangle frame()
+    void show()
+    void close()
+end
+```
+
+- `origin` property for the origin for the modal, the enclosed properties are read-only so you must pass an object for this property, by default `(0, 0)`
+- `duration` property for the duration (in seconds) for the modal, if the duration is set to `0` the modal will remain open until closed, by default `0`
+- `message` property for the message for the modal, required for the modal to be displayed
+- `new Modal()` initialises and returns a new modal
+- `frame()` returns the frame for the modal
+- `show()` shows the modal
+- `close()` closes the modal
 
 ## Command
 
