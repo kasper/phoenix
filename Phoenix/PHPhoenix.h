@@ -14,6 +14,7 @@
 + (void) reload;
 JSExportAs(bind, + (PHKeyHandler *) bindKey:(NSString *)key modifiers:(NSArray *)modifiers callback:(JSValue *)callback);
 + (void) log:(NSString *)message;
++ (void) notify:(NSString *)message;
 JSExportAs(alert, + (void) alertWithMessage:(NSString *)message duration:(NSTimeInterval)duration);
 + (void) closeAlerts;
 

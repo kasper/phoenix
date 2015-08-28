@@ -7,6 +7,7 @@
 #import "PHAlerts.h"
 #import "PHAppDelegate.h"
 #import "PHKeyHandler.h"
+#import "PHNotification.h"
 #import "PHPhoenix.h"
 
 @implementation PHPhoenix
@@ -33,6 +34,11 @@
 + (void) log:(NSString *)message {
 
     NSLog(@"%@", message);
+}
+
++ (void) notify:(NSString *)message {
+
+    [PHNotification deliver:message];
 }
 
 + (void) alertWithMessage:(NSString *)message duration:(NSTimeInterval)duration {

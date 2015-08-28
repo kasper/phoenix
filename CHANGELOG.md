@@ -25,6 +25,7 @@ Release: dd.mm.yyyy
 
 #### Phoenix
 
+- New: Function `notify(String message)` delivers the message to the Notification Center.
 - Change: Function `cancelAlerts()` is now called `closeAlerts()`.
 - Change: Function `launch(String appName)` has moved to the global `App`-object.
 - Change: Function `runCommand(String commandPath, Array arguments)` has moved to a new global `Command`-object and is now called `run(String path, Array arguments)`.

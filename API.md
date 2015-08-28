@@ -57,6 +57,7 @@ class Phoenix
     static void reload()
     static KeyHandler bind(String key, Array<String> modifiers, Function callback)
     static void log(String message)
+    static void notify(String message)
     static void alert(String message, double durationInSeconds)
     static void closeAlerts()
 end
@@ -65,6 +66,7 @@ end
 - `reload()` manually reloads the context and any changes in the configuration files
 - `bind(String key, Array<String> modifiers, Function callback)` binds the key character with the specified modifiers to a callback function and returns the handler, the callback function receives no arguments, binding overrides any previous handlers for the same key combination
 - `log(String message)` logs the message to the Console
+- `notify(String message)` delivers the message to the Notification Center
 - `alert(String message, double durationInSeconds)` displays an alert message for a given duration in seconds, defaults to two seconds if no duration is given
 - `closeAlerts()` closes the alerts ahead of time regardless of their duration
 
