@@ -59,7 +59,6 @@ class Phoenix
     static void log(String message)
     static void alert(String message, double durationInSeconds)
     static void closeAlerts()
-    static boolean runCommand(String commandPath, Array arguments)
 end
 ```
 
@@ -68,7 +67,6 @@ end
 - `log(String message)` logs the message to the Console
 - `alert(String message, double durationInSeconds)` displays an alert message for a given duration in seconds, defaults to two seconds if no duration is given
 - `closeAlerts()` closes the alerts ahead of time regardless of their duration
-- `runCommand(String commandPath, Array arguments)` executes a UNIX command in a absolute path with the passed arguments and waits until completion, returns `true` if the execution was successful
 
 ## KeyHandler
 
@@ -85,6 +83,18 @@ end
 - `key` read-only property for the key character
 - `modifiers` read-only property for the key modifiers
 - `enabled` property for whether the handler is enabled, by default `true`
+
+## Command
+
+Use the `Command`-object to run UNIX-commands.
+
+```java
+class Command
+    static boolean run(String path, Array arguments)
+end
+```
+
+- `run(String path, Array arguments)` executes a UNIX-command in a absolute path with the passed arguments and waits until completion, returns `true` if the execution was successful
 
 ## Screen
 

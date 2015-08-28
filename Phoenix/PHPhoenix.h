@@ -16,7 +16,6 @@ JSExportAs(bind, + (PHKeyHandler *) bindKey:(NSString *)key modifiers:(NSArray *
 + (void) log:(NSString *)message;
 JSExportAs(alert, + (void) alertWithMessage:(NSString *)message duration:(NSTimeInterval)duration);
 + (void) closeAlerts;
-JSExportAs(runCommand, + (BOOL) runCommandInPath:(NSString *)path withArguments:(NSArray *)arguments);
 
 @end
 

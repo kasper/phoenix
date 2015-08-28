@@ -23,9 +23,9 @@ Release: dd.mm.yyyy
 
 #### Phoenix
 
-- New: Function `runCommand(String commandPath, Array arguments)` now returns a boolean value for determining success.
 - Change: Function `cancelAlerts()` is now called `closeAlerts()`.
 - Change: Function `launch(String appName)` has moved to the global `App`-object.
+- Change: Function `runCommand(String commandPath, Array arguments)` has moved to a new global `Command`-object and is now called `run(String path, Array arguments)`.
 - Deprecation: Function `setTint(Array<double> red, Array<double> green, Array<double> blue)` has been removed with no replacement.
 
 #### KeyHandler
@@ -33,6 +33,10 @@ Release: dd.mm.yyyy
 - Change: Special keys are now camelCased instead of underscored. See changed [keys](Phoenix/PHKeyTranslator.m#L17-L58).
 - Change: Pad-keys are now binded with the `pad`-modifier instead of the previous special `PAD`-prefixed keys.
 - Change: To enable or disable a `KeyHandler`, please now use the `enabled`-property instead of the previous enable- and disable-functions.
+
+#### Command
+
+- New global object to run UNIX-commands. See the [API](API.md#command).
 
 #### Screen
 

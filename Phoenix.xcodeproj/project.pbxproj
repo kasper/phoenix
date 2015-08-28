@@ -11,6 +11,7 @@
 		A72EAD041B5CE34800DD537B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A72EAD031B5CE34800DD537B /* Credits.rtf */; };
 		A72EAD071B5D00B800DD537B /* PHAlertWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72EAD061B5D00B800DD537B /* PHAlertWindowController.m */; };
 		A72ED7B61B6E25940064E35B /* PHPhoenix.m in Sources */ = {isa = PBXBuildFile; fileRef = A72ED7B51B6E25940064E35B /* PHPhoenix.m */; };
+		A73C2CA81B9078A30004C663 /* PHCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = A73C2CA71B9078A30004C663 /* PHCommand.m */; };
 		A762478A1B81FD3C00ECF209 /* PHAXUIElement.m in Sources */ = {isa = PBXBuildFile; fileRef = A76247891B81FD3C00ECF209 /* PHAXUIElement.m */; };
 		A79B89E01B5E74C1004DDE82 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A79B89DE1B5E74C1004DDE82 /* MainMenu.xib */; };
 		A79B89E21B5E75CA004DDE82 /* AlertWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A79B89E11B5E75CA004DDE82 /* AlertWindow.xib */; };
@@ -49,6 +50,8 @@
 		A72EAD061B5D00B800DD537B /* PHAlertWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHAlertWindowController.m; sourceTree = "<group>"; };
 		A72ED7B41B6E25940064E35B /* PHPhoenix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHPhoenix.h; sourceTree = "<group>"; };
 		A72ED7B51B6E25940064E35B /* PHPhoenix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHPhoenix.m; sourceTree = "<group>"; };
+		A73C2CA61B9078A30004C663 /* PHCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHCommand.h; sourceTree = "<group>"; };
+		A73C2CA71B9078A30004C663 /* PHCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHCommand.m; sourceTree = "<group>"; };
 		A76247881B81FD3C00ECF209 /* PHAXUIElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHAXUIElement.h; sourceTree = "<group>"; };
 		A76247891B81FD3C00ECF209 /* PHAXUIElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHAXUIElement.m; sourceTree = "<group>"; };
 		A79B89DF1B5E74C1004DDE82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -110,6 +113,8 @@
 				A79C467B1B5BF3C100C460CF /* NSScreen+PHExtension.m */,
 				A79C467E1B5BF3C100C460CF /* PHApp.h */,
 				A79C467F1B5BF3C100C460CF /* PHApp.m */,
+				A73C2CA61B9078A30004C663 /* PHCommand.h */,
+				A73C2CA71B9078A30004C663 /* PHCommand.m */,
 				A7183B651B6E865F00842E13 /* PHKeyHandler.h */,
 				A7183B661B6E865F00842E13 /* PHKeyHandler.m */,
 				A79C46861B5BF3C100C460CF /* PHMouse.h */,
@@ -311,6 +316,7 @@
 				A79C46981B5BF3C100C460CF /* PHAppDelegate.m in Sources */,
 				A72ED7B61B6E25940064E35B /* PHPhoenix.m in Sources */,
 				A79C46961B5BF3C100C460CF /* PHAlerts.m in Sources */,
+				A73C2CA81B9078A30004C663 /* PHCommand.m in Sources */,
 				A79C46971B5BF3C100C460CF /* PHApp.m in Sources */,
 				A7D1D9A91B6FD6A300E00CC9 /* PHKeyTranslator.m in Sources */,
 				A79C46A01B5BF3C100C460CF /* PHWindow.m in Sources */,

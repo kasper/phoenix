@@ -53,26 +53,4 @@
     [[PHAlerts sharedAlerts] closeAlerts];
 }
 
-+ (BOOL) runCommandInPath:(NSString *)path withArguments:(NSArray *)arguments {
-
-    NSTask *task = [[NSTask alloc] init];
-    task.launchPath = path;
-
-    if (arguments) {
-        task.arguments = arguments;
-    }
-
-    @try {
-        [task launch];
-    }
-
-    @catch (NSException *exception) {
-        NSLog(@"Error: Could not run command in path %@ with arguments %@. Exception: %@.", path, arguments, exception);
-        return NO;
-    }
-
-    [task waitUntilExit];
-    return [task terminationStatus] == 0;
-}
-
 @end

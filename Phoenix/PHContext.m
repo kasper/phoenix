@@ -4,6 +4,7 @@
 
 #import "PHAlerts.h"
 #import "PHApp.h"
+#import "PHCommand.h"
 #import "PHContext.h"
 #import "PHKeyHandler.h"
 #import "PHKeyTranslator.h"
@@ -120,6 +121,7 @@
     PHContext * __weak weakSelf = self;
 
     self.context[@"Phoenix"] = [PHPhoenix class];
+    self.context[@"Command"] = [PHCommand class];
     self.context[@"Screen"] = [NSScreen class];
     self.context[@"Mouse"] = [PHMouse class];
     self.context[@"App"] = [PHApp class];
