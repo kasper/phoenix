@@ -13,6 +13,7 @@ Release: dd.mm.yyyy
 - Global `api`-object is now called `Phoenix`.
 - Global `MousePosition`-object is now called `Mouse`.
 - `Hotkey`-object is now called `KeyHandler` and its properties have changed. See the [API](API.md#keyhandler).
+- A new global `Command`-object has been created to run UNIX-commands. See the [API](API.md#command).
 
 ### Improvements
 
@@ -34,10 +35,6 @@ Release: dd.mm.yyyy
 - Change: Special keys are now camelCased instead of underscored. See changed [keys](Phoenix/PHKeyTranslator.m#L17-L58).
 - Change: Pad-keys are now binded with the `pad`-modifier instead of the previous special `PAD`-prefixed keys.
 - Change: To enable or disable a `KeyHandler`, please now use the `enabled`-property instead of the previous enable- and disable-functions.
-
-#### Command
-
-- New global object to run UNIX-commands. See the [API](API.md#command).
 
 #### Screen
 
