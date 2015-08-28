@@ -66,6 +66,41 @@ end
 - `log(String message)` logs the message to the Console
 - `notify(String message)` delivers the message to the Notification Center
 
+## Point
+
+A simple point object for 2D-coordinates.
+
+```java
+class Point
+    property double x
+    property double y
+end
+```
+
+## Size
+
+A simple 2D-size object.
+
+```java
+class Size
+    property double width
+    property double height
+end
+```
+
+## Rectangle
+
+A 2D-rectangle representation of a `Point` and `Size`.
+
+```java
+class Rectangle
+    property double x
+    property double y
+    property double width
+    property double height
+end
+```
+
 ## KeyHandler
 
 Use the `KeyHandler`-object to enable or disable keys. To override a previous handler, bind the key again.
@@ -255,38 +290,3 @@ end
 - `focusClosestWindowInEast()` focuses the closest window to the east of the window, returns `true` if successful
 - `focusClosestWindowInNorth()` focuses the closest window to the north of the window, returns `true` if successful
 - `focusClosestWindowInSouth()` focuses the closest window to the south of the window, returns `true` if successful
-
-## Point
-
-A simple point object for 2D-coordinates.
-
-```java
-class Point
-    property double x
-    property double y
-end
-```
-
-## Size
-
-A simple 2D-size object.
-
-```java
-class Size
-    property double width
-    property double height
-end
-```
-
-## Rectangle
-
-A 2D-rectangle representation of a `Point` and `Size`.
-
-```java
-class Rectangle
-    property double x
-    property double y
-    property double width
-    property double height
-end
-```
