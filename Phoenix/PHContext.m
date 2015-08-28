@@ -87,6 +87,7 @@
 
 - (void) showJavaScriptException:(id)exception {
 
+    NSLog(@"%@", exception);
     [[PHAlerts sharedAlerts] show:[NSString stringWithFormat:@"%@", exception]];
 }
 

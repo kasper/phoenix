@@ -16,6 +16,7 @@ Release: dd.mm.yyyy
 
 ### Improvements
 
+- JavaScript errors are now logged to the Console for easier debugging.
 - Now reloading the context gives no alert unless an error is encountered.
 - Keys are now handled through NSEvents, replacing the older Carbon-bindings.
 
