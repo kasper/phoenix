@@ -12,30 +12,30 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hasShadow="NO" oneShot="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="102" height="60"/>
+            <rect key="contentRect" x="0.0" y="0.0" width="95" height="56"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="102" height="60"/>
+                <rect key="frame" x="0.0" y="0.0" width="95" height="56"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <box autoresizesSubviews="NO" cornerRadius="27" title="Box" boxType="custom" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Maa-Q3-FG8">
-                        <rect key="frame" x="0.0" y="0.0" width="102" height="60"/>
+                    <box autoresizesSubviews="NO" borderWidth="0.0" cornerRadius="15" title="Box" boxType="custom" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Maa-Q3-FG8">
+                        <rect key="frame" x="0.0" y="0.0" width="95" height="56"/>
                         <view key="contentView">
-                            <rect key="frame" x="1" y="1" width="100" height="58"/>
+                            <rect key="frame" x="0.0" y="0.0" width="95" height="56"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Eu9-Hf-kgC">
-                                    <rect key="frame" x="13" y="13" width="74" height="33"/>
+                                    <rect key="frame" x="14" y="14" width="67" height="29"/>
                                     <constraints>
                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="800" id="lWe-ze-4L4"/>
                                     </constraints>
                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="FT7-fN-TGb">
-                                        <font key="font" metaFont="system" size="27"/>
+                                        <font key="font" metaFont="system" size="24"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
                             </subviews>
@@ -46,8 +46,8 @@
                             <constraint firstItem="Eu9-Hf-kgC" firstAttribute="leading" secondItem="Maa-Q3-FG8" secondAttribute="leading" constant="16" id="XZo-Q9-Wm8"/>
                             <constraint firstItem="Eu9-Hf-kgC" firstAttribute="top" secondItem="Maa-Q3-FG8" secondAttribute="top" constant="13" id="uJj-nz-lCI"/>
                         </constraints>
-                        <color key="borderColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="fillColor" red="0.0" green="0.0" blue="0.0" alpha="0.75" colorSpace="calibratedRGB"/>
+                        <color key="borderColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="fillColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                     </box>
                 </subviews>
                 <constraints>
@@ -60,7 +60,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="3cR-Up-rvj"/>
             </connections>
-            <point key="canvasLocation" x="309" y="247"/>
+            <point key="canvasLocation" x="305.5" y="247"/>
         </window>
     </objects>
 </document>
