@@ -152,7 +152,7 @@ end
 - `duration` property for the duration (in seconds) for the modal, if the duration is set to `0` the modal will remain open until closed, by default `0`
 - `message` property for the message for the modal, required for the modal to be displayed
 - `new Modal()` initialises and returns a new modal
-- `frame()` returns the frame for the modal
+- `frame()` returns the frame for the modal, the frame is adjusted for the current message, therefor you must first set the message to get an accurate frame
 - `show()` shows the modal
 - `close()` closes the modal
 

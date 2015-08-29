@@ -69,6 +69,7 @@ static NSString * const PHMessageKeyPath = @"message";
 
 - (NSRect) frame {
 
+    [self.window layoutIfNeeded];
     return self.window.frame;
 }
 
