@@ -70,10 +70,12 @@ Use the `Phoenix`-object for API-level tasks.
 
 ```java
 class Phoenix
+
     static void reload()
     static KeyHandler bind(String key, Array<String> modifiers, Function callback)
     static void log(String message)
     static void notify(String message)
+
 end
 ```
 
@@ -88,8 +90,10 @@ A simple point object for 2D-coordinates.
 
 ```java
 class Point
+
     property double x
     property double y
+
 end
 ```
 
@@ -99,8 +103,10 @@ A simple 2D-size object.
 
 ```java
 class Size
+
     property double width
     property double height
+
 end
 ```
 
@@ -110,10 +116,12 @@ A 2D-rectangle representation of a `Point` and `Size`.
 
 ```java
 class Rectangle
+
     property double x
     property double y
     property double width
     property double height
+
 end
 ```
 
@@ -123,8 +131,10 @@ Objects that implement `Identifiable` can be identified and compared.
 
 ```java
 interface Identifiable
+
     int hash()
     boolean isEqual(AnyObject object)
+
 end
 ```
 
@@ -137,9 +147,11 @@ Use the `KeyHandler`-object to enable or disable keys. To override a previous ha
 
 ```java
 class KeyHandler implements Identifiable
+
     property String key
     property Array<String> modifiers
     property boolean enabled
+
 end
 ```
 
@@ -153,6 +165,7 @@ Use the `Modal`-object to display messages as modal windows.
 
 ```java
 class Modal
+
     property Point origin
     property double duration
     property String message
@@ -160,6 +173,7 @@ class Modal
     Rectangle frame()
     void show()
     void close()
+
 end
 ```
 
@@ -177,7 +191,9 @@ Use the `Command`-object to run UNIX-commands.
 
 ```java
 class Command
+
     static boolean run(String path, Array arguments)
+
 end
 ```
 
@@ -189,10 +205,12 @@ Use the `Screen`-object to access frame sizes and other screens on a multi-scree
 
 ```java
 class Screen implements Identifiable
+
     Rectangle frameInRectangle()
     Rectangle visibleFrameInRectangle()
     Screen next()
     Screen previous()
+
 end
 ```
 
@@ -207,8 +225,10 @@ Use the `Mouse`-object to control the cursor.
 
 ```java
 class Mouse
+
     static Point location()
     static boolean moveTo(Point point)
+
 end
 ```
 
@@ -221,6 +241,7 @@ Use the `App`-object to control apps.
 
 ```java
 class App implements Identifiable
+
     static Array<App> runningApps()
     static App launch(String appName)
     int processIdentifier()
@@ -235,6 +256,7 @@ class App implements Identifiable
     boolean hide()
     boolean terminate()
     boolean forceTerminate()
+
 end
 ```
 
@@ -259,6 +281,7 @@ Use the `Window`-object to control windows. Every screen (i.e. display) combines
 
 ```java
 class Window implements Identifiable
+
     static Window focusedWindow()
     static Array<Window> windows()
     static Array<Window> visibleWindows()
@@ -288,6 +311,7 @@ class Window implements Identifiable
     boolean focusClosestWindowInEast()
     boolean focusClosestWindowInNorth()
     boolean focusClosestWindowInSouth()
+
 end
 ```
 
