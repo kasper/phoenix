@@ -91,7 +91,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
     NSPredicate *otherWindowOnSameScreen = [NSPredicate predicateWithBlock:^BOOL (PHWindow *window,
                                                                                   __unused NSDictionary *bindings) {
 
-        return ![self.element isEqualTo:window.element] && [[self screen] isEqual:[window screen]];
+        return ![self isEqual:window] && [[self screen] isEqual:[window screen]];
     }];
 
     return [[PHWindow visibleWindows] filteredArrayUsingPredicate:otherWindowOnSameScreen];
@@ -101,7 +101,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
 
     NSPredicate *otherWindowOnAllScreens = [NSPredicate predicateWithBlock:^BOOL (PHWindow *window,
                                                                                   __unused NSDictionary *bindings) {
-        return ![self.element isEqualTo:window.element];
+        return ![self isEqual:window];
     }];
 
     return [[PHWindow visibleWindows] filteredArrayUsingPredicate:otherWindowOnAllScreens];
