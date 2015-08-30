@@ -143,7 +143,7 @@ end
 
 ## KeyHandler
 
-Use the `KeyHandler`-object to enable or disable keys. To override a previous handler, bind the key again.
+Use the `KeyHandler`-object to enable or disable keys. To override a previous handler, bind the key again. KeyHandlers are always reset on context reload.
 
 ```java
 class KeyHandler implements Identifiable
@@ -201,7 +201,7 @@ end
 
 ## Screen
 
-Use the `Screen`-object to access frame sizes and other screens on a multi-screen setup. Get the current screen for a window through the `Window`-object.
+Use the `Screen`-object to access frame sizes and other screens on a multi-screen setup. Get the current screen for a window through the `Window`-object. Beware that a screen can get stale if you keep a reference to it and it is for instance disconnected while you do so.
 
 ```java
 class Screen implements Identifiable
@@ -237,7 +237,7 @@ end
 
 ## App
 
-Use the `App`-object to control apps.
+Use the `App`-object to control apps. Beware that an app can get stale if you keep a reference to it and it is for instance terminated while you do so.
 
 ```java
 class App implements Identifiable
@@ -277,7 +277,7 @@ end
 
 ## Window
 
-Use the `Window`-object to control windows. Every screen (i.e. display) combines to form a large rectangle. Every window lives within this rectangle and their position can be altered by giving coordinates inside this rectangle. To position a window to a specific display, you need to calculate its position within the large rectangle. To figure out the coordinates for a given screen, use the functions in `Screen`.
+Use the `Window`-object to control windows. Every screen (i.e. display) combines to form a large rectangle. Every window lives within this rectangle and their position can be altered by giving coordinates inside this rectangle. To position a window to a specific display, you need to calculate its position within the large rectangle. To figure out the coordinates for a given screen, use the functions in `Screen`. Beware that a window can get stale if you keep a reference to it and it is for instance closed while you do so.
 
 ```java
 class Window implements Identifiable
