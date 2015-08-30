@@ -45,6 +45,23 @@
     return self;
 }
 
+#pragma mark - Identifying
+
+- (NSUInteger) hash {
+
+    return [self.element hash];
+}
+
+- (BOOL) isEqualTo:(PHAXUIElement *)object {
+
+    return [self.element isEqual:object.element];
+}
+
+- (BOOL) isEqual:(id)object {
+
+    return [object isKindOfClass:[PHAXUIElement class]] && [self isEqualTo:object];
+}
+
 #pragma mark - Element Accessors
 
 - (pid_t) processIdentifier {

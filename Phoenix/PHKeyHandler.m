@@ -46,7 +46,7 @@ static NSDictionary *PHModifierStringToFlag;
     return key.hash + (flags & NSDeviceIndependentModifierFlagsMask);
 }
 
-#pragma mark - NSObject
+#pragma mark - Identifying
 
 - (NSUInteger) hash {
 
@@ -62,6 +62,11 @@ static NSDictionary *PHModifierStringToFlag;
     }
 
     return self.key.lowercaseString.hash + flags;
+}
+
+- (BOOL) isEqual:(id)object {
+
+    return [object isKindOfClass:[PHKeyHandler class]] && [self hash] == [object hash];
 }
 
 #pragma mark - Invoke

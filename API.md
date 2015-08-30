@@ -10,13 +10,14 @@ This documentation is an overview of the JavaScript API provided by Phoenix. Use
 3. [Point](#point)
 4. [Size](#size)
 5. [Rectangle](#rectangle)
-6. [KeyHandler](#keyhandler)
-7. [Modal](#modal)
-8. [Command](#command)
-9. [Screen](#screen)
-10. [Mouse](#mouse)
-11. [App](#app)
-12. [Window](#window)
+6. [Identifiable](#identifiable)
+7. [KeyHandler](#keyhandler)
+8. [Modal](#modal)
+9. [Command](#command)
+10. [Screen](#screen)
+11. [Mouse](#mouse)
+12. [App](#app)
+13. [Window](#window)
 
 ## Getting Started
 
@@ -116,12 +117,26 @@ class Rectangle
 end
 ```
 
+## Identifiable
+
+Objects that implement `Identifiable` can be identified and compared.
+
+```java
+interface Identifiable
+    int hash()
+    boolean isEqual(AnyObject object)
+end
+```
+
+- `hash()` returns the hash value for the object
+- `isEqual(AnyObject object)` returns `true` if the object is equal to this object
+
 ## KeyHandler
 
 Use the `KeyHandler`-object to enable or disable keys. To override a previous handler, bind the key again.
 
 ```java
-class KeyHandler
+class KeyHandler implements Identifiable
     property String key
     property Array<String> modifiers
     property boolean enabled
@@ -173,7 +188,7 @@ end
 Use the `Screen`-object to access frame sizes and other screens on a multi-screen setup. Get the current screen for a window through the `Window`-object.
 
 ```java
-class Screen
+class Screen implements Identifiable
     Rectangle frameInRectangle()
     Rectangle visibleFrameInRectangle()
     Screen next()
@@ -205,7 +220,7 @@ end
 Use the `App`-object to control apps.
 
 ```java
-class App
+class App implements Identifiable
     static Array<App> runningApps()
     static App launch(String appName)
     int processIdentifier()
@@ -243,7 +258,7 @@ end
 Use the `Window`-object to control windows. Every screen (i.e. display) combines to form a large rectangle. Every window lives within this rectangle and their position can be altered by giving coordinates inside this rectangle. To position a window to a specific display, you need to calculate its position within the large rectangle. To figure out the coordinates for a given screen, use the functions in `Screen`.
 
 ```java
-class Window
+class Window implements Identifiable
     static Window focusedWindow()
     static Array<Window> windows()
     static Array<Window> visibleWindows()

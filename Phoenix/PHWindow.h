@@ -8,8 +8,9 @@
 @class PHWindow;
 
 #import "PHAXUIElement.h"
+#import "PHIdentifiableJSExport.h"
 
-@protocol PHWindowJSExport <JSExport>
+@protocol PHWindowJSExport <JSExport, PHIdentifiableJSExport>
 
 #pragma mark - Windows
 

@@ -6,8 +6,9 @@
 @import JavaScriptCore;
 
 #import "PHAXUIElement.h"
+#import "PHIdentifiableJSExport.h"
 
-@protocol PHAppJSExport <JSExport>
+@protocol PHAppJSExport <JSExport, PHIdentifiableJSExport>
 
 #pragma mark - Apps
 

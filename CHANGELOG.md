@@ -21,6 +21,7 @@ Release: dd.mm.yyyy
 - Alerts are now delivered to the Notification Center and logged to the Console for easier debugging.
 - Now reloading the context gives no alert unless an error is encountered.
 - Keys are now handled through NSEvents, replacing the older Carbon-bindings.
+- Objects that implement `Identifiable` can be identified and compared.
 
 ### API
 
@@ -35,12 +36,14 @@ Release: dd.mm.yyyy
 
 #### KeyHandler
 
+- New: KeyHandler now implements `Identifiable`.
 - Change: Special keys are now camelCased instead of underscored. See changed [keys](Phoenix/PHKeyTranslator.m#L17-L58).
 - Change: Pad-keys are now binded with the `pad`-modifier instead of the previous special `PAD`-prefixed keys.
 - Change: To enable or disable a `KeyHandler`, please now use the `enabled`-property instead of the previous enable- and disable-functions.
 
 #### Screen
 
+- New: Screen now implements `Identifiable`.
 - Change: For clarity, functions `frameIncludingDockAndMenu()` and `frameWithoutDockOrMenu()` are now `frameInRectangle()` and `visibleFrameInRectangle()`, respectively.
 - Change: Functions `nextScreen()` and `previousScreen()` are now simply `next()` and `previous()`.
 
@@ -51,6 +54,7 @@ Release: dd.mm.yyyy
 
 #### App
 
+- New: App now implements `Identifiable`.
 - New: All actions return a boolean value for determining success.
 - New: Function `launch(String appName)` now returns the launched app if successful.
 - New: A new function `focus()` focuses the app and its windows.
@@ -61,6 +65,7 @@ Release: dd.mm.yyyy
 
 #### Window
 
+- New: Window now implements `Identifiable`.
 - New: All actions return a boolean value for determining success.
 - Change: Function `allWindows()` is now simply `windows()`.
 - Change: Function `visibleWindowsMostRecentFirst()` is renamed to `visibleWindowsInOrder()` for clarity.

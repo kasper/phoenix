@@ -5,9 +5,11 @@
 @import Cocoa;
 @import JavaScriptCore;
 
+#import "PHIdentifiableJSExport.h"
+
 typedef void (^PHKeyHandlerBlock)();
 
-@protocol PHKeyHandlerJSExport <JSExport>
+@protocol PHKeyHandlerJSExport <JSExport, PHIdentifiableJSExport>
 
 #pragma mark Exported Properties
 

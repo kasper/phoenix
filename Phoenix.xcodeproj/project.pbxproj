@@ -45,6 +45,7 @@
 /* Begin PBXFileReference section */
 		A7183B651B6E865F00842E13 /* PHKeyHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHKeyHandler.h; sourceTree = "<group>"; };
 		A7183B661B6E865F00842E13 /* PHKeyHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHKeyHandler.m; sourceTree = "<group>"; };
+		A72A6B031B934C2000F2C4EF /* PHIdentifiableJSExport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHIdentifiableJSExport.h; sourceTree = "<group>"; };
 		A72EAD031B5CE34800DD537B /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		A72EAD051B5D00B800DD537B /* PHModalWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHModalWindowController.h; sourceTree = "<group>"; };
 		A72EAD061B5D00B800DD537B /* PHModalWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHModalWindowController.m; sourceTree = "<group>"; };
@@ -115,6 +116,7 @@
 				A79C467F1B5BF3C100C460CF /* PHApp.m */,
 				A73C2CA61B9078A30004C663 /* PHCommand.h */,
 				A73C2CA71B9078A30004C663 /* PHCommand.m */,
+				A72A6B031B934C2000F2C4EF /* PHIdentifiableJSExport.h */,
 				A7183B651B6E865F00842E13 /* PHKeyHandler.h */,
 				A7183B661B6E865F00842E13 /* PHKeyHandler.m */,
 				A72EAD051B5D00B800DD537B /* PHModalWindowController.h */,

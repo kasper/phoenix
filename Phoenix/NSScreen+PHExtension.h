@@ -5,7 +5,9 @@
 @import Cocoa;
 @import JavaScriptCore;
 
-@protocol NSScreenJSExport <JSExport>
+#import "PHIdentifiableJSExport.h"
+
+@protocol NSScreenJSExport <JSExport, PHIdentifiableJSExport>
 
 #pragma mark - Frame
 
