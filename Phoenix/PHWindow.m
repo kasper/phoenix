@@ -9,6 +9,7 @@
 @interface PHWindow ()
 
 @property id element;
+@property PHApp *app;
 
 @end
 
@@ -16,6 +17,17 @@
 
 // XXX: Undocumented private API to get the CGWindowID for an AXUIElementRef
 AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
+
+#pragma mark - Initialise
+
+- (instancetype) initWithElement:(id)element {
+
+    if (self = [super initWithElement:element]) {
+        self.app = [[PHApp alloc] initWithApp:[NSRunningApplication runningApplicationWithProcessIdentifier:[self processIdentifier]]];
+    }
+
+    return self;
+}
 
 #pragma mark - Windows
 
@@ -135,12 +147,6 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
 - (BOOL) isMinimized {
 
     return [[self valueForAttribute:NSAccessibilityMinimizedAttribute withDefaultValue:@(NO)] boolValue];
-}
-
-- (PHApp *) app {
-
-    NSRunningApplication *app = [NSRunningApplication runningApplicationWithProcessIdentifier:[self processIdentifier]];
-    return [[PHApp alloc] initWithApp:app];
 }
 
 - (NSScreen *) screen {
