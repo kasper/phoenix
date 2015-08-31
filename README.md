@@ -5,8 +5,7 @@ Phoenix
 
 <img width='128' height='128' align='right' src='https://raw.githubusercontent.com/kasper/phoenix/master/Phoenix/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png'>
 
-A lightweight OS X window manager for JavaScript. Phoenix aims for efficiency and a very small footprint. If you like the idea of scripting your own window management toolkit
-with JavaScript, Phoenix is probably going to give you the things you want.
+A lightweight OS X window manager scriptable with JavaScript. Phoenix aims for efficiency and a very small footprint. If you like the idea of scripting your own window management toolkit with JavaScript, Phoenix is probably going to give you the things you want.
 
 - Current version: 2.0 ([Changelog](CHANGELOG.md))
 - Requires: OS X 10.10 or higher
