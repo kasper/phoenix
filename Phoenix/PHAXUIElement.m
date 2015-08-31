@@ -13,6 +13,17 @@
 
 @implementation PHAXUIElement
 
+#pragma mark - Initialise
+
+- (instancetype) initWithElement:(id)element {
+
+    if (self = [super init]) {
+        self.element = element;
+    }
+
+    return self;
+}
+
 #pragma mark - Static Accessors
 
 + (instancetype) systemWideElement {
@@ -32,17 +43,6 @@
 
     id element = [[PHAXUIElement systemWideElement] valueForAttribute:attribute];
     return [[PHAXUIElement alloc] initWithElement:element];
-}
-
-#pragma mark - Initialise
-
-- (instancetype) initWithElement:(id)element {
-
-    if (self = [super init]) {
-        self.element = element;
-    }
-
-    return self;
 }
 
 #pragma mark - Identifying

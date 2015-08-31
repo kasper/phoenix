@@ -6,13 +6,13 @@
 
 @interface PHAXUIElement : NSObject
 
-#pragma mark - Static Accessors
-
-+ (instancetype) elementForSystemAttribute:(NSString *)attribute;
-
 #pragma mark - Initialise
 
 - (instancetype) initWithElement:(id)element NS_DESIGNATED_INITIALIZER;
+
+#pragma mark - Static Accessors
+
++ (instancetype) elementForSystemAttribute:(NSString *)attribute;
 
 #pragma mark - Element Accessors
 
