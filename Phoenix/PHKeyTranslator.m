@@ -8,54 +8,142 @@
 
 @implementation PHKeyTranslator
 
-static NSDictionary *PHUnicodeCharacterToString;
+static NSDictionary *PHModifierStringToFlag;
+static NSArray *PHLocalKeyCodes;
+static NSDictionary *PHStringToKeyCode;
+static NSMutableDictionary *PHResolvedLocalKeyCodes;
 
 #pragma mark - Initialise
 
 + (void) initialize {
 
-    PHUnicodeCharacterToString = @{ @(13): @"return",
-                                    @(27): @"escape",
-                                    @(32): @"space",
+    /* Modifiers */
 
-                                    /* Characters from NSText */
+    PHModifierStringToFlag = @{ @"cmd": @(cmdKey),
+                                @"alt": @(optionKey),
+                                @"ctrl": @(controlKey),
+                                @"shift": @(shiftKey) };
 
-                                    @(NSTabCharacter): @"tab",
-                                    @(NSEnterCharacter): @"enter",
-                                    @(NSDeleteCharacter): @"delete",
+    /* Local Keys */
 
-                                    /* Function Keys from NSEvent */
+    PHLocalKeyCodes = @[ @(kVK_ANSI_A),
+                         @(kVK_ANSI_B),
+                         @(kVK_ANSI_C),
+                         @(kVK_ANSI_D),
+                         @(kVK_ANSI_E),
+                         @(kVK_ANSI_F),
+                         @(kVK_ANSI_G),
+                         @(kVK_ANSI_H),
+                         @(kVK_ANSI_I),
+                         @(kVK_ANSI_J),
+                         @(kVK_ANSI_K),
+                         @(kVK_ANSI_L),
+                         @(kVK_ANSI_M),
+                         @(kVK_ANSI_N),
+                         @(kVK_ANSI_O),
+                         @(kVK_ANSI_P),
+                         @(kVK_ANSI_Q),
+                         @(kVK_ANSI_R),
+                         @(kVK_ANSI_S),
+                         @(kVK_ANSI_T),
+                         @(kVK_ANSI_U),
+                         @(kVK_ANSI_V),
+                         @(kVK_ANSI_W),
+                         @(kVK_ANSI_X),
+                         @(kVK_ANSI_Y),
+                         @(kVK_ANSI_Z),
+                         @(kVK_ANSI_0),
+                         @(kVK_ANSI_1),
+                         @(kVK_ANSI_2),
+                         @(kVK_ANSI_3),
+                         @(kVK_ANSI_4),
+                         @(kVK_ANSI_5),
+                         @(kVK_ANSI_6),
+                         @(kVK_ANSI_7),
+                         @(kVK_ANSI_8),
+                         @(kVK_ANSI_9),
+                         @(kVK_ANSI_Equal),
+                         @(kVK_ANSI_Minus),
+                         @(kVK_ANSI_RightBracket),
+                         @(kVK_ANSI_LeftBracket),
+                         @(kVK_ANSI_Quote),
+                         @(kVK_ANSI_Semicolon),
+                         @(kVK_ANSI_Backslash),
+                         @(kVK_ANSI_Comma),
+                         @(kVK_ANSI_Slash),
+                         @(kVK_ANSI_Period),
+                         @(kVK_ANSI_Grave) ];
 
-                                    @(NSUpArrowFunctionKey): @"up",
-                                    @(NSDownArrowFunctionKey): @"down",
-                                    @(NSLeftArrowFunctionKey): @"left",
-                                    @(NSRightArrowFunctionKey): @"right",
-                                    @(NSF1FunctionKey): @"f1",
-                                    @(NSF2FunctionKey): @"f2",
-                                    @(NSF3FunctionKey): @"f3",
-                                    @(NSF4FunctionKey): @"f4",
-                                    @(NSF5FunctionKey): @"f5",
-                                    @(NSF6FunctionKey): @"f6",
-                                    @(NSF7FunctionKey): @"f7",
-                                    @(NSF8FunctionKey): @"f8",
-                                    @(NSF9FunctionKey): @"f9",
-                                    @(NSF10FunctionKey): @"f10",
-                                    @(NSF11FunctionKey): @"f11",
-                                    @(NSF12FunctionKey): @"f12",
-                                    @(NSF13FunctionKey): @"f13",
-                                    @(NSF14FunctionKey): @"f14",
-                                    @(NSF15FunctionKey): @"f15",
-                                    @(NSF16FunctionKey): @"f16",
-                                    @(NSF17FunctionKey): @"f17",
-                                    @(NSF18FunctionKey): @"f18",
-                                    @(NSF19FunctionKey): @"f19",
-                                    @(NSDeleteFunctionKey): @"forwardDelete",
-                                    @(NSHomeFunctionKey): @"home",
-                                    @(NSEndFunctionKey): @"end",
-                                    @(NSPageUpFunctionKey): @"pageUp",
-                                    @(NSPageDownFunctionKey): @"pageDown",
-                                    @(NSClearLineFunctionKey): @"clear",
-                                    @(NSHelpFunctionKey): @"help" };
+    /* Special Keys */
+
+    PHStringToKeyCode = @{ /* Action Keys */
+
+                           @"return": @(kVK_Return),
+                           @"tab": @(kVK_Tab),
+                           @"space": @(kVK_Space),
+                           @"delete": @(kVK_Delete),
+                           @"escape": @(kVK_Escape),
+                           @"help": @(kVK_Help),
+                           @"home": @(kVK_Home),
+                           @"pageUp": @(kVK_PageUp),
+                           @"forwardDelete": @(kVK_ForwardDelete),
+                           @"end": @(kVK_End),
+                           @"pageDown": @(kVK_PageDown),
+                           @"left": @(kVK_LeftArrow),
+                           @"right": @(kVK_RightArrow),
+                           @"down": @(kVK_DownArrow),
+                           @"up": @(kVK_UpArrow),
+
+                           /* Function Keys */
+
+                           @"f1": @(kVK_F1),
+                           @"f2": @(kVK_F2),
+                           @"f3": @(kVK_F3),
+                           @"f4": @(kVK_F4),
+                           @"f5": @(kVK_F5),
+                           @"f6": @(kVK_F6),
+                           @"f7": @(kVK_F7),
+                           @"f8": @(kVK_F8),
+                           @"f9": @(kVK_F9),
+                           @"f10": @(kVK_F10),
+                           @"f11": @(kVK_F11),
+                           @"f12": @(kVK_F12),
+                           @"f13": @(kVK_F13),
+                           @"f14": @(kVK_F14),
+                           @"f15": @(kVK_F15),
+                           @"f16": @(kVK_F16),
+                           @"f17": @(kVK_F17),
+                           @"f18": @(kVK_F18),
+                           @"f19": @(kVK_F19),
+
+                           /* Keypad Keys */
+
+                           @"pad.": @(kVK_ANSI_KeypadDecimal),
+                           @"pad*": @(kVK_ANSI_KeypadMultiply),
+                           @"pad+": @(kVK_ANSI_KeypadPlus),
+                           @"padClear": @(kVK_ANSI_KeypadClear),
+                           @"pad/": @(kVK_ANSI_KeypadDivide),
+                           @"padEnter": @(kVK_ANSI_KeypadEnter),
+                           @"pad-": @(kVK_ANSI_KeypadMinus),
+                           @"pad=": @(kVK_ANSI_KeypadEquals),
+                           @"pad0": @(kVK_ANSI_Keypad0),
+                           @"pad1": @(kVK_ANSI_Keypad1),
+                           @"pad2": @(kVK_ANSI_Keypad2),
+                           @"pad3": @(kVK_ANSI_Keypad3),
+                           @"pad4": @(kVK_ANSI_Keypad4),
+                           @"pad5": @(kVK_ANSI_Keypad5),
+                           @"pad6": @(kVK_ANSI_Keypad6),
+                           @"pad7": @(kVK_ANSI_Keypad7),
+                           @"pad8": @(kVK_ANSI_Keypad8),
+                           @"pad9": @(kVK_ANSI_Keypad9) };
+
+    PHResolvedLocalKeyCodes = [NSMutableDictionary dictionary];
+
+    // Resolve local keys
+    for (NSNumber *keyCode in PHLocalKeyCodes) {
+        NSString *character = [self characterForKeyCode:keyCode.unsignedShortValue];
+        PHResolvedLocalKeyCodes[character] = keyCode;
+    }
 }
 
 #pragma mark - Translate
@@ -90,20 +178,39 @@ static NSDictionary *PHUnicodeCharacterToString;
     return [NSString stringWithCharacters:unicodeString length:actualStringLength];
 }
 
-+ (NSString *) charactersForEvent:(NSEvent *)event {
++ (UInt32) modifierFlagsForModifiers:(NSArray *)modifiers {
 
-    // No key character
-    if (event.charactersIgnoringModifiers.length == 0) {
-        return nil;
+    UInt32 flags = 0;
+
+    for (NSString *modifier in modifiers) {
+
+        NSNumber *flag = PHModifierStringToFlag[modifier];
+
+        if (flag) {
+            flags |= flag.unsignedIntValue;
+        }
     }
 
-    NSString *characters = PHUnicodeCharacterToString[@([event.charactersIgnoringModifiers characterAtIndex:0])];
+    return flags;
+}
 
-    if (characters) {
-        return characters;
++ (UInt32) keyCodeForString:(NSString *)string {
+
+    // Local key
+    NSNumber *keyCode = PHResolvedLocalKeyCodes[string];
+
+    if (keyCode) {
+        return keyCode.unsignedIntValue;
     }
 
-    return [self characterForKeyCode:event.keyCode];
+    // Special key
+    keyCode = PHStringToKeyCode[string];
+
+    if (keyCode) {
+        return keyCode.unsignedIntValue;
+    }
+
+    return UINT32_MAX;
 }
 
 @end

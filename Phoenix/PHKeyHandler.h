@@ -2,7 +2,7 @@
  * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
  */
 
-@import Cocoa;
+@import Foundation;
 @import JavaScriptCore;
 
 #import "PHIdentifiableJSExport.h"
@@ -15,7 +15,12 @@ typedef void (^PHKeyHandlerBlock)();
 
 @property (readonly) NSString *key;
 @property (readonly) NSArray *modifiers;
-@property BOOL enabled;
+
+#pragma mark - Binding
+
+- (BOOL) isEnabled;
+- (BOOL) enable;
+- (BOOL) disable;
 
 @end
 
@@ -23,7 +28,8 @@ typedef void (^PHKeyHandlerBlock)();
 
 #pragma mark Properties
 
-@property BOOL enabled;
+@property (readonly) UInt32 identifier;
+@property (copy) PHKeyHandlerBlock handler;
 
 #pragma mark - Initialise
 
@@ -31,7 +37,7 @@ typedef void (^PHKeyHandlerBlock)();
 
 #pragma mark - Hash
 
-+ (NSUInteger) hashForKey:(NSString *)key modifierFlags:(NSEventModifierFlags)flags;
++ (NSUInteger) hashForKey:(NSString *)key modifiers:(NSArray *)modifiers;
 
 #pragma mark - Invoke
 

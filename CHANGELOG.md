@@ -20,7 +20,6 @@ Release: dd.mm.yyyy
 
 - Alerts are now delivered to the Notification Center and logged to the Console for easier debugging.
 - Now reloading the context gives no alert unless an error is encountered.
-- Keys are now handled through NSEvents, replacing the older Carbon-bindings.
 - Objects that implement `Identifiable` can be identified and compared.
 
 ### API
@@ -37,9 +36,7 @@ Release: dd.mm.yyyy
 #### KeyHandler
 
 - New: KeyHandler now implements `Identifiable`.
-- Change: Special keys are now camelCased instead of underscored. See changed [keys](Phoenix/PHKeyTranslator.m#L17-L58).
-- Change: Pad-keys are now binded with the `pad`-modifier instead of the previous special `PAD`-prefixed keys.
-- Change: To enable or disable a `KeyHandler`, please now use the `enabled`-property instead of the previous enable- and disable-functions.
+- Change: Special keys are now camelCased instead of underscored. See changed [keys](Phoenix/PHKeyTranslator.m#L79-L138).
 
 #### Screen
 

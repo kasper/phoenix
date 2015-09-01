@@ -6,7 +6,6 @@
 #import "PHCommand.h"
 #import "PHContext.h"
 #import "PHKeyHandler.h"
-#import "PHKeyTranslator.h"
 #import "PHModalWindowController.h"
 #import "PHMouse.h"
 #import "PHNotification.h"
@@ -20,6 +19,7 @@
 @property NSMutableSet *paths;
 @property PHPathWatcher *watcher;
 @property NSMutableDictionary *keyHandlers;
+@property NSMutableDictionary *keyHandlersByIdentifier;
 
 @end
 
@@ -38,6 +38,7 @@
     if (self = [super init]) {
         self.paths = [NSMutableSet set];
         self.keyHandlers = [NSMutableDictionary dictionary];
+        self.keyHandlersByIdentifier = [NSMutableDictionary dictionary];
     }
 
     return self;
@@ -80,7 +81,9 @@
 
 - (void) resetKeyHandlers {
 
+    [self.keyHandlers.allValues makeObjectsPerformSelector:@selector(disable)];
     [self.keyHandlers removeAllObjects];
+    [self.keyHandlersByIdentifier removeAllObjects];
 }
 
 #pragma mark - Setup
@@ -184,23 +187,28 @@
 
 - (PHKeyHandler *) bindKey:(NSString *)key modifiers:(NSArray *)modifiers callback:(JSValue *)callback {
 
-    PHKeyHandler *keyHandler = [PHKeyHandler withKey:key modifiers:modifiers handler:^{
+    PHKeyHandlerBlock handler = ^{ [callback callWithArguments:@[]]; };
+    PHKeyHandler *existingKeyHandler = self.keyHandlers[@([PHKeyHandler hashForKey:key modifiers:modifiers])];
 
-        [callback callWithArguments:@[]];
-    }];
+    // Change handler for existing key
+    if (existingKeyHandler) {
+        existingKeyHandler.handler = handler;
+        return existingKeyHandler;
+    }
 
+    // Bind new key
+    PHKeyHandler *keyHandler = [PHKeyHandler withKey:key modifiers:modifiers handler:handler];
     self.keyHandlers[@(keyHandler.hash)] = keyHandler;
+    self.keyHandlersByIdentifier[@(keyHandler.identifier)] = keyHandler;
+
     return keyHandler;
 }
 
 #pragma mark - Events
 
-- (void) keyDown:(NSEvent *)event {
+- (void) keyDown:(UInt32)identifier {
 
-    NSUInteger hash = [PHKeyHandler hashForKey:[PHKeyTranslator charactersForEvent:event]
-                                 modifierFlags:event.modifierFlags];
-
-    PHKeyHandler *keyHandler = self.keyHandlers[@(hash)];
+    PHKeyHandler *keyHandler = self.keyHandlersByIdentifier[@(identifier)];
     [keyHandler invoke];
 }
 

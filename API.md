@@ -52,8 +52,8 @@ Your configuration file is loaded when the app launches. All functions are evalu
 
 All valid keys for binding are as follows:
 
-- Modifiers: `cmd`, `alt`, `ctrl`, `shift` and `pad` (case insensitive)
-- Keys: case insensitive character or special key including function keys, arrow keys, etc. as [listed](Phoenix/PHKeyTranslator.m#L17-L58)
+- Modifiers: `cmd`, `alt`, `ctrl` and `shift` (case insensitive)
+- Keys: case insensitive character or special key including function keys, arrow keys, keypad keys etc. as [listed](Phoenix/PHKeyTranslator.m#L79-L138)
 - You can bind any key on your keyboard layout, for example an `å`-character if your keyboard has one.
 
 ## Require
@@ -143,21 +143,25 @@ end
 
 ## KeyHandler
 
-Use the `KeyHandler`-object to enable or disable keys. To override a previous handler, bind the key again. KeyHandlers are always reset on context reload.
+Use the `KeyHandler`-object to enable or disable keys. To change a previous handler, bind the key again. KeyHandlers are always reset on context reload. Enabling a key combination that has been exclusively registered by another app will fail.
 
 ```java
 class KeyHandler implements Identifiable
 
     property String key
     property Array<String> modifiers
-    property boolean enabled
+    boolean isEnabled()
+    boolean enable()
+    boolean disable()
 
 end
 ```
 
-- `key` read-only property for the key character
+- `key` read-only property for the key character(s)
 - `modifiers` read-only property for the key modifiers
-- `enabled` property for whether the handler is enabled, by default `true`
+- `isEnabled()` returns `true` if the key handler is enabled, by default `true`
+- `enable()` enables the key handler, returns `true` if successful
+- `disable()` disables the key handler, returns `true` if successful
 
 ## Modal
 

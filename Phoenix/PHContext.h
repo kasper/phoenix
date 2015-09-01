@@ -2,7 +2,7 @@
  * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
  */
 
-@import Cocoa;
+@import Foundation;
 @import JavaScriptCore;
 
 @class PHKeyHandler;
@@ -19,6 +19,6 @@
 
 #pragma mark - Events
 
-- (void) keyDown:(NSEvent *)event;
+- (void) keyDown:(UInt32)identifier;
 
 @end

@@ -2,12 +2,13 @@
  * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
  */
 
-@import Cocoa;
+@import Foundation;
 
 @interface PHKeyTranslator : NSObject
 
 #pragma mark - Translate
 
-+ (NSString *) charactersForEvent:(NSEvent *)event;
++ (UInt32) modifierFlagsForModifiers:(NSArray *)modifiers;
++ (UInt32) keyCodeForString:(NSString *)string;
 
 @end

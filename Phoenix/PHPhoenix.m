@@ -27,7 +27,9 @@
 
 + (PHKeyHandler *) bindKey:(NSString *)key modifiers:(NSArray *)modifiers callback:(JSValue *)callback {
 
-    return [[self delegate] bindKey:key modifiers:modifiers callback:callback];
+    return [[self delegate] bindKey:key.lowercaseString
+                          modifiers:[modifiers valueForKey:@"lowercaseString"]
+                           callback:callback];
 }
 
 + (void) log:(NSString *)message {

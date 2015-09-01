@@ -12,7 +12,6 @@
 
 @property PHContext *context;
 @property NSStatusItem *statusItem;
-@property id globalKeyDownMonitor;
 
 #pragma mark IBOutlet
 
@@ -31,14 +30,6 @@
     self.statusItem.menu = self.statusItemMenu;
 }
 
-- (void) setupGlobalKeyDownMonitor {
-
-    self.globalKeyDownMonitor = [NSEvent addGlobalMonitorForEventsMatchingMask:NSKeyDownMask handler:^(NSEvent *event) {
-
-        [self.context keyDown:event];
-    }];
-}
-
 #pragma mark - NSApplicationDelegate
 
 - (void) applicationDidFinishLaunching:(NSNotification *)__unused notification {
@@ -49,12 +40,6 @@
     [self.context load];
 
     [self setupStatusItem];
-    [self setupGlobalKeyDownMonitor];
-}
-
-- (void) applicationWillTerminate:(NSNotification *)__unused notification {
-
-    [NSEvent removeMonitor:self.globalKeyDownMonitor];
 }
 
 #pragma mark - NSMenuDelegate
@@ -92,6 +77,13 @@
 - (IBAction) toggleOpenAtLogin:(NSMenuItem *)sender {
 
     [PHOpenAtLogin setOpensAtLogin:sender.state == NSOffState];
+}
+
+#pragma mark - Events
+
+- (void) keyDown:(UInt32)identifier {
+
+    [self.context keyDown:identifier];
 }
 
 @end

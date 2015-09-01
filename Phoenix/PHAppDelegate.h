@@ -20,4 +20,8 @@
 - (IBAction) showAboutPanel:(id)sender;
 - (IBAction) toggleOpenAtLogin:(NSMenuItem *)sender;
 
+#pragma mark - Events
+
+- (void) keyDown:(UInt32)identifier;
+
 @end
