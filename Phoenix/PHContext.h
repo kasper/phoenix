@@ -7,7 +7,7 @@
 
 @class PHKeyHandler;
 
-@interface PHContext : NSObject
+@protocol PHContextDelegate <NSObject>
 
 #pragma mark - Loading
 
@@ -16,5 +16,9 @@
 #pragma mark - Binding
 
 - (PHKeyHandler *) bindKey:(NSString *)key modifiers:(NSArray *)modifiers callback:(JSValue *)callback;
+
+@end
+
+@interface PHContext : NSObject <PHContextDelegate>
 
 @end

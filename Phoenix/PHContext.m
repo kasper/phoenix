@@ -138,7 +138,7 @@
 
     PHContext * __weak weakSelf = self;
 
-    self.context[@"Phoenix"] = [PHPhoenix class];
+    self.context[@"Phoenix"] = [[PHPhoenix alloc] initWithDelegate:self];
     self.context[@"Modal"] = [PHModalWindowController class];
     self.context[@"Command"] = [PHCommand class];
     self.context[@"Screen"] = [NSScreen class];

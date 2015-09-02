@@ -4,7 +4,6 @@
 
 #import "PHAppDelegate.h"
 #import "PHContext.h"
-#import "PHKeyHandler.h"
 #import "PHOpenAtLogin.h"
 #import "PHUniversalAccessHelper.h"
 
@@ -49,23 +48,11 @@
     [menu itemWithTitle:@"Open at Login"].state = [PHOpenAtLogin opensAtLogin] ? NSOnState : NSOffState;
 }
 
-#pragma mark - Delegate
-
-- (void) reloadContext {
-
-    [self.context load];
-}
-
-- (PHKeyHandler *) bindKey:(NSString *)key modifiers:(NSArray *)modifiers callback:(JSValue *)callback {
-
-    return [self.context bindKey:key modifiers:modifiers callback:callback];
-}
-
 #pragma mark - IBAction
 
 - (IBAction) reloadContext:(id)__unused sender {
 
-    [self reloadContext];
+    [self.context load];
 }
 
 - (IBAction) showAboutPanel:(id)sender {

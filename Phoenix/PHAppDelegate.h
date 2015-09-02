@@ -3,16 +3,8 @@
  */
 
 @import Cocoa;
-@import JavaScriptCore;
-
-@class PHKeyHandler;
 
 @interface PHAppDelegate : NSObject <NSApplicationDelegate, NSMenuDelegate>
-
-#pragma mark - Delegate
-
-- (void) reloadContext;
-- (PHKeyHandler *) bindKey:(NSString *)key modifiers:(NSArray *)modifiers callback:(JSValue *)callback;
 
 #pragma mark - IBAction
 
