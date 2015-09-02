@@ -245,7 +245,7 @@ end
 
 ## App
 
-Use the `App`-object to control apps. Beware that an app can get stale if you keep a reference to it and it is for instance terminated while you do so.
+Use the `App`-object to control apps. Beware that an app can get stale if you keep a reference to it and it is for instance terminated while you do so, see `isTerminated()`.
 
 ```java
 class App implements Identifiable
@@ -255,7 +255,9 @@ class App implements Identifiable
     int processIdentifier()
     String bundleIdentifier()
     String name()
+    boolean isActive()
     boolean isHidden()
+    boolean isTerminated()
     Array<Window> windows()
     Array<Window> visibleWindows()
     boolean activate()
@@ -273,7 +275,9 @@ end
 - `processIdentifier()` returns the process identifier (PID) for the app, returns `-1` if the app does not have a PID
 - `bundleIdentifier()` returns the bundle identifier for the app
 - `name()` returns the name for the app
+- `isActive()` returns `true` if the app is currently frontmost
 - `isHidden()` returns `true` if the app is hidden
+- `isTerminated()` returns `true` if the app has been terminated
 - `windows()` returns all windows for the app
 - `visibleWindows()` returns all visible windows for the app
 - `activate()` activates the app and brings its windows forward, returns `true` if successful

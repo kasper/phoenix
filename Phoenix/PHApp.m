@@ -78,9 +78,19 @@
     return self.app.localizedName;
 }
 
+- (BOOL) isActive {
+
+    return [self.app isActive];
+}
+
 - (BOOL) isHidden {
 
     return [self.app isHidden];
+}
+
+- (BOOL) isTerminated {
+
+    return [self.app isTerminated];
 }
 
 #pragma mark - Windows

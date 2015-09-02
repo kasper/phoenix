@@ -20,7 +20,9 @@
 - (pid_t) processIdentifier;
 - (NSString *) bundleIdentifier;
 - (NSString *) name;
+- (BOOL) isActive;
 - (BOOL) isHidden;
+- (BOOL) isTerminated;
 
 #pragma mark - Windows
 
