@@ -5,6 +5,8 @@
 @import Cocoa;
 @import JavaScriptCore;
 
+@class PHWindow;
+
 #import "PHAXUIElement.h"
 #import "PHIdentifiableJSExport.h"
 
@@ -27,6 +29,7 @@
 
 #pragma mark - Windows
 
+- (PHWindow *) mainWindow;
 - (NSArray *) windows;
 - (NSArray *) visibleWindows;
 

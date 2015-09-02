@@ -259,6 +259,7 @@ class App implements Identifiable
     boolean isActive()
     boolean isHidden()
     boolean isTerminated()
+    Window mainWindow()
     Array<Window> windows()
     Array<Window> visibleWindows()
     boolean activate()
@@ -280,6 +281,7 @@ end
 - `isActive()` returns `true` if the app is currently frontmost
 - `isHidden()` returns `true` if the app is hidden
 - `isTerminated()` returns `true` if the app has been terminated
+- `mainWindow()` returns the main window for the app
 - `windows()` returns all windows for the app
 - `visibleWindows()` returns all visible windows for the app
 - `activate()` activates the app and brings its windows forward, returns `true` if successful

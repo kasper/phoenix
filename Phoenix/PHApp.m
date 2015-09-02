@@ -100,6 +100,11 @@
 
 #pragma mark - Windows
 
+- (PHWindow *) mainWindow {
+
+    return [[PHWindow alloc] initWithElement:[self valueForAttribute:NSAccessibilityMainWindowAttribute]];
+}
+
 - (NSArray *) windows {
 
     NSMutableArray *windows = [NSMutableArray array];

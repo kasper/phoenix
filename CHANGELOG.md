@@ -59,6 +59,7 @@ Release: dd.mm.yyyy
 - New: Function `focusedApp()` returns the focused app.
 - New: Function `isActive()` returns whether the app is currently frontmost.
 - New: Function `isTerminated()` returns whether the app has been terminated.
+- New: Function `mainWindow()` returns the main window for the app.
 - New: A new function `focus()` focuses the app and its windows.
 - Change: Property `pid` is now a function called `processIdentifier()`.
 - Change: Function `title()` is now called `name()`.
