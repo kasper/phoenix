@@ -250,8 +250,9 @@ Use the `App`-object to control apps. Beware that an app can get stale if you ke
 ```java
 class App implements Identifiable
 
-    static Array<App> runningApps()
     static App launch(String appName)
+    static App focusedApp()
+    static Array<App> runningApps()
     int processIdentifier()
     String bundleIdentifier()
     String name()
@@ -270,8 +271,9 @@ class App implements Identifiable
 end
 ```
 
-- `runningApps()` returns all running apps
 - `launch(String appName)` (launches to the background and) returns the app with the given name, returns `undefined` if unsuccessful
+- `focusedApp()` returns the focused app
+- `runningApps()` returns all running apps
 - `processIdentifier()` returns the process identifier (PID) for the app, returns `-1` if the app does not have a PID
 - `bundleIdentifier()` returns the bundle identifier for the app
 - `name()` returns the name for the app

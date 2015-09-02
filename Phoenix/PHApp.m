@@ -27,17 +27,6 @@
 
 #pragma mark - Apps
 
-+ (NSArray *) runningApps {
-
-    NSMutableArray *apps = [NSMutableArray array];
-    
-    for (NSRunningApplication *runningApp in [NSWorkspace sharedWorkspace].runningApplications) {
-        [apps addObject:[[PHApp alloc] initWithApp:runningApp]];
-    }
-    
-    return apps;
-}
-
 + (instancetype) launch:(NSString *)appName {
 
     NSWorkspace *sharedWorkspace = [NSWorkspace sharedWorkspace];
@@ -59,6 +48,22 @@
     }
 
     return [[PHApp alloc] initWithApp:app];
+}
+
++ (instancetype) focusedApp {
+
+    return [[PHApp alloc] initWithApp:[NSWorkspace sharedWorkspace].frontmostApplication];
+}
+
++ (NSArray *) runningApps {
+
+    NSMutableArray *apps = [NSMutableArray array];
+
+    for (NSRunningApplication *runningApp in [NSWorkspace sharedWorkspace].runningApplications) {
+        [apps addObject:[[PHApp alloc] initWithApp:runningApp]];
+    }
+
+    return apps;
 }
 
 #pragma mark - Properties

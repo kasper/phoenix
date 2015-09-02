@@ -12,8 +12,9 @@
 
 #pragma mark - Apps
 
-+ (NSArray *) runningApps;
 + (instancetype) launch:(NSString *)appName;
++ (instancetype) focusedApp;
++ (NSArray *) runningApps;
 
 #pragma mark - Properties
 
