@@ -69,6 +69,7 @@ Release: dd.mm.yyyy
 
 - New: Window now implements `Identifiable`.
 - New: All actions return a boolean value for determining success.
+- New: Function `isMain()` returns whether the window is the main window for its app.
 - Change: Function `allWindows()` is now simply `windows()`.
 - Change: Function `visibleWindowsMostRecentFirst()` is renamed to `visibleWindowsInOrder()` for clarity.
 - Change: Function `isNormalWindow()` is now simply `isNormal()`.

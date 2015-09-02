@@ -303,6 +303,7 @@ class Window implements Identifiable
     Array<Window> otherWindowsOnSameScreen()
     Array<Window> otherWindowsOnAllScreens()
     String title()
+    boolean isMain()
     boolean isNormal()
     boolean isMinimized()
     App app()
@@ -336,6 +337,7 @@ end
 - `otherWindowsOnSameScreen()` returns all other windows on the same screen as the window
 - `otherWindowsOnAllScreens()` returns all other windows on all screens
 - `title()` returns the title for the window
+- `isMain()` returns `true` if the window is the main window for its app
 - `isNormal()` returns `true` if the window is a normal window
 - `isMinimized()` returns `true` if the window is minimised
 - `app()` returns the app for the window

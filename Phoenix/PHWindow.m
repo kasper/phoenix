@@ -139,6 +139,11 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
     return [self valueForAttribute:NSAccessibilityTitleAttribute withDefaultValue:@""];
 }
 
+- (BOOL) isMain {
+
+    return [[self valueForAttribute:NSAccessibilityMainAttribute withDefaultValue:@NO] boolValue];
+}
+
 - (BOOL) isNormal {
 
     return [[self subrole] isEqualToString:NSAccessibilityStandardWindowSubrole];

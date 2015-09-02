@@ -25,6 +25,7 @@
 #pragma mark - Properties
 
 - (NSString *) title;
+- (BOOL) isMain;
 - (BOOL) isNormal;
 - (BOOL) isMinimized;
 - (PHApp *) app;
