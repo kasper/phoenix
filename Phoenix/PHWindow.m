@@ -226,19 +226,14 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
     return [self setFrame:screenRect];
 }
 
-- (BOOL) setWindowMinimized:(BOOL)flag {
-
-    return [self setAttribute:NSAccessibilityMinimizedAttribute withValue:@(flag)];
-}
-
 - (BOOL) minimize {
 
-    return [self setWindowMinimized:YES];
+    return [self setAttribute:NSAccessibilityMinimizedAttribute withValue:@YES];
 }
 
 - (BOOL) unminimize {
 
-    return [self setWindowMinimized:NO];
+    return [self setAttribute:NSAccessibilityMinimizedAttribute withValue:@NO];
 }
 
 #pragma mark - Alignment
