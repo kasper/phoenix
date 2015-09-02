@@ -146,7 +146,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
 
 - (BOOL) isMinimized {
 
-    return [[self valueForAttribute:NSAccessibilityMinimizedAttribute withDefaultValue:@(NO)] boolValue];
+    return [[self valueForAttribute:NSAccessibilityMinimizedAttribute withDefaultValue:@NO] boolValue];
 }
 
 - (NSScreen *) screen {
