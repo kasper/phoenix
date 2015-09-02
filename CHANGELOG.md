@@ -41,6 +41,8 @@ Release: dd.mm.yyyy
 #### Screen
 
 - New: Screen now implements `Identifiable`.
+- New: Function `mainScreen()` returns the screen containing the window with the keyboard focus.
+- New: Function `screens()` returns all screens.
 - Change: For clarity, functions `frameIncludingDockAndMenu()` and `frameWithoutDockOrMenu()` are now `frameInRectangle()` and `visibleFrameInRectangle()`, respectively.
 - Change: Functions `nextScreen()` and `previousScreen()` are now simply `next()` and `previous()`.
 

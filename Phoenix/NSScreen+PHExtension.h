@@ -9,6 +9,11 @@
 
 @protocol NSScreenJSExport <JSExport, PHIdentifiableJSExport>
 
+#pragma mark - Screens
+
++ (NSScreen *) mainScreen;
++ (NSArray *) screens;
+
 #pragma mark - Frame
 
 - (NSRect) frameInRectangle;

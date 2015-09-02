@@ -210,6 +210,8 @@ Use the `Screen`-object to access frame sizes and other screens on a multi-scree
 ```java
 class Screen implements Identifiable
 
+    static Screen mainScreen()
+    static Array<Screen> screens()
     Rectangle frameInRectangle()
     Rectangle visibleFrameInRectangle()
     Screen next()
@@ -218,6 +220,8 @@ class Screen implements Identifiable
 end
 ```
 
+- `mainScreen()` returns the screen containing the window with the keyboard focus
+- `screens()` returns all screens, the first screen in this array corresponds to the primary screen for the system
 - `frameInRectangle()` returns the whole frame for the screen
 - `visibleFrameInRectangle()` returns the visible frame for the screen subtracting the Dock and Menu from the frame when visible
 - `next()` returns the next screen or the first screen when on the last one
