@@ -17,8 +17,4 @@
 
 - (PHKeyHandler *) bindKey:(NSString *)key modifiers:(NSArray *)modifiers callback:(JSValue *)callback;
 
-#pragma mark - Events
-
-- (void) keyDown:(UInt32)identifier;
-
 @end

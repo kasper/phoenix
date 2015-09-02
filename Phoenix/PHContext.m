@@ -36,26 +36,26 @@
 - (instancetype) init {
 
     if (self = [super init]) {
+
         self.paths = [NSMutableSet set];
         self.keyHandlers = [NSMutableDictionary dictionary];
         self.keyHandlersByIdentifier = [NSMutableDictionary dictionary];
+
+        // Listen to key down notification
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyDown:)
+                                                     name:PHKeyHandlerKeyDownNotification
+                                                   object:nil];
     }
 
     return self;
 }
 
-- (void) createConfigurationFile:(NSString *)path {
+#pragma mark - Dealloc
 
-    BOOL fileCreated = [[NSFileManager defaultManager] createFileAtPath:path
-                                                               contents:[@"" dataUsingEncoding:NSUTF8StringEncoding]
-                                                             attributes:nil];
+- (void) dealloc {
 
-    if (!fileCreated) {
-        NSLog(@"Error: Could not create configuration file to path %@.", path);
-        return;
-    }
-
-    [PHNotification deliver:[NSString stringWithFormat:@"Configuration file %@ was created.", path]];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:PHKeyHandlerKeyDownNotification object:nil];
 }
 
 #pragma mark - Resetting
@@ -105,6 +105,20 @@
     }
 
     return path.stringByStandardizingPath;
+}
+
+- (void) createConfigurationFile:(NSString *)path {
+
+    BOOL fileCreated = [[NSFileManager defaultManager] createFileAtPath:path
+                                                               contents:[@"" dataUsingEncoding:NSUTF8StringEncoding]
+                                                             attributes:nil];
+
+    if (!fileCreated) {
+        NSLog(@"Error: Could not create configuration file to path %@.", path);
+        return;
+    }
+
+    [PHNotification deliver:[NSString stringWithFormat:@"Configuration file %@ was created.", path]];
 }
 
 - (void) loadScript:(NSString *)path {
@@ -204,11 +218,11 @@
     return keyHandler;
 }
 
-#pragma mark - Events
+#pragma mark - Notifications
 
-- (void) keyDown:(UInt32)identifier {
+- (void) keyDown:(NSNotification *)notification {
 
-    PHKeyHandler *keyHandler = self.keyHandlersByIdentifier[@(identifier)];
+    PHKeyHandler *keyHandler = self.keyHandlersByIdentifier[notification.userInfo[PHKeyHandlerIdentifier]];
     [keyHandler invoke];
 }
 

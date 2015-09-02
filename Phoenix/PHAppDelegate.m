@@ -79,11 +79,4 @@
     [PHOpenAtLogin setOpensAtLogin:sender.state == NSOffState];
 }
 
-#pragma mark - Events
-
-- (void) keyDown:(UInt32)identifier {
-
-    [self.context keyDown:identifier];
-}
-
 @end

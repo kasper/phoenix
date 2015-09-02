@@ -3,9 +3,7 @@
  */
 
 @import Carbon;
-@import Cocoa;
 
-#import "PHAppDelegate.h"
 #import "PHKeyHandler.h"
 #import "PHKeyTranslator.h"
 
@@ -43,7 +41,9 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
         return error;
     }
 
-    [(PHAppDelegate *) [NSApplication sharedApplication].delegate keyDown:identifier.id];
+    [[NSNotificationCenter defaultCenter] postNotificationName:PHKeyHandlerKeyDownNotification
+                                                        object:nil
+                                                      userInfo:@{ PHKeyHandlerIdentifier: @(identifier.id) }];
     return noErr;
 }
 

@@ -9,6 +9,9 @@
 
 typedef void (^PHKeyHandlerBlock)();
 
+static NSString * const PHKeyHandlerIdentifier = @"PHKeyHandlerIdentifier";
+static NSString * const PHKeyHandlerKeyDownNotification = @"PHKeyHandlerKeyDownNotification";
+
 @protocol PHKeyHandlerJSExport <JSExport, PHIdentifiableJSExport>
 
 #pragma mark Exported Properties
