@@ -157,8 +157,8 @@ class KeyHandler implements Identifiable
 end
 ```
 
-- `key` read-only property for the key character(s)
-- `modifiers` read-only property for the key modifiers
+- `key` read-only property for the key character(s) in lower case
+- `modifiers` read-only property for the key modifiers in lower case
 - `isEnabled()` returns `true` if the key handler is enabled, by default `true`
 - `enable()` enables the key handler, returns `true` if successful
 - `disable()` disables the key handler, returns `true` if successful

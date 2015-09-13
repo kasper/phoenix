@@ -85,10 +85,10 @@ static NSMutableDictionary *PHResolvedLocalKeyCodes;
                            @"escape": @(kVK_Escape),
                            @"help": @(kVK_Help),
                            @"home": @(kVK_Home),
-                           @"pageUp": @(kVK_PageUp),
-                           @"forwardDelete": @(kVK_ForwardDelete),
+                           @"pageup": @(kVK_PageUp), // pageUp
+                           @"forwarddelete": @(kVK_ForwardDelete), // forwardDelete
                            @"end": @(kVK_End),
-                           @"pageDown": @(kVK_PageDown),
+                           @"pagedown": @(kVK_PageDown), // pageDown
                            @"left": @(kVK_LeftArrow),
                            @"right": @(kVK_RightArrow),
                            @"down": @(kVK_DownArrow),
@@ -121,9 +121,9 @@ static NSMutableDictionary *PHResolvedLocalKeyCodes;
                            @"pad.": @(kVK_ANSI_KeypadDecimal),
                            @"pad*": @(kVK_ANSI_KeypadMultiply),
                            @"pad+": @(kVK_ANSI_KeypadPlus),
-                           @"padClear": @(kVK_ANSI_KeypadClear),
+                           @"padclear": @(kVK_ANSI_KeypadClear), // padClear
                            @"pad/": @(kVK_ANSI_KeypadDivide),
-                           @"padEnter": @(kVK_ANSI_KeypadEnter),
+                           @"padenter": @(kVK_ANSI_KeypadEnter), // padEnter
                            @"pad-": @(kVK_ANSI_KeypadMinus),
                            @"pad=": @(kVK_ANSI_KeypadEquals),
                            @"pad0": @(kVK_ANSI_Keypad0),
