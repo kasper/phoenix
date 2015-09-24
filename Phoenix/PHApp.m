@@ -40,7 +40,7 @@
     NSError *error;
     NSRunningApplication *app = [sharedWorkspace launchApplicationAtURL:[NSURL fileURLWithPath:appPath]
                                                                 options:NSWorkspaceLaunchWithoutActivation
-                                                          configuration:nil
+                                                          configuration:@{}
                                                                   error:&error];
     if (error) {
         NSLog(@"Error: Could not launch app %@. (%@)", appName, error);

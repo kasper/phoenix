@@ -24,6 +24,7 @@ JSExportAs(bind, - (PHKeyHandler *) bindKey:(NSString *)key modifiers:(NSArray *
 
 #pragma mark - Initialise
 
+- (instancetype) init NS_UNAVAILABLE;
 - (instancetype) initWithDelegate:(id<PHContextDelegate>)delegate NS_DESIGNATED_INITIALIZER;
 
 @end
