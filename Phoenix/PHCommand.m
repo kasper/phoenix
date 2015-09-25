@@ -27,7 +27,7 @@
     }
 
     [task waitUntilExit];
-    return [task terminationStatus] == 0;
+    return task.terminationStatus == 0;
 }
 
 @end

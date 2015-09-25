@@ -59,7 +59,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
     NSPredicate *visibility = [NSPredicate predicateWithBlock:^BOOL (PHWindow *window,
                                                                      __unused NSDictionary *bindings) {
 
-        return ![[window app] isHidden] && [window isNormal] && ![window isMinimized];
+        return ![window.app isHidden] && [window isNormal] && ![window isMinimized];
     }];
 
     return [[self windows] filteredArrayUsingPredicate:visibility];
@@ -323,7 +323,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
     }
 
     // Focus app
-    return [[self app] focus];
+    return [self.app focus];
 }
 
 - (BOOL) focusFirstClosestWindowIn:(NSArray *)closestWindows {

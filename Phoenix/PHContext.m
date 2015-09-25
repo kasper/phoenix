@@ -69,7 +69,7 @@
 
     PHContext * __weak weakSelf = self;
 
-    self.watcher = [PHPathWatcher watcherFor:[self.paths allObjects] handler:^{
+    self.watcher = [PHPathWatcher watcherFor:self.paths.allObjects handler:^{
 
         [[weakSelf class] cancelPreviousPerformRequestsWithTarget:weakSelf
                                                          selector:@selector(load)
