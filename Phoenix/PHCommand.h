@@ -9,7 +9,7 @@
 
 #pragma mark - Actions
 
-JSExportAs(run, + (BOOL) runPath:(NSString *)path withArguments:(NSArray *)arguments);
+JSExportAs(run, + (BOOL) runPath:(NSString *)path withArguments:(NSArray<NSString *> *)arguments);
 
 @end
 

@@ -8,6 +8,6 @@
 
 #pragma mark - Initialise
 
-+ (PHPathWatcher *) watcherFor:(NSArray *)paths handler:(void (^)())handler;
++ (PHPathWatcher *) watcherFor:(NSArray<NSString *> *)paths handler:(void (^)())handler;
 
 @end

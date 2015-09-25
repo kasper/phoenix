@@ -55,9 +55,9 @@
     return [[PHApp alloc] initWithApp:[NSWorkspace sharedWorkspace].frontmostApplication];
 }
 
-+ (NSArray *) runningApps {
++ (NSArray<PHApp *> *) runningApps {
 
-    NSMutableArray *apps = [NSMutableArray array];
+    NSMutableArray<PHApp *> *apps = [NSMutableArray array];
 
     for (NSRunningApplication *runningApp in [NSWorkspace sharedWorkspace].runningApplications) {
         [apps addObject:[[PHApp alloc] initWithApp:runningApp]];
@@ -105,9 +105,9 @@
     return [[PHWindow alloc] initWithElement:[self valueForAttribute:NSAccessibilityMainWindowAttribute]];
 }
 
-- (NSArray *) windows {
+- (NSArray<PHWindow *> *) windows {
 
-    NSMutableArray *windows = [NSMutableArray array];
+    NSMutableArray<PHWindow *> *windows = [NSMutableArray array];
     NSArray *windowUIElements = [self valuesForAttribute:NSAccessibilityWindowsAttribute fromIndex:0 count:100];
 
     for (id windowUIElement in windowUIElements) {
@@ -117,10 +117,10 @@
     return windows;
 }
 
-- (NSArray *) visibleWindows {
+- (NSArray<PHWindow *> *) visibleWindows {
 
     NSPredicate *visibility = [NSPredicate predicateWithBlock:^BOOL (PHWindow *window,
-                                                                     __unused NSDictionary *bindings) {
+                                                                     __unused NSDictionary<NSString *, id> *bindings) {
 
         return ![[window app] isHidden] && [window isNormal] && ![window isMinimized];
     }];

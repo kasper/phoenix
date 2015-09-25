@@ -17,7 +17,7 @@ static NSString * const PHKeyHandlerKeyDownNotification = @"PHKeyHandlerKeyDownN
 #pragma mark Exported Properties
 
 @property (readonly) NSString *key;
-@property (readonly) NSArray *modifiers;
+@property (readonly) NSArray<NSString *> *modifiers;
 
 #pragma mark - Binding
 
@@ -36,11 +36,13 @@ static NSString * const PHKeyHandlerKeyDownNotification = @"PHKeyHandlerKeyDownN
 
 #pragma mark - Initialise
 
-+ (PHKeyHandler *) withKey:(NSString *)key modifiers:(NSArray *)modifiers handler:(PHKeyHandlerBlock)handler;
++ (PHKeyHandler *) withKey:(NSString *)key
+                 modifiers:(NSArray<NSString *> *)modifiers
+                   handler:(PHKeyHandlerBlock)handler;
 
 #pragma mark - Hash
 
-+ (NSUInteger) hashForKey:(NSString *)key modifiers:(NSArray *)modifiers;
++ (NSUInteger) hashForKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers;
 
 #pragma mark - Invoke
 

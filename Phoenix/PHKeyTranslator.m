@@ -8,10 +8,10 @@
 
 @implementation PHKeyTranslator
 
-static NSDictionary *PHModifierStringToFlag;
-static NSArray *PHLocalKeyCodes;
-static NSDictionary *PHStringToKeyCode;
-static NSMutableDictionary *PHResolvedLocalKeyCodes;
+static NSDictionary<NSString *, NSNumber *> *PHModifierStringToFlag;
+static NSArray<NSNumber *> *PHLocalKeyCodes;
+static NSDictionary<NSString *, NSNumber *> *PHStringToKeyCode;
+static NSMutableDictionary<NSString *, NSNumber *> *PHResolvedLocalKeyCodes;
 
 #pragma mark - Initialise
 
@@ -178,7 +178,7 @@ static NSMutableDictionary *PHResolvedLocalKeyCodes;
     return [NSString stringWithCharacters:unicodeString length:actualStringLength];
 }
 
-+ (UInt32) modifierFlagsForModifiers:(NSArray *)modifiers {
++ (UInt32) modifierFlagsForModifiers:(NSArray<NSString *> *)modifiers {
 
     UInt32 flags = 0;
 

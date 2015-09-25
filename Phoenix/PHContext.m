@@ -16,10 +16,10 @@
 @interface PHContext ()
 
 @property JSContext *context;
-@property NSMutableSet *paths;
+@property NSMutableSet<NSString *> *paths;
 @property PHPathWatcher *watcher;
-@property NSMutableDictionary *keyHandlers;
-@property NSMutableDictionary *keyHandlersByIdentifier;
+@property NSMutableDictionary<NSNumber *, PHKeyHandler *> *keyHandlers;
+@property NSMutableDictionary<NSNumber *, PHKeyHandler *> *keyHandlersByIdentifier;
 
 @end
 
@@ -199,7 +199,7 @@
 
 #pragma mark - Binding
 
-- (PHKeyHandler *) bindKey:(NSString *)key modifiers:(NSArray *)modifiers callback:(JSValue *)callback {
+- (PHKeyHandler *) bindKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers callback:(JSValue *)callback {
 
     PHKeyHandlerBlock handler = ^{ [callback callWithArguments:@[]]; };
     PHKeyHandler *existingKeyHandler = self.keyHandlers[@([PHKeyHandler hashForKey:key modifiers:modifiers])];

@@ -7,7 +7,7 @@
 @interface PHPathWatcher ()
 
 @property FSEventStreamRef stream;
-@property NSArray *paths;
+@property NSArray<NSString *> *paths;
 @property (copy) void (^handler)();
 
 @end
@@ -16,7 +16,7 @@
 
 #pragma mark - Initialise
 
-+ (PHPathWatcher *) watcherFor:(NSArray *)paths handler:(void (^)())handler {
++ (PHPathWatcher *) watcherFor:(NSArray<NSString *> *)paths handler:(void (^)())handler {
 
     PHPathWatcher *watcher = [[PHPathWatcher alloc] init];
 

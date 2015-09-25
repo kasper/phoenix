@@ -55,7 +55,7 @@ static NSString * const PHMessageKeyPath = @"message";
 
 - (void) observeValueForKeyPath:(NSString *)keyPath
                        ofObject:(id)__unused object
-                         change:(NSDictionary *)__unused change
+                         change:(NSDictionary<NSString *, id> *)__unused change
                         context:(void *)__unused context {
 
     // Update text field

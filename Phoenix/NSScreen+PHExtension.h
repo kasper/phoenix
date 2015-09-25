@@ -12,7 +12,7 @@
 #pragma mark - Screens
 
 + (NSScreen *) mainScreen;
-+ (NSArray *) screens;
++ (NSArray<NSScreen *> *) screens;
 
 #pragma mark - Frame
 

@@ -14,7 +14,10 @@
 #pragma mark - Actions
 
 - (void) reload;
-JSExportAs(bind, - (PHKeyHandler *) bindKey:(NSString *)key modifiers:(NSArray *)modifiers callback:(JSValue *)callback);
+
+JSExportAs(bind, - (PHKeyHandler *) bindKey:(NSString *)key
+                                  modifiers:(NSArray<NSString *> *)modifiers
+                                   callback:(JSValue *)callback);
 - (void) log:(NSString *)message;
 - (void) notify:(NSString *)message;
 

@@ -43,9 +43,9 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
     return [[PHWindow alloc] initWithElement:focusedWindow];
 }
 
-+ (NSArray *) windows {
++ (NSArray<PHWindow *> *) windows {
 
-    NSMutableArray *windows = [NSMutableArray array];
+    NSMutableArray<PHWindow *> *windows = [NSMutableArray array];
     
     for (PHApp *app in [PHApp runningApps]) {
         [windows addObjectsFromArray:[app windows]];
@@ -54,10 +54,10 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
     return windows;
 }
 
-+ (NSArray *) visibleWindows {
++ (NSArray<PHWindow *> *) visibleWindows {
 
     NSPredicate *visibility = [NSPredicate predicateWithBlock:^BOOL (PHWindow *window,
-                                                                     __unused NSDictionary *bindings) {
+                                                                     __unused NSDictionary<NSString *, id> *bindings) {
 
         return ![window.app isHidden] && [window isNormal] && ![window isMinimized];
     }];
@@ -65,16 +65,16 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
     return [[self windows] filteredArrayUsingPredicate:visibility];
 }
 
-+ (NSArray *) visibleWindowsInOrder {
++ (NSArray<PHWindow *> *) visibleWindowsInOrder {
 
     // Windows returned in order from front to back
     NSArray *visibleWindowInfo = CFBridgingRelease(CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenOnly |
                                                                               kCGWindowListExcludeDesktopElements,
                                                                               kCGNullWindowID));
-    NSArray *windows = [self windows];
-    NSMutableArray *orderedWindows = [NSMutableArray array];
+    NSArray<PHWindow *> *windows = [self windows];
+    NSMutableArray<PHWindow *> *orderedWindows = [NSMutableArray array];
 
-    for (NSMutableDictionary *windowInfo in visibleWindowInfo) {
+    for (NSMutableDictionary<NSString *, id> *windowInfo in visibleWindowInfo) {
 
         int layer = [windowInfo[(NSString *) kCGWindowLayer] intValue];
         float alpha = [windowInfo[(NSString *) kCGWindowAlpha] floatValue];
@@ -98,10 +98,10 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
     return orderedWindows;
 }
 
-- (NSArray *) otherWindowsOnSameScreen {
+- (NSArray<PHWindow *> *) otherWindowsOnSameScreen {
 
-    NSPredicate *otherWindowOnSameScreen = [NSPredicate predicateWithBlock:^BOOL (PHWindow *window,
-                                                                                  __unused NSDictionary *bindings) {
+    NSPredicate *otherWindowOnSameScreen = [NSPredicate predicateWithBlock:
+                                            ^BOOL (PHWindow *window, __unused NSDictionary<NSString *, id> *bindings) {
 
         return ![self isEqual:window] && [[self screen] isEqual:[window screen]];
     }];
@@ -109,10 +109,10 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
     return [[PHWindow visibleWindows] filteredArrayUsingPredicate:otherWindowOnSameScreen];
 }
 
-- (NSArray *) otherWindowsOnAllScreens {
+- (NSArray<PHWindow *> *) otherWindowsOnAllScreens {
 
-    NSPredicate *otherWindowOnAllScreens = [NSPredicate predicateWithBlock:^BOOL (PHWindow *window,
-                                                                                  __unused NSDictionary *bindings) {
+    NSPredicate *otherWindowOnAllScreens = [NSPredicate predicateWithBlock:
+                                            ^BOOL (PHWindow *window, __unused NSDictionary<NSString *, id> *bindings) {
         return ![self isEqual:window];
     }];
 
@@ -243,14 +243,14 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
 
 #pragma mark - Alignment
 
-- (NSArray *) windowsInDirection:(double (^)(double angle))direction
-            shouldDisregardDelta:(BOOL (^)(double deltaX, double deltaY))shouldDisregard {
+- (NSArray<PHWindow *> *) windowsInDirection:(double (^)(double angle))direction
+                        shouldDisregardDelta:(BOOL (^)(double deltaX, double deltaY))shouldDisregard {
 
     CGRect frame = [self frame];
     NSPoint centrePoint = NSMakePoint(NSMidX(frame), NSMidY(frame));
 
     // Other windows
-    NSArray *otherWindows = [self otherWindowsOnAllScreens];
+    NSArray<PHWindow *> *otherWindows = [self otherWindowsOnAllScreens];
     NSMutableArray *closestOtherWindows = [NSMutableArray arrayWithCapacity:otherWindows.count];
     
     for (PHWindow *window in otherWindows) {
@@ -276,37 +276,37 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
     }
 
     // Sort other windows based on distance score
-    NSArray *sortedOtherWindows = [closestOtherWindows sortedArrayUsingComparator:
-                                   ^NSComparisonResult(NSDictionary *window, NSDictionary *otherWindow) {
-
+    NSArray<PHWindow *> *sortedOtherWindows = [closestOtherWindows sortedArrayUsingComparator:
+                                               ^NSComparisonResult(NSDictionary<NSString *, id> *window,
+                                                                   NSDictionary<NSString *, id> *otherWindow) {
         return [window[@"score"] compare:otherWindow[@"score"]];
     }];
     
     return sortedOtherWindows;
 }
 
-- (NSArray *) windowsToWest {
+- (NSArray<PHWindow *> *) windowsToWest {
 
     return [[self windowsInDirection:^double (double angle) { return M_PI - fabs(angle); }
                 shouldDisregardDelta:^BOOL (double deltaX, __unused double deltaY) { return (deltaX >= 0); }]
             valueForKeyPath:@"window"];
 }
 
-- (NSArray *) windowsToEast {
+- (NSArray<PHWindow *> *) windowsToEast {
 
     return [[self windowsInDirection:^double (double angle) { return 0.0 - angle; }
                 shouldDisregardDelta:^BOOL (double deltaX, __unused double deltaY) { return (deltaX <= 0); }]
             valueForKeyPath:@"window"];
 }
 
-- (NSArray *) windowsToNorth {
+- (NSArray<PHWindow *> *) windowsToNorth {
 
     return [[self windowsInDirection:^double (double angle) { return -M_PI_2 - angle; }
                 shouldDisregardDelta:^BOOL (__unused double deltaX, double deltaY) { return (deltaY >= 0); }]
             valueForKeyPath:@"window"];
 }
 
-- (NSArray *) windowsToSouth {
+- (NSArray<PHWindow *> *) windowsToSouth {
 
     return [[self windowsInDirection:^double (double angle) { return M_PI_2 - angle; }
                 shouldDisregardDelta:^BOOL (__unused double deltaX, double deltaY) { return (deltaY <= 0); }]
@@ -326,7 +326,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
     return [self.app focus];
 }
 
-- (BOOL) focusFirstClosestWindowIn:(NSArray *)closestWindows {
+- (BOOL) focusFirstClosestWindowIn:(NSArray<PHWindow *> *)closestWindows {
 
     for (PHWindow *window in closestWindows) {
         if ([window focus]) {

@@ -8,7 +8,7 @@
 
 #pragma mark - Actions
 
-+ (BOOL) runPath:(NSString *)path withArguments:(NSArray *)arguments {
++ (BOOL) runPath:(NSString *)path withArguments:(NSArray<NSString *> *)arguments {
 
     NSTask *task = [[NSTask alloc] init];
     task.launchPath = path;

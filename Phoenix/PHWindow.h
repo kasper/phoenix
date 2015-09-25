@@ -15,12 +15,12 @@
 #pragma mark - Windows
 
 + (PHWindow *) focusedWindow;
-+ (NSArray *) windows;
-+ (NSArray *) visibleWindows;
-+ (NSArray *) visibleWindowsInOrder;
++ (NSArray<PHWindow *> *) windows;
++ (NSArray<PHWindow *> *) visibleWindows;
++ (NSArray<PHWindow *> *) visibleWindowsInOrder;
 
-- (NSArray *) otherWindowsOnSameScreen;
-- (NSArray *) otherWindowsOnAllScreens;
+- (NSArray<PHWindow *> *) otherWindowsOnSameScreen;
+- (NSArray<PHWindow *> *) otherWindowsOnAllScreens;
 
 #pragma mark - Properties
 
@@ -45,10 +45,10 @@
 
 #pragma mark - Alignment
 
-- (NSArray *) windowsToWest;
-- (NSArray *) windowsToEast;
-- (NSArray *) windowsToNorth;
-- (NSArray *) windowsToSouth;
+- (NSArray<PHWindow *> *) windowsToWest;
+- (NSArray<PHWindow *> *) windowsToEast;
+- (NSArray<PHWindow *> *) windowsToNorth;
+- (NSArray<PHWindow *> *) windowsToSouth;
 
 #pragma mark - Focusing
 

@@ -5,6 +5,7 @@
 @import Cocoa;
 @import JavaScriptCore;
 
+@class PHApp;
 @class PHWindow;
 
 #import "PHAXUIElement.h"
@@ -16,7 +17,7 @@
 
 + (instancetype) launch:(NSString *)appName;
 + (instancetype) focusedApp;
-+ (NSArray *) runningApps;
++ (NSArray<PHApp *> *) runningApps;
 
 #pragma mark - Properties
 
@@ -30,8 +31,8 @@
 #pragma mark - Windows
 
 - (PHWindow *) mainWindow;
-- (NSArray *) windows;
-- (NSArray *) visibleWindows;
+- (NSArray<PHWindow *> *) windows;
+- (NSArray<PHWindow *> *) visibleWindows;
 
 #pragma mark - Actions
 

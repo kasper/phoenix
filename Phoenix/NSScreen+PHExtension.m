@@ -30,7 +30,7 @@
 
 - (NSScreen *) next {
 
-    NSArray *screens = [NSScreen screens];
+    NSArray<NSScreen *> *screens = [NSScreen screens];
     NSUInteger nextIndex = [screens indexOfObject:self] + 1;
 
     // Last screen, return first
@@ -43,7 +43,7 @@
 
 - (NSScreen *) previous {
 
-    NSArray *screens = [NSScreen screens];
+    NSArray<NSScreen *> *screens = [NSScreen screens];
     NSInteger previousIndex = [screens indexOfObject:self] - 1;
     
     // First screen, return last

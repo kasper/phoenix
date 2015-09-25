@@ -14,7 +14,7 @@
 @property BOOL enabled;
 
 @property NSString *key;
-@property NSArray *modifiers;
+@property NSArray<NSString *> *modifiers;
 
 @end
 
@@ -61,7 +61,9 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
     }
 }
 
-+ (PHKeyHandler *) withKey:(NSString *)key modifiers:(NSArray *)modifiers handler:(PHKeyHandlerBlock)handler {
++ (PHKeyHandler *) withKey:(NSString *)key
+                 modifiers:(NSArray<NSString *> *)modifiers
+                   handler:(PHKeyHandlerBlock)handler {
 
     PHKeyHandler *keyHandler = [[PHKeyHandler alloc] init];
 
@@ -77,7 +79,7 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
 
 #pragma mark - Hash
 
-+ (NSUInteger) hashForKey:(NSString *)key modifiers:(NSArray *)modifiers {
++ (NSUInteger) hashForKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers {
 
     return key.hash + [modifiers hash];
 }
