@@ -118,24 +118,24 @@ static NSMutableDictionary<NSString *, NSNumber *> *PHResolvedLocalKeyCodes;
 
                            /* Keypad Keys */
 
-                           @"pad.": @(kVK_ANSI_KeypadDecimal),
-                           @"pad*": @(kVK_ANSI_KeypadMultiply),
-                           @"pad+": @(kVK_ANSI_KeypadPlus),
-                           @"padclear": @(kVK_ANSI_KeypadClear), // padClear
-                           @"pad/": @(kVK_ANSI_KeypadDivide),
-                           @"padenter": @(kVK_ANSI_KeypadEnter), // padEnter
-                           @"pad-": @(kVK_ANSI_KeypadMinus),
-                           @"pad=": @(kVK_ANSI_KeypadEquals),
-                           @"pad0": @(kVK_ANSI_Keypad0),
-                           @"pad1": @(kVK_ANSI_Keypad1),
-                           @"pad2": @(kVK_ANSI_Keypad2),
-                           @"pad3": @(kVK_ANSI_Keypad3),
-                           @"pad4": @(kVK_ANSI_Keypad4),
-                           @"pad5": @(kVK_ANSI_Keypad5),
-                           @"pad6": @(kVK_ANSI_Keypad6),
-                           @"pad7": @(kVK_ANSI_Keypad7),
-                           @"pad8": @(kVK_ANSI_Keypad8),
-                           @"pad9": @(kVK_ANSI_Keypad9) };
+                           @"keypad.": @(kVK_ANSI_KeypadDecimal),
+                           @"keypad*": @(kVK_ANSI_KeypadMultiply),
+                           @"keypad+": @(kVK_ANSI_KeypadPlus),
+                           @"keypadclear": @(kVK_ANSI_KeypadClear), // keypadClear
+                           @"keypad/": @(kVK_ANSI_KeypadDivide),
+                           @"keypadenter": @(kVK_ANSI_KeypadEnter), // keypadEnter
+                           @"keypad-": @(kVK_ANSI_KeypadMinus),
+                           @"keypad=": @(kVK_ANSI_KeypadEquals),
+                           @"keypad0": @(kVK_ANSI_Keypad0),
+                           @"keypad1": @(kVK_ANSI_Keypad1),
+                           @"keypad2": @(kVK_ANSI_Keypad2),
+                           @"keypad3": @(kVK_ANSI_Keypad3),
+                           @"keypad4": @(kVK_ANSI_Keypad4),
+                           @"keypad5": @(kVK_ANSI_Keypad5),
+                           @"keypad6": @(kVK_ANSI_Keypad6),
+                           @"keypad7": @(kVK_ANSI_Keypad7),
+                           @"keypad8": @(kVK_ANSI_Keypad8),
+                           @"keypad9": @(kVK_ANSI_Keypad9) };
 
     PHResolvedLocalKeyCodes = [NSMutableDictionary dictionary];
 
