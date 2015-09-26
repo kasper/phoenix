@@ -201,17 +201,16 @@
 
 - (PHKeyHandler *) bindKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers callback:(JSValue *)callback {
 
-    PHKeyHandlerBlock handler = ^{ [callback callWithArguments:@[]]; };
-    PHKeyHandler *existingKeyHandler = self.keyHandlers[@([PHKeyHandler hashForKey:key modifiers:modifiers])];
-
-    // Change handler for existing key
-    if (existingKeyHandler) {
-        existingKeyHandler.handler = handler;
-        return existingKeyHandler;
-    }
+    PHKeyHandler *keyHandler = self.keyHandlers[@([PHKeyHandler hashForKey:key modifiers:modifiers])];
 
     // Bind new key
-    PHKeyHandler *keyHandler = [PHKeyHandler withKey:key modifiers:modifiers handler:handler];
+    if (!keyHandler) {
+        keyHandler = [PHKeyHandler withKey:key modifiers:modifiers];
+    }
+
+    // Set callback
+    [keyHandler setCallback:callback forContext:self.context];
+
     self.keyHandlers[@(keyHandler.hash)] = keyHandler;
     self.keyHandlersByIdentifier[@(keyHandler.identifier)] = keyHandler;
 

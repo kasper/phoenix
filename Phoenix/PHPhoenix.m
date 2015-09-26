@@ -8,7 +8,7 @@
 
 @interface PHPhoenix ()
 
-@property id<PHContextDelegate> delegate;
+@property (weak) id<PHContextDelegate> delegate;
 
 @end
 

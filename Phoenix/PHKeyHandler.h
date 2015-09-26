@@ -7,8 +7,6 @@
 
 #import "PHIdentifiableJSExport.h"
 
-typedef void (^PHKeyHandlerBlock)();
-
 static NSString * const PHKeyHandlerIdentifier = @"PHKeyHandlerIdentifier";
 static NSString * const PHKeyHandlerKeyDownNotification = @"PHKeyHandlerKeyDownNotification";
 
@@ -32,17 +30,18 @@ static NSString * const PHKeyHandlerKeyDownNotification = @"PHKeyHandlerKeyDownN
 #pragma mark Properties
 
 @property (readonly) UInt32 identifier;
-@property (copy) PHKeyHandlerBlock handler;
 
 #pragma mark - Initialise
 
-+ (PHKeyHandler *) withKey:(NSString *)key
-                 modifiers:(NSArray<NSString *> *)modifiers
-                   handler:(PHKeyHandlerBlock)handler;
++ (PHKeyHandler *) withKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers;
 
 #pragma mark - Hash
 
 + (NSUInteger) hashForKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers;
+
+#pragma mark - Callback
+
+- (void) setCallback:(JSValue *)callback forContext:(JSContext *)context;
 
 #pragma mark - Invoke
 

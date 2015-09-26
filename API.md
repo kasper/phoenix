@@ -23,10 +23,10 @@ This documentation is an overview of the JavaScript API provided by Phoenix. Use
 
 This documentation uses *pseudocode* to outline the API. Many of the classes represent global objects in the script’s context — functions that are marked as static can be accessed through these global objects. All other functions are instance functions. Instance objects can be accessed through the global objects.
 
-For example, to bind a key to a function, you call the `bind`-function for the `Phoenix`-object.
+For example, to bind a key to a function, you call the `bind`-function for the `Phoenix`-object. Notice that *you must keep a reference to the handler*, otherwise your callback will not get called.
 
 ```javascript
-Phoenix.bind('q', [ 'ctrl', 'shift' ], function () {});
+var handler = Phoenix.bind('q', [ 'ctrl', 'shift' ], function () {});
 ```
 
 To move the focused window to a new coordinate, you can call the `setTopLeft`-function for a `Window`-instance. To get a `Window`-instance, you can for example get the focused window with the `focusedWindow`-function for the global `Window`-object.
@@ -38,7 +38,7 @@ Window.focusedWindow().setTopLeft({ x: 0, y: 0 });
 To combine, bind a key to move the focused window.
 
 ```javascript
-Phoenix.bind('q', [ 'ctrl', 'shift' ], function () {
+var handler = Phoenix.bind('q', [ 'ctrl', 'shift' ], function () {
 
     Window.focusedWindow().setTopLeft({ x: 0, y: 0 }); 
 });
@@ -86,7 +86,7 @@ end
 ```
 
 - `reload()` manually reloads the context and any changes in the configuration files
-- `bind(String key, Array<String> modifiers, Function callback)` binds the key character with the specified modifiers to a callback function and returns the handler, the callback function receives no arguments, binding overrides any previous handlers for the same key combination
+- `bind(String key, Array<String> modifiers, Function callback)` binds the key character with the specified modifiers to a callback function and returns the handler, you must keep a reference to the handler in order for your callback to be called, the callback function receives no arguments, binding overrides any previous handlers for the same key combination
 - `log(String message)` logs the message to the Console
 - `notify(String message)` delivers the message to the Notification Center
 

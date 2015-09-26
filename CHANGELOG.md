@@ -37,6 +37,7 @@ Release: dd.mm.yyyy
 #### KeyHandler
 
 - New: KeyHandler now implements `Identifiable`.
+- Change: Now *you must keep a reference to the handler*, otherwise your callback will not get called.
 - Change: Special keys are now camelCased instead of underscored and keys for keypad are now prefix with `keypad` instead of `pad`. See changed [keys](API.md#special-keys).
 
 #### Screen

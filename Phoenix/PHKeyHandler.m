@@ -15,6 +15,7 @@
 
 @property NSString *key;
 @property NSArray<NSString *> *modifiers;
+@property JSManagedValue *callback;
 
 @end
 
@@ -61,16 +62,13 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
     }
 }
 
-+ (PHKeyHandler *) withKey:(NSString *)key
-                 modifiers:(NSArray<NSString *> *)modifiers
-                   handler:(PHKeyHandlerBlock)handler {
++ (PHKeyHandler *) withKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers {
 
     PHKeyHandler *keyHandler = [[PHKeyHandler alloc] init];
 
     keyHandler.identifier = PHKeyHandlerIdentifierSequence++;
     keyHandler.key = key;
     keyHandler.modifiers = modifiers;
-    keyHandler.handler = handler;
 
     [keyHandler enable];
 
@@ -149,11 +147,19 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
     return YES;
 }
 
+#pragma mark - Callback
+
+- (void) setCallback:(JSValue *)callback forContext:(JSContext *)context {
+
+    self.callback = [JSManagedValue managedValueWithValue:callback];
+    [context.virtualMachine addManagedReference:self.callback withOwner:self];
+}
+
 #pragma mark - Invoke
 
 - (void) invoke {
 
-    self.handler();
+    [self.callback.value callWithArguments:@[]];
 }
 
 @end
