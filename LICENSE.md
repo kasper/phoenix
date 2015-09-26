@@ -1,3 +1,6 @@
+License
+=======
+
 Released under the MIT License. Phoenix was originally authored by Steven Degutis. As it stands now, it has been rewritten from the ground up by Kasper Hirvikoski. It is currently developed by Kasper Hirvikoski and Jason Milkins. This software consists of contributions made by many individuals.
 
 > Copyright (c) 2015 Kasper Hirvikoski  
@@ -16,6 +19,8 @@ Released under the MIT License. Phoenix was originally authored by Steven Deguti
 > WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 > COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
 > OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+## Acknowledgements
 
 Phoenix bundles Underscore.js, licensed under the MIT License.
 
