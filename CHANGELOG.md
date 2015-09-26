@@ -37,7 +37,7 @@ Release: dd.mm.yyyy
 #### KeyHandler
 
 - New: KeyHandler now implements `Identifiable`.
-- Change: Special keys are now camelCased instead of underscored. See changed [keys](Phoenix/PHKeyTranslator.m#L79-L138).
+- Change: Special keys are now camelCased instead of underscored and keys for keypad are now prefix with `keypad` instead of `pad`. See changed [keys](API.md#special-keys).
 
 #### Screen
 
