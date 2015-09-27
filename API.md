@@ -86,7 +86,7 @@ end
 ```
 
 - `reload()` manually reloads the context and any changes in the configuration files
-- `bind(String key, Array<String> modifiers, Function callback)` binds the key character with the specified modifiers to a callback function and returns the handler, you must keep a reference to the handler in order for your callback to be called, the callback function receives no arguments, binding overrides any previous handlers for the same key combination
+- `bind(String key, Array<String> modifiers, Function callback)` binds the key character with the specified modifiers to a callback function and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives no arguments, binding overrides any previous handlers for the same key combination
 - `log(String message)` logs the message to the Console
 - `notify(String message)` delivers the message to the Notification Center
 
