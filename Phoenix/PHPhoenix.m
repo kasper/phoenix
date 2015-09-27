@@ -2,6 +2,7 @@
  * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
  */
 
+#import "PHEventHandler.h"
 #import "PHKeyHandler.h"
 #import "PHNotification.h"
 #import "PHPhoenix.h"
@@ -37,6 +38,11 @@
     return [self.delegate bindKey:key.lowercaseString
                         modifiers:[modifiers valueForKey:@"lowercaseString"]
                          callback:callback];
+}
+
+- (PHEventHandler *) bindEvent:(NSString *)event callback:(JSValue *)callback {
+
+    return [self.delegate bindEvent:event.lowercaseString callback:callback];
 }
 
 - (void) log:(NSString *)message {

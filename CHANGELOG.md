@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### New
+
+- Phoenix now supports events! See the [API](API.md#events). To bind an event to a function, you call the `on`-function for the `Phoenix`-object.
+
 ### Changes
 
 - Phoenix has been rewritten and refactored from the ground up. This also means that Phoenix now requires OS X Yosemite (10.10) or higher. Xcode 7 is now required for building.
@@ -27,6 +31,7 @@ Release: dd.mm.yyyy
 
 #### Phoenix
 
+- New: Function `on(String event, Function callback)` binds an event to a callback function.
 - New: Function `notify(String message)` delivers the message to the Notification Center.
 - Change: Function `launch(String appName)` has moved to the global `App`-object.
 - Change: Function `runCommand(String commandPath, Array arguments)` has moved to a new global `Command`-object and is now called `run(String path, Array arguments)`.

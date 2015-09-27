@@ -5,6 +5,7 @@
 #import "PHApp.h"
 #import "PHCommand.h"
 #import "PHContext.h"
+#import "PHEventHandler.h"
 #import "PHKeyHandler.h"
 #import "PHModalWindowController.h"
 #import "PHMouse.h"
@@ -20,6 +21,7 @@
 @property PHPathWatcher *watcher;
 @property NSMutableDictionary<NSNumber *, PHKeyHandler *> *keyHandlers;
 @property NSMutableDictionary<NSNumber *, PHKeyHandler *> *keyHandlersByIdentifier;
+@property NSMutableSet<PHEventHandler *> *eventHandlers;
 
 @end
 
@@ -40,6 +42,7 @@
         self.paths = [NSMutableSet set];
         self.keyHandlers = [NSMutableDictionary dictionary];
         self.keyHandlersByIdentifier = [NSMutableDictionary dictionary];
+        self.eventHandlers = [NSMutableSet set];
 
         // Listen to key down notification
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -84,6 +87,11 @@
     [self.keyHandlers.allValues makeObjectsPerformSelector:@selector(disable)];
     [self.keyHandlers removeAllObjects];
     [self.keyHandlersByIdentifier removeAllObjects];
+}
+
+- (void) resetEventHandlers {
+
+    [self.eventHandlers removeAllObjects];
 }
 
 #pragma mark - Setup
@@ -183,6 +191,7 @@
 
     [self resetConfigurationPaths];
     [self resetKeyHandlers];
+    [self resetEventHandlers];
     
     NSString *configurationPath = [self resolvePath:PHConfigurationPath];
 
@@ -217,12 +226,27 @@
     return keyHandler;
 }
 
+- (PHEventHandler *) bindEvent:(NSString *)event callback:(JSValue *)callback {
+
+    PHEventHandler *eventHandler = [[PHEventHandler alloc] initWithEvent:event];
+
+    if (!eventHandler) {
+        return nil;
+    }
+
+    // Set callback
+    [eventHandler setCallback:callback forContext:self.context];
+
+    [self.eventHandlers addObject:eventHandler];
+    return eventHandler;
+}
+
 #pragma mark - Notifications
 
 - (void) keyDown:(NSNotification *)notification {
 
     PHKeyHandler *keyHandler = self.keyHandlersByIdentifier[notification.userInfo[PHKeyHandlerIdentifier]];
-    [keyHandler invoke];
+    [keyHandler call];
 }
 
 @end

@@ -15,7 +15,6 @@
 
 @property NSString *key;
 @property NSArray<NSString *> *modifiers;
-@property JSManagedValue *callback;
 
 @end
 
@@ -145,21 +144,6 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
     self.enabled = NO;
 
     return YES;
-}
-
-#pragma mark - Callback
-
-- (void) setCallback:(JSValue *)callback forContext:(JSContext *)context {
-
-    self.callback = [JSManagedValue managedValueWithValue:callback];
-    [context.virtualMachine addManagedReference:self.callback withOwner:self];
-}
-
-#pragma mark - Invoke
-
-- (void) invoke {
-
-    [self.callback.value callWithArguments:@[]];
 }
 
 @end

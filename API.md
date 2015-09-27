@@ -12,12 +12,13 @@ This documentation is an overview of the JavaScript API provided by Phoenix. Use
 5. [Rectangle](#rectangle)
 6. [Identifiable](#identifiable)
 7. [KeyHandler](#keyhandler)
-8. [Modal](#modal)
-9. [Command](#command)
-10. [Screen](#screen)
-11. [Mouse](#mouse)
-12. [App](#app)
-13. [Window](#window)
+8. [EventHandler](#eventhandler)
+9. [Modal](#modal)
+10. [Command](#command)
+11. [Screen](#screen)
+12. [Mouse](#mouse)
+13. [App](#app)
+14. [Window](#window)
 
 ## Getting Started
 
@@ -44,11 +45,17 @@ var handler = Phoenix.bind('q', [ 'ctrl', 'shift' ], function () {
 });
 ```
 
+As an other example, to bind an event to a function, you call the `on`-function for the `Phoenix`-object. Notice that *you must keep a reference to the handler*, otherwise your callback will not get called.
+
+```javascript
+var handler = Phoenix.on('screenChange', function () {});
+```
+
 ## Loading
 
 Your configuration file is loaded when the app launches. All functions are evaluated (and executed if necessary) when this happens. Phoenix also reloads the configuration when any changes are detected to the file. You may also reload the configuration manually from the status bar or programmatically from your script.
 
-## Valid Keys
+## Keys
 
 All valid keys for binding are as follows:
 
@@ -61,6 +68,12 @@ All valid keys for binding are as follows:
 - Action: `return`, `tab`, `space`, `delete`, `escape`, `help`, `home`, `pageUp`, `forwardDelete`, `end`, `pageDown`, `left`, `right`, `down` and `up`
 - Function: `f1` – `f19`
 - Keypad: `keypad.`, `keypad*`, `keypad+`, `keypadClear`, `keypad/`, `keypadEnter`, `keypad-`, `keypad=`, `keypad0`, `keypad1`, `keypad2`, `keypad3`, `keypad4`, `keypad5`, `keypad6`, `keypad7`, `keypad8` and `keypad9`
+
+## Events
+
+Phoenix supports the following events:
+
+- `screenChange` triggered when screens (i.e. displays) are added, removed, or dynamically reconfigured, the callback function receives no arguments
 
 ## Require
 
@@ -79,6 +92,7 @@ class Phoenix
 
     static void reload()
     static KeyHandler bind(String key, Array<String> modifiers, Function callback)
+    static EventHandler on(String event, Function callback)
     static void log(String message)
     static void notify(String message)
 
@@ -87,6 +101,7 @@ end
 
 - `reload()` manually reloads the context and any changes in the configuration files
 - `bind(String key, Array<String> modifiers, Function callback)` binds the key character with the specified modifiers to a callback function and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives no arguments, binding overrides any previous handlers for the same key combination
+- `on(String event, Function callback)` binds an event to a callback function and returns the handler, you must keep a reference to the handler in order for your callback to get called, you can have multiple handlers for a single event
 - `log(String message)` logs the message to the Console
 - `notify(String message)` delivers the message to the Notification Center
 
@@ -168,6 +183,20 @@ end
 - `isEnabled()` returns `true` if the key handler is enabled, by default `true`
 - `enable()` enables the key handler, returns `true` if successful
 - `disable()` disables the key handler, returns `true` if successful
+
+## EventHandler
+
+Use the `EventHandler`-object to access event properties. You can have multiple handlers for a single event. To disable an event, release your reference to the handler. EventHandlers are always reset on context reload.
+
+```java
+class EventHandler implements Identifiable
+
+    property String name
+
+end
+```
+
+- `name` read-only property for the event name in lower case
 
 ## Modal
 

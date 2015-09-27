@@ -5,6 +5,7 @@
 @import Foundation;
 @import JavaScriptCore;
 
+@class PHEventHandler;
 @class PHKeyHandler;
 
 #import "PHContext.h"
@@ -18,6 +19,9 @@
 JSExportAs(bind, - (PHKeyHandler *) bindKey:(NSString *)key
                                   modifiers:(NSArray<NSString *> *)modifiers
                                    callback:(JSValue *)callback);
+
+JSExportAs(on, - (PHEventHandler *) bindEvent:(NSString *)event callback:(JSValue *)callback);
+
 - (void) log:(NSString *)message;
 - (void) notify:(NSString *)message;
 

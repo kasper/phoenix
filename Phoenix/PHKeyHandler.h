@@ -5,6 +5,7 @@
 @import Foundation;
 @import JavaScriptCore;
 
+#import "PHHandler.h"
 #import "PHIdentifiableJSExport.h"
 
 static NSString * const PHKeyHandlerIdentifier = @"PHKeyHandlerIdentifier";
@@ -25,7 +26,7 @@ static NSString * const PHKeyHandlerKeyDownNotification = @"PHKeyHandlerKeyDownN
 
 @end
 
-@interface PHKeyHandler : NSObject <PHKeyHandlerJSExport>
+@interface PHKeyHandler : PHHandler <PHKeyHandlerJSExport>
 
 #pragma mark Properties
 
@@ -38,13 +39,5 @@ static NSString * const PHKeyHandlerKeyDownNotification = @"PHKeyHandlerKeyDownN
 #pragma mark - Hash
 
 + (NSUInteger) hashForKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers;
-
-#pragma mark - Callback
-
-- (void) setCallback:(JSValue *)callback forContext:(JSContext *)context;
-
-#pragma mark - Invoke
-
-- (void) invoke;
 
 @end
