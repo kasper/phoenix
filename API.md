@@ -48,7 +48,7 @@ var handler = Phoenix.bind('q', [ 'ctrl', 'shift' ], function () {
 As an other example, to bind an event to a function, you call the `on`-function for the `Phoenix`-object. Notice that *you must keep a reference to the handler*, otherwise your callback will not get called.
 
 ```javascript
-var handler = Phoenix.on('screenChange', function () {});
+var handler = Phoenix.on('screensDidChange', function () {});
 ```
 
 ## Loading
