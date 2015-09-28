@@ -6,6 +6,10 @@
 
 @interface PHEventTranslator : NSObject
 
+#pragma mark - Notification Center
+
++ (NSNotificationCenter *) notificationCenterForNotification:(NSString *)notification;
+
 #pragma mark - Translate
 
 + (NSString *) notificationForString:(NSString *)string;

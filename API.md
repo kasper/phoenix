@@ -71,9 +71,21 @@ All valid keys for binding are as follows:
 
 ## Events
 
-Phoenix supports the following events:
+Phoenix supports the following (case sensitive) events:
 
-- `screenChange` triggered when screens (i.e. displays) are added, removed, or dynamically reconfigured, the callback function receives no arguments
+### Screen
+
+- `screensDidChange` triggered when screens (i.e. displays) are added, removed, or dynamically reconfigured, the callback function receives no arguments
+
+### App
+
+All of the following app events receive the corresponding `App`-instance as the only argument for the callback function.
+
+- `appDidLaunch` triggered when an app has launched
+- `appDidTerminate` triggered when an app has terminated
+- `appDidActivate` triggered when an app has activated
+- `appDidHide` triggered when an app becomes hidden
+- `appDidShow` triggered when an app is shown (becomes unhidden)
 
 ## Require
 
@@ -196,7 +208,7 @@ class EventHandler implements Identifiable
 end
 ```
 
-- `name` read-only property for the event name in lower case
+- `name` read-only property for the event name
 
 ## Modal
 

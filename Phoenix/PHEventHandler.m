@@ -2,11 +2,15 @@
  * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
  */
 
+@import Cocoa;
+
+#import "PHApp.h"
 #import "PHEventHandler.h"
 #import "PHEventTranslator.h"
 
 @interface PHEventHandler ()
 
+@property (weak) NSNotificationCenter *notificationCenter;
 @property NSString *name;
 @property NSString *notification;
 
@@ -30,10 +34,12 @@
         }
 
         // Listen to notification
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(didReceiveNotification:)
-                                                     name:self.notification
-                                                   object:nil];
+        self.notificationCenter = [PHEventTranslator notificationCenterForNotification:self.notification];
+
+        [self.notificationCenter addObserver:self
+                                    selector:@selector(didReceiveNotification:)
+                                        name:self.notification
+                                      object:nil];
     }
 
     return self;
@@ -43,12 +49,21 @@
 
 - (void) dealloc {
 
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:self.notification object:nil];
+    [self.notificationCenter removeObserver:self name:self.notification object:nil];
 }
 
 #pragma mark - Notification
 
-- (void) didReceiveNotification:(NSNotification *)__unused notification {
+- (void) didReceiveNotification:(NSNotification *)notification {
+
+    // Notification for app
+    NSRunningApplication *runningApp = notification.userInfo[NSWorkspaceApplicationKey];
+
+    if (runningApp) {
+        PHApp *app = [[PHApp alloc] initWithApp:runningApp];
+        [self callWithArguments:@[ app ]];
+        return;
+    }
 
     [self call];
 }

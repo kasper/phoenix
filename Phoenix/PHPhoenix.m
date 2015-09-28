@@ -42,7 +42,7 @@
 
 - (PHEventHandler *) bindEvent:(NSString *)event callback:(JSValue *)callback {
 
-    return [self.delegate bindEvent:event.lowercaseString callback:callback];
+    return [self.delegate bindEvent:event callback:callback];
 }
 
 - (void) log:(NSString *)message {
