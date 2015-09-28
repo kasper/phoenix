@@ -164,7 +164,7 @@ end
 
 ## KeyHandler
 
-Use the `KeyHandler`-object to enable or disable keys. To change a previous handler, bind the key again. KeyHandlers are always reset on context reload. Enabling a key combination that has been exclusively registered by another app will fail.
+Use the `KeyHandler`-object to enable or disable keys. To change a previous handler, bind the key again. A key is disabled automatically when you release your reference to the handler. KeyHandlers are always reset on context reload. Enabling a key combination that has been exclusively registered by another app will fail.
 
 ```java
 class KeyHandler implements Identifiable

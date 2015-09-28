@@ -19,9 +19,8 @@
 @property JSContext *context;
 @property NSMutableSet<NSString *> *paths;
 @property PHPathWatcher *watcher;
-@property NSMutableDictionary<NSNumber *, PHKeyHandler *> *keyHandlers;
-@property NSMutableDictionary<NSNumber *, PHKeyHandler *> *keyHandlersByIdentifier;
-@property NSMutableSet<PHEventHandler *> *eventHandlers;
+@property NSMutableDictionary<NSNumber *, NSValue *> *keyHandlers;
+@property NSMutableDictionary<NSNumber *, NSValue *> *keyHandlersByIdentifier;
 
 @end
 
@@ -42,7 +41,6 @@
         self.paths = [NSMutableSet set];
         self.keyHandlers = [NSMutableDictionary dictionary];
         self.keyHandlersByIdentifier = [NSMutableDictionary dictionary];
-        self.eventHandlers = [NSMutableSet set];
 
         // Listen to key down notification
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -84,14 +82,8 @@
 
 - (void) resetKeyHandlers {
 
-    [self.keyHandlers.allValues makeObjectsPerformSelector:@selector(disable)];
     [self.keyHandlers removeAllObjects];
     [self.keyHandlersByIdentifier removeAllObjects];
-}
-
-- (void) resetEventHandlers {
-
-    [self.eventHandlers removeAllObjects];
 }
 
 #pragma mark - Setup
@@ -191,7 +183,6 @@
 
     [self resetConfigurationPaths];
     [self resetKeyHandlers];
-    [self resetEventHandlers];
     
     NSString *configurationPath = [self resolvePath:PHConfigurationPath];
 
@@ -210,8 +201,8 @@
 
 - (PHKeyHandler *) bindKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers callback:(JSValue *)callback {
 
-    PHKeyHandler *keyHandler = self.keyHandlers[@([PHKeyHandler hashForKey:key modifiers:modifiers])];
-
+    PHKeyHandler *keyHandler = self.keyHandlers[@([PHKeyHandler hashForKey:key modifiers:modifiers])]
+                                   .nonretainedObjectValue;
     // Bind new key
     if (!keyHandler) {
         keyHandler = [PHKeyHandler withKey:key modifiers:modifiers];
@@ -220,8 +211,9 @@
     // Set callback
     [keyHandler manageCallback:callback];
 
-    self.keyHandlers[@(keyHandler.hash)] = keyHandler;
-    self.keyHandlersByIdentifier[@(keyHandler.identifier)] = keyHandler;
+    NSValue *weakKeyHandler = [NSValue valueWithNonretainedObject:keyHandler];
+    self.keyHandlers[@(keyHandler.hash)] = weakKeyHandler;
+    self.keyHandlersByIdentifier[@(keyHandler.identifier)] = weakKeyHandler;
 
     return keyHandler;
 }
@@ -237,7 +229,6 @@
     // Set callback
     [eventHandler manageCallback:callback];
 
-    [self.eventHandlers addObject:eventHandler];
     return eventHandler;
 }
 
@@ -245,7 +236,8 @@
 
 - (void) keyDown:(NSNotification *)notification {
 
-    PHKeyHandler *keyHandler = self.keyHandlersByIdentifier[notification.userInfo[PHKeyHandlerIdentifier]];
+    PHKeyHandler *keyHandler = self.keyHandlersByIdentifier[notification.userInfo[PHKeyHandlerIdentifier]]
+                                   .nonretainedObjectValue;
     [keyHandler call];
 }
 

@@ -23,7 +23,7 @@
 static FourCharCode const PHKeyHandlerSignature = 'FNIX';
 static UInt32 PHKeyHandlerIdentifierSequence;
 
-#pragma mark - Initialise
+#pragma mark - PHCarbonEventCallback
 
 static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
                                       EventRef event,
@@ -46,6 +46,8 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
                                                       userInfo:@{ PHKeyHandlerIdentifier: @(identifier.id) }];
     return noErr;
 }
+
+#pragma mark - Initialise
 
 + (void) initialize {
 
@@ -72,6 +74,13 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
     [keyHandler enable];
 
     return keyHandler;
+}
+
+#pragma mark - Dealloc
+
+- (void) dealloc {
+
+    [self disable];
 }
 
 #pragma mark - Hash
