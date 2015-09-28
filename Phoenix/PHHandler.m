@@ -14,17 +14,30 @@
 
 #pragma mark - Callback
 
-- (void) setCallback:(JSValue *)callback forContext:(JSContext *)context {
+- (void) manageCallback:(JSValue *)callback {
 
-    self.callback = [JSManagedValue managedValueWithValue:callback];
-    [context.virtualMachine addManagedReference:self.callback withOwner:self];
+    self.callback = [JSManagedValue managedValueWithValue:callback andOwner:self];
 }
 
 #pragma mark - Call
 
+- (void) callWithArguments:(NSArray *)arguments {
+
+    JSValue *callback = self.callback.value;
+
+    // Callback has been released
+    if (!callback) {
+        return;
+    }
+
+    JSContext *scope = [[JSContext alloc] initWithVirtualMachine:callback.context.virtualMachine];
+    JSValue *function = [JSValue valueWithObject:callback inContext:scope];
+    [function callWithArguments:arguments];
+}
+
 - (void) call {
 
-    [self.callback.value callWithArguments:@[]];
+    [self callWithArguments:@[]];
 }
 
 @end

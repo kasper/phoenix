@@ -218,7 +218,7 @@
     }
 
     // Set callback
-    [keyHandler setCallback:callback forContext:self.context];
+    [keyHandler manageCallback:callback];
 
     self.keyHandlers[@(keyHandler.hash)] = keyHandler;
     self.keyHandlersByIdentifier[@(keyHandler.identifier)] = keyHandler;
@@ -235,7 +235,7 @@
     }
 
     // Set callback
-    [eventHandler setCallback:callback forContext:self.context];
+    [eventHandler manageCallback:callback];
 
     [self.eventHandlers addObject:eventHandler];
     return eventHandler;

@@ -9,10 +9,11 @@
 
 #pragma mark - Callback
 
-- (void) setCallback:(JSValue *)callback forContext:(JSContext *)context;
+- (void) manageCallback:(JSValue *)callback;
 
 #pragma mark - Call
 
+- (void) callWithArguments:(NSArray *)arguments;
 - (void) call;
 
 @end
