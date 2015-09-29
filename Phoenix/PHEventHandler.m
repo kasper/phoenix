@@ -56,7 +56,8 @@
 
 - (void) didReceiveNotification:(NSNotification *)notification {
 
-    // Notification for app
+    /* Notification for app */
+
     NSRunningApplication *runningApp = notification.userInfo[NSWorkspaceApplicationKey];
 
     if (runningApp) {
