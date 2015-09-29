@@ -10,6 +10,8 @@
 @interface PHKeyHandler ()
 
 @property UInt32 identifier;
+@property UInt32 keyCode;
+@property UInt32 modifierFlags;
 @property EventHotKeyRef reference;
 @property BOOL enabled;
 
@@ -63,17 +65,31 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
     }
 }
 
+- (instancetype) initWithKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers {
+
+    if (self = [super init]) {
+
+        self.key = (key.length == 1) ? key.lowercaseString : key;
+        self.modifiers = [modifiers valueForKey:@"lowercaseString"];
+        self.keyCode = [PHKeyTranslator keyCodeForString:self.key];
+        self.modifierFlags = [PHKeyTranslator modifierFlagsForModifiers:self.modifiers];
+
+        // Key not supported
+        if (self.keyCode == UINT32_MAX) {
+            NSLog(@"Warning: Key %@ not supported.", self.key);
+            return nil;
+        }
+
+        self.identifier = PHKeyHandlerIdentifierSequence++;
+        [self enable];
+    }
+
+    return self;
+}
+
 + (PHKeyHandler *) withKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers {
 
-    PHKeyHandler *keyHandler = [[PHKeyHandler alloc] init];
-
-    keyHandler.identifier = PHKeyHandlerIdentifierSequence++;
-    keyHandler.key = key;
-    keyHandler.modifiers = modifiers;
-
-    [keyHandler enable];
-
-    return keyHandler;
+    return [[PHKeyHandler alloc] initWithKey:key modifiers:modifiers];
 }
 
 #pragma mark - Dealloc
@@ -116,18 +132,15 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
         return YES;
     }
 
-    UInt32 keyCode = [PHKeyTranslator keyCodeForString:self.key];
-    UInt32 modifierFlags = [PHKeyTranslator modifierFlagsForModifiers:self.modifiers];
     EventHotKeyID identifier = { .signature = PHKeyHandlerSignature, .id = self.identifier };
-
-    OSStatus error = RegisterEventHotKey(keyCode,
-                                         modifierFlags,
+    OSStatus error = RegisterEventHotKey(self.keyCode,
+                                         self.modifierFlags,
                                          identifier,
                                          GetEventDispatcherTarget(),
                                          kEventHotKeyExclusive,
                                          &_reference);
     if (error != noErr) {
-        NSLog(@"Error: Could not register key %d (%d) with modifiers %d. (%d)", keyCode, identifier.id, modifierFlags, error);
+        NSLog(@"Error: Could not register key %d (%d) with modifiers %d. (%d)", self.keyCode, identifier.id, self.modifierFlags, error);
         return NO;
     }
 

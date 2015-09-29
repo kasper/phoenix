@@ -60,7 +60,7 @@ Your configuration file is loaded when the app launches. All functions are evalu
 All valid keys for binding are as follows:
 
 - Modifiers: `cmd`, `alt`, `ctrl` and `shift` (case insensitive)
-- Keys: case insensitive character or special key including function keys, arrow keys, keypad keys etc. as listed below
+- Keys: case insensitive character or case sensitive special key including function keys, arrow keys, keypad keys etc. as listed below
 - You can bind any key on your local keyboard layout, for instance an `å`-character if your keyboard has one
 
 ### Special Keys
@@ -112,8 +112,8 @@ end
 ```
 
 - `reload()` manually reloads the context and any changes in the configuration files
-- `bind(String key, Array<String> modifiers, Function callback)` binds the key character with the specified modifiers to a callback function and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives no arguments, binding overrides any previous handlers for the same key combination
-- `on(String event, Function callback)` binds an event to a callback function and returns the handler, you must keep a reference to the handler in order for your callback to get called, you can have multiple handlers for a single event
+- `bind(String key, Array<String> modifiers, Function callback)` binds the key character with the specified modifiers (can be an empty list) to a callback function and returns the handler (`undefined` if not supported), you must keep a reference to the handler in order for your callback to get called, the callback function receives no arguments, binding overrides any previous handlers for the same key combination
+- `on(String event, Function callback)` binds an event to a callback function and returns the handler (`undefined` if not supported), you must keep a reference to the handler in order for your callback to get called, you can have multiple handlers for a single event
 - `log(String message)` logs the message to the Console
 - `notify(String message)` delivers the message to the Notification Center
 
@@ -190,7 +190,7 @@ class KeyHandler implements Identifiable
 end
 ```
 
-- `key` read-only property for the key character(s) in lower case
+- `key` read-only property for the key character in lower case or case sensitive special key
 - `modifiers` read-only property for the key modifiers in lower case
 - `isEnabled()` returns `true` if the key handler is enabled, by default `true`
 - `enable()` enables the key handler, returns `true` if successful

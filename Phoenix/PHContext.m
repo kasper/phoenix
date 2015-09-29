@@ -208,6 +208,11 @@
         keyHandler = [PHKeyHandler withKey:key modifiers:modifiers];
     }
 
+    // Key not supported
+    if (!keyHandler) {
+        return nil;
+    }
+
     // Set callback
     [keyHandler manageCallback:callback];
 
