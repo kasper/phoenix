@@ -22,7 +22,7 @@
     }
 
     @catch (NSException *exception) {
-        NSLog(@"Error: Could not run command in path %@ with arguments %@. Exception: %@.", path, arguments, exception);
+        NSLog(@"Error: Could not run command in path “%@” with arguments “%@”. Exception: %@.", path, arguments, exception);
         return NO;
     }
 

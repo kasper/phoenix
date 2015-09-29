@@ -114,7 +114,7 @@
                                                              attributes:nil];
 
     if (!fileCreated) {
-        NSLog(@"Error: Could not create configuration file to path %@.", path);
+        NSLog(@"Error: Could not create configuration file to path “%@”.", path);
         return;
     }
 
@@ -127,7 +127,7 @@
     NSString *script = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
 
     if (error) {
-        NSLog(@"Error: Could not read file in path %@ to string. (%@)", path, error);
+        NSLog(@"Error: Could not read file in path “%@” to string. (%@)", path, error);
     }
 
     [self.context evaluateScript:script];

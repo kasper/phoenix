@@ -33,7 +33,7 @@
     NSString *appPath = [sharedWorkspace fullPathForApplication:appName];
 
     if (!appPath) {
-        NSLog(@"Error: Could not find an app with the name %@.", appName);
+        NSLog(@"Error: Could not find an app with the name “%@”.", appName);
         return nil;
     }
 
@@ -43,7 +43,7 @@
                                                           configuration:@{}
                                                                   error:&error];
     if (error) {
-        NSLog(@"Error: Could not launch app %@. (%@)", appName, error);
+        NSLog(@"Error: Could not launch app “%@”. (%@)", appName, error);
         return nil;
     }
 

@@ -116,7 +116,7 @@
                                                  (__bridge CFTypeRef) value);
 
     if (error != kAXErrorSuccess) {
-        NSLog(@"Error: Could not set accessibility attribute %@ with value %@ for element %@. (%d)", attribute, value, self.element, error);
+        NSLog(@"Error: Could not set accessibility attribute “%@” with value “%@” for element %@. (%d)", attribute, value, self.element, error);
     }
 
     return error == kAXErrorSuccess;

@@ -20,7 +20,7 @@
     CGError error = CGWarpMouseCursorPosition(point);
 
     if (error != kCGErrorSuccess) {
-        NSLog(@"Error: Could not move cursor position to %@. (%d)", NSStringFromPoint(point), error);
+        NSLog(@"Error: Could not move cursor position to “%@”. (%d)", NSStringFromPoint(point), error);
         return NO;
     }
 
