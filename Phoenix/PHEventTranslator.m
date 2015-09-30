@@ -38,7 +38,17 @@ static NSDictionary<NSString *, NSString *> *PHStringToNotification;
                                 @"appDidTerminate": NSWorkspaceDidTerminateApplicationNotification,
                                 @"appDidActivate": NSWorkspaceDidActivateApplicationNotification,
                                 @"appDidHide": NSWorkspaceDidHideApplicationNotification,
-                                @"appDidShow": NSWorkspaceDidUnhideApplicationNotification
+                                @"appDidShow": NSWorkspaceDidUnhideApplicationNotification,
+
+                                /* Window Notifications */
+
+                                @"windowDidOpen": NSAccessibilityWindowCreatedNotification,
+                                @"windowDidClose": NSAccessibilityUIElementDestroyedNotification,
+                                @"windowDidFocus": NSAccessibilityFocusedWindowChangedNotification,
+                                @"windowDidMove": NSAccessibilityWindowMovedNotification,
+                                @"windowDidResize": NSAccessibilityWindowResizedNotification,
+                                @"windowDidMinimize": NSAccessibilityWindowMiniaturizedNotification,
+                                @"windowDidUnminimize": NSAccessibilityWindowDeminiaturizedNotification
 
                               };
 }

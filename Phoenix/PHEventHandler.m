@@ -5,8 +5,10 @@
 @import Cocoa;
 
 #import "PHApp.h"
+#import "PHAXObserver.h"
 #import "PHEventHandler.h"
 #import "PHEventTranslator.h"
+#import "PHWindow.h"
 
 @interface PHEventHandler ()
 
@@ -33,7 +35,7 @@
             return nil;
         }
 
-        // Listen to notification
+        // Observe notification
         self.notificationCenter = [PHEventTranslator notificationCenterForNotification:self.notification];
 
         [self.notificationCenter addObserver:self
@@ -63,6 +65,15 @@
     if (runningApp) {
         PHApp *app = [[PHApp alloc] initWithApp:runningApp];
         [self callWithArguments:@[ app ]];
+        return;
+    }
+
+    /* Notification for window */
+
+    PHWindow *window = notification.userInfo[PHAXObserverWindowKey];
+
+    if (window) {
+        [self callWithArguments:@[ window ]];
         return;
     }
 

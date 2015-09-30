@@ -5,6 +5,7 @@
 @import Cocoa;
 @import JavaScriptCore;
 
+@class PHApp;
 @class PHWindow;
 
 #import "PHAXUIElement.h"

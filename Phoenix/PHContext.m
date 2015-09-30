@@ -2,6 +2,7 @@
  * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
  */
 
+#import "PHAccessibilityObserver.h"
 #import "PHApp.h"
 #import "PHCommand.h"
 #import "PHContext.h"
@@ -19,6 +20,7 @@
 @property JSContext *context;
 @property NSMutableSet<NSString *> *paths;
 @property PHPathWatcher *watcher;
+@property PHAccessibilityObserver *observer;
 @property NSMutableDictionary<NSNumber *, NSValue *> *keyHandlers;
 @property NSMutableDictionary<NSNumber *, NSValue *> *keyHandlersByIdentifier;
 
@@ -39,10 +41,11 @@
     if (self = [super init]) {
 
         self.paths = [NSMutableSet set];
+        self.observer = [[PHAccessibilityObserver alloc] init];
         self.keyHandlers = [NSMutableDictionary dictionary];
         self.keyHandlersByIdentifier = [NSMutableDictionary dictionary];
 
-        // Listen to key down notification
+        // Observe key down notification
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(keyDown:)
                                                      name:PHKeyHandlerKeyDownNotification

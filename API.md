@@ -87,6 +87,18 @@ All of the following app events receive the corresponding `App`-instance as the 
 - `appDidHide` triggered when an app becomes hidden
 - `appDidShow` triggered when an app is shown (becomes unhidden)
 
+### Window
+
+All of the following window events receive the corresponding `Window`-instance as the only argument for the callback function.
+
+- `windowDidOpen` triggered when a window has opened
+- `windowDidClose` triggered when a window has closed
+- `windowDidFocus` triggered when a window was focused within an app
+- `windowDidMove` triggered when a window has moved
+- `windowDidResize` triggered when a window has resized
+- `windowDidMinimize` triggered when a window has minimised
+- `windowDidUnminimize` triggered when a window has unminimised
+
 ## Require
 
 You can modularise your configuration using the `require`-function. It will load the referenced JavaScript-file and reload it if any changes are detected. If the path is relative, it is resolved relatively to the absolute location of the `.phoenix.js`-file. If this file is a symlink, it will be resolved before resolving the location of the required file.
