@@ -10,7 +10,7 @@
 #import "PHKeyHandler.h"
 #import "PHModalWindowController.h"
 #import "PHMouse.h"
-#import "PHNotification.h"
+#import "PHNotificationHelper.h"
 #import "PHPathWatcher.h"
 #import "PHPhoenix.h"
 #import "PHWindow.h"
@@ -83,7 +83,7 @@
 - (void) handleException:(id)exception {
 
     NSLog(@"%@", exception);
-    [PHNotification deliver:[NSString stringWithFormat:@"%@", exception]];
+    [PHNotificationHelper deliver:[NSString stringWithFormat:@"%@", exception]];
 }
 
 - (NSString *) resolvePath:(NSString *)path {
@@ -109,7 +109,7 @@
         return;
     }
 
-    [PHNotification deliver:[NSString stringWithFormat:@"Configuration file “%@” was created.", path]];
+    [PHNotificationHelper deliver:[NSString stringWithFormat:@"Configuration file “%@” was created.", path]];
 }
 
 - (void) loadScript:(NSString *)path {

@@ -4,14 +4,13 @@
 
 @import Foundation;
 
-@interface PHOpenAtLogin : NSObject
+@interface PHNotificationHelper : NSObject
 
 + (instancetype) new NS_UNAVAILABLE;
 - (instancetype) init NS_UNAVAILABLE;
 
-#pragma mark - Login Item
+#pragma mark - Delivering
 
-+ (BOOL) opensAtLogin;
-+ (void) setOpensAtLogin:(BOOL)opensAtLogin;
++ (void) deliver:(NSString *)message;
 
 @end

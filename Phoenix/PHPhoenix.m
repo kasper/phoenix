@@ -4,7 +4,7 @@
 
 #import "PHEventHandler.h"
 #import "PHKeyHandler.h"
-#import "PHNotification.h"
+#import "PHNotificationHelper.h"
 #import "PHPhoenix.h"
 
 @interface PHPhoenix ()
@@ -50,7 +50,7 @@
 
 - (void) notify:(NSString *)message {
 
-    [PHNotification deliver:message];
+    [PHNotificationHelper deliver:message];
 }
 
 @end

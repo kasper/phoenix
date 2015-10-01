@@ -12,7 +12,7 @@
 		A72EAD071B5D00B800DD537B /* PHModalWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72EAD061B5D00B800DD537B /* PHModalWindowController.m */; };
 		A72ED7B61B6E25940064E35B /* PHPhoenix.m in Sources */ = {isa = PBXBuildFile; fileRef = A72ED7B51B6E25940064E35B /* PHPhoenix.m */; };
 		A73C2CA81B9078A30004C663 /* PHCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = A73C2CA71B9078A30004C663 /* PHCommand.m */; };
-		A73C2CAB1B9088040004C663 /* PHNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = A73C2CAA1B9088040004C663 /* PHNotification.m */; };
+		A73C2CAB1B9088040004C663 /* PHNotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A73C2CAA1B9088040004C663 /* PHNotificationHelper.m */; };
 		A741336C1BB7EEAC008DAF39 /* PHHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A741336B1BB7EEAC008DAF39 /* PHHandler.m */; settings = {ASSET_TAGS = (); }; };
 		A741336F1BB7F228008DAF39 /* PHEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A741336E1BB7F228008DAF39 /* PHEventHandler.m */; settings = {ASSET_TAGS = (); }; };
 		A74133721BB7F556008DAF39 /* PHEventTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = A74133711BB7F556008DAF39 /* PHEventTranslator.m */; settings = {ASSET_TAGS = (); }; };
@@ -25,7 +25,7 @@
 		A79C46981B5BF3C100C460CF /* PHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A79C46811B5BF3C100C460CF /* PHAppDelegate.m */; };
 		A79C46991B5BF3C100C460CF /* PHContext.m in Sources */ = {isa = PBXBuildFile; fileRef = A79C46831B5BF3C100C460CF /* PHContext.m */; };
 		A79C469B1B5BF3C100C460CF /* PHMouse.m in Sources */ = {isa = PBXBuildFile; fileRef = A79C46871B5BF3C100C460CF /* PHMouse.m */; };
-		A79C469D1B5BF3C100C460CF /* PHOpenAtLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = A79C468B1B5BF3C100C460CF /* PHOpenAtLogin.m */; };
+		A79C469D1B5BF3C100C460CF /* PHOpenAtLoginHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A79C468B1B5BF3C100C460CF /* PHOpenAtLoginHelper.m */; };
 		A79C469E1B5BF3C100C460CF /* PHPathWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A79C468D1B5BF3C100C460CF /* PHPathWatcher.m */; };
 		A79C469F1B5BF3C100C460CF /* PHUniversalAccessHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A79C468F1B5BF3C100C460CF /* PHUniversalAccessHelper.m */; };
 		A79C46A01B5BF3C100C460CF /* PHWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A79C46911B5BF3C100C460CF /* PHWindow.m */; };
@@ -58,8 +58,8 @@
 		A72ED7B51B6E25940064E35B /* PHPhoenix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHPhoenix.m; sourceTree = "<group>"; };
 		A73C2CA61B9078A30004C663 /* PHCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHCommand.h; sourceTree = "<group>"; };
 		A73C2CA71B9078A30004C663 /* PHCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHCommand.m; sourceTree = "<group>"; };
-		A73C2CA91B9088040004C663 /* PHNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHNotification.h; sourceTree = "<group>"; };
-		A73C2CAA1B9088040004C663 /* PHNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHNotification.m; sourceTree = "<group>"; };
+		A73C2CA91B9088040004C663 /* PHNotificationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHNotificationHelper.h; sourceTree = "<group>"; };
+		A73C2CAA1B9088040004C663 /* PHNotificationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHNotificationHelper.m; sourceTree = "<group>"; };
 		A741336A1BB7EEAC008DAF39 /* PHHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHHandler.h; sourceTree = "<group>"; };
 		A741336B1BB7EEAC008DAF39 /* PHHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHHandler.m; sourceTree = "<group>"; };
 		A741336D1BB7F228008DAF39 /* PHEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHEventHandler.h; sourceTree = "<group>"; };
@@ -85,8 +85,8 @@
 		A79C46831B5BF3C100C460CF /* PHContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHContext.m; sourceTree = "<group>"; };
 		A79C46861B5BF3C100C460CF /* PHMouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHMouse.h; sourceTree = "<group>"; };
 		A79C46871B5BF3C100C460CF /* PHMouse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHMouse.m; sourceTree = "<group>"; };
-		A79C468A1B5BF3C100C460CF /* PHOpenAtLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHOpenAtLogin.h; sourceTree = "<group>"; };
-		A79C468B1B5BF3C100C460CF /* PHOpenAtLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHOpenAtLogin.m; sourceTree = "<group>"; };
+		A79C468A1B5BF3C100C460CF /* PHOpenAtLoginHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHOpenAtLoginHelper.h; sourceTree = "<group>"; };
+		A79C468B1B5BF3C100C460CF /* PHOpenAtLoginHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHOpenAtLoginHelper.m; sourceTree = "<group>"; };
 		A79C468C1B5BF3C100C460CF /* PHPathWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHPathWatcher.h; sourceTree = "<group>"; };
 		A79C468D1B5BF3C100C460CF /* PHPathWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHPathWatcher.m; sourceTree = "<group>"; };
 		A79C468E1B5BF3C100C460CF /* PHUniversalAccessHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHUniversalAccessHelper.h; sourceTree = "<group>"; };
@@ -148,6 +148,49 @@
 			name = API;
 			sourceTree = "<group>";
 		};
+		A73FF10B1BBD8D970024CF97 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A73C2CA91B9088040004C663 /* PHNotificationHelper.h */,
+				A73C2CAA1B9088040004C663 /* PHNotificationHelper.m */,
+				A79C468A1B5BF3C100C460CF /* PHOpenAtLoginHelper.h */,
+				A79C468B1B5BF3C100C460CF /* PHOpenAtLoginHelper.m */,
+				A79C468E1B5BF3C100C460CF /* PHUniversalAccessHelper.h */,
+				A79C468F1B5BF3C100C460CF /* PHUniversalAccessHelper.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		A73FF10C1BBD8F350024CF97 /* Translators */ = {
+			isa = PBXGroup;
+			children = (
+				A74133701BB7F556008DAF39 /* PHEventTranslator.h */,
+				A74133711BB7F556008DAF39 /* PHEventTranslator.m */,
+				A7D1D9A71B6FD6A300E00CC9 /* PHKeyTranslator.h */,
+				A7D1D9A81B6FD6A300E00CC9 /* PHKeyTranslator.m */,
+			);
+			name = Translators;
+			sourceTree = "<group>";
+		};
+		A73FF10D1BBD8F8E0024CF97 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A7E6DF6D1BBAC1F3001920B4 /* PHAccessibilityObserver.h */,
+				A7E6DF6E1BBAC1F3001920B4 /* PHAccessibilityObserver.m */,
+				A7E6DF6A1BBAB5B8001920B4 /* PHAXObserver.h */,
+				A7E6DF6B1BBAB5B8001920B4 /* PHAXObserver.m */,
+				A76247881B81FD3C00ECF209 /* PHAXUIElement.h */,
+				A76247891B81FD3C00ECF209 /* PHAXUIElement.m */,
+				A79C46821B5BF3C100C460CF /* PHContext.h */,
+				A79C46831B5BF3C100C460CF /* PHContext.m */,
+				A741336A1BB7EEAC008DAF39 /* PHHandler.h */,
+				A741336B1BB7EEAC008DAF39 /* PHHandler.m */,
+				A79C468C1B5BF3C100C460CF /* PHPathWatcher.h */,
+				A79C468D1B5BF3C100C460CF /* PHPathWatcher.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		A79C464E1B5BF31100C460CF = {
 			isa = PBXGroup;
 			children = (
@@ -171,34 +214,15 @@
 			isa = PBXGroup;
 			children = (
 				A72F1D761B89CE3E00835FBF /* API */,
+				A73FF10B1BBD8D970024CF97 /* Helpers */,
 				A79C46A91B5BF41900C460CF /* Images.xcassets */,
 				A79B89DE1B5E74C1004DDE82 /* MainMenu.xib */,
 				A79B89E11B5E75CA004DDE82 /* ModalWindow.xib */,
-				A7E6DF6D1BBAC1F3001920B4 /* PHAccessibilityObserver.h */,
-				A7E6DF6E1BBAC1F3001920B4 /* PHAccessibilityObserver.m */,
+				A73FF10D1BBD8F8E0024CF97 /* Models */,
 				A79C46801B5BF3C100C460CF /* PHAppDelegate.h */,
 				A79C46811B5BF3C100C460CF /* PHAppDelegate.m */,
-				A7E6DF6A1BBAB5B8001920B4 /* PHAXObserver.h */,
-				A7E6DF6B1BBAB5B8001920B4 /* PHAXObserver.m */,
-				A76247881B81FD3C00ECF209 /* PHAXUIElement.h */,
-				A76247891B81FD3C00ECF209 /* PHAXUIElement.m */,
-				A79C46821B5BF3C100C460CF /* PHContext.h */,
-				A79C46831B5BF3C100C460CF /* PHContext.m */,
-				A74133701BB7F556008DAF39 /* PHEventTranslator.h */,
-				A74133711BB7F556008DAF39 /* PHEventTranslator.m */,
-				A741336A1BB7EEAC008DAF39 /* PHHandler.h */,
-				A741336B1BB7EEAC008DAF39 /* PHHandler.m */,
-				A7D1D9A71B6FD6A300E00CC9 /* PHKeyTranslator.h */,
-				A7D1D9A81B6FD6A300E00CC9 /* PHKeyTranslator.m */,
-				A73C2CA91B9088040004C663 /* PHNotification.h */,
-				A73C2CAA1B9088040004C663 /* PHNotification.m */,
-				A79C468A1B5BF3C100C460CF /* PHOpenAtLogin.h */,
-				A79C468B1B5BF3C100C460CF /* PHOpenAtLogin.m */,
-				A79C468C1B5BF3C100C460CF /* PHPathWatcher.h */,
-				A79C468D1B5BF3C100C460CF /* PHPathWatcher.m */,
-				A79C468E1B5BF3C100C460CF /* PHUniversalAccessHelper.h */,
-				A79C468F1B5BF3C100C460CF /* PHUniversalAccessHelper.m */,
 				A79C465A1B5BF31100C460CF /* Supporting Files */,
+				A73FF10C1BBD8F350024CF97 /* Translators */,
 			);
 			path = Phoenix;
 			sourceTree = "<group>";
@@ -343,7 +367,7 @@
 				A79C46981B5BF3C100C460CF /* PHAppDelegate.m in Sources */,
 				A72ED7B61B6E25940064E35B /* PHPhoenix.m in Sources */,
 				A73C2CA81B9078A30004C663 /* PHCommand.m in Sources */,
-				A73C2CAB1B9088040004C663 /* PHNotification.m in Sources */,
+				A73C2CAB1B9088040004C663 /* PHNotificationHelper.m in Sources */,
 				A74133721BB7F556008DAF39 /* PHEventTranslator.m in Sources */,
 				A7E6DF6F1BBAC1F3001920B4 /* PHAccessibilityObserver.m in Sources */,
 				A79C46971B5BF3C100C460CF /* PHApp.m in Sources */,
@@ -353,7 +377,7 @@
 				A741336C1BB7EEAC008DAF39 /* PHHandler.m in Sources */,
 				A741336F1BB7F228008DAF39 /* PHEventHandler.m in Sources */,
 				A7183B671B6E865F00842E13 /* PHKeyHandler.m in Sources */,
-				A79C469D1B5BF3C100C460CF /* PHOpenAtLogin.m in Sources */,
+				A79C469D1B5BF3C100C460CF /* PHOpenAtLoginHelper.m in Sources */,
 				A7E6DF6C1BBAB5B8001920B4 /* PHAXObserver.m in Sources */,
 				A79C469E1B5BF3C100C460CF /* PHPathWatcher.m in Sources */,
 			);

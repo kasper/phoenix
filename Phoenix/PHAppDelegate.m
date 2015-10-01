@@ -4,7 +4,7 @@
 
 #import "PHAppDelegate.h"
 #import "PHContext.h"
-#import "PHOpenAtLogin.h"
+#import "PHOpenAtLoginHelper.h"
 #import "PHUniversalAccessHelper.h"
 
 @interface PHAppDelegate ()
@@ -45,7 +45,7 @@
 
 - (void) menuNeedsUpdate:(NSMenu *)menu {
 
-    [menu itemWithTitle:@"Open at Login"].state = [PHOpenAtLogin opensAtLogin] ? NSOnState : NSOffState;
+    [menu itemWithTitle:@"Open at Login"].state = [PHOpenAtLoginHelper opensAtLogin] ? NSOnState : NSOffState;
 }
 
 #pragma mark - IBAction
@@ -63,7 +63,7 @@
 
 - (IBAction) toggleOpenAtLogin:(NSMenuItem *)sender {
 
-    [PHOpenAtLogin setOpensAtLogin:sender.state == NSOffState];
+    [PHOpenAtLoginHelper setOpensAtLogin:sender.state == NSOffState];
 }
 
 @end
