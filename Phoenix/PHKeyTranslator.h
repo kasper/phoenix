@@ -12,6 +12,6 @@
 #pragma mark - Translate
 
 + (UInt32) modifierFlagsForModifiers:(NSArray<NSString *> *)modifiers;
-+ (UInt32) keyCodeForString:(NSString *)string;
++ (UInt32) keyCodeForKey:(NSString *)key;
 
 @end

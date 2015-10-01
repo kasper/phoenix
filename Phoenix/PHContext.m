@@ -104,13 +104,12 @@
     BOOL fileCreated = [[NSFileManager defaultManager] createFileAtPath:path
                                                                contents:[@"" dataUsingEncoding:NSUTF8StringEncoding]
                                                              attributes:nil];
-
     if (!fileCreated) {
         NSLog(@"Error: Could not create configuration file to path “%@”.", path);
         return;
     }
 
-    [PHNotification deliver:[NSString stringWithFormat:@"Configuration file %@ was created.", path]];
+    [PHNotification deliver:[NSString stringWithFormat:@"Configuration file “%@” was created.", path]];
 }
 
 - (void) loadScript:(NSString *)path {
@@ -143,7 +142,7 @@
         path = [weakSelf resolvePath:path];
 
         if(![[NSFileManager defaultManager] fileExistsAtPath:path]) {
-            NSString *message = [NSString stringWithFormat:@"Require: File %@ does not exist.", path];
+            NSString *message = [NSString stringWithFormat:@"Require: File “%@” does not exist.", path];
             [weakSelf handleException:message];
             return;
         }
@@ -214,16 +213,7 @@
 
 - (PHEventHandler *) bindEvent:(NSString *)event callback:(JSValue *)callback {
 
-    PHEventHandler *eventHandler = [[PHEventHandler alloc] initWithEvent:event];
-
-    if (!eventHandler) {
-        return nil;
-    }
-
-    // Set callback
-    [eventHandler manageCallback:callback];
-
-    return eventHandler;
+    return [[PHEventHandler alloc] initWithEvent:event callback:callback];
 }
 
 @end

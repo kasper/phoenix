@@ -88,7 +88,7 @@ static void PHFSEventStreamCallback(__unused ConstFSEventStreamRef stream,
     }
 }
 
-#pragma mark - File Event
+#pragma mark - Event
 
 - (void) fileDidChange {
     

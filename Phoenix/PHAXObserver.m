@@ -8,7 +8,9 @@
 @interface PHAXObserver ()
 
 @property id element;
-@property id observer; // AXObserverRef
+
+// AXObserverRef
+@property id observer;
 
 @end
 

@@ -22,12 +22,14 @@
 
 #pragma mark - Initialise
 
-- (instancetype) initWithEvent:(NSString *)event {
+- (instancetype) initWithEvent:(NSString *)event callback:(JSValue *)callback {
 
     if (self = [super init]) {
 
         self.name = event;
-        self.notification = [PHEventTranslator notificationForString:event];
+        self.notification = [PHEventTranslator notificationForEvent:event];
+
+        [self manageCallback:callback];
 
         // Event not supported
         if (!self.notification) {

@@ -21,11 +21,11 @@
 
         notificationToNotificationCenter = @{ /* App Notifications */
 
-                                             NSWorkspaceDidLaunchApplicationNotification: workspaceNotificationCenter,
-                                             NSWorkspaceDidTerminateApplicationNotification: workspaceNotificationCenter,
-                                             NSWorkspaceDidActivateApplicationNotification: workspaceNotificationCenter,
-                                             NSWorkspaceDidHideApplicationNotification: workspaceNotificationCenter,
-                                             NSWorkspaceDidUnhideApplicationNotification: workspaceNotificationCenter };
+                                              NSWorkspaceDidLaunchApplicationNotification: workspaceNotificationCenter,
+                                              NSWorkspaceDidTerminateApplicationNotification: workspaceNotificationCenter,
+                                              NSWorkspaceDidActivateApplicationNotification: workspaceNotificationCenter,
+                                              NSWorkspaceDidHideApplicationNotification: workspaceNotificationCenter,
+                                              NSWorkspaceDidUnhideApplicationNotification: workspaceNotificationCenter };
     });
 
     NSNotificationCenter *notificationCenter = notificationToNotificationCenter[notification];
@@ -41,14 +41,14 @@
 
 #pragma mark - Notification
 
-+ (NSString *) notificationForString:(NSString *)string {
++ (NSString *) notificationForEvent:(NSString *)event {
 
-    static NSDictionary<NSString *, NSString *> *stringToNotification;
+    static NSDictionary<NSString *, NSString *> *eventToNotification;
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
 
-        stringToNotification = @{ /* Screen Notifications */
+        eventToNotification = @{ /* Screen Notifications */
 
                                  @"screensDidChange": NSApplicationDidChangeScreenParametersNotification,
 
@@ -71,7 +71,7 @@
                                  @"windowDidUnminimize": NSAccessibilityWindowDeminiaturizedNotification };
     });
 
-    return stringToNotification[string];
+    return eventToNotification[event];
 }
 
 @end

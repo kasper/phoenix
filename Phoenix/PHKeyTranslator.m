@@ -129,74 +129,74 @@
 
 + (NSNumber *) keyCodeForSpecialKey:(NSString *)key {
 
-    static NSDictionary<NSString *, NSNumber *> *keyToKeyCode;
+    static NSDictionary<NSString *, NSNumber *> *specialKeyToKeyCode;
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
 
-        keyToKeyCode = @{ /* Action Keys */
+        specialKeyToKeyCode = @{ /* Action Keys */
 
-                         @"return": @(kVK_Return),
-                         @"tab": @(kVK_Tab),
-                         @"space": @(kVK_Space),
-                         @"delete": @(kVK_Delete),
-                         @"escape": @(kVK_Escape),
-                         @"help": @(kVK_Help),
-                         @"home": @(kVK_Home),
-                         @"pageUp": @(kVK_PageUp),
-                         @"forwardDelete": @(kVK_ForwardDelete),
-                         @"end": @(kVK_End),
-                         @"pageDown": @(kVK_PageDown),
-                         @"left": @(kVK_LeftArrow),
-                         @"right": @(kVK_RightArrow),
-                         @"down": @(kVK_DownArrow),
-                         @"up": @(kVK_UpArrow),
+                                 @"return": @(kVK_Return),
+                                 @"tab": @(kVK_Tab),
+                                 @"space": @(kVK_Space),
+                                 @"delete": @(kVK_Delete),
+                                 @"escape": @(kVK_Escape),
+                                 @"help": @(kVK_Help),
+                                 @"home": @(kVK_Home),
+                                 @"pageUp": @(kVK_PageUp),
+                                 @"forwardDelete": @(kVK_ForwardDelete),
+                                 @"end": @(kVK_End),
+                                 @"pageDown": @(kVK_PageDown),
+                                 @"left": @(kVK_LeftArrow),
+                                 @"right": @(kVK_RightArrow),
+                                 @"down": @(kVK_DownArrow),
+                                 @"up": @(kVK_UpArrow),
 
-                         /* Function Keys */
+                                 /* Function Keys */
 
-                         @"f1": @(kVK_F1),
-                         @"f2": @(kVK_F2),
-                         @"f3": @(kVK_F3),
-                         @"f4": @(kVK_F4),
-                         @"f5": @(kVK_F5),
-                         @"f6": @(kVK_F6),
-                         @"f7": @(kVK_F7),
-                         @"f8": @(kVK_F8),
-                         @"f9": @(kVK_F9),
-                         @"f10": @(kVK_F10),
-                         @"f11": @(kVK_F11),
-                         @"f12": @(kVK_F12),
-                         @"f13": @(kVK_F13),
-                         @"f14": @(kVK_F14),
-                         @"f15": @(kVK_F15),
-                         @"f16": @(kVK_F16),
-                         @"f17": @(kVK_F17),
-                         @"f18": @(kVK_F18),
-                         @"f19": @(kVK_F19),
+                                 @"f1": @(kVK_F1),
+                                 @"f2": @(kVK_F2),
+                                 @"f3": @(kVK_F3),
+                                 @"f4": @(kVK_F4),
+                                 @"f5": @(kVK_F5),
+                                 @"f6": @(kVK_F6),
+                                 @"f7": @(kVK_F7),
+                                 @"f8": @(kVK_F8),
+                                 @"f9": @(kVK_F9),
+                                 @"f10": @(kVK_F10),
+                                 @"f11": @(kVK_F11),
+                                 @"f12": @(kVK_F12),
+                                 @"f13": @(kVK_F13),
+                                 @"f14": @(kVK_F14),
+                                 @"f15": @(kVK_F15),
+                                 @"f16": @(kVK_F16),
+                                 @"f17": @(kVK_F17),
+                                 @"f18": @(kVK_F18),
+                                 @"f19": @(kVK_F19),
 
-                         /* Keypad Keys */
+                                 /* Keypad Keys */
 
-                         @"keypad.": @(kVK_ANSI_KeypadDecimal),
-                         @"keypad*": @(kVK_ANSI_KeypadMultiply),
-                         @"keypad+": @(kVK_ANSI_KeypadPlus),
-                         @"keypadClear": @(kVK_ANSI_KeypadClear),
-                         @"keypad/": @(kVK_ANSI_KeypadDivide),
-                         @"keypadEnter": @(kVK_ANSI_KeypadEnter),
-                         @"keypad-": @(kVK_ANSI_KeypadMinus),
-                         @"keypad=": @(kVK_ANSI_KeypadEquals),
-                         @"keypad0": @(kVK_ANSI_Keypad0),
-                         @"keypad1": @(kVK_ANSI_Keypad1),
-                         @"keypad2": @(kVK_ANSI_Keypad2),
-                         @"keypad3": @(kVK_ANSI_Keypad3),
-                         @"keypad4": @(kVK_ANSI_Keypad4),
-                         @"keypad5": @(kVK_ANSI_Keypad5),
-                         @"keypad6": @(kVK_ANSI_Keypad6),
-                         @"keypad7": @(kVK_ANSI_Keypad7),
-                         @"keypad8": @(kVK_ANSI_Keypad8),
-                         @"keypad9": @(kVK_ANSI_Keypad9) };
+                                 @"keypad.": @(kVK_ANSI_KeypadDecimal),
+                                 @"keypad*": @(kVK_ANSI_KeypadMultiply),
+                                 @"keypad+": @(kVK_ANSI_KeypadPlus),
+                                 @"keypadClear": @(kVK_ANSI_KeypadClear),
+                                 @"keypad/": @(kVK_ANSI_KeypadDivide),
+                                 @"keypadEnter": @(kVK_ANSI_KeypadEnter),
+                                 @"keypad-": @(kVK_ANSI_KeypadMinus),
+                                 @"keypad=": @(kVK_ANSI_KeypadEquals),
+                                 @"keypad0": @(kVK_ANSI_Keypad0),
+                                 @"keypad1": @(kVK_ANSI_Keypad1),
+                                 @"keypad2": @(kVK_ANSI_Keypad2),
+                                 @"keypad3": @(kVK_ANSI_Keypad3),
+                                 @"keypad4": @(kVK_ANSI_Keypad4),
+                                 @"keypad5": @(kVK_ANSI_Keypad5),
+                                 @"keypad6": @(kVK_ANSI_Keypad6),
+                                 @"keypad7": @(kVK_ANSI_Keypad7),
+                                 @"keypad8": @(kVK_ANSI_Keypad8),
+                                 @"keypad9": @(kVK_ANSI_Keypad9) };
     });
 
-    return keyToKeyCode[key];
+    return specialKeyToKeyCode[key];
 }
 
 #pragma mark - Translate
@@ -217,22 +217,23 @@
     return flags;
 }
 
-+ (UInt32) keyCodeForString:(NSString *)string {
++ (UInt32) keyCodeForKey:(NSString *)key {
 
     // Local key
-    NSNumber *keyCode = [self keyCodeForLocalKey:string];
+    NSNumber *keyCode = [self keyCodeForLocalKey:key];
 
     if (keyCode) {
         return keyCode.unsignedIntValue;
     }
 
     // Special key
-    keyCode = [self keyCodeForSpecialKey:string];
+    keyCode = [self keyCodeForSpecialKey:key];
 
     if (keyCode) {
         return keyCode.unsignedIntValue;
     }
 
+    // Not supported
     return UINT32_MAX;
 }
 

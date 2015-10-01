@@ -80,7 +80,7 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
 
         self.key = (key.length == 1) ? key.lowercaseString : key;
         self.modifiers = [modifiers valueForKey:@"lowercaseString"];
-        self.keyCode = [PHKeyTranslator keyCodeForString:self.key];
+        self.keyCode = [PHKeyTranslator keyCodeForKey:self.key];
         self.modifierFlags = [PHKeyTranslator modifierFlagsForModifiers:self.modifiers];
 
         // Key not supported

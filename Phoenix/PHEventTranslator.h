@@ -13,8 +13,8 @@
 
 + (NSNotificationCenter *) notificationCenterForNotification:(NSString *)notification;
 
-#pragma mark - Translate
+#pragma mark - Notification
 
-+ (NSString *) notificationForString:(NSString *)string;
++ (NSString *) notificationForEvent:(NSString *)event;
 
 @end

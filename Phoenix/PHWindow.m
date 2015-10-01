@@ -15,6 +15,9 @@
 
 @implementation PHWindow
 
+static NSString * const PHWindowKey = @"window";
+static NSString * const PHScoreKey = @"score";
+
 // XXX: Undocumented private API to get the CGWindowID for an AXUIElementRef
 AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
 
@@ -272,14 +275,14 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
         double angleDifference = direction(angle);
         double score = distance / cos(angleDifference / 2.0);
 
-        [closestOtherWindows addObject:@{ @"window": window, @"score": @(score) }];
+        [closestOtherWindows addObject:@{ PHWindowKey: window, PHScoreKey: @(score) }];
     }
 
     // Sort other windows based on distance score
     NSArray<PHWindow *> *sortedOtherWindows = [closestOtherWindows sortedArrayUsingComparator:
                                                ^NSComparisonResult(NSDictionary<NSString *, id> *window,
                                                                    NSDictionary<NSString *, id> *otherWindow) {
-        return [window[@"score"] compare:otherWindow[@"score"]];
+        return [window[PHScoreKey] compare:otherWindow[PHScoreKey]];
     }];
     
     return sortedOtherWindows;
@@ -289,28 +292,28 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
 
     return [[self windowsInDirection:^double (double angle) { return M_PI - fabs(angle); }
                 shouldDisregardDelta:^BOOL (double deltaX, __unused double deltaY) { return (deltaX >= 0); }]
-            valueForKeyPath:@"window"];
+            valueForKeyPath:PHWindowKey];
 }
 
 - (NSArray<PHWindow *> *) windowsToEast {
 
     return [[self windowsInDirection:^double (double angle) { return 0.0 - angle; }
                 shouldDisregardDelta:^BOOL (double deltaX, __unused double deltaY) { return (deltaX <= 0); }]
-            valueForKeyPath:@"window"];
+            valueForKeyPath:PHWindowKey];
 }
 
 - (NSArray<PHWindow *> *) windowsToNorth {
 
     return [[self windowsInDirection:^double (double angle) { return -M_PI_2 - angle; }
                 shouldDisregardDelta:^BOOL (__unused double deltaX, double deltaY) { return (deltaY >= 0); }]
-            valueForKeyPath:@"window"];
+            valueForKeyPath:PHWindowKey];
 }
 
 - (NSArray<PHWindow *> *) windowsToSouth {
 
     return [[self windowsInDirection:^double (double angle) { return M_PI_2 - angle; }
                 shouldDisregardDelta:^BOOL (__unused double deltaX, double deltaY) { return (deltaY <= 0); }]
-            valueForKeyPath:@"window"];
+            valueForKeyPath:PHWindowKey];
 }
 
 #pragma mark - Focusing
