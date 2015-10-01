@@ -47,9 +47,6 @@ static void PHAXObserverCallback(__unused AXObserverRef observer,
         self.observer = CFBridgingRelease(observer);
         self.element = CFBridgingRelease(AXUIElementCreateApplication(app.processIdentifier));
 
-        CFRunLoopAddSource(CFRunLoopGetCurrent(),
-                           AXObserverGetRunLoopSource((__bridge AXObserverRef) self.observer),
-                           kCFRunLoopDefaultMode);
         [self setup];
     }
 
@@ -106,6 +103,10 @@ static void PHAXObserverCallback(__unused AXObserverRef observer,
 #pragma mark - Setup
 
 - (void) setup {
+
+    CFRunLoopAddSource(CFRunLoopGetCurrent(),
+                       AXObserverGetRunLoopSource((__bridge AXObserverRef) self.observer),
+                       kCFRunLoopDefaultMode);
 
     for (NSString *notification in [PHAXObserver notifications]) {
         [self addNotification:notification];
