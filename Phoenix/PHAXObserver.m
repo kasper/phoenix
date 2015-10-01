@@ -16,11 +16,10 @@
 
 #pragma mark - AXObserverCallback
 
-static void axObserverCallback(__unused AXObserverRef observer,
-                               AXUIElementRef element,
-                               CFStringRef notification,
-                               __unused void *data) {
-
+static void PHAXObserverCallback(__unused AXObserverRef observer,
+                                 AXUIElementRef element,
+                                 CFStringRef notification,
+                                 __unused void *data) {
     @autoreleasepool {
 
         PHWindow *window = [[PHWindow alloc] initWithElement:CFBridgingRelease(CFRetain(element))];
@@ -38,7 +37,7 @@ static void axObserverCallback(__unused AXObserverRef observer,
     if (self = [super init]) {
 
         AXObserverRef observer = NULL;
-        AXError error = AXObserverCreate(app.processIdentifier, axObserverCallback, &observer);
+        AXError error = AXObserverCreate(app.processIdentifier, PHAXObserverCallback, &observer);
 
         if (error != kAXErrorSuccess) {
             NSLog(@"Error: Could not create accessibility observer for app %@. (%d)", app, error);

@@ -25,28 +25,31 @@
 static FourCharCode const PHKeyHandlerSignature = 'FNIX';
 static UInt32 PHKeyHandlerIdentifierSequence;
 
-#pragma mark - PHCarbonEventCallback
+#pragma mark - CarbonEventCallback
 
 static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
                                       EventRef event,
-                                      __unused void *callback) {
-    EventHotKeyID identifier;
-    OSStatus error = GetEventParameter(event,
-                                       kEventParamDirectObject,
-                                       typeEventHotKeyID,
-                                       NULL,
-                                       sizeof(identifier),
-                                       NULL,
-                                       &identifier);
-    if (error != noErr) {
-        NSLog(@"Error: Could not get key event identifier. (%d)", error);
-        return error;
-    }
+                                      __unused void *data) {
+    @autoreleasepool {
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:PHKeyHandlerKeyDownNotification
-                                                        object:nil
-                                                      userInfo:@{ PHKeyHandlerIdentifier: @(identifier.id) }];
-    return noErr;
+        EventHotKeyID identifier;
+        OSStatus error = GetEventParameter(event,
+                                           kEventParamDirectObject,
+                                           typeEventHotKeyID,
+                                           NULL,
+                                           sizeof(identifier),
+                                           NULL,
+                                           &identifier);
+        if (error != noErr) {
+            NSLog(@"Error: Could not get key event identifier. (%d)", error);
+            return error;
+        }
+
+        [[NSNotificationCenter defaultCenter] postNotificationName:PHKeyHandlerKeyDownNotification
+                                                            object:nil
+                                                          userInfo:@{ PHKeyHandlerIdentifier: @(identifier.id) }];
+        return noErr;
+    }
 }
 
 #pragma mark - Initialise

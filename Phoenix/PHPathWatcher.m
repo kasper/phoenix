@@ -45,15 +45,17 @@
 
 #pragma mark - FSEventStreamCallback
 
-void fsEventStreamCallback(__unused ConstFSEventStreamRef stream,
-                           void *callback,
-                           __unused size_t count,
-                           __unused void *paths,
-                           __unused FSEventStreamEventFlags const flags[],
-                           __unused FSEventStreamEventId const ids[]) {
+static void PHFSEventStreamCallback(__unused ConstFSEventStreamRef stream,
+                                    void *callback,
+                                    __unused size_t count,
+                                    __unused void *paths,
+                                    __unused FSEventStreamEventFlags const flags[],
+                                    __unused FSEventStreamEventId const ids[]) {
+    @autoreleasepool {
 
-    PHPathWatcher *watcher = (__bridge PHPathWatcher *) callback;
-    [watcher fileChange];
+        PHPathWatcher *watcher = (__bridge PHPathWatcher *) callback;
+        [watcher fileChange];
+    }
 }
 
 #pragma mark - Setup
@@ -69,7 +71,7 @@ void fsEventStreamCallback(__unused ConstFSEventStreamRef stream,
     context.copyDescription = NULL;
 
     self.stream = FSEventStreamCreate(NULL,
-                                      fsEventStreamCallback,
+                                      PHFSEventStreamCallback,
                                       &context,
                                       (__bridge CFArrayRef) self.paths,
                                       kFSEventStreamEventIdSinceNow,
