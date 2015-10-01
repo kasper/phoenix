@@ -35,7 +35,7 @@
 
     [PHUniversalAccessHelper askPermissionIfNeeded];
     
-    self.context = [[PHContext alloc] init];
+    self.context = [PHContext context];
     [self.context load];
 
     [self setupStatusItem];

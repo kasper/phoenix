@@ -29,7 +29,7 @@
     return self;
 }
 
-+ (PHPathWatcher *) watcherFor:(NSArray<NSString *> *)paths handler:(void (^)())handler {
++ (instancetype) watcherFor:(NSArray<NSString *> *)paths handler:(void (^)())handler {
 
     return [[PHPathWatcher alloc] initWithPaths:paths handler:handler];
 }

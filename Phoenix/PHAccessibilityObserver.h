@@ -6,4 +6,8 @@
 
 @interface PHAccessibilityObserver : NSObject
 
+#pragma mark - Initialise
+
++ (instancetype) observer;
+
 @end

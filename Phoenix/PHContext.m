@@ -41,7 +41,7 @@
     if (self = [super init]) {
 
         self.paths = [NSMutableSet set];
-        self.observer = [[PHAccessibilityObserver alloc] init];
+        self.observer = [PHAccessibilityObserver observer];
         self.keyHandlers = [NSMutableDictionary dictionary];
         self.keyHandlersByIdentifier = [NSMutableDictionary dictionary];
 
@@ -53,6 +53,11 @@
     }
 
     return self;
+}
+
++ (instancetype) context {
+
+    return [[PHContext alloc] init];
 }
 
 #pragma mark - Dealloc

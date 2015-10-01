@@ -23,4 +23,8 @@
 
 @interface PHContext : NSObject <PHContextDelegate>
 
+#pragma mark - Initialise
+
++ (instancetype) context;
+
 @end

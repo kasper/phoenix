@@ -38,6 +38,11 @@ static NSString * const NSWorkspaceRunningApplicationsKeyPath = @"runningApplica
     return self;
 }
 
++ (instancetype) observer {
+
+    return [[PHAccessibilityObserver alloc] init];
+}
+
 #pragma mark - Dealloc
 
 - (void) dealloc {

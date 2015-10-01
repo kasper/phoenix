@@ -87,7 +87,7 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
     return self;
 }
 
-+ (PHKeyHandler *) withKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers {
++ (instancetype) withKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers {
 
     return [[PHKeyHandler alloc] initWithKey:key modifiers:modifiers];
 }
