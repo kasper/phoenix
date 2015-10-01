@@ -16,4 +16,6 @@
 
 @interface PHMouse : NSObject <PHMouseJSExport>
 
+- (instancetype) init NS_UNAVAILABLE;
+
 @end

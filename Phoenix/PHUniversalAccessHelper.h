@@ -6,6 +6,8 @@
 
 @interface PHUniversalAccessHelper : NSObject
 
+- (instancetype) init NS_UNAVAILABLE;
+
 #pragma mark - Universal Access
 
 + (void) askPermissionIfNeeded;

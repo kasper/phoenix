@@ -6,6 +6,8 @@
 
 @interface PHKeyTranslator : NSObject
 
+- (instancetype) init NS_UNAVAILABLE;
+
 #pragma mark - Translate
 
 + (UInt32) modifierFlagsForModifiers:(NSArray<NSString *> *)modifiers;

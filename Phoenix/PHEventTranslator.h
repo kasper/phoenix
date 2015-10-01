@@ -6,6 +6,8 @@
 
 @interface PHEventTranslator : NSObject
 
+- (instancetype) init NS_UNAVAILABLE;
+
 #pragma mark - Notification Center
 
 + (NSNotificationCenter *) notificationCenterForNotification:(NSString *)notification;

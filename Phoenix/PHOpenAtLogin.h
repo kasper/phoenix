@@ -6,6 +6,8 @@
 
 @interface PHOpenAtLogin : NSObject
 
+- (instancetype) init NS_UNAVAILABLE;
+
 #pragma mark - Login Item
 
 + (BOOL) opensAtLogin;

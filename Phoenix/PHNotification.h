@@ -6,6 +6,8 @@
 
 @interface PHNotification : NSObject
 
+- (instancetype) init NS_UNAVAILABLE;
+
 #pragma mark - Delivering
 
 + (void) deliver:(NSString *)message;
