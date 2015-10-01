@@ -8,7 +8,7 @@ Release: dd.mm.yyyy
 
 ### New
 
-- Phoenix now supports events! See the [API](API.md#events). To bind an event to a callback function, you call the `on`-function for the `Phoenix`-object.
+- Phoenix now supports events! See the [API](API.md#2-events). To bind an event to a callback function, you call the `on`-function for the `Phoenix`-object.
 
 ### Changes
 
@@ -17,10 +17,10 @@ Release: dd.mm.yyyy
 - Underscore.js is upgraded to 1.8.3 (from 1.5.2). This may change existing behaviour related to Underscore.
 - Global `api`-object is now called `Phoenix`.
 - Global `MousePosition`-object is now called `Mouse`.
-- `Hotkey`-object is now called `KeyHandler` and its properties have changed. See the [API](API.md#keyhandler).
-- The concept of `Alerts` has been deprecated. A new global `Modal`-object has been created to display messages as modals. See the [API](API.md#modal).
-- A new `EventHandler`-object has been created to handle events. See the [API](API.md#eventhandler).
-- A new global `Command`-object has been created to run UNIX-commands. See the [API](API.md#command).
+- `Hotkey`-object is now called `KeyHandler` and its properties have changed. See the [API](API.md#9-keyhandler).
+- The concept of `Alerts` has been deprecated. A new global `Modal`-object has been created to display messages as modals. See the [API](API.md#11-modal).
+- A new `EventHandler`-object has been created to handle events. See the [API](API.md#10-eventhandler).
+- A new global `Command`-object has been created to run UNIX-commands. See the [API](API.md#12-command).
 
 ### Improvements
 

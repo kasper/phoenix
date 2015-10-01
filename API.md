@@ -5,22 +5,22 @@ This documentation is an overview of the JavaScript API provided by Phoenix. Use
 
 ## API
 
-1. [Keys](#keys)
-2. [Events](#events)
-3. [Require](#require)
-4. [Phoenix](#phoenix)
-5. [Point](#point)
-6. [Size](#size)
-7. [Rectangle](#rectangle)
-8. [Identifiable](#identifiable)
-9. [KeyHandler](#keyhandler)
-10. [EventHandler](#eventhandler)
-11. [Modal](#modal)
-12. [Command](#command)
-13. [Screen](#screen)
-14. [Mouse](#mouse)
-15. [App](#app)
-16. [Window](#window)
+1. [Keys](#1-keys)
+2. [Events](#2-events)
+3. [Require](#3-require)
+4. [Phoenix](#4-phoenix)
+5. [Point](#5-point)
+6. [Size](#6-size)
+7. [Rectangle](#7-rectangle)
+8. [Identifiable](#8-identifiable)
+9. [KeyHandler](#9-keyhandler)
+10. [EventHandler](#10-eventhandler)
+11. [Modal](#11-modal)
+12. [Command](#12-command)
+13. [Screen](#13-screen)
+14. [Mouse](#14-mouse)
+15. [App](#15-app)
+16. [Window](#16-window)
 
 ## Getting Started
 
