@@ -8,7 +8,9 @@
 
 #pragma mark - Initialise
 
++ (instancetype) new NS_UNAVAILABLE;
 - (instancetype) init NS_UNAVAILABLE;
+
 - (instancetype) initWithElement:(id)element NS_DESIGNATED_INITIALIZER;
 
 #pragma mark - Static Accessors

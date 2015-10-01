@@ -15,6 +15,7 @@ JSExportAs(run, + (BOOL) runPath:(NSString *)path withArguments:(NSArray<NSStrin
 
 @interface PHCommand : NSObject <PHCommandJSExport>
 
++ (instancetype) new NS_UNAVAILABLE;
 - (instancetype) init NS_UNAVAILABLE;
 
 @end

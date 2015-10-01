@@ -6,6 +6,7 @@
 
 @interface PHKeyTranslator : NSObject
 
++ (instancetype) new NS_UNAVAILABLE;
 - (instancetype) init NS_UNAVAILABLE;
 
 #pragma mark - Translate

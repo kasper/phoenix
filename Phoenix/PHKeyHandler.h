@@ -34,9 +34,10 @@ static NSString * const PHKeyHandlerKeyDownNotification = @"PHKeyHandlerKeyDownN
 
 #pragma mark - Initialise
 
++ (instancetype) new NS_UNAVAILABLE;
 - (instancetype) init NS_UNAVAILABLE;
-- (instancetype) initWithKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers NS_DESIGNATED_INITIALIZER;
 
+- (instancetype) initWithKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers NS_DESIGNATED_INITIALIZER;
 + (instancetype) withKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers;
 
 #pragma mark - Hash

@@ -10,7 +10,9 @@ static NSString * const PHAXObserverWindowKey = @"PHAXObserverWindowKey";
 
 #pragma mark - Initialise
 
++ (instancetype) new NS_UNAVAILABLE;
 - (instancetype) init NS_UNAVAILABLE;
+
 - (instancetype) initWithApp:(NSRunningApplication *)app NS_DESIGNATED_INITIALIZER;
 
 @end

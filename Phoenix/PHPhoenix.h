@@ -31,7 +31,9 @@ JSExportAs(on, - (PHEventHandler *) bindEvent:(NSString *)event callback:(JSValu
 
 #pragma mark - Initialise
 
++ (instancetype) new NS_UNAVAILABLE;
 - (instancetype) init NS_UNAVAILABLE;
+
 - (instancetype) initWithDelegate:(id<PHContextDelegate>)delegate NS_DESIGNATED_INITIALIZER;
 
 @end
