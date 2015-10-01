@@ -4,15 +4,14 @@
 
 @import Cocoa;
 
+#import "PHAXUIElement.h"
+
 static NSString * const PHAXObserverWindowKey = @"PHAXObserverWindowKey";
 
-@interface PHAXObserver : NSObject
+@interface PHAXObserver : PHAXUIElement
 
 #pragma mark - Initialise
 
-+ (instancetype) new NS_UNAVAILABLE;
-- (instancetype) init NS_UNAVAILABLE;
-
-- (instancetype) initWithApp:(NSRunningApplication *)app NS_DESIGNATED_INITIALIZER;
+- (instancetype) initWithApp:(NSRunningApplication *)app;
 
 @end

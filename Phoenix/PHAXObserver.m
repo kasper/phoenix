@@ -7,8 +7,8 @@
 
 @interface PHAXObserver ()
 
+@property id element;
 @property id observer; // AXObserverRef
-@property id element; // AXUIElementRef
 
 @end
 
@@ -34,7 +34,7 @@ static void PHAXObserverCallback(__unused AXObserverRef observer,
 
 - (instancetype) initWithApp:(NSRunningApplication *)app {
 
-    if (self = [super init]) {
+    if (self = [super initWithElement:CFBridgingRelease(AXUIElementCreateApplication(app.processIdentifier))]) {
 
         AXObserverRef observer = NULL;
         AXError error = AXObserverCreate(app.processIdentifier, PHAXObserverCallback, &observer);
@@ -45,8 +45,6 @@ static void PHAXObserverCallback(__unused AXObserverRef observer,
         }
 
         self.observer = CFBridgingRelease(observer);
-        self.element = CFBridgingRelease(AXUIElementCreateApplication(app.processIdentifier));
-
         [self setup];
     }
 
