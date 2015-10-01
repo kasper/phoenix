@@ -16,16 +16,22 @@
 
 #pragma mark - Initialise
 
+- (instancetype) initWithPaths:(NSArray<NSString *> *)paths handler:(void (^)())handler {
+
+    if (self = [super init]) {
+
+        self.paths = paths;
+        self.handler = handler;
+
+        [self setup];
+    }
+
+    return self;
+}
+
 + (PHPathWatcher *) watcherFor:(NSArray<NSString *> *)paths handler:(void (^)())handler {
 
-    PHPathWatcher *watcher = [[PHPathWatcher alloc] init];
-
-    watcher.paths = paths;
-    watcher.handler = handler;
-
-    [watcher setup];
-
-    return watcher;
+    return [[PHPathWatcher alloc] initWithPaths:paths handler:handler];
 }
 
 #pragma mark - Dealloc
