@@ -54,7 +54,7 @@ static void PHFSEventStreamCallback(__unused ConstFSEventStreamRef stream,
     @autoreleasepool {
 
         PHPathWatcher *watcher = (__bridge PHPathWatcher *) callback;
-        [watcher fileChange];
+        [watcher fileDidChange];
     }
 }
 
@@ -90,7 +90,7 @@ static void PHFSEventStreamCallback(__unused ConstFSEventStreamRef stream,
 
 #pragma mark - File Event
 
-- (void) fileChange {
+- (void) fileDidChange {
     
     self.handler();
 }
