@@ -75,6 +75,10 @@ All valid keys for binding are as follows:
 
 Phoenix supports the following (case sensitive) events:
 
+### Phoenix
+
+- `start` triggered once when Phoenix has started and the context is ready, the callback function receives no arguments
+
 ### Screen
 
 - `screensDidChange` triggered when screens (i.e. displays) are added, removed, or dynamically reconfigured, the callback function receives no arguments

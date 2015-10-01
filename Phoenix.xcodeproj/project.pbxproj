@@ -60,6 +60,7 @@
 		A73C2CA71B9078A30004C663 /* PHCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHCommand.m; sourceTree = "<group>"; };
 		A73C2CA91B9088040004C663 /* PHNotificationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHNotificationHelper.h; sourceTree = "<group>"; };
 		A73C2CAA1B9088040004C663 /* PHNotificationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHNotificationHelper.m; sourceTree = "<group>"; };
+		A73FF10E1BBD982A0024CF97 /* PHEventConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHEventConstants.h; sourceTree = "<group>"; };
 		A741336A1BB7EEAC008DAF39 /* PHHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHHandler.h; sourceTree = "<group>"; };
 		A741336B1BB7EEAC008DAF39 /* PHHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHHandler.m; sourceTree = "<group>"; };
 		A741336D1BB7F228008DAF39 /* PHEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHEventHandler.h; sourceTree = "<group>"; };
@@ -183,6 +184,7 @@
 				A76247891B81FD3C00ECF209 /* PHAXUIElement.m */,
 				A79C46821B5BF3C100C460CF /* PHContext.h */,
 				A79C46831B5BF3C100C460CF /* PHContext.m */,
+				A73FF10E1BBD982A0024CF97 /* PHEventConstants.h */,
 				A741336A1BB7EEAC008DAF39 /* PHHandler.h */,
 				A741336B1BB7EEAC008DAF39 /* PHHandler.m */,
 				A79C468C1B5BF3C100C460CF /* PHPathWatcher.h */,

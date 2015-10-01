@@ -4,6 +4,7 @@
 
 #import "PHAppDelegate.h"
 #import "PHContext.h"
+#import "PHEventConstants.h"
 #import "PHOpenAtLoginHelper.h"
 #import "PHUniversalAccessHelper.h"
 
@@ -39,6 +40,8 @@
     [self.context load];
 
     [self setupStatusItem];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:PHEventStartNotification object:self];
 }
 
 #pragma mark - NSMenuDelegate

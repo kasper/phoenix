@@ -4,6 +4,7 @@
 
 @import Cocoa;
 
+#import "PHEventConstants.h"
 #import "PHEventTranslator.h"
 
 @implementation PHEventTranslator
@@ -48,7 +49,11 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
 
-        eventToNotification = @{ /* Screen Notifications */
+        eventToNotification = @{ /* Event Notifications */
+
+                                 @"start": PHEventStartNotification,
+
+                                 /* Screen Notifications */
 
                                  @"screensDidChange": NSApplicationDidChangeScreenParametersNotification,
 
