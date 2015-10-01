@@ -8,56 +8,27 @@
 
 @implementation PHEventTranslator
 
-static NSDictionary<NSString *, NSNotificationCenter *> *PHNotificationToNotificationCenter;
-static NSDictionary<NSString *, NSString *> *PHStringToNotification;
-
-#pragma mark - Initialise
-
-+ (void) initialize {
-
-    NSNotificationCenter *workspaceNotificationCenter = [[NSWorkspace sharedWorkspace] notificationCenter];
-
-    /* Notification Centers */
-
-    PHNotificationToNotificationCenter = @{ /* App Notifications */
-
-                                            NSWorkspaceDidLaunchApplicationNotification: workspaceNotificationCenter,
-                                            NSWorkspaceDidTerminateApplicationNotification: workspaceNotificationCenter,
-                                            NSWorkspaceDidActivateApplicationNotification: workspaceNotificationCenter,
-                                            NSWorkspaceDidHideApplicationNotification: workspaceNotificationCenter,
-                                            NSWorkspaceDidUnhideApplicationNotification: workspaceNotificationCenter };
-    /* Notifications */
-
-    PHStringToNotification = @{ /* Screen Notifications */
-
-                                @"screensDidChange": NSApplicationDidChangeScreenParametersNotification,
-
-                                /* App Notifications */
-
-                                @"appDidLaunch": NSWorkspaceDidLaunchApplicationNotification,
-                                @"appDidTerminate": NSWorkspaceDidTerminateApplicationNotification,
-                                @"appDidActivate": NSWorkspaceDidActivateApplicationNotification,
-                                @"appDidHide": NSWorkspaceDidHideApplicationNotification,
-                                @"appDidShow": NSWorkspaceDidUnhideApplicationNotification,
-
-                                /* Window Notifications */
-
-                                @"windowDidOpen": NSAccessibilityWindowCreatedNotification,
-                                @"windowDidClose": NSAccessibilityUIElementDestroyedNotification,
-                                @"windowDidFocus": NSAccessibilityFocusedWindowChangedNotification,
-                                @"windowDidMove": NSAccessibilityWindowMovedNotification,
-                                @"windowDidResize": NSAccessibilityWindowResizedNotification,
-                                @"windowDidMinimize": NSAccessibilityWindowMiniaturizedNotification,
-                                @"windowDidUnminimize": NSAccessibilityWindowDeminiaturizedNotification
-
-                              };
-}
-
 #pragma mark - Notification Center
 
 + (NSNotificationCenter *) notificationCenterForNotification:(NSString *)notification {
 
-    NSNotificationCenter *notificationCenter = PHNotificationToNotificationCenter[notification];
+    static NSDictionary<NSString *, NSNotificationCenter *> *notificationToNotificationCenter;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+
+        NSNotificationCenter *workspaceNotificationCenter = [[NSWorkspace sharedWorkspace] notificationCenter];
+
+        notificationToNotificationCenter = @{ /* App Notifications */
+
+                                             NSWorkspaceDidLaunchApplicationNotification: workspaceNotificationCenter,
+                                             NSWorkspaceDidTerminateApplicationNotification: workspaceNotificationCenter,
+                                             NSWorkspaceDidActivateApplicationNotification: workspaceNotificationCenter,
+                                             NSWorkspaceDidHideApplicationNotification: workspaceNotificationCenter,
+                                             NSWorkspaceDidUnhideApplicationNotification: workspaceNotificationCenter };
+    });
+
+    NSNotificationCenter *notificationCenter = notificationToNotificationCenter[notification];
 
     // Specific notification center
     if (notificationCenter) {
@@ -68,11 +39,39 @@ static NSDictionary<NSString *, NSString *> *PHStringToNotification;
     return [NSNotificationCenter defaultCenter];
 }
 
-#pragma mark - Translate
+#pragma mark - Notification
 
 + (NSString *) notificationForString:(NSString *)string {
 
-    return PHStringToNotification[string];
+    static NSDictionary<NSString *, NSString *> *stringToNotification;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+
+        stringToNotification = @{ /* Screen Notifications */
+
+                                 @"screensDidChange": NSApplicationDidChangeScreenParametersNotification,
+
+                                 /* App Notifications */
+
+                                 @"appDidLaunch": NSWorkspaceDidLaunchApplicationNotification,
+                                 @"appDidTerminate": NSWorkspaceDidTerminateApplicationNotification,
+                                 @"appDidActivate": NSWorkspaceDidActivateApplicationNotification,
+                                 @"appDidHide": NSWorkspaceDidHideApplicationNotification,
+                                 @"appDidShow": NSWorkspaceDidUnhideApplicationNotification,
+
+                                 /* Window Notifications */
+
+                                 @"windowDidOpen": NSAccessibilityWindowCreatedNotification,
+                                 @"windowDidClose": NSAccessibilityUIElementDestroyedNotification,
+                                 @"windowDidFocus": NSAccessibilityFocusedWindowChangedNotification,
+                                 @"windowDidMove": NSAccessibilityWindowMovedNotification,
+                                 @"windowDidResize": NSAccessibilityWindowResizedNotification,
+                                 @"windowDidMinimize": NSAccessibilityWindowMiniaturizedNotification,
+                                 @"windowDidUnminimize": NSAccessibilityWindowDeminiaturizedNotification };
+    });
+
+    return stringToNotification[string];
 }
 
 @end

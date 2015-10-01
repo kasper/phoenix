@@ -14,8 +14,6 @@
 
 @implementation PHAXObserver
 
-static NSArray<NSString *> *PHObservedNotifications;
-
 #pragma mark - AXObserverCallback
 
 static void axObserverCallback(__unused AXObserverRef observer,
@@ -34,19 +32,6 @@ static void axObserverCallback(__unused AXObserverRef observer,
 }
 
 #pragma mark - Initialise
-
-+ (void) initialize {
-
-    /* Observed Notifications */
-
-    PHObservedNotifications = @[ NSAccessibilityWindowCreatedNotification,
-                                 NSAccessibilityUIElementDestroyedNotification,
-                                 NSAccessibilityFocusedWindowChangedNotification,
-                                 NSAccessibilityWindowMovedNotification,
-                                 NSAccessibilityWindowResizedNotification,
-                                 NSAccessibilityWindowMiniaturizedNotification,
-                                 NSAccessibilityWindowDeminiaturizedNotification ];
-}
 
 - (instancetype) initWithApp:(NSRunningApplication *)app {
 
@@ -76,9 +61,30 @@ static void axObserverCallback(__unused AXObserverRef observer,
 
 - (void) dealloc {
 
-    for (NSString *notification in PHObservedNotifications) {
+    for (NSString *notification in [PHAXObserver notifications]) {
         [self removeNotification:notification];
     }
+}
+
+#pragma mark - Notifications
+
++ (NSArray<NSString *> *) notifications {
+
+    static NSArray<NSString *> *notifications;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+
+        notifications = @[ NSAccessibilityWindowCreatedNotification,
+                           NSAccessibilityUIElementDestroyedNotification,
+                           NSAccessibilityFocusedWindowChangedNotification,
+                           NSAccessibilityWindowMovedNotification,
+                           NSAccessibilityWindowResizedNotification,
+                           NSAccessibilityWindowMiniaturizedNotification,
+                           NSAccessibilityWindowDeminiaturizedNotification ];
+    });
+
+    return notifications;
 }
 
 #pragma mark - Observing
@@ -102,7 +108,7 @@ static void axObserverCallback(__unused AXObserverRef observer,
 
 - (void) setup {
 
-    for (NSString *notification in PHObservedNotifications) {
+    for (NSString *notification in [PHAXObserver notifications]) {
         [self addNotification:notification];
     }
 }
