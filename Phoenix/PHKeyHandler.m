@@ -53,15 +53,18 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
 
 + (void) initialize {
 
-    EventTypeSpec keyDown = { .eventClass = kEventClassKeyboard, .eventKind = kEventHotKeyPressed };
-    OSStatus error = InstallEventHandler(GetEventDispatcherTarget(),
-                                         PHCarbonEventCallback,
-                                         1,
-                                         &keyDown,
-                                         NULL,
-                                         NULL);
-    if (error != noErr) {
-        NSLog(@"Error: Could not install key event handler. (%d)", error);
+    if (self == [PHKeyHandler self]) {
+
+        EventTypeSpec keyDown = { .eventClass = kEventClassKeyboard, .eventKind = kEventHotKeyPressed };
+        OSStatus error = InstallEventHandler(GetEventDispatcherTarget(),
+                                             PHCarbonEventCallback,
+                                             1,
+                                             &keyDown,
+                                             NULL,
+                                             NULL);
+        if (error != noErr) {
+            NSLog(@"Error: Could not install key event handler. (%d)", error);
+        }
     }
 }
 
