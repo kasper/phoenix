@@ -5,20 +5,22 @@ This documentation is an overview of the JavaScript API provided by Phoenix. Use
 
 ## API
 
-1. [Require](#require)
-2. [Phoenix](#phoenix)
-3. [Point](#point)
-4. [Size](#size)
-5. [Rectangle](#rectangle)
-6. [Identifiable](#identifiable)
-7. [KeyHandler](#keyhandler)
-8. [EventHandler](#eventhandler)
-9. [Modal](#modal)
-10. [Command](#command)
-11. [Screen](#screen)
-12. [Mouse](#mouse)
-13. [App](#app)
-14. [Window](#window)
+1. [Keys](#keys)
+2. [Events](#events)
+3. [Require](#require)
+4. [Phoenix](#phoenix)
+5. [Point](#point)
+6. [Size](#size)
+7. [Rectangle](#rectangle)
+8. [Identifiable](#identifiable)
+9. [KeyHandler](#keyhandler)
+10. [EventHandler](#eventhandler)
+11. [Modal](#modal)
+12. [Command](#command)
+13. [Screen](#screen)
+14. [Mouse](#mouse)
+15. [App](#app)
+16. [Window](#window)
 
 ## Getting Started
 
@@ -55,7 +57,7 @@ var handler = Phoenix.on('screensDidChange', function () {});
 
 Your configuration file is loaded when the app launches. All functions are evaluated (and executed if necessary) when this happens. Phoenix also reloads the configuration when any changes are detected to the file. You may also reload the configuration manually from the status bar or programmatically from your script.
 
-## Keys
+## 1. Keys
 
 All valid keys for binding are as follows:
 
@@ -69,7 +71,7 @@ All valid keys for binding are as follows:
 - Function: `f1` – `f19`
 - Keypad: `keypad.`, `keypad*`, `keypad+`, `keypadClear`, `keypad/`, `keypadEnter`, `keypad-`, `keypad=`, `keypad0`, `keypad1`, `keypad2`, `keypad3`, `keypad4`, `keypad5`, `keypad6`, `keypad7`, `keypad8` and `keypad9`
 
-## Events
+## 2. Events
 
 Phoenix supports the following (case sensitive) events:
 
@@ -99,7 +101,7 @@ All of the following window events receive the corresponding `Window`-instance a
 - `windowDidMinimize` triggered when a window has minimised
 - `windowDidUnminimize` triggered when a window has unminimised
 
-## Require
+## 3. Require
 
 You can modularise your configuration using the `require`-function. It will load the referenced JavaScript-file and reload it if any changes are detected. If the path is relative, it is resolved relatively to the absolute location of the `.phoenix.js`-file. If this file is a symlink, it will be resolved before resolving the location of the required file.
 
@@ -107,7 +109,7 @@ You can modularise your configuration using the `require`-function. It will load
 require('path/to/file.js');
 ```
 
-## Phoenix
+## 4. Phoenix
 
 Use the `Phoenix`-object for API-level tasks.
 
@@ -129,7 +131,7 @@ end
 - `log(String message)` logs the message to the Console
 - `notify(String message)` delivers the message to the Notification Center
 
-## Point
+## 5. Point
 
 A simple point object for 2D-coordinates.
 
@@ -142,7 +144,7 @@ class Point
 end
 ```
 
-## Size
+## 6. Size
 
 A simple 2D-size object.
 
@@ -155,7 +157,7 @@ class Size
 end
 ```
 
-## Rectangle
+## 7. Rectangle
 
 A 2D-rectangle representation of a `Point` and `Size`.
 
@@ -170,7 +172,7 @@ class Rectangle
 end
 ```
 
-## Identifiable
+## 8. Identifiable
 
 Objects that implement `Identifiable` can be identified and compared.
 
@@ -186,7 +188,7 @@ end
 - `hash()` returns the hash value for the object
 - `isEqual(AnyObject object)` returns `true` if the object is equal to this object
 
-## KeyHandler
+## 9. KeyHandler
 
 Use the `KeyHandler`-object to enable or disable keys. To change a previous handler, bind the key again. A key is disabled automatically when you release your reference to the handler. KeyHandlers are always reset on context reload. Enabling a key combination that has been exclusively registered by another app will fail.
 
@@ -195,6 +197,7 @@ class KeyHandler implements Identifiable
 
     property String key
     property Array<String> modifiers
+
     boolean isEnabled()
     boolean enable()
     boolean disable()
@@ -208,7 +211,7 @@ end
 - `enable()` enables the key handler, returns `true` if successful
 - `disable()` disables the key handler, returns `true` if successful
 
-## EventHandler
+## 10. EventHandler
 
 Use the `EventHandler`-object to access event properties. You can have multiple handlers for a single event. To disable an event, release your reference to the handler. EventHandlers are always reset on context reload.
 
@@ -222,7 +225,7 @@ end
 
 - `name` read-only property for the event name
 
-## Modal
+## 11. Modal
 
 Use the `Modal`-object to display messages as modal windows.
 
@@ -232,6 +235,7 @@ class Modal
     property Point origin
     property double duration
     property String message
+
     constructor Modal Modal()
     Rectangle frame()
     void show()
@@ -248,7 +252,7 @@ end
 - `show()` shows the modal
 - `close()` closes the modal
 
-## Command
+## 12. Command
 
 Use the `Command`-object to run UNIX-commands.
 
@@ -262,7 +266,7 @@ end
 
 - `run(String path, Array arguments)` executes a UNIX-command in a absolute path with the passed arguments and waits until completion, returns `true` if the execution was successful
 
-## Screen
+## 13. Screen
 
 Use the `Screen`-object to access frame sizes and other screens on a multi-screen setup. Get the current screen for a window through the `Window`-object. Beware that a screen can get stale if you keep a reference to it and it is for instance disconnected while you do so.
 
@@ -271,6 +275,7 @@ class Screen implements Identifiable
 
     static Screen mainScreen()
     static Array<Screen> screens()
+
     Rectangle frameInRectangle()
     Rectangle visibleFrameInRectangle()
     Screen next()
@@ -286,7 +291,7 @@ end
 - `next()` returns the next screen or the first screen when on the last one
 - `previous()` returns the previous screen or the last screen when on the first one
 
-## Mouse
+## 14. Mouse
 
 Use the `Mouse`-object to control the cursor.
 
@@ -302,7 +307,7 @@ end
 - `location()` returns the cursor position
 - `moveTo(Point point)` moves the cursor to a given position, returns `true` if successful
 
-## App
+## 15. App
 
 Use the `App`-object to control apps. Beware that an app can get stale if you keep a reference to it and it is for instance terminated while you do so, see `isTerminated()`.
 
@@ -312,6 +317,7 @@ class App implements Identifiable
     static App launch(String appName)
     static App focusedApp()
     static Array<App> runningApps()
+
     int processIdentifier()
     String bundleIdentifier()
     String name()
@@ -350,7 +356,7 @@ end
 - `terminate()` terminates the app, returns `true` if successful
 - `forceTerminate()` force terminates the app, returns `true` if successful
 
-## Window
+## 16. Window
 
 Use the `Window`-object to control windows. Every screen (i.e. display) combines to form a large rectangle. Every window lives within this rectangle and their position can be altered by giving coordinates inside this rectangle. To position a window to a specific display, you need to calculate its position within the large rectangle. To figure out the coordinates for a given screen, use the functions in `Screen`. Beware that a window can get stale if you keep a reference to it and it is for instance closed while you do so.
 
@@ -361,6 +367,7 @@ class Window implements Identifiable
     static Array<Window> windows()
     static Array<Window> visibleWindows()
     static Array<Window> visibleWindowsInOrder()
+
     Array<Window> otherWindowsOnSameScreen()
     Array<Window> otherWindowsOnAllScreens()
     String title()
