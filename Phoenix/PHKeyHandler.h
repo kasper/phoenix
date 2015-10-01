@@ -8,9 +8,6 @@
 #import "PHHandler.h"
 #import "PHIdentifiableJSExport.h"
 
-static NSString * const PHKeyHandlerIdentifier = @"PHKeyHandlerIdentifier";
-static NSString * const PHKeyHandlerKeyDownNotification = @"PHKeyHandlerKeyDownNotification";
-
 @protocol PHKeyHandlerJSExport <JSExport, PHIdentifiableJSExport>
 
 #pragma mark Exported Properties
@@ -27,10 +24,6 @@ static NSString * const PHKeyHandlerKeyDownNotification = @"PHKeyHandlerKeyDownN
 @end
 
 @interface PHKeyHandler : PHHandler <PHKeyHandlerJSExport>
-
-#pragma mark Properties
-
-@property (readonly) UInt32 identifier;
 
 #pragma mark - Initialise
 

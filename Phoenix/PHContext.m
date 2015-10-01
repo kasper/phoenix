@@ -22,7 +22,6 @@
 @property PHPathWatcher *watcher;
 @property PHAccessibilityObserver *observer;
 @property NSMutableDictionary<NSNumber *, NSValue *> *keyHandlers;
-@property NSMutableDictionary<NSNumber *, NSValue *> *keyHandlersByIdentifier;
 
 @end
 
@@ -43,13 +42,6 @@
         self.paths = [NSMutableSet set];
         self.observer = [PHAccessibilityObserver observer];
         self.keyHandlers = [NSMutableDictionary dictionary];
-        self.keyHandlersByIdentifier = [NSMutableDictionary dictionary];
-
-        // Observe key down notification
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(keyDown:)
-                                                     name:PHKeyHandlerKeyDownNotification
-                                                   object:nil];
     }
 
     return self;
@@ -58,13 +50,6 @@
 + (instancetype) context {
 
     return [[PHContext alloc] init];
-}
-
-#pragma mark - Dealloc
-
-- (void) dealloc {
-
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:PHKeyHandlerKeyDownNotification object:nil];
 }
 
 #pragma mark - Resetting
@@ -91,7 +76,6 @@
 - (void) resetKeyHandlers {
 
     [self.keyHandlers removeAllObjects];
-    [self.keyHandlersByIdentifier removeAllObjects];
 }
 
 #pragma mark - Setup
@@ -224,10 +208,7 @@
     // Set callback
     [keyHandler manageCallback:callback];
 
-    NSValue *weakKeyHandler = [NSValue valueWithNonretainedObject:keyHandler];
-    self.keyHandlers[@(keyHandler.hash)] = weakKeyHandler;
-    self.keyHandlersByIdentifier[@(keyHandler.identifier)] = weakKeyHandler;
-
+    self.keyHandlers[@(keyHandler.hash)] = [NSValue valueWithNonretainedObject:keyHandler];
     return keyHandler;
 }
 
@@ -243,15 +224,6 @@
     [eventHandler manageCallback:callback];
 
     return eventHandler;
-}
-
-#pragma mark - Notifications
-
-- (void) keyDown:(NSNotification *)notification {
-
-    PHKeyHandler *keyHandler = self.keyHandlersByIdentifier[notification.userInfo[PHKeyHandlerIdentifier]]
-                                   .nonretainedObjectValue;
-    [keyHandler call];
 }
 
 @end

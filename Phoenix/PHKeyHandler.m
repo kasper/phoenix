@@ -25,6 +25,9 @@
 static FourCharCode const PHKeyHandlerSignature = 'FNIX';
 static UInt32 PHKeyHandlerIdentifierSequence;
 
+static NSString * const PHKeyHandlerIdentifier = @"PHKeyHandlerIdentifier";
+static NSString * const PHKeyHandlerKeyDownNotification = @"PHKeyHandlerKeyDownNotification";
+
 #pragma mark - CarbonEventCallback
 
 static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
@@ -87,6 +90,12 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
         }
 
         self.identifier = PHKeyHandlerIdentifierSequence++;
+
+        // Observe key down notification
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyDown:)
+                                                     name:PHKeyHandlerKeyDownNotification
+                                                   object:nil];
         [self enable];
     }
 
@@ -102,6 +111,7 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
 
 - (void) dealloc {
 
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:PHKeyHandlerKeyDownNotification object:nil];
     [self disable];
 }
 
@@ -172,6 +182,16 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
     self.enabled = NO;
 
     return YES;
+}
+
+#pragma mark - Notification
+
+- (void) keyDown:(NSNotification *)notification {
+
+    // This handler should handle this notification
+    if (self.identifier == [notification.userInfo[PHKeyHandlerIdentifier] unsignedIntegerValue]) {
+        [self call];
+    }
 }
 
 @end
