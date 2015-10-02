@@ -123,20 +123,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A72F1D761B89CE3E00835FBF /* API */ = {
+		A72F1D761B89CE3E00835FBF /* Elements */ = {
 			isa = PBXGroup;
 			children = (
-				A79C467A1B5BF3C100C460CF /* NSScreen+PHExtension.h */,
-				A79C467B1B5BF3C100C460CF /* NSScreen+PHExtension.m */,
 				A79C467E1B5BF3C100C460CF /* PHApp.h */,
 				A79C467F1B5BF3C100C460CF /* PHApp.m */,
 				A73C2CA61B9078A30004C663 /* PHCommand.h */,
 				A73C2CA71B9078A30004C663 /* PHCommand.m */,
-				A741336D1BB7F228008DAF39 /* PHEventHandler.h */,
-				A741336E1BB7F228008DAF39 /* PHEventHandler.m */,
 				A72A6B031B934C2000F2C4EF /* PHIdentifiableJSExport.h */,
-				A7183B651B6E865F00842E13 /* PHKeyHandler.h */,
-				A7183B661B6E865F00842E13 /* PHKeyHandler.m */,
 				A72EAD051B5D00B800DD537B /* PHModalWindowController.h */,
 				A72EAD061B5D00B800DD537B /* PHModalWindowController.m */,
 				A79C46861B5BF3C100C460CF /* PHMouse.h */,
@@ -146,7 +140,7 @@
 				A79C46901B5BF3C100C460CF /* PHWindow.h */,
 				A79C46911B5BF3C100C460CF /* PHWindow.m */,
 			);
-			name = API;
+			name = Elements;
 			sourceTree = "<group>";
 		};
 		A73FF10B1BBD8D970024CF97 /* Helpers */ = {
@@ -173,24 +167,58 @@
 			name = Translators;
 			sourceTree = "<group>";
 		};
-		A73FF10D1BBD8F8E0024CF97 /* Models */ = {
+		A77952C31BBE7C7B00FC8D38 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
-				A7E6DF6D1BBAC1F3001920B4 /* PHAccessibilityObserver.h */,
-				A7E6DF6E1BBAC1F3001920B4 /* PHAccessibilityObserver.m */,
+				A73FF10E1BBD982A0024CF97 /* PHEventConstants.h */,
+				A741336D1BB7F228008DAF39 /* PHEventHandler.h */,
+				A741336E1BB7F228008DAF39 /* PHEventHandler.m */,
+				A741336A1BB7EEAC008DAF39 /* PHHandler.h */,
+				A741336B1BB7EEAC008DAF39 /* PHHandler.m */,
+				A7183B651B6E865F00842E13 /* PHKeyHandler.h */,
+				A7183B661B6E865F00842E13 /* PHKeyHandler.m */,
+			);
+			name = Handlers;
+			sourceTree = "<group>";
+		};
+		A77952C41BBE7CCD00FC8D38 /* Accessibility */ = {
+			isa = PBXGroup;
+			children = (
 				A7E6DF6A1BBAB5B8001920B4 /* PHAXObserver.h */,
 				A7E6DF6B1BBAB5B8001920B4 /* PHAXObserver.m */,
 				A76247881B81FD3C00ECF209 /* PHAXUIElement.h */,
 				A76247891B81FD3C00ECF209 /* PHAXUIElement.m */,
-				A79C46821B5BF3C100C460CF /* PHContext.h */,
-				A79C46831B5BF3C100C460CF /* PHContext.m */,
-				A73FF10E1BBD982A0024CF97 /* PHEventConstants.h */,
-				A741336A1BB7EEAC008DAF39 /* PHHandler.h */,
-				A741336B1BB7EEAC008DAF39 /* PHHandler.m */,
+			);
+			name = Accessibility;
+			sourceTree = "<group>";
+		};
+		A77952C51BBE7D2200FC8D38 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A79C467A1B5BF3C100C460CF /* NSScreen+PHExtension.h */,
+				A79C467B1B5BF3C100C460CF /* NSScreen+PHExtension.m */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		A77952C61BBE7E0300FC8D38 /* Observers */ = {
+			isa = PBXGroup;
+			children = (
+				A7E6DF6D1BBAC1F3001920B4 /* PHAccessibilityObserver.h */,
+				A7E6DF6E1BBAC1F3001920B4 /* PHAccessibilityObserver.m */,
 				A79C468C1B5BF3C100C460CF /* PHPathWatcher.h */,
 				A79C468D1B5BF3C100C460CF /* PHPathWatcher.m */,
 			);
-			name = Models;
+			name = Observers;
+			sourceTree = "<group>";
+		};
+		A77952C71BBE7E3E00FC8D38 /* Context */ = {
+			isa = PBXGroup;
+			children = (
+				A79C46821B5BF3C100C460CF /* PHContext.h */,
+				A79C46831B5BF3C100C460CF /* PHContext.m */,
+			);
+			name = Context;
 			sourceTree = "<group>";
 		};
 		A79C464E1B5BF31100C460CF = {
@@ -215,12 +243,16 @@
 		A79C46591B5BF31100C460CF /* Phoenix */ = {
 			isa = PBXGroup;
 			children = (
-				A72F1D761B89CE3E00835FBF /* API */,
+				A77952C41BBE7CCD00FC8D38 /* Accessibility */,
+				A77952C71BBE7E3E00FC8D38 /* Context */,
+				A72F1D761B89CE3E00835FBF /* Elements */,
+				A77952C51BBE7D2200FC8D38 /* Extensions */,
+				A77952C31BBE7C7B00FC8D38 /* Handlers */,
 				A73FF10B1BBD8D970024CF97 /* Helpers */,
 				A79C46A91B5BF41900C460CF /* Images.xcassets */,
 				A79B89DE1B5E74C1004DDE82 /* MainMenu.xib */,
 				A79B89E11B5E75CA004DDE82 /* ModalWindow.xib */,
-				A73FF10D1BBD8F8E0024CF97 /* Models */,
+				A77952C61BBE7E0300FC8D38 /* Observers */,
 				A79C46801B5BF3C100C460CF /* PHAppDelegate.h */,
 				A79C46811B5BF3C100C460CF /* PHAppDelegate.m */,
 				A79C465A1B5BF31100C460CF /* Supporting Files */,
