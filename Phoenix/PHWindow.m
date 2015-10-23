@@ -319,21 +319,14 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
 #pragma mark - Focusing
 
 - (BOOL) focus {
-    
-    NSRunningApplication *runningApplication = [NSRunningApplication runningApplicationWithProcessIdentifier:self.processIdentifier];
-    
-    BOOL success = [runningApplication activateWithOptions:NSApplicationActivateAllWindows | NSApplicationActivateIgnoringOtherApps];
-    if (!success) {
+
+    // Set this window as the main window
+    if (![self setAttribute:NSAccessibilityMainAttribute withValue:@YES]) {
         return NO;
     }
-    
-    AXError error = AXUIElementSetAttributeValue((__bridge AXUIElementRef _Nonnull)(self.element), (CFStringRef)NSAccessibilityMainAttribute, kCFBooleanTrue);
-    
-    if (error != kAXErrorSuccess) {
-        return NO;
-    }
-    
-    return YES;
+
+    // Focus app
+    return [self.app focus];
 }
 
 - (BOOL) focusFirstClosestWindowIn:(NSArray<PHWindow *> *)closestWindows {
