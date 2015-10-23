@@ -8,7 +8,7 @@
 @interface PHApp ()
 
 @property id element;
-@property (weak) NSRunningApplication *app;
+@property (strong) NSRunningApplication *app;
 
 @end
 
