@@ -31,8 +31,17 @@
 + (NSString *) characterForKeyCode:(unsigned short)keyCode {
 
     id currentKeyboard = CFBridgingRelease(TISCopyCurrentKeyboardInputSource());
+
+    // Unicode layout
     CFDataRef layoutData = TISGetInputSourceProperty((__bridge TISInputSourceRef) currentKeyboard,
                                                      kTISPropertyUnicodeKeyLayoutData);
+    // Non-unicode layout
+    if (!layoutData) {
+        currentKeyboard = CFBridgingRelease(TISCopyCurrentASCIICapableKeyboardInputSource());
+        layoutData = TISGetInputSourceProperty((__bridge TISInputSourceRef) currentKeyboard,
+                                               kTISPropertyUnicodeKeyLayoutData);
+    }
+
     UCKeyboardLayout * const keyboardLayout = (UCKeyboardLayout * const) CFDataGetBytePtr(layoutData);
 
     UInt32 deadKeyState = 0;

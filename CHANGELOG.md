@@ -22,6 +22,10 @@ Release: dd.mm.yyyy
 - A new `EventHandler`-object has been created to handle events. See the [API](API.md#10-eventhandler).
 - A new global `Command`-object has been created to run UNIX-commands. See the [API](API.md#12-command).
 
+### Bug Fixes
+
+- Support non-unicode keyboards (#34).
+
 ### Improvements
 
 - Alerts are now delivered to the Notification Center and logged to the Console for easier debugging.
