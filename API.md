@@ -3,6 +3,16 @@ JavaScript API
 
 This documentation is an overview of the JavaScript API provided by Phoenix. Use this as a guide for writing your window management script. Your script should reside in `~/.phoenix.js`. Phoenix includes [Underscore.js](http://underscorejs.org) (1.8.3) — you can use its features in your configuration. Underscore provides useful helpers for handling JavaScript functions and objects.
 
+You may add JavaScript pre-processing to your `~/.phoenix.js` file by adding a [Shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) to the beginning of your file. For example, use [Babel](https://babeljs.io/) to pre-process ES2015 JavaScript syntax:
+```javascript
+#!/usr/bin/env babel
+const handlers = [];
+handlers.push(Phoenix.bind('c', ['alt', 'shift'], () => {
+  const app = App.launch('Google Chrome');
+  app.focus();
+}));
+```
+
 ## API
 
 1. [Keys](#1-keys)
