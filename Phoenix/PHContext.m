@@ -11,6 +11,7 @@
 #import "PHModalWindowController.h"
 #import "PHMouse.h"
 #import "PHNotificationHelper.h"
+#import "PHScriptHelper.h"
 #import "PHPathWatcher.h"
 #import "PHPhoenix.h"
 #import "PHWindow.h"
@@ -88,7 +89,7 @@
 
 - (NSString *) resolvePath:(NSString *)path {
 
-    path = path.stringByStandardizingPath;
+    path = path.stringByResolvingSymlinksInPath;
 
     // Resolve path
     if(![path isAbsolutePath]) {
@@ -116,10 +117,12 @@
 
     NSError *error;
     NSString *script = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
-
+    
     if (error) {
         NSLog(@"Error: Could not read file in path “%@” to string. (%@)", path, error);
     }
+    
+    script = [PHScriptHelper preprocessScriptIfNeeded:script atPath:path];
 
     [self.context evaluateScript:script];
     [self.paths addObject:path];
