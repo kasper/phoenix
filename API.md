@@ -43,7 +43,7 @@ To combine, bind a key to move the focused window.
 ```javascript
 var handler = Phoenix.bind('q', [ 'ctrl', 'shift' ], function () {
 
-    Window.focusedWindow().setTopLeft({ x: 0, y: 0 }); 
+    Window.focusedWindow().setTopLeft({ x: 0, y: 0 });
 });
 ```
 
@@ -292,6 +292,7 @@ end
 - `screens()` returns all screens, the first screen in this array corresponds to the primary screen for the system
 - `frameInRectangle()` returns the whole frame for the screen
 - `visibleFrameInRectangle()` returns the visible frame for the screen subtracting the Dock and Menu from the frame when visible
+- `visibleFrame()` returns a Rectangle defining the visible frame
 - `next()` returns the next screen or the first screen when on the last one
 - `previous()` returns the previous screen or the last screen when on the first one
 

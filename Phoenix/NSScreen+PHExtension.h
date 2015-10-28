@@ -16,6 +16,7 @@
 
 #pragma mark - Frame
 
+- (NSRect) visibleFrame;
 - (NSRect) frameInRectangle;
 - (NSRect) visibleFrameInRectangle;
 
