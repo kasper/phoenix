@@ -29,6 +29,7 @@
 - (BOOL) isMain;
 - (BOOL) isNormal;
 - (BOOL) isMinimized;
+- (BOOL) isVisible;
 - (PHApp *) app;
 - (NSScreen *) screen;
 

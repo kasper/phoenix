@@ -43,7 +43,7 @@ To combine, bind a key to move the focused window.
 ```javascript
 var handler = Phoenix.bind('q', [ 'ctrl', 'shift' ], function () {
 
-    Window.focusedWindow().setTopLeft({ x: 0, y: 0 }); 
+    Window.focusedWindow().setTopLeft({ x: 0, y: 0 });
 });
 ```
 
@@ -282,6 +282,8 @@ class Screen implements Identifiable
 
     Rectangle frameInRectangle()
     Rectangle visibleFrameInRectangle()
+    Array<Window> windows()
+    Array<Window> visibleWindows()
     Screen next()
     Screen previous()
 
@@ -292,6 +294,8 @@ end
 - `screens()` returns all screens, the first screen in this array corresponds to the primary screen for the system
 - `frameInRectangle()` returns the whole frame for the screen
 - `visibleFrameInRectangle()` returns the visible frame for the screen subtracting the Dock and Menu from the frame when visible
+- `windows()` returns all windows for the screen
+- `visibleWindows()` returns all visible windows for the screen, a visible window is a normal and unminimised window that belongs to an unhidden app
 - `next()` returns the next screen or the first screen when on the last one
 - `previous()` returns the previous screen or the last screen when on the first one
 

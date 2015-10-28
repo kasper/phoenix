@@ -62,7 +62,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
     NSPredicate *visibility = [NSPredicate predicateWithBlock:^BOOL (PHWindow *window,
                                                                      __unused NSDictionary<NSString *, id> *bindings) {
 
-        return ![window.app isHidden] && [window isNormal] && ![window isMinimized];
+        return [window isVisible];
     }];
 
     return [[self windows] filteredArrayUsingPredicate:visibility];
@@ -155,6 +155,11 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
 - (BOOL) isMinimized {
 
     return [[self valueForAttribute:NSAccessibilityMinimizedAttribute withDefaultValue:@NO] boolValue];
+}
+
+- (BOOL) isVisible {
+
+    return ![self.app isHidden] && [self isNormal] && ![self isMinimized];
 }
 
 - (NSScreen *) screen {
