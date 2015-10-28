@@ -88,11 +88,11 @@
 
 - (NSString *) resolvePath:(NSString *)path {
 
-    path = path.stringByStandardizingPath;
+    path = path.stringByResolvingSymlinksInPath;
 
     // Resolve path
     if(![path isAbsolutePath]) {
-        NSURL *relativeUrl = [NSURL URLWithString:PHConfigurationPath.stringByStandardizingPath];
+        NSURL *relativeUrl = [NSURL URLWithString:PHConfigurationPath.stringByResolvingSymlinksInPath];
         path = [NSURL URLWithString:path relativeToURL:relativeUrl].absoluteString;
     }
 
