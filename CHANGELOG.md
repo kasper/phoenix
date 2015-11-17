@@ -25,6 +25,7 @@ Release: dd.mm.yyyy
 ### Bug Fixes
 
 - Support non-unicode keyboards (#34).
+- Support relative requires with symlinks in configuration (#42).
 
 ### Improvements
 
