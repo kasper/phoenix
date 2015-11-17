@@ -13,9 +13,9 @@
 		A72ED7B61B6E25940064E35B /* PHPhoenix.m in Sources */ = {isa = PBXBuildFile; fileRef = A72ED7B51B6E25940064E35B /* PHPhoenix.m */; };
 		A73C2CA81B9078A30004C663 /* PHCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = A73C2CA71B9078A30004C663 /* PHCommand.m */; };
 		A73C2CAB1B9088040004C663 /* PHNotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A73C2CAA1B9088040004C663 /* PHNotificationHelper.m */; };
-		A741336C1BB7EEAC008DAF39 /* PHHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A741336B1BB7EEAC008DAF39 /* PHHandler.m */; settings = {ASSET_TAGS = (); }; };
-		A741336F1BB7F228008DAF39 /* PHEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A741336E1BB7F228008DAF39 /* PHEventHandler.m */; settings = {ASSET_TAGS = (); }; };
-		A74133721BB7F556008DAF39 /* PHEventTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = A74133711BB7F556008DAF39 /* PHEventTranslator.m */; settings = {ASSET_TAGS = (); }; };
+		A741336C1BB7EEAC008DAF39 /* PHHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A741336B1BB7EEAC008DAF39 /* PHHandler.m */; };
+		A741336F1BB7F228008DAF39 /* PHEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A741336E1BB7F228008DAF39 /* PHEventHandler.m */; };
+		A74133721BB7F556008DAF39 /* PHEventTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = A74133711BB7F556008DAF39 /* PHEventTranslator.m */; };
 		A762478A1B81FD3C00ECF209 /* PHAXUIElement.m in Sources */ = {isa = PBXBuildFile; fileRef = A76247891B81FD3C00ECF209 /* PHAXUIElement.m */; };
 		A79B89E01B5E74C1004DDE82 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A79B89DE1B5E74C1004DDE82 /* MainMenu.xib */; };
 		A79B89E21B5E75CA004DDE82 /* ModalWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A79B89E11B5E75CA004DDE82 /* ModalWindow.xib */; };
@@ -33,8 +33,8 @@
 		A79C46AA1B5BF41900C460CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A79C46A91B5BF41900C460CF /* Images.xcassets */; };
 		A7D1D9A91B6FD6A300E00CC9 /* PHKeyTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D1D9A81B6FD6A300E00CC9 /* PHKeyTranslator.m */; };
 		A7D1F7651B5BFF5B0052E646 /* PhoenixTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D1F7641B5BFF5B0052E646 /* PhoenixTests.m */; };
-		A7E6DF6C1BBAB5B8001920B4 /* PHAXObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E6DF6B1BBAB5B8001920B4 /* PHAXObserver.m */; settings = {ASSET_TAGS = (); }; };
-		A7E6DF6F1BBAC1F3001920B4 /* PHAccessibilityObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E6DF6E1BBAC1F3001920B4 /* PHAccessibilityObserver.m */; settings = {ASSET_TAGS = (); }; };
+		A7E6DF6C1BBAB5B8001920B4 /* PHAXObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E6DF6B1BBAB5B8001920B4 /* PHAXObserver.m */; };
+		A7E6DF6F1BBAC1F3001920B4 /* PHAccessibilityObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E6DF6E1BBAC1F3001920B4 /* PHAccessibilityObserver.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
