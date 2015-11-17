@@ -119,7 +119,13 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
 
 + (NSUInteger) hashForKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers {
 
-    return key.hash + [modifiers hash];
+    NSUInteger hash = key.hash;
+
+    for (NSString *modifier in modifiers) {
+        hash += modifier.hash;
+    }
+
+    return hash;
 }
 
 #pragma mark - Identifying

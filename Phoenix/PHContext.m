@@ -207,7 +207,7 @@
     // Set callback
     [keyHandler manageCallback:callback];
 
-    self.keyHandlers[@(keyHandler.hash)] = [NSValue valueWithNonretainedObject:keyHandler];
+    self.keyHandlers[@([keyHandler hash])] = [NSValue valueWithNonretainedObject:keyHandler];
     return keyHandler;
 }
 
