@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
         <capability name="box content view" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
@@ -33,6 +33,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="800" id="lWe-ze-4L4"/>
                                     </constraints>
+                                    <animations/>
                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="FT7-fN-TGb">
                                         <font key="font" metaFont="system" size="24"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -40,6 +41,7 @@
                                     </textFieldCell>
                                 </textField>
                             </subviews>
+                            <animations/>
                         </view>
                         <constraints>
                             <constraint firstItem="Eu9-Hf-kgC" firstAttribute="top" secondItem="Maa-Q3-FG8" secondAttribute="top" constant="13" id="C3V-lW-ThH"/>
@@ -47,6 +49,7 @@
                             <constraint firstAttribute="trailing" secondItem="Eu9-Hf-kgC" secondAttribute="trailing" constant="16" id="rSb-og-9es"/>
                             <constraint firstItem="Eu9-Hf-kgC" firstAttribute="leading" secondItem="Maa-Q3-FG8" secondAttribute="leading" constant="16" id="vIX-9q-LDl"/>
                         </constraints>
+                        <animations/>
                         <color key="borderColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="fillColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                     </box>
@@ -57,6 +60,7 @@
                     <constraint firstItem="Maa-Q3-FG8" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="DWU-dO-0UZ"/>
                     <constraint firstItem="Maa-Q3-FG8" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="Ih1-f6-KkJ"/>
                 </constraints>
+                <animations/>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="3cR-Up-rvj"/>
