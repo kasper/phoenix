@@ -57,6 +57,8 @@ Release: dd.mm.yyyy
 - New: Screen now implements `Identifiable`.
 - New: Function `mainScreen()` returns the screen containing the window with the keyboard focus.
 - New: Function `screens()` returns all screens.
+- New: Function `windows()` returns all windows for the screen.
+- New: Function `visibleWindows()` returns all visible windows for the screen.
 - Change: For clarity, functions `frameIncludingDockAndMenu()` and `frameWithoutDockOrMenu()` are now `frameInRectangle()` and `visibleFrameInRectangle()`, respectively.
 - Change: Functions `nextScreen()` and `previousScreen()` are now simply `next()` and `previous()`.
 
@@ -85,6 +87,7 @@ Release: dd.mm.yyyy
 - New: Window now implements `Identifiable`.
 - New: All actions return a boolean value for determining success.
 - New: Function `isMain()` returns whether the window is the main window for its app.
+- New: Function `isVisible()` returns whether the window is a normal and unminimised window that belongs to an unhidden app.
 - Change: Function `allWindows()` is now simply `windows()`.
 - Change: Function `visibleWindowsMostRecentFirst()` is renamed to `visibleWindowsInOrder()` for clarity.
 - Change: Function `isNormalWindow()` is now simply `isNormal()`.

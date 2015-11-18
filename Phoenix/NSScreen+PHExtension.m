@@ -3,6 +3,7 @@
  */
 
 #import "NSScreen+PHExtension.h"
+#import "PHWindow.h"
 
 @implementation NSScreen (PHExtension)
 
@@ -52,6 +53,29 @@
     }
     
     return screens[previousIndex];
+}
+
+#pragma mark - Windows
+
+- (NSArray<PHWindow *> *) windows {
+
+    NSPredicate *windowOnSameScreen = [NSPredicate predicateWithBlock:
+                                       ^BOOL (PHWindow *window, __unused NSDictionary<NSString *, id> *bindings) {
+
+        return [[window screen] isEqualTo:self];
+    }];
+
+    return [[PHWindow windows] filteredArrayUsingPredicate:windowOnSameScreen];
+}
+
+- (NSArray<PHWindow *> *) visibleWindows {
+
+    NSPredicate *visibility = [NSPredicate predicateWithBlock:^BOOL (PHWindow *window,
+                                                                     __unused NSDictionary<NSString *, id> *bindings) {
+        return [window isVisible];
+    }];
+
+    return [[self windows] filteredArrayUsingPredicate:visibility];
 }
 
 @end

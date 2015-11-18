@@ -5,6 +5,8 @@
 @import Cocoa;
 @import JavaScriptCore;
 
+@class PHWindow;
+
 #import "PHIdentifiableJSExport.h"
 
 @protocol NSScreenJSExport <JSExport, PHIdentifiableJSExport>
@@ -23,6 +25,11 @@
 
 - (NSScreen *) next;
 - (NSScreen *) previous;
+
+#pragma mark - Windows
+
+- (NSArray<PHWindow *> *) windows;
+- (NSArray<PHWindow *> *) visibleWindows;
 
 @end
 
