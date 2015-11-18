@@ -27,6 +27,18 @@
 
 #pragma mark - Apps
 
++ (instancetype) get:(NSString *)appName {
+
+    for (PHApp *app in [self runningApps]) {
+
+        if ([[app name] isEqualToString:appName]) {
+            return app;
+        }
+    }
+
+    return nil;
+}
+
 + (instancetype) launch:(NSString *)appName {
 
     NSWorkspace *sharedWorkspace = [NSWorkspace sharedWorkspace];

@@ -71,6 +71,7 @@ Release: dd.mm.yyyy
 
 - New: App now implements `Identifiable`.
 - New: All actions return a boolean value for determining success.
+- New: Function `get(String appName)` returns the running app with the given name.
 - New: Function `launch(String appName)` now returns the launched app if successful.
 - New: Function `focusedApp()` returns the focused app.
 - New: Function `isActive()` returns whether the app is currently frontmost.

@@ -322,6 +322,7 @@ Use the `App`-object to control apps. Beware that an app can get stale if you ke
 ```java
 class App implements Identifiable
 
+    static App get(String appName)
     static App launch(String appName)
     static App focusedApp()
     static Array<App> runningApps()
@@ -345,7 +346,8 @@ class App implements Identifiable
 end
 ```
 
-- `launch(String appName)` (launches to the background and) returns the app with the given name, returns `undefined` if unsuccessful
+- `get(String appName)` returns the running app with the given name, returns `undefined` if the app is not currently running
+- `launch(String appName)` launches to the background and returns the app with the given name, returns `undefined` if unsuccessful
 - `focusedApp()` returns the focused app
 - `runningApps()` returns all running apps
 - `processIdentifier()` returns the process identifier (PID) for the app, returns `-1` if the app does not have a PID

@@ -15,6 +15,7 @@
 
 #pragma mark - Apps
 
++ (instancetype) get:(NSString *)appName;
 + (instancetype) launch:(NSString *)appName;
 + (instancetype) focusedApp;
 + (NSArray<PHApp *> *) runningApps;
