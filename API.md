@@ -43,7 +43,7 @@ To combine, bind a key to move the focused window.
 ```javascript
 var handler = Phoenix.bind('q', [ 'ctrl', 'shift' ], function () {
 
-    Window.focusedWindow().setTopLeft({ x: 0, y: 0 }); 
+    Window.focusedWindow().setTopLeft({ x: 0, y: 0 });
 });
 ```
 
