@@ -61,7 +61,6 @@ AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID *out);
 
     NSPredicate *visibility = [NSPredicate predicateWithBlock:^BOOL (PHWindow *window,
                                                                      __unused NSDictionary<NSString *, id> *bindings) {
-
         return [window isVisible];
     }];
 

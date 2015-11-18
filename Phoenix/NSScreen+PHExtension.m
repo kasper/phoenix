@@ -3,8 +3,7 @@
  */
 
 #import "NSScreen+PHExtension.h"
-
-#import "PHApp.h"
+#import "PHWindow.h"
 
 @implementation NSScreen (PHExtension)
 
@@ -60,32 +59,23 @@
 
 - (NSArray<PHWindow *> *) windows {
 
-    NSMutableArray<PHWindow *> *windows = [NSMutableArray array];
+    NSPredicate *windowOnSameScreen = [NSPredicate predicateWithBlock:
+                                       ^BOOL (PHWindow *window, __unused NSDictionary<NSString *, id> *bindings) {
 
-    for (PHApp *app in [PHApp runningApps]) {
-        [windows addObjectsFromArray:[app windows]];
-    }
-
-    NSPredicate *onScreen = [NSPredicate predicateWithBlock:^BOOL (PHWindow *window,
-                                                                   __unused NSDictionary<NSString *, id> *bindings) {
-
-        return [window.screen isEqualTo:self];
+        return [[window screen] isEqualTo:self];
     }];
 
-    return [windows filteredArrayUsingPredicate:onScreen];
+    return [[PHWindow windows] filteredArrayUsingPredicate:windowOnSameScreen];
 }
 
 - (NSArray<PHWindow *> *) visibleWindows {
 
-    NSArray<PHWindow *> *windows = [self windows];
-
     NSPredicate *visibility = [NSPredicate predicateWithBlock:^BOOL (PHWindow *window,
                                                                      __unused NSDictionary<NSString *, id> *bindings) {
-
         return [window isVisible];
     }];
 
-    return [windows filteredArrayUsingPredicate:visibility];
+    return [[self windows] filteredArrayUsingPredicate:visibility];
 }
 
 @end

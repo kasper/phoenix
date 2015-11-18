@@ -5,8 +5,9 @@
 @import Cocoa;
 @import JavaScriptCore;
 
+@class PHWindow;
+
 #import "PHIdentifiableJSExport.h"
-#import "PHWindow.h"
 
 @protocol NSScreenJSExport <JSExport, PHIdentifiableJSExport>
 

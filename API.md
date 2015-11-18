@@ -282,10 +282,10 @@ class Screen implements Identifiable
 
     Rectangle frameInRectangle()
     Rectangle visibleFrameInRectangle()
-    Array<Window> windows()
-    Array<Window> visibleWindows()
     Screen next()
     Screen previous()
+    Array<Window> windows()
+    Array<Window> visibleWindows()
 
 end
 ```
@@ -294,10 +294,10 @@ end
 - `screens()` returns all screens, the first screen in this array corresponds to the primary screen for the system
 - `frameInRectangle()` returns the whole frame for the screen
 - `visibleFrameInRectangle()` returns the visible frame for the screen subtracting the Dock and Menu from the frame when visible
-- `windows()` returns all windows for the screen
-- `visibleWindows()` returns all visible windows for the screen, a visible window is a normal and unminimised window that belongs to an unhidden app
 - `next()` returns the next screen or the first screen when on the last one
 - `previous()` returns the previous screen or the last screen when on the first one
+- `windows()` returns all windows for the screen
+- `visibleWindows()` returns all visible windows for the screen
 
 ## 14. Mouse
 
@@ -382,6 +382,7 @@ class Window implements Identifiable
     boolean isMain()
     boolean isNormal()
     boolean isMinimized()
+    boolean isVisible()
     App app()
     Screen screen()
     Point topLeft()
@@ -408,7 +409,7 @@ end
 
 - `focusedWindow()` returns the focused window for the currently active app, can be `undefined` if no window is focused currently
 - `windows()` returns all windows in screens
-- `visibleWindows()` returns all visible windows in screens, a visible window is a normal and unminimised window that belongs to an unhidden app
+- `visibleWindows()` returns all visible windows in screens
 - `visibleWindowsInOrder()` returns all visible windows in the order as they appear on the screen (from front to back), essentially returning them in the most-recently-used order
 - `otherWindowsOnSameScreen()` returns all other windows on the same screen as the window
 - `otherWindowsOnAllScreens()` returns all other windows on all screens
@@ -416,6 +417,7 @@ end
 - `isMain()` returns `true` if the window is the main window for its app
 - `isNormal()` returns `true` if the window is a normal window
 - `isMinimized()` returns `true` if the window is minimised
+- `isVisible()` returns `true` if the window is a normal and unminimised window that belongs to an unhidden app
 - `app()` returns the app for the window
 - `screen()` returns the screen where most or all of the window is currently present
 - `topLeft()` returns the top left point for the window
