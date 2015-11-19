@@ -126,8 +126,7 @@
     script = [PHShebangPreprocessor process:script atPath:path error:&preprocessError];
 
     if (preprocessError) {
-        [self handleException:[NSString stringWithFormat:@"Preprocessing failed. (%@)",
-                               preprocessError.localizedDescription]];
+        NSLog(@"Error: Preprocessing failed. (%@)", preprocessError.localizedFailureReason);
     }
 
     [self.context evaluateScript:script];

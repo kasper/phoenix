@@ -6,24 +6,54 @@
 
 @implementation PHShebangPreprocessor
 
+#pragma mark - Reading
+
++ (NSString *) scanCommand:(NSScanner *)scanner {
+
+    // Shebang (#!) was not found
+    if (![scanner scanString:@"#!" intoString:nil]) {
+        return nil;
+    }
+
+    NSString *command;
+    [scanner scanUpToCharactersFromSet:[NSCharacterSet newlineCharacterSet] intoString:&command];
+
+    return command;
+}
+
++ (NSError *) errorFromStandardError:(NSPipe *)standardError {
+
+    NSData *errorData = [standardError.fileHandleForReading readDataToEndOfFile];
+
+    if (errorData.length == 0) {
+        return nil;
+    }
+
+    NSString *reason = [[NSString alloc] initWithData:errorData encoding:NSUTF8StringEncoding];
+
+    return [NSError errorWithDomain:PHShebangPreprocessorErrorDomain
+                               code:PHShebangPreprocessorErrorCode
+                           userInfo:@{ NSLocalizedDescriptionKey: @"Preprocessing failed.",
+                                       NSLocalizedFailureReasonErrorKey: reason }];
+}
+
 #pragma mark - Preprocessing
 
 + (NSString *) process:(NSString *)script atPath:(NSString *)path error:(NSError **)error {
 
     NSScanner *scanner = [NSScanner scannerWithString:script];
+    NSString *command = [self scanCommand:scanner];
 
-    // Shebang #! was not found
-    if (![scanner scanString:@"#!" intoString:nil]) {
+    if (!command) {
         return script;
     }
+
+    /* Launch process */
 
     NSTask *task = [[NSTask alloc] init];
     NSPipe *standardOutput = [NSPipe pipe];
     NSPipe *standardError = [NSPipe pipe];
     NSFileHandle *standardOutputFile = standardOutput.fileHandleForReading;
-
-    NSString *command;
-    [scanner scanUpToCharactersFromSet:[NSCharacterSet newlineCharacterSet] intoString:&command];
 
     task.launchPath = @"/bin/bash";
     task.standardOutput = standardOutput;
@@ -31,21 +61,16 @@
     task.arguments = @[ @"-c", [NSString stringWithFormat:@"%@ %@", command, path] ];
 
     [task launch];
+    [task waitUntilExit];
 
-    NSData *errorData = [standardError.fileHandleForReading readDataToEndOfFile];
+    *error = [self errorFromStandardError:standardError];
 
-    // Command resulted in error
-    if (errorData.length > 0) {
-
-        NSString *description = [[NSString alloc] initWithData:errorData encoding:NSUTF8StringEncoding];
-
-        *error = [NSError errorWithDomain:PHShebangPreprocessorErrorDomain
-                                     code:PHShebangPreprocessorErrorCode
-                                 userInfo:@{ NSLocalizedDescriptionKey: description }];
+    if (*error) {
+        return script;
     }
 
-    // Read past shebang #!
-    [standardOutputFile readDataOfLength:2 + command.length];
+    // Read past shebang-directive
+    [standardOutputFile readDataOfLength:scanner.scanLocation];
 
     return [[NSString alloc] initWithData:[standardOutputFile readDataToEndOfFile] encoding:NSUTF8StringEncoding];
 }

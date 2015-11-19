@@ -7,7 +7,7 @@
 #import "PHPreprocessor.h"
 
 static NSString * const PHShebangPreprocessorErrorDomain = @"PHShebangPreprocessorErrorDomain";
-static const NSInteger PHShebangPreprocessorErrorCode = -1;
+static NSInteger const PHShebangPreprocessorErrorCode = -1;
 
 @interface PHShebangPreprocessor : NSObject <PHPreprocessor>
 
