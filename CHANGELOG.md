@@ -9,6 +9,7 @@ Release: dd.mm.yyyy
 ### New
 
 - Phoenix now supports events! See the [API](API.md#2-events). To bind an event to a callback function, you call the `on`-function for the `Phoenix`-object.
+- You may now use JavaScript [preprocessing](API.md#preprocessing) and use languages such as CoffeeScript to write your Phoenix-configuration (#45). Thanks @shayne!
 
 ### Changes
 

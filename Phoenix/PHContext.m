@@ -11,9 +11,9 @@
 #import "PHModalWindowController.h"
 #import "PHMouse.h"
 #import "PHNotificationHelper.h"
-#import "PHScriptHelper.h"
 #import "PHPathWatcher.h"
 #import "PHPhoenix.h"
+#import "PHShebangPreprocessor.h"
 #import "PHWindow.h"
 
 @interface PHContext ()
@@ -119,17 +119,15 @@
     NSString *script = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
 
     if (error) {
-        NSString *message = [NSString stringWithFormat:
-                             @"Error: Could not read file in path “%@” to string. (%@)", path, error];
-        [self handleException:message];
+        NSLog(@"Error: Could not read file in path “%@” to string. (%@)", path, error);
     }
 
-    NSString *preprocessError;
-    script = [PHScriptHelper preprocessScriptIfNeeded:script atPath:path errorMessage:&preprocessError];
+    NSError *preprocessError;
+    script = [PHShebangPreprocessor process:script atPath:path error:&preprocessError];
 
     if (preprocessError) {
-        NSString *message = [NSString stringWithFormat:@"Error: Preprocess failed with error: %@", preprocessError];
-        [self handleException:message];
+        [self handleException:[NSString stringWithFormat:@"Preprocessing failed. (%@)",
+                               preprocessError.localizedDescription]];
     }
 
     [self.context evaluateScript:script];

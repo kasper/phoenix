@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C93D6641BE11FF100649405 /* PHScriptHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C93D6631BE11FF100649405 /* PHScriptHelper.m */; settings = {ASSET_TAGS = (); }; };
+		1C93D6641BE11FF100649405 /* PHShebangPreprocessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C93D6631BE11FF100649405 /* PHShebangPreprocessor.m */; };
 		A7183B671B6E865F00842E13 /* PHKeyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A7183B661B6E865F00842E13 /* PHKeyHandler.m */; };
 		A72EAD041B5CE34800DD537B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A72EAD031B5CE34800DD537B /* Credits.rtf */; };
 		A72EAD071B5D00B800DD537B /* PHModalWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72EAD061B5D00B800DD537B /* PHModalWindowController.m */; };
@@ -49,8 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1C93D6621BE11FF100649405 /* PHScriptHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHScriptHelper.h; sourceTree = "<group>"; };
-		1C93D6631BE11FF100649405 /* PHScriptHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHScriptHelper.m; sourceTree = "<group>"; };
+		1C93D6621BE11FF100649405 /* PHShebangPreprocessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHShebangPreprocessor.h; sourceTree = "<group>"; };
+		1C93D6631BE11FF100649405 /* PHShebangPreprocessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHShebangPreprocessor.m; sourceTree = "<group>"; };
 		A7183B651B6E865F00842E13 /* PHKeyHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHKeyHandler.h; sourceTree = "<group>"; };
 		A7183B661B6E865F00842E13 /* PHKeyHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHKeyHandler.m; sourceTree = "<group>"; };
 		A72A6B031B934C2000F2C4EF /* PHIdentifiableJSExport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHIdentifiableJSExport.h; sourceTree = "<group>"; };
@@ -106,6 +106,7 @@
 		A7E6DF6B1BBAB5B8001920B4 /* PHAXObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHAXObserver.m; sourceTree = "<group>"; };
 		A7E6DF6D1BBAC1F3001920B4 /* PHAccessibilityObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHAccessibilityObserver.h; sourceTree = "<group>"; };
 		A7E6DF6E1BBAC1F3001920B4 /* PHAccessibilityObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHAccessibilityObserver.m; sourceTree = "<group>"; };
+		A7EBD1C21BFDF8CE000D8E5F /* PHPreprocessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHPreprocessor.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,8 +156,6 @@
 				A79C468B1B5BF3C100C460CF /* PHOpenAtLoginHelper.m */,
 				A79C468E1B5BF3C100C460CF /* PHUniversalAccessHelper.h */,
 				A79C468F1B5BF3C100C460CF /* PHUniversalAccessHelper.m */,
-				1C93D6621BE11FF100649405 /* PHScriptHelper.h */,
-				1C93D6631BE11FF100649405 /* PHScriptHelper.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -260,6 +259,7 @@
 				A77952C61BBE7E0300FC8D38 /* Observers */,
 				A79C46801B5BF3C100C460CF /* PHAppDelegate.h */,
 				A79C46811B5BF3C100C460CF /* PHAppDelegate.m */,
+				A7EBD1C11BFDF7E1000D8E5F /* Preprocessors */,
 				A79C465A1B5BF31100C460CF /* Supporting Files */,
 				A73FF10C1BBD8F350024CF97 /* Translators */,
 			);
@@ -292,6 +292,16 @@
 				A79C466F1B5BF31200C460CF /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A7EBD1C11BFDF7E1000D8E5F /* Preprocessors */ = {
+			isa = PBXGroup;
+			children = (
+				A7EBD1C21BFDF8CE000D8E5F /* PHPreprocessor.h */,
+				1C93D6621BE11FF100649405 /* PHShebangPreprocessor.h */,
+				1C93D6631BE11FF100649405 /* PHShebangPreprocessor.m */,
+			);
+			name = Preprocessors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,7 +420,7 @@
 				A74133721BB7F556008DAF39 /* PHEventTranslator.m in Sources */,
 				A7E6DF6F1BBAC1F3001920B4 /* PHAccessibilityObserver.m in Sources */,
 				A79C46971B5BF3C100C460CF /* PHApp.m in Sources */,
-				1C93D6641BE11FF100649405 /* PHScriptHelper.m in Sources */,
+				1C93D6641BE11FF100649405 /* PHShebangPreprocessor.m in Sources */,
 				A7D1D9A91B6FD6A300E00CC9 /* PHKeyTranslator.m in Sources */,
 				A79C46A01B5BF3C100C460CF /* PHWindow.m in Sources */,
 				A72EAD071B5D00B800DD537B /* PHModalWindowController.m in Sources */,

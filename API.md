@@ -1,17 +1,7 @@
 JavaScript API
 ==============
 
-This documentation is an overview of the JavaScript API provided by Phoenix. Use this as a guide for writing your window management script. Your script should reside in `~/.phoenix.js`. Phoenix includes [Underscore.js](http://underscorejs.org) (1.8.3) — you can use its features in your configuration. Underscore provides useful helpers for handling JavaScript functions and objects.
-
-You may add JavaScript pre-processing to your `~/.phoenix.js` file by adding a [Shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) to the beginning of your file. For example, use [Babel](https://babeljs.io/) to pre-process ES2015 JavaScript syntax:
-```javascript
-#!/usr/bin/env babel
-const handlers = [];
-handlers.push(Phoenix.bind('c', ['alt', 'shift'], () => {
-  const app = App.launch('Google Chrome');
-  app.focus();
-}));
-```
+This documentation is an overview of the JavaScript API provided by Phoenix. Use this as a guide for writing your window management script. Your script should reside in `~/.phoenix.js`. Phoenix includes [Underscore.js](http://underscorejs.org) (1.8.3) — you can use its features in your configuration. Underscore provides useful helpers for handling JavaScript functions and objects. You may also use JavaScript [preprocessing](#preprocessing) and use languages such as CoffeeScript to write your Phoenix-configuration.
 
 ## API
 
@@ -66,6 +56,33 @@ var handler = Phoenix.on('screensDidChange', function () {});
 ## Loading
 
 Your configuration file is loaded when the app launches. All functions are evaluated (and executed if necessary) when this happens. Phoenix also reloads the configuration when any changes are detected to the file. You may also reload the configuration manually from the status bar or programmatically from your script.
+
+## Preprocessing
+
+You may add JavaScript preprocessing to your configuration by adding a [Shebang](https://en.wikipedia.org/wiki/Shebang_(Unix))-directive to the beginning of your file. For example, use [CoffeeScript](http://coffeescript.org) to write your configuration:
+
+```coffeescript
+#!/usr/bin/env coffee
+
+keys = []
+
+keys.push Phoenix.bind 's', [ 'ctrl', 'shift' ], ->
+
+    App.launch('Safari').focus()
+```
+
+Or use [Babel](http://babeljs.io) to use ECMAScript 6 JavaScript:
+
+```javascript
+#!/usr/bin/env babel
+
+const keys = [];
+
+keys.push(Phoenix.bind('s', [ 'ctrl', 'shift' ], () => {
+
+    App.launch('Safari').focus();
+}));
+```
 
 ## 1. Keys
 
