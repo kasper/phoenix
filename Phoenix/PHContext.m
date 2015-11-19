@@ -39,7 +39,6 @@
 - (instancetype) init {
 
     if (self = [super init]) {
-
         self.paths = [NSMutableSet set];
         self.observer = [PHAccessibilityObserver observer];
         self.keyHandlers = [NSMutableDictionary dictionary];
