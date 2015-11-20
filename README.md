@@ -3,7 +3,7 @@ Phoenix
 
 [![Build Status](https://travis-ci.org/kasper/phoenix.svg?branch=master)](https://travis-ci.org/kasper/phoenix/)
 
-<img width='128' height='128' align='right' src='https://raw.githubusercontent.com/kasper/phoenix/master/Phoenix/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png'>
+<img width='128' height='128' align='right' src='Phoenix/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png'>
 
 A lightweight OS X window and app manager scriptable with JavaScript. You can also easily use languages which compile to JavaScript such as CoffeeScript. Phoenix aims for efficiency and a very small footprint. If you like the idea of scripting your own window or app management toolkit with JavaScript, Phoenix is probably going to give you the things you want. With Phoenix you can bind keyboard shortcuts and system events, and use these to interact with OS X.
 
