@@ -11,7 +11,7 @@
 + (NSString *) scanCommand:(NSScanner *)scanner {
 
     // Shebang (#!) was not found
-    if (![scanner scanString:@"#!" intoString:nil]) {
+    if (![scanner scanString:@"#!" intoString:NULL]) {
         return nil;
     }
 
@@ -63,9 +63,14 @@
     [task launch];
     [task waitUntilExit];
 
-    *error = [self readErrorFromStandardError:standardError];
+    NSError *taskError = [self readErrorFromStandardError:standardError];
 
-    if (*error) {
+    if (taskError) {
+
+        if (error) {
+            *error = taskError;
+        }
+
         return script;
     }
 
