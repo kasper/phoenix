@@ -30,6 +30,7 @@ Release: dd.mm.yyyy
 
 ### Improvements
 
+- A new subtler status item icon.
 - Alerts are now delivered to the Notification Center and logged to the Console for easier debugging.
 - Now reloading the context gives no alert unless an error is encountered.
 - Objects that implement `Identifiable` can be identified and compared.
