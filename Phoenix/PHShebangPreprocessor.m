@@ -21,7 +21,7 @@
     return command;
 }
 
-+ (NSError *) errorFromStandardError:(NSPipe *)standardError {
++ (NSError *) readErrorFromStandardError:(NSPipe *)standardError {
 
     NSData *errorData = [standardError.fileHandleForReading readDataToEndOfFile];
 
@@ -63,7 +63,7 @@
     [task launch];
     [task waitUntilExit];
 
-    *error = [self errorFromStandardError:standardError];
+    *error = [self readErrorFromStandardError:standardError];
 
     if (*error) {
         return script;
