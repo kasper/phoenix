@@ -24,7 +24,9 @@ Once complete, you will find a newly built Phoenix app in `build/Release/`. To i
 
 ## Usage
 
-Phoenix can only be scripted in JavaScript (or languages which compile to JavaScript such as CoffeeScript). See the [JavaScript API](API.md) to get started with your script. Your script should reside in `~/.phoenix.js` — the file will be created when you launch Phoenix for the first time. For ideas, see what other people have built in their configurations in the [Wiki](https://github.com/kasper/phoenix/wiki/). Feel free to add your own configuration to the Wiki to show other people the nice things you can do. Previous configurations (<= 1.5) are not compatible with 2.0, see Changelog for what changes are needed.
+<img width='400' height='100' src='assets/screenshot.png'>
+
+Phoenix lives on your status bar and can be scripted in JavaScript (or languages which compile to JavaScript such as CoffeeScript). See the [JavaScript API](API.md) to get started with your script. Your script should reside in `~/.phoenix.js` — the file will be created when you launch Phoenix for the first time. For ideas, see what other people have built in their configurations in the [Wiki](https://github.com/kasper/phoenix/wiki/). Feel free to add your own configuration to the Wiki to show other people the nice things you can do. Previous configurations (<= 1.5) are not compatible with 2.0, see Changelog for what changes are needed.
 
 - [JavaScript API](API.md)
 - [Examples](https://github.com/kasper/phoenix/wiki#examples)
