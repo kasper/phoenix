@@ -74,9 +74,6 @@
         return script;
     }
 
-    // Read past shebang-directive
-    [standardOutputFile readDataOfLength:scanner.scanLocation];
-
     return [[NSString alloc] initWithData:[standardOutputFile readDataToEndOfFile] encoding:NSUTF8StringEncoding];
 }
 
