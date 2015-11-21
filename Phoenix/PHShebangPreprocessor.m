@@ -37,6 +37,18 @@
                                        NSLocalizedFailureReasonErrorKey: reason }];
 }
 
++ (NSString *) readOutputFromStandardOutputFile:(NSFileHandle *)standardOutputFile {
+
+    NSString *output = [[NSString alloc] initWithData:[standardOutputFile readDataToEndOfFile]
+                                             encoding:NSUTF8StringEncoding];
+
+    // Remove shebang-directive if it is still present
+    NSScanner *outputScanner = [NSScanner scannerWithString:output];
+    [self scanCommand:outputScanner];
+
+    return [output substringFromIndex:outputScanner.scanLocation];
+}
+
 #pragma mark - Preprocessing
 
 + (NSString *) process:(NSString *)script atPath:(NSString *)path error:(NSError **)error {
@@ -63,6 +75,8 @@
     [task launch];
     [task waitUntilExit];
 
+    /* Read output */
+
     NSError *taskError = [self readErrorFromStandardError:standardError];
 
     if (taskError) {
@@ -74,10 +88,7 @@
         return script;
     }
 
-    // Read past shebang-directive
-    [standardOutputFile readDataOfLength:scanner.scanLocation];
-
-    return [[NSString alloc] initWithData:[standardOutputFile readDataToEndOfFile] encoding:NSUTF8StringEncoding];
+    return [self readOutputFromStandardOutputFile:standardOutputFile];
 }
 
 @end
