@@ -62,7 +62,7 @@ Your configuration file is loaded when the app launches. All functions are evalu
 You may add JavaScript preprocessing to your configuration by adding a [Shebang](https://en.wikipedia.org/wiki/Shebang_(Unix))-directive to the beginning of your file. For example, use [CoffeeScript](http://coffeescript.org) to write your configuration:
 
 ```coffeescript
-#!/usr/bin/env coffee
+#!/usr/bin/env coffee -p
 
 keys = []
 
