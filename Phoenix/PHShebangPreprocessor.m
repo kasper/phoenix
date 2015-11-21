@@ -74,10 +74,24 @@
         return script;
     }
 
-    // Read past shebang-directive
-    [standardOutputFile readDataOfLength:scanner.scanLocation];
+    // Read past shebang-directive (hold onto it incase it's not the shebang text)
+    NSString *outputHead = [[NSString alloc]
+                               initWithData:[standardOutputFile readDataOfLength:scanner.scanLocation]
+                                   encoding:NSUTF8StringEncoding];
+    // Read the rest of processed output
+    NSString *processed  = [[NSString alloc]
+                               initWithData:[standardOutputFile readDataToEndOfFile]
+                                   encoding:NSUTF8StringEncoding];
 
-    return [[NSString alloc] initWithData:[standardOutputFile readDataToEndOfFile] encoding:NSUTF8StringEncoding];
+    // return the output with shebang clipped
+    if ([command isEqualToString:outputHead]) {
+
+        return processed;
+
+    }
+
+    // otherwise glue it back together
+    return [outputHead stringByAppendingString:processed];
 }
 
 @end
