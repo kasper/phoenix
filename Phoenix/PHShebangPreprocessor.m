@@ -70,7 +70,7 @@
     task.launchPath = @"/bin/bash";
     task.standardOutput = standardOutput;
     task.standardError = standardError;
-    task.arguments = @[ @"-c", [NSString stringWithFormat:@"%@ %@", command, path] ];
+    task.arguments = @[ @"-cl", [NSString stringWithFormat:@"%@ %@", command, path] ];
 
     [task launch];
     [task waitUntilExit];
