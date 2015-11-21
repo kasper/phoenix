@@ -1,20 +1,15 @@
-//
-//  PHAppDelegate.h
-//  Phoenix
-//
-//  Created by Steven on 11/30/13.
-//  Copyright (c) 2013 Steven. All rights reserved.
-//
+/*
+ * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
+ */
 
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
 
-#import "PHConfigLoader.h"
+@interface PHAppDelegate : NSObject <NSApplicationDelegate, NSMenuDelegate>
 
-@interface PHAppDelegate : NSObject <NSApplicationDelegate>
+#pragma mark - IBAction
 
-@property IBOutlet NSMenu *statusItemMenu;
-@property NSStatusItem *statusItem;
-
-@property PHConfigLoader* configLoader;
+- (IBAction) reloadContext:(id)sender;
+- (IBAction) showAboutPanel:(id)sender;
+- (IBAction) toggleOpenAtLogin:(NSMenuItem *)sender;
 
 @end

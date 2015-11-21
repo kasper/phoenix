@@ -3,13 +3,12 @@ Phoenix
 
 [![Build Status](https://travis-ci.org/kasper/phoenix.svg?branch=master)](https://travis-ci.org/kasper/phoenix/)
 
-<img width='128' height='128' align='right' src='https://raw.githubusercontent.com/kasper/phoenix/master/Phoenix/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png'>
+<img width='128' height='128' align='right' src='Phoenix/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png'>
 
-A lightweight OS X window manager for JavaScript. Phoenix aims for efficiency and a very small footprint. If you like the idea of scripting your own window management toolkit
-with JavaScript, Phoenix is probably going to give you the things you want.
+A lightweight OS X window and app manager scriptable with JavaScript. You can also easily use languages which compile to JavaScript such as CoffeeScript. Phoenix aims for efficiency and a very small footprint. If you like the idea of scripting your own window or app management toolkit with JavaScript, Phoenix is probably going to give you the things you want. With Phoenix you can bind keyboard shortcuts and system events, and use these to interact with OS X.
 
-- Current version: 1.5
-- Requires: OS X 10.9 or higher
+- Current version: 2.0 ([Changelog](CHANGELOG.md))
+- Requires: OS X 10.10 or higher (Xcode 7 required for building)
 
 **Upcoming version:** 2.0 is stable and [available](https://github.com/kasper/phoenix/tree/2.0/) for testing. Existing configurations (<= 1.5) will not be compatible without small changes. Please report any issues you encounter.
 
@@ -27,10 +26,13 @@ Once complete, you will find a newly built Phoenix app in `build/Release/`. To i
 
 ## Usage
 
-Phoenix can only be scripted in JavaScript (or languages which compile to JavaScript such as CoffeeScript). See the [JavaScript API](API.md) to get started with your script. Your script should reside in `~/.phoenix.js` — the file will be created when you launch Phoenix for the first time. For ideas, see what other people have built in their configurations in the [Wiki](https://github.com/kasper/phoenix/wiki/). Feel free to add your own configuration to the Wiki to show other people the nice things you can do.
+<img width='400' height='100' src='assets/screenshot.png'>
+
+Phoenix lives on your status bar and can be scripted in JavaScript (or languages which compile to JavaScript such as CoffeeScript). See the [JavaScript API](API.md) to get started with your script. Your script should reside in `~/.phoenix.js` — the file will be created when you launch Phoenix for the first time. For ideas, see what other people have built in their configurations in the [Wiki](https://github.com/kasper/phoenix/wiki/). Feel free to add your own configuration to the Wiki to show other people the nice things you can do. Previous configurations (<= 1.5) are not compatible with 2.0, see Changelog for what changes are needed.
 
 - [JavaScript API](API.md)
 - [Examples](https://github.com/kasper/phoenix/wiki#examples)
+- [Changelog](CHANGELOG.md)
 
 ## Contributing
 
@@ -38,7 +40,7 @@ Feel free to contribute to this project by creating issues, pull requests and ed
 
 ## Thanks
 
-Phoenix is currently developed by Kasper Hirvikoski ([@kasper](https://github.com/kasper/)) and Jason Milkins ([@jasonm23](https://github.com/jasonm23/)) with the generous help of contributions made by many [individuals](https://github.com/kasper/phoenix/graphs/contributors/). It was originally authored by Steven Degutis ([@sdegutis](https://github.com/sdegutis/)) as a fork of Zephyros — also an app of his. Steven is continuing his work on OS X window management in [Mjolnir](https://github.com/sdegutis/mjolnir/).
+Phoenix is currently developed by Kasper Hirvikoski ([@kasper](https://github.com/kasper/)) and Jason Milkins ([@jasonm23](https://github.com/jasonm23/)) with the generous help of contributions made by many [individuals](https://github.com/kasper/phoenix/graphs/contributors/). It was originally authored by Steven Degutis ([@sdegutis](https://github.com/sdegutis/)) as a fork of Zephyros — also an app of his. As it stands now, it has been rewritten from the ground up by Kasper Hirvikoski. Steven is continuing his work on OS X window management in [Mjolnir](https://github.com/sdegutis/mjolnir/).
 
 ## License
 

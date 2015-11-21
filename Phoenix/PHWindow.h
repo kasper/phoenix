@@ -1,78 +1,67 @@
-//
-//  MyWindow.h
-//  Zephyros
-//
-//  Created by Steven Degutis on 2/28/13.
-//  Copyright (c) 2013 Steven Degutis. All rights reserved.
-//
+/*
+ * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
+ */
 
-#import <Foundation/Foundation.h>
+@import Cocoa;
+@import JavaScriptCore;
 
-#import "PHApp.h"
-
-#import <JavaScriptCore/JavaScriptCore.h>
-@class PHWindow;
 @class PHApp;
+@class PHWindow;
 
-@protocol PHWindowJSExport <JSExport>
+#import "PHAXUIElement.h"
+#import "PHIdentifiableJSExport.h"
 
-// getting windows
+@protocol PHWindowJSExport <JSExport, PHIdentifiableJSExport>
 
-+ (NSArray*) allWindows;
-+ (NSArray*) visibleWindows;
-+ (PHWindow*) focusedWindow;
-+ (NSArray*) visibleWindowsMostRecentFirst;
-- (NSArray*) otherWindowsOnSameScreen;
-- (NSArray*) otherWindowsOnAllScreens;
+#pragma mark - Windows
 
++ (instancetype) focusedWindow;
++ (NSArray<PHWindow *> *) windows;
++ (NSArray<PHWindow *> *) visibleWindows;
++ (NSArray<PHWindow *> *) visibleWindowsInOrder;
 
-// window position & size
+- (NSArray<PHWindow *> *) otherWindowsOnSameScreen;
+- (NSArray<PHWindow *> *) otherWindowsOnAllScreens;
 
-- (CGRect) frame;
+#pragma mark - Properties
+
+- (NSString *) title;
+- (BOOL) isMain;
+- (BOOL) isNormal;
+- (BOOL) isMinimized;
+- (BOOL) isVisible;
+- (PHApp *) app;
+- (NSScreen *) screen;
+
+#pragma mark - Position and Size
+
 - (CGPoint) topLeft;
 - (CGSize) size;
+- (CGRect) frame;
+- (BOOL) setTopLeft:(CGPoint)point;
+- (BOOL) setSize:(CGSize)size;
+- (BOOL) setFrame:(CGRect)frame;
+- (BOOL) maximize;
+- (BOOL) minimize;
+- (BOOL) unminimize;
 
-- (void) setFrame:(CGRect)frame;
-- (void) setTopLeft:(CGPoint)thePoint;
-- (void) setSize:(CGSize)theSize;
+#pragma mark - Alignment
 
+- (NSArray<PHWindow *> *) windowsToWest;
+- (NSArray<PHWindow *> *) windowsToEast;
+- (NSArray<PHWindow *> *) windowsToNorth;
+- (NSArray<PHWindow *> *) windowsToSouth;
 
-- (void) maximize;
-- (void) minimize;
-- (void) unMinimize;
+#pragma mark - Focusing
 
-
-// other
-
-- (NSScreen*) screen;
-- (PHApp*) app;
-
-- (BOOL) isNormalWindow;
-
-// focus
-
-- (BOOL) focusWindow;
-
-- (void) focusWindowLeft;
-- (void) focusWindowRight;
-- (void) focusWindowUp;
-- (void) focusWindowDown;
-
-- (NSArray*) windowsToWest;
-- (NSArray*) windowsToEast;
-- (NSArray*) windowsToNorth;
-- (NSArray*) windowsToSouth;
-
-
-// other window properties
-
-- (NSString*) title;
-- (BOOL) isWindowMinimized;
+- (BOOL) focus;
+- (BOOL) focusClosestWindowInWest;
+- (BOOL) focusClosestWindowInEast;
+- (BOOL) focusClosestWindowInNorth;
+- (BOOL) focusClosestWindowInSouth;
 
 @end
 
-@interface PHWindow : NSObject <PHWindowJSExport>
-
-- (id) initWithElement:(AXUIElementRef)win;
+@interface PHWindow : PHAXUIElement <PHWindowJSExport>
 
 @end
