@@ -18,6 +18,7 @@ To install Phoenix, you will first need to build it. Install Xcode from the App 
 
     git clone https://github.com/kasper/phoenix.git
     cd phoenix
+    git checkout 2.0
     xcodebuild clean build
 
 Once complete, you will find a newly built Phoenix app in `build/Release/`. To install, just drag-and-drop it to your `Applications`-folder. When you run Phoenix for the first time, you will be asked to allow it to control your UI. OS X will ask you to open `Security & Privacy` in System Preferences. Once open, go to the `Accessibility`-section and click the checkbox next to Phoenix to enable control. An admin account is required to accomplish this.
