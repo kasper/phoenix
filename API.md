@@ -47,7 +47,7 @@ var handler = Phoenix.bind('q', [ 'ctrl', 'shift' ], function () {
 });
 ```
 
-As an other example, to bind an event to a function, you call the `on`-function for the `Phoenix`-object. Notice that *you must keep a reference to the handler*, otherwise your callback will not get called.
+As an other example, to bind an event to a function, you call the `on`-function for the `Phoenix`-object. Again notice that *you must keep a reference to the handler*, otherwise your callback will not get called.
 
 ```javascript
 var handler = Phoenix.on('screensDidChange', function () {});
@@ -55,7 +55,7 @@ var handler = Phoenix.on('screensDidChange', function () {});
 
 ## Loading
 
-Your configuration file is loaded when the app launches. All functions are evaluated (and executed if necessary) when this happens. Phoenix also reloads the configuration when any changes are detected to the file. You may also reload the configuration manually from the status bar or programmatically from your script.
+Your configuration file is loaded when the app launches. All functions are evaluated (and executed if necessary) when this happens. Phoenix also reloads the configuration when any changes are detected to the file. You may also reload the configuration manually from the status bar or programmatically from your script. Whilst loading, all symlinks will be resolved, so your configuration can also be a symlink to your desired destination.
 
 ## Preprocessing
 
