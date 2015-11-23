@@ -67,11 +67,7 @@
     NSPipe *standardError = [NSPipe pipe];
     NSFileHandle *standardOutputFile = standardOutput.fileHandleForReading;
 
-    // Make sure we use the current user's $SHELL
-    NSDictionary *environmentDict = [[NSProcessInfo processInfo] environment];
-    NSString *shellString = [environmentDict objectForKey:@"SHELL"];
-
-    task.launchPath = shellString;
+    task.launchPath = [NSProcessInfo processInfo].environment[@"SHELL"];
     task.standardOutput = standardOutput;
     task.standardError = standardError;
     task.arguments = @[ @"-cl", [NSString stringWithFormat:@"%@ %@", command, path] ];
