@@ -5,7 +5,9 @@
 @import Cocoa;
 @import JavaScriptCore;
 
-@protocol PHModalWindowControllerJSExport <JSExport>
+#import "PHIdentifiableJSExport.h"
+
+@protocol PHModalWindowControllerJSExport <JSExport, PHIdentifiableJSExport>
 
 #pragma mark Exported Properties
 

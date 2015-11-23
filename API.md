@@ -261,7 +261,7 @@ end
 Use the `Modal`-object to display messages as modal windows.
 
 ```java
-class Modal
+class Modal implements Identifiable
 
     property Point origin
     property double duration
