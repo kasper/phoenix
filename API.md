@@ -299,8 +299,6 @@ end
 
 ## 13. Screen
 
-<img width='650' height='250' src='assets/screens.png' alt='Screens'>
-
 Use the `Screen`-object to access frame sizes and other screens on a multi-screen setup. Get the current screen for a window through the `Window`-object. Beware that a screen can get stale if you keep a reference to it and it is for instance disconnected while you do so.
 
 ```java
