@@ -19,7 +19,8 @@
 @interface PHContext ()
 
 @property JSContext *context;
-@property NSMutableSet<NSString *> *paths;
+@property NSString *primaryConfigurationPath;
+@property NSMutableSet<NSString *> *configurationPaths;
 @property PHPathWatcher *watcher;
 @property PHAccessibilityObserver *observer;
 @property NSMutableDictionary<NSNumber *, NSValue *> *keyHandlers;
@@ -28,18 +29,13 @@
 
 @implementation PHContext
 
-#if DEBUG
-    static NSString * const PHConfigurationPath = @"~/.phoenix-debug.js";
-#else
-    static NSString * const PHConfigurationPath = @"~/.phoenix.js";
-#endif
-
 #pragma mark - Initialise
 
 - (instancetype) init {
 
     if (self = [super init]) {
-        self.paths = [NSMutableSet set];
+        self.primaryConfigurationPath = [self resolvePrimaryConfigurationPath];
+        self.configurationPaths = [NSMutableSet set];
         self.observer = [PHAccessibilityObserver observer];
         self.keyHandlers = [NSMutableDictionary dictionary];
     }
@@ -56,14 +52,14 @@
 
 - (void) resetConfigurationPaths {
 
-    [self.paths removeAllObjects];
+    [self.configurationPaths removeAllObjects];
 }
 
-- (void) resetConfigurationWatcher {
+- (void) resetWatcher {
 
     PHContext * __weak weakSelf = self;
 
-    self.watcher = [PHPathWatcher watcherFor:self.paths.allObjects handler:^{
+    self.watcher = [PHPathWatcher watcherFor:self.configurationPaths.allObjects handler:^{
 
         [[weakSelf class] cancelPreviousPerformRequestsWithTarget:weakSelf
                                                          selector:@selector(load)
@@ -86,13 +82,45 @@
     [PHNotificationHelper deliver:[NSString stringWithFormat:@"%@", exception]];
 }
 
+- (NSString *) resolvePrimaryConfigurationPath {
+
+    static NSArray<NSString *> *primaryConfigurationPaths;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+
+#if DEBUG
+        primaryConfigurationPaths = @[ @"~/.phoenix-debug.js",
+                                       @"~/Library/Application Support/Phoenix/phoenix-debug.js",
+                                       @"~/.config/phoenix/phoenix-debug.js" ];
+#else
+        primaryConfigurationPaths = @[ @"~/.phoenix.js",
+                                       @"~/Library/Application Support/Phoenix/phoenix.js",
+                                       @"~/.config/phoenix/phoenix.js" ];
+#endif
+    });
+
+    // Look for the first existing configuration location
+    for (NSString *primaryConfigurationPath in primaryConfigurationPaths) {
+
+        NSString *resolvedPrimaryConfigurationPath = primaryConfigurationPath.stringByResolvingSymlinksInPath;
+
+        if ([[NSFileManager defaultManager] fileExistsAtPath:resolvedPrimaryConfigurationPath]) {
+            return resolvedPrimaryConfigurationPath;
+        }
+    }
+
+    // Use default configuration location
+    return primaryConfigurationPaths.firstObject.stringByResolvingSymlinksInPath;
+}
+
 - (NSString *) resolvePath:(NSString *)path {
 
     path = path.stringByResolvingSymlinksInPath;
 
     // Resolve path
     if(![path isAbsolutePath]) {
-        NSURL *relativeUrl = [NSURL URLWithString:PHConfigurationPath.stringByResolvingSymlinksInPath];
+        NSURL *relativeUrl = [NSURL URLWithString:self.primaryConfigurationPath];
         path = [NSURL URLWithString:path relativeToURL:relativeUrl].absoluteString;
     }
 
@@ -129,7 +157,7 @@
     }
 
     [self.context evaluateScript:script];
-    [self.paths addObject:path];
+    [self.configurationPaths addObject:path];
 }
 
 - (void) setupAPI {
@@ -172,7 +200,7 @@
     // Load context
     [self setupAPI];
     [self loadScript:[[NSBundle mainBundle] pathForResource:@"underscore-min" ofType:@"js"]];
-    [self loadScript:[self resolvePath:PHConfigurationPath]];
+    [self loadScript:self.primaryConfigurationPath];
 }
 
 #pragma mark - Loading
@@ -181,16 +209,14 @@
 
     [self resetConfigurationPaths];
     [self resetKeyHandlers];
-    
-    NSString *configurationPath = [self resolvePath:PHConfigurationPath];
 
     // No configuration file found, create one for the user
-    if (![[NSFileManager defaultManager] fileExistsAtPath:configurationPath]) {
-        [self createConfigurationFile:configurationPath];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:self.primaryConfigurationPath]) {
+        [self createConfigurationFile:self.primaryConfigurationPath];
     }
 
     [self setupContext];
-    [self resetConfigurationWatcher];
+    [self resetWatcher];
 
     NSLog(@"Context loaded.");
 }

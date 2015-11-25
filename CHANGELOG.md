@@ -10,6 +10,7 @@ Release: dd.mm.yyyy
 
 - Phoenix now supports events! See the [API](API.md#2-events). To bind an event to a callback function, you call the `on`-function for the `Phoenix`-object.
 - You may now use JavaScript [preprocessing](API.md#preprocessing) and languages such as CoffeeScript to write your Phoenix-configuration (#45). Thanks @shayne!
+- Phoenix now supports additional configuration locations. In addition to `~/.phoenix.js`, you may also use `~/Library/Application Support/Phoenix/phoenix.js` or `~/.config/phoenix/phoenix.js` if you prefer to do so.
 
 ### Changes
 
