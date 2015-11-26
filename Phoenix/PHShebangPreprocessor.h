@@ -11,4 +11,7 @@ static NSInteger const PHShebangPreprocessorErrorCode = -1;
 
 @interface PHShebangPreprocessor : NSObject <PHPreprocessor>
 
++ (instancetype) new NS_UNAVAILABLE;
+- (instancetype) init NS_UNAVAILABLE;
+
 @end

@@ -20,9 +20,7 @@
 
 #pragma mark - Initialise
 
-+ (instancetype) new NS_UNAVAILABLE;
 - (instancetype) init NS_UNAVAILABLE;
-
 - (instancetype) initWithEvent:(NSString *)event callback:(JSValue *)callback NS_DESIGNATED_INITIALIZER;
 
 @end

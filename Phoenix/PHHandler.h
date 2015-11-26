@@ -7,6 +7,8 @@
 
 @interface PHHandler : NSObject
 
++ (instancetype) new NS_UNAVAILABLE;
+
 #pragma mark - Callback
 
 - (void) manageCallback:(JSValue *)callback;

@@ -6,6 +6,8 @@
 
 @interface PHAppDelegate : NSObject <NSApplicationDelegate, NSMenuDelegate>
 
++ (instancetype) new NS_UNAVAILABLE;
+
 #pragma mark - IBAction
 
 - (IBAction) reloadContext:(id)sender;

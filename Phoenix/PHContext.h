@@ -25,6 +25,7 @@
 
 #pragma mark - Initialise
 
++ (instancetype) new NS_UNAVAILABLE;
 + (instancetype) context;
 
 @end

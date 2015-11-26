@@ -27,7 +27,6 @@
 
 #pragma mark - Initialise
 
-+ (instancetype) new NS_UNAVAILABLE;
 - (instancetype) init NS_UNAVAILABLE;
 
 - (instancetype) initWithKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers NS_DESIGNATED_INITIALIZER;

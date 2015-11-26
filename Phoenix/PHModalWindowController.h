@@ -32,6 +32,8 @@
 
 @interface PHModalWindowController : NSWindowController <PHModalWindowControllerJSExport>
 
++ (instancetype) new NS_UNAVAILABLE;
+
 #pragma mark Properties
 
 @property NSPoint origin;
