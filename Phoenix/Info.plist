@@ -32,5 +32,11 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>SUFeedURL</key>
+	<string>https://raw.githubusercontent.com/kasper/phoenix/master/sparkle.xml</string>
+	<key>SUPublicDSAKeyFile</key>
+	<string>dsa-phoenix-pub.pem</string>
+	<key>SUScheduledCheckInterval</key>
+	<integer>604800</integer>
 </dict>
 </plist>

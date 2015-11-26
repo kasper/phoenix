@@ -17,6 +17,7 @@
                 <outlet property="statusItemMenu" destination="Uqp-0Q-yc9" id="Wat-sC-Geb"/>
             </connections>
         </customObject>
+        <customObject id="erQ-uU-IYZ" customClass="SUUpdater"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
                 <menuItem title="Phoenix" id="1Xt-HY-uBw">
@@ -679,6 +680,12 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="showAboutPanel:" target="rNM-Wb-aci" id="TZu-ab-5ub"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Check for Updates…" id="FWE-Co-2eZ">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="checkForUpdates:" target="erQ-uU-IYZ" id="14l-Pa-YR0"/>
                     </connections>
                 </menuItem>
                 <menuItem title="Open at Login" id="c0s-Nk-qd8">
