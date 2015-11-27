@@ -4,7 +4,7 @@ Changelog
 2.0
 ---
 
-Release: dd.mm.yyyy
+Release: 28.11.2015
 
 ### New
 

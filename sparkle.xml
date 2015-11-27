@@ -14,17 +14,17 @@
 
         <item>
             <title>Version 2.0</title>
-            <pubDate>Thu, 26 Nov 2015 00:00:00 +0000</pubDate>
+            <pubDate>Sat, 28 Nov 2015 00:14:00 +0200</pubDate>
             <description><![CDATA[
                 <p>Phoenix 2.0 is out! The entire app has been rewritten from the ground up. I would like to express my gratitude to everyone who participated in the process by testing the app and making contributions to the project. Thank you! See the full <a href='https://github.com/kasper/phoenix/blob/master/CHANGELOG.md'>Changelog</a>.</p>
             ]]>
             </description>
-            <enclosure sparkle:version=''
+            <enclosure sparkle:version='14'
                        sparkle:shortVersionString='2.0'
-                       sparkle:dsaSignature=''
+                       sparkle:dsaSignature='MC0CFQCQQ1/05emRVpSNnVSotIbFLdOCCwIUSPWTVmxA4QgtY8w0iDBJ39owjfE='
                        type='application/octet-stream'
-                       length=''
-                       url='' />
+                       length='1475570'
+                       url='https://github.com/kasper/phoenix/releases/download/2.0/phoenix-2.0.tar.gz' />
         </item>
 
     </channel>
