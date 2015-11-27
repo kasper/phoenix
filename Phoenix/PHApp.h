@@ -1,42 +1,55 @@
-//
-//  SDAppProxy.h
-//  Zephyros
-//
-//  Created by Steven on 4/21/13.
-//  Copyright (c) 2013 Giant Robot Software. All rights reserved.
-//
+/*
+ * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
+ */
 
-#import <Foundation/Foundation.h>
+@import Cocoa;
+@import JavaScriptCore;
 
-#import <JavaScriptCore/JavaScriptCore.h>
 @class PHApp;
+@class PHWindow;
 
-@protocol PHAppJSExport <JSExport>
+#import "PHAXUIElement.h"
+#import "PHIdentifiableJSExport.h"
 
-+ (NSArray*) runningApps;
+@protocol PHAppJSExport <JSExport, PHIdentifiableJSExport>
 
-- (NSArray*) allWindows;
-- (NSArray*) visibleWindows;
+#pragma mark - Apps
 
-- (NSString*) title;
-- (NSString*) bundleIdentifier;
++ (instancetype) get:(NSString *)appName;
++ (instancetype) launch:(NSString *)appName;
++ (instancetype) focusedApp;
++ (NSArray<PHApp *> *) runningApps;
+
+#pragma mark - Properties
+
+- (pid_t) processIdentifier;
+- (NSString *) bundleIdentifier;
+- (NSString *) name;
+- (BOOL) isActive;
 - (BOOL) isHidden;
-- (void) show;
-- (void) hide;
-- (void) activate;
+- (BOOL) isTerminated;
 
-@property (readonly) pid_t pid;
+#pragma mark - Windows
 
-- (void) kill;
-- (void) kill9;
+- (PHWindow *) mainWindow;
+- (NSArray<PHWindow *> *) windows;
+- (NSArray<PHWindow *> *) visibleWindows;
+
+#pragma mark - Actions
+
+- (BOOL) activate;
+- (BOOL) focus;
+- (BOOL) show;
+- (BOOL) hide;
+- (BOOL) terminate;
+- (BOOL) forceTerminate;
 
 @end
 
-@interface PHApp : NSObject <PHAppJSExport>
+@interface PHApp : PHAXUIElement <PHAppJSExport>
 
-- (id) initWithPID:(pid_t)pid;
-- (id) initWithRunningApp:(NSRunningApplication*)app;
+#pragma mark - Initialise
 
-@property (readonly) pid_t pid;
+- (instancetype) initWithApp:(NSRunningApplication *)app;
 
 @end

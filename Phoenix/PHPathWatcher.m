@@ -1,70 +1,97 @@
-//
-//  LVPathWatcher.m
-//  Leviathan
-//
-//  Created by Steven Degutis on 11/6/13.
-//  Copyright (c) 2013 Steven Degutis. All rights reserved.
-//
+/*
+ * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
+ */
 
 #import "PHPathWatcher.h"
 
 @interface PHPathWatcher ()
 
 @property FSEventStreamRef stream;
-@property (copy) void(^handler)();
-@property NSArray *paths;
+@property NSArray<NSString *> *paths;
+@property (copy) void (^handler)();
 
 @end
 
 @implementation PHPathWatcher
 
-void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo, size_t numEvents, void *eventPaths, const FSEventStreamEventFlags eventFlags[], const FSEventStreamEventId eventIds[])
-{
-    PHPathWatcher* watcher = (__bridge PHPathWatcher*)clientCallBackInfo;
-    [watcher fileChanged];
+#pragma mark - Initialise
+
+- (instancetype) initWithPaths:(NSArray<NSString *> *)paths handler:(void (^)())handler {
+
+    if (self = [super init]) {
+
+        self.paths = paths;
+        self.handler = handler;
+
+        [self setup];
+    }
+
+    return self;
 }
+
++ (instancetype) watcherFor:(NSArray<NSString *> *)paths handler:(void (^)())handler {
+
+    return [[PHPathWatcher alloc] initWithPaths:paths handler:handler];
+}
+
+#pragma mark - Dealloc
 
 - (void) dealloc {
-    if (self.stream) {
-        FSEventStreamStop(self.stream);
-        FSEventStreamInvalidate(self.stream);
-        FSEventStreamRelease(self.stream);
+
+    FSEventStreamStop(self.stream);
+    FSEventStreamInvalidate(self.stream);
+    FSEventStreamRelease(self.stream);
+}
+
+#pragma mark - FSEventStreamCallback
+
+static void PHFSEventStreamCallback(__unused ConstFSEventStreamRef stream,
+                                    void *callback,
+                                    __unused size_t count,
+                                    __unused void *paths,
+                                    __unused FSEventStreamEventFlags const flags[],
+                                    __unused FSEventStreamEventId const ids[]) {
+    @autoreleasepool {
+
+        PHPathWatcher *watcher = (__bridge PHPathWatcher *) callback;
+        [watcher fileDidChange];
     }
 }
 
-+ (PHPathWatcher*) watcherFor:(NSArray*)paths handler:(void(^)())handler {
-    PHPathWatcher* watcher = [[PHPathWatcher alloc] init];
-    
-    NSMutableArray *standardizedPaths = [NSMutableArray new];
-    for(NSString *path in paths) {
-        [standardizedPaths addObject: [path stringByStandardizingPath]];
-    }
-    
-    watcher.handler = handler;
-    watcher.paths = standardizedPaths;
-    [watcher setup];
-    return watcher;
-}
+#pragma mark - Setup
 
 - (void) setup {
+
     FSEventStreamContext context;
-    context.info = (__bridge void*)self;
+
     context.version = 0;
+    context.info = (__bridge void *) self;
     context.retain = NULL;
     context.release = NULL;
     context.copyDescription = NULL;
+
     self.stream = FSEventStreamCreate(NULL,
-                                      fsEventsCallback,
+                                      PHFSEventStreamCallback,
                                       &context,
-                                      (__bridge CFArrayRef)self.paths,
+                                      (__bridge CFArrayRef) self.paths,
                                       kFSEventStreamEventIdSinceNow,
-                                      0.4,
-                                      kFSEventStreamCreateFlagWatchRoot | kFSEventStreamCreateFlagNoDefer | kFSEventStreamCreateFlagFileEvents);
+                                      1.0,
+                                      kFSEventStreamCreateFlagNoDefer |
+                                      kFSEventStreamCreateFlagWatchRoot |
+                                      kFSEventStreamCreateFlagFileEvents);
+
     FSEventStreamScheduleWithRunLoop(self.stream, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
-    FSEventStreamStart(self.stream);
+    BOOL started = FSEventStreamStart(self.stream);
+
+    if (!started) {
+        NSLog(@"Error: Could not start event stream %@ for observing file changes.", self.stream);
+    }
 }
 
-- (void) fileChanged {
+#pragma mark - Event
+
+- (void) fileDidChange {
+    
     self.handler();
 }
 

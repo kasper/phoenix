@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<rss version='2.0'
+     xmlns:dc='http://purl.org/dc/elements/1.1/'
+     xmlns:sparkle='http://www.andymatuschak.org/xml-namespaces/sparkle'>
+
+    <channel>
+
+        <title>Phoenix</title>
+        <link>https://raw.githubusercontent.com/kasper/phoenix/master/sparkle.xml</link>
+        <description>Feed for Phoenix updates.</description>
+        <language>en</language>
+
+        <!-- 2.0 -->
+
+        <item>
+            <title>Version 2.0</title>
+            <pubDate>Sat, 28 Nov 2015 00:14:00 +0200</pubDate>
+            <description><![CDATA[
+                <p>Phoenix 2.0 is out! The entire app has been rewritten from the ground up. I would like to express my gratitude to everyone who participated in the process by testing the app and making contributions to the project. Thank you! See the full <a href='https://github.com/kasper/phoenix/blob/master/CHANGELOG.md'>Changelog</a>.</p>
+            ]]>
+            </description>
+            <enclosure sparkle:version='14'
+                       sparkle:shortVersionString='2.0'
+                       sparkle:dsaSignature='MC0CFQCQQ1/05emRVpSNnVSotIbFLdOCCwIUSPWTVmxA4QgtY8w0iDBJ39owjfE='
+                       type='application/octet-stream'
+                       length='1475570'
+                       url='https://github.com/kasper/phoenix/releases/download/2.0/phoenix-2.0.tar.gz' />
+        </item>
+
+    </channel>
+
+</rss>

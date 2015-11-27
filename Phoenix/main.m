@@ -1,14 +1,10 @@
-//
-//  main.m
-//  Phoenix
-//
-//  Created by Steven on 11/30/13.
-//  Copyright (c) 2013 Steven. All rights reserved.
-//
+/*
+ * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
+ */
 
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
 
-int main(int argc, const char * argv[])
-{
+int main(int argc, const char * argv[]) {
+
     return NSApplicationMain(argc, argv);
 }

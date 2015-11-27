@@ -1,52 +1,72 @@
-//
-//  PHAppDelegate.m
-//  Phoenix
-//
-//  Created by Steven on 11/30/13.
-//  Copyright (c) 2013 Steven. All rights reserved.
-//
+/*
+ * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
+ */
 
 #import "PHAppDelegate.h"
-
+#import "PHContext.h"
+#import "PHEventConstants.h"
+#import "PHOpenAtLoginHelper.h"
 #import "PHUniversalAccessHelper.h"
-#import "PHOpenAtLogin.h"
+
+@interface PHAppDelegate ()
+
+@property PHContext *context;
+@property NSStatusItem *statusItem;
+
+#pragma mark IBOutlet
+
+@property (weak) IBOutlet NSMenu *statusItemMenu;
+
+@end
 
 @implementation PHAppDelegate
 
+#pragma mark - Initialise
+
 - (void) setupStatusItem {
-    NSImage* img = [NSImage imageNamed:@"statusitem"];
-    [img setTemplate:YES];
-    
+
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    [self.statusItem setHighlightMode:YES];
-    [self.statusItem setImage:img];
-    [self.statusItem setMenu:self.statusItemMenu];
+    self.statusItem.button.image = [NSImage imageNamed:@"StatusItemIcon"];
+    self.statusItem.menu = self.statusItemMenu;
 }
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    [PHUniversalAccessHelper complainIfNeeded];
+#pragma mark - NSApplicationDelegate
+
+- (void) applicationDidFinishLaunching:(NSNotification *)__unused notification {
+
+    [PHUniversalAccessHelper askPermissionIfNeeded];
     
+    self.context = [PHContext context];
+    [self.context load];
+
     [self setupStatusItem];
-    
-    self.configLoader = [[PHConfigLoader alloc] init];
-    [self.configLoader reload];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:PHEventStartNotification object:self];
 }
 
-- (IBAction) reloadConfig:(id)sender {
-    [self.configLoader reloadWithAlert];
+#pragma mark - NSMenuDelegate
+
+- (void) menuNeedsUpdate:(NSMenu *)menu {
+
+    [menu itemWithTitle:@"Open at Login"].state = [PHOpenAtLoginHelper opensAtLogin] ? NSOnState : NSOffState;
+}
+
+#pragma mark - IBAction
+
+- (IBAction) reloadContext:(id)__unused sender {
+
+    [self.context load];
 }
 
 - (IBAction) showAboutPanel:(id)sender {
+
     [NSApp activateIgnoringOtherApps:YES];
     [NSApp orderFrontStandardAboutPanel:sender];
 }
 
-- (IBAction) toggleOpenAtLogin:(NSMenuItem*)sender {
-    [PHOpenAtLogin setOpensAtLogin:[sender state] == NSOffState];
-}
+- (IBAction) toggleOpenAtLogin:(NSMenuItem *)sender {
 
-- (void) menuNeedsUpdate:(NSMenu *)menu {
-    [[menu itemWithTitle:@"Open at Login"] setState:([PHOpenAtLogin opensAtLogin] ? NSOnState : NSOffState)];
+    [PHOpenAtLoginHelper setOpensAtLogin:sender.state == NSOffState];
 }
 
 @end
