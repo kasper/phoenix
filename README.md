@@ -11,8 +11,6 @@ with JavaScript, Phoenix is probably going to give you the things you want.
 - Current version: 1.5
 - Requires: OS X 10.9 or higher
 
-**Upcoming version:** 2.0 is stable and [available](https://github.com/kasper/phoenix/tree/2.0/) for testing. Existing configurations (<= 1.5) will not be compatible without small changes. Please report any issues you encounter.
-
 **Note:** the default `master`-branch will always be stable.
 
 ## Install
