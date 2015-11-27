@@ -14,7 +14,7 @@ A lightweight OS X window and app manager scriptable with JavaScript. You can al
 
 ## Install
 
-- [Download Phoenix](https://github.com/kasper/phoenix/releases/download/2.0/phoenix-2.0.tar.gz) (2.0, 28.11.2015)
+- [Download Phoenix](https://github.com/kasper/phoenix/releases/download/2.0/phoenix-2.0.tar.gz)
 - See previous [releases](https://github.com/kasper/phoenix/releases/)
 
 To install, extract the downloaded archive and just drag-and-drop Phoenix to your `Applications`-folder. When you run Phoenix for the first time, you will be asked to allow it to control your UI. OS X will ask you to open `Security & Privacy` in System Preferences. Once open, go to the `Accessibility`-section and click the checkbox next to Phoenix to enable control. An admin account is required to accomplish this.
