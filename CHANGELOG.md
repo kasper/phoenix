@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2.0.1 (master)
+--------------
+
+Release: dd.mm.yyyy
+
 2.0
 ---
 
