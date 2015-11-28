@@ -14,14 +14,14 @@ A lightweight OS X window and app manager scriptable with JavaScript. You can al
 
 ## Install
 
-- [Download Phoenix](https://github.com/kasper/phoenix/releases/download/2.0/phoenix-2.0.tar.gz)
+- [**Download Phoenix**](https://github.com/kasper/phoenix/releases/download/2.0/phoenix-2.0.tar.gz)
 - See previous [releases](https://github.com/kasper/phoenix/releases/)
 
 To install, extract the downloaded archive and just drag-and-drop Phoenix to your `Applications`-folder. When you run Phoenix for the first time, you will be asked to allow it to control your UI. OS X will ask you to open `Security & Privacy` in System Preferences. Once open, go to the `Accessibility`-section and click the checkbox next to Phoenix to enable control. An admin account is required to accomplish this.
 
 ## Uninstall
 
-To uninstall Phoenix, delete the app from your `Applications`-folder. The only file created by Phoenix is located in your home folder. Delete `~/.phoenix.js` and any related configurations if desired. For developers, you may also need to delete `~/.phoenix-debug.js`.
+To uninstall Phoenix, delete the app from your `Applications`-folder. The only file created by Phoenix itself is located in your home folder. Delete `~/.phoenix.js` and any related configurations if desired. For developers, you may also need to delete `~/.phoenix-debug.js`.
 
 ## Usage
 
@@ -33,26 +33,34 @@ Phoenix lives on your status bar and can be scripted in JavaScript (or languages
 
 ## Development
 
-You will need some knowledge about installing the required languages and tools. To get started, you will need:
+You will need some basic knowledge about installing the required languages and tools. If you need help, do not hesitate to ask! To get started, you will need:
 
-- Git
-- Xcode 7 or higher
-- Xcode command line tools
+1. Git
+2. Xcode 7 or higher
+3. Xcode command line tools
 
 First clone the repository from a terminal:
 
     git clone https://github.com/kasper/phoenix.git
     cd phoenix
 
-To develop Phoenix, open `Phoenix.xcworkspace` in Xcode. Install Xcode from the App Store, if you do not already have it installed. You will also need Xcode command line tools — you will be prompted for this. Everything else should work as is — you can develop, debug, build and run Phoenix straight from Xcode. To install Phoenix from the source, you will need to build the workspace from a terminal:
+To develop Phoenix, open `Phoenix.xcworkspace` in Xcode. Install Xcode from the App Store, if you do not already have it installed. You will also need Xcode command line tools — you will be prompted for this. Everything else should work as is — you can develop, debug, test, build and run Phoenix straight from Xcode.
 
-    xcodebuild -workspace Phoenix.xcworkspace -scheme Phoenix -configuration Release SYMROOT="$PWD/build/" clean build
+To install Phoenix from the source, you will need to build the workspace from a terminal:
 
-Once complete, you will find a newly built Phoenix app in `build/Release/`. After this, you can follow the normal install guide. Phoenix manages dependencies with [CocoaPods](https://cocoapods.org). Note that you do not need CocoaPods for basic development. However, if you want to install new pods or update existing ones, you will also need:
+    xcodebuild -workspace Phoenix.xcworkspace \
+               -scheme Phoenix \
+               -configuration Release \
+               SYMROOT="$PWD/build/" \
+               clean build
 
-- Ruby (2.2.3 or higher)
-- Bundler
-- CocoaPods
+Once complete, you will find a newly built Phoenix app in `build/Release/`. After this, you can follow the normal install guide.
+
+Phoenix manages dependencies with [CocoaPods](https://cocoapods.org). Note that you do not need CocoaPods for basic development. However, if you want to install new pods or update existing ones, you will also need:
+
+4. [Ruby](https://www.ruby-lang.org) (2.2.3 or higher), it is recommended that you manage Ruby versions with for instance [rbenv](https://github.com/rbenv/rbenv/)
+5. [Bundler](http://bundler.io)
+6. CocoaPods
 
 Install Bundler, if you do not already have it installed. To install CocoaPods and its dependencies, use Bundler inside the `phoenix`-directory to install the required Ruby gems according to the `Gemfile`. Once complete, you can install the pods listed in the `Podfile` with CocoaPods.
 
