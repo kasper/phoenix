@@ -16,7 +16,7 @@
             <title>Version 2.0</title>
             <pubDate>Sat, 28 Nov 2015 00:14:00 +0200</pubDate>
             <description><![CDATA[
-                <p>Phoenix 2.0 is out! The entire app has been rewritten from the ground up. I would like to express my gratitude to everyone who participated in the process by testing the app and making contributions to the project. Thank you! See the full <a href='https://github.com/kasper/phoenix/blob/master/CHANGELOG.md'>Changelog</a>.</p>
+                <p>Phoenix 2.0 is out! The entire app has been rewritten from the ground up. I would like to express my gratitude to everyone who participated in the process by testing the app and making contributions to the project. Thank you! See the full <a href='https://github.com/kasper/phoenix/blob/master/CHANGELOG.md#20'>Changelog</a>.</p>
             ]]>
             </description>
             <enclosure sparkle:version='14'
