@@ -19,6 +19,8 @@ A lightweight OS X window and app manager scriptable with JavaScript. You can al
 
 To install, extract the downloaded archive and just drag-and-drop Phoenix to your `Applications`-folder. When you run Phoenix for the first time, you will be asked to allow it to control your UI. OS X will ask you to open `Security & Privacy` in System Preferences. Once open, go to the `Accessibility`-section and click the checkbox next to Phoenix to enable control. An admin account is required to accomplish this.
 
+Alternatively, if you have [Homebrew Cask](http://caskroom.io) installed, you can simply run `brew cask install phoenix`.
+
 ## Uninstall
 
 To uninstall Phoenix, delete the app from your `Applications`-folder. The only file created by Phoenix itself is located in your home folder. Delete `~/.phoenix.js` and any related configurations if desired. For developers, you may also need to delete `~/.phoenix-debug.js`.
