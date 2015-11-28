@@ -9,9 +9,9 @@ Release: 28.11.2015
 ### New
 
 - Phoenix now supports events! See the [API](API.md#2-events). To bind an event to a callback function, you call the `on`-function for the `Phoenix`-object.
-- You may now use JavaScript [preprocessing](API.md#preprocessing) and languages such as CoffeeScript to write your Phoenix-configuration (#45). Thanks @shayne!
-- Updates are now delivered and installed through Sparkle (#50).
-- Phoenix now supports additional configuration locations. In addition to `~/.phoenix.js`, you may also use `~/Library/Application Support/Phoenix/phoenix.js` or `~/.config/phoenix/phoenix.js` if you prefer to do so (#52).
+- You may now use JavaScript [preprocessing](API.md#preprocessing) and languages such as CoffeeScript to write your Phoenix-configuration ([#45](https://github.com/kasper/phoenix/pull/45)). Thanks [@shayne](https://github.com/shayne/)!
+- Updates are now delivered and installed through Sparkle ([#50](https://github.com/kasper/phoenix/issues/50)).
+- Phoenix now supports additional configuration locations. In addition to `~/.phoenix.js`, you may also use `~/Library/Application Support/Phoenix/phoenix.js` or `~/.config/phoenix/phoenix.js` if you prefer to do so ([#52](https://github.com/kasper/phoenix/issues/52)).
 
 ### Changes
 
@@ -27,13 +27,13 @@ Release: 28.11.2015
 
 ### Bug Fixes
 
-- Support non-unicode keyboards (#34).
-- Support relative requires with symlinks in configuration (#42).
+- Support non-unicode keyboards ([#34](https://github.com/kasper/phoenix/issues/34)).
+- Support relative requires with symlinks in configuration ([#42](https://github.com/kasper/phoenix/issues/42)).
 
 ### Improvements
 
 - A new subtler status item icon.
-- Alerts are now delivered to the Notification Center and logged to the Console for easier debugging.
+- Alerts are now delivered through Notification Center and logged to Console for easier debugging.
 - Now reloading the context gives no alert unless an error is encountered.
 - Objects that implement `Identifiable` can be identified and compared.
 
@@ -42,7 +42,7 @@ Release: 28.11.2015
 #### Phoenix
 
 - New: Function `on(String event, Function callback)` binds an event to a callback function.
-- New: Function `notify(String message)` delivers the message to the Notification Center.
+- New: Function `notify(String message)` delivers a message to the Notification Center.
 - Change: Function `launch(String appName)` has moved to the global `App`-object.
 - Change: Function `runCommand(String commandPath, Array arguments)` has moved to a new global `Command`-object and is now called `run(String path, Array arguments)`.
 - Deprecation: Function `alert(String message, double durationInSeconds)` has been removed, use `Modal` to display messages as modals.
