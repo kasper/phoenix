@@ -28,7 +28,7 @@ Release: 28.11.2015
 ### Bug Fixes
 
 - Support non-unicode keyboards ([#34](https://github.com/kasper/phoenix/issues/34)).
-- Support relative requires with symlinks in configuration ([#42](https://github.com/kasper/phoenix/issues/42)).
+- Support relative requires with symlinks in configuration ([#42](https://github.com/kasper/phoenix/pull/42)).
 
 ### Improvements
 
