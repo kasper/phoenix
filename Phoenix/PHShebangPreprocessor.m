@@ -70,7 +70,7 @@
     task.launchPath = [NSProcessInfo processInfo].environment[@"SHELL"];
     task.standardOutput = standardOutput;
     task.standardError = standardError;
-    task.arguments = @[ @"-cl", [NSString stringWithFormat:@"%@ %@", command, path] ];
+    task.arguments = @[ @"-l", @"-c", [NSString stringWithFormat:@"%@ %@", command, path] ];
 
     [task launch];
     [task waitUntilExit];
