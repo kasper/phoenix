@@ -30,17 +30,17 @@ Release: 28.11.2015
 - A new `EventHandler`-object has been created to handle events. See the [API](API.md#10-eventhandler).
 - A new global `Command`-object has been created to run UNIX-commands. See the [API](API.md#12-command).
 
-### Bug Fixes
-
-- Support non-unicode keyboards ([#34](https://github.com/kasper/phoenix/issues/34)).
-- Support relative requires with symlinks in configuration ([#42](https://github.com/kasper/phoenix/pull/42)).
-
 ### Improvements
 
 - A new subtler status item icon.
 - Alerts are now delivered through Notification Center and logged to Console for easier debugging.
 - Now reloading the context gives no alert unless an error is encountered.
 - Objects that implement `Identifiable` can be identified and compared.
+
+### Bug Fixes
+
+- Support non-unicode keyboards ([#34](https://github.com/kasper/phoenix/issues/34)).
+- Support relative requires with symlinks in configuration ([#42](https://github.com/kasper/phoenix/pull/42)).
 
 ### API
 
