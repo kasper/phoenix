@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### Bug Fixes
+
+- Support shells (e.g. Fish) that do not support `-cl` option shorthand in preprocessing ([#57](https://github.com/kasper/phoenix/pull/57)).
+
 2.0
 ---
 
