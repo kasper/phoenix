@@ -129,7 +129,7 @@ spctl --verbose=4 --assess --type execute $app.app
 describe 'Archiving app...'
 
 tar czf "$output_directory/$archive" $app.app
-echo "Archived to “$output_directory/$archive.”"
+echo "Archived to “"$output_directory/$archive"”."
 cd $output_directory
 
 # Create DSA-signature
