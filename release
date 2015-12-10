@@ -102,6 +102,11 @@ version=$(get_app_property 'CFBundleShortVersionString')
 build_number=$(get_app_property 'CFBundleVersion')
 archive="phoenix-$version.tar.gz"
 
+if [ -f "$output_directory/$archive" ]; then
+    echo "Archive “"$archive"” already exists. Exiting..."
+    exit 1
+fi
+
 describe "Building $app..."
 
 xcodebuild -workspace $app.xcworkspace \
