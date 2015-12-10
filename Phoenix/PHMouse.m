@@ -12,7 +12,8 @@
 
 + (NSPoint) location {
 
-    return [NSEvent mouseLocation];
+    id event = CFBridgingRelease(CGEventCreate(NULL));
+    return CGEventGetLocation((__bridge CGEventRef) event);
 }
 
 + (BOOL) moveTo:(NSPoint)point {
