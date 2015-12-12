@@ -12,6 +12,14 @@ A lightweight OS X window and app manager scriptable with JavaScript. You can al
 
 **Note:** the default `master`-branch will always be stable.
 
+## Key Features
+
+- highly customisable, write your own configuration
+- bind keyboard shortcuts and system events to your callback functions
+- control and interact with your screens, mouse, apps and windows
+- log messages, deliver notifications or display messages as modals
+- run external commands
+
 ## Install
 
 - [**Download Phoenix**](https://github.com/kasper/phoenix/releases/download/2.0/phoenix-2.0.tar.gz)
