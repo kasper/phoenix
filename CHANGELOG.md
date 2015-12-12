@@ -1,10 +1,10 @@
 Changelog
 =========
 
-2.0.1 (master)
---------------
+2.0.1
+-----
 
-Release: dd.mm.yyyy
+Release: 12.12.2015
 
 ### Changes
 

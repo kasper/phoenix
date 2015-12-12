@@ -10,6 +10,38 @@
         <description>Feed for Phoenix updates.</description>
         <language>en</language>
 
+        <!-- 2.0.1 -->
+
+        <item>
+            <title>Version 2.0.1</title>
+            <pubDate>Sat, 12 Dec 2015 17:11:00 +0200</pubDate>
+            <description><![CDATA[
+
+                <p>This release includes some minor changes and bug fixes.</p>
+
+                <h3>Changes</h3>
+
+                <ul>
+                    <li>Amend license regarding the Phoenix icon assets contributed by Jason Milkins for not being under the MIT License (<a href='https://github.com/kasper/phoenix/pull/61'>#61</a>).</li>
+                </ul>
+
+                <h3>Bug Fixes</h3>
+
+                <ul>
+                    <li>Fix issue where <code>Mouse.location()</code> and <code>Mouse.moveTo(Point point)</code> used different coordinate origins. Both now correctly use top-left as the origin (<a href='https://github.com/kasper/phoenix/issues/58'>#58</a>).</li>
+                    <li>Support shells (e.g. Fish) that do not support <code>-cl</code> option shorthand in preprocessing (<a href='https://github.com/kasper/phoenix/pull/57'>#57</a>).</li>
+                </ul>
+
+            ]]>
+            </description>
+            <enclosure sparkle:version='16'
+                       sparkle:shortVersionString='2.0.1'
+                       sparkle:dsaSignature='MCwCFBTWlnzWXUuifwA/9EsvC320IyWBAhR9z8WYR9T8FeYz7/4ir+/R/2Ls3Q=='
+                       type='application/octet-stream'
+                       length='1475552'
+                       url='https://github.com/kasper/phoenix/releases/download/2.0.1/phoenix-2.0.1.tar.gz' />
+        </item>
+
         <!-- 2.0 -->
 
         <item>

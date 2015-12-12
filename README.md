@@ -7,7 +7,7 @@ Phoenix
 
 A lightweight OS X window and app manager scriptable with JavaScript. You can also easily use languages which compile to JavaScript such as CoffeeScript. Phoenix aims for efficiency and a very small footprint. If you like the idea of scripting your own window or app management toolkit with JavaScript, Phoenix is probably going to give you the things you want. With Phoenix you can bind keyboard shortcuts and system events, and use these to interact with OS X.
 
-- Current version: 2.0 ([Changelog](CHANGELOG.md))
+- Current version: 2.0.1 ([Changelog](CHANGELOG.md))
 - Requires: OS X 10.10 or higher
 
 **Note:** the default `master`-branch will always be stable.
@@ -22,7 +22,7 @@ A lightweight OS X window and app manager scriptable with JavaScript. You can al
 
 ## Install
 
-- [**Download Phoenix**](https://github.com/kasper/phoenix/releases/download/2.0/phoenix-2.0.tar.gz)
+- [**Download Phoenix**](https://github.com/kasper/phoenix/releases/download/2.0.1/phoenix-2.0.1.tar.gz)
 - See previous [releases](https://github.com/kasper/phoenix/releases/)
 
 To install, extract the downloaded archive and just drag-and-drop Phoenix to your `Applications`-folder. When you run Phoenix for the first time, you will be asked to allow it to control your UI. OS X will ask you to open `Security & Privacy` in System Preferences. Once open, go to the `Accessibility`-section and click the checkbox next to Phoenix to enable control. An admin account is required to accomplish this.
