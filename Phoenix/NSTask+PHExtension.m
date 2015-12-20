@@ -34,11 +34,11 @@
     NSPipe *standardOutput = [NSPipe pipe];
     NSPipe *standardError = [NSPipe pipe];
 
-    task.standardOutput = standardOutput;
-    task.standardError = standardError;
     task.launchPath = path;
     task.environment = environment;
     task.arguments = arguments;
+    task.standardOutput = standardOutput;
+    task.standardError = standardError;
 
     [task launch];
     [task waitUntilExit];
