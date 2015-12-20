@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### Bug Fixes
+
+- Improve error handling in preprocessing ([#65](https://github.com/kasper/phoenix/issues/65)).
+
 2.0.1
 -----
 

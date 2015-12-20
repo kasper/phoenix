@@ -38,6 +38,7 @@
 		A7D1F7651B5BFF5B0052E646 /* PhoenixTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D1F7641B5BFF5B0052E646 /* PhoenixTests.m */; };
 		A7E6DF6C1BBAB5B8001920B4 /* PHAXObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E6DF6B1BBAB5B8001920B4 /* PHAXObserver.m */; };
 		A7E6DF6F1BBAC1F3001920B4 /* PHAccessibilityObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E6DF6E1BBAC1F3001920B4 /* PHAccessibilityObserver.m */; };
+		A7F24F5F1C2728540013EBAE /* NSTask+PHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F24F5E1C2728540013EBAE /* NSTask+PHExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,8 @@
 		A7E6DF6D1BBAC1F3001920B4 /* PHAccessibilityObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHAccessibilityObserver.h; sourceTree = "<group>"; };
 		A7E6DF6E1BBAC1F3001920B4 /* PHAccessibilityObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHAccessibilityObserver.m; sourceTree = "<group>"; };
 		A7EBD1C21BFDF8CE000D8E5F /* PHPreprocessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHPreprocessor.h; sourceTree = "<group>"; };
+		A7F24F5D1C2728540013EBAE /* NSTask+PHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTask+PHExtension.h"; sourceTree = "<group>"; };
+		A7F24F5E1C2728540013EBAE /* NSTask+PHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTask+PHExtension.m"; sourceTree = "<group>"; };
 		E28EA008599F10095C520BAC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -225,6 +228,8 @@
 			children = (
 				A79C467A1B5BF3C100C460CF /* NSScreen+PHExtension.h */,
 				A79C467B1B5BF3C100C460CF /* NSScreen+PHExtension.m */,
+				A7F24F5D1C2728540013EBAE /* NSTask+PHExtension.h */,
+				A7F24F5E1C2728540013EBAE /* NSTask+PHExtension.m */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -521,6 +526,7 @@
 				A72EAD071B5D00B800DD537B /* PHModalWindowController.m in Sources */,
 				A741336C1BB7EEAC008DAF39 /* PHHandler.m in Sources */,
 				A741336F1BB7F228008DAF39 /* PHEventHandler.m in Sources */,
+				A7F24F5F1C2728540013EBAE /* NSTask+PHExtension.m in Sources */,
 				A7183B671B6E865F00842E13 /* PHKeyHandler.m in Sources */,
 				A79C469D1B5BF3C100C460CF /* PHOpenAtLoginHelper.m in Sources */,
 				A7E6DF6C1BBAB5B8001920B4 /* PHAXObserver.m in Sources */,
