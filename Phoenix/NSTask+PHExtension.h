@@ -11,7 +11,7 @@ static NSInteger const NSTaskErrorCode = -1;
 
 #pragma mark - Environment
 
-+ (NSString *) userPath;
++ (NSString *) searchPath;
 
 #pragma mark - Launching
 

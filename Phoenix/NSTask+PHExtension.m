@@ -8,7 +8,7 @@
 
 #pragma mark - Environment
 
-+ (NSString *) userPath {
++ (NSString *) searchPath {
 
     NSError *error;
     NSString *path = [NSTask outputFromLaunchedTaskWithLaunchPath:[NSProcessInfo processInfo].environment[@"SHELL"]
