@@ -15,8 +15,8 @@
 @property EventHotKeyRef reference;
 @property BOOL enabled;
 
-@property NSString *key;
-@property NSArray<NSString *> *modifiers;
+@property (copy) NSString *key;
+@property (copy) NSArray<NSString *> *modifiers;
 
 @end
 

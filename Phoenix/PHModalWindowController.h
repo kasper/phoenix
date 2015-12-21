@@ -13,7 +13,7 @@
 
 @property NSPoint origin;
 @property NSTimeInterval duration;
-@property NSString *message;
+@property (copy) NSString *message;
 
 #pragma mark - Initialise
 
@@ -38,6 +38,6 @@
 
 @property NSPoint origin;
 @property NSTimeInterval duration;
-@property NSString *message;
+@property (copy) NSString *message;
 
 @end

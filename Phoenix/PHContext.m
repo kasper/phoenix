@@ -20,7 +20,7 @@
 @interface PHContext ()
 
 @property JSContext *context;
-@property NSString *primaryConfigurationPath;
+@property (copy) NSString *primaryConfigurationPath;
 @property NSMutableSet<NSString *> *configurationPaths;
 @property PHPathWatcher *watcher;
 @property PHAccessibilityObserver *observer;

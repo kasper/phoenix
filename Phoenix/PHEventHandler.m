@@ -13,8 +13,8 @@
 @interface PHEventHandler ()
 
 @property (weak) NSNotificationCenter *notificationCenter;
-@property NSString *name;
-@property NSString *notification;
+@property (copy) NSString *name;
+@property (copy) NSString *notification;
 
 @end
 

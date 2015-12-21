@@ -7,7 +7,7 @@
 @interface PHPathWatcher ()
 
 @property FSEventStreamRef stream;
-@property NSArray<NSString *> *paths;
+@property (copy) NSArray<NSString *> *paths;
 @property (copy) void (^handler)();
 
 @end
