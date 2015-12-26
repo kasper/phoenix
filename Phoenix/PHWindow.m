@@ -4,6 +4,7 @@
 
 #import "NSScreen+PHExtension.h"
 #import "PHApp.h"
+#import "PHSpace.h"
 #import "PHWindow.h"
 
 @interface PHWindow ()
@@ -14,6 +15,9 @@
 @end
 
 @implementation PHWindow
+
+// XXX: Undocumented private attribute for full screen mode
+static NSString * const NSAccessibilityFullScreenAttribute = @"AXFullScreen";
 
 static NSString * const PHWindowKey = @"window";
 static NSString * const PHScoreKey = @"score";
@@ -152,6 +156,11 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return [[self subrole] isEqualToString:NSAccessibilityStandardWindowSubrole];
 }
 
+- (BOOL) isFullScreen {
+
+    return [[self valueForAttribute:NSAccessibilityFullScreenAttribute withDefaultValue:@NO] boolValue];
+}
+
 - (BOOL) isMinimized {
 
     return [[self valueForAttribute:NSAccessibilityMinimizedAttribute withDefaultValue:@NO] boolValue];
@@ -182,6 +191,11 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     }
 
     return appScreen;
+}
+
+- (NSArray<PHSpace *> *) spaces {
+
+    return [PHSpace spacesForWindow:self];
 }
 
 #pragma mark - Position and Size
@@ -231,6 +245,11 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     BOOL sizeSet = [self setSize:frame.size];
 
     return topLeftSet && sizeSet;
+}
+
+- (BOOL) setFullScreen:(BOOL)value {
+
+    return [self setAttribute:NSAccessibilityFullScreenAttribute withValue:@(value)];
 }
 
 - (BOOL) maximize {

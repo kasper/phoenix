@@ -15,6 +15,7 @@
 #import "PHPathWatcher.h"
 #import "PHPhoenix.h"
 #import "PHShebangPreprocessor.h"
+#import "PHSpace.h"
 #import "PHWindow.h"
 
 @interface PHContext ()
@@ -169,6 +170,7 @@
     self.context[@"Modal"] = [PHModalWindowController class];
     self.context[@"Command"] = [PHCommand class];
     self.context[@"Screen"] = [NSScreen class];
+    self.context[@"Space"] = [PHSpace class];
     self.context[@"Mouse"] = [PHMouse class];
     self.context[@"App"] = [PHApp class];
     self.context[@"Window"] = [PHWindow class];

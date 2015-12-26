@@ -6,13 +6,37 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### New
+
+- Phoenix now supports Spaces! A new global `Space`-object has been created to control spaces, see the [API](API.md#15-space) ([#60](https://github.com/kasper/phoenix/issues/60)).
+
 ### Changes
 
 - Upgrade Sparkle to 1.14.0. This also fixes the HTTP MITM-vulnerability discovered in Sparkle — though Phoenix was never vulnerable since we use HTTPS to secure updates.
 
+### Improvements
+
+- Objects that implement `Iterable` can be traversed. Namely, `Screen` and `Space`.
+
 ### Bug Fixes
 
 - Improve error handling in preprocessing ([#65](https://github.com/kasper/phoenix/issues/65)).
+
+### API
+
+#### Events
+
+- New: Event `spaceDidChange` is triggered when the active space has changed.
+
+#### Screen
+
+- New: Function `spaces()` returns all spaces for the screen.
+
+#### Window
+
+- New: Function `isFullScreen()` returns `true` if the window is a full screen window.
+- New: Function `spaces()` returns the spaces where the window is currently present.
+- New: Function `setFullScreen(boolean value)` sets whether the window is full screen.
 
 2.0.1
 -----
@@ -47,10 +71,10 @@ Release: 28.11.2015
 - Underscore.js is upgraded to 1.8.3 (from 1.5.2). This may change existing behaviour related to Underscore.
 - Global `api`-object is now called `Phoenix`.
 - Global `MousePosition`-object is now called `Mouse`.
-- `Hotkey`-object is now called `KeyHandler` and its properties have changed. See the [API](API.md#9-keyhandler).
-- The concept of `Alerts` has been deprecated. A new global `Modal`-object has been created to display messages as modals. See the [API](API.md#11-modal).
-- A new `EventHandler`-object has been created to handle events. See the [API](API.md#10-eventhandler).
-- A new global `Command`-object has been created to run UNIX-commands. See the [API](API.md#12-command).
+- `Hotkey`-object is now called `KeyHandler` and its properties have changed. See the [API](API.md#10-keyhandler).
+- The concept of `Alerts` has been deprecated. A new global `Modal`-object has been created to display messages as modals. See the [API](API.md#12-modal).
+- A new `EventHandler`-object has been created to handle events. See the [API](API.md#11-eventhandler).
+- A new global `Command`-object has been created to run UNIX-commands. See the [API](API.md#13-command).
 
 ### Improvements
 

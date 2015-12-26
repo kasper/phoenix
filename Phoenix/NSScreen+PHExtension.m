@@ -2,10 +2,48 @@
  * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
  */
 
+#import "NSArray+PHExtension.h"
 #import "NSScreen+PHExtension.h"
+#import "PHSpace.h"
 #import "PHWindow.h"
 
 @implementation NSScreen (PHExtension)
+
+static NSString * const NSScreenNumber = @"NSScreenNumber";
+
+#pragma mark - Screens
+
++ (instancetype) screenForIdentifier:(NSString *)identifier {
+
+    for (NSScreen *screen in [self screens]) {
+
+        if ([[screen identifier] isEqualToString:identifier]) {
+            return screen;
+        }
+    }
+
+    return nil;
+}
+
+#pragma mark - Screen
+
+- (instancetype) next {
+
+    return [[NSScreen screens] nextFrom:self];
+}
+
+- (instancetype) previous {
+
+    return [[NSScreen screens] previousFrom:self];
+}
+
+#pragma mark - Properties
+
+- (NSString *) identifier {
+
+    id uuid = CFBridgingRelease(CGDisplayCreateUUIDFromDisplayID([self.deviceDescription[NSScreenNumber] unsignedIntValue]));
+    return CFBridgingRelease(CFUUIDCreateString(NULL, (__bridge CFUUIDRef) uuid));
+}
 
 #pragma mark - Frame
 
@@ -27,32 +65,17 @@
     return [self calculateFrame:self.visibleFrame];
 }
 
-#pragma mark - Screen
+#pragma mark - Spaces
 
-- (NSScreen *) next {
+- (NSArray<PHSpace *> *) spaces {
 
-    NSArray<NSScreen *> *screens = [NSScreen screens];
-    NSUInteger nextIndex = [screens indexOfObject:self] + 1;
+    NSPredicate *spaceOnSameScreen = [NSPredicate predicateWithBlock:
+                                      ^BOOL (PHSpace *space, __unused NSDictionary<NSString *, id> *bindings) {
 
-    // Last screen, return first
-    if (nextIndex == screens.count) {
-        return screens.firstObject;
-    }
-    
-    return screens[nextIndex];
-}
+                                          return [[space screen] isEqualTo:self];
+                                      }];
 
-- (NSScreen *) previous {
-
-    NSArray<NSScreen *> *screens = [NSScreen screens];
-    NSInteger previousIndex = [screens indexOfObject:self] - 1;
-    
-    // First screen, return last
-    if (previousIndex == -1) {
-        return screens.lastObject;
-    }
-    
-    return screens[previousIndex];
+    return [[PHSpace spaces] filteredArrayUsingPredicate:spaceOnSameScreen];
 }
 
 #pragma mark - Windows

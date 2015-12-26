@@ -12,12 +12,14 @@
 		A72EAD041B5CE34800DD537B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A72EAD031B5CE34800DD537B /* Credits.rtf */; };
 		A72EAD071B5D00B800DD537B /* PHModalWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72EAD061B5D00B800DD537B /* PHModalWindowController.m */; };
 		A72ED7B61B6E25940064E35B /* PHPhoenix.m in Sources */ = {isa = PBXBuildFile; fileRef = A72ED7B51B6E25940064E35B /* PHPhoenix.m */; };
+		A731A7261C2C76B800EB9FD5 /* PHSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = A731A7251C2C76B800EB9FD5 /* PHSpace.m */; };
 		A73C2CA81B9078A30004C663 /* PHCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = A73C2CA71B9078A30004C663 /* PHCommand.m */; };
 		A73C2CAB1B9088040004C663 /* PHNotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A73C2CAA1B9088040004C663 /* PHNotificationHelper.m */; };
 		A741336C1BB7EEAC008DAF39 /* PHHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A741336B1BB7EEAC008DAF39 /* PHHandler.m */; };
 		A741336F1BB7F228008DAF39 /* PHEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A741336E1BB7F228008DAF39 /* PHEventHandler.m */; };
 		A74133721BB7F556008DAF39 /* PHEventTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = A74133711BB7F556008DAF39 /* PHEventTranslator.m */; };
 		A762478A1B81FD3C00ECF209 /* PHAXUIElement.m in Sources */ = {isa = PBXBuildFile; fileRef = A76247891B81FD3C00ECF209 /* PHAXUIElement.m */; };
+		A79452421C2F35E3007AF8C5 /* NSArray+PHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A79452411C2F35E3007AF8C5 /* NSArray+PHExtension.m */; };
 		A7952E7E1C0721850062D651 /* dsa-phoenix-pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = A7952E7D1C0721850062D651 /* dsa-phoenix-pub.pem */; };
 		A79B89E01B5E74C1004DDE82 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A79B89DE1B5E74C1004DDE82 /* MainMenu.xib */; };
 		A79B89E21B5E75CA004DDE82 /* ModalWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A79B89E11B5E75CA004DDE82 /* ModalWindow.xib */; };
@@ -63,6 +65,8 @@
 		A72EAD061B5D00B800DD537B /* PHModalWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHModalWindowController.m; sourceTree = "<group>"; };
 		A72ED7B41B6E25940064E35B /* PHPhoenix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHPhoenix.h; sourceTree = "<group>"; };
 		A72ED7B51B6E25940064E35B /* PHPhoenix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHPhoenix.m; sourceTree = "<group>"; };
+		A731A7241C2C76B800EB9FD5 /* PHSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHSpace.h; sourceTree = "<group>"; };
+		A731A7251C2C76B800EB9FD5 /* PHSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHSpace.m; sourceTree = "<group>"; };
 		A73C2CA61B9078A30004C663 /* PHCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHCommand.h; sourceTree = "<group>"; };
 		A73C2CA71B9078A30004C663 /* PHCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHCommand.m; sourceTree = "<group>"; };
 		A73C2CA91B9088040004C663 /* PHNotificationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHNotificationHelper.h; sourceTree = "<group>"; };
@@ -76,6 +80,9 @@
 		A74133711BB7F556008DAF39 /* PHEventTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHEventTranslator.m; sourceTree = "<group>"; };
 		A76247881B81FD3C00ECF209 /* PHAXUIElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHAXUIElement.h; sourceTree = "<group>"; };
 		A76247891B81FD3C00ECF209 /* PHAXUIElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHAXUIElement.m; sourceTree = "<group>"; };
+		A79452401C2F35E3007AF8C5 /* NSArray+PHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PHExtension.h"; sourceTree = "<group>"; };
+		A79452411C2F35E3007AF8C5 /* NSArray+PHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+PHExtension.m"; sourceTree = "<group>"; };
+		A79452431C2F393A007AF8C5 /* PHIterableJSExport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHIterableJSExport.h; sourceTree = "<group>"; };
 		A7952E7D1C0721850062D651 /* dsa-phoenix-pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "dsa-phoenix-pub.pem"; sourceTree = "<group>"; };
 		A79B89DF1B5E74C1004DDE82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		A79B89E11B5E75CA004DDE82 /* ModalWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModalWindow.xib; sourceTree = "<group>"; };
@@ -162,12 +169,15 @@
 				A73C2CA61B9078A30004C663 /* PHCommand.h */,
 				A73C2CA71B9078A30004C663 /* PHCommand.m */,
 				A72A6B031B934C2000F2C4EF /* PHIdentifiableJSExport.h */,
+				A79452431C2F393A007AF8C5 /* PHIterableJSExport.h */,
 				A72EAD051B5D00B800DD537B /* PHModalWindowController.h */,
 				A72EAD061B5D00B800DD537B /* PHModalWindowController.m */,
 				A79C46861B5BF3C100C460CF /* PHMouse.h */,
 				A79C46871B5BF3C100C460CF /* PHMouse.m */,
 				A72ED7B41B6E25940064E35B /* PHPhoenix.h */,
 				A72ED7B51B6E25940064E35B /* PHPhoenix.m */,
+				A731A7241C2C76B800EB9FD5 /* PHSpace.h */,
+				A731A7251C2C76B800EB9FD5 /* PHSpace.m */,
 				A79C46901B5BF3C100C460CF /* PHWindow.h */,
 				A79C46911B5BF3C100C460CF /* PHWindow.m */,
 			);
@@ -226,6 +236,8 @@
 		A77952C51BBE7D2200FC8D38 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A79452401C2F35E3007AF8C5 /* NSArray+PHExtension.h */,
+				A79452411C2F35E3007AF8C5 /* NSArray+PHExtension.m */,
 				A79C467A1B5BF3C100C460CF /* NSScreen+PHExtension.h */,
 				A79C467B1B5BF3C100C460CF /* NSScreen+PHExtension.m */,
 				A7F24F5D1C2728540013EBAE /* NSTask+PHExtension.h */,
@@ -529,6 +541,8 @@
 				A7F24F5F1C2728540013EBAE /* NSTask+PHExtension.m in Sources */,
 				A7183B671B6E865F00842E13 /* PHKeyHandler.m in Sources */,
 				A79C469D1B5BF3C100C460CF /* PHOpenAtLoginHelper.m in Sources */,
+				A79452421C2F35E3007AF8C5 /* NSArray+PHExtension.m in Sources */,
+				A731A7261C2C76B800EB9FD5 /* PHSpace.m in Sources */,
 				A7E6DF6C1BBAB5B8001920B4 /* PHAXObserver.m in Sources */,
 				A79C469E1B5BF3C100C460CF /* PHPathWatcher.m in Sources */,
 			);

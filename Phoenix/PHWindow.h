@@ -6,6 +6,7 @@
 @import JavaScriptCore;
 
 @class PHApp;
+@class PHSpace;
 @class PHWindow;
 
 #import "PHAXUIElement.h"
@@ -28,10 +29,12 @@
 - (NSString *) title;
 - (BOOL) isMain;
 - (BOOL) isNormal;
+- (BOOL) isFullScreen;
 - (BOOL) isMinimized;
 - (BOOL) isVisible;
 - (PHApp *) app;
 - (NSScreen *) screen;
+- (NSArray<PHSpace *> *) spaces;
 
 #pragma mark - Position and Size
 
@@ -41,6 +44,7 @@
 - (BOOL) setTopLeft:(CGPoint)point;
 - (BOOL) setSize:(CGSize)size;
 - (BOOL) setFrame:(CGRect)frame;
+- (BOOL) setFullScreen:(BOOL)value;
 - (BOOL) maximize;
 - (BOOL) minimize;
 - (BOOL) unminimize;
@@ -63,5 +67,9 @@
 @end
 
 @interface PHWindow : PHAXUIElement <PHWindowJSExport>
+
+#pragma mark - Properties
+
+- (CGWindowID) identifier;
 
 @end

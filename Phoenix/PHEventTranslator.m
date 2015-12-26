@@ -20,7 +20,11 @@
 
         NSNotificationCenter *workspaceNotificationCenter = [[NSWorkspace sharedWorkspace] notificationCenter];
 
-        notificationToNotificationCenter = @{ /* App Notifications */
+        notificationToNotificationCenter = @{ /* Space Notifications */
+
+                                              NSWorkspaceActiveSpaceDidChangeNotification: workspaceNotificationCenter,
+
+                                              /* App Notifications */
 
                                               NSWorkspaceDidLaunchApplicationNotification: workspaceNotificationCenter,
                                               NSWorkspaceDidTerminateApplicationNotification: workspaceNotificationCenter,
@@ -56,6 +60,10 @@
                                  /* Screen Notifications */
 
                                  @"screensDidChange": NSApplicationDidChangeScreenParametersNotification,
+
+                                 /* Space Notifications */
+
+                                 @"spaceDidChange": NSWorkspaceActiveSpaceDidChangeNotification,
 
                                  /* App Notifications */
 

@@ -13,14 +13,16 @@ This documentation is an overview of the JavaScript API provided by Phoenix. Use
 6. [Size](#6-size)
 7. [Rectangle](#7-rectangle)
 8. [Identifiable](#8-identifiable)
-9. [KeyHandler](#9-keyhandler)
-10. [EventHandler](#10-eventhandler)
-11. [Modal](#11-modal)
-12. [Command](#12-command)
-13. [Screen](#13-screen)
-14. [Mouse](#14-mouse)
-15. [App](#15-app)
-16. [Window](#16-window)
+9. [Iterable](#9-iterable)
+10. [KeyHandler](#10-keyhandler)
+11. [EventHandler](#11-eventhandler)
+12. [Modal](#12-modal)
+13. [Command](#13-command)
+14. [Screen](#14-screen)
+15. [Space](#15-space)
+16. [Mouse](#16-mouse)
+17. [App](#17-app)
+18. [Window](#18-window)
 
 ## Getting Started
 
@@ -115,6 +117,10 @@ Phoenix supports the following (case sensitive) events:
 ### Screen
 
 - `screensDidChange` triggered when screens (i.e. displays) are added, removed, or dynamically reconfigured, the callback function receives no arguments
+
+### Space
+
+- `spaceDidChange`, triggered when the active space has changed, the callback function receives no arguments
 
 ### App
 
@@ -222,10 +228,23 @@ interface Identifiable
 end
 ```
 
-- `hash()` returns the hash value for the object
-- `isEqual(AnyObject object)` returns `true` if the object is equal to this object
+## 9. Iterable
 
-## 9. KeyHandler
+Objects that implement `Iterable` can be traversed.
+
+```java
+interface Iterable
+
+    Object next()
+    Object previous()
+
+end
+```
+
+- `next()` returns the next object or the first object when on the last one
+- `previous()` returns the previous object or the last object when on the first one
+
+## 10. KeyHandler
 
 Use the `KeyHandler`-object to enable or disable keys. To change a previous handler, bind the key again. A key is disabled automatically when you release your reference to the handler. KeyHandlers are always reset on context reload. Enabling a key combination that has been exclusively registered by another app will fail.
 
@@ -248,7 +267,7 @@ end
 - `enable()` enables the key handler, returns `true` if successful
 - `disable()` disables the key handler, returns `true` if successful
 
-## 10. EventHandler
+## 11. EventHandler
 
 Use the `EventHandler`-object to access event properties. You can have multiple handlers for a single event. To disable an event, release your reference to the handler. EventHandlers are always reset on context reload.
 
@@ -262,7 +281,7 @@ end
 
 - `name` read-only property for the event name
 
-## 11. Modal
+## 12. Modal
 
 Use the `Modal`-object to display messages as modal windows.
 
@@ -289,7 +308,7 @@ end
 - `show()` shows the modal
 - `close()` closes the modal
 
-## 12. Command
+## 13. Command
 
 Use the `Command`-object to run UNIX-commands.
 
@@ -303,20 +322,19 @@ end
 
 - `run(String path, Array arguments)` executes a UNIX-command in a absolute path with the passed arguments and waits until completion, returns `true` if the execution was successful
 
-## 13. Screen
+## 14. Screen
 
 Use the `Screen`-object to access frame sizes and other screens on a multi-screen setup. Get the current screen for a window through the `Window`-object. Beware that a screen can get stale if you keep a reference to it and it is for instance disconnected while you do so.
 
 ```java
-class Screen implements Identifiable
+class Screen implements Identifiable, Iterable
 
     static Screen mainScreen()
     static Array<Screen> screens()
 
     Rectangle frameInRectangle()
     Rectangle visibleFrameInRectangle()
-    Screen next()
-    Screen previous()
+    Array<Space> spaces()
     Array<Window> windows()
     Array<Window> visibleWindows()
 
@@ -327,12 +345,42 @@ end
 - `screens()` returns all screens, the first screen in this array corresponds to the primary screen for the system
 - `frameInRectangle()` returns the whole frame for the screen
 - `visibleFrameInRectangle()` returns the visible frame for the screen subtracting the Dock and Menu from the frame when visible
-- `next()` returns the next screen or the first screen when on the last one
-- `previous()` returns the previous screen or the last screen when on the first one
+- `spaces()` returns all spaces for the screen
 - `windows()` returns all windows for the screen
 - `visibleWindows()` returns all visible windows for the screen
 
-## 14. Mouse
+## 15. Space
+
+Use the `Space`-object to control spaces. A single window can be in multiple spaces at the same time. To move a window to a different space, remove it from any existing spaces and add it to a new one. You can switch to a space by focusing on a window in that space. Beware that a space can get stale if you keep a reference to it and it is for instance closed while you do so.
+
+```java
+class Space implements Identifiable, Iterable
+
+    static Space activeSpace()
+    static Array<Space> spaces()
+
+    boolean isNormal()
+    boolean isFullScreen()
+    Screen screen()
+    Array<Window> windows()
+    Array<Window> visibleWindows()
+    void addWindows(Array<Window> windows)
+    void removeWindows(Array<Window> windows)
+
+end
+```
+
+- `activeSpace()` returns the space containing the window with the keyboard focus
+- `spaces()` returns all spaces, the first space in this array corresponds to the primary space
+- `isNormal()` returns `true` if the space is a normal space
+- `isFullScreen()` returns `true` if the space is a full screen space
+- `screen()` returns the screen to which the space belongs to
+- `windows()` returns all windows for the space
+- `visibleWindows()` returns all visible windows for the space
+- `addWindows(Array<Window> windows)` adds the given windows to the space
+- `removeWindows(Array<Window> windows)` removes the given windows from the space
+
+## 16. Mouse
 
 Use the `Mouse`-object to control the cursor.
 
@@ -348,7 +396,7 @@ end
 - `location()` returns the cursor position
 - `moveTo(Point point)` moves the cursor to a given position, returns `true` if successful
 
-## 15. App
+## 17. App
 
 Use the `App`-object to control apps. Beware that an app can get stale if you keep a reference to it and it is for instance terminated while you do so, see `isTerminated()`.
 
@@ -399,7 +447,7 @@ end
 - `terminate()` terminates the app, returns `true` if successful
 - `forceTerminate()` force terminates the app, returns `true` if successful
 
-## 16. Window
+## 18. Window
 
 Use the `Window`-object to control windows. Every screen (i.e. display) combines to form a large rectangle. Every window lives within this rectangle and their position can be altered by giving coordinates inside this rectangle. To position a window to a specific display, you need to calculate its position within the large rectangle. To figure out the coordinates for a given screen, use the functions in `Screen`. Beware that a window can get stale if you keep a reference to it and it is for instance closed while you do so.
 
@@ -416,16 +464,19 @@ class Window implements Identifiable
     String title()
     boolean isMain()
     boolean isNormal()
+    boolean isFullScreen()
     boolean isMinimized()
     boolean isVisible()
     App app()
     Screen screen()
+    Array<Space> spaces()
     Point topLeft()
     Size size()
     Rectangle frame()
     boolean setTopLeft(Point point)
     boolean setSize(Size size)
     boolean setFrame(Rectangle frame)
+    boolean setFullScreen(boolean value)
     boolean maximize()
     boolean minimize()
     boolean unminimize()
@@ -451,16 +502,19 @@ end
 - `title()` returns the title for the window
 - `isMain()` returns `true` if the window is the main window for its app
 - `isNormal()` returns `true` if the window is a normal window
+- `isFullScreen()` returns `true` if the window is a full screen window
 - `isMinimized()` returns `true` if the window is minimised
 - `isVisible()` returns `true` if the window is a normal and unminimised window that belongs to an unhidden app
 - `app()` returns the app for the window
 - `screen()` returns the screen where most or all of the window is currently present
+- `spaces()` returns the spaces where the window is currently present
 - `topLeft()` returns the top left point for the window
 - `size()` returns the size for the window
 - `frame()` returns the frame for the window
 - `setTopLeft(Point point)` sets the top left point for the window, returns `true` if successful
 - `setSize(Size size)` sets the size for the window, returns `true` if successful
 - `setFrame(Rectangle frame)` sets the frame for the window, returns `true` if successful
+- `setFullScreen(boolean value)` sets whether the window is full screen, returns `true` if successful
 - `maximize()` resizes the window to fit the whole visible frame for the screen, returns `true` if successful
 - `minimize()` minimises the window, returns `true` if successful
 - `unminimize()` unminimises the window, returns `true` if successful

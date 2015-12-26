@@ -5,15 +5,17 @@
 @import Cocoa;
 @import JavaScriptCore;
 
+@class PHSpace;
 @class PHWindow;
 
 #import "PHIdentifiableJSExport.h"
+#import "PHIterableJSExport.h"
 
-@protocol NSScreenJSExport <JSExport, PHIdentifiableJSExport>
+@protocol NSScreenJSExport <JSExport, PHIdentifiableJSExport, PHIterableJSExport>
 
 #pragma mark - Screens
 
-+ (NSScreen *) mainScreen;
++ (instancetype) mainScreen;
 + (NSArray<NSScreen *> *) screens;
 
 #pragma mark - Frame
@@ -21,10 +23,9 @@
 - (NSRect) frameInRectangle;
 - (NSRect) visibleFrameInRectangle;
 
-#pragma mark - Screen
+#pragma mark - Spaces
 
-- (NSScreen *) next;
-- (NSScreen *) previous;
+- (NSArray<PHSpace *> *) spaces;
 
 #pragma mark - Windows
 
@@ -34,5 +35,13 @@
 @end
 
 @interface NSScreen (PHExtension) <NSScreenJSExport>
+
+#pragma mark - Screens
+
++ (instancetype) screenForIdentifier:(NSString *)identifier;
+
+#pragma mark - Properties
+
+- (NSString *) identifier;
 
 @end
