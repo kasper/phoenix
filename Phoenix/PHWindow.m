@@ -69,12 +69,13 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
 + (NSArray<PHWindow *> *) visibleWindowsInOrder {
 
+    NSArray<PHWindow *> *windows = [self windows];
+    NSMutableArray<PHWindow *> *orderedWindows = [NSMutableArray array];
+
     // Windows returned in order from front to back
     NSArray *visibleWindowInfo = CFBridgingRelease(CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenOnly |
                                                                               kCGWindowListExcludeDesktopElements,
                                                                               kCGNullWindowID));
-    NSArray<PHWindow *> *windows = [self windows];
-    NSMutableArray<PHWindow *> *orderedWindows = [NSMutableArray array];
 
     for (NSMutableDictionary<NSString *, id> *windowInfo in visibleWindowInfo) {
 
