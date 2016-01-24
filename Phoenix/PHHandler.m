@@ -23,11 +23,7 @@
 
 - (void) callWithArguments:(NSArray *)arguments {
 
-    // Create a new scope for callback
-    JSValue *callback = self.callback.value;
-    JSContext *scope = [[JSContext alloc] initWithVirtualMachine:callback.context.virtualMachine];
-    JSValue *function = [JSValue valueWithObject:callback inContext:scope];
-
+    JSValue *function = self.callback.value;
     [function callWithArguments:arguments];
 }
 
