@@ -149,4 +149,4 @@ echo "Archive: $archive"
 echo "Size: $(stat -f '%z' $archive)"
 echo "Signature: $signature"
 
-describe 'Done...'
+describe 'Done.'
