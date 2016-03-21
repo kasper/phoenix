@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### Changes
+
+- Upgrade Sparkle to 1.14.0. This also fixes the HTTP MITM-vulnerability discovered in Sparkle — though Phoenix was never vulnerable since we use HTTPS to secure updates.
+
 ### Bug Fixes
 
 - Improve error handling in preprocessing ([#65](https://github.com/kasper/phoenix/issues/65)).
