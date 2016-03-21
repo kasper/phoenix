@@ -347,9 +347,9 @@
 				A79C46531B5BF31100C460CF /* Sources */,
 				A79C46541B5BF31100C460CF /* Frameworks */,
 				A79C46551B5BF31100C460CF /* Resources */,
-				A7C58EEF1C065C8A00180664 /* Sign Sparkle */,
 				D24256909AA421FF1865E794 /* 📦 Embed Pods Frameworks */,
 				E3056907A6DCD4BB1BF0E3E0 /* 📦 Copy Pods Resources */,
+				A7C58EEF1C065C8A00180664 /* Sign Sparkle */,
 			);
 			buildRules = (
 			);
