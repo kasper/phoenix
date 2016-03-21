@@ -1,3 +1,7 @@
 platform :osx, '10.10'
 
-pod 'Sparkle', '1.11.1'
+target 'Phoenix' do
+
+  pod 'Sparkle', '1.11.1'
+
+end
