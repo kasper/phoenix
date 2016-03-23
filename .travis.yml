@@ -10,6 +10,10 @@ xcode_sdk: macosx10.11
 notifications:
     email: false
 
+before_install:
+    - rvm get stable --auto-dotfiles
+    - rvm install 2.3.0
+
 script: xctool -workspace $TRAVIS_XCODE_WORKSPACE -scheme $TRAVIS_XCODE_SCHEME -sdk $TRAVIS_XCODE_SDK build
 
 matrix:
