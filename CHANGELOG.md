@@ -8,7 +8,7 @@ Release: dd.mm.yyyy
 
 ### New
 
-- Phoenix now supports Spaces! A new global `Space`-object has been created to control spaces, see the [API](API.md#15-space) ([#60](https://github.com/kasper/phoenix/issues/60)).
+- Phoenix now supports Spaces! *These features are only supported on El Capitan (10.11) and upwards.* A new global `Space`-object has been created to control spaces, see the [API](API.md#15-space) ([#60](https://github.com/kasper/phoenix/issues/60)).
 
 ### Changes
 
@@ -30,12 +30,12 @@ Release: dd.mm.yyyy
 
 #### Screen
 
-- New: Function `spaces()` returns all spaces for the screen.
+- New: Function `spaces()` returns all spaces for the screen (only supported on El Capitan and upwards, returns an empty list otherwise).
 
 #### Window
 
 - New: Function `isFullScreen()` returns `true` if the window is a full screen window.
-- New: Function `spaces()` returns the spaces where the window is currently present.
+- New: Function `spaces()` returns the spaces where the window is currently present (only supported on El Capitan and upwards, returns an empty list otherwise).
 - New: Function `setFullScreen(boolean value)` sets whether the window is full screen.
 
 2.0.1

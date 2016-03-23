@@ -3,6 +3,7 @@
  */
 
 #import "NSArray+PHExtension.h"
+#import "NSProcessInfo+PHExtension.h"
 #import "NSScreen+PHExtension.h"
 #import "PHSpace.h"
 #import "PHWindow.h"
@@ -78,10 +79,20 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
 
 + (instancetype) activeSpace {
 
+    // Only supported from 10.11 upwards
+    if (![NSProcessInfo isOperatingSystemAtLeastElCapitan]) {
+        return nil;
+    }
+
     return [[PHSpace alloc] initWithIdentifier:CGSGetActiveSpace(CGSMainConnectionID())];
 }
 
 + (NSArray<PHSpace *> *) spaces {
+
+    // Only supported from 10.11 upwards
+    if (![NSProcessInfo isOperatingSystemAtLeastElCapitan]) {
+        return @[];
+    }
 
     NSMutableArray *spaces = [NSMutableArray array];
     NSArray *displaySpacesInfo = CFBridgingRelease(CGSCopyManagedDisplaySpaces(CGSMainConnectionID()));
@@ -99,6 +110,11 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
 }
 
 + (NSArray<PHSpace *> *) spacesForWindow:(PHWindow *)window {
+
+    // Only supported from 10.11 upwards
+    if (![NSProcessInfo isOperatingSystemAtLeastElCapitan]) {
+        return @[];
+    }
 
     NSMutableArray *spaces = [NSMutableArray array];
     NSArray<NSNumber *> *identifiers = CFBridgingRelease(CGSCopySpacesForWindows(CGSMainConnectionID(),
