@@ -18,6 +18,10 @@
 + (instancetype) mainScreen;
 + (NSArray<NSScreen *> *) screens;
 
+#pragma mark - Properties
+
+- (NSString *) identifier;
+
 #pragma mark - Frame
 
 - (NSRect) frameInRectangle;
@@ -39,9 +43,5 @@
 #pragma mark - Screens
 
 + (instancetype) screenForIdentifier:(NSString *)identifier;
-
-#pragma mark - Properties
-
-- (NSString *) identifier;
 
 @end

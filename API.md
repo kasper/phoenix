@@ -332,6 +332,7 @@ class Screen implements Identifiable, Iterable
     static Screen mainScreen()
     static Array<Screen> screens()
 
+    String identifier()
     Rectangle frameInRectangle()
     Rectangle visibleFrameInRectangle()
     Array<Space> spaces() // OS X 10.11+
@@ -343,6 +344,7 @@ end
 
 - `mainScreen()` returns the screen containing the window with the keyboard focus
 - `screens()` returns all screens, the first screen in this array corresponds to the primary screen for the system
+- `identifier()` returns the UUID for the screen
 - `frameInRectangle()` returns the whole frame for the screen
 - `visibleFrameInRectangle()` returns the visible frame for the screen subtracting the Dock and Menu from the frame when visible
 - `spaces()` returns all spaces for the screen (only supported on El Capitan and upwards, returns an empty list otherwise)

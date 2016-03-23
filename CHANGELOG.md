@@ -30,6 +30,7 @@ Release: dd.mm.yyyy
 
 #### Screen
 
+- New: Function `identifier()` returns the UUID for the screen.
 - New: Function `spaces()` returns all spaces for the screen (only supported on El Capitan and upwards, returns an empty list otherwise).
 
 #### Window
