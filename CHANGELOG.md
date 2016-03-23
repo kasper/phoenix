@@ -1,8 +1,8 @@
 Changelog
 =========
 
-2.0.2 (master)
---------------
+2.1 (master)
+------------
 
 Release: dd.mm.yyyy
 
