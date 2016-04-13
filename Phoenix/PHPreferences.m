@@ -14,6 +14,7 @@
 
 // Preference keys
 static NSString * const PHDaemonKey = @"daemon";
+static NSString * const PHOpenAtLogin = @"openAtLogin";
 
 #pragma mark - Initialise
 
@@ -63,6 +64,11 @@ static NSString * const PHDaemonKey = @"daemon";
 - (BOOL) isDaemon {
 
     return [self.preferences[PHDaemonKey] boolValue];
+}
+
+- (BOOL) openAtLogin {
+
+    return [self.preferences[PHOpenAtLogin] boolValue];
 }
 
 @end

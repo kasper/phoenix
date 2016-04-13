@@ -70,6 +70,7 @@
 - (void) preferencesDidChange:(NSNotification *)__unused notification {
 
     [self toggleStatusItem];
+    [PHOpenAtLoginHelper setOpensAtLogin:[[PHPreferences sharedPreferences] openAtLogin]];
 }
 
 #pragma mark - IBAction

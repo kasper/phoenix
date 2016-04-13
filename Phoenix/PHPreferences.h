@@ -23,5 +23,6 @@ static NSString * const PHPreferencesDidChangeNotification = @"PHPreferencesDidC
 - (void) reset;
 
 - (BOOL) isDaemon;
+- (BOOL) openAtLogin;
 
 @end

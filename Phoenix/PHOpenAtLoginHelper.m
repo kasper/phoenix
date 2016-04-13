@@ -57,6 +57,11 @@
 
 + (void) setOpensAtLogin:(BOOL)opensAtLogin {
 
+    // Item already set
+    if ([self opensAtLogin] == opensAtLogin) {
+        return;
+    }
+
     NSURL *appUrl = [NSBundle mainBundle].bundleURL;
 
     /* Add item */
