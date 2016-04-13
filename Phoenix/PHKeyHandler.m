@@ -91,7 +91,7 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
 
         self.identifier = PHKeyHandlerIdentifierSequence++;
 
-        // Observe key down notification
+        // Observe key down events
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(keyDown:)
                                                      name:PHKeyHandlerKeyDownNotification

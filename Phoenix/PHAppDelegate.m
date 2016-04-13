@@ -49,7 +49,7 @@
 
     [self toggleStatusItem];
 
-    // Observe preferences change
+    // Observe changes in preferences
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(preferencesDidChange:)
                                                  name:PHPreferencesDidChangeNotification
