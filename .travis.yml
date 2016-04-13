@@ -1,6 +1,6 @@
 language: objective-c
 
-osx_image: xcode7.2
+osx_image: xcode7.3
 
 xcode_workspace: Phoenix.xcworkspace
 xcode_scheme: Phoenix
@@ -20,5 +20,6 @@ script: xctool -workspace $TRAVIS_XCODE_WORKSPACE -scheme $TRAVIS_XCODE_SCHEME -
 matrix:
 
     include:
+        - osx_image: xcode7.2
         - osx_image: xcode7.1
         - osx_image: xcode7
