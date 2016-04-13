@@ -241,10 +241,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
 - (BOOL) setFrame:(CGRect)frame {
 
-    BOOL topLeftSet = [self setTopLeft:frame.origin];
-    BOOL sizeSet = [self setSize:frame.size];
-
-    return topLeftSet && sizeSet;
+    return [self setSize:frame.size] && [self setTopLeft:frame.origin] && [self setSize:frame.size];
 }
 
 - (BOOL) setFullScreen:(BOOL)value {
