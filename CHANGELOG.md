@@ -31,12 +31,12 @@ Release: dd.mm.yyyy
 #### Screen
 
 - New: Function `identifier()` returns the UUID for the screen ([#79](https://github.com/kasper/phoenix/issues/79)).
-- New: Function `spaces()` returns all spaces for the screen (only supported on El Capitan and upwards, returns an empty list otherwise).
+- New: Function `spaces()` returns all spaces for the screen (OS X 10.11+, returns an empty list otherwise).
 
 #### Window
 
 - New: Function `isFullScreen()` returns `true` if the window is a full screen window ([#60](https://github.com/kasper/phoenix/issues/60), [#80](https://github.com/kasper/phoenix/issues/80)).
-- New: Function `spaces()` returns the spaces where the window is currently present (only supported on El Capitan and upwards, returns an empty list otherwise).
+- New: Function `spaces()` returns the spaces where the window is currently present (OS X 10.11+, returns an empty list otherwise).
 - New: Function `setFullScreen(boolean value)` sets whether the window is full screen ([#60](https://github.com/kasper/phoenix/issues/60), [#80](https://github.com/kasper/phoenix/issues/80)).
 
 2.0.1
