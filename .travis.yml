@@ -7,9 +7,6 @@ xcode_scheme: Phoenix
 
 xcode_sdk: macosx10.11
 
-notifications:
-    email: false
-
 before_install:
     - rvm get stable --auto-dotfiles
     - rvm install 2.3.0
