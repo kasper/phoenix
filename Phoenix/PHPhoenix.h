@@ -22,6 +22,7 @@ JSExportAs(bind, - (PHKeyHandler *) bindKey:(NSString *)key
 
 JSExportAs(on, - (PHEventHandler *) bindEvent:(NSString *)event callback:(JSValue *)callback);
 
+- (void) set:(NSDictionary<NSString *, id> *)preferences;
 - (void) log:(NSString *)message;
 - (void) notify:(NSString *)message;
 

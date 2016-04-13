@@ -19,6 +19,7 @@
 		A741336F1BB7F228008DAF39 /* PHEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A741336E1BB7F228008DAF39 /* PHEventHandler.m */; };
 		A74133721BB7F556008DAF39 /* PHEventTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = A74133711BB7F556008DAF39 /* PHEventTranslator.m */; };
 		A762478A1B81FD3C00ECF209 /* PHAXUIElement.m in Sources */ = {isa = PBXBuildFile; fileRef = A76247891B81FD3C00ECF209 /* PHAXUIElement.m */; };
+		A78566D11CBE77CD00036AF9 /* PHPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = A78566D01CBE77CD00036AF9 /* PHPreferences.m */; };
 		A78749641CA2BB440042DA4C /* NSProcessInfo+PHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A78749631CA2BB440042DA4C /* NSProcessInfo+PHExtension.m */; };
 		A79452421C2F35E3007AF8C5 /* NSArray+PHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A79452411C2F35E3007AF8C5 /* NSArray+PHExtension.m */; };
 		A7952E7E1C0721850062D651 /* dsa-phoenix-pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = A7952E7D1C0721850062D651 /* dsa-phoenix-pub.pem */; };
@@ -81,6 +82,8 @@
 		A74133711BB7F556008DAF39 /* PHEventTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHEventTranslator.m; sourceTree = "<group>"; };
 		A76247881B81FD3C00ECF209 /* PHAXUIElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHAXUIElement.h; sourceTree = "<group>"; };
 		A76247891B81FD3C00ECF209 /* PHAXUIElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHAXUIElement.m; sourceTree = "<group>"; };
+		A78566CF1CBE77CD00036AF9 /* PHPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHPreferences.h; sourceTree = "<group>"; };
+		A78566D01CBE77CD00036AF9 /* PHPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHPreferences.m; sourceTree = "<group>"; };
 		A78749621CA2BB440042DA4C /* NSProcessInfo+PHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSProcessInfo+PHExtension.h"; sourceTree = "<group>"; };
 		A78749631CA2BB440042DA4C /* NSProcessInfo+PHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSProcessInfo+PHExtension.m"; sourceTree = "<group>"; };
 		A79452401C2F35E3007AF8C5 /* NSArray+PHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PHExtension.h"; sourceTree = "<group>"; };
@@ -267,6 +270,8 @@
 			children = (
 				A79C46821B5BF3C100C460CF /* PHContext.h */,
 				A79C46831B5BF3C100C460CF /* PHContext.m */,
+				A78566CF1CBE77CD00036AF9 /* PHPreferences.h */,
+				A78566D01CBE77CD00036AF9 /* PHPreferences.m */,
 			);
 			name = Context;
 			sourceTree = "<group>";
@@ -540,6 +545,7 @@
 				A79C46971B5BF3C100C460CF /* PHApp.m in Sources */,
 				1C93D6641BE11FF100649405 /* PHShebangPreprocessor.m in Sources */,
 				A7D1D9A91B6FD6A300E00CC9 /* PHKeyTranslator.m in Sources */,
+				A78566D11CBE77CD00036AF9 /* PHPreferences.m in Sources */,
 				A79C46A01B5BF3C100C460CF /* PHWindow.m in Sources */,
 				A72EAD071B5D00B800DD537B /* PHModalWindowController.m in Sources */,
 				A741336C1BB7EEAC008DAF39 /* PHHandler.m in Sources */,

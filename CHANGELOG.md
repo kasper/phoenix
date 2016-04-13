@@ -8,7 +8,9 @@ Release: dd.mm.yyyy
 
 ### New
 
-- Phoenix now supports Spaces! *These features are only supported on El Capitan (10.11) and upwards.* A new global `Space`-object has been created to control spaces, see the [API](API.md#15-space) ([#60](https://github.com/kasper/phoenix/issues/60)).
+- Phoenix now supports Spaces! *These features are only supported on El Capitan (10.11) and upwards.* A new global `Space`-object has been created to control spaces, see the [API](API.md#16-space) ([#60](https://github.com/kasper/phoenix/issues/60)).
+- Preferences can now be set programmatically through the API ([#67](https://github.com/kasper/phoenix/issues/67)).
+- Phoenix can be run completely in the background, this also removes the status bar menu, see the `daemon`-preference in the [API](API.md#3-preferences) ([#68](https://github.com/kasper/phoenix/issues/68)).
 
 ### Changes
 
@@ -28,6 +30,10 @@ Release: dd.mm.yyyy
 #### Events
 
 - New: Event `spaceDidChange` is triggered when the active space has changed.
+
+#### Phoenix
+
+- New: Function `set(Map<String, AnyObject> preferences)` sets the preferences from the given key–value map, any previously set preferences with the same key will be overridden, all preferences are reset when the context is reloaded.
 
 #### Screen
 
@@ -73,10 +79,10 @@ Release: 28.11.2015
 - Underscore.js is upgraded to 1.8.3 (from 1.5.2). This may change existing behaviour related to Underscore.
 - Global `api`-object is now called `Phoenix`.
 - Global `MousePosition`-object is now called `Mouse`.
-- `Hotkey`-object is now called `KeyHandler` and its properties have changed. See the [API](API.md#10-keyhandler).
-- The concept of `Alerts` has been deprecated. A new global `Modal`-object has been created to display messages as modals. See the [API](API.md#12-modal).
-- A new `EventHandler`-object has been created to handle events. See the [API](API.md#11-eventhandler).
-- A new global `Command`-object has been created to run UNIX-commands. See the [API](API.md#13-command).
+- `Hotkey`-object is now called `KeyHandler` and its properties have changed. See the [API](API.md#11-keyhandler).
+- The concept of `Alerts` has been deprecated. A new global `Modal`-object has been created to display messages as modals. See the [API](API.md#13-modal).
+- A new `EventHandler`-object has been created to handle events. See the [API](API.md#12-eventhandler).
+- A new global `Command`-object has been created to run UNIX-commands. See the [API](API.md#14-command).
 
 ### Improvements
 

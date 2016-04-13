@@ -14,6 +14,7 @@
 #import "PHNotificationHelper.h"
 #import "PHPathWatcher.h"
 #import "PHPhoenix.h"
+#import "PHPreferences.h"
 #import "PHShebangPreprocessor.h"
 #import "PHSpace.h"
 #import "PHWindow.h"
@@ -210,6 +211,7 @@
 
 - (void) load {
 
+    [[PHPreferences sharedPreferences] reset];
     [self resetConfigurationPaths];
     [self resetKeyHandlers];
 

@@ -7,22 +7,23 @@ This documentation is an overview of the JavaScript API provided by Phoenix. Use
 
 1. [Keys](#1-keys)
 2. [Events](#2-events)
-3. [Require](#3-require)
-4. [Phoenix](#4-phoenix)
-5. [Point](#5-point)
-6. [Size](#6-size)
-7. [Rectangle](#7-rectangle)
-8. [Identifiable](#8-identifiable)
-9. [Iterable](#9-iterable)
-10. [KeyHandler](#10-keyhandler)
-11. [EventHandler](#11-eventhandler)
-12. [Modal](#12-modal)
-13. [Command](#13-command)
-14. [Screen](#14-screen)
-15. [Space](#15-space)
-16. [Mouse](#16-mouse)
-17. [App](#17-app)
-18. [Window](#18-window)
+3. [Preferences](#3-preferences)
+4. [Require](#4-require)
+5. [Phoenix](#5-phoenix)
+6. [Point](#6-point)
+7. [Size](#7-size)
+8. [Rectangle](#8-rectangle)
+9. [Identifiable](#9-identifiable)
+10. [Iterable](#10-iterable)
+11. [KeyHandler](#11-keyhandler)
+12. [EventHandler](#12-eventhandler)
+13. [Modal](#13-modal)
+14. [Command](#14-command)
+15. [Screen](#15-screen)
+16. [Space](#16-space)
+17. [Mouse](#17-mouse)
+18. [App](#18-app)
+19. [Window](#19-window)
 
 ## Getting Started
 
@@ -144,7 +145,19 @@ All of the following window events receive the corresponding `Window`-instance a
 - `windowDidMinimize` triggered when a window has minimised
 - `windowDidUnminimize` triggered when a window has unminimised
 
-## 3. Require
+## 3. Preferences
+
+Phoenix supports the following (case sensitive) preferences:
+
+- `daemon` (boolean): if set `true` Phoenix will run completely in the background, this also removes the status bar menu, defaults to `false`
+
+Set the preferences using the `Phoenix`-object — for example:
+
+```javascript
+Phoenix.set({ 'daemon': true });
+```
+
+## 4. Require
 
 You can modularise your configuration using the `require`-function. It will load the referenced JavaScript-file and reload it if any changes are detected. If the path is relative, it is resolved relatively to the absolute location of the `.phoenix.js`-file. If this file is a symlink, it will be resolved before resolving the location of the required file.
 
@@ -152,7 +165,7 @@ You can modularise your configuration using the `require`-function. It will load
 require('path/to/file.js');
 ```
 
-## 4. Phoenix
+## 5. Phoenix
 
 Use the `Phoenix`-object for API-level tasks.
 
@@ -162,6 +175,7 @@ class Phoenix
     static void reload()
     static KeyHandler bind(String key, Array<String> modifiers, Function callback)
     static EventHandler on(String event, Function callback)
+    static void set(Map<String, AnyObject> preferences)
     static void log(String message)
     static void notify(String message)
 
@@ -171,10 +185,11 @@ end
 - `reload()` manually reloads the context and any changes in the configuration files
 - `bind(String key, Array<String> modifiers, Function callback)` binds the key character with the specified modifiers (can be an empty list) to a callback function and returns the handler (`undefined` if not supported), you must keep a reference to the handler in order for your callback to get called, the callback function receives no arguments, binding overrides any previous handlers for the same key combination
 - `on(String event, Function callback)` binds an event to a callback function and returns the handler (`undefined` if not supported), you must keep a reference to the handler in order for your callback to get called, you can have multiple handlers for a single event
+- `set(Map<String, AnyObject> preferences)` sets the preferences from the given key–value map, any previously set preferences with the same key will be overridden, all preferences are reset when the context is reloaded
 - `log(String message)` logs the message to the Console
 - `notify(String message)` delivers the message to the Notification Center
 
-## 5. Point
+## 6. Point
 
 A simple point object for 2D-coordinates.
 
@@ -187,7 +202,7 @@ class Point
 end
 ```
 
-## 6. Size
+## 7. Size
 
 A simple 2D-size object.
 
@@ -200,7 +215,7 @@ class Size
 end
 ```
 
-## 7. Rectangle
+## 8. Rectangle
 
 A 2D-rectangle representation of a `Point` and `Size`.
 
@@ -215,7 +230,7 @@ class Rectangle
 end
 ```
 
-## 8. Identifiable
+## 9. Identifiable
 
 Objects that implement `Identifiable` can be identified and compared.
 
@@ -228,7 +243,7 @@ interface Identifiable
 end
 ```
 
-## 9. Iterable
+## 10. Iterable
 
 Objects that implement `Iterable` can be traversed.
 
@@ -244,7 +259,7 @@ end
 - `next()` returns the next object or the first object when on the last one
 - `previous()` returns the previous object or the last object when on the first one
 
-## 10. KeyHandler
+## 11. KeyHandler
 
 Use the `KeyHandler`-object to enable or disable keys. To change a previous handler, bind the key again. A key is disabled automatically when you release your reference to the handler. KeyHandlers are always reset on context reload. Enabling a key combination that has been exclusively registered by another app will fail.
 
@@ -267,7 +282,7 @@ end
 - `enable()` enables the key handler, returns `true` if successful
 - `disable()` disables the key handler, returns `true` if successful
 
-## 11. EventHandler
+## 12. EventHandler
 
 Use the `EventHandler`-object to access event properties. You can have multiple handlers for a single event. To disable an event, release your reference to the handler. EventHandlers are always reset on context reload.
 
@@ -281,7 +296,7 @@ end
 
 - `name` read-only property for the event name
 
-## 12. Modal
+## 13. Modal
 
 Use the `Modal`-object to display messages as modal windows.
 
@@ -308,7 +323,7 @@ end
 - `show()` shows the modal
 - `close()` closes the modal
 
-## 13. Command
+## 14. Command
 
 Use the `Command`-object to run UNIX-commands.
 
@@ -322,7 +337,7 @@ end
 
 - `run(String path, Array arguments)` executes a UNIX-command in a absolute path with the passed arguments and waits until completion, returns `true` if the execution was successful
 
-## 14. Screen
+## 15. Screen
 
 Use the `Screen`-object to access frame sizes and other screens on a multi-screen setup. Get the current screen for a window through the `Window`-object. Beware that a screen can get stale if you keep a reference to it and it is for instance disconnected while you do so.
 
@@ -351,7 +366,7 @@ end
 - `windows()` returns all windows for the screen
 - `visibleWindows()` returns all visible windows for the screen
 
-## 15. Space
+## 16. Space
 
 Use the `Space`-object to control spaces. *These features are only supported on El Capitan (10.11) and upwards.* A single window can be in multiple spaces at the same time. To move a window to a different space, remove it from any existing spaces and add it to a new one. You can switch to a space by focusing on a window in that space. Beware that a space can get stale if you keep a reference to it and it is for instance closed while you do so.
 
@@ -382,7 +397,7 @@ end
 - `addWindows(Array<Window> windows)` adds the given windows to the space
 - `removeWindows(Array<Window> windows)` removes the given windows from the space
 
-## 16. Mouse
+## 17. Mouse
 
 Use the `Mouse`-object to control the cursor.
 
@@ -398,7 +413,7 @@ end
 - `location()` returns the cursor position
 - `moveTo(Point point)` moves the cursor to a given position, returns `true` if successful
 
-## 17. App
+## 18. App
 
 Use the `App`-object to control apps. Beware that an app can get stale if you keep a reference to it and it is for instance terminated while you do so, see `isTerminated()`.
 
@@ -449,7 +464,7 @@ end
 - `terminate()` terminates the app, returns `true` if successful
 - `forceTerminate()` force terminates the app, returns `true` if successful
 
-## 18. Window
+## 19. Window
 
 Use the `Window`-object to control windows. Every screen (i.e. display) combines to form a large rectangle. Every window lives within this rectangle and their position can be altered by giving coordinates inside this rectangle. To position a window to a specific display, you need to calculate its position within the large rectangle. To figure out the coordinates for a given screen, use the functions in `Screen`. Beware that a window can get stale if you keep a reference to it and it is for instance closed while you do so.
 

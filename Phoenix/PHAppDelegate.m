@@ -6,6 +6,7 @@
 #import "PHContext.h"
 #import "PHEventConstants.h"
 #import "PHOpenAtLoginHelper.h"
+#import "PHPreferences.h"
 #import "PHUniversalAccessHelper.h"
 
 @interface PHAppDelegate ()
@@ -23,7 +24,14 @@
 
 #pragma mark - Initialise
 
-- (void) setupStatusItem {
+- (void) toggleStatusItem {
+
+    // Run as daemon
+    if ([[PHPreferences sharedPreferences] isDaemon]) {
+        [[NSStatusBar systemStatusBar] removeStatusItem:self.statusItem];
+        self.statusItem = nil;
+        return;
+    }
 
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     self.statusItem.button.image = [NSImage imageNamed:@"StatusItemIcon"];
@@ -39,7 +47,13 @@
     self.context = [PHContext context];
     [self.context load];
 
-    [self setupStatusItem];
+    [self toggleStatusItem];
+
+    // Observe preferences change
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(preferencesDidChange:)
+                                                 name:PHPreferencesDidChangeNotification
+                                               object:nil];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:PHEventStartNotification object:self];
 }
@@ -49,6 +63,13 @@
 - (void) menuNeedsUpdate:(NSMenu *)menu {
 
     [menu itemWithTitle:@"Open at Login"].state = [PHOpenAtLoginHelper opensAtLogin] ? NSOnState : NSOffState;
+}
+
+#pragma mark - Notifications
+
+- (void) preferencesDidChange:(NSNotification *)__unused notification {
+
+    [self toggleStatusItem];
 }
 
 #pragma mark - IBAction

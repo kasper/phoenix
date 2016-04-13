@@ -6,6 +6,7 @@
 #import "PHKeyHandler.h"
 #import "PHNotificationHelper.h"
 #import "PHPhoenix.h"
+#import "PHPreferences.h"
 
 @interface PHPhoenix ()
 
@@ -41,6 +42,11 @@
 - (PHEventHandler *) bindEvent:(NSString *)event callback:(JSValue *)callback {
 
     return [self.delegate bindEvent:event callback:callback];
+}
+
+- (void) set:(NSDictionary<NSString *, id> *)preferences {
+
+    [[PHPreferences sharedPreferences] add:preferences];
 }
 
 - (void) log:(NSString *)message {
