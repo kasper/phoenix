@@ -24,10 +24,10 @@
 
 #pragma mark - Initialise
 
-- (void) toggleStatusItem {
+- (void) toggleStatusItem:(BOOL)enabled {
 
-    // Run as daemon
-    if ([[PHPreferences sharedPreferences] isDaemon]) {
+    // Run without status item
+    if (!enabled) {
         [[NSStatusBar systemStatusBar] removeStatusItem:self.statusItem];
         self.statusItem = nil;
         return;
@@ -47,7 +47,7 @@
     self.context = [PHContext context];
     [self.context load];
 
-    [self toggleStatusItem];
+    [self toggleStatusItem:![[PHPreferences sharedPreferences] isDaemon]];
 
     // Observe changes in preferences
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -69,7 +69,7 @@
 
 - (void) preferencesDidChange:(NSNotification *)__unused notification {
 
-    [self toggleStatusItem];
+    [self toggleStatusItem:![[PHPreferences sharedPreferences] isDaemon]];
     [PHOpenAtLoginHelper setOpensAtLogin:[[PHPreferences sharedPreferences] openAtLogin]];
 }
 
