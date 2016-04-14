@@ -19,11 +19,12 @@ Release: dd.mm.yyyy
 ### Improvements
 
 - Objects that implement `Iterable` can be traversed. Namely, `Screen` and `Space`.
-- Other small updates.
+- Improvements to memory management and other small improvements.
 
 ### Bug Fixes
 
 - Improve error handling in preprocessing ([#65](https://github.com/kasper/phoenix/issues/65)).
+- Fix an issue that prevented an exception raised in a handler callback to be caught and reported ([#70](https://github.com/kasper/phoenix/issues/70)).
 - Fix an issue that prevented setting the frame for a window correctly while moving it to a smaller screen ([#84](https://github.com/kasper/phoenix/issues/84)).
 
 ### API
