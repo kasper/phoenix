@@ -19,6 +19,7 @@ Release: dd.mm.yyyy
 ### Improvements
 
 - Objects that implement `Iterable` can be traversed. Namely, `Screen` and `Space`.
+- Other small updates.
 
 ### Bug Fixes
 
