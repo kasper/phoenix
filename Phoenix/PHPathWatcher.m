@@ -76,7 +76,6 @@ static void PHFSEventStreamCallback(__unused ConstFSEventStreamRef stream,
                                       (__bridge CFArrayRef) self.paths,
                                       kFSEventStreamEventIdSinceNow,
                                       1.0,
-                                      kFSEventStreamCreateFlagNoDefer |
                                       kFSEventStreamCreateFlagWatchRoot |
                                       kFSEventStreamCreateFlagFileEvents);
 

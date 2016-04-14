@@ -19,6 +19,7 @@ Release: dd.mm.yyyy
 ### Improvements
 
 - Objects that implement `Iterable` can be traversed. Namely, `Screen` and `Space`.
+- Adjust latency of context reloads on configuration file changes to limit race conditions ([#83](https://github.com/kasper/phoenix/issues/83)).
 - Improvements to memory management and other small improvements.
 
 ### Bug Fixes
