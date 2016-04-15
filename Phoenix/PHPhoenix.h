@@ -7,6 +7,7 @@
 
 @class PHEventHandler;
 @class PHKeyHandler;
+@class PHTimerHandler;
 
 #import "PHContext.h"
 
@@ -21,6 +22,8 @@ JSExportAs(bind, - (PHKeyHandler *) bindKey:(NSString *)key
                                    callback:(JSValue *)callback);
 
 JSExportAs(on, - (PHEventHandler *) bindEvent:(NSString *)event callback:(JSValue *)callback);
+JSExportAs(after, - (PHTimerHandler *) after:(NSTimeInterval)interval callback:(JSValue *)callback);
+JSExportAs(every, - (PHTimerHandler *) every:(NSTimeInterval)interval callback:(JSValue *)callback);
 
 - (void) set:(NSDictionary<NSString *, id> *)preferences;
 - (void) log:(NSString *)message;

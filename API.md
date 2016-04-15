@@ -17,13 +17,14 @@ This documentation is an overview of the JavaScript API provided by Phoenix. Use
 10. [Iterable](#10-iterable)
 11. [KeyHandler](#11-keyhandler)
 12. [EventHandler](#12-eventhandler)
-13. [Modal](#13-modal)
-14. [Command](#14-command)
-15. [Screen](#15-screen)
-16. [Space](#16-space)
-17. [Mouse](#17-mouse)
-18. [App](#18-app)
-19. [Window](#19-window)
+13. [TimerHandler](#13-timerhandler)
+14. [Modal](#14-modal)
+15. [Command](#15-command)
+16. [Screen](#16-screen)
+17. [Space](#17-space)
+18. [Mouse](#18-mouse)
+19. [App](#19-app)
+20. [Window](#20-window)
 
 ## Getting Started
 
@@ -181,6 +182,8 @@ class Phoenix
     static void reload()
     static KeyHandler bind(String key, Array<String> modifiers, Function callback)
     static EventHandler on(String event, Function callback)
+    static TimerHandler after(double interval, Function callback)
+    static TimerHandler every(double interval, Function callback)
     static void set(Map<String, AnyObject> preferences)
     static void log(String message)
     static void notify(String message)
@@ -191,6 +194,8 @@ end
 - `reload()` manually reloads the context and any changes in the configuration files
 - `bind(String key, Array<String> modifiers, Function callback)` binds the key character with the specified modifiers (can be an empty list) to a callback function and returns the handler (`undefined` if not supported), you must keep a reference to the handler in order for your callback to get called, the callback function receives no arguments, binding overrides any previous handlers for the same key combination
 - `on(String event, Function callback)` binds an event to a callback function and returns the handler (`undefined` if not supported), you must keep a reference to the handler in order for your callback to get called, you can have multiple handlers for a single event
+- `after(double interval, Function callback)` creates a timer that fires the callback once after the given interval (in seconds) and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument
+- `every(double interval, Function callback)` creates a timer that fires the callback repeatedly until stopped using the given interval (in seconds) and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument
 - `set(Map<String, AnyObject> preferences)` sets the preferences from the given key–value map, any previously set preferences with the same key will be overridden, all preferences are reset when the context is reloaded
 - `log(String message)` logs the message to the Console
 - `notify(String message)` delivers the message to the Notification Center
@@ -302,7 +307,21 @@ end
 
 - `name` read-only property for the event name
 
-## 13. Modal
+## 13. TimerHandler
+
+Use the `TimerHandler`-object to control timers. A TimerHandler can fire only once or be repeating. To release a timer, release your reference to the handler. TimerHandlers are always reset on context reload.
+
+```java
+class TimerHandler implements Identifiable
+
+    void stop()
+
+end
+```
+
+- `stop()` stops the timer immediately
+
+## 14. Modal
 
 Use the `Modal`-object to display messages as modal windows.
 
@@ -329,7 +348,7 @@ end
 - `show()` shows the modal
 - `close()` closes the modal
 
-## 14. Command
+## 15. Command
 
 Use the `Command`-object to run UNIX-commands.
 
@@ -343,7 +362,7 @@ end
 
 - `run(String path, Array arguments)` executes a UNIX-command in a absolute path with the passed arguments and waits until completion, returns `true` if the execution was successful
 
-## 15. Screen
+## 16. Screen
 
 Use the `Screen`-object to access frame sizes and other screens on a multi-screen setup. Get the current screen for a window through the `Window`-object. Beware that a screen can get stale if you keep a reference to it and it is for instance disconnected while you do so.
 
@@ -372,7 +391,7 @@ end
 - `windows()` returns all windows for the screen
 - `visibleWindows()` returns all visible windows for the screen
 
-## 16. Space
+## 17. Space
 
 Use the `Space`-object to control spaces. *These features are only supported on El Capitan (10.11) and upwards.* A single window can be in multiple spaces at the same time. To move a window to a different space, remove it from any existing spaces and add it to a new one. You can switch to a space by focusing on a window in that space. Beware that a space can get stale if you keep a reference to it and it is for instance closed while you do so.
 
@@ -403,7 +422,7 @@ end
 - `addWindows(Array<Window> windows)` adds the given windows to the space
 - `removeWindows(Array<Window> windows)` removes the given windows from the space
 
-## 17. Mouse
+## 18. Mouse
 
 Use the `Mouse`-object to control the cursor.
 
@@ -419,7 +438,7 @@ end
 - `location()` returns the cursor position
 - `moveTo(Point point)` moves the cursor to a given position, returns `true` if successful
 
-## 18. App
+## 19. App
 
 Use the `App`-object to control apps. Beware that an app can get stale if you keep a reference to it and it is for instance terminated while you do so, see `isTerminated()`.
 
@@ -470,7 +489,7 @@ end
 - `terminate()` terminates the app, returns `true` if successful
 - `forceTerminate()` force terminates the app, returns `true` if successful
 
-## 19. Window
+## 20. Window
 
 Use the `Window`-object to control windows. Every screen (i.e. display) combines to form a large rectangle. Every window lives within this rectangle and their position can be altered by giving coordinates inside this rectangle. To position a window to a specific display, you need to calculate its position within the large rectangle. To figure out the coordinates for a given screen, use the functions in `Screen`. Beware that a window can get stale if you keep a reference to it and it is for instance closed while you do so.
 

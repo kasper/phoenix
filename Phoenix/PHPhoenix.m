@@ -7,6 +7,7 @@
 #import "PHNotificationHelper.h"
 #import "PHPhoenix.h"
 #import "PHPreferences.h"
+#import "PHTimerHandler.h"
 
 @interface PHPhoenix ()
 
@@ -42,6 +43,16 @@
 - (PHEventHandler *) bindEvent:(NSString *)event callback:(JSValue *)callback {
 
     return [self.delegate bindEvent:event callback:callback];
+}
+
+- (PHTimerHandler *) after:(NSTimeInterval)interval callback:(JSValue *)callback {
+
+    return [PHTimerHandler withInterval:interval repeats:NO callback:callback];
+}
+
+- (PHTimerHandler *) every:(NSTimeInterval)interval callback:(JSValue *)callback {
+
+    return [PHTimerHandler withInterval:interval repeats:YES callback:callback];
 }
 
 - (void) set:(NSDictionary<NSString *, id> *)preferences {

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1C93D6641BE11FF100649405 /* PHShebangPreprocessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C93D6631BE11FF100649405 /* PHShebangPreprocessor.m */; };
 		A7183B671B6E865F00842E13 /* PHKeyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A7183B661B6E865F00842E13 /* PHKeyHandler.m */; };
+		A7288A351CC119BD00EC032B /* PHTimerHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A7288A341CC119BD00EC032B /* PHTimerHandler.m */; };
+		A7288A3B1CC14DF800EC032B /* PHWeakTimerTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = A7288A3A1CC14DF800EC032B /* PHWeakTimerTarget.m */; };
 		A72EAD041B5CE34800DD537B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A72EAD031B5CE34800DD537B /* Credits.rtf */; };
 		A72EAD071B5D00B800DD537B /* PHModalWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72EAD061B5D00B800DD537B /* PHModalWindowController.m */; };
 		A72ED7B61B6E25940064E35B /* PHPhoenix.m in Sources */ = {isa = PBXBuildFile; fileRef = A72ED7B51B6E25940064E35B /* PHPhoenix.m */; };
@@ -61,6 +63,10 @@
 		1C93D6631BE11FF100649405 /* PHShebangPreprocessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHShebangPreprocessor.m; sourceTree = "<group>"; };
 		A7183B651B6E865F00842E13 /* PHKeyHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHKeyHandler.h; sourceTree = "<group>"; };
 		A7183B661B6E865F00842E13 /* PHKeyHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHKeyHandler.m; sourceTree = "<group>"; };
+		A7288A331CC119BD00EC032B /* PHTimerHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHTimerHandler.h; sourceTree = "<group>"; };
+		A7288A341CC119BD00EC032B /* PHTimerHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHTimerHandler.m; sourceTree = "<group>"; };
+		A7288A391CC14DF800EC032B /* PHWeakTimerTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHWeakTimerTarget.h; sourceTree = "<group>"; };
+		A7288A3A1CC14DF800EC032B /* PHWeakTimerTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHWeakTimerTarget.m; sourceTree = "<group>"; };
 		A72A6B031B934C2000F2C4EF /* PHIdentifiableJSExport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHIdentifiableJSExport.h; sourceTree = "<group>"; };
 		A72EAD031B5CE34800DD537B /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		A72EAD051B5D00B800DD537B /* PHModalWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHModalWindowController.h; sourceTree = "<group>"; };
@@ -224,6 +230,10 @@
 				A741336B1BB7EEAC008DAF39 /* PHHandler.m */,
 				A7183B651B6E865F00842E13 /* PHKeyHandler.h */,
 				A7183B661B6E865F00842E13 /* PHKeyHandler.m */,
+				A7288A331CC119BD00EC032B /* PHTimerHandler.h */,
+				A7288A341CC119BD00EC032B /* PHTimerHandler.m */,
+				A7288A391CC14DF800EC032B /* PHWeakTimerTarget.h */,
+				A7288A3A1CC14DF800EC032B /* PHWeakTimerTarget.m */,
 			);
 			name = Handlers;
 			sourceTree = "<group>";
@@ -537,6 +547,7 @@
 				A78749641CA2BB440042DA4C /* NSProcessInfo+PHExtension.m in Sources */,
 				A79C46601B5BF31200C460CF /* main.m in Sources */,
 				A79C46981B5BF3C100C460CF /* PHAppDelegate.m in Sources */,
+				A7288A3B1CC14DF800EC032B /* PHWeakTimerTarget.m in Sources */,
 				A72ED7B61B6E25940064E35B /* PHPhoenix.m in Sources */,
 				A73C2CA81B9078A30004C663 /* PHCommand.m in Sources */,
 				A73C2CAB1B9088040004C663 /* PHNotificationHelper.m in Sources */,
@@ -547,6 +558,7 @@
 				A7D1D9A91B6FD6A300E00CC9 /* PHKeyTranslator.m in Sources */,
 				A78566D11CBE77CD00036AF9 /* PHPreferences.m in Sources */,
 				A79C46A01B5BF3C100C460CF /* PHWindow.m in Sources */,
+				A7288A351CC119BD00EC032B /* PHTimerHandler.m in Sources */,
 				A72EAD071B5D00B800DD537B /* PHModalWindowController.m in Sources */,
 				A741336C1BB7EEAC008DAF39 /* PHHandler.m in Sources */,
 				A741336F1BB7F228008DAF39 /* PHEventHandler.m in Sources */,
