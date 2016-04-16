@@ -31,7 +31,7 @@
 
 + (instancetype) watcherFor:(NSArray<NSString *> *)paths handler:(void (^)())handler {
 
-    return [[PHPathWatcher alloc] initWithPaths:paths handler:handler];
+    return [[self alloc] initWithPaths:paths handler:handler];
 }
 
 #pragma mark - Dealloc

@@ -40,14 +40,14 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
 + (instancetype) focusedWindow {
 
-    id focusedWindow = [[PHAXUIElement elementForSystemAttribute:(NSString *) kAXFocusedApplicationAttribute]
+    id focusedWindow = [[self elementForSystemAttribute:(NSString *) kAXFocusedApplicationAttribute]
                         valueForAttribute:NSAccessibilityFocusedWindowAttribute];
 
     if (!focusedWindow) {
         return nil;
     }
 
-    return [[PHWindow alloc] initWithElement:focusedWindow];
+    return [[self alloc] initWithElement:focusedWindow];
 }
 
 + (NSArray<PHWindow *> *) windows {

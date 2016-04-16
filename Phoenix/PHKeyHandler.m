@@ -104,7 +104,7 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
 
 + (instancetype) withKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers {
 
-    return [[PHKeyHandler alloc] initWithKey:key modifiers:modifiers];
+    return [[self alloc] initWithKey:key modifiers:modifiers];
 }
 
 #pragma mark - Dealloc

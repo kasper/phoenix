@@ -59,12 +59,12 @@
         return nil;
     }
 
-    return [[PHApp alloc] initWithApp:app];
+    return [[self alloc] initWithApp:app];
 }
 
 + (instancetype) focusedApp {
 
-    return [[PHApp alloc] initWithApp:[NSWorkspace sharedWorkspace].frontmostApplication];
+    return [[self alloc] initWithApp:[NSWorkspace sharedWorkspace].frontmostApplication];
 }
 
 + (NSArray<PHApp *> *) runningApps {
@@ -72,7 +72,7 @@
     NSMutableArray<PHApp *> *apps = [NSMutableArray array];
 
     for (NSRunningApplication *runningApp in [NSWorkspace sharedWorkspace].runningApplications) {
-        [apps addObject:[[PHApp alloc] initWithApp:runningApp]];
+        [apps addObject:[[self alloc] initWithApp:runningApp]];
     }
 
     return apps;

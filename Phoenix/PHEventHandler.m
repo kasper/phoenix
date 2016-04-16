@@ -51,7 +51,7 @@
 
 + (instancetype) withEvent:(NSString *)event callback:(JSValue *)callback {
 
-    return [[PHEventHandler alloc] initWithEvent:event callback:callback];
+    return [[self alloc] initWithEvent:event callback:callback];
 }
 
 #pragma mark - Dealloc

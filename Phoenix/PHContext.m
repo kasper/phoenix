@@ -47,7 +47,7 @@
 
 + (instancetype) context {
 
-    return [[PHContext alloc] init];
+    return [[self alloc] init];
 }
 
 #pragma mark - Resetting

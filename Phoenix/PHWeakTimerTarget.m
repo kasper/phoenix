@@ -27,7 +27,7 @@
 
 + (instancetype) withTarget:(id)target selector:(SEL)selector {
 
-    return [[PHWeakTimerTarget alloc] initWithTarget:target selector:selector];
+    return [[self alloc] initWithTarget:target selector:selector];
 }
 
 #pragma mark - Timing

@@ -11,7 +11,7 @@
 + (BOOL) isOperatingSystemAtLeastElCapitan {
 
     NSOperatingSystemVersion elCapitan = { .majorVersion = 10, .minorVersion = 11, .patchVersion = 0 };
-    return [[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:elCapitan];
+    return [[self processInfo] isOperatingSystemAtLeastVersion:elCapitan];
 }
 
 @end

@@ -28,12 +28,12 @@
 
 + (instancetype) systemWideElement {
 
-    static PHAXUIElement *systemWideElement;
+    static id systemWideElement;
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
 
-        systemWideElement = [[PHAXUIElement alloc] initWithElement:CFBridgingRelease(AXUIElementCreateSystemWide())];
+        systemWideElement = [[self alloc] initWithElement:CFBridgingRelease(AXUIElementCreateSystemWide())];
     });
 
     return systemWideElement;
@@ -41,8 +41,8 @@
 
 + (instancetype) elementForSystemAttribute:(NSString *)attribute {
 
-    id element = [[PHAXUIElement systemWideElement] valueForAttribute:attribute];
-    return [[PHAXUIElement alloc] initWithElement:element];
+    id element = [[self systemWideElement] valueForAttribute:attribute];
+    return [[self alloc] initWithElement:element];
 }
 
 #pragma mark - Identifying

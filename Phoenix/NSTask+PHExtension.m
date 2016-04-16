@@ -11,10 +11,10 @@
 + (NSString *) searchPath {
 
     NSError *error;
-    NSString *path = [NSTask outputFromLaunchedTaskWithLaunchPath:[NSProcessInfo processInfo].environment[@"SHELL"]
-                                                      environment:@{}
-                                                        arguments:@[ @"-l", @"-c", @"echo $PATH" ]
-                                                            error:&error];
+    NSString *path = [self outputFromLaunchedTaskWithLaunchPath:[NSProcessInfo processInfo].environment[@"SHELL"]
+                                                    environment:@{}
+                                                      arguments:@[ @"-l", @"-c", @"echo $PATH" ]
+                                                          error:&error];
     if (error) {
         return @"";
     }
@@ -30,7 +30,7 @@
                                               error:(NSError **)error {
     /* Launch task */
 
-    NSTask *task = [[NSTask alloc] init];
+    NSTask *task = [[self alloc] init];
     NSPipe *standardOutput = [NSPipe pipe];
     NSPipe *standardError = [NSPipe pipe];
 

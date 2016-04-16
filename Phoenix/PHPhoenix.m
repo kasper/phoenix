@@ -30,7 +30,7 @@
 
 + (instancetype) withDelegate:(id<PHContextDelegate>)delegate {
 
-    return [[PHPhoenix alloc] initWithDelegate:delegate];
+    return [[self alloc] initWithDelegate:delegate];
 }
 
 #pragma mark - Actions

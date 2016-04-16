@@ -84,7 +84,7 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
         return nil;
     }
 
-    return [[PHSpace alloc] initWithIdentifier:CGSGetActiveSpace(CGSMainConnectionID())];
+    return [(PHSpace *) [self alloc] initWithIdentifier:CGSGetActiveSpace(CGSMainConnectionID())];
 }
 
 + (NSArray<PHSpace *> *) spaces {
@@ -102,7 +102,7 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
         NSArray<NSNumber *> *identifiers = [spacesInfo[PHSpacesKey] valueForKey:PHSpaceIDKey];
 
         for (NSNumber *identifier in identifiers) {
-            [spaces addObject:[[PHSpace alloc] initWithIdentifier:identifier.unsignedLongValue]];
+            [spaces addObject:[(PHSpace *) [self alloc] initWithIdentifier:identifier.unsignedLongValue]];
         }
     }
     
@@ -125,7 +125,7 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
         NSNumber *identifier = @([space hash]);
 
         if ([identifiers containsObject:identifier]) {
-            [spaces addObject:[[PHSpace alloc] initWithIdentifier:identifier.unsignedLongValue]];
+            [spaces addObject:[(PHSpace *) [self alloc] initWithIdentifier:identifier.unsignedLongValue]];
         }
     }
 
