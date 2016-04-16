@@ -7,7 +7,6 @@
 #import "PHApp.h"
 #import "PHCommand.h"
 #import "PHContext.h"
-#import "PHEventHandler.h"
 #import "PHKeyHandler.h"
 #import "PHModalWindowController.h"
 #import "PHMouse.h"
@@ -226,7 +225,7 @@
     NSLog(@"Context loaded.");
 }
 
-#pragma mark - Binding
+#pragma mark - Binding Keys
 
 - (PHKeyHandler *) bindKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers callback:(JSValue *)callback {
 
@@ -247,11 +246,6 @@
 
     self.keyHandlers[@([keyHandler hash])] = [NSValue valueWithNonretainedObject:keyHandler];
     return keyHandler;
-}
-
-- (PHEventHandler *) bindEvent:(NSString *)event callback:(JSValue *)callback {
-
-    return [[PHEventHandler alloc] initWithEvent:event callback:callback];
 }
 
 @end

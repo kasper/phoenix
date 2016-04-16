@@ -5,7 +5,6 @@
 @import Foundation;
 @import JavaScriptCore;
 
-@class PHEventHandler;
 @class PHKeyHandler;
 
 @protocol PHContextDelegate <NSObject>
@@ -14,10 +13,9 @@
 
 - (void) load;
 
-#pragma mark - Binding
+#pragma mark - Binding Keys
 
 - (PHKeyHandler *) bindKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers callback:(JSValue *)callback;
-- (PHEventHandler *) bindEvent:(NSString *)event callback:(JSValue *)callback;
 
 @end
 

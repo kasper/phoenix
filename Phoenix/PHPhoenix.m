@@ -42,7 +42,7 @@
 
 - (PHEventHandler *) bindEvent:(NSString *)event callback:(JSValue *)callback {
 
-    return [self.delegate bindEvent:event callback:callback];
+    return [PHEventHandler withEvent:event callback:callback];
 }
 
 - (PHTimerHandler *) after:(NSTimeInterval)interval callback:(JSValue *)callback {

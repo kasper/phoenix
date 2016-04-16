@@ -21,6 +21,8 @@
 #pragma mark - Initialise
 
 - (instancetype) init NS_UNAVAILABLE;
+
 - (instancetype) initWithEvent:(NSString *)event callback:(JSValue *)callback NS_DESIGNATED_INITIALIZER;
++ (instancetype) withEvent:(NSString *)event callback:(JSValue *)callback;
 
 @end
