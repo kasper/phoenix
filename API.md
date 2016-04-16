@@ -309,7 +309,7 @@ end
 
 ## 13. TimerHandler
 
-Use the `TimerHandler`-object to control timers. A TimerHandler can fire only once or be repeating. To release a timer, release your reference to the handler. TimerHandlers are always reset on context reload.
+Use the `TimerHandler`-object to control timers. A timer can fire only once or be repeating. To release a timer, release your reference to the handler. TimerHandlers are always reset on context reload.
 
 ```java
 class TimerHandler implements Identifiable
