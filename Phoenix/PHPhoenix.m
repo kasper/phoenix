@@ -28,6 +28,11 @@
     return self;
 }
 
++ (instancetype) withDelegate:(id<PHContextDelegate>)delegate {
+
+    return [[PHPhoenix alloc] initWithDelegate:delegate];
+}
+
 #pragma mark - Actions
 
 - (void) reload {

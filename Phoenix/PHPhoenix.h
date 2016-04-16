@@ -39,5 +39,6 @@ JSExportAs(every, - (PHTimerHandler *) every:(NSTimeInterval)interval callback:(
 - (instancetype) init NS_UNAVAILABLE;
 
 - (instancetype) initWithDelegate:(id<PHContextDelegate>)delegate NS_DESIGNATED_INITIALIZER;
++ (instancetype) withDelegate:(id<PHContextDelegate>)delegate;
 
 @end
