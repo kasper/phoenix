@@ -114,19 +114,19 @@ Phoenix supports the following (case sensitive) events:
 
 ### Phoenix
 
-- `start` triggered once when Phoenix has started and the context is ready, the callback function receives no arguments
+- `start` triggered once when Phoenix has started and the context is ready
 
 ### Screen
 
-- `screensDidChange` triggered when screens (i.e. displays) are added, removed, or dynamically reconfigured, the callback function receives no arguments
+- `screensDidChange` triggered when screens (i.e. displays) are added, removed, or dynamically reconfigured
 
 ### Space
 
-- `spaceDidChange`, triggered when the active space has changed, the callback function receives no arguments
+- `spaceDidChange`, triggered when the active space has changed
 
 ### App
 
-All of the following app events receive the corresponding `App`-instance as the only argument for the callback function.
+All of the following app events receive the corresponding `App`-instance as the first argument for the callback function.
 
 - `appDidLaunch` triggered when an app has launched
 - `appDidTerminate` triggered when an app has terminated
@@ -136,7 +136,7 @@ All of the following app events receive the corresponding `App`-instance as the 
 
 ### Window
 
-All of the following window events receive the corresponding `Window`-instance as the only argument for the callback function.
+All of the following window events receive the corresponding `Window`-instance as the first argument for the callback function.
 
 - `windowDidOpen` triggered when a window has opened
 - `windowDidClose` triggered when a window has closed
@@ -192,8 +192,8 @@ end
 ```
 
 - `reload()` manually reloads the context and any changes in the configuration files
-- `bind(String key, Array<String> modifiers, Function callback)` binds the key character with the specified modifiers (can be an empty list) to a callback function and returns the handler (`undefined` if not supported), you must keep a reference to the handler in order for your callback to get called, the callback function receives no arguments, binding overrides any previous handlers for the same key combination
-- `on(String event, Function callback)` binds an event to a callback function and returns the handler (`undefined` if not supported), you must keep a reference to the handler in order for your callback to get called, you can have multiple handlers for a single event
+- `bind(String key, Array<String> modifiers, Function callback)` binds the key character with the specified modifiers (can be an empty list) to a callback function and returns the handler (`undefined` if not supported), you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument, binding overrides any previous handlers for the same key combination
+- `on(String event, Function callback)` binds an event to a callback function and returns the handler (`undefined` if not supported), you must keep a reference to the handler in order for your callback to get called, you can have multiple handlers for a single event, the callback function receives its handler as the last argument, for any additional arguments see [events](#2-events)
 - `after(double interval, Function callback)` creates a timer that fires the callback once after the given interval (in seconds) and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument
 - `every(double interval, Function callback)` creates a timer that fires the callback repeatedly until stopped using the given interval (in seconds) and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument
 - `set(Map<String, AnyObject> preferences)` sets the preferences from the given key–value map, any previously set preferences with the same key will be overridden

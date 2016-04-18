@@ -27,9 +27,4 @@
     [function callWithArguments:arguments];
 }
 
-- (void) call {
-
-    [self callWithArguments:@[]];
-}
-
 @end

@@ -21,6 +21,7 @@ Release: dd.mm.yyyy
 
 - Adjust latency of context reloads on configuration file changes to limit race conditions ([#83](https://github.com/kasper/phoenix/issues/83)).
 - Objects that implement `Iterable` can be traversed. Namely, `Screen` and `Space`.
+- All handlers now receive their handlers as the last argument for the callback function.
 - Improvements to memory management and other small improvements.
 
 ### Bug Fixes
@@ -40,6 +41,8 @@ Release: dd.mm.yyyy
 - New: Function `after(double interval, Function callback)` creates a timer that fires the callback once after the given interval (in seconds) and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument.
 - New: Function `every(double interval, Function callback)` creates a timer that fires the callback repeatedly until stopped using the given interval (in seconds) and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument.
 - New: Function `set(Map<String, AnyObject> preferences)` sets the preferences from the given key–value map, any previously set preferences with the same key will be overridden.
+- Change: The callback for function `bind(String key, Array<String> modifiers, Function callback)` now receives its handler as the only argument, previously the callback received no arguments.
+- Change: The callback for function `on(String event, Function callback)` now receives its handler as the last argument.
 
 #### Screen
 

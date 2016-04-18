@@ -196,7 +196,7 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
 
     // This handler should handle this notification
     if (self.identifier == [notification.userInfo[PHKeyHandlerIdentifier] unsignedIntegerValue]) {
-        [self call];
+        [self callWithArguments:@[ self ]];
     }
 }
 

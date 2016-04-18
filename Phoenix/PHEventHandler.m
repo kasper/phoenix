@@ -71,7 +71,7 @@
 
     if (runningApp) {
         PHApp *app = [[PHApp alloc] initWithApp:runningApp];
-        [self callWithArguments:@[ app ]];
+        [self callWithArguments:@[ app, self ]];
         return;
     }
 
@@ -80,11 +80,11 @@
     PHWindow *window = notification.userInfo[PHAXObserverWindowKey];
 
     if (window) {
-        [self callWithArguments:@[ window ]];
+        [self callWithArguments:@[ window, self ]];
         return;
     }
 
-    [self call];
+    [self callWithArguments:@[ self ]];
 }
 
 @end

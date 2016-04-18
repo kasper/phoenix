@@ -16,6 +16,5 @@
 #pragma mark - Call
 
 - (void) callWithArguments:(NSArray *)arguments;
-- (void) call;
 
 @end
