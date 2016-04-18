@@ -30,7 +30,7 @@
                                               error:(NSError **)error {
     /* Launch task */
 
-    NSTask *task = [[self alloc] init];
+    NSTask *task = [[NSTask alloc] init];
     NSPipe *standardOutput = [NSPipe pipe];
     NSPipe *standardError = [NSPipe pipe];
 
