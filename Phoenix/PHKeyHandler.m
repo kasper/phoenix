@@ -132,12 +132,12 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
 
 - (NSUInteger) hash {
 
-    return [PHKeyHandler hashForKey:self.key modifiers:self.modifiers];
+    return [[self class] hashForKey:self.key modifiers:self.modifiers];
 }
 
 - (BOOL) isEqual:(id)object {
 
-    return [object isKindOfClass:[PHKeyHandler class]] && [self hash] == [object hash];
+    return [object isKindOfClass:[self class]] && [self hash] == [object hash];
 }
 
 #pragma mark - Binding

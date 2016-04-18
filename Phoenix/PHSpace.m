@@ -141,19 +141,19 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
 
 - (BOOL) isEqual:(id)object {
 
-    return [object isKindOfClass:[PHSpace class]] && [self hash] == [object hash];
+    return [object isKindOfClass:[self class]] && [self hash] == [object hash];
 }
 
 #pragma mark - Space
 
 - (instancetype) next {
 
-    return [[PHSpace spaces] nextFrom:self];
+    return [[[self class] spaces] nextFrom:self];
 }
 
 - (instancetype) previous {
 
-    return [[PHSpace spaces] previousFrom:self];
+    return [[[self class] spaces] previousFrom:self];
 }
 
 #pragma mark - Properties
