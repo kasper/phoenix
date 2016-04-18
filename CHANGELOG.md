@@ -11,17 +11,16 @@ Release: dd.mm.yyyy
 - Phoenix now supports Spaces! *These features are only supported on El Capitan (10.11) and upwards.* A new global `Space`-object has been created to control spaces, see the [API](API.md#17-space) ([#60](https://github.com/kasper/phoenix/issues/60)).
 - Preferences can now be set programmatically through the API ([#67](https://github.com/kasper/phoenix/issues/67)).
 - Phoenix can be run completely in the background, this also removes the status bar menu, see the `daemon`-preference in the [API](API.md#3-preferences) ([#68](https://github.com/kasper/phoenix/issues/68)).
-- You can now create timers to achieve delays and timed events. See the functions `Phoenix.after(double interval, Function callback)` and `Phoenix.every(double interval, Function callback)` in the [API](API.md#5-phoenix) ([#77](https://github.com/kasper/phoenix/issues/77)).
+- You can now create timers to achieve delays and timed events. A new `TimerHandler`-object has been created to control timers, see its [API](API.md#13-timerhandler). See the functions `Phoenix.after(double interval, Function callback)` and `Phoenix.every(double interval, Function callback)` in the [API](API.md#5-phoenix) to create timers ([#77](https://github.com/kasper/phoenix/issues/77)).
 
 ### Changes
 
 - Upgrade Sparkle to 1.14.0. This also fixes the HTTP MITM-vulnerability discovered in Sparkle — though Phoenix was never vulnerable since we use HTTPS to secure updates.
-- A new `TimerHandler`-object has been created to control timers. See the [API](API.md#13-timerhandler).
 
 ### Improvements
 
-- Objects that implement `Iterable` can be traversed. Namely, `Screen` and `Space`.
 - Adjust latency of context reloads on configuration file changes to limit race conditions ([#83](https://github.com/kasper/phoenix/issues/83)).
+- Objects that implement `Iterable` can be traversed. Namely, `Screen` and `Space`.
 - Improvements to memory management and other small improvements.
 
 ### Bug Fixes
