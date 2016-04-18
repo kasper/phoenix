@@ -59,7 +59,7 @@ var handler = Phoenix.on('screensDidChange', function () {});
 
 ## Loading
 
-Your configuration file is loaded when the app launches. All functions are evaluated (and executed if necessary) when this happens. Phoenix also reloads the configuration when any changes are detected to the file. You may also reload the configuration manually from the status bar or programmatically from your script.
+Your configuration file is loaded when the app launches. All functions are evaluated (and executed if necessary) when this happens. Phoenix also reloads the configuration when any changes are detected to the file(s). You may also reload the configuration manually from the status bar or programmatically from your script.
 
 The following locations are valid configuration paths and the first existing file will be used. You may also use these paths for the debug-configuration (`-debug.js`). Whilst loading, all symlinks will be resolved, so in the end your configuration can also be a symlink to any desired destination.
 
@@ -196,7 +196,7 @@ end
 - `on(String event, Function callback)` binds an event to a callback function and returns the handler (`undefined` if not supported), you must keep a reference to the handler in order for your callback to get called, you can have multiple handlers for a single event
 - `after(double interval, Function callback)` creates a timer that fires the callback once after the given interval (in seconds) and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument
 - `every(double interval, Function callback)` creates a timer that fires the callback repeatedly until stopped using the given interval (in seconds) and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument
-- `set(Map<String, AnyObject> preferences)` sets the preferences from the given key–value map, any previously set preferences with the same key will be overridden, all preferences are reset when the context is reloaded
+- `set(Map<String, AnyObject> preferences)` sets the preferences from the given key–value map, any previously set preferences with the same key will be overridden
 - `log(String message)` logs the message to the Console
 - `notify(String message)` delivers the message to the Notification Center
 
