@@ -10,6 +10,25 @@
         <description>Feed for Phoenix updates.</description>
         <language>en</language>
 
+        <!-- 2.1 -->
+
+        <item>
+            <title>Version 2.1</title>
+            <pubDate>Mon, 25 Apr 2016 16:07:00 +0300</pubDate>
+            <description><![CDATA[
+
+                <p>This release includes some exiting new features: including support for Spaces, creating timers to achieve delays or timed events and support for running Phoenix completely in the background! We also added some nice additions to the API, made various other improvements and fixed a few annoying bugs. Thanks for using Phoenix and do not hesitate to provide <a href='https://github.com/kasper/phoenix/issues/new/'>feedback</a>! See the full <a href='https://github.com/kasper/phoenix/blob/master/CHANGELOG.md#21'>Changelog</a>.</p>
+
+            ]]>
+            </description>
+            <enclosure sparkle:version='19'
+                       sparkle:shortVersionString='2.1'
+                       sparkle:dsaSignature='MCwCFDjgLuzf3sA9mGsVHrKQB1btFtfQAhRdBBA+jnhfAEOXwSb2G8co7jR9yg=='
+                       type='application/octet-stream'
+                       length='2207587'
+                       url='https://github.com/kasper/phoenix/releases/download/2.1/phoenix-2.1.tar.gz' />
+        </item>
+
         <!-- 2.0.1 -->
 
         <item>
