@@ -35,7 +35,7 @@ To uninstall Phoenix, delete the app from your `Applications`-folder. The only f
 
 ## Usage
 
-Phoenix lives on your status bar (or as a daemon) and can be scripted in JavaScript (or languages which compile to JavaScript such as CoffeeScript).
+Phoenix lives on your status bar (or as a background daemon) and can be scripted in JavaScript (or languages which compile to JavaScript such as CoffeeScript).
 
 <img src='assets/screenshot.gif' alt='Screenshot of Phoenix'>
 
