@@ -15,9 +15,8 @@ static NSInteger const NSTaskErrorCode = -1;
 
 #pragma mark - Launching
 
-+ (NSString *) outputFromLaunchedTaskWithLaunchPath:(NSString *)path
-                                        environment:(NSDictionary<NSString *, NSString *> *)environment
-                                          arguments:(NSArray<NSString *> *)arguments
-                                              error:(NSError **)error;
++ (NSString *) outputFromLaunchedTaskWithEnvironment:(NSDictionary<NSString *, NSString *> *)environment
+                                           arguments:(NSArray<NSString *> *)arguments
+                                               error:(NSError **)error;
 
 @end

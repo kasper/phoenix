@@ -36,10 +36,9 @@
     /* Launch process */
 
     NSError *taskError;
-    NSString *output = [NSTask outputFromLaunchedTaskWithLaunchPath:@"/bin/bash"
-                                                        environment:@{ @"PATH": [NSTask searchPath] }
-                                                          arguments:@[ @"-c", [NSString stringWithFormat:@"%@ %@", command, path] ]
-                                                              error:&taskError];
+    NSString *output = [NSTask outputFromLaunchedTaskWithEnvironment:@{ @"PATH": [NSTask searchPath] }
+                                                           arguments:@[ @"-c", [NSString stringWithFormat:@"%@ %@", command, path] ]
+                                                               error:&taskError];
     if (taskError) {
 
         if (error) {
