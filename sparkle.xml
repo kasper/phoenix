@@ -10,6 +10,37 @@
         <description>Feed for Phoenix updates.</description>
         <language>en</language>
 
+        <!-- 2.1.1 -->
+
+        <item>
+            <title>Version 2.1.1</title>
+            <pubDate>Fri, 29 Apr 2016 17:46:00 +0300</pubDate>
+            <description><![CDATA[
+
+                <p>This release includes some minor improvements and bug fixes. For everything in 2.1, see the full <a href='https://github.com/kasper/phoenix/blob/master/CHANGELOG.md#21'>Changelog</a>.</p>
+
+                <h3>Improvements</h3>
+
+                <ul>
+                    <li>Notify when preprocessing failed.</li>
+                </ul>
+
+                <h3>Bug Fixes</h3>
+
+                <ul>
+                    <li>Fix an issue that prevented preprocessing due to incompatible paths between different shells (<a href='https://github.com/kasper/phoenix/issues/88'>#88</a>).</li>
+                </ul>
+
+            ]]>
+            </description>
+            <enclosure sparkle:version='20'
+                       sparkle:shortVersionString='2.1.1'
+                       sparkle:dsaSignature='MC0CFEKfzhTIoxArkPSiSNeiylznSM1OAhUAjNthgLF4tygvuZ/ll5fOwnGh1lc='
+                       type='application/octet-stream'
+                       length='2207594'
+                       url='https://github.com/kasper/phoenix/releases/download/2.1.1/phoenix-2.1.1.tar.gz' />
+        </item>
+
         <!-- 2.1 -->
 
         <item>
