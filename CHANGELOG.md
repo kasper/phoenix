@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### Improvements
+
+- Notify when preprocessing failed.
+
 ### Bug Fixes
 
 - Fix an issue that prevented preprocessing due to incompatible paths between different shells ([#88](https://github.com/kasper/phoenix/issues/88)).

@@ -156,6 +156,7 @@
 
     if (preprocessError) {
         NSLog(@"Error: Preprocessing failed. (%@)", preprocessError);
+        [PHNotificationHelper deliver:@"Preprocessing failed. Refer to the logs for more information."];
     }
 
     [self.context evaluateScript:script];
