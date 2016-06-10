@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### Improvements
+
+- Add support for ISO section `§`-key ([#102](https://github.com/kasper/phoenix/pull/102)).
+
 ### Bug Fixes
 
 - Disable key handlers immediately to ensure that keys are unregistered before setting up a new context ([#94](https://github.com/kasper/phoenix/issues/94)).
