@@ -120,7 +120,8 @@
                                                 @(kVK_ANSI_Comma),
                                                 @(kVK_ANSI_Slash),
                                                 @(kVK_ANSI_Period),
-                                                @(kVK_ANSI_Grave) ];
+                                                @(kVK_ANSI_Grave),
+                                                @(kVK_ISO_Section) ];
 
         localKeyToKeyCode = [NSMutableDictionary dictionary];
 
