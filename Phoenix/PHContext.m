@@ -25,7 +25,7 @@
 @property NSMutableSet<NSString *> *configurationPaths;
 @property PHPathWatcher *watcher;
 @property PHAccessibilityObserver *observer;
-@property NSMutableDictionary<NSNumber *, NSValue *> *keyHandlers;
+@property NSMapTable<NSNumber *, PHKeyHandler *> *keyHandlers;
 
 @end
 
@@ -39,7 +39,7 @@
         self.primaryConfigurationPath = [self resolvePrimaryConfigurationPath];
         self.configurationPaths = [NSMutableSet set];
         self.observer = [PHAccessibilityObserver observer];
-        self.keyHandlers = [NSMutableDictionary dictionary];
+        self.keyHandlers = [NSMapTable strongToWeakObjectsMapTable];
     }
 
     return self;
@@ -230,8 +230,8 @@
 
 - (PHKeyHandler *) bindKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers callback:(JSValue *)callback {
 
-    PHKeyHandler *keyHandler = self.keyHandlers[@([PHKeyHandler hashForKey:key modifiers:modifiers])]
-                                   .nonretainedObjectValue;
+    PHKeyHandler *keyHandler = [self.keyHandlers objectForKey:@([PHKeyHandler hashForKey:key modifiers:modifiers])];
+
     // Bind new key
     if (!keyHandler) {
         keyHandler = [PHKeyHandler withKey:key modifiers:modifiers];
@@ -245,7 +245,7 @@
     // Set callback
     [keyHandler manageCallback:callback];
 
-    self.keyHandlers[@([keyHandler hash])] = [NSValue valueWithNonretainedObject:keyHandler];
+    [self.keyHandlers setObject:keyHandler forKey:@([keyHandler hash])];
     return keyHandler;
 }
 
