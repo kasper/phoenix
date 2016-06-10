@@ -73,6 +73,8 @@
 
 - (void) resetKeyHandlers {
 
+    // Disable key handlers immediately to ensure that keys are unregistered before setting up a new context
+    [[self.keyHandlers dictionaryRepresentation].allValues makeObjectsPerformSelector:@selector(disable)];
     [self.keyHandlers removeAllObjects];
 }
 

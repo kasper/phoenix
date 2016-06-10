@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### Bug Fixes
+
+- Disable key handlers immediately to ensure that keys are unregistered before setting up a new context ([#94](https://github.com/kasper/phoenix/issues/94)).
+
 2.1.1
 -----
 
