@@ -80,12 +80,6 @@
 
 #pragma mark - Setup
 
-- (void) handleException:(id)exception {
-
-    NSLog(@"%@", exception);
-    [PHNotificationHelper deliver:[NSString stringWithFormat:@"%@", exception]];
-}
-
 - (NSString *) resolvePrimaryConfigurationPath {
 
     static NSArray<NSString *> *primaryConfigurationPaths;
@@ -184,7 +178,7 @@
 
         if(![[NSFileManager defaultManager] fileExistsAtPath:path]) {
             NSString *message = [NSString stringWithFormat:@"Require: File “%@” does not exist.", path];
-            [weakSelf handleException:message];
+            weakSelf.context.exception = [JSValue valueWithNewErrorFromMessage:message inContext:weakSelf.context];
             return;
         }
 
@@ -194,13 +188,12 @@
 
 - (void) setupContext {
 
-    PHContext * __weak weakSelf = self;
-
     // Create context
     self.context = [[JSContext alloc] initWithVirtualMachine:[[JSVirtualMachine alloc] init]];
     self.context.exceptionHandler = ^(__unused JSContext *context, JSValue *value) {
 
-        [weakSelf handleException:value];
+        NSLog(@"%@", value);
+        [PHNotificationHelper deliver:[value toString]];
     };
 
     // Load context

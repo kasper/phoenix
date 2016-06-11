@@ -8,6 +8,7 @@ Release: dd.mm.yyyy
 
 ### Improvements
 
+- Make require throw an error if a file cannot be resolved ([#93](https://github.com/kasper/phoenix/issues/93)).
 - Add support for ISO section `§`-key ([#102](https://github.com/kasper/phoenix/pull/102)).
 
 ### Bug Fixes
