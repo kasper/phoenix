@@ -158,8 +158,8 @@ Set the preferences using the `Phoenix`-object — for example:
 ```javascript
 Phoenix.set({
 
-    'daemon': true,
-    'openAtLogin': true
+    daemon: true,
+    openAtLogin: true
 
 });
 ```
