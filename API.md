@@ -46,8 +46,7 @@ To combine, bind a key to move the focused window.
 
 ```javascript
 var handler = Phoenix.bind('q', [ 'ctrl', 'shift' ], function () {
-
-    Window.focusedWindow().setTopLeft({ x: 0, y: 0 });
+  Window.focusedWindow().setTopLeft({ x: 0, y: 0 });
 });
 ```
 
@@ -77,8 +76,7 @@ You may add JavaScript preprocessing to your configuration by adding a [Shebang]
 keys = []
 
 keys.push Phoenix.bind 's', [ 'ctrl', 'shift' ], ->
-
-    App.launch('Safari').focus()
+  App.launch('Safari').focus()
 ```
 
 Or use [Babel](http://babeljs.io) to use ECMAScript 6 JavaScript:
@@ -89,8 +87,7 @@ Or use [Babel](http://babeljs.io) to use ECMAScript 6 JavaScript:
 const keys = [];
 
 keys.push(Phoenix.bind('s', [ 'ctrl', 'shift' ], () => {
-
-    App.launch('Safari').focus();
+  App.launch('Safari').focus();
 }));
 ```
 
@@ -157,10 +154,8 @@ Set the preferences using the `Phoenix`-object — for example:
 
 ```javascript
 Phoenix.set({
-
-    daemon: true,
-    openAtLogin: true
-
+  daemon: true,
+  openAtLogin: true
 });
 ```
 
@@ -179,14 +174,14 @@ Use the `Phoenix`-object for API-level tasks.
 ```java
 class Phoenix
 
-    static void reload()
-    static KeyHandler bind(String key, Array<String> modifiers, Function callback)
-    static EventHandler on(String event, Function callback)
-    static TimerHandler after(double interval, Function callback)
-    static TimerHandler every(double interval, Function callback)
-    static void set(Map<String, AnyObject> preferences)
-    static void log(String message)
-    static void notify(String message)
+  static void reload()
+  static KeyHandler bind(String key, Array<String> modifiers, Function callback)
+  static EventHandler on(String event, Function callback)
+  static TimerHandler after(double interval, Function callback)
+  static TimerHandler every(double interval, Function callback)
+  static void set(Map<String, AnyObject> preferences)
+  static void log(String message)
+  static void notify(String message)
 
 end
 ```
@@ -207,8 +202,8 @@ A simple point object for 2D-coordinates.
 ```java
 class Point
 
-    property double x
-    property double y
+  property double x
+  property double y
 
 end
 ```
@@ -220,8 +215,8 @@ A simple 2D-size object.
 ```java
 class Size
 
-    property double width
-    property double height
+  property double width
+  property double height
 
 end
 ```
@@ -233,10 +228,10 @@ A 2D-rectangle representation of a `Point` and `Size`.
 ```java
 class Rectangle
 
-    property double x
-    property double y
-    property double width
-    property double height
+  property double x
+  property double y
+  property double width
+  property double height
 
 end
 ```
@@ -248,8 +243,8 @@ Objects that implement `Identifiable` can be identified and compared.
 ```java
 interface Identifiable
 
-    int hash()
-    boolean isEqual(AnyObject object)
+  int hash()
+  boolean isEqual(AnyObject object)
 
 end
 ```
@@ -261,8 +256,8 @@ Objects that implement `Iterable` can be traversed.
 ```java
 interface Iterable
 
-    Object next()
-    Object previous()
+  Object next()
+  Object previous()
 
 end
 ```
@@ -277,12 +272,12 @@ Use the `KeyHandler`-object to enable or disable keys. To change a previous hand
 ```java
 class KeyHandler implements Identifiable
 
-    property String key
-    property Array<String> modifiers
+  property String key
+  property Array<String> modifiers
 
-    boolean isEnabled()
-    boolean enable()
-    boolean disable()
+  boolean isEnabled()
+  boolean enable()
+  boolean disable()
 
 end
 ```
@@ -300,7 +295,7 @@ Use the `EventHandler`-object to access event properties. You can have multiple 
 ```java
 class EventHandler implements Identifiable
 
-    property String name
+  property String name
 
 end
 ```
@@ -314,7 +309,7 @@ Use the `TimerHandler`-object to control timers. A timer can fire only once or b
 ```java
 class TimerHandler implements Identifiable
 
-    void stop()
+  void stop()
 
 end
 ```
@@ -328,14 +323,14 @@ Use the `Modal`-object to display messages as modal windows.
 ```java
 class Modal implements Identifiable
 
-    property Point origin
-    property double duration
-    property String message
+  property Point origin
+  property double duration
+  property String message
 
-    constructor Modal Modal()
-    Rectangle frame()
-    void show()
-    void close()
+  constructor Modal Modal()
+  Rectangle frame()
+  void show()
+  void close()
 
 end
 ```
@@ -355,7 +350,7 @@ Use the `Command`-object to run UNIX-commands.
 ```java
 class Command
 
-    static boolean run(String path, Array arguments)
+  static boolean run(String path, Array arguments)
 
 end
 ```
@@ -369,15 +364,15 @@ Use the `Screen`-object to access frame sizes and other screens on a multi-scree
 ```java
 class Screen implements Identifiable, Iterable
 
-    static Screen mainScreen()
-    static Array<Screen> screens()
+  static Screen mainScreen()
+  static Array<Screen> screens()
 
-    String identifier()
-    Rectangle frameInRectangle()
-    Rectangle visibleFrameInRectangle()
-    Array<Space> spaces() // OS X 10.11+
-    Array<Window> windows()
-    Array<Window> visibleWindows()
+  String identifier()
+  Rectangle frameInRectangle()
+  Rectangle visibleFrameInRectangle()
+  Array<Space> spaces() // OS X 10.11+
+  Array<Window> windows()
+  Array<Window> visibleWindows()
 
 end
 ```
@@ -398,16 +393,16 @@ Use the `Space`-object to control spaces. *These features are only supported on 
 ```java
 class Space implements Identifiable, Iterable
 
-    static Space activeSpace() // OS X 10.11+
-    static Array<Space> spaces() // OS X 10.11+
+  static Space activeSpace() // OS X 10.11+
+  static Array<Space> spaces() // OS X 10.11+
 
-    boolean isNormal()
-    boolean isFullScreen()
-    Screen screen()
-    Array<Window> windows()
-    Array<Window> visibleWindows()
-    void addWindows(Array<Window> windows)
-    void removeWindows(Array<Window> windows)
+  boolean isNormal()
+  boolean isFullScreen()
+  Screen screen()
+  Array<Window> windows()
+  Array<Window> visibleWindows()
+  void addWindows(Array<Window> windows)
+  void removeWindows(Array<Window> windows)
 
 end
 ```
@@ -429,8 +424,8 @@ Use the `Mouse`-object to control the cursor.
 ```java
 class Mouse
 
-    static Point location()
-    static boolean moveTo(Point point)
+  static Point location()
+  static boolean moveTo(Point point)
 
 end
 ```
@@ -445,26 +440,26 @@ Use the `App`-object to control apps. Beware that an app can get stale if you ke
 ```java
 class App implements Identifiable
 
-    static App get(String appName)
-    static App launch(String appName)
-    static App focusedApp()
-    static Array<App> runningApps()
+  static App get(String appName)
+  static App launch(String appName)
+  static App focusedApp()
+  static Array<App> runningApps()
 
-    int processIdentifier()
-    String bundleIdentifier()
-    String name()
-    boolean isActive()
-    boolean isHidden()
-    boolean isTerminated()
-    Window mainWindow()
-    Array<Window> windows()
-    Array<Window> visibleWindows()
-    boolean activate()
-    boolean focus()
-    boolean show()
-    boolean hide()
-    boolean terminate()
-    boolean forceTerminate()
+  int processIdentifier()
+  String bundleIdentifier()
+  String name()
+  boolean isActive()
+  boolean isHidden()
+  boolean isTerminated()
+  Window mainWindow()
+  Array<Window> windows()
+  Array<Window> visibleWindows()
+  boolean activate()
+  boolean focus()
+  boolean show()
+  boolean hide()
+  boolean terminate()
+  boolean forceTerminate()
 
 end
 ```
@@ -496,41 +491,41 @@ Use the `Window`-object to control windows. Every screen (i.e. display) combines
 ```java
 class Window implements Identifiable
 
-    static Window focusedWindow()
-    static Array<Window> windows()
-    static Array<Window> visibleWindows()
-    static Array<Window> visibleWindowsInOrder()
+  static Window focusedWindow()
+  static Array<Window> windows()
+  static Array<Window> visibleWindows()
+  static Array<Window> visibleWindowsInOrder()
 
-    Array<Window> otherWindowsOnSameScreen()
-    Array<Window> otherWindowsOnAllScreens()
-    String title()
-    boolean isMain()
-    boolean isNormal()
-    boolean isFullScreen()
-    boolean isMinimized()
-    boolean isVisible()
-    App app()
-    Screen screen()
-    Array<Space> spaces() // OS X 10.11+
-    Point topLeft()
-    Size size()
-    Rectangle frame()
-    boolean setTopLeft(Point point)
-    boolean setSize(Size size)
-    boolean setFrame(Rectangle frame)
-    boolean setFullScreen(boolean value)
-    boolean maximize()
-    boolean minimize()
-    boolean unminimize()
-    Array<Window> windowsToWest()
-    Array<Window> windowsToEast()
-    Array<Window> windowsToNorth()
-    Array<Window> windowsToSouth()
-    boolean focus()
-    boolean focusClosestWindowInWest()
-    boolean focusClosestWindowInEast()
-    boolean focusClosestWindowInNorth()
-    boolean focusClosestWindowInSouth()
+  Array<Window> otherWindowsOnSameScreen()
+  Array<Window> otherWindowsOnAllScreens()
+  String title()
+  boolean isMain()
+  boolean isNormal()
+  boolean isFullScreen()
+  boolean isMinimized()
+  boolean isVisible()
+  App app()
+  Screen screen()
+  Array<Space> spaces() // OS X 10.11+
+  Point topLeft()
+  Size size()
+  Rectangle frame()
+  boolean setTopLeft(Point point)
+  boolean setSize(Size size)
+  boolean setFrame(Rectangle frame)
+  boolean setFullScreen(boolean value)
+  boolean maximize()
+  boolean minimize()
+  boolean unminimize()
+  Array<Window> windowsToWest()
+  Array<Window> windowsToEast()
+  Array<Window> windowsToNorth()
+  Array<Window> windowsToSouth()
+  boolean focus()
+  boolean focusClosestWindowInWest()
+  boolean focusClosestWindowInEast()
+  boolean focusClosestWindowInNorth()
+  boolean focusClosestWindowInSouth()
 
 end
 ```
