@@ -98,6 +98,7 @@ All valid keys for binding are as follows:
 - Modifiers: `cmd`, `alt`, `ctrl` and `shift` (case insensitive)
 - Keys: case insensitive character or case sensitive special key including function keys, arrow keys, keypad keys etc. as listed below
 - You can bind any key on your local keyboard layout, for instance an `å`-character if your keyboard has one
+- If you use multiple keyboard layouts, Phoenix will use the active layout when the context is loaded
 
 ### Special Keys
 
