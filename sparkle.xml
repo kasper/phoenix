@@ -3,112 +3,112 @@
      xmlns:dc='http://purl.org/dc/elements/1.1/'
      xmlns:sparkle='http://www.andymatuschak.org/xml-namespaces/sparkle'>
 
-    <channel>
+  <channel>
 
-        <title>Phoenix</title>
-        <link>https://raw.githubusercontent.com/kasper/phoenix/master/sparkle.xml</link>
-        <description>Feed for Phoenix updates.</description>
-        <language>en</language>
+    <title>Phoenix</title>
+    <link>https://raw.githubusercontent.com/kasper/phoenix/master/sparkle.xml</link>
+    <description>Feed for Phoenix updates.</description>
+    <language>en</language>
 
-        <!-- 2.1.1 -->
+    <!-- 2.1.1 -->
 
-        <item>
-            <title>Version 2.1.1</title>
-            <pubDate>Fri, 29 Apr 2016 17:46:00 +0300</pubDate>
-            <description><![CDATA[
+    <item>
+      <title>Version 2.1.1</title>
+      <pubDate>Fri, 29 Apr 2016 17:46:00 +0300</pubDate>
+      <description><![CDATA[
 
-                <p>This release includes some minor improvements and bug fixes. For everything in 2.1, see the full <a href='https://github.com/kasper/phoenix/blob/master/CHANGELOG.md#21'>Changelog</a>.</p>
+        <p>This release includes some minor improvements and bug fixes. For everything in 2.1, see the full <a href='https://github.com/kasper/phoenix/blob/master/CHANGELOG.md#21'>Changelog</a>.</p>
 
-                <h3>Improvements</h3>
+        <h3>Improvements</h3>
 
-                <ul>
-                    <li>Notify when preprocessing failed.</li>
-                </ul>
+        <ul>
+          <li>Notify when preprocessing failed.</li>
+        </ul>
 
-                <h3>Bug Fixes</h3>
+        <h3>Bug Fixes</h3>
 
-                <ul>
-                    <li>Fix an issue that prevented preprocessing due to incompatible paths between different shells (<a href='https://github.com/kasper/phoenix/issues/88'>#88</a>).</li>
-                </ul>
+        <ul>
+          <li>Fix an issue that prevented preprocessing due to incompatible paths between different shells (<a href='https://github.com/kasper/phoenix/issues/88'>#88</a>).</li>
+        </ul>
 
-            ]]>
-            </description>
-            <enclosure sparkle:version='20'
-                       sparkle:shortVersionString='2.1.1'
-                       sparkle:dsaSignature='MC0CFEKfzhTIoxArkPSiSNeiylznSM1OAhUAjNthgLF4tygvuZ/ll5fOwnGh1lc='
-                       type='application/octet-stream'
-                       length='2207594'
-                       url='https://github.com/kasper/phoenix/releases/download/2.1.1/phoenix-2.1.1.tar.gz' />
-        </item>
+      ]]>
+      </description>
+      <enclosure sparkle:version='20'
+                 sparkle:shortVersionString='2.1.1'
+                 sparkle:dsaSignature='MC0CFEKfzhTIoxArkPSiSNeiylznSM1OAhUAjNthgLF4tygvuZ/ll5fOwnGh1lc='
+                 type='application/octet-stream'
+                 length='2207594'
+                 url='https://github.com/kasper/phoenix/releases/download/2.1.1/phoenix-2.1.1.tar.gz' />
+    </item>
 
-        <!-- 2.1 -->
+    <!-- 2.1 -->
 
-        <item>
-            <title>Version 2.1</title>
-            <pubDate>Mon, 25 Apr 2016 16:07:00 +0300</pubDate>
-            <description><![CDATA[
+    <item>
+      <title>Version 2.1</title>
+      <pubDate>Mon, 25 Apr 2016 16:07:00 +0300</pubDate>
+      <description><![CDATA[
 
-                <p>This release includes some exiting new features: including support for Spaces, creating timers to achieve delays or timed events and support for running Phoenix completely in the background! We also added some nice additions to the API, made various other improvements and fixed a few annoying bugs. Thanks for using Phoenix and do not hesitate to provide <a href='https://github.com/kasper/phoenix/issues/new/'>feedback</a>! See the full <a href='https://github.com/kasper/phoenix/blob/master/CHANGELOG.md#21'>Changelog</a>.</p>
+        <p>This release includes some exiting new features: including support for Spaces, creating timers to achieve delays or timed events and support for running Phoenix completely in the background! We also added some nice additions to the API, made various other improvements and fixed a few annoying bugs. Thanks for using Phoenix and do not hesitate to provide <a href='https://github.com/kasper/phoenix/issues/new/'>feedback</a>! See the full <a href='https://github.com/kasper/phoenix/blob/master/CHANGELOG.md#21'>Changelog</a>.</p>
 
-            ]]>
-            </description>
-            <enclosure sparkle:version='19'
-                       sparkle:shortVersionString='2.1'
-                       sparkle:dsaSignature='MCwCFDjgLuzf3sA9mGsVHrKQB1btFtfQAhRdBBA+jnhfAEOXwSb2G8co7jR9yg=='
-                       type='application/octet-stream'
-                       length='2207587'
-                       url='https://github.com/kasper/phoenix/releases/download/2.1/phoenix-2.1.tar.gz' />
-        </item>
+      ]]>
+      </description>
+      <enclosure sparkle:version='19'
+                 sparkle:shortVersionString='2.1'
+                 sparkle:dsaSignature='MCwCFDjgLuzf3sA9mGsVHrKQB1btFtfQAhRdBBA+jnhfAEOXwSb2G8co7jR9yg=='
+                 type='application/octet-stream'
+                 length='2207587'
+                 url='https://github.com/kasper/phoenix/releases/download/2.1/phoenix-2.1.tar.gz' />
+    </item>
 
-        <!-- 2.0.1 -->
+    <!-- 2.0.1 -->
 
-        <item>
-            <title>Version 2.0.1</title>
-            <pubDate>Sat, 12 Dec 2015 17:11:00 +0200</pubDate>
-            <description><![CDATA[
+    <item>
+      <title>Version 2.0.1</title>
+      <pubDate>Sat, 12 Dec 2015 17:11:00 +0200</pubDate>
+      <description><![CDATA[
 
-                <p>This release includes some minor changes and bug fixes.</p>
+        <p>This release includes some minor changes and bug fixes.</p>
 
-                <h3>Changes</h3>
+        <h3>Changes</h3>
 
-                <ul>
-                    <li>Amend license regarding the Phoenix icon assets contributed by Jason Milkins for not being under the MIT License (<a href='https://github.com/kasper/phoenix/pull/61'>#61</a>).</li>
-                </ul>
+        <ul>
+          <li>Amend license regarding the Phoenix icon assets contributed by Jason Milkins for not being under the MIT License (<a href='https://github.com/kasper/phoenix/pull/61'>#61</a>).</li>
+        </ul>
 
-                <h3>Bug Fixes</h3>
+        <h3>Bug Fixes</h3>
 
-                <ul>
-                    <li>Fix issue where <code>Mouse.location()</code> and <code>Mouse.moveTo(Point point)</code> used different coordinate origins. Both now correctly use top-left as the origin (<a href='https://github.com/kasper/phoenix/issues/58'>#58</a>).</li>
-                    <li>Support shells (e.g. Fish) that do not support <code>-cl</code> option shorthand in preprocessing (<a href='https://github.com/kasper/phoenix/pull/57'>#57</a>).</li>
-                </ul>
+        <ul>
+          <li>Fix issue where <code>Mouse.location()</code> and <code>Mouse.moveTo(Point point)</code> used different coordinate origins. Both now correctly use top-left as the origin (<a href='https://github.com/kasper/phoenix/issues/58'>#58</a>).</li>
+          <li>Support shells (e.g. Fish) that do not support <code>-cl</code> option shorthand in preprocessing (<a href='https://github.com/kasper/phoenix/pull/57'>#57</a>).</li>
+        </ul>
 
-            ]]>
-            </description>
-            <enclosure sparkle:version='16'
-                       sparkle:shortVersionString='2.0.1'
-                       sparkle:dsaSignature='MCwCFBTWlnzWXUuifwA/9EsvC320IyWBAhR9z8WYR9T8FeYz7/4ir+/R/2Ls3Q=='
-                       type='application/octet-stream'
-                       length='1475552'
-                       url='https://github.com/kasper/phoenix/releases/download/2.0.1/phoenix-2.0.1.tar.gz' />
-        </item>
+      ]]>
+      </description>
+      <enclosure sparkle:version='16'
+                 sparkle:shortVersionString='2.0.1'
+                 sparkle:dsaSignature='MCwCFBTWlnzWXUuifwA/9EsvC320IyWBAhR9z8WYR9T8FeYz7/4ir+/R/2Ls3Q=='
+                 type='application/octet-stream'
+                 length='1475552'
+                 url='https://github.com/kasper/phoenix/releases/download/2.0.1/phoenix-2.0.1.tar.gz' />
+    </item>
 
-        <!-- 2.0 -->
+    <!-- 2.0 -->
 
-        <item>
-            <title>Version 2.0</title>
-            <pubDate>Sat, 28 Nov 2015 00:14:00 +0200</pubDate>
-            <description><![CDATA[
-                <p>Phoenix 2.0 is out! The entire app has been rewritten from the ground up. I would like to express my gratitude to everyone who participated in the process by testing the app and making contributions to the project. Thank you! See the full <a href='https://github.com/kasper/phoenix/blob/master/CHANGELOG.md#20'>Changelog</a>.</p>
-            ]]>
-            </description>
-            <enclosure sparkle:version='14'
-                       sparkle:shortVersionString='2.0'
-                       sparkle:dsaSignature='MC0CFQCQQ1/05emRVpSNnVSotIbFLdOCCwIUSPWTVmxA4QgtY8w0iDBJ39owjfE='
-                       type='application/octet-stream'
-                       length='1475570'
-                       url='https://github.com/kasper/phoenix/releases/download/2.0/phoenix-2.0.tar.gz' />
-        </item>
+    <item>
+      <title>Version 2.0</title>
+      <pubDate>Sat, 28 Nov 2015 00:14:00 +0200</pubDate>
+      <description><![CDATA[
+        <p>Phoenix 2.0 is out! The entire app has been rewritten from the ground up. I would like to express my gratitude to everyone who participated in the process by testing the app and making contributions to the project. Thank you! See the full <a href='https://github.com/kasper/phoenix/blob/master/CHANGELOG.md#20'>Changelog</a>.</p>
+      ]]>
+      </description>
+      <enclosure sparkle:version='14'
+                 sparkle:shortVersionString='2.0'
+                 sparkle:dsaSignature='MC0CFQCQQ1/05emRVpSNnVSotIbFLdOCCwIUSPWTVmxA4QgtY8w0iDBJ39owjfE='
+                 type='application/octet-stream'
+                 length='1475570'
+                 url='https://github.com/kasper/phoenix/releases/download/2.0/phoenix-2.0.tar.gz' />
+    </item>
 
-    </channel>
+  </channel>
 
 </rss>

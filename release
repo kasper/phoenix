@@ -15,85 +15,80 @@ unset output_directory
 # Helpers
 
 help() {
-
-    echo -e >&2 "\
+  echo -e >&2 "\
 \033[1mUsage:\033[0m $(basename $0) -s code-sign-identity -d dsa-signature-key-path -o output-directory
 
 Arguments:
-    -s code-sign-identity     used to sign the app
-    -d dsa-signature-key-path used to create the DSA-signature
-    -o output-directory       where the app archive is created"
+  -s code-sign-identity     used to sign the app
+  -d dsa-signature-key-path used to create the DSA-signature
+  -o output-directory       where the app archive is created"
 }
 
 missing_argument() {
-
-    echo >&2 "Option -$1 requires an argument."
+  echo >&2 "Option -$1 requires an argument."
 }
 
 non_existent_path() {
-
-    echo >&2 "Path “$1” does not exist."
+  echo >&2 "Path “$1” does not exist."
 }
 
 describe() {
-
-    echo -e "\n\033[1m\033[34m$1\033[0m\n"
+  echo -e "\n\033[1m\033[34m$1\033[0m\n"
 }
 
 get_app_property() {
-
-    /usr/libexec/PlistBuddy -c "Print $1" $app/Info.plist
+  /usr/libexec/PlistBuddy -c "Print $1" $app/Info.plist
 }
 
 # Parse arguments
 
 while getopts ':s:d:o:' opt; do
 
-    case $opt in
+  case $opt in
 
-        s)
-            code_sign_identity=$OPTARG
-        ;;
+    s)
+      code_sign_identity=$OPTARG
+    ;;
 
-        d)
-            dsa_signature_key_path=$OPTARG
-        ;;
+    d)
+      dsa_signature_key_path=$OPTARG
+    ;;
 
-        o)
-            output_directory=$OPTARG
-        ;;
+    o)
+      output_directory=$OPTARG
+    ;;
 
-        :)
-            missing_argument $OPTARG
-            exit 1
-        ;;
+    :)
+      missing_argument $OPTARG
+      exit 1
+    ;;
 
-        ?)
-            help
-            exit 1
-        ;;
+    ?)
+      help
+      exit 1
+    ;;
 
-    esac
+  esac
 
 done
 
 # Invalid arguments
 
 if [ ! "$code_sign_identity" ] || [ ! "$dsa_signature_key_path" ] || [ ! "$output_directory" ]; then
-    help
-    exit 1
+  help
+  exit 1
 fi
 
 # Verify paths
 
 if [ ! -f "$dsa_signature_key_path" ]; then
-    non_existent_path "$dsa_signature_key_path"
-    exit 1
+  non_existent_path "$dsa_signature_key_path"
+  exit 1
 fi
 
 if [ ! -d "$output_directory" ]; then
-    non_existent_path "$output_directory"
-    exit 1
+  non_existent_path "$output_directory"
+  exit 1
 fi
 
 # Build app
@@ -103,8 +98,8 @@ build_number=$(get_app_property 'CFBundleVersion')
 archive="phoenix-$version.tar.gz"
 
 if [ -f "$output_directory/$archive" ]; then
-    echo "Archive “"$archive"” already exists. Exiting..."
-    exit 1
+  echo "Archive “"$archive"” already exists. Exiting..."
+  exit 1
 fi
 
 describe "Building $app..."
