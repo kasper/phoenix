@@ -1,0 +1,20 @@
+{
+  "asi": true,
+  "bitwise": true,
+  "curly": true,
+  "eqeqeq": true,
+  "eqnull": true,
+  "esversion": 5,
+  "forin": true,
+  "freeze": true,
+  "futurehostile": true,
+  "latedef": true,
+  "noarg": true,
+  "node": true,
+  "nonbsp": true,
+  "nonew": true,
+  "singleGroups": true,
+  "strict": true,
+  "undef": true,
+  "unused": true
+}

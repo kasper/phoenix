@@ -4,6 +4,9 @@
 
 # Project
 
+.grunt/
+Phoenix/phoenix.js
 build/
+node_modules/
 project.xcworkspace/
 xcuserdata/

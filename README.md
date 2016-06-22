@@ -83,6 +83,18 @@ Install Bundler, if you do not already have it installed. To install CocoaPods a
     bundle install
     pod install
 
+In addition to the Objective-C core, Phoenix also uses a JavaScript-based (5.1) library to implement additional features to the API. The minified library is included in the repository in `Phoenix/phoenix-min.js` so that everything works as is. However, if you want to develop features for this library, you will also need:
+
+7. [Node.js](https://nodejs.org) (6.2.2 or higher)
+8. [Grunt](http://gruntjs.com)
+
+Install Grunt’s command line interface globally, if you do not already have it installed. Then, install the development packages listed in `package.json`.
+
+    npm install -g grunt-cli
+    npm install -d
+
+To build `phoenix-min.js` from the source, run the command `grunt` in the root directory. Grunt will then build the source from `library/src/` and install the new library to `Phoenix/phoenix-min.js`. For convenience, this is also handled automatically by Xcode when you build Phoenix.
+
 ## Contributing
 
 Feel free to contribute to this project by creating issues, pull requests and editing the Wiki. See the [guidelines](.github/CONTRIBUTING.md).

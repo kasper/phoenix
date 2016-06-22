@@ -39,6 +39,7 @@
 		A79C46A01B5BF3C100C460CF /* PHWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A79C46911B5BF3C100C460CF /* PHWindow.m */; };
 		A79C46A31B5BF3C100C460CF /* underscore-min.js in Resources */ = {isa = PBXBuildFile; fileRef = A79C46941B5BF3C100C460CF /* underscore-min.js */; };
 		A79C46AA1B5BF41900C460CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A79C46A91B5BF41900C460CF /* Images.xcassets */; };
+		A7A6F57E1D1AD3B8000A0E5E /* phoenix-min.js in Resources */ = {isa = PBXBuildFile; fileRef = A7A6F57D1D1AD3B8000A0E5E /* phoenix-min.js */; };
 		A7D1D9A91B6FD6A300E00CC9 /* PHKeyTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D1D9A81B6FD6A300E00CC9 /* PHKeyTranslator.m */; };
 		A7D1F7651B5BFF5B0052E646 /* PhoenixTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D1F7641B5BFF5B0052E646 /* PhoenixTests.m */; };
 		A7E6DF6C1BBAB5B8001920B4 /* PHAXObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E6DF6B1BBAB5B8001920B4 /* PHAXObserver.m */; };
@@ -123,6 +124,7 @@
 		A79C46911B5BF3C100C460CF /* PHWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHWindow.m; sourceTree = "<group>"; };
 		A79C46941B5BF3C100C460CF /* underscore-min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "underscore-min.js"; sourceTree = "<group>"; };
 		A79C46A91B5BF41900C460CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A7A6F57D1D1AD3B8000A0E5E /* phoenix-min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "phoenix-min.js"; sourceTree = "<group>"; };
 		A7D1D9A71B6FD6A300E00CC9 /* PHKeyTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHKeyTranslator.h; sourceTree = "<group>"; };
 		A7D1D9A81B6FD6A300E00CC9 /* PHKeyTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHKeyTranslator.m; sourceTree = "<group>"; };
 		A7D1F7641B5BFF5B0052E646 /* PhoenixTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoenixTests.m; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				A7952E7D1C0721850062D651 /* dsa-phoenix-pub.pem */,
 				A79C465B1B5BF31100C460CF /* Info.plist */,
 				A79C465F1B5BF31200C460CF /* main.m */,
+				A7A6F57D1D1AD3B8000A0E5E /* phoenix-min.js */,
 				A79C46941B5BF3C100C460CF /* underscore-min.js */,
 			);
 			name = "Supporting Files";
@@ -375,6 +378,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A79C46741B5BF31200C460CF /* Build configuration list for PBXNativeTarget "Phoenix" */;
 			buildPhases = (
+				A7A6F57F1D1AD4CD000A0E5E /* Grunt */,
 				A32B0CB41F9B8F1C428EE663 /* 📦 Check Pods Manifest.lock */,
 				A79C46531B5BF31100C460CF /* Sources */,
 				A79C46541B5BF31100C460CF /* Frameworks */,
@@ -454,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A79B89E21B5E75CA004DDE82 /* ModalWindow.xib in Resources */,
+				A7A6F57E1D1AD3B8000A0E5E /* phoenix-min.js in Resources */,
 				A79C46AA1B5BF41900C460CF /* Images.xcassets in Resources */,
 				A72EAD041B5CE34800DD537B /* Credits.rtf in Resources */,
 				A79C46A31B5BF3C100C460CF /* underscore-min.js in Resources */,
@@ -485,6 +490,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A7A6F57F1D1AD4CD000A0E5E /* Grunt */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Grunt;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if command -v grunt; then\n    grunt\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A7C58EEF1C065C8A00180664 /* Sign Sparkle */ = {
