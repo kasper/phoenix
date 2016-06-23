@@ -1,0 +1,1 @@
+"use strict";!function(a){function b(a){var b=c[a];b&&(b.stop(),delete c[a])}var c={};a.clearTimeout=b,a.clearInterval=b,a.setTimeout=function(a,d){var e=Phoenix.after(d/1e3,function(){a(),b(e.hash())});return c[e.hash()]=e,e.hash()},a.setInterval=function(a,b){var d=Phoenix.every(b/1e3,a);return c[d.hash()]=d,d.hash()}}(this);
