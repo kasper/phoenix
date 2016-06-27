@@ -127,6 +127,22 @@
 
 - (void) createConfigurationFile:(NSString *)path {
 
+    // Create directories
+
+    NSError *error;
+    NSString *directory = path.stringByDeletingLastPathComponent;
+
+    [[NSFileManager defaultManager] createDirectoryAtPath:directory
+                              withIntermediateDirectories:YES
+                                               attributes:nil
+                                                    error:&error];
+    if (error) {
+        NSLog(@"Error: Could not create configuration directory to path “%@”. (%@)", directory, error);
+        return;
+    }
+
+    // Create file
+
     BOOL fileCreated = [[NSFileManager defaultManager] createFileAtPath:path
                                                                contents:[@"" dataUsingEncoding:NSUTF8StringEncoding]
                                                              attributes:nil];
@@ -144,6 +160,7 @@
     NSString *script = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
 
     if (error) {
+        script = @"";
         NSLog(@"Error: Could not read file in path “%@” to string. (%@)", path, error);
     }
 

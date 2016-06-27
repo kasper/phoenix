@@ -19,6 +19,7 @@ Release: dd.mm.yyyy
 ### Bug Fixes
 
 - Disable key handlers immediately to ensure that keys are unregistered before setting up a new context ([#94](https://github.com/kasper/phoenix/issues/94)).
+- Fix crash caused by moving or deleting configuration directory while app is running ([#105](https://github.com/kasper/phoenix/issues/105)).
 
 2.1.1
 -----
