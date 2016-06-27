@@ -8,11 +8,9 @@ blue=$(tput setaf 4)
 app='Phoenix'
 
 # Exit on error
-
 trap 'exit' ERR
 
 # Unset arguments
-
 unset code_sign_identity
 unset dsa_signature_key_path
 unset output_directory
@@ -46,7 +44,6 @@ get_app_property() {
 }
 
 # Parse arguments
-
 while getopts ':s:d:o:' opt; do
 
   case $opt in
@@ -78,7 +75,6 @@ while getopts ':s:d:o:' opt; do
 done
 
 # Invalid arguments
-
 if [ ! "$code_sign_identity" ] || [ ! "$dsa_signature_key_path" ] || [ ! "$output_directory" ]; then
   help
   exit 1
