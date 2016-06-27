@@ -116,9 +116,7 @@ You may add JavaScript preprocessing to your configuration by adding a [Shebang]
 ```coffeescript
 #!/usr/bin/env coffee -p
 
-keys = []
-
-keys.push Phoenix.bind 's', [ 'ctrl', 'shift' ], ->
+Key.on 's', [ 'ctrl', 'shift' ], ->
   App.launch('Safari').focus()
 ```
 
@@ -127,11 +125,9 @@ Or use [Babel](http://babeljs.io) to use ECMAScript 6 JavaScript:
 ```javascript
 #!/usr/bin/env babel
 
-const keys = [];
-
-keys.push(Phoenix.bind('s', [ 'ctrl', 'shift' ], () => {
+Key.on('s', [ 'ctrl', 'shift' ], () => {
   App.launch('Safari').focus();
-}));
+});
 ```
 
 ## 1. Keys
