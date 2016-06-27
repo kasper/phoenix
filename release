@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Colours
+reset=$(tput sgr0)
+bold=$(tput bold)
+blue=$(tput setaf 4)
+
 app='Phoenix'
 
 # Exit on error
@@ -15,8 +20,8 @@ unset output_directory
 # Helpers
 
 help() {
-  echo -e >&2 "\
-\033[1mUsage:\033[0m $(basename $0) -s code-sign-identity -d dsa-signature-key-path -o output-directory
+  echo >&2 "\
+${bold}Usage:${reset} $(basename $0) -s code-sign-identity -d dsa-signature-key-path -o output-directory
 
 Arguments:
   -s code-sign-identity     used to sign the app
@@ -33,7 +38,7 @@ non_existent_path() {
 }
 
 describe() {
-  echo -e "\n\033[1m\033[34m$1\033[0m\n"
+  echo "${bold}${blue}${1}${reset}\n"
 }
 
 get_app_property() {
