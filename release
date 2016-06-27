@@ -36,7 +36,7 @@ non_existent_path() {
 }
 
 describe() {
-  echo "${bold}${blue}${1}${reset}\n"
+  echo -e "\n${bold}${blue}${1}${reset}\n"
 }
 
 get_app_property() {
