@@ -10,6 +10,46 @@
     <description>Feed for Phoenix updates.</description>
     <language>en</language>
 
+    <!-- 2.1.2 -->
+
+    <item>
+      <title>Version 2.1.2</title>
+      <pubDate>Mon, 27 Jun 2016 18:51:00 +0300</pubDate>
+      <description><![CDATA[
+
+        <p>This release includes a new API to automatically manage handlers for you — in addition to some minor improvements and bug fixes.</p>
+
+        <h3>New</h3>
+
+        <ul>
+          <li>Phoenix can now manage handlers for you. Instead of <code>Phoenix.bind</code>, <code>Phoenix.on</code>, <code>Phoenix.after</code> or <code>Phoenix.every</code> — use <code>Key.on</code>, <code>Event.on</code>, <code>Timer.after</code> and <code>Timer.every</code>. For more, see the <a href='https://github.com/kasper/phoenix/blob/master/API.md#managing-handlers'>API</a> (<a href='https://github.com/kasper/phoenix/issues/107'>#107</a>).</li>
+        </ul>
+
+        <h3>Improvements</h3>
+
+        <ul>
+          <li>Implement <code>setTimeout</code>, <code>setInterval</code>, <code>clearTimeout</code> and <code>clearInterval</code>. This also adds support for timing related functions from Underscore (<a href='https://github.com/kasper/phoenix/issues/92'>#92</a>).</li>
+          <li>Make require throw an error if a file cannot be resolved (<a href='https://github.com/kasper/phoenix/issues/93'>#93</a>).</li>
+          <li>Add support for ISO section <code>§</code>-key (<a href='https://github.com/kasper/phoenix/issues/102'>#102</a>).</li>
+        </ul>
+
+        <h3>Bug Fixes</h3>
+
+        <ul>
+          <li>Disable key handlers immediately to ensure that keys are unregistered before setting up a new context (<a href='https://github.com/kasper/phoenix/issues/94'>#94</a>).</li>
+          <li>Fix crash caused by moving or deleting configuration directory while app is running (<a href='https://github.com/kasper/phoenix/issues/105'>#105</a>).</li>
+        </ul>
+
+      ]]>
+      </description>
+      <enclosure sparkle:version='23'
+                 sparkle:shortVersionString='2.1.2'
+                 sparkle:dsaSignature='MCwCFDXkxwa2265FTBq56c47Wd7YnsHwAhRLxjxorFrQKy6PlXBlb3sV+Jum8w=='
+                 type='application/octet-stream'
+                 length='2207690'
+                 url='https://github.com/kasper/phoenix/releases/download/2.1.2/phoenix-2.1.2.tar.gz' />
+    </item>
+
     <!-- 2.1.1 -->
 
     <item>
