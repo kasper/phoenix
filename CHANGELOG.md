@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### New
+
+- Phoenix can now manage handlers for you. Instead of `Phoenix.bind`, `Phoenix.on`, `Phoenix.after` or `Phoenix.every` — use `Key.on`, `Event.on`, `Timer.after` and `Timer.every`. For more, see the [API](API.md#managing-handlers) ([#107](https://github.com/kasper/phoenix/issues/107)).
+
 ### Improvements
 
 - Implement `setTimeout`, `setInterval`, `clearTimeout` and `clearInterval`. This also adds support for timing related functions from Underscore ([#92](https://github.com/kasper/phoenix/issues/92)).

@@ -56,6 +56,49 @@ As an other example, to bind an event to a function, you call the `on`-function 
 var handler = Phoenix.on('screensDidChange', function () {});
 ```
 
+## Managing Handlers
+
+As you probably have already noticed that you must keep a reference to your handlers, otherwise your callbacks will not get called. In return, if you release the reference to the handler, it will also be disabled. This gives you full control over the lifecycle of your handlers. This can be especially useful when you want to dynamically create handlers.
+
+Obviously, in most cases you do not want to worry about the lifecycle of your handlers. This is why Phoenix also provides a context where handlers are managed for you. You can use this managed context to set keys, events and timers, but also to disable them. Basically, when you create a handler with this context, the handler is created and its reference is stored within the context. You will get an identifier for the handler which you can use then to disable it. When you disable the handler, the context will take care of releasing the handler for you.
+
+```java
+class Key
+
+  static int on(String key, Array<String> modifiers, Function callback)
+  static void off(int identifier)
+
+end
+
+class Event
+
+  static int on(String event, Function callback)
+  static void off(int identifier)
+
+end
+
+class Timer
+
+  static int after(double interval, Function callback)
+  static int every(double interval, Function callback)
+  static void off(int identifier)
+
+end
+```
+
+For example, to bind a key to a function.
+
+```javascript
+Key.on('q', [ 'ctrl', 'shift' ], function () {});
+```
+
+To disable a handler.
+
+```javascript
+var identifier = Key.on('q', [ 'ctrl', 'shift' ], function () {});
+Key.off(identifier);
+```
+
 ## Loading
 
 Your configuration file is loaded when the app launches. All functions are evaluated (and executed if necessary) when this happens. Phoenix also reloads the configuration when any changes are detected to the file(s). You may also reload the configuration manually from the status bar or programmatically from your script.
