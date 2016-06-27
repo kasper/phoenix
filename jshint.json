@@ -19,6 +19,7 @@
   "unused": true,
   "validthis": true,
   "globals": {
-    "Phoenix": true
+    "Phoenix": true,
+    "Timer": true
   }
 }
