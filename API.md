@@ -292,6 +292,9 @@ interface Identifiable
 end
 ```
 
+- `hash()` returns the hash value for the object
+- `isEqual(AnyObject object)` returns `true` if the given object is equal with this object
+
 ## 10. Iterable
 
 Objects that implement `Iterable` can be traversed.
