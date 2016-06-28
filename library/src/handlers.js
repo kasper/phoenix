@@ -4,11 +4,7 @@
 
 /* Keys */
 
-// jscs:disable disallowUnusedVariables
-
 var Key = (function () {
-
-  // jscs:enable disallowUnusedVariables
 
   var module = {};
   var keys = {};
@@ -35,11 +31,7 @@ var Key = (function () {
 
 /* Events */
 
-// jscs:disable disallowUnusedVariables
-
 var Event = (function () {
-
-  // jscs:enable disallowUnusedVariables
 
   var module = {};
   var events = {};
@@ -62,11 +54,7 @@ var Event = (function () {
 
 /* Timers */
 
-// jscs:disable disallowUnusedVariables
-
 var Timer = (function () {
-
-  // jscs:enable disallowUnusedVariables
 
   var module = {};
   var timers = {};

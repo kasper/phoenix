@@ -40,7 +40,6 @@
   "disallowTrailingComma": true,
   "disallowTrailingWhitespace": true,
   "disallowUnusedParams": true,
-  "disallowUnusedVariables": true,
   "disallowYodaConditions": true,
   "requireAlignedMultilineParams": "firstParam",
 
