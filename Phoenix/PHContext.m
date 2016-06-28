@@ -127,11 +127,10 @@
 
 - (void) createConfigurationFile:(NSString *)path {
 
-    // Create directories
-
     NSError *error;
     NSString *directory = path.stringByDeletingLastPathComponent;
 
+    // Ensure configuration directory exists
     [[NSFileManager defaultManager] createDirectoryAtPath:directory
                               withIntermediateDirectories:YES
                                                attributes:nil
@@ -140,8 +139,6 @@
         NSLog(@"Error: Could not create configuration directory to path “%@”. (%@)", directory, error);
         return;
     }
-
-    // Create file
 
     BOOL fileCreated = [[NSFileManager defaultManager] createFileAtPath:path
                                                                contents:[@"" dataUsingEncoding:NSUTF8StringEncoding]
