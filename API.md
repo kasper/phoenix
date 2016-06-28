@@ -86,6 +86,9 @@ class Timer
 end
 ```
 
+- `Key.on(...), Event.on(...), Timer.after(...), Timer.every(...)` creates a handler, stores its reference and returns the identifier for the handler, for arguments see [Phoenix](#5-phoenix)
+- `off(int identifier)` disables the handler with the given identifier and releases its reference
+
 For example, to bind a key to a function.
 
 ```javascript
