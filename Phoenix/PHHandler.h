@@ -7,11 +7,12 @@
 
 @interface PHHandler : NSObject
 
+#pragma mark - Initialise
+
 + (instancetype) new NS_UNAVAILABLE;
+- (instancetype) init NS_UNAVAILABLE;
 
-#pragma mark - Callback
-
-- (void) manageCallback:(JSValue *)callback;
+- (instancetype) initWithCallback:(JSValue *)callback;
 
 #pragma mark - Call
 

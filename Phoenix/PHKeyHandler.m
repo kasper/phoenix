@@ -74,9 +74,9 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
     }
 }
 
-- (instancetype) initWithKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers {
+- (instancetype) initWithKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers callback:(JSValue *)callback {
 
-    if (self = [super init]) {
+    if (self = [super initWithCallback:callback]) {
 
         self.key = (key.length == 1) ? key.lowercaseString : key;
         self.modifiers = [modifiers valueForKey:@"lowercaseString"];
@@ -102,9 +102,9 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
     return self;
 }
 
-+ (instancetype) withKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers {
++ (instancetype) withKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers callback:(JSValue *)callback {
 
-    return [[self alloc] initWithKey:key modifiers:modifiers];
+    return [[self alloc] initWithKey:key modifiers:modifiers callback:callback];
 }
 
 #pragma mark - Dealloc
@@ -126,18 +126,6 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
     }
 
     return hash;
-}
-
-#pragma mark - Identifying
-
-- (NSUInteger) hash {
-
-    return [[self class] hashForKey:self.key modifiers:self.modifiers];
-}
-
-- (BOOL) isEqual:(id)object {
-
-    return [object isKindOfClass:[self class]] && [self hash] == [object hash];
 }
 
 #pragma mark - Binding

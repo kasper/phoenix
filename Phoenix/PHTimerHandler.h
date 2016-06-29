@@ -20,8 +20,6 @@
 
 #pragma mark - Initialise
 
-- (instancetype) init NS_UNAVAILABLE;
-
 - (instancetype) initWithInterval:(NSTimeInterval)interval
                           repeats:(BOOL)repeats
                          callback:(JSValue *)callback NS_DESIGNATED_INITIALIZER;

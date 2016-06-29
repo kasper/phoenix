@@ -12,11 +12,15 @@
 
 @implementation PHHandler
 
-#pragma mark - Callback
+#pragma mark - Initialise
 
-- (void) manageCallback:(JSValue *)callback {
+- (instancetype) initWithCallback:(JSValue *)callback {
 
-    self.callback = [JSManagedValue managedValueWithValue:callback andOwner:self];
+    if (self = [super init]) {
+        self.callback = [JSManagedValue managedValueWithValue:callback andOwner:self];
+    }
+
+    return self;
 }
 
 #pragma mark - Call

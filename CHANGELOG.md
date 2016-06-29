@@ -6,6 +6,16 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### Changes
+
+- Breaking: You can now have multiple `KeyHandler`s for a single key combination. However, only one can be enabled at a time ([#99](https://github.com/kasper/phoenix/issues/99)).
+
+### API
+
+#### Phoenix
+
+- Change: Function `bind(String key, Array<String> modifiers, Function callback)` previously would only change the callback for an existing handler if a previously bound key combination was used again. Now, binding a key combination will always return a new unique handler. As before, this new handler is always enabled by default. Subsequently, any previous handler for the key combination will therefor be automatically disabled ([#99](https://github.com/kasper/phoenix/issues/99)).
+
 2.1.2
 -----
 

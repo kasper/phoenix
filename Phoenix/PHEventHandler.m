@@ -24,12 +24,10 @@
 
 - (instancetype) initWithEvent:(NSString *)event callback:(JSValue *)callback {
 
-    if (self = [super init]) {
+    if (self = [super initWithCallback:callback]) {
 
         self.name = event;
         self.notification = [PHEventTranslator notificationForEvent:event];
-
-        [self manageCallback:callback];
 
         // Event not supported
         if (!self.notification) {

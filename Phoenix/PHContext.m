@@ -25,7 +25,7 @@
 @property NSMutableSet<NSString *> *configurationPaths;
 @property PHPathWatcher *watcher;
 @property PHAccessibilityObserver *observer;
-@property NSMapTable<NSNumber *, PHKeyHandler *> *keyHandlers;
+@property NSMutableDictionary<NSNumber *, NSHashTable<PHKeyHandler *> *> *keyHandlers;
 
 @end
 
@@ -39,7 +39,7 @@
         self.primaryConfigurationPath = [self resolvePrimaryConfigurationPath];
         self.configurationPaths = [NSMutableSet set];
         self.observer = [PHAccessibilityObserver observer];
-        self.keyHandlers = [NSMapTable strongToWeakObjectsMapTable];
+        self.keyHandlers = [NSMutableDictionary dictionary];
     }
 
     return self;
@@ -74,7 +74,10 @@
 - (void) resetKeyHandlers {
 
     // Disable key handlers immediately to ensure that keys are unregistered before setting up a new context
-    [[self.keyHandlers dictionaryRepresentation].allValues makeObjectsPerformSelector:@selector(disable)];
+    for (NSHashTable<PHKeyHandler *> *handlersForKey in self.keyHandlers.allValues) {
+        [handlersForKey.allObjects makeObjectsPerformSelector:@selector(disable)];
+    }
+
     [self.keyHandlers removeAllObjects];
 }
 
@@ -240,22 +243,29 @@
 
 - (PHKeyHandler *) bindKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers callback:(JSValue *)callback {
 
-    PHKeyHandler *keyHandler = [self.keyHandlers objectForKey:@([PHKeyHandler hashForKey:key modifiers:modifiers])];
+    NSNumber *hashForKey = @([PHKeyHandler hashForKey:key modifiers:modifiers]);
+    NSHashTable<PHKeyHandler *> *handlersForKey = self.keyHandlers[hashForKey];
+
+    // Disable previous handlers for key
+    if (handlersForKey) {
+        [handlersForKey.allObjects makeObjectsPerformSelector:@selector(disable)];
+    }
 
     // Bind new key
-    if (!keyHandler) {
-        keyHandler = [PHKeyHandler withKey:key modifiers:modifiers];
-    }
+    PHKeyHandler *keyHandler = [PHKeyHandler withKey:key modifiers:modifiers callback:callback];
 
     // Key not supported
     if (!keyHandler) {
         return nil;
     }
 
-    // Set callback
-    [keyHandler manageCallback:callback];
+    // First handler for key
+    if (!handlersForKey) {
+        handlersForKey = [NSHashTable weakObjectsHashTable];
+        self.keyHandlers[hashForKey] = handlersForKey;
+    }
 
-    [self.keyHandlers setObject:keyHandler forKey:@([keyHandler hash])];
+    [handlersForKey addObject:keyHandler];
     return keyHandler;
 }
 

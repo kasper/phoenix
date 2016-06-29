@@ -27,10 +27,11 @@
 
 #pragma mark - Initialise
 
-- (instancetype) init NS_UNAVAILABLE;
+- (instancetype) initWithKey:(NSString *)key
+                   modifiers:(NSArray<NSString *> *)modifiers
+                    callback:(JSValue *)callback NS_DESIGNATED_INITIALIZER;
 
-- (instancetype) initWithKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers NS_DESIGNATED_INITIALIZER;
-+ (instancetype) withKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers;
++ (instancetype) withKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers callback:(JSValue *)callback;
 
 #pragma mark - Hash
 

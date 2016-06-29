@@ -17,7 +17,7 @@
 
 - (instancetype) initWithInterval:(NSTimeInterval)interval repeats:(BOOL)repeats callback:(JSValue *)callback {
 
-    if (self = [super init]) {
+    if (self = [super initWithCallback:callback]) {
 
         PHWeakTimerTarget *weakTarget = [PHWeakTimerTarget withTarget:self selector:@selector(timerDidFire)];
 
@@ -26,7 +26,6 @@
                                                     selector:@selector(timerDidFireProxy:)
                                                     userInfo:nil
                                                      repeats:repeats];
-        [self manageCallback:callback];
     }
 
     return self;
