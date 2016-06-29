@@ -58,7 +58,7 @@ var handler = Phoenix.on('screensDidChange', function () {});
 
 ## Managing Handlers
 
-As you probably have already noticed that you must keep a reference to your handlers, otherwise your callbacks will not get called. In return, if you release the reference to the handler, it will also be disabled. This gives you full control over the lifecycle of your handlers. This can be especially useful when you want to dynamically create handlers.
+As you probably have already noticed that you must keep a reference to your handlers, otherwise your callbacks will not get called. In return, if you release the reference to the handler, it will also be disabled eventually. This gives you full control over the lifecycle of your handlers. This can be especially useful when you want to dynamically create handlers.
 
 Obviously, in most cases you do not want to worry about the lifecycle of your handlers. This is why Phoenix also provides a context where handlers are managed for you. You can use this managed context to set keys, events and timers, but also to disable them. Basically, when you create a handler with this context, the handler is created and its reference is stored within the context. You will get an identifier for the handler which you can use then to disable it. When you disable the handler, the context will take care of releasing the handler for you.
 
@@ -313,7 +313,7 @@ end
 
 ## 11. KeyHandler
 
-Use the `KeyHandler`-object to enable or disable keys. You can have multiple handlers for a single key combination, however only one can be enabled at a time. A key is disabled automatically when you release your reference to the handler. KeyHandlers are always reset on context reload. Enabling a key combination that has been exclusively registered by another app will fail.
+Use the `KeyHandler`-object to enable or disable keys. You can have multiple handlers for a single key combination, however only one can be enabled at a time. A key is eventually disabled automatically when you release your reference to the handler. KeyHandlers are always reset on context reload. Enabling a key combination that has been exclusively registered by another app will fail.
 
 ```java
 class KeyHandler implements Identifiable
