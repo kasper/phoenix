@@ -96,7 +96,7 @@
     }
 
     @catch (NSException *exception) {
-        NSLog(@"Error: Could not run command in path “%@” with arguments “%@”. Exception: %@.", self.task.launchPath, self.task.arguments, exception);
+        NSLog(@"Error: Could not launch task in path “%@” with arguments “%@”. Exception: %@.", self.task.launchPath, self.task.arguments, exception);
     }
 }
 
