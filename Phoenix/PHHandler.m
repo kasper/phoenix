@@ -28,7 +28,10 @@
 - (void) callWithArguments:(NSArray *)arguments {
 
     JSValue *function = self.callback.value;
-    [function callWithArguments:arguments];
+
+    if (!function.isUndefined) {
+        [function callWithArguments:arguments];
+    }
 }
 
 @end
