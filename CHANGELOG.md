@@ -6,6 +6,11 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### New
+
+- You can now run tasks asynchronously and retrieve their status, standard output and standard error. A new `TaskHandler`-object has been created to access task properties, see its [API](API.md#14-taskhandler). See the function `Phoenix.run(String path, Array arguments, Function callback)` in the [API](API.md#5-phoenix) to create tasks ([#98](https://github.com/kasper/phoenix/issues/98)).
+- A new global `Task`-object has been created to manage task handlers ([#98](https://github.com/kasper/phoenix/issues/98)).
+
 ### Changes
 
 - Breaking: You can now have multiple `KeyHandler`s for a single key combination. However, only one can be enabled at a time ([#99](https://github.com/kasper/phoenix/issues/99)).
@@ -14,7 +19,12 @@ Release: dd.mm.yyyy
 
 #### Phoenix
 
+- New: Function `run(String path, Array arguments, Function callback)` creates a task that asynchronously executes an absolute path with the given arguments and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument ([#98](https://github.com/kasper/phoenix/issues/98)).
 - Change: Function `bind(String key, Array<String> modifiers, Function callback)` previously would only change the callback for an existing handler if a previously bound key combination was used again. Now, binding a key combination will always return a new unique handler. As before, this new handler is always enabled by default. Subsequently, any previous handler for the key combination will therefor be automatically disabled ([#99](https://github.com/kasper/phoenix/issues/99)).
+
+#### Command
+
+- Deprecation: Global `Command`-object has been removed, use `Task` instead as a direct replacement. See the [API](API.md#managing-handlers) ([#98](https://github.com/kasper/phoenix/issues/98)).
 
 2.1.2
 -----
@@ -137,7 +147,7 @@ Release: 28.11.2015
 - Global `api`-object is now called `Phoenix`.
 - Global `MousePosition`-object is now called `Mouse`.
 - `Hotkey`-object is now called `KeyHandler` and its properties have changed. See the [API](API.md#11-keyhandler).
-- The concept of `Alerts` has been deprecated. A new global `Modal`-object has been created to display messages as modals. See the [API](API.md#14-modal).
+- The concept of `Alerts` has been deprecated. A new global `Modal`-object has been created to display messages as modals. See the [API](API.md#15-modal).
 - A new `EventHandler`-object has been created to handle events. See the [API](API.md#12-eventhandler).
 - A new global `Command`-object has been created to run UNIX-commands. See the [API](API.md#15-command).
 

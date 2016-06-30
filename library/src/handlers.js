@@ -1,6 +1,6 @@
 'use strict';
 
-/* exported Key, Event, Timer */
+/* exported Key, Event, Timer, Task */
 
 /* Keys */
 
@@ -80,6 +80,29 @@ var Timer = (function () {
       timer.stop();
       delete timers[identifier];
     }
+  }
+
+  return module;
+})();
+
+/* Tasks */
+
+var Task = (function () {
+
+  var module = {};
+  var tasks = {};
+
+  module.run = function (path, args, callback) {
+    var task = Phoenix.run(path, args, function (handler) {
+      callback(handler);
+      Task.off(handler.hash());
+    });
+    tasks[task.hash()] = task;
+    return task.hash();
+  }
+
+  module.off = function (identifier) {
+    delete tasks[identifier];
   }
 
   return module;

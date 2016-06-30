@@ -15,12 +15,12 @@
 		A72EAD071B5D00B800DD537B /* PHModalWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72EAD061B5D00B800DD537B /* PHModalWindowController.m */; };
 		A72ED7B61B6E25940064E35B /* PHPhoenix.m in Sources */ = {isa = PBXBuildFile; fileRef = A72ED7B51B6E25940064E35B /* PHPhoenix.m */; };
 		A731A7261C2C76B800EB9FD5 /* PHSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = A731A7251C2C76B800EB9FD5 /* PHSpace.m */; };
-		A73C2CA81B9078A30004C663 /* PHCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = A73C2CA71B9078A30004C663 /* PHCommand.m */; };
 		A73C2CAB1B9088040004C663 /* PHNotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A73C2CAA1B9088040004C663 /* PHNotificationHelper.m */; };
 		A741336C1BB7EEAC008DAF39 /* PHHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A741336B1BB7EEAC008DAF39 /* PHHandler.m */; };
 		A741336F1BB7F228008DAF39 /* PHEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A741336E1BB7F228008DAF39 /* PHEventHandler.m */; };
 		A74133721BB7F556008DAF39 /* PHEventTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = A74133711BB7F556008DAF39 /* PHEventTranslator.m */; };
 		A762478A1B81FD3C00ECF209 /* PHAXUIElement.m in Sources */ = {isa = PBXBuildFile; fileRef = A76247891B81FD3C00ECF209 /* PHAXUIElement.m */; };
+		A76D0F141D2540F900060CA7 /* PHTaskHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A76D0F131D2540F900060CA7 /* PHTaskHandler.m */; };
 		A78566D11CBE77CD00036AF9 /* PHPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = A78566D01CBE77CD00036AF9 /* PHPreferences.m */; };
 		A78749641CA2BB440042DA4C /* NSProcessInfo+PHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A78749631CA2BB440042DA4C /* NSProcessInfo+PHExtension.m */; };
 		A79452421C2F35E3007AF8C5 /* NSArray+PHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A79452411C2F35E3007AF8C5 /* NSArray+PHExtension.m */; };
@@ -76,8 +76,6 @@
 		A72ED7B51B6E25940064E35B /* PHPhoenix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHPhoenix.m; sourceTree = "<group>"; };
 		A731A7241C2C76B800EB9FD5 /* PHSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHSpace.h; sourceTree = "<group>"; };
 		A731A7251C2C76B800EB9FD5 /* PHSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHSpace.m; sourceTree = "<group>"; };
-		A73C2CA61B9078A30004C663 /* PHCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHCommand.h; sourceTree = "<group>"; };
-		A73C2CA71B9078A30004C663 /* PHCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHCommand.m; sourceTree = "<group>"; };
 		A73C2CA91B9088040004C663 /* PHNotificationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHNotificationHelper.h; sourceTree = "<group>"; };
 		A73C2CAA1B9088040004C663 /* PHNotificationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHNotificationHelper.m; sourceTree = "<group>"; };
 		A73FF10E1BBD982A0024CF97 /* PHEventConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHEventConstants.h; sourceTree = "<group>"; };
@@ -89,6 +87,8 @@
 		A74133711BB7F556008DAF39 /* PHEventTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHEventTranslator.m; sourceTree = "<group>"; };
 		A76247881B81FD3C00ECF209 /* PHAXUIElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHAXUIElement.h; sourceTree = "<group>"; };
 		A76247891B81FD3C00ECF209 /* PHAXUIElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHAXUIElement.m; sourceTree = "<group>"; };
+		A76D0F121D2540F900060CA7 /* PHTaskHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHTaskHandler.h; sourceTree = "<group>"; };
+		A76D0F131D2540F900060CA7 /* PHTaskHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHTaskHandler.m; sourceTree = "<group>"; };
 		A78566CF1CBE77CD00036AF9 /* PHPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHPreferences.h; sourceTree = "<group>"; };
 		A78566D01CBE77CD00036AF9 /* PHPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHPreferences.m; sourceTree = "<group>"; };
 		A78749621CA2BB440042DA4C /* NSProcessInfo+PHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSProcessInfo+PHExtension.h"; sourceTree = "<group>"; };
@@ -180,8 +180,6 @@
 			children = (
 				A79C467E1B5BF3C100C460CF /* PHApp.h */,
 				A79C467F1B5BF3C100C460CF /* PHApp.m */,
-				A73C2CA61B9078A30004C663 /* PHCommand.h */,
-				A73C2CA71B9078A30004C663 /* PHCommand.m */,
 				A72A6B031B934C2000F2C4EF /* PHIdentifiableJSExport.h */,
 				A79452431C2F393A007AF8C5 /* PHIterableJSExport.h */,
 				A72EAD051B5D00B800DD537B /* PHModalWindowController.h */,
@@ -232,6 +230,8 @@
 				A741336B1BB7EEAC008DAF39 /* PHHandler.m */,
 				A7183B651B6E865F00842E13 /* PHKeyHandler.h */,
 				A7183B661B6E865F00842E13 /* PHKeyHandler.m */,
+				A76D0F121D2540F900060CA7 /* PHTaskHandler.h */,
+				A76D0F131D2540F900060CA7 /* PHTaskHandler.m */,
 				A7288A331CC119BD00EC032B /* PHTimerHandler.h */,
 				A7288A341CC119BD00EC032B /* PHTimerHandler.m */,
 				A7288A391CC14DF800EC032B /* PHWeakTimerTarget.h */,
@@ -563,13 +563,13 @@
 				A79C46951B5BF3C100C460CF /* NSScreen+PHExtension.m in Sources */,
 				A79C469B1B5BF3C100C460CF /* PHMouse.m in Sources */,
 				A762478A1B81FD3C00ECF209 /* PHAXUIElement.m in Sources */,
+				A76D0F141D2540F900060CA7 /* PHTaskHandler.m in Sources */,
 				A79C469F1B5BF3C100C460CF /* PHUniversalAccessHelper.m in Sources */,
 				A78749641CA2BB440042DA4C /* NSProcessInfo+PHExtension.m in Sources */,
 				A79C46601B5BF31200C460CF /* main.m in Sources */,
 				A79C46981B5BF3C100C460CF /* PHAppDelegate.m in Sources */,
 				A7288A3B1CC14DF800EC032B /* PHWeakTimerTarget.m in Sources */,
 				A72ED7B61B6E25940064E35B /* PHPhoenix.m in Sources */,
-				A73C2CA81B9078A30004C663 /* PHCommand.m in Sources */,
 				A73C2CAB1B9088040004C663 /* PHNotificationHelper.m in Sources */,
 				A74133721BB7F556008DAF39 /* PHEventTranslator.m in Sources */,
 				A7E6DF6F1BBAC1F3001920B4 /* PHAccessibilityObserver.m in Sources */,

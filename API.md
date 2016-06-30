@@ -18,8 +18,8 @@ This documentation is an overview of the JavaScript API provided by Phoenix. Use
 11. [KeyHandler](#11-keyhandler)
 12. [EventHandler](#12-eventhandler)
 13. [TimerHandler](#13-timerhandler)
-14. [Modal](#14-modal)
-15. [Command](#15-command)
+14. [TaskHandler](#14-taskhandler)
+15. [Modal](#15-modal)
 16. [Screen](#16-screen)
 17. [Space](#17-space)
 18. [Mouse](#18-mouse)
@@ -60,7 +60,7 @@ var handler = Phoenix.on('screensDidChange', function () {});
 
 As you probably have already noticed that you must keep a reference to your handlers, otherwise your callbacks will not get called. In return, if you release the reference to the handler, it will also be disabled eventually. This gives you full control over the lifecycle of your handlers. This can be especially useful when you want to dynamically create handlers.
 
-Obviously, in most cases you do not want to worry about the lifecycle of your handlers. This is why Phoenix also provides a context where handlers are managed for you. You can use this managed context to set keys, events and timers, but also to disable them. Basically, when you create a handler with this context, the handler is created and its reference is stored within the context. You will get an identifier for the handler which you can use then to disable it. When you disable the handler, the context will take care of releasing the handler for you.
+Obviously, in most cases you do not want to worry about the lifecycle of your handlers. This is why Phoenix also provides a context where handlers are managed for you. You can use this managed context to set keys, events, timers and tasks, but also to disable them. Basically, when you create a handler with this context, the handler is created and its reference is stored within the context. You will get an identifier for the handler which you can use then to disable it. When you disable the handler, the context will take care of releasing the handler for you.
 
 ```java
 class Key
@@ -84,9 +84,16 @@ class Timer
   static void off(int identifier)
 
 end
+
+class Task
+
+  static int run(String path, Array arguments, Function callback)
+  static void off(int identifier)
+
+end
 ```
 
-- `Key.on(...), Event.on(...), Timer.after(...), Timer.every(...)` creates a handler, stores its reference and returns the identifier for the handler, for arguments see [Phoenix](#5-phoenix)
+- `Key.on(...), Event.on(...), Timer.after(...), Timer.every(...), Task.run(...)` creates a handler, stores its reference and returns the identifier for the handler, for arguments see [Phoenix](#5-phoenix)
 - `off(int identifier)` disables the handler with the given identifier and releases its reference
 
 For example, to bind a key to a function.
@@ -222,6 +229,7 @@ class Phoenix
   static EventHandler on(String event, Function callback)
   static TimerHandler after(double interval, Function callback)
   static TimerHandler every(double interval, Function callback)
+  static TaskHandler run(String path, Array arguments, Function callback)
   static void set(Map<String, AnyObject> preferences)
   static void log(String message)
   static void notify(String message)
@@ -234,6 +242,7 @@ end
 - `on(String event, Function callback)` binds an event to a callback function and returns the handler (`undefined` if not supported), you must keep a reference to the handler in order for your callback to get called, you can have multiple handlers for a single event, the callback function receives its handler as the last argument, for any additional arguments see [events](#2-events)
 - `after(double interval, Function callback)` creates a timer that fires the callback once after the given interval (in seconds) and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument
 - `every(double interval, Function callback)` creates a timer that fires the callback repeatedly until stopped using the given interval (in seconds) and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument
+- `run(String path, Array arguments, Function callback)` creates a task that asynchronously executes an absolute path with the given arguments and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument
 - `set(Map<String, AnyObject> preferences)` sets the preferences from the given key–value map, any previously set preferences with the same key will be overridden
 - `log(String message)` logs the message to the Console
 - `notify(String message)` delivers the message to the Notification Center
@@ -362,7 +371,25 @@ end
 
 - `stop()` stops the timer immediately
 
-## 14. Modal
+## 14. TaskHandler
+
+Use the `TaskHandler`-object to access task properties. To terminate a task, release your reference to the handler. TaskHandlers are always reset on context reload. Beware that some task properties are only set after the task has completed.
+
+```java
+class TaskHandler implements Identifiable
+
+  property int status
+  property String output
+  property String error
+
+end
+```
+
+- `status` read-only property for the termination status
+- `output` read-only property for the standard output
+- `error` read-only property for the standard error
+
+## 15. Modal
 
 Use the `Modal`-object to display messages as modal windows.
 
@@ -388,20 +415,6 @@ end
 - `frame()` returns the frame for the modal, the frame is adjusted for the current message, therefor you must first set the message to get an accurate frame
 - `show()` shows the modal
 - `close()` closes the modal
-
-## 15. Command
-
-Use the `Command`-object to run UNIX-commands.
-
-```java
-class Command
-
-  static boolean run(String path, Array arguments)
-
-end
-```
-
-- `run(String path, Array arguments)` executes a UNIX-command in a absolute path with the passed arguments and waits until completion, returns `true` if the execution was successful
 
 ## 16. Screen
 

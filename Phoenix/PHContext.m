@@ -5,7 +5,6 @@
 #import "NSScreen+PHExtension.h"
 #import "PHAccessibilityObserver.h"
 #import "PHApp.h"
-#import "PHCommand.h"
 #import "PHContext.h"
 #import "PHKeyHandler.h"
 #import "PHModalWindowController.h"
@@ -182,7 +181,6 @@
 
     self.context[@"Phoenix"] = [PHPhoenix withDelegate:self];
     self.context[@"Modal"] = [PHModalWindowController class];
-    self.context[@"Command"] = [PHCommand class];
     self.context[@"Screen"] = [NSScreen class];
     self.context[@"Space"] = [PHSpace class];
     self.context[@"Mouse"] = [PHMouse class];

@@ -7,6 +7,7 @@
 #import "PHNotificationHelper.h"
 #import "PHPhoenix.h"
 #import "PHPreferences.h"
+#import "PHTaskHandler.h"
 #import "PHTimerHandler.h"
 
 @interface PHPhoenix ()
@@ -58,6 +59,11 @@
 - (PHTimerHandler *) every:(NSTimeInterval)interval callback:(JSValue *)callback {
 
     return [PHTimerHandler withInterval:interval repeats:YES callback:callback];
+}
+
+- (PHTaskHandler *) run:(NSString *)path arguments:(NSArray<NSString *> *)arguments callback:(JSValue *)callback {
+
+    return [PHTaskHandler withPath:path arguments:arguments callback:callback];
 }
 
 - (void) set:(NSDictionary<NSString *, id> *)preferences {
