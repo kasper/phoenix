@@ -22,7 +22,7 @@
         <h3>New</h3>
 
         <ul>
-          <li>Phoenix can now manage handlers for you. Instead of <code>Phoenix.bind</code>, <code>Phoenix.on</code>, <code>Phoenix.after</code> or <code>Phoenix.every</code> — use <code>Key.on</code>, <code>Event.on</code>, <code>Timer.after</code> and <code>Timer.every</code>. For more, see the <a href='https://github.com/kasper/phoenix/blob/master/API.md#managing-handlers'>API</a> (<a href='https://github.com/kasper/phoenix/issues/107'>#107</a>).</li>
+          <li>Phoenix can now manage handlers for you. Instead of <code>Phoenix.bind</code>, <code>Phoenix.on</code>, <code>Phoenix.after</code> or <code>Phoenix.every</code> — use <code>Key.on</code>, <code>Event.on</code>, <code>Timer.after</code> and <code>Timer.every</code>. For more, see the <a href='https://github.com/kasper/phoenix/blob/2.1.2/API.md#managing-handlers'>API</a> (<a href='https://github.com/kasper/phoenix/issues/107'>#107</a>).</li>
         </ul>
 
         <h3>Improvements</h3>
@@ -57,7 +57,7 @@
       <pubDate>Fri, 29 Apr 2016 17:46:00 +0300</pubDate>
       <description><![CDATA[
 
-        <p>This release includes some minor improvements and bug fixes. For everything in 2.1, see the full <a href='https://github.com/kasper/phoenix/blob/master/CHANGELOG.md#21'>Changelog</a>.</p>
+        <p>This release includes some minor improvements and bug fixes. For everything in 2.1, see the full <a href='https://github.com/kasper/phoenix/blob/2.1.1/CHANGELOG.md#21'>Changelog</a>.</p>
 
         <h3>Improvements</h3>
 
@@ -87,7 +87,7 @@
       <title>Version 2.1</title>
       <pubDate>Mon, 25 Apr 2016 16:07:00 +0300</pubDate>
       <description><![CDATA[
-        <p>This release includes some exiting new features: including support for Spaces, creating timers to achieve delays or timed events and support for running Phoenix completely in the background! We also added some nice additions to the API, made various other improvements and fixed a few annoying bugs. Thanks for using Phoenix and do not hesitate to provide <a href='https://github.com/kasper/phoenix/issues/new/'>feedback</a>! See the full <a href='https://github.com/kasper/phoenix/blob/master/CHANGELOG.md#21'>Changelog</a>.</p>
+        <p>This release includes some exiting new features: including support for Spaces, creating timers to achieve delays or timed events and support for running Phoenix completely in the background! We also added some nice additions to the API, made various other improvements and fixed a few annoying bugs. Thanks for using Phoenix and do not hesitate to provide <a href='https://github.com/kasper/phoenix/issues/new/'>feedback</a>! See the full <a href='https://github.com/kasper/phoenix/blob/2.1/CHANGELOG.md'>Changelog</a>.</p>
       ]]>
       </description>
       <enclosure sparkle:version='19'
@@ -136,7 +136,7 @@
       <title>Version 2.0</title>
       <pubDate>Sat, 28 Nov 2015 00:14:00 +0200</pubDate>
       <description><![CDATA[
-        <p>Phoenix 2.0 is out! The entire app has been rewritten from the ground up. I would like to express my gratitude to everyone who participated in the process by testing the app and making contributions to the project. Thank you! See the full <a href='https://github.com/kasper/phoenix/blob/master/CHANGELOG.md#20'>Changelog</a>.</p>
+        <p>Phoenix 2.0 is out! The entire app has been rewritten from the ground up. I would like to express my gratitude to everyone who participated in the process by testing the app and making contributions to the project. Thank you! See the full <a href='https://github.com/kasper/phoenix/blob/2.0/CHANGELOG.md'>Changelog</a>.</p>
       ]]>
       </description>
       <enclosure sparkle:version='14'

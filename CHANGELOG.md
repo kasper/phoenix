@@ -8,7 +8,7 @@ Release: dd.mm.yyyy
 
 ### New
 
-- You can now run tasks asynchronously and retrieve their status, standard output and standard error. A new `TaskHandler`-object has been created to access task properties, see its [API](API.md#14-taskhandler). See the function `Phoenix.run(String path, Array arguments, Function callback)` in the [API](API.md#5-phoenix) to create tasks ([#98](https://github.com/kasper/phoenix/issues/98)).
+- You can now run tasks asynchronously and retrieve their status, standard output and standard error. A new `TaskHandler`-object has been created to access task properties, see its [API](https://github.com/kasper/phoenix/blob/2.2/API.md#14-taskhandler). See the function `Phoenix.run(String path, Array arguments, Function callback)` in the [API](https://github.com/kasper/phoenix/blob/2.2/API.md#5-phoenix) to create tasks ([#98](https://github.com/kasper/phoenix/issues/98)).
 - A new global `Task`-object has been created to manage task handlers ([#98](https://github.com/kasper/phoenix/issues/98)).
 
 ### Changes
@@ -24,7 +24,7 @@ Release: dd.mm.yyyy
 
 #### Command
 
-- Deprecation: Global `Command`-object has been removed, use `Task` instead as a direct replacement. See the [API](API.md#managing-handlers) ([#98](https://github.com/kasper/phoenix/issues/98)).
+- Deprecation: Global `Command`-object has been removed, use `Task` instead as a direct replacement. See the [API](https://github.com/kasper/phoenix/blob/2.2/API.md#managing-handlers) ([#98](https://github.com/kasper/phoenix/issues/98)).
 
 2.1.2
 -----
@@ -33,7 +33,7 @@ Release: 27.6.2016
 
 ### New
 
-- Phoenix can now manage handlers for you. Instead of `Phoenix.bind`, `Phoenix.on`, `Phoenix.after` or `Phoenix.every` — use `Key.on`, `Event.on`, `Timer.after` and `Timer.every`. For more, see the [API](API.md#managing-handlers) ([#107](https://github.com/kasper/phoenix/issues/107)).
+- Phoenix can now manage handlers for you. Instead of `Phoenix.bind`, `Phoenix.on`, `Phoenix.after` or `Phoenix.every` — use `Key.on`, `Event.on`, `Timer.after` and `Timer.every`. For more, see the [API](https://github.com/kasper/phoenix/blob/2.1.2/API.md#managing-handlers) ([#107](https://github.com/kasper/phoenix/issues/107)).
 
 ### Improvements
 
@@ -66,10 +66,10 @@ Release: 25.4.2016
 
 ### New
 
-- Phoenix now supports Spaces! *These features are only supported on El Capitan (10.11) and upwards.* A new global `Space`-object has been created to control spaces, see the [API](API.md#17-space) ([#60](https://github.com/kasper/phoenix/issues/60)).
+- Phoenix now supports Spaces! *These features are only supported on El Capitan (10.11) and upwards.* A new global `Space`-object has been created to control spaces, see the [API](https://github.com/kasper/phoenix/blob/2.1/API.md#17-space) ([#60](https://github.com/kasper/phoenix/issues/60)).
 - Preferences can now be set programmatically through the API ([#67](https://github.com/kasper/phoenix/issues/67)).
-- Phoenix can be run completely in the background, this also removes the status bar menu, see the `daemon`-preference in the [API](API.md#3-preferences) ([#68](https://github.com/kasper/phoenix/issues/68)).
-- You can now create timers to achieve delays and timed events. A new `TimerHandler`-object has been created to control timers, see its [API](API.md#13-timerhandler). See the functions `Phoenix.after(double interval, Function callback)` and `Phoenix.every(double interval, Function callback)` in the [API](API.md#5-phoenix) to create timers ([#77](https://github.com/kasper/phoenix/issues/77)).
+- Phoenix can be run completely in the background, this also removes the status bar menu, see the `daemon`-preference in the [API](https://github.com/kasper/phoenix/blob/2.1/API.md#3-preferences) ([#68](https://github.com/kasper/phoenix/issues/68)).
+- You can now create timers to achieve delays and timed events. A new `TimerHandler`-object has been created to control timers, see its [API](https://github.com/kasper/phoenix/blob/2.1/API.md#13-timerhandler). See the functions `Phoenix.after(double interval, Function callback)` and `Phoenix.every(double interval, Function callback)` in the [API](https://github.com/kasper/phoenix/blob/2.1/API.md#5-phoenix) to create timers ([#77](https://github.com/kasper/phoenix/issues/77)).
 
 ### Changes
 
@@ -134,8 +134,8 @@ Release: 28.11.2015
 
 ### New
 
-- Phoenix now supports events! See the [API](API.md#2-events). To bind an event to a callback function, you call the `on`-function for the `Phoenix`-object.
-- You may now use JavaScript [preprocessing](API.md#preprocessing) and languages such as CoffeeScript to write your Phoenix-configuration ([#45](https://github.com/kasper/phoenix/pull/45)). Thanks [@shayne](https://github.com/shayne/)!
+- Phoenix now supports events! See the [API](https://github.com/kasper/phoenix/blob/2.0/API.md#2-events). To bind an event to a callback function, you call the `on`-function for the `Phoenix`-object.
+- You may now use JavaScript [preprocessing](https://github.com/kasper/phoenix/blob/2.0/API.md#preprocessing) and languages such as CoffeeScript to write your Phoenix-configuration ([#45](https://github.com/kasper/phoenix/pull/45)). Thanks [@shayne](https://github.com/shayne/)!
 - Updates are now delivered and installed through Sparkle ([#50](https://github.com/kasper/phoenix/issues/50)).
 - Phoenix now supports additional configuration locations. In addition to `~/.phoenix.js`, you may also use `~/Library/Application Support/Phoenix/phoenix.js` or `~/.config/phoenix/phoenix.js` if you prefer to do so ([#52](https://github.com/kasper/phoenix/issues/52)).
 
@@ -146,10 +146,10 @@ Release: 28.11.2015
 - Underscore.js is upgraded to 1.8.3 (from 1.5.2). This may change existing behaviour related to Underscore.
 - Global `api`-object is now called `Phoenix`.
 - Global `MousePosition`-object is now called `Mouse`.
-- `Hotkey`-object is now called `KeyHandler` and its properties have changed. See the [API](API.md#11-keyhandler).
-- The concept of `Alerts` has been deprecated. A new global `Modal`-object has been created to display messages as modals. See the [API](API.md#15-modal).
-- A new `EventHandler`-object has been created to handle events. See the [API](API.md#12-eventhandler).
-- A new global `Command`-object has been created to run UNIX-commands. See the [API](API.md#15-command).
+- `Hotkey`-object is now called `KeyHandler` and its properties have changed. See the [API](https://github.com/kasper/phoenix/blob/2.0/API.md#9-keyhandler).
+- The concept of `Alerts` has been deprecated. A new global `Modal`-object has been created to display messages as modals. See the [API](https://github.com/kasper/phoenix/blob/2.0/API.md#11-modal).
+- A new `EventHandler`-object has been created to handle events. See the [API](https://github.com/kasper/phoenix/blob/2.0/API.md#10-eventhandler).
+- A new global `Command`-object has been created to run UNIX-commands. See the [API](https://github.com/kasper/phoenix/blob/2.0/API.md#12-command).
 
 ### Improvements
 
@@ -179,7 +179,7 @@ Release: 28.11.2015
 
 - New: KeyHandler now implements `Identifiable`.
 - Change: *You must now keep a reference to the handler*, otherwise your callback will not get called.
-- Change: Special keys are now camelCased (case sensitive) instead of underscored. See changed [keys](API.md#special-keys).
+- Change: Special keys are now camelCased (case sensitive) instead of underscored. See changed [keys](https://github.com/kasper/phoenix/blob/2.0/API.md#special-keys).
 - Change: Keys for keypad are now prefix with `keypad` instead of `pad`.
 
 #### Screen
