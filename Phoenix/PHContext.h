@@ -3,19 +3,12 @@
  */
 
 @import Foundation;
-@import JavaScriptCore;
-
-@class PHKeyHandler;
 
 @protocol PHContextDelegate <NSObject>
 
 #pragma mark - Loading
 
 - (void) load;
-
-#pragma mark - Binding Keys
-
-- (PHKeyHandler *) bindKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers callback:(JSValue *)callback;
 
 @end
 

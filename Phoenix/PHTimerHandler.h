@@ -10,6 +10,10 @@
 
 @protocol PHTimerHandlerJSExport <JSExport, PHIdentifiableJSExport>
 
+#pragma mark Constructor
+
+- (instancetype) initWithInterval:(NSTimeInterval)interval repeats:(BOOL)repeats callback:(JSValue *)callback;
+
 #pragma mark Timing
 
 - (void) stop;
@@ -23,7 +27,5 @@
 - (instancetype) initWithInterval:(NSTimeInterval)interval
                           repeats:(BOOL)repeats
                          callback:(JSValue *)callback NS_DESIGNATED_INITIALIZER;
-
-+ (instancetype) withInterval:(NSTimeInterval)interval repeats:(BOOL)repeats callback:(JSValue *)callback;
 
 @end

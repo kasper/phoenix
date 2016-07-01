@@ -16,6 +16,10 @@
 @property (readonly) NSString *output;
 @property (readonly) NSString *error;
 
+#pragma mark Constructor
+
+- (instancetype) initWithPath:(NSString *)path arguments:(NSArray<NSString *> *)arguments callback:(JSValue *)callback;
+
 @end
 
 @interface PHTaskHandler : PHHandler <PHTaskHandlerJSExport>
@@ -25,7 +29,5 @@
 - (instancetype) initWithPath:(NSString *)path
                    arguments:(NSArray<NSString *> *)arguments
                     callback:(JSValue *)callback NS_DESIGNATED_INITIALIZER;
-
-+ (instancetype) withPath:(NSString *)path arguments:(NSArray<NSString *> *)arguments callback:(JSValue *)callback;
 
 @end

@@ -19,7 +19,9 @@
   "unused": true,
   "validthis": true,
   "globals": {
-    "Phoenix": true,
+    "Event": true,
+    "Key": true,
+    "Task": true,
     "Timer": true
   }
 }

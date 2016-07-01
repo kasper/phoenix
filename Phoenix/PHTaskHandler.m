@@ -44,11 +44,6 @@
     return self;
 }
 
-+ (instancetype) withPath:(NSString *)path arguments:(NSArray<NSString *> *)arguments callback:(JSValue *)callback {
-
-    return [[self alloc] initWithPath:path arguments:arguments callback:callback];
-}
-
 #pragma mark - Setup
 
 - (void) setupReadabilityHandlers {

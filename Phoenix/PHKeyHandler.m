@@ -26,6 +26,7 @@ static FourCharCode const PHKeyHandlerSignature = 'FNIX';
 static UInt32 PHKeyHandlerIdentifierSequence;
 
 static NSString * const PHKeyHandlerIdentifier = @"PHKeyHandlerIdentifier";
+static NSString * const PHKeyHandlerWillEnableNotification = @"PHKeyHandlerWillEnableNotification";
 static NSString * const PHKeyHandlerKeyDownNotification = @"PHKeyHandlerKeyDownNotification";
 
 #pragma mark - CarbonEventCallback
@@ -91,7 +92,12 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
 
         self.identifier = PHKeyHandlerIdentifierSequence++;
 
-        // Observe key down events
+        // Observe key enable event
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(willEnable:)
+                                                     name:PHKeyHandlerWillEnableNotification
+                                                   object:nil];
+        // Observe key down event
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(keyDown:)
                                                      name:PHKeyHandlerKeyDownNotification
@@ -102,26 +108,22 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
     return self;
 }
 
-+ (instancetype) withKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers callback:(JSValue *)callback {
-
-    return [[self alloc] initWithKey:key modifiers:modifiers callback:callback];
-}
-
 #pragma mark - Dealloc
 
 - (void) dealloc {
 
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:PHKeyHandlerWillEnableNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:PHKeyHandlerKeyDownNotification object:nil];
     [self disable];
 }
 
 #pragma mark - Hash
 
-+ (NSUInteger) hashForKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers {
+- (NSUInteger) hashForKeyCombination {
 
-    NSUInteger hash = key.hash;
+    NSUInteger hash = self.key.hash;
 
-    for (NSString *modifier in modifiers) {
+    for (NSString *modifier in self.modifiers) {
         hash += modifier.hash;
     }
 
@@ -141,6 +143,8 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
     if ([self isEnabled]) {
         return YES;
     }
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:PHKeyHandlerWillEnableNotification object:self];
 
     EventHotKeyID identifier = { .signature = PHKeyHandlerSignature, .id = self.identifier };
     OSStatus error = RegisterEventHotKey(self.keyCode,
@@ -178,7 +182,15 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
     return YES;
 }
 
-#pragma mark - Notification
+#pragma mark - Notifications
+
+- (void) willEnable:(NSNotification *)notification {
+
+    // Yield for other key handler
+    if ([self hashForKeyCombination] == [notification.object hashForKeyCombination]) {
+        [self disable];
+    }
+}
 
 - (void) keyDown:(NSNotification *)notification {
 

@@ -31,11 +31,6 @@
     return self;
 }
 
-+ (instancetype) withInterval:(NSTimeInterval)interval repeats:(BOOL)repeats callback:(JSValue *)callback {
-
-    return [[self alloc] initWithInterval:interval repeats:repeats callback:callback];
-}
-
 #pragma mark - Timing
 
 - (void) timerDidFire {

@@ -15,10 +15,10 @@ This documentation is an overview of the JavaScript API provided by Phoenix. Use
 8. [Rectangle](#8-rectangle)
 9. [Identifiable](#9-identifiable)
 10. [Iterable](#10-iterable)
-11. [KeyHandler](#11-keyhandler)
-12. [EventHandler](#12-eventhandler)
-13. [TimerHandler](#13-timerhandler)
-14. [TaskHandler](#14-taskhandler)
+11. [Key](#11-key)
+12. [Event](#12-event)
+13. [Timer](#13-timer)
+14. [Task](#14-task)
 15. [Modal](#15-modal)
 16. [Screen](#16-screen)
 17. [Space](#17-space)
@@ -28,12 +28,12 @@ This documentation is an overview of the JavaScript API provided by Phoenix. Use
 
 ## Getting Started
 
-This documentation uses *pseudocode* to outline the API. Many of the classes represent global objects in the script’s context — functions that are marked as static can be accessed through these global objects. All other functions are instance functions. Instance objects can be accessed through the global objects.
+This documentation uses *pseudocode* to outline the API. Many of the classes represent global objects in the script’s context — functions that are marked as static can be accessed through these global objects. All other functions are instance functions. Instance objects can be accessed through the global objects or constructed with relevant constructors.
 
-For example, to bind a key to a function, you call the `bind`-function for the `Phoenix`-object. Notice that *you must keep a reference to the handler*, otherwise your callback will not get called.
+For example, to bind a key to a function, you construct a `Key`-object. Notice that *you must keep a reference to the handler*, otherwise your callback will not get called.
 
 ```javascript
-var handler = Phoenix.bind('q', [ 'ctrl', 'shift' ], function () {});
+var handler = new Key('q', [ 'ctrl', 'shift' ], function () {});
 ```
 
 To move the focused window to a new coordinate, you can call the `setTopLeft`-function for a `Window`-instance. To get a `Window`-instance, you can for example get the focused window with the `focusedWindow`-function for the global `Window`-object.
@@ -45,56 +45,22 @@ Window.focusedWindow().setTopLeft({ x: 0, y: 0 });
 To combine, bind a key to move the focused window.
 
 ```javascript
-var handler = Phoenix.bind('q', [ 'ctrl', 'shift' ], function () {
+var handler = new Key('q', [ 'ctrl', 'shift' ], function () {
   Window.focusedWindow().setTopLeft({ x: 0, y: 0 });
 });
 ```
 
-As an other example, to bind an event to a function, you call the `on`-function for the `Phoenix`-object. Again notice that *you must keep a reference to the handler*, otherwise your callback will not get called.
+As an other example, to bind an event to a function, you construct an `Event`-object. Again notice that *you must keep a reference to the handler*, otherwise your callback will not get called.
 
 ```javascript
-var handler = Phoenix.on('screensDidChange', function () {});
+var handler = new Event('screensDidChange', function () {});
 ```
 
 ## Managing Handlers
 
 As you probably have already noticed that you must keep a reference to your handlers, otherwise your callbacks will not get called. In return, if you release the reference to the handler, it will also be disabled eventually. This gives you full control over the lifecycle of your handlers. This can be especially useful when you want to dynamically create handlers.
 
-Obviously, in most cases you do not want to worry about the lifecycle of your handlers. This is why Phoenix also provides a context where handlers are managed for you. You can use this managed context to set keys, events, timers and tasks, but also to disable them. Basically, when you create a handler with this context, the handler is created and its reference is stored within the context. You will get an identifier for the handler which you can use then to disable it. When you disable the handler, the context will take care of releasing the handler for you.
-
-```java
-class Key
-
-  static int on(String key, Array<String> modifiers, Function callback)
-  static void off(int identifier)
-
-end
-
-class Event
-
-  static int on(String event, Function callback)
-  static void off(int identifier)
-
-end
-
-class Timer
-
-  static int after(double interval, Function callback)
-  static int every(double interval, Function callback)
-  static void off(int identifier)
-
-end
-
-class Task
-
-  static int run(String path, Array arguments, Function callback)
-  static void off(int identifier)
-
-end
-```
-
-- `Key.on(...), Event.on(...), Timer.after(...), Timer.every(...), Task.run(...)` creates a handler, stores its reference and returns the identifier for the handler, for arguments see [Phoenix](#5-phoenix)
-- `off(int identifier)` disables the handler with the given identifier and releases its reference
+Obviously, in most cases you do not want to worry about the lifecycle of your handlers. This is why Phoenix also provides managed handlers that are held for you. You can use these managed handlers to set keys, events, timers and tasks, but also to disable them. Basically, when you create a managed handler, the handler is constructed and its reference is stored. You will get an identifier for the handler which you can use then to disable it. When you disable the handler, Phoenix will take care of releasing it for you.
 
 For example, to bind a key to a function.
 
@@ -102,7 +68,7 @@ For example, to bind a key to a function.
 Key.on('q', [ 'ctrl', 'shift' ], function () {});
 ```
 
-To disable a handler.
+You can disable the handler with its identifier.
 
 ```javascript
 var identifier = Key.on('q', [ 'ctrl', 'shift' ], function () {});
@@ -225,11 +191,6 @@ Use the `Phoenix`-object for API-level tasks.
 class Phoenix
 
   static void reload()
-  static KeyHandler bind(String key, Array<String> modifiers, Function callback)
-  static EventHandler on(String event, Function callback)
-  static TimerHandler after(double interval, Function callback)
-  static TimerHandler every(double interval, Function callback)
-  static TaskHandler run(String path, Array arguments, Function callback)
   static void set(Map<String, AnyObject> preferences)
   static void log(String message)
   static void notify(String message)
@@ -238,11 +199,6 @@ end
 ```
 
 - `reload()` manually reloads the context and any changes in the configuration files
-- `bind(String key, Array<String> modifiers, Function callback)` binds the key character with the specified modifiers (can be an empty list) to a callback function and returns the handler (`undefined` if not supported), you must keep a reference to the handler in order for your callback to get called, you can have multiple handlers for a single key combination, however only one can be enabled at a time, the callback function receives its handler as the only argument
-- `on(String event, Function callback)` binds an event to a callback function and returns the handler (`undefined` if not supported), you must keep a reference to the handler in order for your callback to get called, you can have multiple handlers for a single event, the callback function receives its handler as the last argument, for any additional arguments see [events](#2-events)
-- `after(double interval, Function callback)` creates a timer that fires the callback once after the given interval (in seconds) and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument
-- `every(double interval, Function callback)` creates a timer that fires the callback repeatedly until stopped using the given interval (in seconds) and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument
-- `run(String path, Array arguments, Function callback)` creates a task that asynchronously executes an absolute path with the given arguments and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument
 - `set(Map<String, AnyObject> preferences)` sets the preferences from the given key–value map, any previously set preferences with the same key will be overridden
 - `log(String message)` logs the message to the Console
 - `notify(String message)` delivers the message to the Notification Center
@@ -320,16 +276,20 @@ end
 - `next()` returns the next object or the first object when on the last one
 - `previous()` returns the previous object or the last object when on the first one
 
-## 11. KeyHandler
+## 11. Key
 
-Use the `KeyHandler`-object to enable or disable keys. You can have multiple handlers for a single key combination, however only one can be enabled at a time. A key is eventually disabled automatically when you release your reference to the handler. KeyHandlers are always reset on context reload. Enabling a key combination that has been exclusively registered by another app will fail.
+Use the `Key`-object to enable or disable keys. You can have multiple handlers for a single key combination, however only one can be enabled at a time. A key is disabled automatically when you release your reference to the handler. Keys are always reset on context reload. Enabling a key combination that has been exclusively registered by another app will fail.
 
 ```java
-class KeyHandler implements Identifiable
+class Key implements Identifiable
+
+  static int on(String key, Array<String> modifiers, Function callback)
+  static void off(int identifier)
 
   property String key
   property Array<String> modifiers
 
+  constructor Key Key(String key, Array<String> modifiers, Function callback)
   boolean isEnabled()
   boolean enable()
   boolean disable()
@@ -337,57 +297,85 @@ class KeyHandler implements Identifiable
 end
 ```
 
+- `on(String key, Array<String> modifiers, Function callback)` constructs a managed handler for a key and returns the identifier for the handler, for arguments see `new Key(...)`
+- `off(int identifier)` disables the managed handler for a key with the given identifier
 - `key` read-only property for the key character in lower case or case sensitive special key
 - `modifiers` read-only property for the key modifiers in lower case
+- `new Key(String key, Array<String> modifiers, Function callback)` constructs and binds the key character with the specified modifiers (can be an empty list) to a callback function and returns the handler (`undefined` if not supported), you must keep a reference to the handler in order for your callback to get called, you can have multiple handlers for a single key combination, however only one can be enabled at a time, any previous handler for the same key combination will automatically be disabled, the callback function receives its handler as the only argument
 - `isEnabled()` returns `true` if the key handler is enabled, by default `true`
-- `enable()` enables the key handler, returns `true` if successful
+- `enable()` enables the key handler, any previous handler for the same key combination will automatically be disabled, returns `true` if successful
 - `disable()` disables the key handler, returns `true` if successful
 
-## 12. EventHandler
+## 12. Event
 
-Use the `EventHandler`-object to access event properties. You can have multiple handlers for a single event. To disable an event, release your reference to the handler. EventHandlers are always reset on context reload.
+Use the `Event`-object to access event properties. You can have multiple handlers for a single event. To disable an event, release your reference to the handler. Events are always reset on context reload.
 
 ```java
-class EventHandler implements Identifiable
+class Event implements Identifiable
+
+  static int on(String event, Function callback)
+  static void off(int identifier)
 
   property String name
+
+  constructor Event Event(String event, Function callback)
 
 end
 ```
 
+- `on(String event, Function callback)` constructs a managed handler for an event and returns the identifier for the handler, for arguments see `new Event(...)`
+- `off(int identifier)` disables the managed handler for an event with the given identifier
 - `name` read-only property for the event name
+- `new Event(String event, Function callback)` constructs and binds an event to a callback function and returns the handler (`undefined` if not supported), you must keep a reference to the handler in order for your callback to get called, you can have multiple handlers for a single event, the callback function receives its handler as the last argument, for any additional arguments see [events](#2-events)
 
-## 13. TimerHandler
+## 13. Timer
 
-Use the `TimerHandler`-object to control timers. A timer can fire only once or be repeating. To release a timer, release your reference to the handler. TimerHandlers are always reset on context reload.
+Use the `Timer`-object to control timers. A timer can fire only once or be repeating. To release a timer, release your reference to the handler. Timers are always reset on context reload.
 
 ```java
-class TimerHandler implements Identifiable
+class Timer implements Identifiable
 
+  static int after(double interval, Function callback)
+  static int every(double interval, Function callback)
+  static void off(int identifier)
+
+  constructor Timer Timer(double interval, boolean repeats, Function callback)
   void stop()
 
 end
 ```
 
+- `after(double interval, Function callback)` constructs a managed handler for a timer that fires only once and returns the identifier for the handler, for arguments see `new Timer(...)`
+- `every(double interval, Function callback)` constructs a managed handler for a timer that fires repeatedly and returns the identifier for the handler, for arguments see `new Timer(...)`
+- `off(int identifier)` disables the managed handler for a timer with the given identifier
+- `new Timer(double interval, boolean repeats, Function callback)` constructs a timer that fires the callback once or repeatedly until stopped with the given interval (in seconds) and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument
 - `stop()` stops the timer immediately
 
-## 14. TaskHandler
+## 14. Task
 
-Use the `TaskHandler`-object to access task properties. To terminate a task, release your reference to the handler. TaskHandlers are always reset on context reload. Beware that some task properties are only set after the task has completed.
+Use the `Task`-object to access task properties. To terminate a task, release your reference to the handler. Tasks are always reset on context reload. Beware that some task properties are only set after the task has completed.
 
 ```java
-class TaskHandler implements Identifiable
+class Task implements Identifiable
+
+  static int run(String path, Array arguments, Function callback)
+  static void terminate(int identifier)
 
   property int status
   property String output
   property String error
 
+  constructor Task Task(String path, Array arguments, Function callback)
+
 end
 ```
 
+- `run(String path, Array arguments, Function callback)` constructs a managed handler for a task and returns the identifier for the handler, for arguments see `new Task(...)`
+- `terminate(int identifier)` terminates the managed handler for a task with the given identifier
 - `status` read-only property for the termination status
 - `output` read-only property for the standard output
 - `error` read-only property for the standard error
+- `new Task(String path, Array arguments, Function callback)` constructs a task that asynchronously executes an absolute path with the given arguments and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument
 
 ## 15. Modal
 
@@ -411,7 +399,7 @@ end
 - `origin` property for the origin for the modal, the enclosed properties are read-only so you must pass an object for this property, by default `(0, 0)`
 - `duration` property for the duration (in seconds) for the modal, if the duration is set to `0` the modal will remain open until closed, by default `0`
 - `message` property for the message for the modal, required for the modal to be displayed
-- `new Modal()` initialises and returns a new modal
+- `new Modal()` constructs and returns a new modal
 - `frame()` returns the frame for the modal, the frame is adjusted for the current message, therefor you must first set the message to get an accurate frame
 - `show()` shows the modal
 - `close()` closes the modal

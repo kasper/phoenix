@@ -14,6 +14,10 @@
 
 @property (readonly) NSString *name;
 
+#pragma mark Constructor
+
+- (instancetype) initWithEvent:(NSString *)event callback:(JSValue *)callback;
+
 @end
 
 @interface PHEventHandler : PHHandler <PHEventHandlerJSExport>
@@ -21,6 +25,5 @@
 #pragma mark - Initialise
 
 - (instancetype) initWithEvent:(NSString *)event callback:(JSValue *)callback NS_DESIGNATED_INITIALIZER;
-+ (instancetype) withEvent:(NSString *)event callback:(JSValue *)callback;
 
 @end

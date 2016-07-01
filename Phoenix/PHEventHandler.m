@@ -47,11 +47,6 @@
     return self;
 }
 
-+ (instancetype) withEvent:(NSString *)event callback:(JSValue *)callback {
-
-    return [[self alloc] initWithEvent:event callback:callback];
-}
-
 #pragma mark - Dealloc
 
 - (void) dealloc {

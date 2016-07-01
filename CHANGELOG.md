@@ -8,23 +8,30 @@ Release: dd.mm.yyyy
 
 ### New
 
-- You can now run tasks asynchronously and retrieve their status, standard output and standard error. A new `TaskHandler`-object has been created to access task properties, see its [API](https://github.com/kasper/phoenix/blob/2.2/API.md#14-taskhandler). See the function `Phoenix.run(String path, Array arguments, Function callback)` in the [API](https://github.com/kasper/phoenix/blob/2.2/API.md#5-phoenix) to create tasks ([#98](https://github.com/kasper/phoenix/issues/98)).
-- A new global `Task`-object has been created to manage task handlers ([#98](https://github.com/kasper/phoenix/issues/98)).
+- You can now run tasks asynchronously and retrieve their status, standard output and standard error. A new `Task`-object has been created to access task properties, see its [API](https://github.com/kasper/phoenix/blob/2.2/API.md#14-task) ([#98](https://github.com/kasper/phoenix/issues/98)).
+- Keys, events and timers are now constructed with relevant constructors instead of creating them through the global `Phoenix`-object ([#109](https://github.com/kasper/phoenix/issues/109)).
 
 ### Changes
 
-- Breaking: You can now have multiple `KeyHandler`s for a single key combination. However, only one can be enabled at a time ([#99](https://github.com/kasper/phoenix/issues/99)).
+- Breaking: You can now have multiple `Key`s for a single key combination. However, only one can be enabled at a time. Previously binding would only change the callback for an existing handler if a previously bound key combination was used again. Now, binding a key combination will always return a new unique handler. As before, this new handler is always enabled by default. Subsequently, any previous handler for the key combination will therefor be automatically disabled ([#99](https://github.com/kasper/phoenix/issues/99)).
+- Breaking: `KeyHandler` has been renamed to `Key`, `EventHandler` to `Event` and `TimerHandler` to `Timer` ([#109](https://github.com/kasper/phoenix/issues/109)).
 
 ### API
 
 #### Phoenix
 
-- New: Function `run(String path, Array arguments, Function callback)` creates a task that asynchronously executes an absolute path with the given arguments and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument ([#98](https://github.com/kasper/phoenix/issues/98)).
-- Change: Function `bind(String key, Array<String> modifiers, Function callback)` previously would only change the callback for an existing handler if a previously bound key combination was used again. Now, binding a key combination will always return a new unique handler. As before, this new handler is always enabled by default. Subsequently, any previous handler for the key combination will therefor be automatically disabled ([#99](https://github.com/kasper/phoenix/issues/99)).
+- Deprecation: Function `bind(String key, Array<String> modifiers, Function callback)` has been removed, use constructor `new Key(String key, Array<String> modifiers, Function callback)` instead ([#109](https://github.com/kasper/phoenix/issues/109)).
+- Deprecation: Function `on(String event, Function callback)` has been removed, use constructor `new Event(String event, Function callback)` instead ([#109](https://github.com/kasper/phoenix/issues/109)).
+- Deprecation: Function `after(double interval, Function callback)` has been removed, use constructor `new Timer(double interval, boolean repeats, Function callback)` instead ([#109](https://github.com/kasper/phoenix/issues/109)).
+- Deprecation: Function `every(double interval, Function callback)` has been removed, use constructor `new Timer(double interval, boolean repeats, Function callback)` instead ([#109](https://github.com/kasper/phoenix/issues/109)).
+
+#### Key
+
+- Change: Function `enable()` will disable any previous handler for the same key combination automatically ([#99](https://github.com/kasper/phoenix/issues/99)).
 
 #### Command
 
-- Deprecation: Global `Command`-object has been removed, use `Task` instead as a direct replacement. See the [API](https://github.com/kasper/phoenix/blob/2.2/API.md#managing-handlers) ([#98](https://github.com/kasper/phoenix/issues/98)).
+- Deprecation: Global `Command`-object has been removed, use `Task` instead as a direct replacement. See the [API](https://github.com/kasper/phoenix/blob/2.2/API.md#14-task) ([#98](https://github.com/kasper/phoenix/issues/98)).
 
 2.1.2
 -----

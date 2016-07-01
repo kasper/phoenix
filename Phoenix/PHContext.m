@@ -6,6 +6,7 @@
 #import "PHAccessibilityObserver.h"
 #import "PHApp.h"
 #import "PHContext.h"
+#import "PHEventHandler.h"
 #import "PHKeyHandler.h"
 #import "PHModalWindowController.h"
 #import "PHMouse.h"
@@ -15,6 +16,8 @@
 #import "PHPreferences.h"
 #import "PHShebangPreprocessor.h"
 #import "PHSpace.h"
+#import "PHTaskHandler.h"
+#import "PHTimerHandler.h"
 #import "PHWindow.h"
 
 @interface PHContext ()
@@ -24,7 +27,6 @@
 @property NSMutableSet<NSString *> *configurationPaths;
 @property PHPathWatcher *watcher;
 @property PHAccessibilityObserver *observer;
-@property NSMutableDictionary<NSNumber *, NSHashTable<PHKeyHandler *> *> *keyHandlers;
 
 @end
 
@@ -38,7 +40,6 @@
         self.primaryConfigurationPath = [self resolvePrimaryConfigurationPath];
         self.configurationPaths = [NSMutableSet set];
         self.observer = [PHAccessibilityObserver observer];
-        self.keyHandlers = [NSMutableDictionary dictionary];
     }
 
     return self;
@@ -68,16 +69,6 @@
 
         [weakSelf performSelector:@selector(load) withObject:nil afterDelay:0.5];
     }];
-}
-
-- (void) resetKeyHandlers {
-
-    // Disable key handlers immediately to ensure that keys are unregistered before setting up a new context
-    for (NSHashTable<PHKeyHandler *> *handlersForKey in self.keyHandlers.allValues) {
-        [handlersForKey.allObjects makeObjectsPerformSelector:@selector(disable)];
-    }
-
-    [self.keyHandlers removeAllObjects];
 }
 
 #pragma mark - Setup
@@ -180,6 +171,10 @@
     PHContext * __weak weakSelf = self;
 
     self.context[@"Phoenix"] = [PHPhoenix withDelegate:self];
+    self.context[@"Key"] = [PHKeyHandler class];
+    self.context[@"Event"] = [PHEventHandler class];
+    self.context[@"Timer"] = [PHTimerHandler class];
+    self.context[@"Task"] = [PHTaskHandler class];
     self.context[@"Modal"] = [PHModalWindowController class];
     self.context[@"Screen"] = [NSScreen class];
     self.context[@"Space"] = [PHSpace class];
@@ -222,7 +217,6 @@
 
     [[PHPreferences sharedPreferences] reset];
     [self resetConfigurationPaths];
-    [self resetKeyHandlers];
 
     // No configuration file found, create one for the user
     if (![[NSFileManager defaultManager] fileExistsAtPath:self.primaryConfigurationPath]) {
@@ -233,36 +227,6 @@
     [self resetWatcher];
 
     NSLog(@"Context loaded.");
-}
-
-#pragma mark - Binding Keys
-
-- (PHKeyHandler *) bindKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers callback:(JSValue *)callback {
-
-    NSNumber *hashForKey = @([PHKeyHandler hashForKey:key modifiers:modifiers]);
-    NSHashTable<PHKeyHandler *> *handlersForKey = self.keyHandlers[hashForKey];
-
-    // Disable previous handlers for key
-    if (handlersForKey) {
-        [handlersForKey.allObjects makeObjectsPerformSelector:@selector(disable)];
-    }
-
-    // Bind new key
-    PHKeyHandler *keyHandler = [PHKeyHandler withKey:key modifiers:modifiers callback:callback];
-
-    // Key not supported
-    if (!keyHandler) {
-        return nil;
-    }
-
-    // First handler for key, create set
-    if (!handlersForKey) {
-        handlersForKey = [NSHashTable weakObjectsHashTable];
-        self.keyHandlers[hashForKey] = handlersForKey;
-    }
-
-    [handlersForKey addObject:keyHandler];
-    return keyHandler;
 }
 
 @end

@@ -15,7 +15,11 @@
 @property (readonly) NSString *key;
 @property (readonly) NSArray<NSString *> *modifiers;
 
-#pragma mark - Binding
+#pragma mark Constructor
+
+- (instancetype) initWithKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers callback:(JSValue *)callback;
+
+#pragma mark Binding
 
 - (BOOL) isEnabled;
 - (BOOL) enable;
@@ -30,11 +34,5 @@
 - (instancetype) initWithKey:(NSString *)key
                    modifiers:(NSArray<NSString *> *)modifiers
                     callback:(JSValue *)callback NS_DESIGNATED_INITIALIZER;
-
-+ (instancetype) withKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers callback:(JSValue *)callback;
-
-#pragma mark - Hash
-
-+ (NSUInteger) hashForKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers;
 
 @end
