@@ -64,8 +64,7 @@
 
     NSURL *appUrl = [NSBundle mainBundle].bundleURL;
 
-    /* Add item */
-
+    // Add item
     if (opensAtLogin) {
 
         CFBridgingRelease(LSSharedFileListInsertItemURL([self sharedFileList],
@@ -78,8 +77,7 @@
         return;
     }
 
-    /* Remove item */
-
+    // Remove item
     id fileItem = [self fileItem];
     OSStatus error = LSSharedFileListItemRemove([self sharedFileList], (__bridge LSSharedFileListItemRef) fileItem);
 

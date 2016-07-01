@@ -26,7 +26,6 @@
 + (NSString *) outputFromLaunchedTaskWithEnvironment:(NSDictionary<NSString *, NSString *> *)environment
                                            arguments:(NSArray<NSString *> *)arguments
                                                error:(NSError **)error {
-    /* Launch task */
 
     NSTask *task = [[NSTask alloc] init];
     NSPipe *standardOutput = [NSPipe pipe];
@@ -41,12 +40,10 @@
     [task launch];
     [task waitUntilExit];
 
-    /* Read output */
-
+    // Read standard output
     NSString *output = [[NSString alloc] initWithData:[standardOutput.fileHandleForReading readDataToEndOfFile]
                                              encoding:NSUTF8StringEncoding];
-    /* Read error */
-
+    // Read standard error
     if (error && task.terminationStatus != 0) {
 
         NSString *reason = [[NSString alloc] initWithData:[standardError.fileHandleForReading readDataToEndOfFile]

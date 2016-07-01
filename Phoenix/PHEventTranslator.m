@@ -35,12 +35,11 @@
 
     NSNotificationCenter *notificationCenter = notificationToNotificationCenter[notification];
 
-    // Specific notification center
+    // Specific notification center for notification
     if (notificationCenter) {
         return notificationCenter;
     }
 
-    // Default notification center
     return [NSNotificationCenter defaultCenter];
 }
 

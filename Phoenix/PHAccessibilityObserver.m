@@ -25,10 +25,10 @@ static NSString * const NSWorkspaceRunningApplicationsKeyPath = @"runningApplica
 
         self.observers = [NSMutableDictionary dictionary];
 
-        // Initialise observers
+        // Initialise observers for currently running applications
         [self observeApps:[NSWorkspace sharedWorkspace].runningApplications];
 
-        // Observe running applications
+        // Observe changes in running applications
         [[NSWorkspace sharedWorkspace] addObserver:self
                                         forKeyPath:NSWorkspaceRunningApplicationsKeyPath
                                            options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld

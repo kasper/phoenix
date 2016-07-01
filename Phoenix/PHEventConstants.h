@@ -4,6 +4,6 @@
 
 @import Foundation;
 
-/* Event Notifications */
+#pragma mark - Event Notifications
 
 static NSString * const PHEventStartNotification = @"PHEventStartNotification";

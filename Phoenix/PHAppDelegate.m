@@ -26,7 +26,7 @@
 
 - (void) toggleStatusItem:(BOOL)enabled {
 
-    // Run without status item
+    // Remove status item
     if (!enabled) {
         [[NSStatusBar systemStatusBar] removeStatusItem:self.statusItem];
         self.statusItem = nil;

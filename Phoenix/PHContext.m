@@ -118,7 +118,7 @@
 
     path = path.stringByResolvingSymlinksInPath;
 
-    // Resolve path
+    // Resolve relative path
     if(![path isAbsolutePath]) {
         NSURL *relativeUrl = [NSURL URLWithString:self.primaryConfigurationPath];
         path = [NSURL URLWithString:path relativeToURL:relativeUrl].absoluteString;
@@ -203,7 +203,6 @@
 
 - (void) setupContext {
 
-    // Create context
     self.context = [[JSContext alloc] initWithVirtualMachine:[[JSVirtualMachine alloc] init]];
     self.context.exceptionHandler = ^(__unused JSContext *context, JSValue *value) {
 
@@ -211,7 +210,6 @@
         [PHNotificationHelper deliver:[value toString]];
     };
 
-    // Load context
     [self setupAPI];
     [self loadScript:[[NSBundle mainBundle] pathForResource:@"underscore-min" ofType:@"js"]];
     [self loadScript:[[NSBundle mainBundle] pathForResource:@"phoenix-min" ofType:@"js"]];
@@ -257,7 +255,7 @@
         return nil;
     }
 
-    // First handler for key
+    // First handler for key, create set
     if (!handlersForKey) {
         handlersForKey = [NSHashTable weakObjectsHashTable];
         self.keyHandlers[hashForKey] = handlersForKey;

@@ -12,7 +12,6 @@
 
 @implementation PHPreferences
 
-// Preference keys
 static NSString * const PHDaemonKey = @"daemon";
 static NSString * const PHOpenAtLogin = @"openAtLogin";
 

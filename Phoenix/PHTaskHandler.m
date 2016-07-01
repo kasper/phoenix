@@ -28,8 +28,6 @@
         self.outputData = [NSMutableData data];
         self.errorData = [NSMutableData data];
 
-        /* Configure task */
-
         self.task.launchPath = path;
         self.task.standardOutput = [NSPipe pipe];
         self.task.standardError = [NSPipe pipe];

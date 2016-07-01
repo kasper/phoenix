@@ -33,8 +33,7 @@
         return script;
     }
 
-    /* Launch process */
-
+    // Process
     NSError *taskError;
     NSString *output = [NSTask outputFromLaunchedTaskWithEnvironment:@{ @"PATH": [NSTask searchPath] }
                                                            arguments:@[ @"-c", [NSString stringWithFormat:@"%@ %@", command, path] ]

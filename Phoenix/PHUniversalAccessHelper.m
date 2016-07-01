@@ -18,8 +18,7 @@
         return;
     }
 
-    /* Ask for permission */
-
+    // Ask for permission
     NSAlert *alert = [[NSAlert alloc] init];
     alert.messageText = @"Enable Accessibility";
     alert.informativeText = @"Find the dialog right behind this one to enable accessibility for Phoenix in System Preferences. Once complete, launch Phoenix again.";

@@ -346,7 +346,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
         return NO;
     }
 
-    // Focus app
+    // Focus window’s app
     return [self.app focus];
 }
 

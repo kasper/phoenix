@@ -35,7 +35,7 @@
             return nil;
         }
 
-        // Observe notification
+        // Observe event notification
         self.notificationCenter = [PHEventTranslator notificationCenterForNotification:self.notification];
 
         [self.notificationCenter addObserver:self
@@ -63,20 +63,17 @@
 
 - (void) didReceiveNotification:(NSNotification *)notification {
 
-    /* Notification for app */
-
     NSRunningApplication *runningApp = notification.userInfo[NSWorkspaceApplicationKey];
+    PHWindow *window = notification.userInfo[PHAXObserverWindowKey];
 
+    // Notification for app
     if (runningApp) {
         PHApp *app = [[PHApp alloc] initWithApp:runningApp];
         [self callWithArguments:@[ app, self ]];
         return;
     }
 
-    /* Notification for window */
-
-    PHWindow *window = notification.userInfo[PHAXObserverWindowKey];
-
+    // Notification for window
     if (window) {
         [self callWithArguments:@[ window, self ]];
         return;
