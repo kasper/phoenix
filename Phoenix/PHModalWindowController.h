@@ -15,7 +15,7 @@
 @property NSTimeInterval duration;
 @property (copy) NSString *message;
 
-#pragma mark - Initialise
+#pragma mark - Constructor
 
 - (instancetype) init;
 
