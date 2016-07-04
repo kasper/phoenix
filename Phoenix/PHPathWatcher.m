@@ -14,6 +14,21 @@
 
 @implementation PHPathWatcher
 
+#pragma mark - FSEventStreamCallback
+
+static void PHFSEventStreamCallback(__unused ConstFSEventStreamRef stream,
+                                    void *callback,
+                                    __unused size_t count,
+                                    __unused void *paths,
+                                    __unused FSEventStreamEventFlags const flags[],
+                                    __unused FSEventStreamEventId const ids[]) {
+    @autoreleasepool {
+
+        PHPathWatcher *watcher = (__bridge PHPathWatcher *) callback;
+        [watcher fileDidChange];
+    }
+}
+
 #pragma mark - Initialising
 
 - (instancetype) initWithPaths:(NSArray<NSString *> *)paths handler:(void (^)())handler {
@@ -41,21 +56,6 @@
     FSEventStreamStop(self.stream);
     FSEventStreamInvalidate(self.stream);
     FSEventStreamRelease(self.stream);
-}
-
-#pragma mark - FSEventStreamCallback
-
-static void PHFSEventStreamCallback(__unused ConstFSEventStreamRef stream,
-                                    void *callback,
-                                    __unused size_t count,
-                                    __unused void *paths,
-                                    __unused FSEventStreamEventFlags const flags[],
-                                    __unused FSEventStreamEventId const ids[]) {
-    @autoreleasepool {
-
-        PHPathWatcher *watcher = (__bridge PHPathWatcher *) callback;
-        [watcher fileDidChange];
-    }
 }
 
 #pragma mark - Setting up
