@@ -38,9 +38,9 @@ typedef enum {
 
 @implementation PHSpace
 
-static NSString * const PHScreenIDKey = @"Display Identifier";
-static NSString * const PHSpacesKey = @"Spaces";
-static NSString * const PHSpaceIDKey = @"ManagedSpaceID";
+static NSString * const CGSScreenIDKey = @"Display Identifier";
+static NSString * const CGSSpacesKey = @"Spaces";
+static NSString * const CGSSpaceIDKey = @"ManagedSpaceID";
 static NSString * const PHWindowIDKey = @"identifier";
 
 // XXX: Undocumented private API to get the CGSConnectionID for the default connection for this process
@@ -99,7 +99,7 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
 
     for (NSDictionary<NSString *, id> *spacesInfo in displaySpacesInfo) {
 
-        NSArray<NSNumber *> *identifiers = [spacesInfo[PHSpacesKey] valueForKey:PHSpaceIDKey];
+        NSArray<NSNumber *> *identifiers = [spacesInfo[CGSSpacesKey] valueForKey:CGSSpaceIDKey];
 
         for (NSNumber *identifier in identifiers) {
             [spaces addObject:[(PHSpace *) [self alloc] initWithIdentifier:identifier.unsignedLongValue]];
@@ -174,8 +174,8 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
 
     for (NSDictionary<NSString *, id> *spacesInfo in displaySpacesInfo) {
 
-        NSString *screenIdentifier = spacesInfo[PHScreenIDKey];
-        NSArray<NSNumber *> *identifiers = [spacesInfo[PHSpacesKey] valueForKey:PHSpaceIDKey];
+        NSString *screenIdentifier = spacesInfo[CGSScreenIDKey];
+        NSArray<NSNumber *> *identifiers = [spacesInfo[CGSSpacesKey] valueForKey:CGSSpaceIDKey];
 
         if ([identifiers containsObject:@(self.identifier)]) {
             return [NSScreen screenForIdentifier:screenIdentifier];

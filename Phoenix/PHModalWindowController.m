@@ -14,14 +14,18 @@
 
 @implementation PHModalWindowController
 
-static NSString * const PHMessageKeyPath = @"message";
+static NSString * const PHModalWindowControllerMessageKeyPath = @"message";
 
 #pragma mark - Initialising
 
 - (instancetype) init {
 
     if (self = [super init]) {
-        [self addObserver:self forKeyPath:PHMessageKeyPath options:NSKeyValueObservingOptionNew context:NULL];
+
+        [self addObserver:self
+               forKeyPath:PHModalWindowControllerMessageKeyPath
+                  options:NSKeyValueObservingOptionNew
+                  context:NULL];
     }
 
     return self;
@@ -31,7 +35,7 @@ static NSString * const PHMessageKeyPath = @"message";
 
 - (void) dealloc {
 
-    [self removeObserver:self forKeyPath:PHMessageKeyPath];
+    [self removeObserver:self forKeyPath:PHModalWindowControllerMessageKeyPath];
 }
 
 #pragma mark - NSWindowController
@@ -59,7 +63,7 @@ static NSString * const PHMessageKeyPath = @"message";
                         context:(void *)__unused context {
 
     // Update text field
-    if ([keyPath isEqualToString:PHMessageKeyPath]) {
+    if ([keyPath isEqualToString:PHModalWindowControllerMessageKeyPath]) {
         [self window];
         self.textField.stringValue = self.message;
     }

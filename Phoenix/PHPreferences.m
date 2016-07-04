@@ -12,8 +12,8 @@
 
 @implementation PHPreferences
 
-static NSString * const PHDaemonKey = @"daemon";
-static NSString * const PHOpenAtLogin = @"openAtLogin";
+static NSString * const PHPreferencesDaemonKey = @"daemon";
+static NSString * const PHPreferencesOpenAtLoginKey = @"openAtLogin";
 
 #pragma mark - Initialising
 
@@ -62,12 +62,12 @@ static NSString * const PHOpenAtLogin = @"openAtLogin";
 
 - (BOOL) isDaemon {
 
-    return [self.preferences[PHDaemonKey] boolValue];
+    return [self.preferences[PHPreferencesDaemonKey] boolValue];
 }
 
 - (BOOL) openAtLogin {
 
-    return [self.preferences[PHOpenAtLogin] boolValue];
+    return [self.preferences[PHPreferencesOpenAtLoginKey] boolValue];
 }
 
 @end

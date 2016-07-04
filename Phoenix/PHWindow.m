@@ -20,7 +20,7 @@
 static NSString * const NSAccessibilityFullScreenAttribute = @"AXFullScreen";
 
 static NSString * const PHWindowKey = @"window";
-static NSString * const PHScoreKey = @"score";
+static NSString * const PHWindowScoreKey = @"score";
 
 // XXX: Undocumented private API to get the CGWindowID for an AXUIElementRef
 AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
@@ -296,14 +296,14 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
         double angleDifference = direction(angle);
         double score = distance / cos(angleDifference / 2.0);
 
-        [closestOtherWindows addObject:@{ PHWindowKey: window, PHScoreKey: @(score) }];
+        [closestOtherWindows addObject:@{ PHWindowKey: window, PHWindowScoreKey: @(score) }];
     }
 
     // Sort other windows based on distance score
     NSArray<PHWindow *> *sortedOtherWindows = [closestOtherWindows sortedArrayUsingComparator:
                                                ^NSComparisonResult(NSDictionary<NSString *, id> *window,
                                                                    NSDictionary<NSString *, id> *otherWindow) {
-        return [window[PHScoreKey] compare:otherWindow[PHScoreKey]];
+        return [window[PHWindowScoreKey] compare:otherWindow[PHWindowScoreKey]];
     }];
     
     return sortedOtherWindows;
