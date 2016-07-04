@@ -6,7 +6,7 @@
 
 @interface PHWeakTimerTarget : NSObject
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 + (instancetype) new NS_UNAVAILABLE;
 - (instancetype) init NS_UNAVAILABLE;

@@ -24,7 +24,7 @@
 - (NSArray<PHWindow *> *) otherWindowsOnSameScreen;
 - (NSArray<PHWindow *> *) otherWindowsOnAllScreens;
 
-#pragma mark - Properties
+#pragma mark - Exported Properties
 
 - (NSString *) title;
 - (BOOL) isMain;

@@ -14,7 +14,7 @@
 
 @implementation PHPathWatcher
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 - (instancetype) initWithPaths:(NSArray<NSString *> *)paths handler:(void (^)())handler {
 
@@ -34,7 +34,7 @@
     return [[self alloc] initWithPaths:paths handler:handler];
 }
 
-#pragma mark - Dealloc
+#pragma mark - Deallocing
 
 - (void) dealloc {
 
@@ -58,7 +58,7 @@ static void PHFSEventStreamCallback(__unused ConstFSEventStreamRef stream,
     }
 }
 
-#pragma mark - Setup
+#pragma mark - Setting up
 
 - (void) setup {
 
@@ -87,7 +87,7 @@ static void PHFSEventStreamCallback(__unused ConstFSEventStreamRef stream,
     }
 }
 
-#pragma mark - Event
+#pragma mark - Event Handling
 
 - (void) fileDidChange {
 

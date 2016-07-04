@@ -14,7 +14,7 @@
 
 @implementation PHApp
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 - (instancetype) initWithApp:(NSRunningApplication *)app {
 

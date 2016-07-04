@@ -7,7 +7,7 @@
 
 @protocol PHIterableJSExport <JSExport>
 
-#pragma mark - Iteration
+#pragma mark - Iterating
 
 - (instancetype) next;
 - (instancetype) previous;

@@ -10,13 +10,11 @@
 
 @protocol PHTaskHandlerJSExport <JSExport, PHIdentifiableJSExport>
 
-#pragma mark Exported Properties
-
 @property (readonly) int status;
 @property (readonly) NSString *output;
 @property (readonly) NSString *error;
 
-#pragma mark Constructor
+#pragma mark - Constructing
 
 - (instancetype) initWithPath:(NSString *)path arguments:(NSArray<NSString *> *)arguments callback:(JSValue *)callback;
 
@@ -24,7 +22,7 @@
 
 @interface PHTaskHandler : PHHandler <PHTaskHandlerJSExport>
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 - (instancetype) initWithPath:(NSString *)path
                    arguments:(NSArray<NSString *> *)arguments

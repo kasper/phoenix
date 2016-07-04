@@ -209,7 +209,7 @@
     return specialKeyToKeyCode[key];
 }
 
-#pragma mark - Translate
+#pragma mark - Translating
 
 + (UInt32) modifierFlagsForModifiers:(NSArray<NSString *> *)modifiers {
 

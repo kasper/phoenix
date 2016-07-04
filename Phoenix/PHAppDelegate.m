@@ -14,7 +14,7 @@
 @property PHContext *context;
 @property NSStatusItem *statusItem;
 
-#pragma mark IBOutlet
+#pragma mark - IBOutlet
 
 @property (weak) IBOutlet NSMenu *statusItemMenu;
 
@@ -22,7 +22,7 @@
 
 @implementation PHAppDelegate
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 - (void) toggleStatusItem:(BOOL)enabled {
 
@@ -65,7 +65,7 @@
     [menu itemWithTitle:@"Open at Login"].state = [PHOpenAtLoginHelper opensAtLogin] ? NSOnState : NSOffState;
 }
 
-#pragma mark - Notifications
+#pragma mark - Notification Handling
 
 - (void) preferencesDidChange:(NSNotification *)__unused notification {
 

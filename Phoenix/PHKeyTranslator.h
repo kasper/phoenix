@@ -9,7 +9,7 @@
 + (instancetype) new NS_UNAVAILABLE;
 - (instancetype) init NS_UNAVAILABLE;
 
-#pragma mark - Translate
+#pragma mark - Translating
 
 + (UInt32) modifierFlagsForModifiers:(NSArray<NSString *> *)modifiers;
 + (UInt32) keyCodeForKey:(NSString *)key;

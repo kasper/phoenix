@@ -6,7 +6,7 @@
 
 @interface PHAccessibilityObserver : NSObject
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 + (instancetype) new NS_UNAVAILABLE;
 + (instancetype) observer;

@@ -6,7 +6,7 @@
 
 @interface NSArray<ObjectType> (PHExtension)
 
-#pragma mark - Iteration
+#pragma mark - Iterating
 
 - (ObjectType) nextFrom:(ObjectType)object;
 - (ObjectType) previousFrom:(ObjectType)object;

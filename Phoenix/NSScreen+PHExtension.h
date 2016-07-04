@@ -13,7 +13,7 @@
 
 @protocol NSScreenJSExport <JSExport, PHIdentifiableJSExport, PHIterableJSExport>
 
-#pragma mark - Screens
+#pragma mark - Exported Screens
 
 + (instancetype) mainScreen;
 + (NSArray<NSScreen *> *) screens;

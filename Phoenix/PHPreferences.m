@@ -15,7 +15,7 @@
 static NSString * const PHDaemonKey = @"daemon";
 static NSString * const PHOpenAtLogin = @"openAtLogin";
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 - (instancetype) init {
 

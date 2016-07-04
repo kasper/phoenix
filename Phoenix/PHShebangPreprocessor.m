@@ -7,7 +7,7 @@
 
 @implementation PHShebangPreprocessor
 
-#pragma mark - Reading
+#pragma mark - Scanning
 
 + (NSString *) scanCommand:(NSScanner *)scanner {
 

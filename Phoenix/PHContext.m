@@ -32,7 +32,7 @@
 
 @implementation PHContext
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 - (instancetype) init {
 
@@ -71,7 +71,7 @@
     }];
 }
 
-#pragma mark - Setup
+#pragma mark - Setting up
 
 - (NSString *) resolvePrimaryConfigurationPath {
 
@@ -211,7 +211,7 @@
     [self loadScript:self.primaryConfigurationPath];
 }
 
-#pragma mark - Loading
+#pragma mark - PHContextDelegate
 
 - (void) load {
 

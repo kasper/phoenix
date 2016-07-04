@@ -12,7 +12,7 @@
 
 @implementation PHHandler
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 - (instancetype) initWithCallback:(JSValue *)callback {
 
@@ -23,7 +23,7 @@
     return self;
 }
 
-#pragma mark - Call
+#pragma mark - Calling
 
 - (void) callWithArguments:(NSArray *)arguments {
 

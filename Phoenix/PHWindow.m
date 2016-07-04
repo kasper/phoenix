@@ -25,7 +25,7 @@ static NSString * const PHScoreKey = @"score";
 // XXX: Undocumented private API to get the CGWindowID for an AXUIElementRef
 AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 - (instancetype) initWithElement:(id)element {
 

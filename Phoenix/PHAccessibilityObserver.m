@@ -17,7 +17,7 @@
 
 static NSString * const NSWorkspaceRunningApplicationsKeyPath = @"runningApplications";
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 - (instancetype) init {
 
@@ -43,7 +43,7 @@ static NSString * const NSWorkspaceRunningApplicationsKeyPath = @"runningApplica
     return [[self alloc] init];
 }
 
-#pragma mark - Dealloc
+#pragma mark - Deallocing
 
 - (void) dealloc {
 

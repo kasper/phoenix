@@ -20,7 +20,7 @@
 
 @interface PHPhoenix : NSObject <PHPhoenixJSExport>
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 + (instancetype) new NS_UNAVAILABLE;
 - (instancetype) init NS_UNAVAILABLE;

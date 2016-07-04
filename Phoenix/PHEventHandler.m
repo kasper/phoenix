@@ -20,7 +20,7 @@
 
 @implementation PHEventHandler
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 - (instancetype) initWithEvent:(NSString *)event callback:(JSValue *)callback {
 
@@ -47,14 +47,14 @@
     return self;
 }
 
-#pragma mark - Dealloc
+#pragma mark - Deallocing
 
 - (void) dealloc {
 
     [self.notificationCenter removeObserver:self name:self.notification object:nil];
 }
 
-#pragma mark - Notification
+#pragma mark - Notification Handling
 
 - (void) didReceiveNotification:(NSNotification *)notification {
 

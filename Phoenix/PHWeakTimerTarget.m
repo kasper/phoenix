@@ -13,7 +13,7 @@
 
 @implementation PHWeakTimerTarget
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 - (instancetype) initWithTarget:(id)target selector:(SEL)selector {
 

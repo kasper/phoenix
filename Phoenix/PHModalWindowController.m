@@ -6,7 +6,7 @@
 
 @interface PHModalWindowController ()
 
-#pragma mark IBOutlet
+#pragma mark - IBOutlet
 
 @property (weak) IBOutlet NSTextField *textField;
 
@@ -16,7 +16,7 @@
 
 static NSString * const PHMessageKeyPath = @"message";
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 - (instancetype) init {
 
@@ -27,7 +27,7 @@ static NSString * const PHMessageKeyPath = @"message";
     return self;
 }
 
-#pragma mark - Dealloc
+#pragma mark - Deallocing
 
 - (void) dealloc {
 

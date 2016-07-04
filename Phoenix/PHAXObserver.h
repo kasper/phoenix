@@ -10,7 +10,7 @@ static NSString * const PHAXObserverWindowKey = @"PHAXObserverWindowKey";
 
 @interface PHAXObserver : PHAXUIElement
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 - (instancetype) initWithApp:(NSRunningApplication *)app;
 

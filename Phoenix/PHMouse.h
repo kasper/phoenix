@@ -7,7 +7,7 @@
 
 @protocol PHMouseJSExport <JSExport>
 
-#pragma mark - Mouse Position
+#pragma mark - Position
 
 + (NSPoint) location;
 + (BOOL) moveTo:(NSPoint)point;

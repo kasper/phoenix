@@ -48,7 +48,7 @@
 
 @interface PHApp : PHAXUIElement <PHAppJSExport>
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 - (instancetype) initWithApp:(NSRunningApplication *)app;
 

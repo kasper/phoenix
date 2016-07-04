@@ -13,7 +13,7 @@
 
 @protocol PHSpaceJSExport <JSExport, PHIdentifiableJSExport, PHIterableJSExport>
 
-#pragma mark - Spaces
+#pragma mark - Exported Spaces
 
 + (instancetype) activeSpace;
 + (NSArray<PHSpace *> *) spaces;
@@ -35,7 +35,7 @@
 
 @interface PHSpace : NSObject <PHSpaceJSExport>
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 + (instancetype) new NS_UNAVAILABLE;
 - (instancetype) init NS_UNAVAILABLE;

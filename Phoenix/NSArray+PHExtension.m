@@ -6,7 +6,7 @@
 
 @implementation NSArray (PHExtension)
 
-#pragma mark - Iteration
+#pragma mark - Iterating
 
 - (id) nextFrom:(id)object {
 

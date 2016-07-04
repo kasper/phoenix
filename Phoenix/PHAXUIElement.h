@@ -6,14 +6,14 @@
 
 @interface PHAXUIElement : NSObject
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 + (instancetype) new NS_UNAVAILABLE;
 - (instancetype) init NS_UNAVAILABLE;
 
 - (instancetype) initWithElement:(id)element NS_DESIGNATED_INITIALIZER;
 
-#pragma mark - Static Accessors
+#pragma mark - System Accessors
 
 + (instancetype) elementForSystemAttribute:(NSString *)attribute;
 

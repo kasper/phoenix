@@ -9,13 +9,13 @@
 
 @protocol PHModalWindowControllerJSExport <JSExport, PHIdentifiableJSExport>
 
-#pragma mark Exported Properties
+#pragma mark - Exported Properties
 
 @property NSPoint origin;
 @property NSTimeInterval duration;
 @property (copy) NSString *message;
 
-#pragma mark - Constructor
+#pragma mark - Constructing
 
 - (instancetype) init;
 
@@ -34,7 +34,7 @@
 
 + (instancetype) new NS_UNAVAILABLE;
 
-#pragma mark Properties
+#pragma mark - Properties
 
 @property NSPoint origin;
 @property NSTimeInterval duration;

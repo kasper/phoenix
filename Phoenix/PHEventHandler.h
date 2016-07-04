@@ -10,11 +10,9 @@
 
 @protocol PHEventHandlerJSExport <JSExport, PHIdentifiableJSExport>
 
-#pragma mark Exported Properties
-
 @property (readonly) NSString *name;
 
-#pragma mark Constructor
+#pragma mark - Constructing
 
 - (instancetype) initWithEvent:(NSString *)event callback:(JSValue *)callback;
 
@@ -22,7 +20,7 @@
 
 @interface PHEventHandler : PHHandler <PHEventHandlerJSExport>
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 - (instancetype) initWithEvent:(NSString *)event callback:(JSValue *)callback NS_DESIGNATED_INITIALIZER;
 

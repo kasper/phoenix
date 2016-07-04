@@ -32,7 +32,7 @@ static void PHAXObserverCallback(__unused AXObserverRef observer,
     }
 }
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 - (instancetype) initWithApp:(NSRunningApplication *)app {
 
@@ -53,7 +53,7 @@ static void PHAXObserverCallback(__unused AXObserverRef observer,
     return self;
 }
 
-#pragma mark - Dealloc
+#pragma mark - Deallocing
 
 - (void) dealloc {
 
@@ -100,7 +100,7 @@ static void PHAXObserverCallback(__unused AXObserverRef observer,
                                  (__bridge CFStringRef) notification);
 }
 
-#pragma mark - Setup
+#pragma mark - Setting up
 
 - (void) setup {
 

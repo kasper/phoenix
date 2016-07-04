@@ -13,7 +13,7 @@
 
 @implementation PHTimerHandler
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 - (instancetype) initWithInterval:(NSTimeInterval)interval repeats:(BOOL)repeats callback:(JSValue *)callback {
 

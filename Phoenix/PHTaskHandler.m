@@ -18,7 +18,7 @@
 
 @implementation PHTaskHandler
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 - (instancetype) initWithPath:(NSString *)path arguments:(NSArray<NSString *> *)arguments callback:(JSValue *)callback {
 
@@ -44,7 +44,7 @@
     return self;
 }
 
-#pragma mark - Setup
+#pragma mark - Setting up
 
 - (void) setupReadabilityHandlers {
 

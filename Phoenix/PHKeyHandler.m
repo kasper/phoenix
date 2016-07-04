@@ -56,7 +56,7 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
     }
 }
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 + (void) initialize {
 
@@ -108,7 +108,7 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
     return self;
 }
 
-#pragma mark - Dealloc
+#pragma mark - Deallocing
 
 - (void) dealloc {
 
@@ -117,7 +117,7 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
     [self disable];
 }
 
-#pragma mark - Hash
+#pragma mark - Identifying
 
 - (NSUInteger) hashForKeyCombination {
 
@@ -182,7 +182,7 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
     return YES;
 }
 
-#pragma mark - Notifications
+#pragma mark - Notification Handling
 
 - (void) willEnable:(NSNotification *)notification {
 

@@ -13,7 +13,7 @@
 
 @implementation PHAXUIElement
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 - (instancetype) initWithElement:(id)element {
 
@@ -24,7 +24,7 @@
     return self;
 }
 
-#pragma mark - Static Accessors
+#pragma mark - System Accessors
 
 + (instancetype) systemWideElement {
 

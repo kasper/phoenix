@@ -8,7 +8,7 @@
 
 @implementation PHMouse
 
-#pragma mark - Mouse Position
+#pragma mark - Position
 
 + (NSPoint) location {
 

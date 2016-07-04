@@ -14,7 +14,7 @@
 
 @implementation PHPhoenix
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 - (instancetype) initWithDelegate:(id<PHContextDelegate>)delegate {
 

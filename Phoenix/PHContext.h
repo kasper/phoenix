@@ -14,7 +14,7 @@
 
 @interface PHContext : NSObject <PHContextDelegate>
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 + (instancetype) new NS_UNAVAILABLE;
 + (instancetype) context;

@@ -10,16 +10,14 @@
 
 @protocol PHKeyHandlerJSExport <JSExport, PHIdentifiableJSExport>
 
-#pragma mark Exported Properties
-
 @property (readonly) NSString *key;
 @property (readonly) NSArray<NSString *> *modifiers;
 
-#pragma mark Constructor
+#pragma mark - Constructing
 
 - (instancetype) initWithKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers callback:(JSValue *)callback;
 
-#pragma mark Binding
+#pragma mark - Binding
 
 - (BOOL) isEnabled;
 - (BOOL) enable;
@@ -29,7 +27,7 @@
 
 @interface PHKeyHandler : PHHandler <PHKeyHandlerJSExport>
 
-#pragma mark - Initialise
+#pragma mark - Initialising
 
 - (instancetype) initWithKey:(NSString *)key
                    modifiers:(NSArray<NSString *> *)modifiers

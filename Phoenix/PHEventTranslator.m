@@ -9,7 +9,7 @@
 
 @implementation PHEventTranslator
 
-#pragma mark - Notification Center
+#pragma mark - Translating
 
 + (NSNotificationCenter *) notificationCenterForNotification:(NSString *)notification {
 
@@ -42,8 +42,6 @@
 
     return [NSNotificationCenter defaultCenter];
 }
-
-#pragma mark - Notification
 
 + (NSString *) notificationForEvent:(NSString *)event {
 
