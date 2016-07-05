@@ -135,7 +135,7 @@ Phoenix supports the following (case sensitive) events:
 
 ### Space
 
-- `spaceDidChange`, triggered when the active space has changed
+- `spaceDidChange` triggered when the active space has changed
 
 ### App
 
