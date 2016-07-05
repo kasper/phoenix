@@ -8,6 +8,7 @@ Release: dd.mm.yyyy
 
 ### New
 
+- Adds support for mouse events ([#90](https://github.com/kasper/phoenix/issues/90)).
 - You can now run tasks asynchronously and retrieve their status, standard output and standard error. A new `Task`-object has been created to access task properties, see its [API](https://github.com/kasper/phoenix/blob/2.2/API.md#14-task) ([#98](https://github.com/kasper/phoenix/issues/98)).
 - Keys, events and timers are now constructed with relevant constructors instead of creating them through the global `Phoenix`-object ([#109](https://github.com/kasper/phoenix/issues/109)).
 
@@ -17,6 +18,12 @@ Release: dd.mm.yyyy
 - Breaking: `KeyHandler` has been renamed to `Key`, `EventHandler` to `Event` and `TimerHandler` to `Timer` ([#109](https://github.com/kasper/phoenix/issues/109)).
 
 ### API
+
+#### Events
+
+- New: Event `mouseDidMove` is triggered when the mouse has moved ([#90](https://github.com/kasper/phoenix/issues/90)).
+- New: Event `mouseDidLeftClick` is triggered when the mouse did left click ([#90](https://github.com/kasper/phoenix/issues/90)).
+- New: Event `mouseDidRightClick` is triggered when the mouse did right click ([#90](https://github.com/kasper/phoenix/issues/90)).
 
 #### Phoenix
 

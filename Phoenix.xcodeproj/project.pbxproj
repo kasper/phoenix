@@ -21,6 +21,7 @@
 		A74133721BB7F556008DAF39 /* PHEventTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = A74133711BB7F556008DAF39 /* PHEventTranslator.m */; };
 		A762478A1B81FD3C00ECF209 /* PHAXUIElement.m in Sources */ = {isa = PBXBuildFile; fileRef = A76247891B81FD3C00ECF209 /* PHAXUIElement.m */; };
 		A76D0F141D2540F900060CA7 /* PHTaskHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A76D0F131D2540F900060CA7 /* PHTaskHandler.m */; };
+		A7741A291D2BBF55009E8A2F /* PHGlobalEventMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = A7741A281D2BBF55009E8A2F /* PHGlobalEventMonitor.m */; };
 		A78566D11CBE77CD00036AF9 /* PHPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = A78566D01CBE77CD00036AF9 /* PHPreferences.m */; };
 		A78749641CA2BB440042DA4C /* NSProcessInfo+PHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A78749631CA2BB440042DA4C /* NSProcessInfo+PHExtension.m */; };
 		A79452421C2F35E3007AF8C5 /* NSArray+PHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A79452411C2F35E3007AF8C5 /* NSArray+PHExtension.m */; };
@@ -89,6 +90,8 @@
 		A76247891B81FD3C00ECF209 /* PHAXUIElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHAXUIElement.m; sourceTree = "<group>"; };
 		A76D0F121D2540F900060CA7 /* PHTaskHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHTaskHandler.h; sourceTree = "<group>"; };
 		A76D0F131D2540F900060CA7 /* PHTaskHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHTaskHandler.m; sourceTree = "<group>"; };
+		A7741A271D2BBF55009E8A2F /* PHGlobalEventMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHGlobalEventMonitor.h; sourceTree = "<group>"; };
+		A7741A281D2BBF55009E8A2F /* PHGlobalEventMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHGlobalEventMonitor.m; sourceTree = "<group>"; };
 		A78566CF1CBE77CD00036AF9 /* PHPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHPreferences.h; sourceTree = "<group>"; };
 		A78566D01CBE77CD00036AF9 /* PHPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHPreferences.m; sourceTree = "<group>"; };
 		A78749621CA2BB440042DA4C /* NSProcessInfo+PHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSProcessInfo+PHExtension.h"; sourceTree = "<group>"; };
@@ -271,6 +274,8 @@
 			children = (
 				A7E6DF6D1BBAC1F3001920B4 /* PHAccessibilityObserver.h */,
 				A7E6DF6E1BBAC1F3001920B4 /* PHAccessibilityObserver.m */,
+				A7741A271D2BBF55009E8A2F /* PHGlobalEventMonitor.h */,
+				A7741A281D2BBF55009E8A2F /* PHGlobalEventMonitor.m */,
 				A79C468C1B5BF3C100C460CF /* PHPathWatcher.h */,
 				A79C468D1B5BF3C100C460CF /* PHPathWatcher.m */,
 			);
@@ -582,6 +587,7 @@
 				A72EAD071B5D00B800DD537B /* PHModalWindowController.m in Sources */,
 				A741336C1BB7EEAC008DAF39 /* PHHandler.m in Sources */,
 				A741336F1BB7F228008DAF39 /* PHEventHandler.m in Sources */,
+				A7741A291D2BBF55009E8A2F /* PHGlobalEventMonitor.m in Sources */,
 				A7F24F5F1C2728540013EBAE /* NSTask+PHExtension.m in Sources */,
 				A7183B671B6E865F00842E13 /* PHKeyHandler.m in Sources */,
 				A79C469D1B5BF3C100C460CF /* PHOpenAtLoginHelper.m in Sources */,

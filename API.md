@@ -137,6 +137,12 @@ Phoenix supports the following (case sensitive) events:
 
 - `spaceDidChange` triggered when the active space has changed
 
+### Mouse
+
+- `mouseDidMove` triggered when the mouse has moved
+- `mouseDidLeftClick` triggered when the mouse did left click
+- `mouseDidRightClick` triggered when the mouse did right click
+
 ### App
 
 All of the following app events receive the corresponding `App`-instance as the first argument for the callback function.

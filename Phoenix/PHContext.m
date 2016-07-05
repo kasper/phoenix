@@ -7,6 +7,7 @@
 #import "PHApp.h"
 #import "PHContext.h"
 #import "PHEventHandler.h"
+#import "PHGlobalEventMonitor.h"
 #import "PHKeyHandler.h"
 #import "PHModalWindowController.h"
 #import "PHMouse.h"
@@ -27,6 +28,7 @@
 @property NSMutableSet<NSString *> *configurationPaths;
 @property PHPathWatcher *watcher;
 @property PHAccessibilityObserver *observer;
+@property PHGlobalEventMonitor *monitor;
 
 @end
 
@@ -40,6 +42,7 @@
         self.primaryConfigurationPath = [self resolvePrimaryConfigurationPath];
         self.configurationPaths = [NSMutableSet set];
         self.observer = [PHAccessibilityObserver observer];
+        self.monitor = [PHGlobalEventMonitor monitor];
     }
 
     return self;

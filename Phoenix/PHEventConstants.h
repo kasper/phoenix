@@ -7,3 +7,9 @@
 #pragma mark - Event Notifications
 
 static NSString * const PHEventStartNotification = @"PHEventStartNotification";
+
+#pragma mark - Mouse Notifications
+
+static NSString * const PHMouseDidMoveNotification = @"PHMouseDidMoveNotification";
+static NSString * const PHMouseDidLeftClickNotification = @"PHMouseDidLeftClickNotification";
+static NSString * const PHMouseDidRightClickNotification = @"PHMouseDidRightClickNotification";

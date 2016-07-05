@@ -62,6 +62,12 @@
 
                                  @"spaceDidChange": NSWorkspaceActiveSpaceDidChangeNotification,
 
+                                 /* Mouse Notifications */
+
+                                 @"mouseDidMove": PHMouseDidMoveNotification,
+                                 @"mouseDidLeftClick": PHMouseDidLeftClickNotification,
+                                 @"mouseDidRightClick": PHMouseDidRightClickNotification,
+
                                  /* App Notifications */
 
                                  @"appDidLaunch": NSWorkspaceDidLaunchApplicationNotification,
