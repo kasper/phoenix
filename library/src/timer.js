@@ -26,7 +26,7 @@
   }
 })(Timer);
 
-/* Global timing */
+/* Global Timing */
 
 (function (scope) {
 
