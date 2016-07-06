@@ -19,6 +19,7 @@
 #import "PHPreferences.h"
 #import "PHShebangPreprocessor.h"
 #import "PHSpace.h"
+#import "PHStorage.h"
 #import "PHTaskHandler.h"
 #import "PHTimerHandler.h"
 #import "PHWindow.h"
@@ -31,6 +32,7 @@
 @property PHPathWatcher *watcher;
 @property PHAccessibilityObserver *observer;
 @property PHGlobalEventMonitor *monitor;
+@property PHStorage *storage;
 
 @end
 
@@ -45,6 +47,7 @@
         self.configurationPaths = [NSMutableSet set];
         self.observer = [PHAccessibilityObserver observer];
         self.monitor = [PHGlobalEventMonitor monitor];
+        self.storage = [PHStorage storage];
     }
 
     return self;
@@ -232,6 +235,16 @@
     [self resetWatcher];
 
     NSLog(@"Context loaded.");
+}
+
+- (void) storeObject:(id)object forKey:(NSString *)key {
+
+    [self.storage setObject:object forKey:key];
+}
+
+- (id) objectInStorageForKey:(NSString *)key {
+
+    return [self.storage objectForKey:key];
 }
 
 @end

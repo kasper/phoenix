@@ -19,6 +19,7 @@
 		A741336C1BB7EEAC008DAF39 /* PHHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A741336B1BB7EEAC008DAF39 /* PHHandler.m */; };
 		A741336F1BB7F228008DAF39 /* PHEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A741336E1BB7F228008DAF39 /* PHEventHandler.m */; };
 		A74133721BB7F556008DAF39 /* PHEventTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = A74133711BB7F556008DAF39 /* PHEventTranslator.m */; };
+		A747A90F1D2D054B007101F0 /* PHStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = A747A90E1D2D054B007101F0 /* PHStorage.m */; };
 		A762478A1B81FD3C00ECF209 /* PHAXUIElement.m in Sources */ = {isa = PBXBuildFile; fileRef = A76247891B81FD3C00ECF209 /* PHAXUIElement.m */; };
 		A76D0F141D2540F900060CA7 /* PHTaskHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A76D0F131D2540F900060CA7 /* PHTaskHandler.m */; };
 		A7741A291D2BBF55009E8A2F /* PHGlobalEventMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = A7741A281D2BBF55009E8A2F /* PHGlobalEventMonitor.m */; };
@@ -86,6 +87,8 @@
 		A741336E1BB7F228008DAF39 /* PHEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHEventHandler.m; sourceTree = "<group>"; };
 		A74133701BB7F556008DAF39 /* PHEventTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHEventTranslator.h; sourceTree = "<group>"; };
 		A74133711BB7F556008DAF39 /* PHEventTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHEventTranslator.m; sourceTree = "<group>"; };
+		A747A90D1D2D054B007101F0 /* PHStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHStorage.h; sourceTree = "<group>"; };
+		A747A90E1D2D054B007101F0 /* PHStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHStorage.m; sourceTree = "<group>"; };
 		A76247881B81FD3C00ECF209 /* PHAXUIElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHAXUIElement.h; sourceTree = "<group>"; };
 		A76247891B81FD3C00ECF209 /* PHAXUIElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHAXUIElement.m; sourceTree = "<group>"; };
 		A76D0F121D2540F900060CA7 /* PHTaskHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHTaskHandler.h; sourceTree = "<group>"; };
@@ -289,6 +292,8 @@
 				A79C46831B5BF3C100C460CF /* PHContext.m */,
 				A78566CF1CBE77CD00036AF9 /* PHPreferences.h */,
 				A78566D01CBE77CD00036AF9 /* PHPreferences.m */,
+				A747A90D1D2D054B007101F0 /* PHStorage.h */,
+				A747A90E1D2D054B007101F0 /* PHStorage.m */,
 			);
 			name = Context;
 			sourceTree = "<group>";
@@ -583,6 +588,7 @@
 				A7D1D9A91B6FD6A300E00CC9 /* PHKeyTranslator.m in Sources */,
 				A78566D11CBE77CD00036AF9 /* PHPreferences.m in Sources */,
 				A79C46A01B5BF3C100C460CF /* PHWindow.m in Sources */,
+				A747A90F1D2D054B007101F0 /* PHStorage.m in Sources */,
 				A7288A351CC119BD00EC032B /* PHTimerHandler.m in Sources */,
 				A72EAD071B5D00B800DD537B /* PHModalWindowController.m in Sources */,
 				A741336C1BB7EEAC008DAF39 /* PHHandler.m in Sources */,

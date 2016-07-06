@@ -198,6 +198,7 @@ class Phoenix
 
   static void reload()
   static void set(Map<String, AnyObject> preferences)
+  static AnyObject storage(String key, AnyObject value)
   static void log(String message)
   static void notify(String message)
 
@@ -206,6 +207,7 @@ end
 
 - `reload()` manually reloads the context and any changes in the configuration files
 - `set(Map<String, AnyObject> preferences)` sets the preferences from the given key–value map, any previously set preferences with the same key will be overridden
+- `storage(String key, AnyObject value)` stores the value as JSON for the key and persists it to a file, any previously set values with the same key will be overridden, retrieves and returns the value for the key if no value is defined (`undefined` if no value has been set for the key)
 - `log(String message)` logs the message to the Console
 - `notify(String message)` delivers the message to the Notification Center
 

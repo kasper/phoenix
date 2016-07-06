@@ -10,6 +10,11 @@
 
 - (void) load;
 
+#pragma mark - Storing
+
+- (void) storeObject:(id)object forKey:(NSString *)key;
+- (id) objectInStorageForKey:(NSString *)key;
+
 @end
 
 @interface PHContext : NSObject <PHContextDelegate>
