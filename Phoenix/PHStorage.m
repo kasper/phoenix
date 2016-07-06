@@ -50,9 +50,7 @@ static NSString * const PHStoragePath = @"~/Library/Application Support/Phoenix/
     NSInputStream *stream = [NSInputStream inputStreamWithFileAtPath:self.path];
 
     [stream open];
-    id data = [NSJSONSerialization JSONObjectWithStream:stream
-                                                options:0
-                                                  error:&error];
+    id data = [NSJSONSerialization JSONObjectWithStream:stream options:0 error:&error];
     [stream close];
 
     if (error) {
@@ -93,10 +91,7 @@ static NSString * const PHStoragePath = @"~/Library/Application Support/Phoenix/
     NSOutputStream *stream = [NSOutputStream outputStreamToFileAtPath:self.path append:NO];
 
     [stream open];
-    [NSJSONSerialization writeJSONObject:self.storage
-                                toStream:stream
-                                 options:NSJSONWritingPrettyPrinted
-                                   error:&error];
+    [NSJSONSerialization writeJSONObject:self.storage toStream:stream options:NSJSONWritingPrettyPrinted error:&error];
     [stream close];
 
     if (error) {
