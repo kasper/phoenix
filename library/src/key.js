@@ -16,6 +16,10 @@
   }
 
   scope.off = function (identifier) {
-    delete keys[identifier];
+    var key = keys[identifier];
+    if (key) {
+      key.disable();
+      delete keys[identifier];
+    }
   }
 })(Key);

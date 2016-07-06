@@ -22,7 +22,11 @@
   }
 
   scope.off = function (identifier) {
-    delete timers[identifier];
+    var timer = timers[identifier];
+    if (timer) {
+      timer.stop();
+      delete timers[identifier];
+    }
   }
 })(Timer);
 
