@@ -1,2 +1,2 @@
 - Version: x.x.x
-- OS X: x.x.x
+- macOS: x.x.x

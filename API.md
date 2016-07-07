@@ -446,7 +446,7 @@ class Screen implements Identifiable, Iterable
   String identifier()
   Rectangle frameInRectangle()
   Rectangle visibleFrameInRectangle()
-  Array<Space> spaces() // OS X 10.11+
+  Array<Space> spaces() // macOS 10.11+
   Array<Window> windows()
   Array<Window> visibleWindows()
 
@@ -458,7 +458,7 @@ end
 - `identifier()` returns the UUID for the screen
 - `frameInRectangle()` returns the whole frame for the screen
 - `visibleFrameInRectangle()` returns the visible frame for the screen subtracting the Dock and Menu from the frame when visible
-- `spaces()` returns all spaces for the screen (OS X 10.11+, returns an empty list otherwise)
+- `spaces()` returns all spaces for the screen (macOS 10.11+, returns an empty list otherwise)
 - `windows()` returns all windows for the screen
 - `visibleWindows()` returns all visible windows for the screen
 
@@ -469,8 +469,8 @@ Use the `Space`-object to control spaces. *These features are only supported on 
 ```java
 class Space implements Identifiable, Iterable
 
-  static Space activeSpace() // OS X 10.11+
-  static Array<Space> spaces() // OS X 10.11+
+  static Space activeSpace() // macOS 10.11+
+  static Array<Space> spaces() // macOS 10.11+
 
   boolean isNormal()
   boolean isFullScreen()
@@ -483,8 +483,8 @@ class Space implements Identifiable, Iterable
 end
 ```
 
-- `activeSpace()` returns the space containing the window with the keyboard focus (OS X 10.11+, returns `undefined` otherwise)
-- `spaces()` returns all spaces, the first space in this array corresponds to the primary space (OS X 10.11+, returns an empty list otherwise)
+- `activeSpace()` returns the space containing the window with the keyboard focus (macOS 10.11+, returns `undefined` otherwise)
+- `spaces()` returns all spaces, the first space in this array corresponds to the primary space (macOS 10.11+, returns an empty list otherwise)
 - `isNormal()` returns `true` if the space is a normal space
 - `isFullScreen()` returns `true` if the space is a full screen space
 - `screen()` returns the screen to which the space belongs to
@@ -582,7 +582,7 @@ class Window implements Identifiable
   boolean isVisible()
   App app()
   Screen screen()
-  Array<Space> spaces() // OS X 10.11+
+  Array<Space> spaces() // macOS 10.11+
   Point topLeft()
   Size size()
   Rectangle frame()
@@ -620,7 +620,7 @@ end
 - `isVisible()` returns `true` if the window is a normal and unminimised window that belongs to an unhidden app
 - `app()` returns the app for the window
 - `screen()` returns the screen where most or all of the window is currently present
-- `spaces()` returns the spaces where the window is currently present (OS X 10.11+, returns an empty list otherwise)
+- `spaces()` returns the spaces where the window is currently present (macOS 10.11+, returns an empty list otherwise)
 - `topLeft()` returns the top left point for the window
 - `size()` returns the size for the window
 - `frame()` returns the frame for the window
