@@ -16,6 +16,10 @@
   }
 
   scope.terminate = function (identifier) {
-    delete tasks[identifier];
+    var task = tasks[identifier];
+    if (task) {
+      task.terminate();
+      delete tasks[identifier];
+    }
   }
 })(Task);

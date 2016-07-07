@@ -18,6 +18,10 @@
 
 - (instancetype) initWithPath:(NSString *)path arguments:(NSArray<NSString *> *)arguments callback:(JSValue *)callback;
 
+#pragma mark - Terminating
+
+- (void) terminate;
+
 @end
 
 @interface PHTaskHandler : PHHandler <PHTaskHandlerJSExport>

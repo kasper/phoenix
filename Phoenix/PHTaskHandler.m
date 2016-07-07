@@ -44,6 +44,13 @@
     return self;
 }
 
+#pragma mark - Deallocing
+
+- (void) dealloc {
+
+    [self terminate];
+}
+
 #pragma mark - Setting up
 
 - (void) setupReadabilityHandlers {
@@ -94,6 +101,11 @@
 }
 
 #pragma mark - Terminating
+
+- (void) terminate {
+
+    [self.task terminate];
+}
 
 - (void) taskDidTerminate {
 

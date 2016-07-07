@@ -393,6 +393,7 @@ class Task implements Identifiable
   property String error
 
   constructor Task Task(String path, Array arguments, Function callback)
+  void terminate()
 
 end
 ```
@@ -403,6 +404,7 @@ end
 - `output` read-only property for the standard output
 - `error` read-only property for the standard error
 - `new Task(String path, Array arguments, Function callback)` constructs a task that asynchronously executes an absolute path with the given arguments and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument
+- `terminate()` terminates the task immediately
 
 ## 16. Modal
 
