@@ -59,7 +59,7 @@ var handler = new Event('screensDidChange', function () {});
 
 ## Managing Handlers
 
-As you probably have already noticed that you must keep a reference to your handlers, otherwise your callbacks will not get called. In return, if you release the reference to the handler, it will also be disabled eventually. This gives you full control over the lifecycle of your handlers. This can be especially useful when you want to dynamically create handlers.
+As you probably have already noticed that you must keep a reference to your handlers, otherwise your callbacks will not get called. In return, if you release the reference to the handler, it will also be disabled eventually. Beware that this can be rather delayed and you are always safer to manually disable the handlers before letting the reference go. This gives you full control over the lifecycle of your handlers. This can be especially useful when you want to dynamically create handlers.
 
 Obviously, in most cases you do not want to worry about the lifecycle of your handlers. This is why Phoenix also provides managed handlers that are held for you. You can use these managed handlers to set keys, events, timers and tasks, but also to disable them. Basically, when you create a managed handler, the handler is constructed and its reference is stored. You will get an identifier for the handler which you can use then to disable it. When you disable the handler, Phoenix will take care of releasing it for you.
 
@@ -303,7 +303,7 @@ end
 
 ## 12. Key
 
-Use the `Key`-object to enable or disable keys. You can have multiple handlers for a single key combination, however only one can be enabled at a time. A key is disabled automatically when you release your reference to the handler. Keys are always reset on context reload. Enabling a key combination that has been exclusively registered by another app will fail.
+Use the `Key`-object to construct, enable or disable keys. You can have multiple handlers for a single key combination, however only one can be enabled at a time. Enabling a key combination that has been exclusively registered by another app will fail.
 
 ```java
 class Key implements Identifiable
@@ -333,7 +333,7 @@ end
 
 ## 13. Event
 
-Use the `Event`-object to access event properties. You can have multiple handlers for a single event. To disable an event, release your reference to the handler. Events are always reset on context reload.
+Use the `Event`-object to construct events, access their properties or to disable the event. You can have multiple handlers for a single event.
 
 ```java
 class Event implements Identifiable
@@ -357,7 +357,7 @@ end
 
 ## 14. Timer
 
-Use the `Timer`-object to control timers. A timer can fire only once or be repeating. To release a timer, release your reference to the handler. Timers are always reset on context reload.
+Use the `Timer`-object to construct and control timers. A timer can fire only once or be repeating.
 
 ```java
 class Timer implements Identifiable
@@ -380,7 +380,7 @@ end
 
 ## 15. Task
 
-Use the `Task`-object to access task properties. To terminate a task, release your reference to the handler. Tasks are always reset on context reload. Beware that some task properties are only set after the task has completed.
+Use the `Task`-object to constuct tasks, access their properties or to terminate the task. Beware that some task properties are only set after the task has completed.
 
 ```java
 class Task implements Identifiable
