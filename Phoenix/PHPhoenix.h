@@ -16,8 +16,6 @@
 - (void) log:(NSString *)message;
 - (void) notify:(NSString *)message;
 
-JSExportAs(storage, - (id) key:(NSString *)key value:(id)value);
-
 @end
 
 @interface PHPhoenix : NSObject <PHPhoenixJSExport>

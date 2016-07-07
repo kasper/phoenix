@@ -42,18 +42,6 @@
     [[PHPreferences sharedPreferences] add:preferences];
 }
 
-- (id) key:(NSString *)key value:(id)value {
-
-    // Get value
-    if (!value) {
-        return [self.delegate objectInStorageForKey:key];
-    }
-
-    // Store value
-    [self.delegate storeObject:value forKey:key];
-    return nil;
-}
-
 - (void) log:(NSString *)message {
 
     NSLog(@"%@", message);

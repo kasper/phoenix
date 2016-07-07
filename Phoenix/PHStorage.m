@@ -101,7 +101,7 @@ static NSString * const PHStoragePath = @"~/Library/Application Support/Phoenix/
 
 #pragma mark - Storing
 
-- (void) setObject:(id)object forKey:(NSString *)key {
+- (void) forKey:(NSString *)key setObject:(id)object {
 
     self.storage[key] = object;
     [self persist];
@@ -110,6 +110,12 @@ static NSString * const PHStoragePath = @"~/Library/Application Support/Phoenix/
 - (id) objectForKey:(NSString *)key {
 
     return self.storage[key];
+}
+
+- (void) removeObjectForKey:(NSString *)key {
+
+    [self.storage removeObjectForKey:key];
+    [self persist];
 }
 
 @end

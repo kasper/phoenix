@@ -10,21 +10,22 @@ This documentation is an overview of the JavaScript API provided by Phoenix. Use
 3. [Preferences](#3-preferences)
 4. [Require](#4-require)
 5. [Phoenix](#5-phoenix)
-6. [Point](#6-point)
-7. [Size](#7-size)
-8. [Rectangle](#8-rectangle)
-9. [Identifiable](#9-identifiable)
-10. [Iterable](#10-iterable)
-11. [Key](#11-key)
-12. [Event](#12-event)
-13. [Timer](#13-timer)
-14. [Task](#14-task)
-15. [Modal](#15-modal)
-16. [Screen](#16-screen)
-17. [Space](#17-space)
-18. [Mouse](#18-mouse)
-19. [App](#19-app)
-20. [Window](#20-window)
+6. [Storage](#6-storage)
+7. [Point](#7-point)
+8. [Size](#8-size)
+9. [Rectangle](#9-rectangle)
+10. [Identifiable](#10-identifiable)
+11. [Iterable](#11-iterable)
+12. [Key](#12-key)
+13. [Event](#13-event)
+14. [Timer](#14-timer)
+15. [Task](#15-task)
+16. [Modal](#16-modal)
+17. [Screen](#17-screen)
+18. [Space](#18-space)
+19. [Mouse](#19-mouse)
+20. [App](#20-app)
+21. [Window](#21-window)
 
 ## Getting Started
 
@@ -198,7 +199,6 @@ class Phoenix
 
   static void reload()
   static void set(Map<String, AnyObject> preferences)
-  static AnyObject storage(String key, AnyObject value)
   static void log(String message)
   static void notify(String message)
 
@@ -207,11 +207,28 @@ end
 
 - `reload()` manually reloads the context and any changes in the configuration files
 - `set(Map<String, AnyObject> preferences)` sets the preferences from the given key–value map, any previously set preferences with the same key will be overridden
-- `storage(String key, AnyObject value)` stores the value as JSON for the key and persists it to a file, any previously set values with the same key will be overridden, retrieves and returns the value for the key if no value is defined (`undefined` if no value has been set for the key)
 - `log(String message)` logs the message to the Console
 - `notify(String message)` delivers the message to the Notification Center
 
-## 6. Point
+## 6. Storage
+
+Use the `Storage`-object to store values accross reloads and reboots as JSON.
+
+```java
+class Storage
+
+  static void set(String key, AnyObject value)
+  static AnyObject get(String key)
+  static void remove(String key)
+
+end
+```
+
+- `set(String key, AnyObject value)` stores the value for the key, any previously set value with the same key will be overridden
+- `get(String key)` retrieves and returns the value for the key (`undefined` if no value has been set)
+- `remove(String key)` removes the key and the value associated with it
+
+## 7. Point
 
 A simple point object for 2D-coordinates.
 
@@ -224,7 +241,7 @@ class Point
 end
 ```
 
-## 7. Size
+## 8. Size
 
 A simple 2D-size object.
 
@@ -237,7 +254,7 @@ class Size
 end
 ```
 
-## 8. Rectangle
+## 9. Rectangle
 
 A 2D-rectangle representation of a `Point` and `Size`.
 
@@ -252,7 +269,7 @@ class Rectangle
 end
 ```
 
-## 9. Identifiable
+## 10. Identifiable
 
 Objects that implement `Identifiable` can be identified and compared.
 
@@ -268,7 +285,7 @@ end
 - `hash()` returns the hash value for the object
 - `isEqual(AnyObject object)` returns `true` if the given object is equal with this object
 
-## 10. Iterable
+## 11. Iterable
 
 Objects that implement `Iterable` can be traversed.
 
@@ -284,7 +301,7 @@ end
 - `next()` returns the next object or the first object when on the last one
 - `previous()` returns the previous object or the last object when on the first one
 
-## 11. Key
+## 12. Key
 
 Use the `Key`-object to enable or disable keys. You can have multiple handlers for a single key combination, however only one can be enabled at a time. A key is disabled automatically when you release your reference to the handler. Keys are always reset on context reload. Enabling a key combination that has been exclusively registered by another app will fail.
 
@@ -314,7 +331,7 @@ end
 - `enable()` enables the key handler, any previous handler for the same key combination will automatically be disabled, returns `true` if successful
 - `disable()` disables the key handler, returns `true` if successful
 
-## 12. Event
+## 13. Event
 
 Use the `Event`-object to access event properties. You can have multiple handlers for a single event. To disable an event, release your reference to the handler. Events are always reset on context reload.
 
@@ -336,7 +353,7 @@ end
 - `name` read-only property for the event name
 - `new Event(String event, Function callback)` constructs and binds an event to a callback function and returns the handler (`undefined` if not supported), you must keep a reference to the handler in order for your callback to get called, you can have multiple handlers for a single event, the callback function receives its handler as the last argument, for any additional arguments see [events](#2-events)
 
-## 13. Timer
+## 14. Timer
 
 Use the `Timer`-object to control timers. A timer can fire only once or be repeating. To release a timer, release your reference to the handler. Timers are always reset on context reload.
 
@@ -359,7 +376,7 @@ end
 - `new Timer(double interval, boolean repeats, Function callback)` constructs a timer that fires the callback once or repeatedly until stopped with the given interval (in seconds) and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument
 - `stop()` stops the timer immediately
 
-## 14. Task
+## 15. Task
 
 Use the `Task`-object to access task properties. To terminate a task, release your reference to the handler. Tasks are always reset on context reload. Beware that some task properties are only set after the task has completed.
 
@@ -385,7 +402,7 @@ end
 - `error` read-only property for the standard error
 - `new Task(String path, Array arguments, Function callback)` constructs a task that asynchronously executes an absolute path with the given arguments and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument
 
-## 15. Modal
+## 16. Modal
 
 Use the `Modal`-object to display messages as modal windows.
 
@@ -412,7 +429,7 @@ end
 - `show()` shows the modal
 - `close()` closes the modal
 
-## 16. Screen
+## 17. Screen
 
 Use the `Screen`-object to access frame sizes and other screens on a multi-screen setup. Get the current screen for a window through the `Window`-object. Beware that a screen can get stale if you keep a reference to it and it is for instance disconnected while you do so.
 
@@ -441,7 +458,7 @@ end
 - `windows()` returns all windows for the screen
 - `visibleWindows()` returns all visible windows for the screen
 
-## 17. Space
+## 18. Space
 
 Use the `Space`-object to control spaces. *These features are only supported on El Capitan (10.11) and upwards.* A single window can be in multiple spaces at the same time. To move a window to a different space, remove it from any existing spaces and add it to a new one. You can switch to a space by focusing on a window in that space. Beware that a space can get stale if you keep a reference to it and it is for instance closed while you do so.
 
@@ -472,7 +489,7 @@ end
 - `addWindows(Array<Window> windows)` adds the given windows to the space
 - `removeWindows(Array<Window> windows)` removes the given windows from the space
 
-## 18. Mouse
+## 19. Mouse
 
 Use the `Mouse`-object to control the cursor.
 
@@ -488,7 +505,7 @@ end
 - `location()` returns the cursor position
 - `moveTo(Point point)` moves the cursor to a given position, returns `true` if successful
 
-## 19. App
+## 20. App
 
 Use the `App`-object to control apps. Beware that an app can get stale if you keep a reference to it and it is for instance terminated while you do so, see `isTerminated()`.
 
@@ -539,7 +556,7 @@ end
 - `terminate()` terminates the app, returns `true` if successful
 - `forceTerminate()` force terminates the app, returns `true` if successful
 
-## 20. Window
+## 21. Window
 
 Use the `Window`-object to control windows. Every screen (i.e. display) combines to form a large rectangle. Every window lives within this rectangle and their position can be altered by giving coordinates inside this rectangle. To position a window to a specific display, you need to calculate its position within the large rectangle. To figure out the coordinates for a given screen, use the functions in `Screen`. Beware that a window can get stale if you keep a reference to it and it is for instance closed while you do so.
 

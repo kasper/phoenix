@@ -3,17 +3,23 @@
  */
 
 @import Foundation;
+@import JavaScriptCore;
 
-@interface PHStorage : NSObject
+@protocol PHStorageJSExport <JSExport>
+
+#pragma mark - Storing
+
+JSExportAs(set, - (void) forKey:(NSString *)key setObject:(id)object);
+JSExportAs(get, - (id) objectForKey:(NSString *)key);
+JSExportAs(remove, - (void) removeObjectForKey:(NSString *)key);
+
+@end
+
+@interface PHStorage : NSObject <PHStorageJSExport>
 
 #pragma mark - Initialising
 
 + (instancetype) new NS_UNAVAILABLE;
 + (instancetype) storage;
-
-#pragma mark - Storing
-
-- (void) setObject:(id)object forKey:(NSString *)key;
-- (id) objectForKey:(NSString *)key;
 
 @end

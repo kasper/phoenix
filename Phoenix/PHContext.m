@@ -179,6 +179,7 @@
     PHContext * __weak weakSelf = self;
 
     self.context[@"Phoenix"] = [PHPhoenix withDelegate:self];
+    self.context[@"Storage"] = weakSelf.storage;
     self.context[@"Key"] = [PHKeyHandler class];
     self.context[@"Event"] = [PHEventHandler class];
     self.context[@"Timer"] = [PHTimerHandler class];
@@ -235,16 +236,6 @@
     [self resetWatcher];
 
     NSLog(@"Context loaded.");
-}
-
-- (void) storeObject:(id)object forKey:(NSString *)key {
-
-    [self.storage setObject:object forKey:key];
-}
-
-- (id) objectInStorageForKey:(NSString *)key {
-
-    return [self.storage objectForKey:key];
 }
 
 @end

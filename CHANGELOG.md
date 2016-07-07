@@ -9,8 +9,8 @@ Release: dd.mm.yyyy
 ### New
 
 - Adds support for mouse events ([#90](https://github.com/kasper/phoenix/issues/90)).
-- Phoenix now has a key–value storage that can be used to store values accross reloads and reboots, see `storage(String key, AnyObject value)` in [Phoenix](https://github.com/kasper/phoenix/blob/2.2/API.md#5-phoenix) ([#97](https://github.com/kasper/phoenix/issues/97)).
-- You can now run tasks asynchronously and retrieve their status, standard output and standard error. A new `Task`-object has been created to access task properties, see its [API](https://github.com/kasper/phoenix/blob/2.2/API.md#14-task) ([#98](https://github.com/kasper/phoenix/issues/98)).
+- Phoenix now has a key–value storage that can be used to store values accross reloads and reboots as JSON, see [Storage](https://github.com/kasper/phoenix/blob/2.2/API.md#6-storage) ([#97](https://github.com/kasper/phoenix/issues/97)).
+- You can now run tasks asynchronously and retrieve their status, standard output and standard error. A new `Task`-object has been created to access task properties, see its [API](https://github.com/kasper/phoenix/blob/2.2/API.md#15-task) ([#98](https://github.com/kasper/phoenix/issues/98)).
 - Keys, events and timers are now constructed with relevant constructors instead of creating them through the global `Phoenix`-object ([#109](https://github.com/kasper/phoenix/issues/109)).
 
 ### Changes
@@ -28,7 +28,6 @@ Release: dd.mm.yyyy
 
 #### Phoenix
 
-- New: Function `storage(String key, AnyObject value)` stores the value as JSON for the key and persists it to a file, any previously set values with the same key will be overridden, retrieves and returns the value for the key if no value is defined (`undefined` if no value has been set for the key) ([#97](https://github.com/kasper/phoenix/issues/97)).
 - Deprecation: Function `bind(String key, Array<String> modifiers, Function callback)` has been removed, use constructor `new Key(String key, Array<String> modifiers, Function callback)` instead ([#109](https://github.com/kasper/phoenix/issues/109)).
 - Deprecation: Function `on(String event, Function callback)` has been removed, use constructor `new Event(String event, Function callback)` instead ([#109](https://github.com/kasper/phoenix/issues/109)).
 - Deprecation: Function `after(double interval, Function callback)` has been removed, use constructor `new Timer(double interval, boolean repeats, Function callback)` instead ([#109](https://github.com/kasper/phoenix/issues/109)).
@@ -40,7 +39,7 @@ Release: dd.mm.yyyy
 
 #### Command
 
-- Deprecation: Global `Command`-object has been removed, use `Task` instead as a direct replacement. See the [API](https://github.com/kasper/phoenix/blob/2.2/API.md#14-task) ([#98](https://github.com/kasper/phoenix/issues/98)).
+- Deprecation: Global `Command`-object has been removed, use `Task` instead as a direct replacement. See the [API](https://github.com/kasper/phoenix/blob/2.2/API.md#15-task) ([#98](https://github.com/kasper/phoenix/issues/98)).
 
 2.1.2
 -----
