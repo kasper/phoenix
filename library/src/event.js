@@ -16,6 +16,10 @@
   }
 
   scope.off = function (identifier) {
-    delete events[identifier];
+    var event = events[identifier];
+    if (event) {
+      event.disable();
+      delete events[identifier];
+    }
   }
 })(Event);

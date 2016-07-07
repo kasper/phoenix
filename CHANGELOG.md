@@ -37,6 +37,10 @@ Release: dd.mm.yyyy
 
 - Change: Function `enable()` will disable any previous handler for the same key combination automatically ([#99](https://github.com/kasper/phoenix/issues/99)).
 
+#### Event
+
+- New: Function `disable()` disables the event handler.
+
 #### Command
 
 - Deprecation: Global `Command`-object has been removed, use `Task` instead as a direct replacement. See the [API](https://github.com/kasper/phoenix/blob/2.2/API.md#15-task) ([#98](https://github.com/kasper/phoenix/issues/98)).

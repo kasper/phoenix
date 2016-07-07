@@ -16,6 +16,10 @@
 
 - (instancetype) initWithEvent:(NSString *)event callback:(JSValue *)callback;
 
+#pragma mark - Binding
+
+- (void) disable;
+
 @end
 
 @interface PHEventHandler : PHHandler <PHEventHandlerJSExport>

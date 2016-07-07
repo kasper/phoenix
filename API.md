@@ -344,6 +344,7 @@ class Event implements Identifiable
   property String name
 
   constructor Event Event(String event, Function callback)
+  void disable()
 
 end
 ```
@@ -352,6 +353,7 @@ end
 - `off(int identifier)` disables the managed handler for an event with the given identifier
 - `name` read-only property for the event name
 - `new Event(String event, Function callback)` constructs and binds an event to a callback function and returns the handler (`undefined` if not supported), you must keep a reference to the handler in order for your callback to get called, you can have multiple handlers for a single event, the callback function receives its handler as the last argument, for any additional arguments see [events](#2-events)
+- `disable()` disables the event handler
 
 ## 14. Timer
 

@@ -51,6 +51,13 @@
 
 - (void) dealloc {
 
+    [self disable];
+}
+
+#pragma mark - Binding
+
+- (void) disable {
+
     [self.notificationCenter removeObserver:self name:self.notification object:nil];
 }
 
