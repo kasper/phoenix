@@ -31,6 +31,13 @@
     return self;
 }
 
+#pragma mark - Deallocing
+
+- (void) dealloc {
+
+    [self stop];
+}
+
 #pragma mark - Timing
 
 - (void) timerDidFire {
