@@ -83,8 +83,8 @@ static NSString * const NSScreenNumberKey = @"NSScreenNumber";
     NSPredicate *spaceOnSameScreen = [NSPredicate predicateWithBlock:
                                       ^BOOL (PHSpace *space, __unused NSDictionary<NSString *, id> *bindings) {
 
-                                          return [[space screen] isEqualTo:self];
-                                      }];
+        return [[space screen] isEqualTo:self];
+    }];
 
     return [[PHSpace all] filteredArrayUsingPredicate:spaceOnSameScreen];
 }
