@@ -9,7 +9,7 @@
 
 @implementation NSScreen (PHExtension)
 
-static NSString * const NSScreenNumber = @"NSScreenNumber";
+static NSString * const NSScreenNumberKey = @"NSScreenNumber";
 static NSString * const PHWindowVisibilityOptionKey = @"visible";
 
 #pragma mark - Screens
@@ -52,7 +52,7 @@ static NSString * const PHWindowVisibilityOptionKey = @"visible";
 
 - (NSString *) identifier {
 
-    id uuid = CFBridgingRelease(CGDisplayCreateUUIDFromDisplayID([self.deviceDescription[NSScreenNumber] unsignedIntValue]));
+    id uuid = CFBridgingRelease(CGDisplayCreateUUIDFromDisplayID([self.deviceDescription[NSScreenNumberKey] unsignedIntValue]));
     return CFBridgingRelease(CFUUIDCreateString(NULL, (__bridge CFUUIDRef) uuid));
 }
 

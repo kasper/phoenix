@@ -39,8 +39,8 @@ typedef enum {
 @implementation PHSpace
 
 static NSString * const CGSScreenIDKey = @"Display Identifier";
-static NSString * const CGSSpacesKey = @"Spaces";
 static NSString * const CGSSpaceIDKey = @"ManagedSpaceID";
+static NSString * const CGSSpacesKey = @"Spaces";
 static NSString * const PHWindowIDKey = @"identifier";
 
 // XXX: Undocumented private API to get the CGSConnectionID for the default connection for this process

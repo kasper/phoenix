@@ -4,8 +4,8 @@
 
 @import Foundation;
 
-static NSString * const NSTaskErrorDomain = @"NSTaskErrorDomain";
 static NSInteger const NSTaskErrorCode = -1;
+static NSString * const NSTaskErrorDomain = @"NSTaskErrorDomain";
 
 @interface NSTask (PHExtension)
 

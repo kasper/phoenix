@@ -6,7 +6,7 @@
 
 #import "PHAXUIElement.h"
 
-static NSString * const PHAXObserverWindowKey = @"PHAXObserverWindowKey";
+static NSString * const PHAXObserverWindowKey = @"PHAXObserverWindow";
 
 @interface PHAXObserver : PHAXUIElement
 
