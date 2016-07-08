@@ -10,6 +10,7 @@
 @implementation NSScreen (PHExtension)
 
 static NSString * const NSScreenNumber = @"NSScreenNumber";
+static NSString * const PHWindowVisibilityOptionKey = @"visible";
 
 #pragma mark - Screens
 
@@ -101,14 +102,21 @@ static NSString * const NSScreenNumber = @"NSScreenNumber";
     return [[PHWindow windows] filteredArrayUsingPredicate:windowOnSameScreen];
 }
 
-- (NSArray<PHWindow *> *) visibleWindows {
+- (NSArray<PHWindow *> *) windows:(NSDictionary<NSString *, id> *)optionals {
 
+    NSNumber *visibilityOption = optionals[PHWindowVisibilityOptionKey];
     NSPredicate *visibility = [NSPredicate predicateWithBlock:^BOOL (PHWindow *window,
                                                                      __unused NSDictionary<NSString *, id> *bindings) {
-        return [window isVisible];
+
+        return visibilityOption.boolValue ? [window isVisible] : ![window isVisible];
     }];
 
-    return [[self windows] filteredArrayUsingPredicate:visibility];
+    // Filter based on visibility
+    if (visibilityOption) {
+        return [[self windows] filteredArrayUsingPredicate:visibility];
+    }
+
+    return [self windows];
 }
 
 @end

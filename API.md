@@ -447,8 +447,7 @@ class Screen implements Identifiable, Iterable
   Rectangle frameInRectangle()
   Rectangle visibleFrameInRectangle()
   Array<Space> spaces() // macOS 10.11+
-  Array<Window> windows()
-  Array<Window> visibleWindows()
+  Array<Window> windows(Map<String, AnyObject> optionals)
 
 end
 ```
@@ -459,8 +458,11 @@ end
 - `frameInRectangle()` returns the whole frame for the screen
 - `visibleFrameInRectangle()` returns the visible frame for the screen subtracting the Dock and Menu from the frame when visible
 - `spaces()` returns all spaces for the screen (macOS 10.11+, returns an empty list otherwise)
-- `windows()` returns all windows for the screen
-- `visibleWindows()` returns all visible windows for the screen
+- `windows(Map<String, AnyObject> optionals)` returns all windows for the screen if no optionals are given
+
+### Optionals
+
+- `visible` (boolean): if set `true` returns all visible windows for the screen, if set `false` returns all hidden windows for the screen
 
 ## 18. Space
 

@@ -33,8 +33,7 @@
 
 #pragma mark - Windows
 
-- (NSArray<PHWindow *> *) windows;
-- (NSArray<PHWindow *> *) visibleWindows;
+- (NSArray<PHWindow *> *) windows:(NSDictionary<NSString *, id> *)optionals;
 
 @end
 
