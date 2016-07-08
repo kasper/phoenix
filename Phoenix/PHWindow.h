@@ -18,7 +18,7 @@
 
 + (instancetype) focused;
 + (NSArray<PHWindow *> *) all;
-+ (NSArray<PHWindow *> *) visibleWindows;
++ (NSArray<PHWindow *> *) visible;
 + (NSArray<PHWindow *> *) visibleWindowsInOrder;
 
 - (NSArray<PHWindow *> *) otherWindowsOnSameScreen;

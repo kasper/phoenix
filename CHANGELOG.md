@@ -69,6 +69,7 @@ Release: dd.mm.yyyy
 
 - Change: Function `focusedWindow()` is now simply `focused()` ([#108](https://github.com/kasper/phoenix/issues/108)).
 - Change: Function `windows()` is now `all()` ([#108](https://github.com/kasper/phoenix/issues/108)).
+- Change: Function `visibleWindows()` is now simply `visible()` ([#108](https://github.com/kasper/phoenix/issues/108)).
 
 #### Command
 

@@ -61,7 +61,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return windows;
 }
 
-+ (NSArray<PHWindow *> *) visibleWindows {
++ (NSArray<PHWindow *> *) visible {
 
     NSPredicate *visibility = [NSPredicate predicateWithBlock:^BOOL (PHWindow *window,
                                                                      __unused NSDictionary<NSString *, id> *bindings) {
@@ -113,7 +113,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
         return ![self isEqual:window] && [[self screen] isEqual:[window screen]];
     }];
 
-    return [[PHWindow visibleWindows] filteredArrayUsingPredicate:otherWindowOnSameScreen];
+    return [[PHWindow visible] filteredArrayUsingPredicate:otherWindowOnSameScreen];
 }
 
 - (NSArray<PHWindow *> *) otherWindowsOnAllScreens {
@@ -123,7 +123,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
         return ![self isEqual:window];
     }];
 
-    return [[PHWindow visibleWindows] filteredArrayUsingPredicate:otherWindowOnAllScreens];
+    return [[PHWindow visible] filteredArrayUsingPredicate:otherWindowOnAllScreens];
 }
 
 #pragma mark - Properties
