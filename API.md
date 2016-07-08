@@ -537,8 +537,7 @@ class App implements Identifiable
   boolean focus()
   boolean show()
   boolean hide()
-  boolean terminate()
-  boolean forceTerminate()
+  boolean terminate(Map<String, AnyObject> optionals)
 
 end
 ```
@@ -559,12 +558,15 @@ end
 - `focus()` activates the app and brings its windows to focus, returns `true` if successful
 - `show()` shows the app, returns `true` if successful
 - `hide()` hides the app, returns `true` if successful
-- `terminate()` terminates the app, returns `true` if successful
-- `forceTerminate()` force terminates the app, returns `true` if successful
+- `terminate(Map<String, AnyObject> optionals)` terminates the app, returns `true` if successful
 
-### Optionals
+### Window Optionals
 
 - `visible` (boolean): if set `true` returns all visible windows for the app, if set `false` returns all hidden windows for the app
+
+### Terminate Optionals
+
+- `force` (boolean): if set `true` force terminates the app
 
 ## 21. Window
 

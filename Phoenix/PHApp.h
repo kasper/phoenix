@@ -40,8 +40,7 @@
 - (BOOL) focus;
 - (BOOL) show;
 - (BOOL) hide;
-- (BOOL) terminate;
-- (BOOL) forceTerminate;
+- (BOOL) terminate:(NSDictionary<NSString *, id> *)optionals;
 
 @end
 

@@ -61,7 +61,9 @@ Release: dd.mm.yyyy
 - Change: Function `focusedApp()` is now simply `focused()` ([#108](https://github.com/kasper/phoenix/issues/108)).
 - Change: Function `runningApps()` is now `all()` ([#108](https://github.com/kasper/phoenix/issues/108)).
 - Change: Function `windows()` now takes optionals `windows(Map<String, AnyObject> optionals)` ([#108](https://github.com/kasper/phoenix/issues/108)).
+- Change: Function `terminate()` now takes optionals `windows(Map<String, AnyObject> optionals)` ([#108](https://github.com/kasper/phoenix/issues/108)).
 - Deprecation: Function `visibleWindows()` has been removed, use `windows({ visible: true })` instead ([#108](https://github.com/kasper/phoenix/issues/108)).
+- Deprecation: Function `forceTerminate()` has been removed, use `terminate({ force: true })` instead ([#108](https://github.com/kasper/phoenix/issues/108)).
 
 #### Command
 

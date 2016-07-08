@@ -15,6 +15,8 @@
 
 @implementation PHApp
 
+static NSString * const PHAppForceOptionKey = @"force";
+
 #pragma mark - Initialising
 
 - (instancetype) initWithApp:(NSRunningApplication *)app {
@@ -169,14 +171,16 @@
     return [self.app hide];
 }
 
-- (BOOL) terminate {
+- (BOOL) terminate:(NSDictionary<NSString *, id> *)optionals {
+
+    NSNumber *forceOption = optionals[PHAppForceOptionKey];
+
+    // Force terminate
+    if (forceOption && forceOption.boolValue) {
+        return [self.app forceTerminate];
+    }
 
     return [self.app terminate];
-}
-
-- (BOOL) forceTerminate {
-
-    return [self.app forceTerminate];
 }
 
 @end
