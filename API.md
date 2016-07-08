@@ -472,7 +472,7 @@ Use the `Space`-object to control spaces. *These features are only supported on 
 class Space implements Identifiable, Iterable
 
   static Space active() // macOS 10.11+
-  static Array<Space> spaces() // macOS 10.11+
+  static Array<Space> all() // macOS 10.11+
 
   boolean isNormal()
   boolean isFullScreen()
@@ -486,7 +486,7 @@ end
 ```
 
 - `active()` returns the space containing the window with the keyboard focus (macOS 10.11+, returns `undefined` otherwise)
-- `spaces()` returns all spaces, the first space in this array corresponds to the primary space (macOS 10.11+, returns an empty list otherwise)
+- `all()` returns all spaces, the first space in this array corresponds to the primary space (macOS 10.11+, returns an empty list otherwise)
 - `isNormal()` returns `true` if the space is a normal space
 - `isFullScreen()` returns `true` if the space is a full screen space
 - `screen()` returns the screen to which the space belongs to

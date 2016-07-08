@@ -87,7 +87,7 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
     return [(PHSpace *) [self alloc] initWithIdentifier:CGSGetActiveSpace(CGSMainConnectionID())];
 }
 
-+ (NSArray<PHSpace *> *) spaces {
++ (NSArray<PHSpace *> *) all {
 
     // Only supported from 10.11 upwards
     if (![NSProcessInfo isOperatingSystemAtLeastElCapitan]) {
@@ -120,7 +120,7 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
     NSArray<NSNumber *> *identifiers = CFBridgingRelease(CGSCopySpacesForWindows(CGSMainConnectionID(),
                                                                                  kCGSAllSpacesMask,
                                                                                  (__bridge CFArrayRef) @[ @([window identifier]) ]));
-    for (PHSpace *space in [self spaces]) {
+    for (PHSpace *space in [self all]) {
 
         NSNumber *identifier = @([space hash]);
 

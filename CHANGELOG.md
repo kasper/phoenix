@@ -52,6 +52,7 @@ Release: dd.mm.yyyy
 #### Space
 
 - Change: Function `activeSpace()` is now simply `active()` ([#108](https://github.com/kasper/phoenix/issues/108)).
+- Change: Function `spaces()` is now `all()` ([#108](https://github.com/kasper/phoenix/issues/108)).
 
 #### Command
 

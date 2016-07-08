@@ -86,7 +86,7 @@ static NSString * const PHWindowVisibilityOptionKey = @"visible";
                                           return [[space screen] isEqualTo:self];
                                       }];
 
-    return [[PHSpace spaces] filteredArrayUsingPredicate:spaceOnSameScreen];
+    return [[PHSpace all] filteredArrayUsingPredicate:spaceOnSameScreen];
 }
 
 #pragma mark - Windows
