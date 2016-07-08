@@ -532,8 +532,7 @@ class App implements Identifiable
   boolean isHidden()
   boolean isTerminated()
   Window mainWindow()
-  Array<Window> windows()
-  Array<Window> visibleWindows()
+  Array<Window> windows(Map<String, AnyObject> optionals)
   boolean activate()
   boolean focus()
   boolean show()
@@ -555,14 +554,17 @@ end
 - `isHidden()` returns `true` if the app is hidden
 - `isTerminated()` returns `true` if the app has been terminated
 - `mainWindow()` returns the main window for the app
-- `windows()` returns all windows for the app
-- `visibleWindows()` returns all visible windows for the app
+- `windows(Map<String, AnyObject> optionals)` returns all windows for the app if no optionals are given
 - `activate()` activates the app and brings its windows forward, returns `true` if successful
 - `focus()` activates the app and brings its windows to focus, returns `true` if successful
 - `show()` shows the app, returns `true` if successful
 - `hide()` hides the app, returns `true` if successful
 - `terminate()` terminates the app, returns `true` if successful
 - `forceTerminate()` force terminates the app, returns `true` if successful
+
+### Optionals
+
+- `visible` (boolean): if set `true` returns all visible windows for the app, if set `false` returns all hidden windows for the app
 
 ## 21. Window
 

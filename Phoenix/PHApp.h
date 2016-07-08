@@ -29,11 +29,10 @@
 - (BOOL) isHidden;
 - (BOOL) isTerminated;
 
-#pragma mark - Windows
+#pragma mark - Exported Windows
 
 - (PHWindow *) mainWindow;
-- (NSArray<PHWindow *> *) windows;
-- (NSArray<PHWindow *> *) visibleWindows;
+- (NSArray<PHWindow *> *) windows:(NSDictionary<NSString *, id> *)optionals;
 
 #pragma mark - Actions
 
@@ -51,5 +50,9 @@
 #pragma mark - Initialising
 
 - (instancetype) initWithApp:(NSRunningApplication *)app;
+
+#pragma mark - Windows
+
+- (NSArray<PHWindow *> *) windows;
 
 @end
