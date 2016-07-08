@@ -124,23 +124,23 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
 - (NSArray<PHWindow *> *) otherWindowsOnSameScreen {
 
-    NSPredicate *otherWindowOnSameScreen = [NSPredicate predicateWithBlock:
-                                            ^BOOL (PHWindow *window, __unused NSDictionary<NSString *, id> *bindings) {
+    NSPredicate *otherWindowsOnThisScreen = [NSPredicate predicateWithBlock:
+                                             ^BOOL (PHWindow *window, __unused NSDictionary<NSString *, id> *bindings) {
 
         return ![self isEqual:window] && [[self screen] isEqual:[window screen]];
     }];
 
-    return [[PHWindow windows] filteredArrayUsingPredicate:otherWindowOnSameScreen];
+    return [[PHWindow windows] filteredArrayUsingPredicate:otherWindowsOnThisScreen];
 }
 
 - (NSArray<PHWindow *> *) otherWindowsOnAllScreens {
 
-    NSPredicate *otherWindowOnAllScreens = [NSPredicate predicateWithBlock:
-                                            ^BOOL (PHWindow *window, __unused NSDictionary<NSString *, id> *bindings) {
+    NSPredicate *otherWindowsOnAllScreens = [NSPredicate predicateWithBlock:
+                                             ^BOOL (PHWindow *window, __unused NSDictionary<NSString *, id> *bindings) {
         return ![self isEqual:window];
     }];
 
-    return [[PHWindow windows] filteredArrayUsingPredicate:otherWindowOnAllScreens];
+    return [[PHWindow windows] filteredArrayUsingPredicate:otherWindowsOnAllScreens];
 }
 
 #pragma mark - Properties

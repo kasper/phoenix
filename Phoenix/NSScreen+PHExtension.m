@@ -79,13 +79,13 @@ static NSString * const NSScreenNumberKey = @"NSScreenNumber";
 
 - (NSArray<PHSpace *> *) spaces {
 
-    NSPredicate *spaceOnSameScreen = [NSPredicate predicateWithBlock:
-                                      ^BOOL (PHSpace *space, __unused NSDictionary<NSString *, id> *bindings) {
+    NSPredicate *spaceIsOnThisScreen = [NSPredicate predicateWithBlock:
+                                        ^BOOL (PHSpace *space, __unused NSDictionary<NSString *, id> *bindings) {
 
         return [[space screen] isEqualTo:self];
     }];
 
-    return [[PHSpace all] filteredArrayUsingPredicate:spaceOnSameScreen];
+    return [[PHSpace all] filteredArrayUsingPredicate:spaceIsOnThisScreen];
 }
 
 #pragma mark - Windows
