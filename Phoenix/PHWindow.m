@@ -50,7 +50,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return [[self alloc] initWithElement:focusedWindow];
 }
 
-+ (NSArray<PHWindow *> *) windows {
++ (NSArray<PHWindow *> *) all {
 
     NSMutableArray<PHWindow *> *windows = [NSMutableArray array];
     
@@ -68,12 +68,12 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
         return [window isVisible];
     }];
 
-    return [[self windows] filteredArrayUsingPredicate:visibility];
+    return [[self all] filteredArrayUsingPredicate:visibility];
 }
 
 + (NSArray<PHWindow *> *) visibleWindowsInOrder {
 
-    NSArray<PHWindow *> *windows = [self windows];
+    NSArray<PHWindow *> *windows = [self all];
     NSMutableArray<PHWindow *> *orderedWindows = [NSMutableArray array];
 
     // Windows returned in order from front to back

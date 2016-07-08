@@ -196,7 +196,7 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
         return [[window spaces] containsObject:self];
     }];
 
-    return [[PHWindow windows] filteredArrayUsingPredicate:windowOnSameSpace];
+    return [[PHWindow all] filteredArrayUsingPredicate:windowOnSameSpace];
 }
 
 - (NSArray<PHWindow *> *) windows:(NSDictionary<NSString *, id> *)optionals {

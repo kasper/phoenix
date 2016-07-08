@@ -576,7 +576,7 @@ Use the `Window`-object to control windows. Every screen (i.e. display) combines
 class Window implements Identifiable
 
   static Window focused()
-  static Array<Window> windows()
+  static Array<Window> all()
   static Array<Window> visibleWindows()
   static Array<Window> visibleWindowsInOrder()
 
@@ -615,7 +615,7 @@ end
 ```
 
 - `focused()` returns the focused window for the currently active app, can be `undefined` if no window is focused currently
-- `windows()` returns all windows in screens
+- `all()` returns all windows in screens
 - `visibleWindows()` returns all visible windows in screens
 - `visibleWindowsInOrder()` returns all visible windows in the order as they appear on the screen (from front to back), essentially returning them in the most-recently-used order
 - `otherWindowsOnSameScreen()` returns all other windows on the same screen as the window

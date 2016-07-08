@@ -99,7 +99,7 @@ static NSString * const NSScreenNumberKey = @"NSScreenNumber";
         return [[window screen] isEqualTo:self];
     }];
 
-    return [[PHWindow windows] filteredArrayUsingPredicate:windowOnSameScreen];
+    return [[PHWindow all] filteredArrayUsingPredicate:windowOnSameScreen];
 }
 
 - (NSArray<PHWindow *> *) windows:(NSDictionary<NSString *, id> *)optionals {
