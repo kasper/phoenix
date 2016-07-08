@@ -25,6 +25,11 @@ static NSString * const NSScreenNumber = @"NSScreenNumber";
     return nil;
 }
 
++ (instancetype) main {
+
+    return [NSScreen mainScreen];
+}
+
 #pragma mark - PHIterableJSExport
 
 - (instancetype) next {

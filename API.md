@@ -440,7 +440,7 @@ Use the `Screen`-object to access frame sizes and other screens on a multi-scree
 ```java
 class Screen implements Identifiable, Iterable
 
-  static Screen mainScreen()
+  static Screen main()
   static Array<Screen> screens()
 
   String identifier()
@@ -453,7 +453,7 @@ class Screen implements Identifiable, Iterable
 end
 ```
 
-- `mainScreen()` returns the screen containing the window with the keyboard focus
+- `main()` returns the screen containing the window with the keyboard focus
 - `screens()` returns all screens, the first screen in this array corresponds to the primary screen for the system
 - `identifier()` returns the UUID for the screen
 - `frameInRectangle()` returns the whole frame for the screen

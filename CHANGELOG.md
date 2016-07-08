@@ -16,6 +16,7 @@ Release: dd.mm.yyyy
 ### Changes
 
 - Breaking: You can now have multiple `Key`s for a single key combination. However, only one can be enabled at a time. Previously binding would only change the callback for an existing handler if a previously bound key combination was used again. Now, binding a key combination will always return a new unique handler. As before, this new handler is always enabled by default. Subsequently, any previous handler for the key combination will therefor be automatically disabled ([#99](https://github.com/kasper/phoenix/issues/99)).
+- Breaking: Name and stylistic changes to the API ([#108](https://github.com/kasper/phoenix/issues/108)).
 - Breaking: `KeyHandler` has been renamed to `Key`, `EventHandler` to `Event` and `TimerHandler` to `Timer` ([#109](https://github.com/kasper/phoenix/issues/109)).
 
 ### API
@@ -40,6 +41,10 @@ Release: dd.mm.yyyy
 #### Event
 
 - New: Function `disable()` disables the event handler.
+
+#### Screen
+
+- Change: Function `mainScreen()` is now simply `main()` ([#108](https://github.com/kasper/phoenix/issues/108)).
 
 #### Command
 
