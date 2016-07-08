@@ -441,7 +441,7 @@ Use the `Screen`-object to access frame sizes and other screens on a multi-scree
 class Screen implements Identifiable, Iterable
 
   static Screen main()
-  static Array<Screen> screens()
+  static Array<Screen> all()
 
   String identifier()
   Rectangle frameInRectangle()
@@ -454,7 +454,7 @@ end
 ```
 
 - `main()` returns the screen containing the window with the keyboard focus
-- `screens()` returns all screens, the first screen in this array corresponds to the primary screen for the system
+- `all()` returns all screens, the first screen in this array corresponds to the primary screen for the system
 - `identifier()` returns the UUID for the screen
 - `frameInRectangle()` returns the whole frame for the screen
 - `visibleFrameInRectangle()` returns the visible frame for the screen subtracting the Dock and Menu from the frame when visible

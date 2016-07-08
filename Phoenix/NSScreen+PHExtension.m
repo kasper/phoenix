@@ -30,6 +30,11 @@ static NSString * const NSScreenNumber = @"NSScreenNumber";
     return [NSScreen mainScreen];
 }
 
++ (NSArray<NSScreen *> *) all {
+
+    return [NSScreen screens];
+}
+
 #pragma mark - PHIterableJSExport
 
 - (instancetype) next {

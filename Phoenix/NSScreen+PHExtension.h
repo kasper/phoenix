@@ -16,7 +16,7 @@
 #pragma mark - Exported Screens
 
 + (instancetype) main;
-+ (NSArray<NSScreen *> *) screens;
++ (NSArray<NSScreen *> *) all;
 
 #pragma mark - Properties
 

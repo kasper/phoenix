@@ -45,6 +45,7 @@ Release: dd.mm.yyyy
 #### Screen
 
 - Change: Function `mainScreen()` is now simply `main()` ([#108](https://github.com/kasper/phoenix/issues/108)).
+- Change: Function `screens()` is now `all()` ([#108](https://github.com/kasper/phoenix/issues/108)).
 
 #### Command
 
