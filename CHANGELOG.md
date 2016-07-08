@@ -59,6 +59,7 @@ Release: dd.mm.yyyy
 #### App
 
 - Change: Function `focusedApp()` is now simply `focused()` ([#108](https://github.com/kasper/phoenix/issues/108)).
+- Change: Function `runningApps()` is now `all()` ([#108](https://github.com/kasper/phoenix/issues/108)).
 
 #### Command
 

@@ -54,7 +54,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
     NSMutableArray<PHWindow *> *windows = [NSMutableArray array];
     
-    for (PHApp *app in [PHApp runningApps]) {
+    for (PHApp *app in [PHApp all]) {
         [windows addObjectsFromArray:[app windows]];
     }
     

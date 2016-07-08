@@ -29,7 +29,7 @@
 
 + (instancetype) get:(NSString *)appName {
 
-    for (PHApp *app in [self runningApps]) {
+    for (PHApp *app in [self all]) {
 
         if ([[app name] isEqualToString:appName]) {
             return app;
@@ -67,7 +67,7 @@
     return [[self alloc] initWithApp:[NSWorkspace sharedWorkspace].frontmostApplication];
 }
 
-+ (NSArray<PHApp *> *) runningApps {
++ (NSArray<PHApp *> *) all {
 
     NSMutableArray<PHApp *> *apps = [NSMutableArray array];
 
