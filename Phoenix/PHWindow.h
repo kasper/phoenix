@@ -18,7 +18,7 @@
 
 + (instancetype) focused;
 + (NSArray<PHWindow *> *) all:(NSDictionary<NSString *, id> *)optionals;
-+ (NSArray<PHWindow *> *) visibleWindowsInOrder;
++ (NSArray<PHWindow *> *) recent;
 
 - (NSArray<PHWindow *> *) otherWindowsOnSameScreen;
 - (NSArray<PHWindow *> *) otherWindowsOnAllScreens;

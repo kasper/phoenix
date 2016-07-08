@@ -577,7 +577,7 @@ class Window implements Identifiable
 
   static Window focused()
   static Array<Window> all(Map<String, AnyObject> optionals)
-  static Array<Window> visibleWindowsInOrder()
+  static Array<Window> recent()
 
   Array<Window> otherWindowsOnSameScreen()
   Array<Window> otherWindowsOnAllScreens()
@@ -615,7 +615,7 @@ end
 
 - `focused()` returns the focused window for the currently active app, can be `undefined` if no window is focused currently
 - `all(Map<String, AnyObject> optionals)` returns all windows in screens if no optionals are given
-- `visibleWindowsInOrder()` returns all visible windows in the order as they appear on the screen (from front to back), essentially returning them in the most-recently-used order
+- `recent()` returns all visible windows in the order as they appear on the screen (from front to back), essentially returning them in the most-recently-used order
 - `otherWindowsOnSameScreen()` returns all other windows on the same screen as the window
 - `otherWindowsOnAllScreens()` returns all other windows on all screens
 - `title()` returns the title for the window

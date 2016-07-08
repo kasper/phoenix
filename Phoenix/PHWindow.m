@@ -79,7 +79,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return [self windows];
 }
 
-+ (NSArray<PHWindow *> *) visibleWindowsInOrder {
++ (NSArray<PHWindow *> *) recent {
 
     NSArray<PHWindow *> *windows = [self windows];
     NSMutableArray<PHWindow *> *orderedWindows = [NSMutableArray array];
