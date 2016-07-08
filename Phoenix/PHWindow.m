@@ -38,7 +38,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
 #pragma mark - Windows
 
-+ (instancetype) focusedWindow {
++ (instancetype) focused {
 
     id focusedWindow = [[self elementForSystemAttribute:(NSString *) kAXFocusedApplicationAttribute]
                         valueForAttribute:NSAccessibilityFocusedWindowAttribute];

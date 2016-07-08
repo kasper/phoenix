@@ -37,17 +37,17 @@ For example, to bind a key to a function, you construct a `Key`-object. Notice t
 var handler = new Key('q', [ 'ctrl', 'shift' ], function () {});
 ```
 
-To move the focused window to a new coordinate, you can call the `setTopLeft`-function for a `Window`-instance. To get a `Window`-instance, you can for example get the focused window with the `focusedWindow`-function for the global `Window`-object.
+To move the focused window to a new coordinate, you can call the `setTopLeft`-function for a `Window`-instance. To get a `Window`-instance, you can for example get the focused window with the `focused`-function for the global `Window`-object.
 
 ```javascript
-Window.focusedWindow().setTopLeft({ x: 0, y: 0 });
+Window.focused().setTopLeft({ x: 0, y: 0 });
 ```
 
 To combine, bind a key to move the focused window.
 
 ```javascript
 var handler = new Key('q', [ 'ctrl', 'shift' ], function () {
-  Window.focusedWindow().setTopLeft({ x: 0, y: 0 });
+  Window.focused().setTopLeft({ x: 0, y: 0 });
 });
 ```
 
@@ -575,7 +575,7 @@ Use the `Window`-object to control windows. Every screen (i.e. display) combines
 ```java
 class Window implements Identifiable
 
-  static Window focusedWindow()
+  static Window focused()
   static Array<Window> windows()
   static Array<Window> visibleWindows()
   static Array<Window> visibleWindowsInOrder()
@@ -614,7 +614,7 @@ class Window implements Identifiable
 end
 ```
 
-- `focusedWindow()` returns the focused window for the currently active app, can be `undefined` if no window is focused currently
+- `focused()` returns the focused window for the currently active app, can be `undefined` if no window is focused currently
 - `windows()` returns all windows in screens
 - `visibleWindows()` returns all visible windows in screens
 - `visibleWindowsInOrder()` returns all visible windows in the order as they appear on the screen (from front to back), essentially returning them in the most-recently-used order

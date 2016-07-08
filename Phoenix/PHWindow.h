@@ -16,7 +16,7 @@
 
 #pragma mark - Windows
 
-+ (instancetype) focusedWindow;
++ (instancetype) focused;
 + (NSArray<PHWindow *> *) windows;
 + (NSArray<PHWindow *> *) visibleWindows;
 + (NSArray<PHWindow *> *) visibleWindowsInOrder;
