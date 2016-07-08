@@ -131,7 +131,6 @@
 		A79C46941B5BF3C100C460CF /* underscore-min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "underscore-min.js"; sourceTree = "<group>"; };
 		A79C46A91B5BF41900C460CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A7A6F57D1D1AD3B8000A0E5E /* phoenix-min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "phoenix-min.js"; sourceTree = "<group>"; };
-		A7A7B96B1D2FD494005ABC6E /* PHOptionConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHOptionConstants.h; sourceTree = "<group>"; };
 		A7D1D9A71B6FD6A300E00CC9 /* PHKeyTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHKeyTranslator.h; sourceTree = "<group>"; };
 		A7D1D9A81B6FD6A300E00CC9 /* PHKeyTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHKeyTranslator.m; sourceTree = "<group>"; };
 		A7D1F7641B5BFF5B0052E646 /* PhoenixTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoenixTests.m; sourceTree = "<group>"; };
@@ -193,7 +192,6 @@
 				A72EAD061B5D00B800DD537B /* PHModalWindowController.m */,
 				A79C46861B5BF3C100C460CF /* PHMouse.h */,
 				A79C46871B5BF3C100C460CF /* PHMouse.m */,
-				A7A7B96B1D2FD494005ABC6E /* PHOptionConstants.h */,
 				A72ED7B41B6E25940064E35B /* PHPhoenix.h */,
 				A72ED7B51B6E25940064E35B /* PHPhoenix.m */,
 				A731A7241C2C76B800EB9FD5 /* PHSpace.h */,

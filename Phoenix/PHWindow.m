@@ -4,7 +4,6 @@
 
 #import "NSScreen+PHExtension.h"
 #import "PHApp.h"
-#import "PHOptionConstants.h"
 #import "PHSpace.h"
 #import "PHWindow.h"
 
@@ -37,6 +36,16 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return self;
 }
 
+#pragma mark - Predicates
+
++ (NSPredicate *) isVisible:(BOOL)visible {
+
+    return [NSPredicate predicateWithBlock:^BOOL (PHWindow *window, __unused NSDictionary<NSString *, id> *bindings) {
+
+        return visible ? [window isVisible] : ![window isVisible];
+    }];
+}
+
 #pragma mark - Windows
 
 + (instancetype) focused {
@@ -62,18 +71,18 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return windows;
 }
 
++ (NSArray<PHWindow *> *) filteredWindowsUsingPredicateBlock:(BOOL (^)(PHWindow *window, NSDictionary<NSString *, id> *bindings))block {
+
+    return [[self windows] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:block]];
+}
+
 + (NSArray<PHWindow *> *) all:(NSDictionary<NSString *, id> *)optionals {
 
     NSNumber *visibilityOption = optionals[PHWindowVisibilityOptionKey];
-    NSPredicate *visibility = [NSPredicate predicateWithBlock:^BOOL (PHWindow *window,
-                                                                     __unused NSDictionary<NSString *, id> *bindings) {
-
-        return visibilityOption.boolValue ? [window isVisible] : ![window isVisible];
-    }];
 
     // Filter based on visibility
     if (visibilityOption) {
-        return [[self windows] filteredArrayUsingPredicate:visibility];
+        return [[self windows] filteredArrayUsingPredicate:[self isVisible:visibilityOption.boolValue]];
     }
 
     return [self windows];

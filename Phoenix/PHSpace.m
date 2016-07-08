@@ -5,7 +5,6 @@
 #import "NSArray+PHExtension.h"
 #import "NSProcessInfo+PHExtension.h"
 #import "NSScreen+PHExtension.h"
-#import "PHOptionConstants.h"
 #import "PHSpace.h"
 #import "PHWindow.h"
 
@@ -190,27 +189,19 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
 
 - (NSArray<PHWindow *> *) windows {
 
-    NSPredicate *windowOnSameSpace = [NSPredicate predicateWithBlock:
-                                      ^BOOL (PHWindow *window, __unused NSDictionary<NSString *, id> *bindings) {
-
+    return [PHWindow filteredWindowsUsingPredicateBlock:^BOOL (PHWindow *window,
+                                                               __unused NSDictionary<NSString *, id> *bindings) {
         return [[window spaces] containsObject:self];
     }];
-
-    return [[PHWindow windows] filteredArrayUsingPredicate:windowOnSameSpace];
 }
 
 - (NSArray<PHWindow *> *) windows:(NSDictionary<NSString *, id> *)optionals {
 
     NSNumber *visibilityOption = optionals[PHWindowVisibilityOptionKey];
-    NSPredicate *visibility = [NSPredicate predicateWithBlock:^BOOL (PHWindow *window,
-                                                                     __unused NSDictionary<NSString *, id> *bindings) {
-
-        return visibilityOption.boolValue ? [window isVisible] : ![window isVisible];
-    }];
 
     // Filter based on visibility
     if (visibilityOption) {
-        return [[self windows] filteredArrayUsingPredicate:visibility];
+        return [[self windows] filteredArrayUsingPredicate:[PHWindow isVisible:visibilityOption.boolValue]];
     }
 
     return [self windows];

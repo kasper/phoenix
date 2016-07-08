@@ -12,6 +12,8 @@
 #import "PHAXUIElement.h"
 #import "PHIdentifiableJSExport.h"
 
+static NSString * const PHWindowVisibilityOptionKey = @"visible";
+
 @protocol PHWindowJSExport <JSExport, PHIdentifiableJSExport>
 
 #pragma mark - Exported Windows
@@ -67,12 +69,16 @@
 
 @interface PHWindow : PHAXUIElement <PHWindowJSExport>
 
-#pragma mark - Properties
+#pragma mark - Predicates
 
-- (CGWindowID) identifier;
++ (NSPredicate *) isVisible:(BOOL)visible;
 
 #pragma mark - Windows
 
-+ (NSArray<PHWindow *> *) windows;
++ (NSArray<PHWindow *> *) filteredWindowsUsingPredicateBlock:(BOOL (^)(PHWindow *window, NSDictionary<NSString *, id> *bindings))block;
+
+#pragma mark - Properties
+
+- (CGWindowID) identifier;
 
 @end

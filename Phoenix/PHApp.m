@@ -3,7 +3,6 @@
  */
 
 #import "PHApp.h"
-#import "PHOptionConstants.h"
 #import "PHWindow.h"
 
 @interface PHApp ()
@@ -135,15 +134,10 @@ static NSString * const PHAppForceOptionKey = @"force";
 - (NSArray<PHWindow *> *) windows:(NSDictionary<NSString *, id> *)optionals {
 
     NSNumber *visibilityOption = optionals[PHWindowVisibilityOptionKey];
-    NSPredicate *visibility = [NSPredicate predicateWithBlock:^BOOL (PHWindow *window,
-                                                                     __unused NSDictionary<NSString *, id> *bindings) {
-
-        return visibilityOption.boolValue ? [window isVisible] : ![window isVisible];
-    }];
 
     // Filter based on visibility
     if (visibilityOption) {
-        return [[self windows] filteredArrayUsingPredicate:visibility];
+        return [[self windows] filteredArrayUsingPredicate:[PHWindow isVisible:visibilityOption.boolValue]];
     }
 
     return [self windows];
