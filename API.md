@@ -477,8 +477,7 @@ class Space implements Identifiable, Iterable
   boolean isNormal()
   boolean isFullScreen()
   Screen screen()
-  Array<Window> windows()
-  Array<Window> visibleWindows()
+  Array<Window> windows(Map<String, AnyObject> optionals)
   void addWindows(Array<Window> windows)
   void removeWindows(Array<Window> windows)
 
@@ -490,10 +489,13 @@ end
 - `isNormal()` returns `true` if the space is a normal space
 - `isFullScreen()` returns `true` if the space is a full screen space
 - `screen()` returns the screen to which the space belongs to
-- `windows()` returns all windows for the space
-- `visibleWindows()` returns all visible windows for the space
+- `windows(Map<String, AnyObject> optionals)` returns all windows for the space if no optionals are given
 - `addWindows(Array<Window> windows)` adds the given windows to the space
 - `removeWindows(Array<Window> windows)` removes the given windows from the space
+
+### Optionals
+
+- `visible` (boolean): if set `true` returns all visible windows for the space, if set `false` returns all hidden windows for the space
 
 ## 19. Mouse
 

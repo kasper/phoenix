@@ -4,13 +4,13 @@
 
 #import "NSArray+PHExtension.h"
 #import "NSScreen+PHExtension.h"
+#import "PHOptionConstants.h"
 #import "PHSpace.h"
 #import "PHWindow.h"
 
 @implementation NSScreen (PHExtension)
 
 static NSString * const NSScreenNumberKey = @"NSScreenNumber";
-static NSString * const PHWindowVisibilityOptionKey = @"visible";
 
 #pragma mark - Screens
 

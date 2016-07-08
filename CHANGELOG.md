@@ -53,6 +53,8 @@ Release: dd.mm.yyyy
 
 - Change: Function `activeSpace()` is now simply `active()` ([#108](https://github.com/kasper/phoenix/issues/108)).
 - Change: Function `spaces()` is now `all()` ([#108](https://github.com/kasper/phoenix/issues/108)).
+- Change: Function `windows()` now takes optionals `windows(Map<String, AnyObject> optionals)` ([#108](https://github.com/kasper/phoenix/issues/108)).
+- Deprecation: Function `visibleWindows()` has been removed, use `windows({ visible: true })` instead ([#108](https://github.com/kasper/phoenix/issues/108)).
 
 #### Command
 

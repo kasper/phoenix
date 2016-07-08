@@ -26,8 +26,7 @@
 
 #pragma mark - Windows
 
-- (NSArray<PHWindow *> *) windows;
-- (NSArray<PHWindow *> *) visibleWindows;
+- (NSArray<PHWindow *> *) windows:(NSDictionary<NSString *, id> *)optionals;
 - (void) addWindows:(NSArray<PHWindow *> *)windows;
 - (void) removeWindows:(NSArray<PHWindow *> *)windows;
 
