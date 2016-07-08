@@ -471,7 +471,7 @@ Use the `Space`-object to control spaces. *These features are only supported on 
 ```java
 class Space implements Identifiable, Iterable
 
-  static Space activeSpace() // macOS 10.11+
+  static Space active() // macOS 10.11+
   static Array<Space> spaces() // macOS 10.11+
 
   boolean isNormal()
@@ -485,7 +485,7 @@ class Space implements Identifiable, Iterable
 end
 ```
 
-- `activeSpace()` returns the space containing the window with the keyboard focus (macOS 10.11+, returns `undefined` otherwise)
+- `active()` returns the space containing the window with the keyboard focus (macOS 10.11+, returns `undefined` otherwise)
 - `spaces()` returns all spaces, the first space in this array corresponds to the primary space (macOS 10.11+, returns an empty list otherwise)
 - `isNormal()` returns `true` if the space is a normal space
 - `isFullScreen()` returns `true` if the space is a full screen space

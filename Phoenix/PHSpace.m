@@ -77,7 +77,7 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
 
 #pragma mark - Spaces
 
-+ (instancetype) activeSpace {
++ (instancetype) active {
 
     // Only supported from 10.11 upwards
     if (![NSProcessInfo isOperatingSystemAtLeastElCapitan]) {

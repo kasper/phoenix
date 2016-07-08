@@ -15,7 +15,7 @@
 
 #pragma mark - Exported Spaces
 
-+ (instancetype) activeSpace;
++ (instancetype) active;
 + (NSArray<PHSpace *> *) spaces;
 
 #pragma mark - Properties

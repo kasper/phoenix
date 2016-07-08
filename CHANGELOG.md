@@ -49,6 +49,10 @@ Release: dd.mm.yyyy
 - Change: Function `windows()` now takes optionals `windows(Map<String, AnyObject> optionals)` ([#108](https://github.com/kasper/phoenix/issues/108)).
 - Deprecation: Function `visibleWindows()` has been removed, use `windows({ visible: true })` instead ([#108](https://github.com/kasper/phoenix/issues/108)).
 
+#### Space
+
+- Change: Function `activeSpace()` is now simply `active()` ([#108](https://github.com/kasper/phoenix/issues/108)).
+
 #### Command
 
 - Deprecation: Global `Command`-object has been removed, use `Task` instead as a direct replacement. See the [API](https://github.com/kasper/phoenix/blob/2.2/API.md#15-task) ([#98](https://github.com/kasper/phoenix/issues/98)).
