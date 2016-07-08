@@ -17,7 +17,7 @@
 
 + (instancetype) get:(NSString *)appName;
 + (instancetype) launch:(NSString *)appName;
-+ (instancetype) focusedApp;
++ (instancetype) focused;
 + (NSArray<PHApp *> *) runningApps;
 
 #pragma mark - Properties

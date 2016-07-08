@@ -522,7 +522,7 @@ class App implements Identifiable
 
   static App get(String appName)
   static App launch(String appName)
-  static App focusedApp()
+  static App focused()
   static Array<App> runningApps()
 
   int processIdentifier()
@@ -546,7 +546,7 @@ end
 
 - `get(String appName)` returns the running app with the given name, returns `undefined` if the app is not currently running
 - `launch(String appName)` launches to the background and returns the app with the given name, returns `undefined` if unsuccessful
-- `focusedApp()` returns the focused app
+- `focused()` returns the focused app
 - `runningApps()` returns all running apps
 - `processIdentifier()` returns the process identifier (PID) for the app, returns `-1` if the app does not have a PID
 - `bundleIdentifier()` returns the bundle identifier for the app

@@ -62,7 +62,7 @@
     return [[self alloc] initWithApp:app];
 }
 
-+ (instancetype) focusedApp {
++ (instancetype) focused {
 
     return [[self alloc] initWithApp:[NSWorkspace sharedWorkspace].frontmostApplication];
 }
