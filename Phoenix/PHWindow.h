@@ -14,11 +14,10 @@
 
 @protocol PHWindowJSExport <JSExport, PHIdentifiableJSExport>
 
-#pragma mark - Windows
+#pragma mark - Exported Windows
 
 + (instancetype) focused;
-+ (NSArray<PHWindow *> *) all;
-+ (NSArray<PHWindow *> *) visible;
++ (NSArray<PHWindow *> *) all:(NSDictionary<NSString *, id> *)optionals;
 + (NSArray<PHWindow *> *) visibleWindowsInOrder;
 
 - (NSArray<PHWindow *> *) otherWindowsOnSameScreen;
@@ -71,5 +70,9 @@
 #pragma mark - Properties
 
 - (CGWindowID) identifier;
+
+#pragma mark - Windows
+
++ (NSArray<PHWindow *> *) windows;
 
 @end

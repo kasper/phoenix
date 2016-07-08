@@ -68,8 +68,8 @@ Release: dd.mm.yyyy
 #### Window
 
 - Change: Function `focusedWindow()` is now simply `focused()` ([#108](https://github.com/kasper/phoenix/issues/108)).
-- Change: Function `windows()` is now `all()` ([#108](https://github.com/kasper/phoenix/issues/108)).
-- Change: Function `visibleWindows()` is now simply `visible()` ([#108](https://github.com/kasper/phoenix/issues/108)).
+- Change: Function `windows()` is now `all(Map<String, AnyObject> optionals)` ([#108](https://github.com/kasper/phoenix/issues/108)).
+- Deprecation: Function `visibleWindows()` has been removed, use `all({ visible: true })` instead ([#108](https://github.com/kasper/phoenix/issues/108)).
 
 #### Command
 

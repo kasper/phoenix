@@ -576,8 +576,7 @@ Use the `Window`-object to control windows. Every screen (i.e. display) combines
 class Window implements Identifiable
 
   static Window focused()
-  static Array<Window> all()
-  static Array<Window> visible()
+  static Array<Window> all(Map<String, AnyObject> optionals)
   static Array<Window> visibleWindowsInOrder()
 
   Array<Window> otherWindowsOnSameScreen()
@@ -615,8 +614,7 @@ end
 ```
 
 - `focused()` returns the focused window for the currently active app, can be `undefined` if no window is focused currently
-- `all()` returns all windows in screens
-- `visible()` returns all visible windows in screens
+- `all(Map<String, AnyObject> optionals)` returns all windows in screens if no optionals are given
 - `visibleWindowsInOrder()` returns all visible windows in the order as they appear on the screen (from front to back), essentially returning them in the most-recently-used order
 - `otherWindowsOnSameScreen()` returns all other windows on the same screen as the window
 - `otherWindowsOnAllScreens()` returns all other windows on all screens
@@ -648,3 +646,7 @@ end
 - `focusClosestWindowInEast()` focuses the closest window to the east of the window, returns `true` if successful
 - `focusClosestWindowInNorth()` focuses the closest window to the north of the window, returns `true` if successful
 - `focusClosestWindowInSouth()` focuses the closest window to the south of the window, returns `true` if successful
+
+### Window Optionals
+
+- `visible` (boolean): if set `true` returns all visible windows in screens, if set `false` returns all hidden windows in screens

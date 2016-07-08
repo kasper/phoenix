@@ -4,6 +4,7 @@
 
 #import "NSScreen+PHExtension.h"
 #import "PHApp.h"
+#import "PHOptionConstants.h"
 #import "PHSpace.h"
 #import "PHWindow.h"
 
@@ -50,7 +51,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return [[self alloc] initWithElement:focusedWindow];
 }
 
-+ (NSArray<PHWindow *> *) all {
++ (NSArray<PHWindow *> *) windows {
 
     NSMutableArray<PHWindow *> *windows = [NSMutableArray array];
     
@@ -61,19 +62,26 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return windows;
 }
 
-+ (NSArray<PHWindow *> *) visible {
++ (NSArray<PHWindow *> *) all:(NSDictionary<NSString *, id> *)optionals {
 
+    NSNumber *visibilityOption = optionals[PHWindowVisibilityOptionKey];
     NSPredicate *visibility = [NSPredicate predicateWithBlock:^BOOL (PHWindow *window,
                                                                      __unused NSDictionary<NSString *, id> *bindings) {
-        return [window isVisible];
+
+        return visibilityOption.boolValue ? [window isVisible] : ![window isVisible];
     }];
 
-    return [[self all] filteredArrayUsingPredicate:visibility];
+    // Filter based on visibility
+    if (visibilityOption) {
+        return [[self windows] filteredArrayUsingPredicate:visibility];
+    }
+
+    return [self windows];
 }
 
 + (NSArray<PHWindow *> *) visibleWindowsInOrder {
 
-    NSArray<PHWindow *> *windows = [self all];
+    NSArray<PHWindow *> *windows = [self windows];
     NSMutableArray<PHWindow *> *orderedWindows = [NSMutableArray array];
 
     // Windows returned in order from front to back
@@ -113,7 +121,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
         return ![self isEqual:window] && [[self screen] isEqual:[window screen]];
     }];
 
-    return [[PHWindow visible] filteredArrayUsingPredicate:otherWindowOnSameScreen];
+    return [[PHWindow windows] filteredArrayUsingPredicate:otherWindowOnSameScreen];
 }
 
 - (NSArray<PHWindow *> *) otherWindowsOnAllScreens {
@@ -123,7 +131,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
         return ![self isEqual:window];
     }];
 
-    return [[PHWindow visible] filteredArrayUsingPredicate:otherWindowOnAllScreens];
+    return [[PHWindow windows] filteredArrayUsingPredicate:otherWindowOnAllScreens];
 }
 
 #pragma mark - Properties
