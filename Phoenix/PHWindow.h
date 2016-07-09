@@ -51,10 +51,7 @@ static NSString * const PHWindowVisibilityOptionKey = @"visible";
 
 #pragma mark - Alignment
 
-- (NSArray<PHWindow *> *) windowsToWest;
-- (NSArray<PHWindow *> *) windowsToEast;
-- (NSArray<PHWindow *> *) windowsToNorth;
-- (NSArray<PHWindow *> *) windowsToSouth;
+- (NSArray<PHWindow *> *) neighbors:(NSString *)direction;
 
 #pragma mark - Focusing
 

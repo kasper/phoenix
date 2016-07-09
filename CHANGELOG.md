@@ -67,12 +67,14 @@ Release: dd.mm.yyyy
 
 #### Window
 
+- New: Function `neighbors(String direction)` returns windows to the direction (`west|east|north|south`) of the window ([#108](https://github.com/kasper/phoenix/issues/108)).
 - Change: Function `focusedWindow()` is now simply `focused()` ([#108](https://github.com/kasper/phoenix/issues/108)).
 - Change: Function `windows()` is now `all(Map<String, AnyObject> optionals)` ([#108](https://github.com/kasper/phoenix/issues/108)).
 - Change: Function `visibleWindowsInOrder()` is now `recent()` ([#108](https://github.com/kasper/phoenix/issues/108)).
 - Change: Function `otherWindowsOnAllScreens()` is now `others(Map<String, AnyObject> optionals)` ([#108](https://github.com/kasper/phoenix/issues/108)).
 - Deprecation: Function `visibleWindows()` has been removed, use `all({ visible: true })` instead ([#108](https://github.com/kasper/phoenix/issues/108)).
 - Deprecation: Function `otherWindowsOnSameScreen()` has been removed, use `others({ screen: window.screen() })` instead ([#108](https://github.com/kasper/phoenix/issues/108)).
+- Deprecation: Functions `windowsToWest()`, `windowsToEast()`, `windowsToNorth()` and `windowsToSouth()` have been removed, use instead `neighbors('west')`, `neighbors('east')`, `neighbors('north')` and `neighbors('south')` respectively ([#108](https://github.com/kasper/phoenix/issues/108)).
 
 #### Command
 

@@ -20,6 +20,10 @@
 static NSString * const NSAccessibilityFullScreenAttribute = @"AXFullScreen";
 
 static NSString * const PHScreenOptionKey = @"screen";
+static NSString * const PHWindowDirectionEast = @"east";
+static NSString * const PHWindowDirectionNorth = @"north";
+static NSString * const PHWindowDirectionSouth = @"south";
+static NSString * const PHWindowDirectionWest = @"west";
 static NSString * const PHWindowKey = @"window";
 static NSString * const PHWindowScoreKey = @"score";
 
@@ -323,32 +327,49 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return sortedOtherWindows;
 }
 
-- (NSArray<PHWindow *> *) windowsToWest {
+- (NSArray<PHWindow *> *) neighborsToWest {
 
     return [[self windowsInDirection:^double (double angle) { return M_PI - fabs(angle); }
                 shouldDisregardDelta:^BOOL (double deltaX, __unused double deltaY) { return (deltaX >= 0); }]
             valueForKeyPath:PHWindowKey];
 }
 
-- (NSArray<PHWindow *> *) windowsToEast {
+- (NSArray<PHWindow *> *) neighborsToEast {
 
     return [[self windowsInDirection:^double (double angle) { return 0.0 - angle; }
                 shouldDisregardDelta:^BOOL (double deltaX, __unused double deltaY) { return (deltaX <= 0); }]
             valueForKeyPath:PHWindowKey];
 }
 
-- (NSArray<PHWindow *> *) windowsToNorth {
+- (NSArray<PHWindow *> *) neighborsToNorth {
 
     return [[self windowsInDirection:^double (double angle) { return -M_PI_2 - angle; }
                 shouldDisregardDelta:^BOOL (__unused double deltaX, double deltaY) { return (deltaY >= 0); }]
             valueForKeyPath:PHWindowKey];
 }
 
-- (NSArray<PHWindow *> *) windowsToSouth {
+- (NSArray<PHWindow *> *) neighborsToSouth {
 
     return [[self windowsInDirection:^double (double angle) { return M_PI_2 - angle; }
                 shouldDisregardDelta:^BOOL (__unused double deltaX, double deltaY) { return (deltaY <= 0); }]
             valueForKeyPath:PHWindowKey];
+}
+
+- (NSArray<PHWindow *> *) neighbors:(NSString *)direction {
+
+    NSString *lowercaseDirection = direction.lowercaseString;
+
+    if ([lowercaseDirection isEqualToString:PHWindowDirectionWest]) {
+        return [self neighborsToWest];
+    } else if ([lowercaseDirection isEqualToString:PHWindowDirectionEast]) {
+        return [self neighborsToEast];
+    } else if ([lowercaseDirection isEqualToString:PHWindowDirectionNorth]) {
+        return [self neighborsToNorth];
+    } else if ([lowercaseDirection isEqualToString:PHWindowDirectionSouth]) {
+        return [self neighborsToSouth];
+    }
+
+    return @[];
 }
 
 #pragma mark - Focusing
@@ -377,22 +398,22 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
 - (BOOL) focusClosestWindowInWest {
 
-    return [self focusFirstClosestWindowIn:[self windowsToWest]];
+    return [self focusFirstClosestWindowIn:[self neighborsToWest]];
 }
 
 - (BOOL) focusClosestWindowInEast {
 
-    return [self focusFirstClosestWindowIn:[self windowsToEast]];
+    return [self focusFirstClosestWindowIn:[self neighborsToEast]];
 }
 
 - (BOOL) focusClosestWindowInNorth {
 
-    return [self focusFirstClosestWindowIn:[self windowsToNorth]];
+    return [self focusFirstClosestWindowIn:[self neighborsToNorth]];
 }
 
 - (BOOL) focusClosestWindowInSouth {
 
-    return [self focusFirstClosestWindowIn:[self windowsToSouth]];
+    return [self focusFirstClosestWindowIn:[self neighborsToSouth]];
 }
 
 @end

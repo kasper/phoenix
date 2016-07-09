@@ -599,10 +599,7 @@ class Window implements Identifiable
   boolean maximize()
   boolean minimize()
   boolean unminimize()
-  Array<Window> windowsToWest()
-  Array<Window> windowsToEast()
-  Array<Window> windowsToNorth()
-  Array<Window> windowsToSouth()
+  Array<Window> neighbors(String direction)
   boolean focus()
   boolean focusClosestWindowInWest()
   boolean focusClosestWindowInEast()
@@ -635,10 +632,7 @@ end
 - `maximize()` resizes the window to fit the whole visible frame for the screen, returns `true` if successful
 - `minimize()` minimises the window, returns `true` if successful
 - `unminimize()` unminimises the window, returns `true` if successful
-- `windowsToWest()` returns windows to the west of the window
-- `windowsToEast()` returns windows to the east of the window
-- `windowsToNorth()` returns windows to the north the window
-- `windowsToSouth()` returns windows to the south the window
+- `neighbors(String direction)` returns windows to the direction (`west|east|north|south`) of the window
 - `focus()` focuses the window, returns `true` if successful
 - `focusClosestWindowInWest()` focuses the closest window to the west of the window, returns `true` if successful
 - `focusClosestWindowInEast()` focuses the closest window to the east of the window, returns `true` if successful
