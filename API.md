@@ -303,7 +303,7 @@ end
 
 ## 12. Key
 
-Use the `Key`-object to construct, enable or disable keys. You can have multiple handlers for a single key combination, however only one can be enabled at a time. Enabling a key combination that has been exclusively registered by another app will fail.
+Use the `Key`-object to construct keys, access their properties, and enable or disable the key. You can have multiple handlers for a single key combination, however only one can be enabled at a time. Enabling a key combination that has been exclusively registered by another app will fail.
 
 ```java
 class Key implements Identifiable
