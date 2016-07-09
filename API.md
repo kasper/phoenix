@@ -601,10 +601,7 @@ class Window implements Identifiable
   boolean unminimize()
   Array<Window> neighbors(String direction)
   boolean focus()
-  boolean focusClosestWindowInWest()
-  boolean focusClosestWindowInEast()
-  boolean focusClosestWindowInNorth()
-  boolean focusClosestWindowInSouth()
+  boolean focusClosestNeighbor(String direction)
 
 end
 ```
@@ -634,10 +631,7 @@ end
 - `unminimize()` unminimises the window, returns `true` if successful
 - `neighbors(String direction)` returns windows to the direction (`west|east|north|south`) of the window
 - `focus()` focuses the window, returns `true` if successful
-- `focusClosestWindowInWest()` focuses the closest window to the west of the window, returns `true` if successful
-- `focusClosestWindowInEast()` focuses the closest window to the east of the window, returns `true` if successful
-- `focusClosestWindowInNorth()` focuses the closest window to the north of the window, returns `true` if successful
-- `focusClosestWindowInSouth()` focuses the closest window to the south of the window, returns `true` if successful
+- `focusClosestNeighbor(String direction)` focuses the closest window to the direction (`west|east|north|south`) of the window, returns `true` if successful
 
 ### Window Optionals
 

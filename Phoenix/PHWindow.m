@@ -385,7 +385,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return [self.app focus];
 }
 
-- (BOOL) focusFirstClosestWindowIn:(NSArray<PHWindow *> *)closestWindows {
+- (BOOL) focusFirstClosestWindow:(NSArray<PHWindow *> *)closestWindows {
 
     for (PHWindow *window in closestWindows) {
         if ([window focus]) {
@@ -396,24 +396,21 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return NO;
 }
 
-- (BOOL) focusClosestWindowInWest {
+- (BOOL) focusClosestNeighbor:(NSString *)direction {
 
-    return [self focusFirstClosestWindowIn:[self neighborsToWest]];
-}
+    NSString *lowercaseDirection = direction.lowercaseString;
 
-- (BOOL) focusClosestWindowInEast {
+    if ([lowercaseDirection isEqualToString:PHWindowDirectionWest]) {
+        return [self focusFirstClosestWindow:[self neighborsToWest]];
+    } else if ([lowercaseDirection isEqualToString:PHWindowDirectionEast]) {
+        return [self focusFirstClosestWindow:[self neighborsToEast]];
+    } else if ([lowercaseDirection isEqualToString:PHWindowDirectionNorth]) {
+        return [self focusFirstClosestWindow:[self neighborsToNorth]];
+    } else if ([lowercaseDirection isEqualToString:PHWindowDirectionSouth]) {
+        return [self focusFirstClosestWindow:[self neighborsToSouth]];;
+    }
 
-    return [self focusFirstClosestWindowIn:[self neighborsToEast]];
-}
-
-- (BOOL) focusClosestWindowInNorth {
-
-    return [self focusFirstClosestWindowIn:[self neighborsToNorth]];
-}
-
-- (BOOL) focusClosestWindowInSouth {
-
-    return [self focusFirstClosestWindowIn:[self neighborsToSouth]];
+    return false;
 }
 
 @end
