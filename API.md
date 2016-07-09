@@ -639,4 +639,5 @@ end
 
 ### Others Optionals
 
+- `visible` (boolean): if set `true` returns visible windows, if set `false` returns hidden windows
 - `screen` (Screen): returns all other windows on the specified screen
