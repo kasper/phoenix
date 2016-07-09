@@ -22,8 +22,7 @@ static NSString * const PHWindowVisibilityOptionKey = @"visible";
 + (NSArray<PHWindow *> *) all:(NSDictionary<NSString *, id> *)optionals;
 + (NSArray<PHWindow *> *) recent;
 
-- (NSArray<PHWindow *> *) otherWindowsOnSameScreen;
-- (NSArray<PHWindow *> *) otherWindowsOnAllScreens;
+- (NSArray<PHWindow *> *) others:(NSDictionary<NSString *, id> *)optionals;
 
 #pragma mark - Exported Properties
 

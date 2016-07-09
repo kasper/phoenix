@@ -19,6 +19,7 @@
 // XXX: Undocumented private attribute for full screen mode
 static NSString * const NSAccessibilityFullScreenAttribute = @"AXFullScreen";
 
+static NSString * const PHScreenOptionKey = @"screen";
 static NSString * const PHWindowKey = @"window";
 static NSString * const PHWindowScoreKey = @"score";
 
@@ -122,25 +123,21 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return orderedWindows;
 }
 
-- (NSArray<PHWindow *> *) otherWindowsOnSameScreen {
+- (NSArray<PHWindow *> *) others:(NSDictionary<NSString *, id> *)optionals {
 
-    NSPredicate *otherWindowsOnThisScreen = [NSPredicate predicateWithBlock:
-                                             ^BOOL (PHWindow *window, __unused NSDictionary<NSString *, id> *bindings) {
-
-        return ![self isEqual:window] && [[self screen] isEqual:[window screen]];
+    NSNumber *screenOption = optionals[PHScreenOptionKey];
+    NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL (PHWindow *window,
+                                                                    __unused NSDictionary<NSString *, id> *bindings) {
+        BOOL isOtherWindow = ![self isEqual:window];
+        return screenOption ? isOtherWindow && [[self screen] isEqual:screenOption] : isOtherWindow;
     }];
 
-    return [[PHWindow windows] filteredArrayUsingPredicate:otherWindowsOnThisScreen];
+    return [[PHWindow windows] filteredArrayUsingPredicate:predicate];
 }
 
-- (NSArray<PHWindow *> *) otherWindowsOnAllScreens {
+- (NSArray<PHWindow *> *) others {
 
-    NSPredicate *otherWindowsOnAllScreens = [NSPredicate predicateWithBlock:
-                                             ^BOOL (PHWindow *window, __unused NSDictionary<NSString *, id> *bindings) {
-        return ![self isEqual:window];
-    }];
-
-    return [[PHWindow windows] filteredArrayUsingPredicate:otherWindowsOnAllScreens];
+    return [self others:nil];
 }
 
 #pragma mark - Properties
@@ -291,7 +288,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     NSPoint centrePoint = NSMakePoint(NSMidX(frame), NSMidY(frame));
 
     // Other windows
-    NSArray<PHWindow *> *otherWindows = [self otherWindowsOnAllScreens];
+    NSArray<PHWindow *> *otherWindows = [self others];
     NSMutableArray *closestOtherWindows = [NSMutableArray arrayWithCapacity:otherWindows.count];
     
     for (PHWindow *window in otherWindows) {

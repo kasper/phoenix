@@ -579,8 +579,7 @@ class Window implements Identifiable
   static Array<Window> all(Map<String, AnyObject> optionals)
   static Array<Window> recent()
 
-  Array<Window> otherWindowsOnSameScreen()
-  Array<Window> otherWindowsOnAllScreens()
+  Array<Window> others(Map<String, AnyObject> optionals)
   String title()
   boolean isMain()
   boolean isNormal()
@@ -616,8 +615,7 @@ end
 - `focused()` returns the focused window for the currently active app, can be `undefined` if no window is focused currently
 - `all(Map<String, AnyObject> optionals)` returns all windows in screens if no optionals are given
 - `recent()` returns all visible windows in the order as they appear on the screen (from front to back), essentially returning them in the most-recently-used order
-- `otherWindowsOnSameScreen()` returns all other windows on the same screen as the window
-- `otherWindowsOnAllScreens()` returns all other windows on all screens
+- `others(Map<String, AnyObject> optionals)` returns all other windows on all screens if no optionals are given
 - `title()` returns the title for the window
 - `isMain()` returns `true` if the window is the main window for its app
 - `isNormal()` returns `true` if the window is a normal window
@@ -650,3 +648,7 @@ end
 ### Window Optionals
 
 - `visible` (boolean): if set `true` returns all visible windows in screens, if set `false` returns all hidden windows in screens
+
+### Others Optionals
+
+- `screen` (Screen): returns all other windows on the specified screen
