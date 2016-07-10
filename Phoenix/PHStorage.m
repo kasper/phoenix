@@ -14,7 +14,7 @@
 @implementation PHStorage
 
 #if DEBUG
-static NSString * const PHStoragePath = @"~/Library/Application Support/Phoenix/storage-debug.json";
+static NSString * const PHStoragePath = @"~/Library/Application Support/Phoenix/storage.debug.json";
 #else
 static NSString * const PHStoragePath = @"~/Library/Application Support/Phoenix/storage.json";
 #endif

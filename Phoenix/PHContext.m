@@ -89,9 +89,9 @@
     dispatch_once(&onceToken, ^{
 
 #if DEBUG
-        primaryConfigurationPaths = @[ @"~/.phoenix-debug.js",
-                                       @"~/Library/Application Support/Phoenix/phoenix-debug.js",
-                                       @"~/.config/phoenix/phoenix-debug.js" ];
+        primaryConfigurationPaths = @[ @"~/.phoenix.debug.js",
+                                       @"~/Library/Application Support/Phoenix/phoenix.debug.js",
+                                       @"~/.config/phoenix/phoenix.debug.js" ];
 #else
         primaryConfigurationPaths = @[ @"~/.phoenix.js",
                                        @"~/Library/Application Support/Phoenix/phoenix.js",
