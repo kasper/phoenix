@@ -10,7 +10,7 @@
 #pragma mark - Position
 
 + (NSPoint) location;
-+ (BOOL) moveTo:(NSPoint)point;
++ (BOOL) move:(NSPoint)point;
 
 @end
 

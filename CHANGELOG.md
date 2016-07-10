@@ -58,6 +58,10 @@ Release: dd.mm.yyyy
 - Change: Function `windows()` now takes optionals `windows(Map<String, AnyObject> optionals)` ([#108](https://github.com/kasper/phoenix/issues/108)).
 - Deprecation: Function `visibleWindows()` has been removed, use `windows({ visible: true })` instead ([#108](https://github.com/kasper/phoenix/issues/108)).
 
+#### Mouse
+
+- Change: Function `moveTo()` is now simply `move()` ([#108](https://github.com/kasper/phoenix/issues/108)).
+
 #### App
 
 - Change: Function `focusedApp()` is now simply `focused()` ([#108](https://github.com/kasper/phoenix/issues/108)).

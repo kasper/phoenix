@@ -16,7 +16,7 @@
     return CGEventGetLocation((__bridge CGEventRef) event);
 }
 
-+ (BOOL) moveTo:(NSPoint)point {
++ (BOOL) move:(NSPoint)point {
 
     CGError error = CGWarpMouseCursorPosition(point);
 

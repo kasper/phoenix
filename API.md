@@ -505,13 +505,13 @@ Use the `Mouse`-object to control the cursor.
 class Mouse
 
   static Point location()
-  static boolean moveTo(Point point)
+  static boolean move(Point point)
 
 end
 ```
 
 - `location()` returns the cursor position
-- `moveTo(Point point)` moves the cursor to a given position, returns `true` if successful
+- `move(Point point)` moves the cursor to a given position, returns `true` if successful
 
 ## 20. App
 
