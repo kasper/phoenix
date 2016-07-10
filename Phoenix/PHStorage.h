@@ -5,6 +5,8 @@
 @import Foundation;
 @import JavaScriptCore;
 
+static NSString * const PHStorageDidPersistNotification = @"PHStorageDidPersistNotification";
+
 @protocol PHStorageJSExport <JSExport>
 
 #pragma mark - Storing
@@ -21,5 +23,9 @@ JSExportAs(remove, - (void) removeObjectForKey:(NSString *)key);
 
 + (instancetype) new NS_UNAVAILABLE;
 + (instancetype) storage;
+
+#pragma mark - Persisting
+
+- (BOOL) isPersisting;
 
 @end

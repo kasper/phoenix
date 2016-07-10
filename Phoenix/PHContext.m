@@ -238,4 +238,20 @@
     NSLog(@"Context loaded.");
 }
 
+- (void) shouldTerminate:(void (^)())terminate {
+
+    if (![self.storage isPersisting]) {
+        terminate();
+        return;
+    }
+
+    // Wait until storage is persisted
+    [[NSNotificationCenter defaultCenter] addObserverForName:PHStorageDidPersistNotification
+                                                      object:nil
+                                                       queue:nil
+                                                  usingBlock:^(__unused NSNotification *notification) {
+        terminate();
+    }];
+}
+
 @end

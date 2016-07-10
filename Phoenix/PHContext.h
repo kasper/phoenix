@@ -10,6 +10,10 @@
 
 - (void) load;
 
+#pragma mark - Terminating
+
+- (void) shouldTerminate:(void (^)())terminate;
+
 @end
 
 @interface PHContext : NSObject <PHContextDelegate>

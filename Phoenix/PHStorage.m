@@ -8,6 +8,7 @@
 
 @property (copy) NSString *path;
 @property NSMutableDictionary<NSString *, id> *storage;
+@property BOOL persisting;
 
 @end
 
@@ -63,6 +64,11 @@ static NSString * const PHStoragePath = @"~/Library/Application Support/Phoenix/
 
 #pragma mark - Persisting
 
+- (BOOL) isPersisting {
+
+    return self.persisting;
+}
+
 - (BOOL) ensureStorageDirectory {
 
     NSError *error;
@@ -83,7 +89,10 @@ static NSString * const PHStoragePath = @"~/Library/Application Support/Phoenix/
 
 - (void) persist {
 
+    self.persisting = YES;
+
     if (![self ensureStorageDirectory]) {
+        self.persisting = NO;
         return;
     }
 
@@ -97,6 +106,9 @@ static NSString * const PHStoragePath = @"~/Library/Application Support/Phoenix/
     if (error) {
         NSLog(@"Error: Persisting storage failed. (%@)", error);
     }
+
+    self.persisting = NO;
+    [[NSNotificationCenter defaultCenter] postNotificationName:PHStorageDidPersistNotification object:nil];
 }
 
 #pragma mark - Storing

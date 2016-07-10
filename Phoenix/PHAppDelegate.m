@@ -43,7 +43,7 @@
 - (void) applicationDidFinishLaunching:(NSNotification *)__unused notification {
 
     [PHUniversalAccessHelper askPermissionIfNeeded];
-    
+
     self.context = [PHContext context];
     [self.context load];
 
@@ -56,6 +56,16 @@
                                                object:nil];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:PHEventStartNotification object:self];
+}
+
+- (NSApplicationTerminateReply) applicationShouldTerminate:(NSApplication *)application {
+
+    [self.context shouldTerminate:^{
+
+        [application replyToApplicationShouldTerminate:YES];
+    }];
+
+    return NSTerminateLater;
 }
 
 #pragma mark - NSMenuDelegate
