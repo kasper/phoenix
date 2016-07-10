@@ -104,7 +104,7 @@ static NSString * const PHStoragePath = @"~/Library/Application Support/Phoenix/
 - (void) forKey:(NSString *)key setObject:(id)object {
 
     if (![NSJSONSerialization isValidJSONObject:@[ object ]]) {
-        NSLog(@"Error: Value “%@” for key “%@” is not a valid JSON-object.", object, key);
+        NSLog(@"Error: Value for key “%@” is not a valid JSON-object.", key);
         return;
     }
 
