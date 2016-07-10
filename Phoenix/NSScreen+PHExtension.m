@@ -27,12 +27,12 @@ static NSString * const NSScreenNumberKey = @"NSScreenNumber";
 
 + (instancetype) main {
 
-    return [NSScreen mainScreen];
+    return [self mainScreen];
 }
 
 + (NSArray<NSScreen *> *) all {
 
-    return [NSScreen screens];
+    return [self screens];
 }
 
 #pragma mark - PHIterableJSExport

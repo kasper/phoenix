@@ -26,7 +26,7 @@
 + (NSString *) outputFromLaunchedTaskWithEnvironment:(NSDictionary<NSString *, NSString *> *)environment
                                            arguments:(NSArray<NSString *> *)arguments
                                                error:(NSError **)error {
-    NSTask *task = [[NSTask alloc] init];
+    NSTask *task = [[self alloc] init];
     NSPipe *standardOutput = [NSPipe pipe];
     NSPipe *standardError = [NSPipe pipe];
 
