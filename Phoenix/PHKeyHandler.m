@@ -87,7 +87,7 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
         // Key not supported
         if (self.keyCode == UINT32_MAX) {
             NSLog(@"Warning: Key “%@” not supported.", self.key);
-            return nil;
+            return self;
         }
 
         self.identifier = PHKeyHandlerIdentifierSequence++;

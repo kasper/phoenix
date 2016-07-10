@@ -32,7 +32,7 @@
         // Event not supported
         if (!self.notification) {
             NSLog(@"Warning: Event “%@” not supported.", event);
-            return nil;
+            return self;
         }
 
         // Observe event notification

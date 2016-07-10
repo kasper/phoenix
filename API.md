@@ -326,7 +326,7 @@ end
 - `off(int identifier)` disables the managed handler for a key with the given identifier
 - `key` read-only property for the key character in lower case or case sensitive special key
 - `modifiers` read-only property for the key modifiers in lower case
-- `new Key(String key, Array<String> modifiers, Function callback)` constructs and binds the key character with the specified modifiers (can be an empty list) to a callback function and returns the handler (`undefined` if not supported), you must keep a reference to the handler in order for your callback to get called, you can have multiple handlers for a single key combination, however only one can be enabled at a time, any previous handler for the same key combination will automatically be disabled, the callback function receives its handler as the only argument
+- `new Key(String key, Array<String> modifiers, Function callback)` constructs and binds the key character with the specified modifiers (can be an empty list) to a callback function and returns the handler, you must keep a reference to the handler in order for your callback to get called, you can have multiple handlers for a single key combination, however only one can be enabled at a time, any previous handler for the same key combination will automatically be disabled, the callback function receives its handler as the only argument
 - `isEnabled()` returns `true` if the key handler is enabled, by default `true`
 - `enable()` enables the key handler, any previous handler for the same key combination will automatically be disabled, returns `true` if successful
 - `disable()` disables the key handler, returns `true` if successful
@@ -352,7 +352,7 @@ end
 - `on(String event, Function callback)` constructs a managed handler for an event and returns the identifier for the handler, for arguments see `new Event(...)`
 - `off(int identifier)` disables the managed handler for an event with the given identifier
 - `name` read-only property for the event name
-- `new Event(String event, Function callback)` constructs and binds an event to a callback function and returns the handler (`undefined` if not supported), you must keep a reference to the handler in order for your callback to get called, you can have multiple handlers for a single event, the callback function receives its handler as the last argument, for any additional arguments see [events](#2-events)
+- `new Event(String event, Function callback)` constructs and binds an event to a callback function and returns the handler, you must keep a reference to the handler in order for your callback to get called, you can have multiple handlers for a single event, the callback function receives its handler as the last argument, for any additional arguments see [events](#2-events)
 - `disable()` disables the event handler
 
 ## 14. Timer
