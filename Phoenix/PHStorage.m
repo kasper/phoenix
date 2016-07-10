@@ -109,7 +109,7 @@ static NSString * const PHStoragePath = @"~/Library/Application Support/Phoenix/
     }
 
     self.storage[key] = object;
-    [self persist];
+    [self performSelectorInBackground:@selector(persist) withObject:nil];
 }
 
 - (id) objectForKey:(NSString *)key {
