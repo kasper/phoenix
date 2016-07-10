@@ -26,6 +26,7 @@ Release: dd.mm.yyyy
 
 #### Events
 
+- New: Event `willTerminate` is triggered when Phoenix will terminate, use this event to perform any tasks before the application terminates.
 - New: Event `mouseDidMove` is triggered when the mouse has moved ([#90](https://github.com/kasper/phoenix/issues/90)).
 - New: Event `mouseDidLeftClick` is triggered when the mouse did left click ([#90](https://github.com/kasper/phoenix/issues/90)).
 - New: Event `mouseDidRightClick` is triggered when the mouse did right click ([#90](https://github.com/kasper/phoenix/issues/90)).

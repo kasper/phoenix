@@ -60,6 +60,8 @@
 
 - (NSApplicationTerminateReply) applicationShouldTerminate:(NSApplication *)application {
 
+    [[NSNotificationCenter defaultCenter] postNotificationName:PHEventWillTerminateNotification object:nil];
+
     [self.context shouldTerminate:^{
 
         [application replyToApplicationShouldTerminate:YES];
