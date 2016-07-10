@@ -328,6 +328,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     NSArray<PHWindow *> *sortedOtherWindows = [closestOtherWindows sortedArrayUsingComparator:
                                                ^NSComparisonResult(NSDictionary<NSString *, id> *window,
                                                                    NSDictionary<NSString *, id> *otherWindow) {
+
         return [window[PHWindowScoreKey] compare:otherWindow[PHWindowScoreKey]];
     }];
     
