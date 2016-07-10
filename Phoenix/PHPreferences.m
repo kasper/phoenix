@@ -37,7 +37,7 @@ static NSString * const PHPreferencesOpenAtLoginKey = @"openAtLogin";
 
         sharedPreferences = [[self alloc] init];
     });
-    
+
     return sharedPreferences;
 }
 

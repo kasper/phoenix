@@ -105,7 +105,7 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
             [spaces addObject:[(PHSpace *) [self alloc] initWithIdentifier:identifier.unsignedLongValue]];
         }
     }
-    
+
     return spaces;
 }
 

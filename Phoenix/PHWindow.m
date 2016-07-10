@@ -68,11 +68,11 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 + (NSArray<PHWindow *> *) windows {
 
     NSMutableArray<PHWindow *> *windows = [NSMutableArray array];
-    
+
     for (PHApp *app in [PHApp all]) {
         [windows addObjectsFromArray:[app windows]];
     }
-    
+
     return windows;
 }
 
@@ -301,12 +301,12 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     // Other windows
     NSArray<PHWindow *> *otherWindows = [self others];
     NSMutableArray *closestOtherWindows = [NSMutableArray arrayWithCapacity:otherWindows.count];
-    
+
     for (PHWindow *window in otherWindows) {
 
         CGRect otherFrame = [window frame];
         NSPoint otherPoint = NSMakePoint(NSMidX(otherFrame), NSMidY(otherFrame));
-        
+
         double deltaX = otherPoint.x - centrePoint.x;
         double deltaY = otherPoint.y - centrePoint.y;
 
@@ -331,7 +331,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
         return [window[PHWindowScoreKey] compare:otherWindow[PHWindowScoreKey]];
     }];
-    
+
     return sortedOtherWindows;
 }
 

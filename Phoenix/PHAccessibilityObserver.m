@@ -34,7 +34,7 @@ static NSString * const NSWorkspaceRunningApplicationsKeyPath = @"runningApplica
                                            options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
                                            context:NULL];
     }
-    
+
     return self;
 }
 
