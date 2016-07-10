@@ -30,6 +30,7 @@ Release: dd.mm.yyyy
 - New: Event `mouseDidMove` is triggered when the mouse has moved ([#90](https://github.com/kasper/phoenix/issues/90)).
 - New: Event `mouseDidLeftClick` is triggered when the mouse did left click ([#90](https://github.com/kasper/phoenix/issues/90)).
 - New: Event `mouseDidRightClick` is triggered when the mouse did right click ([#90](https://github.com/kasper/phoenix/issues/90)).
+- Change: Event `start` is now `didLaunch`.
 
 #### Phoenix
 

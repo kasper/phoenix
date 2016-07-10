@@ -55,7 +55,7 @@
                                                  name:PHPreferencesDidChangeNotification
                                                object:nil];
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:PHEventStartNotification object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:PHEventDidLaunchNotification object:nil];
 }
 
 - (NSApplicationTerminateReply) applicationShouldTerminate:(NSApplication *)application {

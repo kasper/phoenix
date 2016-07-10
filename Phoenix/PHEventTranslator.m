@@ -52,7 +52,7 @@
 
         eventToNotification = @{ /* Event Notifications */
 
-                                 @"start": PHEventStartNotification,
+                                 @"didLaunch": PHEventDidLaunchNotification,
                                  @"willTerminate": PHEventWillTerminateNotification,
 
                                  /* Screen Notifications */

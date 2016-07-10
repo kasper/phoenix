@@ -128,7 +128,7 @@ Phoenix supports the following (case sensitive) events:
 
 ### Phoenix
 
-- `start` triggered once when Phoenix has started and the context is ready
+- `didLaunch` triggered once when Phoenix has launched and the context is ready
 - `willTerminate` triggered when Phoenix will terminate, use this event to perform any tasks before the application terminates
 
 ### Screen
