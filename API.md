@@ -163,8 +163,8 @@ All of the following window events receive the corresponding `Window`-instance a
 - `windowDidFocus` triggered when a window was focused within an app
 - `windowDidMove` triggered when a window has moved
 - `windowDidResize` triggered when a window has resized
-- `windowDidMinimize` triggered when a window has minimised
-- `windowDidUnminimize` triggered when a window has unminimised
+- `windowDidMinimise` or `windowDidMinimize` triggered when a window has minimised
+- `windowDidUnminimise` or `windowDidUnminimize` triggered when a window has unminimised
 
 ## 3. Preferences
 
@@ -584,7 +584,7 @@ class Window implements Identifiable
   boolean isMain()
   boolean isNormal()
   boolean isFullScreen()
-  boolean isMinimized()
+  boolean isMinimised() // or isMinimized()
   boolean isVisible()
   App app()
   Screen screen()
@@ -596,12 +596,12 @@ class Window implements Identifiable
   boolean setSize(Size size)
   boolean setFrame(Rectangle frame)
   boolean setFullScreen(boolean value)
-  boolean maximize()
-  boolean minimize()
-  boolean unminimize()
-  Array<Window> neighbors(String direction)
+  boolean maximise() // or maximize()
+  boolean minimise() // or minimize()
+  boolean unminimise() // or unminimize()
+  Array<Window> neighbours(String direction) // or neighbors(...)
   boolean focus()
-  boolean focusClosestNeighbor(String direction)
+  boolean focusClosestNeighbour(String direction) // or focusClosestNeighbor(...)
 
 end
 ```
@@ -614,7 +614,7 @@ end
 - `isMain()` returns `true` if the window is the main window for its app
 - `isNormal()` returns `true` if the window is a normal window
 - `isFullScreen()` returns `true` if the window is a full screen window
-- `isMinimized()` returns `true` if the window is minimised
+- `isMinimised()` or `isMinimized()` returns `true` if the window is minimised
 - `isVisible()` returns `true` if the window is a normal and unminimised window that belongs to an unhidden app
 - `app()` returns the app for the window
 - `screen()` returns the screen where most or all of the window is currently present
@@ -626,12 +626,12 @@ end
 - `setSize(Size size)` sets the size for the window, returns `true` if successful
 - `setFrame(Rectangle frame)` sets the frame for the window, returns `true` if successful
 - `setFullScreen(boolean value)` sets whether the window is full screen, returns `true` if successful
-- `maximize()` resizes the window to fit the whole visible frame for the screen, returns `true` if successful
-- `minimize()` minimises the window, returns `true` if successful
-- `unminimize()` unminimises the window, returns `true` if successful
-- `neighbors(String direction)` returns windows to the direction (`west|east|north|south`) of the window
+- `maximise()` or `maximize()` resizes the window to fit the whole visible frame for the screen, returns `true` if successful
+- `minimise()` or `minimize()` minimises the window, returns `true` if successful
+- `unminimise()` or `unminimize()` unminimises the window, returns `true` if successful
+- `neighbours(String direction)` or `neighbors(...)` returns windows to the direction (`west|east|north|south`) of the window
 - `focus()` focuses the window, returns `true` if successful
-- `focusClosestNeighbor(String direction)` focuses the closest window to the direction (`west|east|north|south`) of the window, returns `true` if successful
+- `focusClosestNeighbour(String direction)` or `focusClosestNeighbor(...)` focuses the closest window to the direction (`west|east|north|south`) of the window, returns `true` if successful
 
 ### Window Optionals
 

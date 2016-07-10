@@ -22,6 +22,7 @@
     "Event": true,
     "Key": true,
     "Task": true,
-    "Timer": true
+    "Timer": true,
+    "Window": true
   }
 }

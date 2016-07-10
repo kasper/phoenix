@@ -83,7 +83,9 @@
                                  @"windowDidFocus": NSAccessibilityFocusedWindowChangedNotification,
                                  @"windowDidMove": NSAccessibilityWindowMovedNotification,
                                  @"windowDidResize": NSAccessibilityWindowResizedNotification,
+                                 @"windowDidMinimise": NSAccessibilityWindowMiniaturizedNotification,
                                  @"windowDidMinimize": NSAccessibilityWindowMiniaturizedNotification,
+                                 @"windowDidUnminimise": NSAccessibilityWindowDeminiaturizedNotification,
                                  @"windowDidUnminimize": NSAccessibilityWindowDeminiaturizedNotification };
     });
 
