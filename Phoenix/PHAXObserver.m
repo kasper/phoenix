@@ -109,7 +109,7 @@ static void PHAXObserverCallback(__unused AXObserverRef observer,
                        kCFRunLoopDefaultMode);
 
     for (NSString *notification in [[self class] notifications]) {
-        [self addNotification:notification];
+        [self performSelectorInBackground:@selector(addNotification:) withObject:notification];
     }
 }
 

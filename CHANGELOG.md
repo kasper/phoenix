@@ -22,6 +22,10 @@ Release: dd.mm.yyyy
 - Breaking: `KeyHandler` has been renamed to `Key`, `EventHandler` to `Event` and `TimerHandler` to `Timer` ([#109](https://github.com/kasper/phoenix/issues/109)).
 - Debug configuration file suffix has changed from `-debug.js` to `.debug.js`.
 
+### Improvements
+
+- Improve startup performance ([#114](https://github.com/kasper/phoenix/issues/114)).
+
 ### API
 
 #### Events
