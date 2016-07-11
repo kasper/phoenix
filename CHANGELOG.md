@@ -10,7 +10,7 @@ Release: dd.mm.yyyy
 
 - Adds support for mouse events ([#90](https://github.com/kasper/phoenix/issues/90)).
 - Phoenix now has a key–value storage that can be used to store values accross reloads and reboots as JSON, see [Storage](https://github.com/kasper/phoenix/blob/2.2/API.md#6-storage) ([#97](https://github.com/kasper/phoenix/issues/97)).
-- You can now run tasks asynchronously and retrieve their status, standard output and standard error. A new `Task`-object has been created to access task properties, see its [API](https://github.com/kasper/phoenix/blob/2.2/API.md#15-task) ([#98](https://github.com/kasper/phoenix/issues/98)).
+- You can now run tasks asynchronously and retrieve their status, standard output and standard error. A new `Task`-object has been created to construct tasks and their properties, see its [API](https://github.com/kasper/phoenix/blob/2.2/API.md#15-task) ([#98](https://github.com/kasper/phoenix/issues/98)).
 - Keys, events and timers are now constructed with relevant constructors instead of creating them through the global `Phoenix`-object ([#109](https://github.com/kasper/phoenix/issues/109)).
 - Add support for British alternatives to API ([#113](https://github.com/kasper/phoenix/issues/113)).
 
