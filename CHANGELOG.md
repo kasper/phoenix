@@ -24,6 +24,7 @@ Release: dd.mm.yyyy
 
 ### Improvements
 
+- Improve API performance when system is under load ([#75](https://github.com/kasper/phoenix/issues/75)).
 - Improve startup performance ([#114](https://github.com/kasper/phoenix/issues/114)).
 
 ### API

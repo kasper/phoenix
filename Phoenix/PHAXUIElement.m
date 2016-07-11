@@ -19,6 +19,7 @@
 
     if (self = [super init]) {
         self.element = element;
+        AXUIElementSetMessagingTimeout((__bridge AXUIElementRef) self.element, 0.5);
     }
 
     return self;
