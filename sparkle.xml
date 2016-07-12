@@ -10,6 +10,37 @@
     <description>Feed for Phoenix updates.</description>
     <language>en</language>
 
+    <!-- 2.2 -->
+
+    <item>
+      <title>Version 2.2</title>
+      <pubDate>Tue, 12 Jul 2016 12:16:00 +0300</pubDate>
+      <description><![CDATA[
+
+        <p>Phoenix 2.2 is out! <b>Heads up, this is a big one and will need some changes to your configuration!</b> The focus of this release has been to make Phoenix event better while improving on the existing behaviour based on feedback.</p>
+
+        <h3>What is New?</h3>
+
+        <ul>
+          <li>API is now more stylistic, consistent and flexible</li>
+          <li>a key–value storage that can be used to store values across reloads and reboots as JSON</li>
+          <li>run tasks asynchronously and retrieve their status, standard output and standard error</li>
+          <li>implements support for mouse events</li>
+          <li>performance improvements</li>
+        </ul>
+
+        <p>See the full <a href='https://github.com/kasper/phoenix/blob/2.2/CHANGELOG.md'>Changelog</a>.</p>
+
+      ]]>
+      </description>
+      <enclosure sparkle:version='33'
+                 sparkle:shortVersionString='2.2'
+                 sparkle:dsaSignature='MCwCFCdP5IMCaUYftOy1tR2LnWMoxorBAhQskSe9KuPhAoWy0pBuOl/mBThFgg=='
+                 type='application/octet-stream'
+                 length='2211204'
+                 url='https://github.com/kasper/phoenix/releases/download/2.2/phoenix-2.2.tar.gz' />
+    </item>
+
     <!-- 2.1.2 -->
 
     <item>
