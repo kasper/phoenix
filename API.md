@@ -213,7 +213,7 @@ end
 
 ## 6. Storage
 
-Use the `Storage`-object to store values accross reloads and reboots as JSON.
+Use the `Storage`-object to store values across reloads and reboots as JSON.
 
 ```java
 class Storage
