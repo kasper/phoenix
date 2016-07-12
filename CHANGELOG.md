@@ -10,9 +10,9 @@ Release: dd.mm.yyyy
 
 - Adds support for mouse events ([#90](https://github.com/kasper/phoenix/issues/90)).
 - Phoenix now has a key–value storage that can be used to store values accross reloads and reboots as JSON, see [Storage](https://github.com/kasper/phoenix/blob/2.2/API.md#6-storage) ([#97](https://github.com/kasper/phoenix/issues/97)).
-- You can now run tasks asynchronously and retrieve their status, standard output and standard error. A new `Task`-object has been created to construct tasks and access their properties, see its [API](https://github.com/kasper/phoenix/blob/2.2/API.md#15-task) ([#98](https://github.com/kasper/phoenix/issues/98)).
+- You can now run tasks asynchronously and retrieve their status, standard output and standard error. A new `Task`-object has been created to construct tasks, access their properties or to terminate the task, see its [API](https://github.com/kasper/phoenix/blob/2.2/API.md#15-task) ([#98](https://github.com/kasper/phoenix/issues/98)).
 - Keys, events and timers are now constructed with relevant constructors instead of creating them through the global `Phoenix`-object ([#109](https://github.com/kasper/phoenix/issues/109)).
-- Add support for British alternatives to API ([#113](https://github.com/kasper/phoenix/issues/113)).
+- Add support for British alternatives to the API ([#113](https://github.com/kasper/phoenix/issues/113)).
 
 ### Changes
 
@@ -25,7 +25,7 @@ Release: dd.mm.yyyy
 ### Improvements
 
 - Improve API performance when system is under load ([#75](https://github.com/kasper/phoenix/issues/75)).
-- Improve startup performance ([#114](https://github.com/kasper/phoenix/issues/114)).
+- Improve start performance ([#114](https://github.com/kasper/phoenix/issues/114)).
 
 ### API
 
@@ -81,16 +81,16 @@ Release: dd.mm.yyyy
 
 #### Window
 
-- New: Function `neighbors(String direction)` returns windows to the direction (`west|east|north|south`) of the window ([#108](https://github.com/kasper/phoenix/issues/108)).
-- New: Function `focusClosestNeighbor(String direction)` focuses the closest window to the direction (`west|east|north|south`) of the window, returns `true` if successful ([#108](https://github.com/kasper/phoenix/issues/108)).
+- New: Function `neighbours(String direction)` returns windows to the direction (`west|east|north|south`) of the window ([#108](https://github.com/kasper/phoenix/issues/108)).
+- New: Function `focusClosestNeighbour(String direction)` focuses the closest window to the direction (`west|east|north|south`) of the window, returns `true` if successful ([#108](https://github.com/kasper/phoenix/issues/108)).
 - Change: Function `focusedWindow()` is now simply `focused()` ([#108](https://github.com/kasper/phoenix/issues/108)).
 - Change: Function `windows()` is now `all(Map<String, AnyObject> optionals)` ([#108](https://github.com/kasper/phoenix/issues/108)).
 - Change: Function `visibleWindowsInOrder()` is now `recent()` ([#108](https://github.com/kasper/phoenix/issues/108)).
 - Change: Function `otherWindowsOnAllScreens()` is now `others(Map<String, AnyObject> optionals)` ([#108](https://github.com/kasper/phoenix/issues/108)).
 - Deprecation: Function `visibleWindows()` has been removed, use `all({ visible: true })` instead ([#108](https://github.com/kasper/phoenix/issues/108)).
 - Deprecation: Function `otherWindowsOnSameScreen()` has been removed, use `others({ screen: window.screen() })` instead ([#108](https://github.com/kasper/phoenix/issues/108)).
-- Deprecation: Functions `windowsToWest()`, `windowsToEast()`, `windowsToNorth()` and `windowsToSouth()` have been removed, use instead `neighbors('west')`, `neighbors('east')`, `neighbors('north')` and `neighbors('south')` respectively ([#108](https://github.com/kasper/phoenix/issues/108)).
-- Deprecation: Functions `focusClosestWindowInWest()`, `focusClosestWindowInEast()`, `focusClosestWindowInNorth()` and `focusClosestWindowInSouth()` have been removed, use instead `focusClosestNeighbor('west')`, `focusClosestNeighbor('east')`, `focusClosestNeighbor('north')` and `focusClosestNeighbor('south')` respectively ([#108](https://github.com/kasper/phoenix/issues/108)).
+- Deprecation: Functions `windowsToWest()`, `windowsToEast()`, `windowsToNorth()` and `windowsToSouth()` have been removed, use instead `neighbours('west')`, `neighbours('east')`, `neighbours('north')` and `neighbours('south')` respectively ([#108](https://github.com/kasper/phoenix/issues/108)).
+- Deprecation: Functions `focusClosestWindowInWest()`, `focusClosestWindowInEast()`, `focusClosestWindowInNorth()` and `focusClosestWindowInSouth()` have been removed, use instead `focusClosestNeighbour('west')`, `focusClosestNeighbour('east')`, `focusClosestNeighbour('north')` and `focusClosestNeighbour('south')` respectively ([#108](https://github.com/kasper/phoenix/issues/108)).
 
 2.1.2
 -----

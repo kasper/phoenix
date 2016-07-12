@@ -381,7 +381,7 @@ end
 
 ## 15. Task
 
-Use the `Task`-object to constuct tasks, access their properties or to terminate the task. Beware that some task properties are only set after the task has completed.
+Use the `Task`-object to construct tasks, access their properties or to terminate the task. Beware that some task properties are only set after the task has completed.
 
 ```java
 class Task implements Identifiable
