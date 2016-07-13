@@ -418,7 +418,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
         return [self focusFirstClosestWindow:[self neighborsToSouth]];;
     }
 
-    return false;
+    return NO;
 }
 
 @end

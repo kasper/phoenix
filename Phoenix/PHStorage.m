@@ -81,10 +81,10 @@ static NSString * const PHStoragePath = @"~/Library/Application Support/Phoenix/
                                                     error:&error];
     if (error) {
         NSLog(@"Error: Could not create storage directory to path “%@”. (%@)", directory, error);
-        return false;
+        return NO;
     }
 
-    return true;
+    return YES;
 }
 
 - (void) persist {
