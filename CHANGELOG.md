@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### Bug Fixes
+
+- Fix crash when trying to traverse spaces ([#117](https://github.com/kasper/phoenix/issues/117)).
+
 2.2
 ---
 

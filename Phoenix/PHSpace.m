@@ -148,12 +148,12 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
 
 - (instancetype) next {
 
-    return [[[self class] spaces] nextFrom:self];
+    return [[PHSpace all] nextFrom:self];
 }
 
 - (instancetype) previous {
 
-    return [[[self class] spaces] previousFrom:self];
+    return [[PHSpace all] previousFrom:self];
 }
 
 #pragma mark - Properties
