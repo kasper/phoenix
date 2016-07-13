@@ -57,7 +57,7 @@ static void PHAXObserverCallback(__unused AXObserverRef observer,
 
 - (void) dealloc {
 
-    for (NSString *notification in [[self class] notifications]) {
+    for (NSString *notification in [PHAXObserver notifications]) {
         [self removeNotification:notification];
     }
 }
@@ -108,7 +108,7 @@ static void PHAXObserverCallback(__unused AXObserverRef observer,
                        AXObserverGetRunLoopSource((__bridge AXObserverRef) self.observer),
                        kCFRunLoopDefaultMode);
 
-    for (NSString *notification in [[self class] notifications]) {
+    for (NSString *notification in [PHAXObserver notifications]) {
         [self performSelectorInBackground:@selector(addNotification:) withObject:notification];
     }
 }

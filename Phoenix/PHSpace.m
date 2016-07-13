@@ -141,7 +141,7 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
 
 - (BOOL) isEqual:(id)object {
 
-    return [object isKindOfClass:[self class]] && [self hash] == [object hash];
+    return [object isKindOfClass:[PHSpace class]] && [self hash] == [object hash];
 }
 
 #pragma mark - PHIterableJSExport

@@ -79,9 +79,9 @@
 
 - (void) setup {
 
-    NSDictionary<NSNumber *, NSString *> *notifications = [[self class] notifications];
+    NSDictionary<NSNumber *, NSString *> *notifications = [PHGlobalEventMonitor notifications];
 
-    for (NSNumber *mask in [[self class] masks]) {
+    for (NSNumber *mask in [PHGlobalEventMonitor masks]) {
 
         // Add global monitor for event mask
         id monitor = [NSEvent addGlobalMonitorForEventsMatchingMask:mask.unsignedLongLongValue

@@ -131,7 +131,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
     NSNumber *visibilityOption = optionals[PHWindowVisibilityOptionKey];
     NSNumber *screenOption = optionals[PHScreenOptionKey];
-    NSArray<PHWindow *> *others = [[self class] filteredWindowsUsingPredicateBlock:
+    NSArray<PHWindow *> *others = [PHWindow filteredWindowsUsingPredicateBlock:
                                    ^BOOL (PHWindow *window, __unused NSDictionary<NSString *, id> *bindings) {
 
         BOOL isOtherWindow = ![self isEqual:window];
@@ -140,7 +140,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
     // Filter based on visibility
     if (visibilityOption) {
-        return [others filteredArrayUsingPredicate:[[self class] isVisible:visibilityOption.boolValue]];
+        return [others filteredArrayUsingPredicate:[PHWindow isVisible:visibilityOption.boolValue]];
     }
 
     return others;

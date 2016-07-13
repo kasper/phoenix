@@ -60,7 +60,7 @@
 
 - (BOOL) isEqual:(id)object {
 
-    return [object isKindOfClass:[self class]] && [self isEqualTo:object];
+    return [object isKindOfClass:[PHAXUIElement class]] && [self isEqualTo:object];
 }
 
 #pragma mark - Element Accessors
