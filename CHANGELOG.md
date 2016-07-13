@@ -6,11 +6,19 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### Improvements
+
+- Callback for key is now called repeatedly when key is held down ([#119](https://github.com/kasper/phoenix/issues/119)).
+
 ### Bug Fixes
 
 - Fix issue that prevented `Window#setFrame(...)` to only set origin for windows that cannot be resized ([#124](https://github.com/kasper/phoenix/issues/124)).
 
 ### API
+
+#### Key
+
+- Change: The callback function receives its handler as the first argument and as the second argument a boolean that indicates if the key was repeated ([#119](https://github.com/kasper/phoenix/issues/119)).
 
 #### Screen
 
