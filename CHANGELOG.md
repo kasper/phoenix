@@ -8,6 +8,7 @@ Release: dd.mm.yyyy
 
 ### Bug Fixes
 
+- Fix issue that prevented Window#others(...) returning the correct windows based on the screen optional ([#116](https://github.com/kasper/phoenix/issues/116)).
 - Fix crash when trying to traverse spaces ([#117](https://github.com/kasper/phoenix/issues/117)).
 
 2.2

@@ -135,7 +135,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
                                    ^BOOL (PHWindow *window, __unused NSDictionary<NSString *, id> *bindings) {
 
         BOOL isOtherWindow = ![self isEqual:window];
-        return screenOption ? isOtherWindow && [[self screen] isEqual:screenOption] : isOtherWindow;
+        return screenOption ? isOtherWindow && [[window screen] isEqual:screenOption] : isOtherWindow;
     }];
 
     // Filter based on visibility
