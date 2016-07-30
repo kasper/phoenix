@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### Bug Fixes
+
+- Fix issue that prevented `Window#setFrame(...)` to only set origin for windows that cannot be resized ([#124](https://github.com/kasper/phoenix/issues/124)).
+
 ### API
 
 #### Screen
