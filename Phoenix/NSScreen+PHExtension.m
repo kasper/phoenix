@@ -77,6 +77,11 @@ static NSString * const NSScreenNumberKey = @"NSScreenNumber";
 
 #pragma mark - Spaces
 
+- (PHSpace *) currentSpace {
+
+    return [PHSpace currentSpaceForScreen:self];
+}
+
 - (NSArray<PHSpace *> *) spaces {
 
     NSPredicate *spaceIsOnThisScreen = [NSPredicate predicateWithBlock:

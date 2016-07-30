@@ -447,6 +447,7 @@ class Screen implements Identifiable, Iterable
   String identifier()
   Rectangle frameInRectangle()
   Rectangle visibleFrameInRectangle()
+  Space currentSpace() // macOS 10.11+
   Array<Space> spaces() // macOS 10.11+
   Array<Window> windows(Map<String, AnyObject> optionals)
 
@@ -458,6 +459,7 @@ end
 - `identifier()` returns the UUID for the screen
 - `frameInRectangle()` returns the whole frame for the screen
 - `visibleFrameInRectangle()` returns the visible frame for the screen subtracting the Dock and Menu from the frame when visible
+- `currentSpace()` returns the current space for the screen (macOS 10.11+, returns `undefined` otherwise)
 - `spaces()` returns all spaces for the screen (macOS 10.11+, returns an empty list otherwise)
 - `windows(Map<String, AnyObject> optionals)` returns all windows for the screen if no optionals are given
 

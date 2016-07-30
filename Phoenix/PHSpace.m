@@ -2,6 +2,8 @@
  * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
  */
 
+@import Cocoa;
+
 #import "NSArray+PHExtension.h"
 #import "NSProcessInfo+PHExtension.h"
 #import "NSScreen+PHExtension.h"
@@ -48,6 +50,9 @@ CGSConnectionID CGSMainConnectionID();
 
 // XXX: Undocumented private API to get the CGSSpaceID for the active space
 CGSSpaceID CGSGetActiveSpace(CGSConnectionID connection);
+
+// XXX: Undocumented private API to get the CGSSpaceID for the current space for a given screen (UUID)
+CGSSpaceID CGSManagedDisplayGetCurrentSpace(CGSConnectionID connection, CFStringRef screenId);
 
 // XXX: Undocumented private API to get the CGSSpaceIDs for all spaces in order
 CFArrayRef CGSCopyManagedDisplaySpaces(CGSConnectionID connection);
@@ -107,6 +112,19 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
     }
 
     return spaces;
+}
+
++ (instancetype) currentSpaceForScreen:(NSScreen *)screen {
+
+    // Only supported from 10.11 upwards
+    if (![NSProcessInfo isOperatingSystemAtLeastElCapitan]) {
+        return nil;
+    }
+
+    NSUInteger identifier = CGSManagedDisplayGetCurrentSpace(CGSMainConnectionID(),
+                                                             (__bridge CFStringRef) [screen identifier]);
+
+    return [(PHSpace *) [self alloc] initWithIdentifier:identifier];
 }
 
 + (NSArray<PHSpace *> *) spacesForWindow:(PHWindow *)window {

@@ -29,6 +29,7 @@
 
 #pragma mark - Spaces
 
+- (PHSpace *) currentSpace;
 - (NSArray<PHSpace *> *) spaces;
 
 #pragma mark - Windows

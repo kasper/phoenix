@@ -5,6 +5,7 @@
 @import Foundation;
 @import JavaScriptCore;
 
+@class NSScreen;
 @class PHSpace;
 @class PHWindow;
 
@@ -43,6 +44,7 @@
 
 #pragma mark - Spaces
 
++ (instancetype) currentSpaceForScreen:(NSScreen *)screen;
 + (NSArray<PHSpace *> *) spacesForWindow:(PHWindow *)window;
 
 @end

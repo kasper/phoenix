@@ -6,6 +6,12 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### API
+
+#### Screen
+
+- New: Function `currentSpace()` returns the current space for the screen (macOS 10.11+, returns `undefined` otherwise) ([#120](https://github.com/kasper/phoenix/issues/120)).
+
 2.2.1
 -----
 
