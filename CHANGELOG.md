@@ -24,6 +24,10 @@ Release: dd.mm.yyyy
 
 - Change: The callback function receives its handler as the first argument and as the second argument a boolean that indicates if the key was repeated ([#119](https://github.com/kasper/phoenix/issues/119)).
 
+#### Modal
+
+- Change: Origin can be adjusted dynamically ([#126](https://github.com/kasper/phoenix/issues/126)).
+
 #### Screen
 
 - New: Function `currentSpace()` returns the current space for the screen (macOS 10.11+, returns `undefined` otherwise) ([#120](https://github.com/kasper/phoenix/issues/120)).

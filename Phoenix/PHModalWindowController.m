@@ -15,6 +15,7 @@
 @implementation PHModalWindowController
 
 static NSString * const PHModalWindowControllerMessageKeyPath = @"message";
+static NSString * const PHModalWindowControllerOriginKeyPath = @"origin";
 
 #pragma mark - Initialising
 
@@ -24,6 +25,11 @@ static NSString * const PHModalWindowControllerMessageKeyPath = @"message";
 
         [self addObserver:self
                forKeyPath:PHModalWindowControllerMessageKeyPath
+                  options:NSKeyValueObservingOptionNew
+                  context:NULL];
+
+        [self addObserver:self
+               forKeyPath:PHModalWindowControllerOriginKeyPath
                   options:NSKeyValueObservingOptionNew
                   context:NULL];
     }
@@ -36,6 +42,7 @@ static NSString * const PHModalWindowControllerMessageKeyPath = @"message";
 - (void) dealloc {
 
     [self removeObserver:self forKeyPath:PHModalWindowControllerMessageKeyPath];
+    [self removeObserver:self forKeyPath:PHModalWindowControllerOriginKeyPath];
 }
 
 #pragma mark - NSWindowController
@@ -67,6 +74,11 @@ static NSString * const PHModalWindowControllerMessageKeyPath = @"message";
         [self window];
         self.textField.stringValue = self.message;
     }
+
+    // Update origin
+    if ([keyPath isEqualToString:PHModalWindowControllerOriginKeyPath]) {
+        [self.window setFrameOrigin:self.origin];
+    }
 }
 
 #pragma mark - Displaying
@@ -94,7 +106,6 @@ static NSString * const PHModalWindowControllerMessageKeyPath = @"message";
     }
 
     [self showWindow:self];
-    [self.window setFrameOrigin:self.origin];
     [self fadeWindowToAlpha:1.0 completionHandler:^{
 
         // Keep window open until closed
