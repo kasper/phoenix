@@ -14,6 +14,7 @@
 
 @implementation PHModalWindowController
 
+static NSString * const PHModalWindowControllerFontSizeKeyPath = @"fontSize";
 static NSString * const PHModalWindowControllerMessageKeyPath = @"message";
 static NSString * const PHModalWindowControllerOriginKeyPath = @"origin";
 
@@ -22,6 +23,13 @@ static NSString * const PHModalWindowControllerOriginKeyPath = @"origin";
 - (instancetype) init {
 
     if (self = [super init]) {
+
+        self.fontSize = 24.0;
+
+        [self addObserver:self
+               forKeyPath:PHModalWindowControllerFontSizeKeyPath
+                  options:NSKeyValueObservingOptionNew
+                  context:NULL];
 
         [self addObserver:self
                forKeyPath:PHModalWindowControllerMessageKeyPath
@@ -41,6 +49,7 @@ static NSString * const PHModalWindowControllerOriginKeyPath = @"origin";
 
 - (void) dealloc {
 
+    [self removeObserver:self forKeyPath:PHModalWindowControllerFontSizeKeyPath];
     [self removeObserver:self forKeyPath:PHModalWindowControllerMessageKeyPath];
     [self removeObserver:self forKeyPath:PHModalWindowControllerOriginKeyPath];
 }
@@ -68,6 +77,11 @@ static NSString * const PHModalWindowControllerOriginKeyPath = @"origin";
                        ofObject:(id)__unused object
                          change:(NSDictionary<NSString *, id> *)__unused change
                         context:(void *)__unused context {
+
+    // Update font size
+    if ([keyPath isEqualToString:PHModalWindowControllerFontSizeKeyPath]) {
+        self.textField.font = [NSFont systemFontOfSize:self.fontSize];
+    }
 
     // Update text field
     if ([keyPath isEqualToString:PHModalWindowControllerMessageKeyPath]) {

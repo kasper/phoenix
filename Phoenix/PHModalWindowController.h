@@ -13,6 +13,7 @@
 
 @property NSPoint origin;
 @property NSTimeInterval duration;
+@property CGFloat fontSize;
 @property (copy) NSString *message;
 
 #pragma mark - Constructing
@@ -38,6 +39,7 @@
 
 @property NSPoint origin;
 @property NSTimeInterval duration;
+@property CGFloat fontSize;
 @property (copy) NSString *message;
 
 @end
