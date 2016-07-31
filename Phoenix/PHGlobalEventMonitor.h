@@ -4,6 +4,8 @@
 
 @import Foundation;
 
+static NSString * const PHGlobalEventMonitorMouseKey = @"PHGlobalEventMonitorMouse";
+
 @interface PHGlobalEventMonitor : NSObject
 
 #pragma mark - Initialising

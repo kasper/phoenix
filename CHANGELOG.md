@@ -16,6 +16,10 @@ Release: dd.mm.yyyy
 
 ### API
 
+#### Events
+
+- Change: All of the mouse events receive the corresponding `Point`-object as the first argument for the callback function ([#125](https://github.com/kasper/phoenix/issues/125)).
+
 #### Key
 
 - Change: The callback function receives its handler as the first argument and as the second argument a boolean that indicates if the key was repeated ([#119](https://github.com/kasper/phoenix/issues/119)).

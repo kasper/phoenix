@@ -6,6 +6,7 @@
 
 #import "PHEventConstants.h"
 #import "PHGlobalEventMonitor.h"
+#import "PHMouse.h"
 
 @interface PHGlobalEventMonitor ()
 
@@ -87,7 +88,16 @@
         id monitor = [NSEvent addGlobalMonitorForEventsMatchingMask:mask.unsignedLongLongValue
                                                             handler:^(NSEvent *event) {
 
-            [[NSNotificationCenter defaultCenter] postNotificationName:notifications[@(event.type)] object:nil];
+            NSString *notification = notifications[@(event.type)];
+            NSMutableDictionary<NSString *, id> *userInfo = [NSMutableDictionary dictionary];
+
+            // Event for mouse
+            if ([notification hasPrefix:NSStringFromClass([PHMouse class])]) {
+                NSPoint location = [PHMouse location];
+                userInfo[PHGlobalEventMonitorMouseKey] = @{ @"x": @(location.x), @"y": @(location.y) };
+            }
+
+            [[NSNotificationCenter defaultCenter] postNotificationName:notification object:nil userInfo:userInfo];
         }];
 
         [self.monitors addObject:monitor];

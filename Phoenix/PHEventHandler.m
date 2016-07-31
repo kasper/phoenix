@@ -8,6 +8,7 @@
 #import "PHAXObserver.h"
 #import "PHEventHandler.h"
 #import "PHEventTranslator.h"
+#import "PHGlobalEventMonitor.h"
 #import "PHWindow.h"
 
 @interface PHEventHandler ()
@@ -65,8 +66,15 @@
 
 - (void) didReceiveNotification:(NSNotification *)notification {
 
+    NSDictionary<NSString *, id> *mouse = notification.userInfo[PHGlobalEventMonitorMouseKey];
     NSRunningApplication *runningApp = notification.userInfo[NSWorkspaceApplicationKey];
     PHWindow *window = notification.userInfo[PHAXObserverWindowKey];
+
+    // Notification for mouse
+    if (mouse) {
+        [self callWithArguments:@[ mouse, self ]];
+        return;
+    }
 
     // Notification for app
     if (runningApp) {
