@@ -8,6 +8,7 @@
 
 #pragma mark - IBOutlet
 
+@property (weak) IBOutlet NSBox *box;
 @property (weak) IBOutlet NSTextField *textField;
 
 @end
@@ -69,6 +70,7 @@ static NSString * const PHModalWindowControllerOriginKeyPath = @"origin";
     self.window.ignoresMouseEvents = YES;
     self.window.level = NSFloatingWindowLevel;
     self.window.opaque = NO;
+    self.box.transparent = self.transparent;
 }
 
 #pragma mark - KVO

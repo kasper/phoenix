@@ -13,6 +13,7 @@
 
 @property NSPoint origin;
 @property NSTimeInterval duration;
+@property BOOL transparent;
 @property CGFloat fontSize;
 @property (copy) NSString *message;
 
@@ -39,6 +40,7 @@
 
 @property NSPoint origin;
 @property NSTimeInterval duration;
+@property BOOL transparent;
 @property CGFloat fontSize;
 @property (copy) NSString *message;
 

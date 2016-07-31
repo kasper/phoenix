@@ -26,6 +26,7 @@ Release: dd.mm.yyyy
 
 #### Modal
 
+- New: Use `transparent`-property to set whether the modal is transparent (i.e. has no fill), by default `false` ([#126](https://github.com/kasper/phoenix/issues/126)).
 - New: Use `fontSize`-property to adjust the font size for the modal, by default `24` ([#126](https://github.com/kasper/phoenix/issues/126)).
 - Change: Origin can be adjusted dynamically ([#126](https://github.com/kasper/phoenix/issues/126)).
 

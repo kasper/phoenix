@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PHModalWindowController">
             <connections>
+                <outlet property="box" destination="Maa-Q3-FG8" id="FYr-fh-KAe"/>
                 <outlet property="textField" destination="Eu9-Hf-kgC" id="Mro-8U-aEF"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="VWl-Ud-pAe"/>
             </connections>
