@@ -80,6 +80,8 @@ static NSString * const PHModalWindowControllerOriginKeyPath = @"origin";
                          change:(NSDictionary<NSString *, id> *)__unused change
                         context:(void *)__unused context {
 
+    [self window];
+
     // Update font size
     if ([keyPath isEqualToString:PHModalWindowControllerFontSizeKeyPath]) {
         self.textField.font = [NSFont systemFontOfSize:self.fontSize];
@@ -87,7 +89,6 @@ static NSString * const PHModalWindowControllerOriginKeyPath = @"origin";
 
     // Update text field
     if ([keyPath isEqualToString:PHModalWindowControllerMessageKeyPath]) {
-        [self window];
         self.textField.stringValue = self.message;
     }
 
