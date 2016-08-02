@@ -419,7 +419,7 @@ class Modal implements Identifiable
   property Point origin
   property double duration
   property boolean transparent
-  property double fontSize
+  property double weight
   property String message
 
   constructor Modal Modal()
@@ -433,7 +433,7 @@ end
 - `origin` property for the origin for the modal, the enclosed properties are read-only so you must pass an object for this property, by default `(0, 0)`
 - `duration` property for the duration (in seconds) for the modal, if the duration is set to `0` the modal will remain open until closed, by default `0`
 - `transparent` property for whether the modal is transparent (i.e. has no fill), by default `false`
-- `fontSize` property for the font size for the modal, by default `24`
+- `weight` property for the weight for the modal (in points), by default `24`
 - `message` property for the message for the modal, required for the modal to be displayed
 - `new Modal()` constructs and returns a new modal
 - `frame()` returns the frame for the modal, the frame is adjusted for the current message, therefor you must first set the message (and font size) to get an accurate frame
