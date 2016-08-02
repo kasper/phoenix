@@ -9,6 +9,7 @@
 #pragma mark - IBOutlet
 
 @property (weak) IBOutlet NSVisualEffectView *visualEffectView;
+@property (weak) IBOutlet NSView *containerView;
 @property (weak) IBOutlet NSTextField *textField;
 
 @end

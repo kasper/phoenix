@@ -6,6 +6,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PHModalWindowController">
             <connections>
+                <outlet property="containerView" destination="O5f-kD-6s1" id="QpD-Zq-ijb"/>
                 <outlet property="textField" destination="Eu9-Hf-kgC" id="Mro-8U-aEF"/>
                 <outlet property="visualEffectView" destination="EiT-Mj-1SZ" id="89y-yO-mck"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="VWl-Ud-pAe"/>
@@ -22,29 +23,40 @@
                 <rect key="frame" x="0.0" y="0.0" width="97" height="59"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Eu9-Hf-kgC">
-                        <rect key="frame" x="15" y="15" width="67" height="29"/>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="O5f-kD-6s1">
+                        <rect key="frame" x="0.0" y="0.0" width="97" height="59"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Eu9-Hf-kgC">
+                                <rect key="frame" x="15" y="15" width="67" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="800" id="lWe-ze-4L4"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="FT7-fN-TGb">
+                                    <font key="font" metaFont="system" size="24"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
                         <constraints>
-                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="800" id="lWe-ze-4L4"/>
+                            <constraint firstItem="Eu9-Hf-kgC" firstAttribute="leading" secondItem="O5f-kD-6s1" secondAttribute="leading" constant="17" id="NU6-2N-7Up"/>
+                            <constraint firstAttribute="trailing" secondItem="Eu9-Hf-kgC" secondAttribute="trailing" constant="17" id="jbb-e5-cCb"/>
+                            <constraint firstItem="Eu9-Hf-kgC" firstAttribute="top" secondItem="O5f-kD-6s1" secondAttribute="top" constant="15" id="mim-Jf-CNk"/>
+                            <constraint firstAttribute="bottom" secondItem="Eu9-Hf-kgC" secondAttribute="bottom" constant="15" id="ryu-TV-vil"/>
                         </constraints>
-                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="FT7-fN-TGb">
-                            <font key="font" metaFont="system" size="24"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
+                    </customView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Eu9-Hf-kgC" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="15" id="0fK-Ca-lU2"/>
-                    <constraint firstAttribute="trailing" secondItem="Eu9-Hf-kgC" secondAttribute="trailing" constant="17" id="k6I-Uj-qFD"/>
-                    <constraint firstItem="Eu9-Hf-kgC" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="17" id="mQZ-Fi-4Eh"/>
-                    <constraint firstAttribute="bottom" secondItem="Eu9-Hf-kgC" secondAttribute="bottom" constant="15" id="uHr-Ok-3FD"/>
+                    <constraint firstAttribute="trailing" secondItem="O5f-kD-6s1" secondAttribute="trailing" id="BAt-N9-IsP"/>
+                    <constraint firstItem="O5f-kD-6s1" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="RFl-sq-zRM"/>
+                    <constraint firstItem="O5f-kD-6s1" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="d8l-F6-6NM"/>
+                    <constraint firstAttribute="bottom" secondItem="O5f-kD-6s1" secondAttribute="bottom" id="wPq-NK-ncN"/>
                 </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="3cR-Up-rvj"/>
             </connections>
-            <point key="canvasLocation" x="305.5" y="247"/>
+            <point key="canvasLocation" x="305.5" y="246.5"/>
         </window>
     </objects>
 </document>
