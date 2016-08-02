@@ -8,7 +8,7 @@
 
 #pragma mark - IBOutlet
 
-@property (weak) IBOutlet NSBox *box;
+@property (weak) IBOutlet NSVisualEffectView *visualEffectView;
 @property (weak) IBOutlet NSTextField *textField;
 
 @end
@@ -55,6 +55,30 @@ static NSString * const PHModalWindowControllerOriginKeyPath = @"origin";
     [self removeObserver:self forKeyPath:PHModalWindowControllerOriginKeyPath];
 }
 
+#pragma mark - NSVisualEffectView
+
+- (void) setupVibrantAppearance {
+
+    self.visualEffectView.material = NSVisualEffectMaterialDark;
+    self.visualEffectView.state = NSVisualEffectStateActive;
+
+    CGFloat cornerRadius = 10.0;
+    CGFloat edgeSize = 1.0 + (2 * cornerRadius);
+    NSSize maskSize = NSMakeSize(edgeSize, edgeSize);
+
+    // Create mask image for rounded rectangle
+    NSImage *mask = [NSImage imageWithSize:maskSize flipped:NO drawingHandler:^BOOL (NSRect destination) {
+
+        [[NSBezierPath bezierPathWithRoundedRect:destination xRadius:cornerRadius yRadius:cornerRadius] fill];
+        return YES;
+    }];
+
+    // Make edges smooth
+    mask.capInsets = NSEdgeInsetsMake(cornerRadius, cornerRadius, cornerRadius, cornerRadius);
+
+    self.visualEffectView.maskImage = mask;
+}
+
 #pragma mark - NSWindowController
 
 - (NSString *) windowNibName {
@@ -70,7 +94,8 @@ static NSString * const PHModalWindowControllerOriginKeyPath = @"origin";
     self.window.ignoresMouseEvents = YES;
     self.window.level = NSFloatingWindowLevel;
     self.window.opaque = NO;
-    self.box.transparent = self.transparent;
+
+    [self setupVibrantAppearance];
 }
 
 #pragma mark - KVO
