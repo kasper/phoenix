@@ -109,7 +109,7 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
                                                                             options:0
                                                                             metrics:nil
                                                                               views:views]];
-    // Set transparent view as content view
+    // Set transparent view as the content view
     self.window.contentView = transparentView;
 }
 
