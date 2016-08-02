@@ -17,6 +17,7 @@
 @implementation PHModalWindowController
 
 static NSString * const PHModalWindowControllerAppearanceDark = @"dark";
+static NSString * const PHModalWindowControllerAppearanceLight = @"light";
 static NSString * const PHModalWindowControllerAppearanceTransparent = @"transparent";
 static NSString * const PHModalWindowControllerMessageKeyPath = @"message";
 static NSString * const PHModalWindowControllerOriginKeyPath = @"origin";
@@ -65,6 +66,12 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
 
     self.visualEffectView.material = NSVisualEffectMaterialDark;
     self.visualEffectView.state = NSVisualEffectStateActive;
+
+    // Use light material
+    if ([self.appearance.lowercaseString isEqualToString:PHModalWindowControllerAppearanceLight]) {
+        self.visualEffectView.material = NSVisualEffectMaterialLight;
+        self.textField.textColor = [NSColor blackColor];
+    }
 
     CGFloat cornerRadius = 10.0;
     CGFloat edgeSize = 1.0 + (2 * cornerRadius);

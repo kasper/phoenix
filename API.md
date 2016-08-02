@@ -433,7 +433,7 @@ end
 - `origin` property for the origin for the modal, the enclosed properties are read-only so you must pass an object for this property, by default `(0, 0)`
 - `duration` property for the duration (in seconds) for the modal, if the duration is set to `0` the modal will remain open until closed, by default `0`
 - `weight` property for the weight for the modal (in points), by default `24`
-- `appearance` property for the appearance of the modal (`dark|transparent`), by default `dark`
+- `appearance` property for the appearance of the modal (`dark|light|transparent`), by default `dark`
 - `message` property for the message for the modal, required for the modal to be displayed
 - `new Modal()` constructs and returns a new modal
 - `frame()` returns the frame for the modal, the frame is adjusted for the current message, therefor you must first set the message (and font size) to get an accurate frame
