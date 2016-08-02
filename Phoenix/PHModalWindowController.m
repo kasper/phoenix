@@ -16,6 +16,8 @@
 
 @implementation PHModalWindowController
 
+static NSString * const PHModalWindowControllerAppearanceDark = @"dark";
+static NSString * const PHModalWindowControllerAppearanceTransparent = @"transparent";
 static NSString * const PHModalWindowControllerMessageKeyPath = @"message";
 static NSString * const PHModalWindowControllerOriginKeyPath = @"origin";
 static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
@@ -27,6 +29,7 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
     if (self = [super init]) {
 
         self.weight = 24.0;
+        self.appearance = PHModalWindowControllerAppearanceDark;
 
         [self addObserver:self
                forKeyPath:PHModalWindowControllerMessageKeyPath
@@ -56,7 +59,7 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
     [self removeObserver:self forKeyPath:PHModalWindowControllerWeightKeyPath];
 }
 
-#pragma mark - NSVisualEffectView
+#pragma mark - Appearance
 
 - (void) setupVibrantAppearance {
 
@@ -80,6 +83,36 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
     self.visualEffectView.maskImage = mask;
 }
 
+- (void) setupTransparentAppearance {
+
+    NSDictionary<NSString *, id> *views = @{ @"container": self.containerView };
+    NSView *transparentView = [[NSView alloc] initWithFrame:self.window.contentView.frame];
+    [transparentView addSubview:self.containerView];
+
+    // Hug left edge of container
+    [transparentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(0)-[container]"
+                                                                            options:0
+                                                                            metrics:nil
+                                                                              views:views]];
+    // Hug right edge of container
+    [transparentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[container]-(0)-|"
+                                                                            options:0
+                                                                            metrics:nil
+                                                                              views:views]];
+    // Hug top edge of container
+    [transparentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[container]"
+                                                                            options:0
+                                                                            metrics:nil
+                                                                              views:views]];
+    // Hug bottom edge of container
+    [transparentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[container]-(0)-|"
+                                                                            options:0
+                                                                            metrics:nil
+                                                                              views:views]];
+    // Set transparent view as content view
+    self.window.contentView = transparentView;
+}
+
 #pragma mark - NSWindowController
 
 - (NSString *) windowNibName {
@@ -95,8 +128,6 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
     self.window.ignoresMouseEvents = YES;
     self.window.level = NSFloatingWindowLevel;
     self.window.opaque = NO;
-
-    [self setupVibrantAppearance];
 }
 
 #pragma mark - KVO
@@ -146,6 +177,13 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
 
     if (!self.message || isnan(self.origin.x) || isnan(self.origin.y)) {
         return;
+    }
+
+    // Set appearance
+    if ([self.appearance.lowercaseString isEqualToString:PHModalWindowControllerAppearanceTransparent]) {
+        [self setupTransparentAppearance];
+    } else {
+        [self setupVibrantAppearance];
     }
 
     [self showWindow:self];

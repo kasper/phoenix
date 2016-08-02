@@ -13,8 +13,8 @@
 
 @property NSPoint origin;
 @property NSTimeInterval duration;
-@property BOOL transparent;
 @property CGFloat weight;
+@property (copy) NSString *appearance;
 @property (copy) NSString *message;
 
 #pragma mark - Constructing
@@ -40,8 +40,8 @@
 
 @property NSPoint origin;
 @property NSTimeInterval duration;
-@property BOOL transparent;
 @property CGFloat weight;
+@property (copy) NSString *appearance;
 @property (copy) NSString *message;
 
 @end
