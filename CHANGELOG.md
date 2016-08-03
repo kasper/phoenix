@@ -28,6 +28,7 @@ Release: dd.mm.yyyy
 
 - New: Use `weight`-property to adjust the weight for the modal (in points), by default `24` ([#126](https://github.com/kasper/phoenix/issues/126)).
 - New: Use `appearance`-property to set the appearance of the modal (`dark|light|transparent`), by default `dark` ([#126](https://github.com/kasper/phoenix/issues/126)).
+- New: Use `icon`-property for the icon displayed in the modal ([#126](https://github.com/kasper/phoenix/issues/126)).
 - New: Use `text`-property for the text displayed in the modal, required ([#126](https://github.com/kasper/phoenix/issues/126)).
 - Change: Origin can be adjusted dynamically ([#126](https://github.com/kasper/phoenix/issues/126)).
 - Deprecation: Property `message` is deprecated and will be removed in later versions, use `text` instead ([#126](https://github.com/kasper/phoenix/issues/126)).

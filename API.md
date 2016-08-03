@@ -420,6 +420,7 @@ class Modal implements Identifiable
   property double duration
   property double weight
   property String appearance
+  property Image icon
   property String text
 
   constructor Modal Modal()
@@ -434,9 +435,10 @@ end
 - `duration` property for the duration (in seconds) for the modal, if the duration is set to `0` the modal will remain open until closed, by default `0`
 - `weight` property for the weight for the modal (in points), by default `24`
 - `appearance` property for the appearance of the modal (`dark|light|transparent`), by default `dark`
-- `text` property for the text displayed in the modal, required
+- `icon` property for the icon displayed in the modal
+- `text` property for the text displayed in the modal
 - `new Modal()` constructs and returns a new modal
-- `frame()` returns the frame for the modal, the frame is adjusted for the current message, therefor you must first set the message (and font size) to get an accurate frame
+- `frame()` returns the frame for the modal, the frame is adjusted for the current content, therefor you must first set the weight, icon and text to get an accurate frame
 - `show()` shows the modal
 - `close()` closes the modal
 

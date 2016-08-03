@@ -9,7 +9,10 @@
 #pragma mark - IBOutlet
 
 @property (weak) IBOutlet NSView *containerView;
+@property (weak) IBOutlet NSImageView *iconView;
 @property (weak) IBOutlet NSTextField *textField;
+@property (weak) IBOutlet NSLayoutConstraint *iconViewZeroWidthConstraint;
+@property (weak) IBOutlet NSLayoutConstraint *separatorConstraint;
 
 @end
 
@@ -18,6 +21,7 @@
 static NSString * const PHModalWindowControllerAppearanceDark = @"dark";
 static NSString * const PHModalWindowControllerAppearanceLight = @"light";
 static NSString * const PHModalWindowControllerAppearanceTransparent = @"transparent";
+static NSString * const PHModalWindowControllerIconKeyPath = @"icon";
 static NSString * const PHModalWindowControllerMessageKeyPath = @"message";
 static NSString * const PHModalWindowControllerOriginKeyPath = @"origin";
 static NSString * const PHModalWindowControllerTextKeyPath = @"text";
@@ -29,13 +33,14 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
 
     if (self = [super init]) {
 
-        self.weight = 24.0;
-        self.appearance = PHModalWindowControllerAppearanceDark;
-
-        [self addObserverForKeyPaths:@[ PHModalWindowControllerMessageKeyPath,
+        [self addObserverForKeyPaths:@[ PHModalWindowControllerIconKeyPath,
+                                        PHModalWindowControllerMessageKeyPath,
                                         PHModalWindowControllerOriginKeyPath,
                                         PHModalWindowControllerTextKeyPath,
                                         PHModalWindowControllerWeightKeyPath ]];
+        self.weight = 24.0;
+        self.appearance = PHModalWindowControllerAppearanceDark;
+        self.text = @"";
     }
 
     return self;
@@ -45,7 +50,8 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
 
 - (void) dealloc {
 
-    [self removeObserverForKeyPaths:@[ PHModalWindowControllerMessageKeyPath,
+    [self removeObserverForKeyPaths:@[ PHModalWindowControllerIconKeyPath,
+                                       PHModalWindowControllerMessageKeyPath,
                                        PHModalWindowControllerOriginKeyPath,
                                        PHModalWindowControllerTextKeyPath,
                                        PHModalWindowControllerWeightKeyPath ]];
@@ -123,6 +129,13 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
     self.window.contentView = visualEffectView;
 }
 
+#pragma mark - Properties
+
+- (BOOL) hasText {
+
+    return ![self.text isEqualToString:@""];
+}
+
 #pragma mark - KVO
 
 - (void) addObserverForKeyPaths:(NSArray<NSString *> *)keyPaths {
@@ -146,6 +159,12 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
 
     [self window];
 
+    // Update icon view
+    if ([keyPath isEqualToString:PHModalWindowControllerIconKeyPath]) {
+        self.iconView.image = self.icon;
+        [self layout];
+    }
+
     // Update text
     if ([keyPath isEqualToString:PHModalWindowControllerMessageKeyPath]) {
         NSLog(@"Deprecated: Property “message” for modal is deprecated and will be removed in later versions, use “text” instead.");
@@ -160,6 +179,7 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
     // Update text field
     if ([keyPath isEqualToString:PHModalWindowControllerTextKeyPath]) {
         self.textField.stringValue = self.text;
+        [self layout];
     }
 
     // Update weight
@@ -170,8 +190,15 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
 
 #pragma mark - Displaying
 
+- (void) layout {
+
+    self.iconViewZeroWidthConstraint.priority = !self.icon ? 999 : NSLayoutPriorityDefaultLow;
+    self.separatorConstraint.constant = (self.icon && [self hasText]) ? 10.0 : 0.0;
+}
+
 - (NSRect) frame {
 
+    [self layout];
     [self.window layoutIfNeeded];
     return self.window.frame;
 }
@@ -186,9 +213,14 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
     } completionHandler:completionHandler];
 }
 
+- (BOOL) isDisplayable {
+
+    return self.icon || [self hasText];
+}
+
 - (void) show {
 
-    if (!self.text || isnan(self.origin.x) || isnan(self.origin.y)) {
+    if (![self isDisplayable] || isnan(self.origin.x) || isnan(self.origin.y)) {
         return;
     }
 

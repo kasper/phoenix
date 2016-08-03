@@ -15,6 +15,7 @@
 @property NSTimeInterval duration;
 @property CGFloat weight;
 @property (copy) NSString *appearance;
+@property NSImage *icon;
 @property (copy) NSString *text;
 
 // TODO: Deprecated and will be removed in later versions, use “text” instead
@@ -45,6 +46,7 @@
 @property NSTimeInterval duration;
 @property CGFloat weight;
 @property (copy) NSString *appearance;
+@property NSImage *icon;
 @property (copy) NSString *text;
 
 // TODO: Deprecated and will be removed in later versions, use “text” instead

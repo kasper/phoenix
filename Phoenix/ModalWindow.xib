@@ -2,11 +2,15 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PHModalWindowController">
             <connections>
                 <outlet property="containerView" destination="O5f-kD-6s1" id="QpD-Zq-ijb"/>
+                <outlet property="iconView" destination="peX-kY-Jau" id="kqe-eL-wFS"/>
+                <outlet property="iconViewZeroWidthConstraint" destination="xs9-PA-Xeb" id="uGS-va-MjZ"/>
+                <outlet property="separatorConstraint" destination="tpi-5b-ira" id="bfF-oB-1yG"/>
                 <outlet property="textField" destination="Eu9-Hf-kgC" id="Mro-8U-aEF"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="VWl-Ud-pAe"/>
             </connections>
@@ -16,17 +20,25 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hasShadow="NO" oneShot="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="0.0" y="0.0" width="97" height="59"/>
+            <rect key="contentRect" x="0.0" y="0.0" width="145" height="59"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="97" height="59"/>
+                <rect key="frame" x="0.0" y="0.0" width="145" height="59"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="O5f-kD-6s1">
-                        <rect key="frame" x="0.0" y="0.0" width="97" height="59"/>
+                        <rect key="frame" x="0.0" y="0.0" width="145" height="59"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Eu9-Hf-kgC">
-                                <rect key="frame" x="15" y="15" width="67" height="29"/>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="peX-kY-Jau">
+                                <rect key="frame" x="17" y="5" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="peX-kY-Jau" secondAttribute="height" multiplier="1:1" priority="750" id="hpt-4C-KRY"/>
+                                    <constraint firstAttribute="width" priority="250" id="xs9-PA-Xeb"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="DNh-WJ-nar"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Eu9-Hf-kgC">
+                                <rect key="frame" x="63" y="15" width="67" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="800" id="lWe-ze-4L4"/>
                                 </constraints>
@@ -38,10 +50,13 @@
                             </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Eu9-Hf-kgC" firstAttribute="leading" secondItem="O5f-kD-6s1" secondAttribute="leading" constant="17" id="NU6-2N-7Up"/>
+                            <constraint firstItem="peX-kY-Jau" firstAttribute="top" secondItem="O5f-kD-6s1" secondAttribute="top" constant="6" id="Dha-ow-Gn8"/>
+                            <constraint firstAttribute="bottom" secondItem="peX-kY-Jau" secondAttribute="bottom" constant="5" id="IXt-3x-Vx1"/>
                             <constraint firstAttribute="trailing" secondItem="Eu9-Hf-kgC" secondAttribute="trailing" constant="17" id="jbb-e5-cCb"/>
+                            <constraint firstItem="peX-kY-Jau" firstAttribute="leading" secondItem="O5f-kD-6s1" secondAttribute="leading" constant="17" id="kgm-KA-PwA"/>
                             <constraint firstItem="Eu9-Hf-kgC" firstAttribute="top" secondItem="O5f-kD-6s1" secondAttribute="top" constant="15" id="mim-Jf-CNk"/>
                             <constraint firstAttribute="bottom" secondItem="Eu9-Hf-kgC" secondAttribute="bottom" constant="15" id="ryu-TV-vil"/>
+                            <constraint firstItem="Eu9-Hf-kgC" firstAttribute="leading" secondItem="peX-kY-Jau" secondAttribute="trailing" id="tpi-5b-ira"/>
                         </constraints>
                     </customView>
                 </subviews>
