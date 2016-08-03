@@ -8,7 +8,6 @@
             <connections>
                 <outlet property="containerView" destination="O5f-kD-6s1" id="QpD-Zq-ijb"/>
                 <outlet property="textField" destination="Eu9-Hf-kgC" id="Mro-8U-aEF"/>
-                <outlet property="visualEffectView" destination="EiT-Mj-1SZ" id="89y-yO-mck"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="VWl-Ud-pAe"/>
             </connections>
         </customObject>
@@ -19,7 +18,7 @@
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="0.0" y="0.0" width="97" height="59"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
-            <view key="contentView" id="EiT-Mj-1SZ" customClass="NSVisualEffectView">
+            <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="97" height="59"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>

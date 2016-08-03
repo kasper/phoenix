@@ -8,7 +8,6 @@
 
 #pragma mark - IBOutlet
 
-@property (weak) IBOutlet NSVisualEffectView *visualEffectView;
 @property (weak) IBOutlet NSView *containerView;
 @property (weak) IBOutlet NSTextField *textField;
 
@@ -60,66 +59,6 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
     [self removeObserver:self forKeyPath:PHModalWindowControllerWeightKeyPath];
 }
 
-#pragma mark - Appearance
-
-- (void) setupVibrantAppearance {
-
-    self.visualEffectView.material = NSVisualEffectMaterialDark;
-    self.visualEffectView.state = NSVisualEffectStateActive;
-
-    // Use light material
-    if ([self.appearance.lowercaseString isEqualToString:PHModalWindowControllerAppearanceLight]) {
-        self.visualEffectView.material = NSVisualEffectMaterialLight;
-        self.textField.textColor = [NSColor blackColor];
-    }
-
-    CGFloat cornerRadius = 10.0;
-    CGFloat edgeSize = 1.0 + (2 * cornerRadius);
-    NSSize maskSize = NSMakeSize(edgeSize, edgeSize);
-
-    // Create mask image for rounded rectangle
-    NSImage *mask = [NSImage imageWithSize:maskSize flipped:NO drawingHandler:^BOOL (NSRect destination) {
-
-        [[NSBezierPath bezierPathWithRoundedRect:destination xRadius:cornerRadius yRadius:cornerRadius] fill];
-        return YES;
-    }];
-
-    // Make edges smooth
-    mask.capInsets = NSEdgeInsetsMake(cornerRadius, cornerRadius, cornerRadius, cornerRadius);
-
-    self.visualEffectView.maskImage = mask;
-}
-
-- (void) setupTransparentAppearance {
-
-    NSDictionary<NSString *, id> *views = @{ @"container": self.containerView };
-    NSView *transparentView = [[NSView alloc] initWithFrame:self.window.contentView.frame];
-    [transparentView addSubview:self.containerView];
-
-    // Hug left edge of container
-    [transparentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(0)-[container]"
-                                                                            options:0
-                                                                            metrics:nil
-                                                                              views:views]];
-    // Hug right edge of container
-    [transparentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[container]-(0)-|"
-                                                                            options:0
-                                                                            metrics:nil
-                                                                              views:views]];
-    // Hug top edge of container
-    [transparentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[container]"
-                                                                            options:0
-                                                                            metrics:nil
-                                                                              views:views]];
-    // Hug bottom edge of container
-    [transparentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[container]-(0)-|"
-                                                                            options:0
-                                                                            metrics:nil
-                                                                              views:views]];
-    // Set transparent view as the content view
-    self.window.contentView = transparentView;
-}
-
 #pragma mark - NSWindowController
 
 - (NSString *) windowNibName {
@@ -135,6 +74,61 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
     self.window.ignoresMouseEvents = YES;
     self.window.level = NSFloatingWindowLevel;
     self.window.opaque = NO;
+}
+
+#pragma mark - Appearance
+
+- (void) setupVibrantAppearance {
+
+    CGFloat cornerRadius = 10.0;
+    NSDictionary<NSString *, id> *views = @{ @"container": self.containerView };
+
+    NSVisualEffectView *visualEffectView = [[NSVisualEffectView alloc] initWithFrame:self.window.contentView.frame];
+    visualEffectView.material = NSVisualEffectMaterialDark;
+    visualEffectView.state = NSVisualEffectStateActive;
+
+    // Use light material
+    if ([self.appearance.lowercaseString isEqualToString:PHModalWindowControllerAppearanceLight]) {
+        visualEffectView.material = NSVisualEffectMaterialLight;
+        self.textField.textColor = [NSColor blackColor];
+    }
+
+    // Set mask image to rounded rectangle
+    CGFloat edgeSize = 1.0 + (2 * cornerRadius);
+    NSSize maskSize = NSMakeSize(edgeSize, edgeSize);
+    visualEffectView.maskImage = [NSImage imageWithSize:maskSize flipped:NO drawingHandler:^BOOL (NSRect destination) {
+
+        [[NSBezierPath bezierPathWithRoundedRect:destination xRadius:cornerRadius yRadius:cornerRadius] fill];
+        return YES;
+    }];
+
+    // Make edges smooth
+    visualEffectView.maskImage.capInsets = NSEdgeInsetsMake(cornerRadius, cornerRadius, cornerRadius, cornerRadius);
+
+    // Add container view as subview
+    [visualEffectView addSubview:self.containerView];
+
+    [visualEffectView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(0)-[container]"
+                                                                             options:0
+                                                                             metrics:nil
+                                                                               views:views]];
+
+    [visualEffectView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[container]-(0)-|"
+                                                                             options:0
+                                                                             metrics:nil
+                                                                               views:views]];
+
+    [visualEffectView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[container]"
+                                                                             options:0
+                                                                             metrics:nil
+                                                                               views:views]];
+
+    [visualEffectView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[container]-(0)-|"
+                                                                             options:0
+                                                                             metrics:nil
+                                                                               views:views]];
+    // Set visual effect view as the content view
+    self.window.contentView = visualEffectView;
 }
 
 #pragma mark - KVO
@@ -186,10 +180,8 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
         return;
     }
 
-    // Set appearance
-    if ([self.appearance.lowercaseString isEqualToString:PHModalWindowControllerAppearanceTransparent]) {
-        [self setupTransparentAppearance];
-    } else {
+    // Set vibrant appearance
+    if (![self.appearance.lowercaseString isEqualToString:PHModalWindowControllerAppearanceTransparent]) {
         [self setupVibrantAppearance];
     }
 
