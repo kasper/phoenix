@@ -33,11 +33,8 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
 
     if (self = [super init]) {
 
-        [self addObserverForKeyPaths:@[ PHModalWindowControllerIconKeyPath,
-                                        PHModalWindowControllerMessageKeyPath,
-                                        PHModalWindowControllerOriginKeyPath,
-                                        PHModalWindowControllerTextKeyPath,
-                                        PHModalWindowControllerWeightKeyPath ]];
+        [self addObserverForKeyPaths:[PHModalWindowController keyPaths]];
+
         self.weight = 24.0;
         self.appearance = PHModalWindowControllerAppearanceDark;
         self.text = @"";
@@ -50,11 +47,26 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
 
 - (void) dealloc {
 
-    [self removeObserverForKeyPaths:@[ PHModalWindowControllerIconKeyPath,
-                                       PHModalWindowControllerMessageKeyPath,
-                                       PHModalWindowControllerOriginKeyPath,
-                                       PHModalWindowControllerTextKeyPath,
-                                       PHModalWindowControllerWeightKeyPath ]];
+    [self removeObserverForKeyPaths:[PHModalWindowController keyPaths]];
+}
+
+#pragma mark - Key Paths
+
++ (NSArray<NSString *> *) keyPaths {
+
+    static NSArray<NSString *> *keyPaths;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+
+        keyPaths = @[ PHModalWindowControllerIconKeyPath,
+                      PHModalWindowControllerMessageKeyPath,
+                      PHModalWindowControllerOriginKeyPath,
+                      PHModalWindowControllerTextKeyPath,
+                      PHModalWindowControllerWeightKeyPath ];
+    });
+
+    return keyPaths;
 }
 
 #pragma mark - NSWindowController
