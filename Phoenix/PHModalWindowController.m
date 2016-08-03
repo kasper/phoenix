@@ -20,6 +20,7 @@ static NSString * const PHModalWindowControllerAppearanceLight = @"light";
 static NSString * const PHModalWindowControllerAppearanceTransparent = @"transparent";
 static NSString * const PHModalWindowControllerMessageKeyPath = @"message";
 static NSString * const PHModalWindowControllerOriginKeyPath = @"origin";
+static NSString * const PHModalWindowControllerTextKeyPath = @"text";
 static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
 
 #pragma mark - Initialising
@@ -31,20 +32,10 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
         self.weight = 24.0;
         self.appearance = PHModalWindowControllerAppearanceDark;
 
-        [self addObserver:self
-               forKeyPath:PHModalWindowControllerMessageKeyPath
-                  options:NSKeyValueObservingOptionNew
-                  context:NULL];
-
-        [self addObserver:self
-               forKeyPath:PHModalWindowControllerOriginKeyPath
-                  options:NSKeyValueObservingOptionNew
-                  context:NULL];
-
-        [self addObserver:self
-               forKeyPath:PHModalWindowControllerWeightKeyPath
-                  options:NSKeyValueObservingOptionNew
-                  context:NULL];
+        [self addObserverForKeyPaths:@[ PHModalWindowControllerMessageKeyPath,
+                                        PHModalWindowControllerOriginKeyPath,
+                                        PHModalWindowControllerTextKeyPath,
+                                        PHModalWindowControllerWeightKeyPath ]];
     }
 
     return self;
@@ -54,9 +45,10 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
 
 - (void) dealloc {
 
-    [self removeObserver:self forKeyPath:PHModalWindowControllerMessageKeyPath];
-    [self removeObserver:self forKeyPath:PHModalWindowControllerOriginKeyPath];
-    [self removeObserver:self forKeyPath:PHModalWindowControllerWeightKeyPath];
+    [self removeObserverForKeyPaths:@[ PHModalWindowControllerMessageKeyPath,
+                                       PHModalWindowControllerOriginKeyPath,
+                                       PHModalWindowControllerTextKeyPath,
+                                       PHModalWindowControllerWeightKeyPath ]];
 }
 
 #pragma mark - NSWindowController
@@ -133,6 +125,20 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
 
 #pragma mark - KVO
 
+- (void) addObserverForKeyPaths:(NSArray<NSString *> *)keyPaths {
+
+    for (NSString *keyPath in keyPaths) {
+        [self addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:NULL];
+    }
+}
+
+- (void) removeObserverForKeyPaths:(NSArray<NSString *> *)keyPaths {
+
+    for (NSString *keyPath in keyPaths) {
+        [self removeObserver:self forKeyPath:keyPath];
+    }
+}
+
 - (void) observeValueForKeyPath:(NSString *)keyPath
                        ofObject:(id)__unused object
                          change:(NSDictionary<NSString *, id> *)__unused change
@@ -140,14 +146,20 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
 
     [self window];
 
-    // Update text field
+    // Update text
     if ([keyPath isEqualToString:PHModalWindowControllerMessageKeyPath]) {
-        self.textField.stringValue = self.message;
+        NSLog(@"Deprecated: Property “message” for modal is deprecated and will be removed in later versions, use “text” instead.");
+        self.text = self.message;
     }
 
-    // Update origin
+    // Update frame origin
     if ([keyPath isEqualToString:PHModalWindowControllerOriginKeyPath]) {
         [self.window setFrameOrigin:self.origin];
+    }
+
+    // Update text field
+    if ([keyPath isEqualToString:PHModalWindowControllerTextKeyPath]) {
+        self.textField.stringValue = self.text;
     }
 
     // Update weight
@@ -176,7 +188,7 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
 
 - (void) show {
 
-    if (!self.message || isnan(self.origin.x) || isnan(self.origin.y)) {
+    if (!self.text || isnan(self.origin.x) || isnan(self.origin.y)) {
         return;
     }
 

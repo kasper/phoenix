@@ -15,6 +15,9 @@
 @property NSTimeInterval duration;
 @property CGFloat weight;
 @property (copy) NSString *appearance;
+@property (copy) NSString *text;
+
+// TODO: Deprecated and will be removed in later versions, use “text” instead
 @property (copy) NSString *message;
 
 #pragma mark - Constructing
@@ -42,6 +45,9 @@
 @property NSTimeInterval duration;
 @property CGFloat weight;
 @property (copy) NSString *appearance;
+@property (copy) NSString *text;
+
+// TODO: Deprecated and will be removed in later versions, use “text” instead
 @property (copy) NSString *message;
 
 @end
