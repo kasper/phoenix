@@ -97,6 +97,11 @@ static NSString * const PHAppForceOptionKey = @"force";
     return self.app.localizedName;
 }
 
+- (NSImage *) icon {
+
+    return self.app.icon;
+}
+
 - (BOOL) isActive {
 
     return [self.app isActive];

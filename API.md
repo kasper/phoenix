@@ -537,6 +537,7 @@ class App implements Identifiable
   int processIdentifier()
   String bundleIdentifier()
   String name()
+  Image icon()
   boolean isActive()
   boolean isHidden()
   boolean isTerminated()
@@ -558,6 +559,7 @@ end
 - `processIdentifier()` returns the process identifier (PID) for the app, returns `-1` if the app does not have a PID
 - `bundleIdentifier()` returns the bundle identifier for the app
 - `name()` returns the name for the app
+- `icon()` returns the icon for the app
 - `isActive()` returns `true` if the app is currently frontmost
 - `isHidden()` returns `true` if the app is hidden
 - `isTerminated()` returns `true` if the app has been terminated

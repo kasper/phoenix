@@ -36,6 +36,10 @@ Release: dd.mm.yyyy
 
 - New: Function `currentSpace()` returns the current space for the screen (macOS 10.11+, returns `undefined` otherwise) ([#120](https://github.com/kasper/phoenix/issues/120)).
 
+#### App
+
+- New: Function `icon()` returns the icon for the app ([#126](https://github.com/kasper/phoenix/issues/126)).
+
 2.2.1
 -----
 

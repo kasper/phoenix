@@ -25,6 +25,7 @@
 - (pid_t) processIdentifier;
 - (NSString *) bundleIdentifier;
 - (NSString *) name;
+- (NSImage *) icon;
 - (BOOL) isActive;
 - (BOOL) isHidden;
 - (BOOL) isTerminated;
