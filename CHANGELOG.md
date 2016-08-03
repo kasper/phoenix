@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### New
+
+- Modals have a new improved “vibrant” appearance and can now display icons as well as text. All the new options are described in the [API](https://github.com/kasper/phoenix/blob/2.2.2/API.md#16-modal) ([#126](https://github.com/kasper/phoenix/issues/126)).
+
 ### Improvements
 
 - Callback for key is now called repeatedly when key is held down ([#119](https://github.com/kasper/phoenix/issues/119)).
@@ -26,11 +30,11 @@ Release: dd.mm.yyyy
 
 #### Modal
 
-- New: Use `weight`-property to adjust the weight for the modal (in points), by default `24` ([#126](https://github.com/kasper/phoenix/issues/126)).
-- New: Use `appearance`-property to set the appearance of the modal (`dark|light|transparent`), by default `dark` ([#126](https://github.com/kasper/phoenix/issues/126)).
-- New: Use `icon`-property for the icon displayed in the modal ([#126](https://github.com/kasper/phoenix/issues/126)).
-- New: Use `text`-property for the text displayed in the modal, required ([#126](https://github.com/kasper/phoenix/issues/126)).
-- Change: Origin can be adjusted dynamically ([#126](https://github.com/kasper/phoenix/issues/126)).
+- New: Dynamic property `weight` defines the weight of the modal (in points), by default `24` ([#126](https://github.com/kasper/phoenix/issues/126)).
+- New: Property `appearance` defines the appearance of the modal (`dark|light|transparent`), by default `dark` ([#126](https://github.com/kasper/phoenix/issues/126)).
+- New: Dynamic property `icon` defines the icon displayed in the modal ([#126](https://github.com/kasper/phoenix/issues/126)).
+- New: Dynamic property `text` defines the text displayed in the modal ([#126](https://github.com/kasper/phoenix/issues/126)).
+- Change: Origin is now a dynamic property ([#126](https://github.com/kasper/phoenix/issues/126)).
 - Deprecation: Property `message` is deprecated and will be removed in later versions, use `text` instead ([#126](https://github.com/kasper/phoenix/issues/126)).
 
 #### Screen

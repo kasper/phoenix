@@ -411,7 +411,7 @@ end
 
 ## 16. Modal
 
-Use the `Modal`-object to display messages as modal windows.
+Use the `Modal`-object to display content as modal windows (in front of all other windows). Modals can be used to display icons and/or text for visual cues. Properties defined as dynamic can be altered while the modal is displayed.
 
 ```java
 class Modal implements Identifiable
@@ -431,15 +431,15 @@ class Modal implements Identifiable
 end
 ```
 
-- `origin` property for the origin for the modal, the enclosed properties are read-only so you must pass an object for this property, by default `(0, 0)`
-- `duration` property for the duration (in seconds) for the modal, if the duration is set to `0` the modal will remain open until closed, by default `0`
-- `weight` property for the weight for the modal (in points), by default `24`
+- `origin` dynamic property for the origin of the modal, the enclosed properties are read-only so you must pass an object for this property, by default `(0, 0)`
+- `duration` property for the duration (in seconds) before automatically closing the modal, if the duration is set to `0` the modal will remain open until closed, by default `0`
+- `weight` dynamic property for the weight of the modal (in points), by default `24`
 - `appearance` property for the appearance of the modal (`dark|light|transparent`), by default `dark`
-- `icon` property for the icon displayed in the modal
-- `text` property for the text displayed in the modal
+- `icon` dynamic property for the icon displayed in the modal
+- `text` dynamic property for the text displayed in the modal
 - `new Modal()` constructs and returns a new modal
 - `frame()` returns the frame for the modal, the frame is adjusted for the current content, therefor you must first set the weight, icon and text to get an accurate frame
-- `show()` shows the modal
+- `show()` shows the modal, you must set at least an icon or text for the modal to be displayed
 - `close()` closes the modal
 
 ## 17. Screen
