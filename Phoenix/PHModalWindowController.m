@@ -154,7 +154,7 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
 - (void) addObserverForKeyPaths:(NSArray<NSString *> *)keyPaths {
 
     for (NSString *keyPath in keyPaths) {
-        [self addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:NULL];
+        [self addObserver:self forKeyPath:keyPath options:0 context:NULL];
     }
 }
 
