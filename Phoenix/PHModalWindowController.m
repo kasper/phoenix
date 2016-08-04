@@ -180,7 +180,9 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
 
     // Update window origin
     if ([keyPath isEqualToString:PHModalWindowControllerOriginKeyPath]) {
-        [self.window setFrameOrigin:self.origin];
+        if (!isnan(self.origin.x) && !isnan(self.origin.y)) {
+            [self.window setFrameOrigin:self.origin];
+        }
     }
 
     // Update layout
@@ -194,7 +196,7 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
 
 - (BOOL) isDisplayable {
 
-    return self.icon || [self hasText] || isnan(self.origin.x) || isnan(self.origin.y);
+    return self.icon || [self hasText];
 }
 
 - (void) layout {
