@@ -25,7 +25,6 @@ static NSString * const PHModalWindowControllerIconKeyPath = @"icon";
 static NSString * const PHModalWindowControllerMessageKeyPath = @"message";
 static NSString * const PHModalWindowControllerOriginKeyPath = @"origin";
 static NSString * const PHModalWindowControllerTextKeyPath = @"text";
-static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
 
 #pragma mark - Initialising
 
@@ -62,8 +61,7 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
         keyPaths = @[ PHModalWindowControllerIconKeyPath,
                       PHModalWindowControllerMessageKeyPath,
                       PHModalWindowControllerOriginKeyPath,
-                      PHModalWindowControllerTextKeyPath,
-                      PHModalWindowControllerWeightKeyPath ];
+                      PHModalWindowControllerTextKeyPath ];
     });
 
     return keyPaths;
@@ -171,32 +169,21 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
 
     [self window];
 
-    // Update icon view
-    if ([keyPath isEqualToString:PHModalWindowControllerIconKeyPath]) {
-        self.iconView.image = self.icon;
-        [self layout];
-    }
-
-    // Update text
+    // Update text-property
     if ([keyPath isEqualToString:PHModalWindowControllerMessageKeyPath]) {
         NSLog(@"Deprecated: Property “message” for modal is deprecated and will be removed in later versions, use “text” instead.");
         self.text = self.message;
     }
 
-    // Update frame origin
+    // Update window origin
     if ([keyPath isEqualToString:PHModalWindowControllerOriginKeyPath]) {
         [self.window setFrameOrigin:self.origin];
     }
 
-    // Update text field
-    if ([keyPath isEqualToString:PHModalWindowControllerTextKeyPath]) {
-        self.textField.stringValue = self.text;
+    // Update layout
+    if ([keyPath isEqualToString:PHModalWindowControllerIconKeyPath] ||
+        [keyPath isEqualToString:PHModalWindowControllerTextKeyPath]) {
         [self layout];
-    }
-
-    // Update weight
-    if ([keyPath isEqualToString:PHModalWindowControllerWeightKeyPath]) {
-        self.textField.font = [NSFont systemFontOfSize:self.weight];
     }
 }
 

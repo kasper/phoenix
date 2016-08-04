@@ -36,6 +36,9 @@
                                     <constraint firstAttribute="width" priority="250" id="xs9-PA-Xeb"/>
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="DNh-WJ-nar"/>
+                                <connections>
+                                    <binding destination="-2" name="value" keyPath="self.icon" id="Ixv-nc-huL"/>
+                                </connections>
                             </imageView>
                             <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Eu9-Hf-kgC">
                                 <rect key="frame" x="73" y="15" width="67" height="29"/>
@@ -47,6 +50,10 @@
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <binding destination="-2" name="fontSize" keyPath="self.weight" id="cKK-hg-40t"/>
+                                    <binding destination="-2" name="value" keyPath="self.text" id="wWV-Bb-h0C"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <constraints>
