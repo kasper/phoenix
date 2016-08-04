@@ -416,6 +416,8 @@ Use the `Modal`-object to display content as modal windows (in front of all othe
 ```java
 class Modal implements Identifiable
 
+  static Modal build(Map<String, AnyObject> properties)
+
   property Point origin
   property double duration
   property double weight
@@ -431,6 +433,7 @@ class Modal implements Identifiable
 end
 ```
 
+- `build(Map<String, AnyObject> properties)` builds a modal with the specified properties and returns it, `origin` should be a function that receives the frame for the modal as the only argument and returns a `Point`-object which will be set as the origin
 - `origin` dynamic property for the origin of the modal, the enclosed properties are read-only so you must pass an object for this property, by default `(0, 0)`
 - `duration` property for the duration (in seconds) before automatically closing the modal, if the duration is set to `0` the modal will remain open until closed, by default `0`
 - `weight` dynamic property for the weight of the modal (in points), by default `24`

@@ -19,8 +19,10 @@
   "unused": true,
   "validthis": true,
   "globals": {
+    "_": true,
     "Event": true,
     "Key": true,
+    "Modal": true,
     "Task": true,
     "Timer": true,
     "Window": true

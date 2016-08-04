@@ -30,6 +30,7 @@ Release: dd.mm.yyyy
 
 #### Modal
 
+- New: Function `build(Map<String, AnyObject> properties)` builds a modal with the specified properties and returns it, `origin` should be a function that receives the frame for the modal as the only argument and returns a `Point`-object which will be set as the origin ([#126](https://github.com/kasper/phoenix/issues/126)).
 - New: Dynamic property `weight` defines the weight of the modal (in points), by default `24` ([#126](https://github.com/kasper/phoenix/issues/126)).
 - New: Property `appearance` defines the appearance of the modal (`dark|light|transparent`), by default `dark` ([#126](https://github.com/kasper/phoenix/issues/126)).
 - New: Dynamic property `icon` defines the icon displayed in the modal ([#126](https://github.com/kasper/phoenix/issues/126)).
