@@ -29,9 +29,6 @@
 
 - (NSRect) frame;
 - (void) show;
-
-#pragma mark - Closing
-
 - (void) close;
 
 @end

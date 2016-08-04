@@ -6,11 +6,14 @@
 
 @interface PHModalWindowController ()
 
-#pragma mark - IBOutlet
+#pragma mark - Views
 
 @property (weak) IBOutlet NSView *containerView;
 @property (weak) IBOutlet NSImageView *iconView;
 @property (weak) IBOutlet NSTextField *textField;
+
+#pragma mark - Constraints
+
 @property (weak) IBOutlet NSLayoutConstraint *iconViewZeroWidthConstraint;
 @property (weak) IBOutlet NSLayoutConstraint *separatorConstraint;
 
@@ -189,6 +192,11 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
 
 #pragma mark - Displaying
 
+- (BOOL) isDisplayable {
+
+    return self.icon || [self hasText] || isnan(self.origin.x) || isnan(self.origin.y);
+}
+
 - (void) layout {
 
     self.iconViewZeroWidthConstraint.priority = !self.icon ? 999 : NSLayoutPriorityDefaultLow;
@@ -212,14 +220,9 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
     } completionHandler:completionHandler];
 }
 
-- (BOOL) isDisplayable {
-
-    return self.icon || [self hasText];
-}
-
 - (void) show {
 
-    if (![self isDisplayable] || isnan(self.origin.x) || isnan(self.origin.y)) {
+    if (![self isDisplayable]) {
         return;
     }
 
@@ -239,8 +242,6 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
         [self performSelector:@selector(close) withObject:nil afterDelay:self.duration];
     }];
 }
-
-#pragma mark - Closing
 
 - (void) close {
 
