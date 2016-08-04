@@ -1,14 +1,14 @@
 Changelog
 =========
 
-2.2.2 (master)
+2.3 (master)
 --------------
 
 Release: dd.mm.yyyy
 
 ### New
 
-- Modals have a new improved “vibrant” appearance and can now display icons as well as text. All the new options are described in the [API](https://github.com/kasper/phoenix/blob/2.2.2/API.md#16-modal) ([#126](https://github.com/kasper/phoenix/issues/126)).
+- Modals have a new improved “vibrant” appearance and can now display icons as well as text. All the new options are described in the [API](https://github.com/kasper/phoenix/blob/2.3/API.md#16-modal) ([#126](https://github.com/kasper/phoenix/issues/126)).
 
 ### Improvements
 
