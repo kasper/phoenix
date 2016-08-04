@@ -205,7 +205,7 @@ static NSString * const PHModalWindowControllerWeightKeyPath = @"weight";
 - (void) layout {
 
     self.iconViewZeroWidthConstraint.priority = !self.icon ? 999 : NSLayoutPriorityDefaultLow;
-    self.separatorConstraint.constant = (self.icon && [self hasText]) ? 10.0 : 0.0;
+    self.separatorConstraint.constant = (!self.icon || ![self hasText]) ? 0.0 : 10.0;
 }
 
 - (NSRect) frame {

@@ -20,14 +20,14 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hasShadow="NO" oneShot="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="0.0" y="0.0" width="145" height="59"/>
+            <rect key="contentRect" x="0.0" y="0.0" width="155" height="59"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="145" height="59"/>
+                <rect key="frame" x="0.0" y="0.0" width="155" height="59"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="O5f-kD-6s1">
-                        <rect key="frame" x="0.0" y="0.0" width="145" height="59"/>
+                        <rect key="frame" x="0.0" y="0.0" width="155" height="59"/>
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="peX-kY-Jau">
                                 <rect key="frame" x="17" y="5" width="48" height="48"/>
@@ -38,7 +38,7 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="DNh-WJ-nar"/>
                             </imageView>
                             <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Eu9-Hf-kgC">
-                                <rect key="frame" x="63" y="15" width="67" height="29"/>
+                                <rect key="frame" x="73" y="15" width="67" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="800" id="lWe-ze-4L4"/>
                                 </constraints>
@@ -56,7 +56,7 @@
                             <constraint firstItem="peX-kY-Jau" firstAttribute="leading" secondItem="O5f-kD-6s1" secondAttribute="leading" constant="17" id="kgm-KA-PwA"/>
                             <constraint firstItem="Eu9-Hf-kgC" firstAttribute="top" secondItem="O5f-kD-6s1" secondAttribute="top" constant="15" id="mim-Jf-CNk"/>
                             <constraint firstAttribute="bottom" secondItem="Eu9-Hf-kgC" secondAttribute="bottom" constant="15" id="ryu-TV-vil"/>
-                            <constraint firstItem="Eu9-Hf-kgC" firstAttribute="leading" secondItem="peX-kY-Jau" secondAttribute="trailing" id="tpi-5b-ira"/>
+                            <constraint firstItem="Eu9-Hf-kgC" firstAttribute="leading" secondItem="peX-kY-Jau" secondAttribute="trailing" constant="10" id="tpi-5b-ira"/>
                         </constraints>
                     </customView>
                 </subviews>
