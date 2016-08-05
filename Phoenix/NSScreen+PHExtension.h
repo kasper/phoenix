@@ -24,8 +24,8 @@
 
 #pragma mark - Frame
 
-- (NSRect) frameInRectangle;
-- (NSRect) visibleFrameInRectangle;
+- (CGRect) frameInRectangle;
+- (CGRect) visibleFrameInRectangle;
 
 #pragma mark - Spaces
 

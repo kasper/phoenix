@@ -57,22 +57,23 @@ static NSString * const NSScreenNumberKey = @"NSScreenNumber";
 
 #pragma mark - Frame
 
-- (NSRect) calculateFrame:(NSRect)frame {
+- (CGRect) flipFrame:(NSRect)frame {
 
+    // Use top-left origin
     NSScreen *primaryScreen = [NSScreen screens].firstObject;
     frame.origin.y = primaryScreen.frame.size.height - frame.size.height - frame.origin.y;
 
     return frame;
 }
 
-- (NSRect) frameInRectangle {
+- (CGRect) frameInRectangle {
 
-    return [self calculateFrame:self.frame];
+    return [self flipFrame:self.frame];
 }
 
-- (NSRect) visibleFrameInRectangle {
+- (CGRect) visibleFrameInRectangle {
 
-    return [self calculateFrame:self.visibleFrame];
+    return [self flipFrame:self.visibleFrame];
 }
 
 #pragma mark - Spaces
