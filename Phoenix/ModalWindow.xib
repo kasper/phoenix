@@ -51,8 +51,8 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="-2" name="fontSize" keyPath="self.weight" id="cKK-hg-40t"/>
                                     <binding destination="-2" name="value" keyPath="self.text" id="wWV-Bb-h0C"/>
+                                    <binding destination="-2" name="fontSize" keyPath="self.weight" id="cKK-hg-40t"/>
                                 </connections>
                             </textField>
                         </subviews>
