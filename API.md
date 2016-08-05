@@ -1,7 +1,7 @@
 JavaScript API
 ==============
 
-This documentation is an overview of the JavaScript API provided by Phoenix. Use this as a guide for writing your window management script. Your script should reside in `~/.phoenix.js`. Alternatively — if you prefer — you may also have your script in `~/Library/Application Support/Phoenix/phoenix.js` or `~/.config/phoenix/phoenix.js`. Phoenix includes [Underscore.js](http://underscorejs.org) (1.8.3) — you can use its features in your configuration. Underscore provides useful helpers for handling JavaScript functions and objects. You may also use JavaScript [preprocessing](#preprocessing) and languages such as CoffeeScript to write your Phoenix-configuration.
+This documentation is an overview of the JavaScript API provided by Phoenix. Currently, the supported version of JavaScript is based on the ECMAScript 5.1 standard. Use this as a guide for writing your window management script. Your script should reside in `~/.phoenix.js`. Alternatively — if you prefer — you may also have your script in `~/Library/Application Support/Phoenix/phoenix.js` or `~/.config/phoenix/phoenix.js`. Phoenix includes [Underscore.js](http://underscorejs.org) (1.8.3) — you can use its features in your configuration. Underscore provides useful helpers for handling JavaScript functions and objects. You may also use JavaScript [preprocessing](#preprocessing) and languages such as CoffeeScript to write your Phoenix-configuration.
 
 ## General
 
@@ -66,9 +66,9 @@ var handler = new Event('screensDidChange', function () {});
 
 ## Managing Handlers
 
-As you probably have already noticed that you must keep a reference to your handlers, otherwise your callbacks will not get called. In return, if you release the reference to the handler, it will also be disabled eventually. Beware that this can be rather delayed and you are always safer to manually disable the handlers before letting the reference go. This gives you full control over the lifecycle of your handlers. This can be especially useful when you want to dynamically create handlers.
+As previously mentioned you must keep a reference to your handlers, otherwise your callbacks will not get called. In return, if you release the reference to the handler, it will also be disabled eventually. Beware that this can be rather delayed and you are always safer to manually disable the handlers before letting the reference go. This gives you full control over the lifecycle of your handlers and can be especially useful when you want to dynamically create handlers.
 
-Obviously, in most cases you do not want to worry about the lifecycle of your handlers. This is why Phoenix also provides managed handlers that are held for you. You can use these managed handlers to set keys, events, timers and tasks, but also to disable them. Basically, when you create a managed handler, the handler is constructed and its reference is stored. You will get an identifier for the handler which you can use then to disable it. When you disable the handler, Phoenix will take care of releasing it for you.
+Obviously, in most cases you do not want to worry about the lifecycle of your handlers. This is why Phoenix also provides managed handlers that are held for you. You can use these managed handlers to set keys, events, timers and tasks, but also to disable them. Basically, when you create a managed handler, the handler is constructed and its reference is stored. You will get an identifier for the handler which you can then use to disable it. When you disable the handler, Phoenix will take care of properly disposing it for you.
 
 For example, to bind a key to a function.
 
@@ -181,7 +181,7 @@ All of the following window events receive the corresponding `Window`-instance a
 Phoenix supports the following (case sensitive) preferences:
 
 - `daemon` (boolean): if set `true` Phoenix will run completely in the background, this also removes the status bar menu, defaults to `false`
-- `openAtLogin` (boolean): if set `true` Phoenix will automatically open at login, defaults to `false`
+- `openAtLogin` (boolean): if set `true` Phoenix will automatically open at login, defaults to `false` if no value has been previously set
 
 Set the preferences using the `Phoenix`-object — for example:
 
@@ -194,7 +194,7 @@ Phoenix.set({
 
 ## 4. Require
 
-You can modularise your configuration using the `require`-function. It will load the referenced JavaScript-file and reload it if any changes are detected. If the path is relative, it is resolved relatively to the absolute location of the `.phoenix.js`-file. If this file is a symlink, it will be resolved before resolving the location of the required file. If the file does not exist, `require` will throw an error.
+You can modularise your configuration using the `require`-function. It will load the referenced JavaScript-file and reload it if any changes are detected. If the path is relative, it is resolved relatively to the absolute location of the primary configuration file. If this file is a symlink, it will be resolved before resolving the location of the required file. If the file does not exist, `require` will throw an error.
 
 ```javascript
 require('path/to/file.js');
@@ -297,7 +297,7 @@ end
 
 ## 11. Iterable
 
-Objects that implement `Iterable` can be traversed.
+Objects that implement `Iterable` can be traversed relatively to the current object.
 
 ```java
 interface Iterable
@@ -313,7 +313,7 @@ end
 
 ## 12. Key
 
-Use the `Key`-object to construct keys, access their properties, and enable or disable the key. You can have multiple handlers for a single key combination, however only one can be enabled at a time. Enabling a key combination that has been exclusively registered by another app will fail.
+Use the `Key`-object to construct keys, access their properties, and enable or disable them. You can have multiple handlers for a single key combination, however only one can be enabled at a time. Enabling a key combination that has been exclusively registered by another app will fail.
 
 ```java
 class Key implements Identifiable
@@ -336,14 +336,14 @@ end
 - `off(int identifier)` disables the managed handler for a key with the given identifier
 - `key` read-only property for the key character in lower case or case sensitive special key
 - `modifiers` read-only property for the key modifiers in lower case
-- `new Key(String key, Array<String> modifiers, Function callback)` constructs and binds the key character with the specified modifiers (can be an empty list) to a callback function and returns the handler, you must keep a reference to the handler in order for your callback to get called, you can have multiple handlers for a single key combination, however only one can be enabled at a time, any previous handler for the same key combination will automatically be disabled, the callback function receives its handler as the first argument and as the second argument a boolean that indicates if the key was repeated
+- `new Key(String key, Array<String> modifiers, Function callback)` constructs and binds the key character with the specified modifiers (can be an empty list) to a callback function and returns the handler, you must keep a reference to the handler in order for your callback to get called, you can have multiple handlers for a single key combination, only one can be enabled at a time, any previous handler for the same key combination will automatically be disabled, the callback function receives its handler as the first argument and as the second argument a boolean that indicates if the key was repeated (key combination is held down)
 - `isEnabled()` returns `true` if the key handler is enabled, by default `true`
 - `enable()` enables the key handler, any previous handler for the same key combination will automatically be disabled, returns `true` if successful
 - `disable()` disables the key handler, returns `true` if successful
 
 ## 13. Event
 
-Use the `Event`-object to construct events, access their properties or to disable the event. You can have multiple handlers for a single event.
+Use the `Event`-object to construct events, access their properties or to disable them. You can have multiple handlers for a single event.
 
 ```java
 class Event implements Identifiable
@@ -390,7 +390,7 @@ end
 
 ## 15. Task
 
-Use the `Task`-object to construct tasks, access their properties or to terminate the task. Beware that some task properties are only set after the task has completed.
+Use the `Task`-object to construct tasks, access their properties or to terminate them. Beware that some task properties are only set after the task has completed.
 
 ```java
 class Task implements Identifiable
@@ -440,7 +440,7 @@ class Modal implements Identifiable
 end
 ```
 
-- `build(Map<String, AnyObject> properties)` builds a modal with the specified properties and returns it, `origin` should be a function that receives the frame for the modal as the only argument and returns a `Point`-object which will be set as the origin
+- `build(Map<String, AnyObject> properties)` builds a modal with the specified properties and returns it, `origin` should be a function that receives the frame for the modal as the only argument and returns a `Point`-object which will be set as the origin for the modal
 - `origin` dynamic property for the origin of the modal, the enclosed properties are read-only so you must pass an object for this property, by default `(0, 0)`
 - `duration` property for the duration (in seconds) before automatically closing the modal, if the duration is set to `0` the modal will remain open until closed, by default `0`
 - `weight` dynamic property for the weight of the modal (in points), by default `24`
@@ -454,7 +454,7 @@ end
 
 ## 17. Screen
 
-Use the `Screen`-object to access frame sizes and other screens on a multi-screen setup. Get the current screen for a window through the `Window`-object. Beware that a screen can get stale if you keep a reference to it and it is for instance disconnected while you do so.
+Use the `Screen`-object to access frame sizes and other screens on a multi-screen setup. Beware that a screen can get stale if you keep a reference to it and it is for instance disconnected while you do so.
 
 ```java
 class Screen implements Identifiable, Iterable
@@ -536,7 +536,7 @@ end
 
 ## 20. App
 
-Use the `App`-object to control apps. Beware that an app can get stale if you keep a reference to it and it is for instance terminated while you do so, see `isTerminated()`.
+Use the `App`-object to control apps. Beware that an app can get stale if you keep a reference to it and it is for instance terminated while you do so, refer to `isTerminated()`.
 
 ```java
 class App implements Identifiable
