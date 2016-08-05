@@ -2,7 +2,7 @@ Changelog
 =========
 
 2.3 (master)
---------------
+------------
 
 Release: dd.mm.yyyy
 
@@ -16,21 +16,21 @@ Release: dd.mm.yyyy
 
 ### Bug Fixes
 
-- Fix issue that prevented `Window#setFrame(...)` to only set origin for windows that cannot be resized ([#124](https://github.com/kasper/phoenix/issues/124)).
+- Fix issue that prevented `Window#setFrame(...)` to only set the origin for windows that cannot be resized ([#124](https://github.com/kasper/phoenix/issues/124)).
 
 ### API
 
 #### Events
 
-- Change: All of the mouse events receive the corresponding `Point`-object as the first argument for the callback function ([#125](https://github.com/kasper/phoenix/issues/125)).
+- Change: All mouse events receive the corresponding `Point`-object as the first argument for the callback function ([#125](https://github.com/kasper/phoenix/issues/125)).
 
 #### Key
 
-- Change: The callback function receives its handler as the first argument and as the second argument a boolean that indicates if the key was repeated ([#119](https://github.com/kasper/phoenix/issues/119)).
+- Change: The callback function receives its handler as the first argument and as the second argument a boolean that indicates if the key was repeated (held down) ([#119](https://github.com/kasper/phoenix/issues/119)).
 
 #### Modal
 
-- New: Function `build(Map<String, AnyObject> properties)` builds a modal with the specified properties and returns it, `origin` should be a function that receives the frame for the modal as the only argument and returns a `Point`-object which will be set as the origin ([#126](https://github.com/kasper/phoenix/issues/126)).
+- New: Function `build(Map<String, AnyObject> properties)` builds a modal with the specified properties and returns it, `origin` should be a function that receives the frame for the modal as the only argument and returns a `Point`-object will be set as the origin for the modal ([#126](https://github.com/kasper/phoenix/issues/126)).
 - New: Dynamic property `weight` defines the weight of the modal (in points), by default `24` ([#126](https://github.com/kasper/phoenix/issues/126)).
 - New: Property `appearance` defines the appearance of the modal (`dark|light|transparent`), by default `dark` ([#126](https://github.com/kasper/phoenix/issues/126)).
 - New: Dynamic property `icon` defines the icon displayed in the modal ([#126](https://github.com/kasper/phoenix/issues/126)).
