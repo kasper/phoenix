@@ -9,8 +9,8 @@
 
 #pragma mark - Position
 
-+ (NSPoint) location;
-+ (BOOL) move:(NSPoint)point;
++ (CGPoint) location;
++ (BOOL) move:(CGPoint)point;
 
 @end
 

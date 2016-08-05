@@ -93,7 +93,7 @@
 
             // Event for mouse
             if ([notification hasPrefix:NSStringFromClass([PHMouse class])]) {
-                NSPoint location = [PHMouse location];
+                CGPoint location = [PHMouse location];
                 userInfo[PHGlobalEventMonitorMouseKey] = @{ @"x": @(location.x), @"y": @(location.y) };
             }
 
