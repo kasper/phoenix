@@ -132,7 +132,7 @@ static NSString * const PHStoragePath = @"~/Library/Application Support/Phoenix/
 - (void) removeObjectForKey:(NSString *)key {
 
     [self.storage removeObjectForKey:key];
-    [self persist];
+    [self performSelectorInBackground:@selector(persist) withObject:nil];
 }
 
 @end
