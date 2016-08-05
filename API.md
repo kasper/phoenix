@@ -9,6 +9,7 @@ This documentation is an overview of the JavaScript API provided by Phoenix. Cur
 2. [Managing Handlers](#managing-handlers)
 3. [Loading](#loading)
 4. [Preprocessing](#preprocessing)
+5. [About Coordinates](#about-coordinates)
 
 ## API
 
@@ -113,6 +114,10 @@ Key.on('s', [ 'ctrl', 'shift' ], () => {
   App.launch('Safari').focus();
 });
 ```
+
+## About Coordinates
+
+macOS has two commonly used coordinate systems: for higher level elements the origo `(0, 0)` is situated in the bottom-left corner of the screen, on the contrary for lower level elements the origo is situated in the top-left corner of the screen (flipped). This API has no distinction between these systems — `Point`s can represent both cases. The larger part of the API uses a flipped top-left based origin, unless otherwise is stated.
 
 ## 1. Keys
 
@@ -441,14 +446,14 @@ end
 ```
 
 - `build(Map<String, AnyObject> properties)` builds a modal with the specified properties and returns it, `origin` should be a function that receives the frame for the modal as the only argument and returns a `Point`-object which will be set as the origin for the modal
-- `origin` dynamic property for the origin of the modal, the enclosed properties are read-only so you must pass an object for this property, by default `(0, 0)`
+- `origin` dynamic property for the origin of the modal, the enclosed properties are read-only so you must pass an object for this property, bottom-left based origin, by default `(0, 0)`
 - `duration` property for the duration (in seconds) before automatically closing the modal, if the duration is set to `0` the modal will remain open until closed, by default `0`
 - `weight` dynamic property for the weight of the modal (in points), by default `24`
 - `appearance` property for the appearance of the modal (`dark|light|transparent`), by default `dark`
 - `icon` dynamic property for the icon displayed in the modal
 - `text` dynamic property for the text displayed in the modal
 - `new Modal()` constructs and returns a new modal
-- `frame()` returns the frame for the modal, the frame is adjusted for the current content, therefor you must first set the weight, icon and text to get an accurate frame
+- `frame()` returns the frame for the modal, the frame is adjusted for the current content, therefor you must first set the weight, icon and text to get an accurate frame, bottom-left based origin
 - `show()` shows the modal, you must set at least an icon or text for the modal to be displayed
 - `close()` closes the modal
 
