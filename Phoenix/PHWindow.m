@@ -16,14 +16,17 @@
 
 @implementation PHWindow
 
+typedef NS_ENUM(NSInteger, PHWindowDirection) {
+    PHWindowDirectionWest,
+    PHWindowDirectionEast,
+    PHWindowDirectionNorth,
+    PHWindowDirectionSouth
+};
+
 // XXX: Undocumented private attribute for full screen mode
 static NSString * const NSAccessibilityFullScreenAttribute = @"AXFullScreen";
 
 static NSString * const PHScreenOptionKey = @"screen";
-static NSString * const PHWindowDirectionEast = @"east";
-static NSString * const PHWindowDirectionNorth = @"north";
-static NSString * const PHWindowDirectionSouth = @"south";
-static NSString * const PHWindowDirectionWest = @"west";
 static NSString * const PHWindowKey = @"window";
 static NSString * const PHWindowScoreKey = @"score";
 
@@ -39,6 +42,30 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     }
 
     return self;
+}
+
+#pragma mark - Directions
+
++ (PHWindowDirection) directionFromString:(NSString *)direction {
+
+    static NSDictionary<NSString *, NSNumber *> *directions;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+
+        directions = @{ @"west": @0,
+                        @"east": @1,
+                        @"north": @2,
+                        @"south": @3 };
+    });
+
+    NSNumber *value = directions[direction.lowercaseString];
+
+    if (!value) {
+        return -1;
+    }
+
+    return value.integerValue;
 }
 
 #pragma mark - Predicates
@@ -369,19 +396,23 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
 - (NSArray<PHWindow *> *) neighbors:(NSString *)direction {
 
-    NSString *lowercaseDirection = direction.lowercaseString;
+    switch ([PHWindow directionFromString:direction]) {
 
-    if ([lowercaseDirection isEqualToString:PHWindowDirectionWest]) {
-        return [self neighborsToWest];
-    } else if ([lowercaseDirection isEqualToString:PHWindowDirectionEast]) {
-        return [self neighborsToEast];
-    } else if ([lowercaseDirection isEqualToString:PHWindowDirectionNorth]) {
-        return [self neighborsToNorth];
-    } else if ([lowercaseDirection isEqualToString:PHWindowDirectionSouth]) {
-        return [self neighborsToSouth];
+        case PHWindowDirectionWest:
+            return [self neighborsToWest];
+
+        case PHWindowDirectionEast:
+            return [self neighborsToEast];
+
+        case PHWindowDirectionNorth:
+            return [self neighborsToNorth];
+
+        case PHWindowDirectionSouth:
+            return [self neighborsToSouth];
+
+        default:
+            return @[];
     }
-
-    return @[];
 }
 
 #pragma mark - Focusing
@@ -410,19 +441,23 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
 - (BOOL) focusClosestNeighbor:(NSString *)direction {
 
-    NSString *lowercaseDirection = direction.lowercaseString;
+    switch ([PHWindow directionFromString:direction]) {
 
-    if ([lowercaseDirection isEqualToString:PHWindowDirectionWest]) {
-        return [self focusFirstClosestWindow:[self neighborsToWest]];
-    } else if ([lowercaseDirection isEqualToString:PHWindowDirectionEast]) {
-        return [self focusFirstClosestWindow:[self neighborsToEast]];
-    } else if ([lowercaseDirection isEqualToString:PHWindowDirectionNorth]) {
-        return [self focusFirstClosestWindow:[self neighborsToNorth]];
-    } else if ([lowercaseDirection isEqualToString:PHWindowDirectionSouth]) {
-        return [self focusFirstClosestWindow:[self neighborsToSouth]];;
+        case PHWindowDirectionWest:
+            return [self focusFirstClosestWindow:[self neighborsToWest]];
+
+        case PHWindowDirectionEast:
+            return [self focusFirstClosestWindow:[self neighborsToEast]];
+
+        case PHWindowDirectionNorth:
+            return [self focusFirstClosestWindow:[self neighborsToNorth]];
+
+        case PHWindowDirectionSouth:
+            return [self focusFirstClosestWindow:[self neighborsToSouth]];
+
+        default:
+            return NO;
     }
-
-    return NO;
 }
 
 @end
