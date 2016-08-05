@@ -300,7 +300,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
                         shouldDisregardDelta:(BOOL (^)(double deltaX, double deltaY))shouldDisregard {
 
     CGRect frame = [self frame];
-    NSPoint centrePoint = NSMakePoint(NSMidX(frame), NSMidY(frame));
+    CGPoint centrePoint = CGPointMake(CGRectGetMidX(frame), CGRectGetMidY(frame));
 
     // Other windows
     NSArray<PHWindow *> *otherWindows = [self others];
@@ -309,7 +309,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     for (PHWindow *window in otherWindows) {
 
         CGRect otherFrame = [window frame];
-        NSPoint otherPoint = NSMakePoint(NSMidX(otherFrame), NSMidY(otherFrame));
+        CGPoint otherPoint = CGPointMake(CGRectGetMidX(otherFrame), CGRectGetMidY(otherFrame));
 
         double deltaX = otherPoint.x - centrePoint.x;
         double deltaY = otherPoint.y - centrePoint.y;
