@@ -21,9 +21,12 @@
 
 @implementation PHModalWindowController
 
-static NSString * const PHModalWindowControllerAppearanceDark = @"dark";
-static NSString * const PHModalWindowControllerAppearanceLight = @"light";
-static NSString * const PHModalWindowControllerAppearanceTransparent = @"transparent";
+typedef NS_ENUM(NSInteger, PHModalWindowControllerAppearanceMaterial) {
+    PHModalWindowControllerAppearanceMaterialDark,
+    PHModalWindowControllerAppearanceMaterialLight,
+    PHModalWindowControllerAppearanceMaterialTransparent
+};
+
 static NSString * const PHModalWindowControllerIconKeyPath = @"icon";
 static NSString * const PHModalWindowControllerMessageKeyPath = @"message";
 static NSString * const PHModalWindowControllerOriginKeyPath = @"origin";
@@ -38,7 +41,7 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
         [self addObserverForKeyPaths:[PHModalWindowController keyPaths]];
 
         self.weight = 24.0;
-        self.appearance = PHModalWindowControllerAppearanceDark;
+        self.appearance = @"dark";
         self.text = @"";
     }
 
@@ -89,6 +92,27 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
 
 #pragma mark - Appearance
 
+- (PHModalWindowControllerAppearanceMaterial) material {
+
+    static NSDictionary<NSString *, NSNumber *> *appearances;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+
+        appearances = @{ @"dark": @0,
+                         @"light": @1,
+                         @"transparent": @2 };
+    });
+
+    NSNumber *value = appearances[self.appearance.lowercaseString];
+
+    if (!value) {
+        return PHModalWindowControllerAppearanceMaterialDark;
+    }
+
+    return value.integerValue;
+}
+
 - (void) setupVibrantAppearance {
 
     CGFloat cornerRadius = 10.0;
@@ -99,7 +123,7 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
     visualEffectView.state = NSVisualEffectStateActive;
 
     // Use light material
-    if ([self.appearance.lowercaseString isEqualToString:PHModalWindowControllerAppearanceLight]) {
+    if ([self material] == PHModalWindowControllerAppearanceMaterialLight) {
         visualEffectView.material = NSVisualEffectMaterialLight;
         self.textField.textColor = [NSColor blackColor];
     }
@@ -229,7 +253,7 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
     }
 
     // Set vibrant appearance
-    if (![self.appearance.lowercaseString isEqualToString:PHModalWindowControllerAppearanceTransparent]) {
+    if ([self material] != PHModalWindowControllerAppearanceMaterialTransparent) {
         [self setupVibrantAppearance];
     }
 
