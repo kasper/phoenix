@@ -3,6 +3,13 @@ JavaScript API
 
 This documentation is an overview of the JavaScript API provided by Phoenix. Use this as a guide for writing your window management script. Your script should reside in `~/.phoenix.js`. Alternatively — if you prefer — you may also have your script in `~/Library/Application Support/Phoenix/phoenix.js` or `~/.config/phoenix/phoenix.js`. Phoenix includes [Underscore.js](http://underscorejs.org) (1.8.3) — you can use its features in your configuration. Underscore provides useful helpers for handling JavaScript functions and objects. You may also use JavaScript [preprocessing](#preprocessing) and languages such as CoffeeScript to write your Phoenix-configuration.
 
+## General
+
+1. [Getting Started](#getting-started)
+2. [Managing Handlers](#managing-handlers)
+3. [Loading](#loading)
+4. [Preprocessing](#preprocessing)
+
 ## API
 
 1. [Keys](#1-keys)
