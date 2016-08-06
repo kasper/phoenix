@@ -47,7 +47,7 @@
                                                  NSUnderlyingErrorKey: taskError }];
         }
 
-        return script;
+        return @"";
     }
 
     // Remove shebang-directive if it is still present
