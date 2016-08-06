@@ -9,7 +9,9 @@
     _(properties).chain().omit('origin').each(function (value, key) {
       modal[key] = value;
     });
-    modal.origin = properties.origin(modal.frame());
+    if (_(properties.origin).isFunction()) {
+      modal.origin = properties.origin(modal.frame());
+    }
     return modal;
   }
 })(Modal);
