@@ -10,6 +10,39 @@
     <description>Feed for Phoenix updates.</description>
     <language>en</language>
 
+    <!-- 2.3 -->
+
+    <item>
+      <title>Version 2.3</title>
+      <pubDate>Sat, 06 Aug 2016 19:05:00 +0300</pubDate>
+      <description><![CDATA[
+
+        <p>This release includes a new improved “vibrant” appearance for modals. Modals can now display icons as well as text. We also added a few options so you can customise the look and feel of your modals — a nice way to implement visual cues for apps and windows!</p>
+
+        <p>Phoenix 2.2 had some breaking changes to the API. If you have not updated yet, follow this <a href='https://github.com/kasper/phoenix/wiki/Upgrade-from-2.x-to-2.2/'>guide</a> to upgrade your configuration. Sorry for the trouble!</p>
+
+        <h3>What is New?</h3>
+
+        <ul>
+          <li>modals have a new improved “vibrant” appearance and are more versatile with the ability to display icons as well as text</li>
+          <li>callbacks for keys now repeat when the key combination is held down</li>
+          <li>you can access the current space for a specific screen</li>
+          <li>a few additions and improvements to the API</li>
+          <li>a few performance and behavioural related fixes and improvements</li>
+        </ul>
+
+        <p>See the full <a href='https://github.com/kasper/phoenix/blob/2.3/CHANGELOG.md'>Changelog</a>.</p>
+
+      ]]>
+      </description>
+      <enclosure sparkle:version='49'
+                 sparkle:shortVersionString='2.3'
+                 sparkle:dsaSignature='MCwCFGjXTw9UOJc2Tx2g4H4md3GjOwRtAhRvIPzb2rblN4p1F7cPf5YF9ozD8g=='
+                 type='application/octet-stream'
+                 length='2220137'
+                 url='https://github.com/kasper/phoenix/releases/download/2.3/phoenix-2.3.tar.gz' />
+    </item>
+
     <!-- 2.2.1 -->
 
     <item>
