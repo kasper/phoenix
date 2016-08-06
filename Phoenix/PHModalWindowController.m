@@ -27,6 +27,7 @@ typedef NS_ENUM(NSInteger, PHModalWindowControllerAppearanceMaterial) {
     PHModalWindowControllerAppearanceMaterialTransparent
 };
 
+static NSString * const PHModalWindowControllerAppearanceDark = @"dark";
 static NSString * const PHModalWindowControllerIconKeyPath = @"icon";
 static NSString * const PHModalWindowControllerMessageKeyPath = @"message";
 static NSString * const PHModalWindowControllerOriginKeyPath = @"origin";
@@ -41,7 +42,7 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
         [self addObserverForKeyPaths:[PHModalWindowController keyPaths]];
 
         self.weight = 24.0;
-        self.appearance = @"dark";
+        self.appearance = PHModalWindowControllerAppearanceDark;
         self.text = @"";
     }
 
@@ -99,7 +100,7 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
 
-        appearances = @{ @"dark": @0,
+        appearances = @{ PHModalWindowControllerAppearanceDark: @0,
                          @"light": @1,
                          @"transparent": @2 };
     });
