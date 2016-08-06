@@ -210,8 +210,9 @@
     self.context = [[JSContext alloc] initWithVirtualMachine:[[JSVirtualMachine alloc] init]];
     self.context.exceptionHandler = ^(__unused JSContext *context, JSValue *value) {
 
-        NSLog(@"%@", value);
-        [PHNotificationHelper deliver:[value toString]];
+        NSString *description = [NSString stringWithFormat:@"%@ (%@:%@)", value, value[@"line"], value[@"column"]];
+        NSLog(@"%@", description);
+        [PHNotificationHelper deliver:description];
     };
 
     [self setupAPI];
