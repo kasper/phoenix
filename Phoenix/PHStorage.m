@@ -8,7 +8,7 @@
 
 @property (copy) NSString *path;
 @property NSMutableDictionary<NSString *, id> *storage;
-@property BOOL persisting;
+@property (getter=isPersisting) BOOL persisting;
 
 @end
 
@@ -63,11 +63,6 @@ static NSString * const PHStoragePath = @"~/Library/Application Support/Phoenix/
 }
 
 #pragma mark - Persisting
-
-- (BOOL) isPersisting {
-
-    return self.persisting;
-}
 
 - (BOOL) ensureStorageDirectory {
 

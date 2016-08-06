@@ -14,7 +14,7 @@
 @property UInt32 keyCode;
 @property UInt32 modifierFlags;
 @property EventHotKeyRef reference;
-@property BOOL enabled;
+@property (getter=isEnabled) BOOL enabled;
 @property NSTimer *timer;
 
 @property (copy) NSString *key;
@@ -148,11 +148,6 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
 }
 
 #pragma mark - Binding
-
-- (BOOL) isEnabled {
-
-    return self.enabled;
-}
 
 - (BOOL) enable {
 
