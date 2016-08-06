@@ -66,12 +66,12 @@ static NSString * const NSScreenNumberKey = @"NSScreenNumber";
     return frame;
 }
 
-- (CGRect) frameInRectangle {
+- (CGRect) flippedFrame {
 
     return [self flipFrame:self.frame];
 }
 
-- (CGRect) visibleFrameInRectangle {
+- (CGRect) flippedVisibleFrame {
 
     return [self flipFrame:self.visibleFrame];
 }

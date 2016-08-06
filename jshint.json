@@ -23,6 +23,8 @@
     "Event": true,
     "Key": true,
     "Modal": true,
+    "Phoenix": true,
+    "Screen": true,
     "Task": true,
     "Timer": true,
     "Window": true

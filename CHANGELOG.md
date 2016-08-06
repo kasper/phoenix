@@ -42,7 +42,13 @@ Release: dd.mm.yyyy
 
 #### Screen
 
+- New: Function `frame()` returns the whole frame for the screen, bottom-left based origin ([#128](https://github.com/kasper/phoenix/issues/128)).
+- New: Function `visibleFrame()` returns the visible frame for the screen subtracting the Dock and Menu from the frame when visible, bottom-left based origin ([#128](https://github.com/kasper/phoenix/issues/128)).
 - New: Function `currentSpace()` returns the current space for the screen (macOS 10.11+, returns `undefined` otherwise) ([#120](https://github.com/kasper/phoenix/issues/120)).
+- Change: Function `frameInRectangle()` is now `flippedFrame()` ([#128](https://github.com/kasper/phoenix/issues/128)).
+- Change: Function `visibleFrameInRectangle()` is now `flippedVisibleFrame()` ([#128](https://github.com/kasper/phoenix/issues/128)).
+- Deprecation: Function `frameInRectangle()` is deprecated and will be removed in later versions, use `flippedFrame()` instead ([#128](https://github.com/kasper/phoenix/issues/128)).
+- Deprecation: Function `visibleFrameInRectangle()` is deprecated and will be removed in later versions, use `flippedVisibleFrame()` instead ([#128](https://github.com/kasper/phoenix/issues/128)).
 
 #### App
 

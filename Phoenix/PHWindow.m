@@ -231,7 +231,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
     for (NSScreen *screen in [NSScreen screens]) {
 
-        CGRect screenFrame = [screen frameInRectangle];
+        CGRect screenFrame = [screen flippedFrame];
         CGRect intersection = CGRectIntersection(windowFrame, screenFrame);
         CGFloat intersectionVolume = intersection.size.width * intersection.size.height;
 
@@ -307,7 +307,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
 - (BOOL) maximize {
 
-    CGRect screenRect = [[self screen] visibleFrameInRectangle];
+    CGRect screenRect = [[self screen] flippedVisibleFrame];
     return [self setFrame:screenRect];
 }
 

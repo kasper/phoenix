@@ -24,8 +24,10 @@
 
 #pragma mark - Frame
 
-- (CGRect) frameInRectangle;
-- (CGRect) visibleFrameInRectangle;
+- (NSRect) frame;
+- (NSRect) visibleFrame;
+- (CGRect) flippedFrame;
+- (CGRect) flippedVisibleFrame;
 
 #pragma mark - Spaces
 
