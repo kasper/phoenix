@@ -166,7 +166,8 @@
     script = [PHShebangPreprocessor process:script atPath:path error:&preprocessError];
 
     if (preprocessError) {
-        NSLog(@"Error: Preprocessing failed. (%@)", preprocessError);
+        NSError *underlyingError = preprocessError.userInfo[NSUnderlyingErrorKey];
+        NSLog(@"Error: Preprocessing failed. (%@)", underlyingError.localizedFailureReason);
         [PHNotificationHelper deliver:@"Preprocessing failed. Refer to the logs for more information."];
     }
 
@@ -210,9 +211,8 @@
     self.context = [[JSContext alloc] initWithVirtualMachine:[[JSVirtualMachine alloc] init]];
     self.context.exceptionHandler = ^(__unused JSContext *context, JSValue *value) {
 
-        NSString *description = [NSString stringWithFormat:@"%@ (%@:%@)", value, value[@"line"], value[@"column"]];
-        NSLog(@"%@", description);
-        [PHNotificationHelper deliver:description];
+        NSLog(@"%@ (%@:%@)", value, value[@"line"], value[@"column"]);
+        [PHNotificationHelper deliver:@"Exception raised. Refer to the logs for more information."];
     };
 
     [self setupAPI];
