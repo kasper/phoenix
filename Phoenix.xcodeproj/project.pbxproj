@@ -388,13 +388,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A79C46741B5BF31200C460CF /* Build configuration list for PBXNativeTarget "Phoenix" */;
 			buildPhases = (
+				A32B0CB41F9B8F1C428EE663 /* [CP] Check Pods Manifest.lock */,
 				A7A6F57F1D1AD4CD000A0E5E /* Grunt */,
-				A32B0CB41F9B8F1C428EE663 /* 📦 Check Pods Manifest.lock */,
 				A79C46531B5BF31100C460CF /* Sources */,
 				A79C46541B5BF31100C460CF /* Frameworks */,
 				A79C46551B5BF31100C460CF /* Resources */,
-				D24256909AA421FF1865E794 /* 📦 Embed Pods Frameworks */,
-				E3056907A6DCD4BB1BF0E3E0 /* 📦 Copy Pods Resources */,
+				D24256909AA421FF1865E794 /* [CP] Embed Pods Frameworks */,
+				E3056907A6DCD4BB1BF0E3E0 /* [CP] Copy Pods Resources */,
 				A7C58EEF1C065C8A00180664 /* Sign Sparkle */,
 			);
 			buildRules = (
@@ -487,14 +487,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A32B0CB41F9B8F1C428EE663 /* 📦 Check Pods Manifest.lock */ = {
+		A32B0CB41F9B8F1C428EE663 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -532,14 +532,14 @@
 			shellScript = "LOCATION=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\ncodesign --verbose --force --sign \"$CODE_SIGN_IDENTITY\" \"$LOCATION/Sparkle.framework/Versions/A\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D24256909AA421FF1865E794 /* 📦 Embed Pods Frameworks */ = {
+		D24256909AA421FF1865E794 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,14 +547,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Phoenix/Pods-Phoenix-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E3056907A6DCD4BB1BF0E3E0 /* 📦 Copy Pods Resources */ = {
+		E3056907A6DCD4BB1BF0E3E0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
