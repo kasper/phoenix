@@ -32,16 +32,13 @@
 
 /* Global Timing */
 
-(function (scope) {
+this.clearTimeout = Timer.off;
+this.clearInterval = Timer.off;
 
-  scope.clearTimeout = Timer.off;
-  scope.clearInterval = Timer.off;
+this.setTimeout = function (callback, milliseconds) {
+  return Timer.after(milliseconds / 1000, callback);
+}
 
-  scope.setTimeout = function (callback, milliseconds) {
-    return Timer.after(milliseconds / 1000, callback);
-  }
-
-  scope.setInterval = function (callback, milliseconds) {
-    return Timer.every(milliseconds / 1000, callback);
-  }
-})(this);
+this.setInterval = function (callback, milliseconds) {
+  return Timer.every(milliseconds / 1000, callback);
+}
