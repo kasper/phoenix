@@ -4,7 +4,7 @@
 
 Modal.build = function (properties) {
   var modal = new Modal();
-  _(properties).chain().omit('origin').each(function (value, key) {
+  _(properties).omit('origin').each(function (value, key) {
     modal[key] = value;
   });
   if (_(properties.origin).isFunction()) {
