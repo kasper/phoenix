@@ -24,6 +24,7 @@
 		A76D0F141D2540F900060CA7 /* PHTaskHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A76D0F131D2540F900060CA7 /* PHTaskHandler.m */; };
 		A7741A291D2BBF55009E8A2F /* PHGlobalEventMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = A7741A281D2BBF55009E8A2F /* PHGlobalEventMonitor.m */; };
 		A77AB3261DD73F00003B5872 /* lodash.min.js in Resources */ = {isa = PBXBuildFile; fileRef = A77AB3251DD73F00003B5872 /* lodash.min.js */; };
+		A77AB3281DD75715003B5872 /* phoenix.min.js in Resources */ = {isa = PBXBuildFile; fileRef = A77AB3271DD75715003B5872 /* phoenix.min.js */; };
 		A78566D11CBE77CD00036AF9 /* PHPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = A78566D01CBE77CD00036AF9 /* PHPreferences.m */; };
 		A78749641CA2BB440042DA4C /* NSProcessInfo+PHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A78749631CA2BB440042DA4C /* NSProcessInfo+PHExtension.m */; };
 		A79452421C2F35E3007AF8C5 /* NSArray+PHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A79452411C2F35E3007AF8C5 /* NSArray+PHExtension.m */; };
@@ -41,7 +42,6 @@
 		A79C469F1B5BF3C100C460CF /* PHUniversalAccessHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A79C468F1B5BF3C100C460CF /* PHUniversalAccessHelper.m */; };
 		A79C46A01B5BF3C100C460CF /* PHWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A79C46911B5BF3C100C460CF /* PHWindow.m */; };
 		A79C46AA1B5BF41900C460CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A79C46A91B5BF41900C460CF /* Images.xcassets */; };
-		A7A6F57E1D1AD3B8000A0E5E /* phoenix-min.js in Resources */ = {isa = PBXBuildFile; fileRef = A7A6F57D1D1AD3B8000A0E5E /* phoenix-min.js */; };
 		A7D1D9A91B6FD6A300E00CC9 /* PHKeyTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D1D9A81B6FD6A300E00CC9 /* PHKeyTranslator.m */; };
 		A7D1F7651B5BFF5B0052E646 /* PhoenixTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D1F7641B5BFF5B0052E646 /* PhoenixTests.m */; };
 		A7E6DF6C1BBAB5B8001920B4 /* PHAXObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E6DF6B1BBAB5B8001920B4 /* PHAXObserver.m */; };
@@ -96,6 +96,7 @@
 		A7741A271D2BBF55009E8A2F /* PHGlobalEventMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHGlobalEventMonitor.h; sourceTree = "<group>"; };
 		A7741A281D2BBF55009E8A2F /* PHGlobalEventMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHGlobalEventMonitor.m; sourceTree = "<group>"; };
 		A77AB3251DD73F00003B5872 /* lodash.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = lodash.min.js; sourceTree = "<group>"; };
+		A77AB3271DD75715003B5872 /* phoenix.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = phoenix.min.js; sourceTree = "<group>"; };
 		A78566CF1CBE77CD00036AF9 /* PHPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHPreferences.h; sourceTree = "<group>"; };
 		A78566D01CBE77CD00036AF9 /* PHPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHPreferences.m; sourceTree = "<group>"; };
 		A78749621CA2BB440042DA4C /* NSProcessInfo+PHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSProcessInfo+PHExtension.h"; sourceTree = "<group>"; };
@@ -130,7 +131,6 @@
 		A79C46901B5BF3C100C460CF /* PHWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHWindow.h; sourceTree = "<group>"; };
 		A79C46911B5BF3C100C460CF /* PHWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHWindow.m; sourceTree = "<group>"; };
 		A79C46A91B5BF41900C460CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		A7A6F57D1D1AD3B8000A0E5E /* phoenix-min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "phoenix-min.js"; sourceTree = "<group>"; };
 		A7D1D9A71B6FD6A300E00CC9 /* PHKeyTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHKeyTranslator.h; sourceTree = "<group>"; };
 		A7D1D9A81B6FD6A300E00CC9 /* PHKeyTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHKeyTranslator.m; sourceTree = "<group>"; };
 		A7D1F7641B5BFF5B0052E646 /* PhoenixTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoenixTests.m; sourceTree = "<group>"; };
@@ -349,7 +349,7 @@
 				A79C465B1B5BF31100C460CF /* Info.plist */,
 				A77AB3251DD73F00003B5872 /* lodash.min.js */,
 				A79C465F1B5BF31200C460CF /* main.m */,
-				A7A6F57D1D1AD3B8000A0E5E /* phoenix-min.js */,
+				A77AB3271DD75715003B5872 /* phoenix.min.js */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -468,9 +468,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A79B89E21B5E75CA004DDE82 /* ModalWindow.xib in Resources */,
-				A7A6F57E1D1AD3B8000A0E5E /* phoenix-min.js in Resources */,
 				A79C46AA1B5BF41900C460CF /* Images.xcassets in Resources */,
 				A72EAD041B5CE34800DD537B /* Credits.rtf in Resources */,
+				A77AB3281DD75715003B5872 /* phoenix.min.js in Resources */,
 				A79B89E01B5E74C1004DDE82 /* MainMenu.xib in Resources */,
 				A77AB3261DD73F00003B5872 /* lodash.min.js in Resources */,
 				A7952E7E1C0721850062D651 /* dsa-phoenix-pub.pem in Resources */,

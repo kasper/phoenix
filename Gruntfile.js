@@ -27,7 +27,7 @@ module.exports = function (grunt) {
 
       library: {
         files: {
-          'Phoenix/<%= pkg.name %>-min.js': 'Phoenix/<%= pkg.name %>.js'
+          'Phoenix/<%= pkg.name %>.min.js': 'Phoenix/<%= pkg.name %>.js'
         }
       }
     },
