@@ -8,7 +8,9 @@
 
   scope.run = function (path, args, callback) {
     var task = new Task(path, args, function (handler) {
-      callback(handler);
+      if (callback) {
+        callback(handler);
+      }
       Task.terminate(handler.hash());
     });
     tasks[task.hash()] = task;
