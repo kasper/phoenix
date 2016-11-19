@@ -123,4 +123,17 @@
     return error == kAXErrorSuccess;
 }
 
+#pragma mark - Actions
+
+- (BOOL) performAction:(NSString *)action {
+
+    AXError error = AXUIElementPerformAction((__bridge AXUIElementRef) self.element, (__bridge CFStringRef) action);
+
+    if (error != kAXErrorSuccess) {
+        NSLog(@"Error: Could not perform action “%@” for element %@. (%d)", action, self.element, error);
+    }
+
+    return error == kAXErrorSuccess;
+}
+
 @end

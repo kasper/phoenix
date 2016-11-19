@@ -417,6 +417,11 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
 #pragma mark - Focusing
 
+- (BOOL) raise {
+
+    return [self performAction:NSAccessibilityRaiseAction];
+}
+
 - (BOOL) focus {
 
     // Set this window as the main window

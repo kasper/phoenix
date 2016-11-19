@@ -28,4 +28,8 @@
 
 - (BOOL) setAttribute:(NSString *)attribute withValue:(id)value;
 
+#pragma mark - Actions
+
+- (BOOL) performAction:(NSString *)action;
+
 @end

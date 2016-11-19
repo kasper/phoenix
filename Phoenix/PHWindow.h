@@ -55,6 +55,7 @@ static NSString * const PHWindowVisibilityOptionKey = @"visible";
 
 #pragma mark - Focusing
 
+- (BOOL) raise;
 - (BOOL) focus;
 - (BOOL) focusClosestNeighbor:(NSString *)direction;
 

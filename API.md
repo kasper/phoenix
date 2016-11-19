@@ -632,6 +632,7 @@ class Window implements Identifiable
   boolean minimise() // or minimize()
   boolean unminimise() // or unminimize()
   Array<Window> neighbours(String direction) // or neighbors(...)
+  boolean raise()
   boolean focus()
   boolean focusClosestNeighbour(String direction) // or focusClosestNeighbor(...)
 
@@ -662,6 +663,7 @@ end
 - `minimise()` or `minimize()` minimises the window, returns `true` if successful
 - `unminimise()` or `unminimize()` unminimises the window, returns `true` if successful
 - `neighbours(String direction)` or `neighbors(...)` returns windows to the direction (`west|east|north|south`) of the window
+- `raise()` raises the window so it will be beneath the focused window, returns `true` if successful
 - `focus()` focuses the window, returns `true` if successful
 - `focusClosestNeighbour(String direction)` or `focusClosestNeighbor(...)` focuses the closest window to the direction (`west|east|north|south`) of the window, returns `true` if successful
 

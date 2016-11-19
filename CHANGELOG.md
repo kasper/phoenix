@@ -17,6 +17,10 @@ Release: dd.mm.yyyy
 
 - Change: Function `run(String path, Array arguments, Function callback)` can now be called without a callback ([#135](https://github.com/kasper/phoenix/issues/135)).
 
+#### Window
+
+- New: Function `raise()` raises the window so it will be beneath the focused window, returns `true` if successful ([#151](https://github.com/kasper/phoenix/issues/151)).
+
 2.3
 ---
 
