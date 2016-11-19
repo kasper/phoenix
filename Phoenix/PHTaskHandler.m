@@ -109,7 +109,7 @@
 
 - (void) taskDidTerminate {
 
-    [self callWithArguments:@[ self ]];
+    [self performSelectorOnMainThread:@selector(callWithArguments:) withObject:@[ self ] waitUntilDone:NO];
 }
 
 @end

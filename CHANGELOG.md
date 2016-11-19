@@ -11,6 +11,10 @@ Release: dd.mm.yyyy
 - Breaking: Underscore.js is replaced with [Lodash](https://lodash.com) (4.16.6) ([#89](https://github.com/kasper/phoenix/issues/89)).
 - Xcode 8 is now required for building.
 
+### Bug Fixes
+
+- Fix an issue that prevented task callbacks from performing actions on the main thread ([#137](https://github.com/kasper/phoenix/issues/137)).
+
 ### API
 
 #### Task
