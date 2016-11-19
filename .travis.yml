@@ -11,6 +11,7 @@ notifications:
   email: false
 
 before_install:
+  - gem install xcpretty
   - npm install -g grunt-cli
   - npm install -d
 
