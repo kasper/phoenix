@@ -14,6 +14,7 @@ Release: dd.mm.yyyy
 ### Bug Fixes
 
 - Fix an issue that prevented Phoenix from terminating after accessibility prompt ([#132](https://github.com/kasper/phoenix/issues/132)).
+- Fix an issue that prevented preferences to be observed on launch ([#133](https://github.com/kasper/phoenix/issues/133)).
 - Fix an issue that prevented task callbacks from performing actions on the main thread ([#137](https://github.com/kasper/phoenix/issues/137)).
 
 ### API

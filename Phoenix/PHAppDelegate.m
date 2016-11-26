@@ -44,17 +44,15 @@
 
     [PHUniversalAccessHelper askPermissionIfNeeded];
 
-    self.context = [PHContext context];
-    [self.context load];
-
-    [self toggleStatusItem:![[PHPreferences sharedPreferences] isDaemon]];
-
     // Observe changes in preferences
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(preferencesDidChange:)
                                                  name:PHPreferencesDidChangeNotification
                                                object:nil];
+    self.context = [PHContext context];
+    [self.context load];
 
+    [self toggleStatusItem:![[PHPreferences sharedPreferences] isDaemon]];
     [[NSNotificationCenter defaultCenter] postNotificationName:PHEventDidLaunchNotification object:nil];
 }
 
