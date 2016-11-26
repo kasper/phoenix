@@ -67,7 +67,7 @@
         [application replyToApplicationShouldTerminate:YES];
     }];
 
-    return NSTerminateLater;
+    return self.context ? NSTerminateLater : NSTerminateNow;
 }
 
 #pragma mark - NSMenuDelegate
