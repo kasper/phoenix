@@ -52,7 +52,6 @@
     self.context = [PHContext context];
     [self.context load];
 
-    [self toggleStatusItem:![[PHPreferences sharedPreferences] isDaemon]];
     [[NSNotificationCenter defaultCenter] postNotificationName:PHEventDidLaunchNotification object:nil];
 }
 
