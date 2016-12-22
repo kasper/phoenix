@@ -89,6 +89,12 @@
     [self.context load];
 }
 
+- (IBAction) editConfiguration:(id)__unused sender {
+
+    [[NSWorkspace sharedWorkspace] openFile:self.context.primaryConfigurationPath];
+}
+
+
 - (IBAction) showAboutPanel:(id)sender {
 
     [NSApp activateIgnoringOtherApps:YES];
