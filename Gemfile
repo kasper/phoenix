@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.4.0'
+ruby '2.3.1'
 
 gem 'cocoapods', '1.1.1'
