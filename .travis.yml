@@ -1,6 +1,6 @@
 language: objective-c
 
-osx_image: xcode8.1
+osx_image: xcode8.2
 
 xcode_workspace: Phoenix.xcworkspace
 xcode_scheme: Phoenix
@@ -19,5 +19,5 @@ script: xcodebuild -workspace $TRAVIS_XCODE_WORKSPACE -scheme $TRAVIS_XCODE_SCHE
 
 matrix:
   include:
-    - osx_image: xcode8.2
+    - osx_image: xcode8.1
     - osx_image: xcode8
