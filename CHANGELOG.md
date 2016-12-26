@@ -13,6 +13,7 @@ Release: dd.mm.yyyy
 
 ### Bug Fixes
 
+- Fix an issue that caused inconsistencies with screens and spaces when “Displays have separate Spaces” option was disabled in macOS ([#130](https://github.com/kasper/phoenix/issues/130)).
 - Fix an issue that prevented Phoenix from terminating after accessibility prompt ([#132](https://github.com/kasper/phoenix/issues/132)).
 - Fix an issue that prevented preferences to be observed on launch ([#133](https://github.com/kasper/phoenix/issues/133)).
 - Fix an issue that prevented task callbacks from performing actions on the main thread ([#137](https://github.com/kasper/phoenix/issues/137)).
@@ -22,6 +23,11 @@ Release: dd.mm.yyyy
 #### Task
 
 - Change: Function `run(String path, Array arguments, Function callback)` can now be called without a callback ([#135](https://github.com/kasper/phoenix/issues/135)).
+
+#### Space
+
+- New: Function `screens()` returns all screens to which the space belongs to ([#130](https://github.com/kasper/phoenix/issues/130)).
+- Deprecation: Function `screen()` is deprecated and will be removed in later versions, use `screens()` instead ([#130](https://github.com/kasper/phoenix/issues/130)).
 
 #### Window
 

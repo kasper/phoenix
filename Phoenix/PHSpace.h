@@ -23,7 +23,7 @@
 
 - (BOOL) isNormal;
 - (BOOL) isFullScreen;
-- (NSScreen *) screen;
+- (NSArray<NSScreen *> *) screens;
 
 #pragma mark - Windows
 
