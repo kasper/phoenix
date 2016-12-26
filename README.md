@@ -75,7 +75,7 @@ Once complete, you will find a newly built Phoenix app in `build/Release/`. Afte
 
 Phoenix manages dependencies with [CocoaPods](https://cocoapods.org). Note that you do not need CocoaPods for basic development. However, if you want to install new pods or update existing ones, you will also need:
 
-4. [Ruby](https://www.ruby-lang.org) (2.3.1 or higher), it is recommended that you manage Ruby versions with for instance [rbenv](https://github.com/rbenv/rbenv/)
+4. [Ruby](https://www.ruby-lang.org) (2.3.3 or higher), it is recommended that you manage Ruby versions with for instance [rbenv](https://github.com/rbenv/rbenv/)
 5. [Bundler](http://bundler.io)
 6. CocoaPods
 
