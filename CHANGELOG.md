@@ -20,6 +20,10 @@ Release: dd.mm.yyyy
 
 ### API
 
+#### Phoenix
+
+- Change: Function `log(...)` now supports multiple arguments ([#157](https://github.com/kasper/phoenix/issues/157)).
+
 #### Task
 
 - Change: Function `run(String path, Array arguments, Function callback)` can now be called without a callback ([#135](https://github.com/kasper/phoenix/issues/135)).

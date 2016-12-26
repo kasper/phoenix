@@ -214,7 +214,7 @@ class Phoenix
 
   static void reload()
   static void set(Map<String, AnyObject> preferences)
-  static void log(String message)
+  static void log(AnyObject... arguments)
   static void notify(String message)
 
 end
@@ -222,7 +222,7 @@ end
 
 - `reload()` manually reloads the context and any changes in the configuration files
 - `set(Map<String, AnyObject> preferences)` sets the preferences from the given key–value map, any previously set preferences with the same key will be overridden
-- `log(String message)` logs the message to the Console
+- `log(AnyObject... arguments)` logs the arguments to the Console
 - `notify(String message)` delivers the message to the Notification Center
 
 ## 6. Storage

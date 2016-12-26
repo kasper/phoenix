@@ -42,9 +42,10 @@
     [[PHPreferences sharedPreferences] add:preferences];
 }
 
-- (void) log:(NSString *)message {
+- (void) log {
 
-    NSLog(@"%@", message);
+    NSArray<NSString *> *components = [[JSContext currentArguments] valueForKey:@"toString"];
+    NSLog(@"%@", [components componentsJoinedByString:@" "]);
 }
 
 - (void) notify:(NSString *)message {

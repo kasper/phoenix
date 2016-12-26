@@ -13,7 +13,7 @@
 
 - (void) reload;
 - (void) set:(NSDictionary<NSString *, id> *)preferences;
-- (void) log:(NSString *)message;
+- (void) log;
 - (void) notify:(NSString *)message;
 
 @end
