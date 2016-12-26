@@ -10,6 +10,35 @@
     <description>Feed for Phoenix updates.</description>
     <language>en</language>
 
+    <!-- 2.4 -->
+
+    <item>
+      <title>Version 2.4</title>
+      <pubDate>Mon, 26 Dec 2016 16:19:00 +0200</pubDate>
+      <description><![CDATA[
+
+        <p>This release contains some general fixes and improvements. Happy Holidays! 🎄</p>
+
+        <h3>What is New?</h3>
+
+        <ul>
+          <li><b>Breaking:</b> Underscore.js is replaced with <a href='https://lodash.com'>Lodash</a> (4.17.3)</li>
+          <li>a few additions and improvements to the API</li>
+          <li>several bug fixes to some annoying issues</li>
+        </ul>
+
+        <p>See the full <a href='https://github.com/kasper/phoenix/blob/2.4/CHANGELOG.md'>Changelog</a>.</p>
+
+      ]]>
+      </description>
+      <enclosure sparkle:version='55'
+                 sparkle:shortVersionString='2.4'
+                 sparkle:dsaSignature='MC0CFGQc1q/27m8RBRZClC9aDs05qsj0AhUAiDO27q1Y84uSYSwZK8yrJZb+LVY='
+                 type='application/octet-stream'
+                 length='2194411'
+                 url='https://github.com/kasper/phoenix/releases/download/2.4/phoenix-2.4.tar.gz' />
+    </item>
+
     <!-- 2.3 -->
 
     <item>
