@@ -710,7 +710,6 @@
             <connections>
                 <outlet property="delegate" destination="rNM-Wb-aci" id="GyG-uy-eLr"/>
             </connections>
-            <point key="canvasLocation" x="131.5" y="165.5"/>
         </menu>
     </objects>
 </document>

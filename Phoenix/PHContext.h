@@ -6,8 +6,6 @@
 
 @protocol PHContextDelegate <NSObject>
 
-@property (readonly) NSString *primaryConfigurationPath;
-
 #pragma mark - Loading
 
 - (void) load;
@@ -19,6 +17,8 @@
 @end
 
 @interface PHContext : NSObject <PHContextDelegate>
+
+@property (readonly) NSString *primaryConfigurationPath;
 
 #pragma mark - Initialising
 

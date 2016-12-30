@@ -94,7 +94,6 @@
     [[NSWorkspace sharedWorkspace] openFile:self.context.primaryConfigurationPath];
 }
 
-
 - (IBAction) showAboutPanel:(id)sender {
 
     [NSApp activateIgnoringOtherApps:YES];
