@@ -675,6 +675,12 @@
                         <action selector="reloadContext:" target="rNM-Wb-aci" id="E9f-eT-5pH"/>
                     </connections>
                 </menuItem>
+                <menuItem title="Edit configuration" id="Cl9-v8-MX6">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="editConfiguration:" target="rNM-Wb-aci" id="MyM-4W-7eP"/>
+                    </connections>
+                </menuItem>
                 <menuItem isSeparatorItem="YES" id="Pit-IP-uIm"/>
                 <menuItem title="About Phoenix" id="bgT-ei-lKc">
                     <modifierMask key="keyEquivalentModifierMask"/>
@@ -704,6 +710,7 @@
             <connections>
                 <outlet property="delegate" destination="rNM-Wb-aci" id="GyG-uy-eLr"/>
             </connections>
+            <point key="canvasLocation" x="131.5" y="165.5"/>
         </menu>
     </objects>
 </document>

@@ -11,6 +11,7 @@
 #pragma mark - IBAction
 
 - (IBAction) reloadContext:(id)sender;
+- (IBAction) editConfiguration:(id)sender;
 - (IBAction) showAboutPanel:(id)sender;
 - (IBAction) toggleOpenAtLogin:(NSMenuItem *)sender;
 

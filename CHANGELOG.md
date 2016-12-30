@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### New
+
+- Add “Edit configuration” status menu item ([#156](https://github.com/kasper/phoenix/pull/156)).
+
 2.4
 ---
 
