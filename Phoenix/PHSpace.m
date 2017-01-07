@@ -204,7 +204,7 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
         }
     }
 
-    return nil;
+    return @[];
 }
 
 #pragma mark - Windows
