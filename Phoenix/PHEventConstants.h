@@ -14,3 +14,5 @@ static NSString * const PHEventWillTerminateNotification = @"PHEventWillTerminat
 static NSString * const PHMouseDidMoveNotification = @"PHMouseDidMoveNotification";
 static NSString * const PHMouseDidLeftClickNotification = @"PHMouseDidLeftClickNotification";
 static NSString * const PHMouseDidRightClickNotification = @"PHMouseDidRightClickNotification";
+static NSString * const PHMouseDidLeftDragNotification = @"PHMouseDidLeftDragNotification";
+static NSString * const PHMouseDidRightDragNotification = @"PHMouseDidRightDragNotification";

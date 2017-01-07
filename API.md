@@ -158,6 +158,8 @@ All of the following mouse events receive the corresponding `Point`-object as th
 - `mouseDidMove` triggered when the mouse has moved
 - `mouseDidLeftClick` triggered when the mouse did left click
 - `mouseDidRightClick` triggered when the mouse did right click
+- `mouseDidLeftDrag` triggered when the mouse did left drag
+- `mouseDidRightDrag` triggered when the mouse did right drag
 
 ### App
 

@@ -9,6 +9,14 @@ Release: dd.mm.yyyy
 ### New
 
 - Add “Edit configuration” status menu item ([#156](https://github.com/kasper/phoenix/pull/156)).
+- Add support for mouse drag events ([#159](https://github.com/kasper/phoenix/issues/159)).
+
+### API
+
+#### Events
+
+- New: Event `mouseDidLeftDrag` is triggered when the mouse did left drag ([#159](https://github.com/kasper/phoenix/issues/159)).
+- New: Event `mouseDidRightDrag` is triggered when the mouse did right drag ([#159](https://github.com/kasper/phoenix/issues/159)).
 
 2.4
 ---

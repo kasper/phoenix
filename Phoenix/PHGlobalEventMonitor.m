@@ -53,7 +53,9 @@
 
         masks = @[ @(NSMouseMovedMask),
                    @(NSLeftMouseUpMask),
-                   @(NSRightMouseUpMask) ];
+                   @(NSRightMouseUpMask),
+                   @(NSLeftMouseDraggedMask),
+                   @(NSRightMouseDraggedMask) ];
     });
 
     return masks;
@@ -70,7 +72,9 @@
 
         notifications = @{ @(NSMouseMoved): PHMouseDidMoveNotification,
                            @(NSLeftMouseUp): PHMouseDidLeftClickNotification,
-                           @(NSRightMouseUp): PHMouseDidRightClickNotification };
+                           @(NSRightMouseUp): PHMouseDidRightClickNotification,
+                           @(NSLeftMouseDragged): PHMouseDidLeftDragNotification,
+                           @(NSRightMouseDragged): PHMouseDidRightDragNotification };
     });
 
     return notifications;
