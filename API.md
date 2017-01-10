@@ -227,6 +227,16 @@ end
 - `log(AnyObject... arguments)` logs the arguments to the Console
 - `notify(String message)` delivers the message to the Notification Center
 
+*Consideration*
+Phoenix.log's will appear within Apple's Console application. But inside the .phoenix.js script use it as such.
+
+```
+Phoenix.log('something' + JSON.stringify(Window.focused().screen().flippedVisibleFrame())); // + works
+
+Phoenix.log('something', JSON.stringify(Window.focused().screen().flippedVisibleFrame())); // , does not work
+Phoenix.log('something', Window.focused().screen().flippedVisibleFrame()); // , does not work
+```
+
 ## 6. Storage
 
 Use the `Storage`-object to store values across reloads and reboots as JSON.
