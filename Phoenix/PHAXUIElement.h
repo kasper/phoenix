@@ -16,6 +16,7 @@
 #pragma mark - System Accessors
 
 + (instancetype) elementForSystemAttribute:(NSString *)attribute;
++ (instancetype) elementAtPosition:(CGPoint)position;
 
 #pragma mark - Element Accessors
 

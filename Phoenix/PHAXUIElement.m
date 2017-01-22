@@ -46,6 +46,22 @@
     return [[self alloc] initWithElement:element];
 }
 
++ (instancetype) elementAtPosition:(CGPoint)position {
+
+    PHAXUIElement *systemWideElement = [self systemWideElement];
+
+    AXUIElementRef element = NULL;
+    AXError error = AXUIElementCopyElementAtPosition((__bridge AXUIElementRef) systemWideElement.element,
+                                                     position.x,
+                                                     position.y,
+                                                     &element);
+    if (error != kAXErrorSuccess) {
+        NSLog(@"Error: Could not get accessibility element at position %@. (%d)", NSStringFromPoint(position), error);
+    }
+
+    return [[self alloc] initWithElement:CFBridgingRelease(element)];
+}
+
 #pragma mark - Identifying
 
 - (NSUInteger) hash {

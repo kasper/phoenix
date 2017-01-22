@@ -610,6 +610,7 @@ Use the `Window`-object to control windows. Every screen (i.e. display) combines
 class Window implements Identifiable
 
   static Window focused()
+  static Window at(Point point)
   static Array<Window> all(Map<String, AnyObject> optionals)
   static Array<Window> recent()
 
@@ -642,6 +643,7 @@ end
 ```
 
 - `focused()` returns the focused window for the currently active app, can be `undefined` if no window is focused currently
+- `at(Point point)` returns the topmost window at the specified point, can be `undefined` if no window is present at the given position
 - `all(Map<String, AnyObject> optionals)` returns all windows in screens if no optionals are given
 - `recent()` returns all visible windows in the order as they appear on the screen (from front to back), essentially returning them in the most-recently-used order
 - `others(Map<String, AnyObject> optionals)` returns all other windows on all screens if no optionals are given

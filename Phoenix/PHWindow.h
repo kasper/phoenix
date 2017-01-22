@@ -19,6 +19,7 @@ static NSString * const PHWindowVisibilityOptionKey = @"visible";
 #pragma mark - Exported Windows
 
 + (instancetype) focused;
++ (instancetype) at:(CGPoint)point;
 + (NSArray<PHWindow *> *) all:(NSDictionary<NSString *, id> *)optionals;
 + (NSArray<PHWindow *> *) recent;
 

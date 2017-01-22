@@ -8,6 +8,7 @@ Release: dd.mm.yyyy
 
 ### New
 
+- Add support for getting the topmost window at a specified point ([#149](https://github.com/kasper/phoenix/issues/149)).
 - Add “Edit configuration” status menu item ([#156](https://github.com/kasper/phoenix/pull/156)).
 - Add support for mouse drag events ([#159](https://github.com/kasper/phoenix/issues/159)).
 
@@ -21,6 +22,10 @@ Release: dd.mm.yyyy
 
 - New: Event `mouseDidLeftDrag` is triggered when the mouse did left drag ([#159](https://github.com/kasper/phoenix/issues/159)).
 - New: Event `mouseDidRightDrag` is triggered when the mouse did right drag ([#159](https://github.com/kasper/phoenix/issues/159)).
+
+#### Window
+
+- New: Function `at(Point point)` returns the topmost window at the specified point, can be `undefined` if no window is present at the given position ([#149](https://github.com/kasper/phoenix/issues/149)).
 
 2.4
 ---
