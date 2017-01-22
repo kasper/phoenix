@@ -11,6 +11,10 @@ Release: dd.mm.yyyy
 - Add “Edit configuration” status menu item ([#156](https://github.com/kasper/phoenix/pull/156)).
 - Add support for mouse drag events ([#159](https://github.com/kasper/phoenix/issues/159)).
 
+### Changes
+
+- Lodash is upgraded to 4.17.4 (from 4.17.3).
+
 ### API
 
 #### Events
