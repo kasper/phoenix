@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2.5.1 (master)
+--------------
+
+Release: dd.mm.yyyy
+
 2.5
 ---
 
