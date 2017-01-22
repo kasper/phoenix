@@ -93,7 +93,7 @@ In addition to the Objective-C core, Phoenix also uses a JavaScript-based (5.1) 
 Install Grunt’s command line interface globally, if you do not already have it installed. Then, install the development packages listed in `package.json`.
 
     npm install -g grunt-cli
-    npm install -d
+    npm install
 
 To build `phoenix-min.js` from the source, run the command `grunt` in the root directory. Grunt will then build the source from `library/src/` and install the new library to `Phoenix/phoenix-min.js`. For convenience, this is also handled automatically by Xcode when you build Phoenix.
 
