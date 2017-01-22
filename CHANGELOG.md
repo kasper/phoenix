@@ -8,7 +8,7 @@ Release: dd.mm.yyyy
 
 ### New
 
-- If you did not already know, macOS Sierra (10.12) has full support for the ECMAScript 6 standard and you can now use it with Phoenix! [Read](http://es6-features.org) for a quick overview of the new features added to the language.
+- If you did not already know, macOS Sierra (10.12) has full support for the ECMAScript 6 standard and you can now use it with Phoenix! [Read](http://es6-features.org) a quick overview of the new features added to the language.
 - Add support for getting the topmost window at a specified point ([#149](https://github.com/kasper/phoenix/issues/149)).
 - Add “Edit configuration” status menu item ([#156](https://github.com/kasper/phoenix/pull/156)).
 - Add support for mouse drag events ([#159](https://github.com/kasper/phoenix/issues/159)).
