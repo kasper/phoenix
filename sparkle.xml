@@ -10,6 +10,36 @@
     <description>Feed for Phoenix updates.</description>
     <language>en</language>
 
+    <!-- 2.5 -->
+
+    <item>
+      <title>Version 2.5</title>
+      <pubDate>Sun, 22 Jan 2017 20:04:00 +0200</pubDate>
+      <description><![CDATA[
+
+        <p>This release includes a couple of new useful features. If you did not already know, macOS Sierra (10.12) has full support for the ECMAScript 6 standard and you can now use it with Phoenix! <a href='http://es6-features.org'>Read</a> a quick overview of the new features added to the language.</p>
+
+        <h3>What is New?</h3>
+
+        <ul>
+          <li>“Edit configuration” status menu item for conveniently accessing your configuration</li>
+          <li>support for getting the topmost window at a specified point</li>
+          <li>support for mouse drag events</li>
+          <li>upgraded Lodash</li>
+        </ul>
+
+        <p>See the full <a href='https://github.com/kasper/phoenix/blob/2.5/CHANGELOG.md'>Changelog</a>.</p>
+
+      ]]>
+      </description>
+      <enclosure sparkle:version='59'
+                 sparkle:shortVersionString='2.5'
+                 sparkle:dsaSignature='MC4CFQCAA/b1FZf8juwdw4G7H1P1ZpGMKAIVAJUBubnzCySeHsfRBErCeU1OPgr4'
+                 type='application/octet-stream'
+                 length='2195238'
+                 url='https://github.com/kasper/phoenix/releases/download/2.5/phoenix-2.5.tar.gz' />
+    </item>
+
     <!-- 2.4 -->
 
     <item>
