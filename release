@@ -143,6 +143,7 @@ echo "Date: $(LANG=en date '+%a, %d %b %Y %T %z')"
 echo "Version: $version ($build_number)"
 echo "Archive: $archive"
 echo "Size: $(stat -f '%z' $archive)"
+echo "SHA-256: $(shasum -a 256 $archive)"
 echo "Signature: $signature"
 
 describe 'Done.'
