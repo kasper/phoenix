@@ -45,9 +45,9 @@ GEM
     escape (0.0.4)
     fourflusher (2.0.1)
     fuzzy_match (2.0.4)
-    gh_inspector (1.0.2)
+    gh_inspector (1.0.3)
     i18n (0.7.0)
-    json (1.8.3)
+    json (1.8.6)
     minitest (5.10.1)
     molinillo (0.5.5)
     nanaimo (0.2.3)
@@ -70,7 +70,7 @@ DEPENDENCIES
   cocoapods (= 1.1.1)
 
 RUBY VERSION
-   ruby 2.3.3p222
+   ruby 2.4.0p0
 
 BUNDLED WITH
-   1.13.7
+   1.14.1
