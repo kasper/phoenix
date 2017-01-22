@@ -1,7 +1,7 @@
 JavaScript API
 ==============
 
-This documentation is an overview of the JavaScript API provided by Phoenix. Currently, the supported version of JavaScript is based on the ECMAScript 5.1 standard. Use this as a guide for writing your window management script. Your script should reside in `~/.phoenix.js`. Alternatively — if you prefer — you may also have your script in `~/Library/Application Support/Phoenix/phoenix.js` or `~/.config/phoenix/phoenix.js`. Phoenix includes [Lodash](https://lodash.com) (4.17.4) — you can use its features in your configuration. Lodash provides useful helpers for handling JavaScript functions and objects. You may also use JavaScript [preprocessing](#preprocessing) and languages such as CoffeeScript to write your Phoenix-configuration.
+This documentation is an overview of the JavaScript API provided by Phoenix. Currently, the supported version of JavaScript is based on the ECMAScript 6 standard. macOS versions prior to Sierra (10.12) support ECMAScript 5.1. Use this as a guide for writing your window management script. Your script should reside in `~/.phoenix.js`. Alternatively — if you prefer — you may also have your script in `~/Library/Application Support/Phoenix/phoenix.js` or `~/.config/phoenix/phoenix.js`. Phoenix includes [Lodash](https://lodash.com) (4.17.4) — you can use its features in your configuration. Lodash provides useful helpers for handling JavaScript functions and objects. You may also use JavaScript [preprocessing](#preprocessing) and languages such as CoffeeScript to write your Phoenix-configuration.
 
 ## General
 
@@ -105,7 +105,7 @@ Key.on 's', [ 'ctrl', 'shift' ], ->
   App.launch('Safari').focus()
 ```
 
-Or use [Babel](http://babeljs.io) to use ECMAScript 6 JavaScript:
+Or use [Babel](http://babeljs.io) to use ECMAScript 6 JavaScript in macOS versions prior to Sierra:
 
 ```javascript
 #!/usr/bin/env babel
