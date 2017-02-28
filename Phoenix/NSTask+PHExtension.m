@@ -37,7 +37,6 @@
     task.standardError = standardError;
 
     [task launch];
-    [task waitUntilExit];
 
     // Read standard output
     NSString *output = [[NSString alloc] initWithData:[standardOutput.fileHandleForReading readDataToEndOfFile]
@@ -53,6 +52,8 @@
                                  userInfo:@{ NSLocalizedDescriptionKey: @"Task failed.",
                                              NSLocalizedFailureReasonErrorKey: reason }];
     }
+    
+    [task waitUntilExit];
 
     return output;
 }
