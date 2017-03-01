@@ -9,7 +9,8 @@ Release: dd.mm.yyyy
 ### Bug Fixes
 
 - Fix issue where `PHShebangPreprocessor` blocks due to race conditions
-  ([#167](https://github.com/kasper/phoenix/issues/167)).
+  ([#167](https://github.com/kasper/phoenix/issues/167),
+   [#169](https://github.com/kasper/phoenix/issues/169)).
   [Read](http://stackoverflow.com/a/39281558) a related StackOverflow answer.
 
 2.5
