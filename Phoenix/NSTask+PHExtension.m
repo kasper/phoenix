@@ -42,18 +42,19 @@
     NSString *output = [[NSString alloc] initWithData:[standardOutput.fileHandleForReading readDataToEndOfFile]
                                              encoding:NSUTF8StringEncoding];
     // Read standard error
+    NSString *reason = [[NSString alloc] initWithData:[standardError.fileHandleForReading readDataToEndOfFile]
+                                             encoding:NSUTF8StringEncoding];
+    
+    // Wait for task termination
+    [task waitUntilExit];
+
+    // Report any errors
     if (error && task.terminationStatus != 0) {
-
-        NSString *reason = [[NSString alloc] initWithData:[standardError.fileHandleForReading readDataToEndOfFile]
-                                                 encoding:NSUTF8StringEncoding];
-
         *error = [NSError errorWithDomain:NSTaskErrorDomain
                                      code:NSTaskErrorCode
                                  userInfo:@{ NSLocalizedDescriptionKey: @"Task failed.",
                                              NSLocalizedFailureReasonErrorKey: reason }];
     }
-    
-    [task waitUntilExit];
 
     return output;
 }
