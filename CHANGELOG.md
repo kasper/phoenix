@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### Changes
+
+- Xcode 9 is now required for building.
+
 2.5
 ---
 
