@@ -237,7 +237,7 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
     return self.window.frame;
 }
 
-- (void) fadeWindowToAlpha:(CGFloat)alpha completionHandler:(void (^)())completionHandler {
+- (void) fadeWindowToAlpha:(CGFloat)alpha completionHandler:(void (^)(void))completionHandler {
 
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
 
