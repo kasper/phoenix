@@ -8,6 +8,7 @@ Release: dd.mm.yyyy
 
 ### Changes
 
+- Upgrade Sparkle to 1.18.1.
 - Xcode 9 is now required for building.
 
 2.5
