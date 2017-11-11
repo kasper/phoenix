@@ -5,7 +5,7 @@ osx_image: xcode9.1
 xcode_workspace: Phoenix.xcworkspace
 xcode_scheme: Phoenix
 
-xcode_sdk: macosx10.12
+xcode_sdk: macosx10.13
 
 notifications:
   email: false
