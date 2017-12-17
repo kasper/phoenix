@@ -5,9 +5,9 @@
 # Project
 
 .grunt/
+DerivedData/
 Phoenix/phoenix.js
 build/
 node_modules/
 project.xcworkspace/
 xcuserdata/
-DerivedData/

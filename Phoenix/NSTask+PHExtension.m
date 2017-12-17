@@ -44,7 +44,6 @@
     // Read standard error
     NSString *reason = [[NSString alloc] initWithData:[standardError.fileHandleForReading readDataToEndOfFile]
                                              encoding:NSUTF8StringEncoding];
-    
     // Wait for task termination
     [task waitUntilExit];
 
