@@ -27,7 +27,7 @@ A lightweight macOS window and app manager scriptable with JavaScript. You can a
 
 To install, extract the downloaded archive and just drag-and-drop Phoenix to your `Applications`-folder. When you run Phoenix for the first time, you will be asked to allow it to control your UI. macOS will ask you to open `Security & Privacy` in System Preferences. Once open, go to the `Accessibility`-section and click the checkbox next to Phoenix to enable control. An admin account is required to accomplish this.
 
-Alternatively, if you have [Homebrew Cask](http://caskroom.io) installed, you can simply run `brew cask install phoenix`.
+Alternatively, if you have [Homebrew Cask](https://caskroom.github.io) installed, you can simply run `brew cask install phoenix`.
 
 ## Uninstall
 
@@ -53,7 +53,7 @@ See the [JavaScript API](docs/API.md) to get started with your script. Your scri
 You will need some basic knowledge about installing the required languages and tools. If you need help, do not hesitate to ask! To get started, you will need:
 
 1. Git
-2. Xcode 8 or higher
+2. Xcode 9 or higher
 3. Xcode command line tools
 
 First clone the repository from a terminal:
@@ -75,7 +75,7 @@ Once complete, you will find a newly built Phoenix app in `build/Release/`. Afte
 
 Phoenix manages dependencies with [CocoaPods](https://cocoapods.org). Note that you do not need CocoaPods for basic development. However, if you want to install new pods or update existing ones, you will also need:
 
-4. [Ruby](https://www.ruby-lang.org) (2.4.0 or higher), it is recommended that you manage Ruby versions with for instance [rbenv](https://github.com/rbenv/rbenv/)
+4. [Ruby](https://www.ruby-lang.org) (2.4.3 or higher), it is recommended that you manage Ruby versions with for instance [rbenv](https://github.com/rbenv/rbenv/)
 5. [Bundler](http://bundler.io)
 6. CocoaPods
 
@@ -87,7 +87,7 @@ Install Bundler, if you do not already have it installed. To install CocoaPods a
 
 In addition to the Objective-C core, Phoenix also uses a JavaScript-based (5.1) library to implement additional features to the API. The minified library is included in the repository in `Phoenix/phoenix-min.js` so that everything works as is. However, if you want to develop features for this library, you will also need:
 
-7. [Node.js](https://nodejs.org) (7.4.0 or higher)
+7. [Node.js](https://nodejs.org) (9.3.0 or higher)
 8. [Grunt](http://gruntjs.com)
 
 Install Grunt’s command line interface globally, if you do not already have it installed. Then, install the development packages listed in `package.json`.

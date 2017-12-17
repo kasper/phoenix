@@ -12,7 +12,7 @@
 
 #pragma mark - Terminating
 
-- (void) shouldTerminate:(void (^)())terminate;
+- (void) shouldTerminate:(void (^)(void))terminate;
 
 @end
 

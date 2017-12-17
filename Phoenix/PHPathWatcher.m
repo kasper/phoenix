@@ -8,7 +8,7 @@
 
 @property FSEventStreamRef stream;
 @property (copy) NSArray<NSString *> *paths;
-@property (copy) void (^handler)();
+@property (copy) void (^handler)(void);
 
 @end
 
@@ -31,7 +31,7 @@ static void PHFSEventStreamCallback(__unused ConstFSEventStreamRef stream,
 
 #pragma mark - Initialising
 
-- (instancetype) initWithPaths:(NSArray<NSString *> *)paths handler:(void (^)())handler {
+- (instancetype) initWithPaths:(NSArray<NSString *> *)paths handler:(void (^)(void))handler {
 
     if (self = [super init]) {
 
@@ -44,7 +44,7 @@ static void PHFSEventStreamCallback(__unused ConstFSEventStreamRef stream,
     return self;
 }
 
-+ (instancetype) watcherFor:(NSArray<NSString *> *)paths handler:(void (^)())handler {
++ (instancetype) watcherFor:(NSArray<NSString *> *)paths handler:(void (^)(void))handler {
 
     return [[self alloc] initWithPaths:paths handler:handler];
 }

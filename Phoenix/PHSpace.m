@@ -46,7 +46,7 @@ static NSString * const CGSSpacesKey = @"Spaces";
 static NSString * const PHWindowIDKey = @"identifier";
 
 // XXX: Undocumented private API to get the CGSConnectionID for the default connection for this process
-CGSConnectionID CGSMainConnectionID();
+CGSConnectionID CGSMainConnectionID(void);
 
 // XXX: Undocumented private API to get the CGSSpaceID for the active space
 CGSSpaceID CGSGetActiveSpace(CGSConnectionID connection);

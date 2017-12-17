@@ -1,17 +1,19 @@
 Changelog
 =========
 
-2.5.1 (master)
---------------
+2.6 (master)
+------------
 
 Release: dd.mm.yyyy
 
+### Changes
+
+- Upgrade Sparkle to 1.18.1.
+- Xcode 9 is now required for building.
+
 ### Bug Fixes
 
-- Fix issue where `PHShebangPreprocessor` blocks due to race conditions
-  ([#167](https://github.com/kasper/phoenix/issues/167),
-   [#169](https://github.com/kasper/phoenix/issues/169)).
-  [Read](http://stackoverflow.com/a/39281558) a related StackOverflow answer.
+- Fix an issue where `PHShebangPreprocessor` blocks due to a race condition ([reference](https://stackoverflow.com/a/39281558), [#167](https://github.com/kasper/phoenix/issues/167), [#169](https://github.com/kasper/phoenix/issues/169)).
 
 2.5
 ---

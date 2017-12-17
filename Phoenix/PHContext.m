@@ -239,7 +239,7 @@
     NSLog(@"Context loaded.");
 }
 
-- (void) shouldTerminate:(void (^)())terminate {
+- (void) shouldTerminate:(void (^)(void))terminate {
 
     if (![self.storage isPersisting]) {
         terminate();
