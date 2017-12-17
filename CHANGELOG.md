@@ -11,6 +11,10 @@ Release: dd.mm.yyyy
 - Upgrade Sparkle to 1.18.1.
 - Xcode 9 is now required for building.
 
+### Improvements
+
+- Improve documentation for the behaviour of `Window#raise()` ([#164](https://github.com/kasper/phoenix/pull/164)).
+
 ### Bug Fixes
 
 - Fix an issue where `PHShebangPreprocessor` blocks due to a race condition ([reference](https://stackoverflow.com/a/39281558), [#167](https://github.com/kasper/phoenix/issues/167), [#169](https://github.com/kasper/phoenix/issues/169)).
