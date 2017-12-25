@@ -10,6 +10,33 @@
     <description>Feed for Phoenix updates.</description>
     <language>en</language>
 
+    <!-- 2.6 -->
+
+    <item>
+      <title>Version 2.6</title>
+      <pubDate>Mon, 25 Dec 2017 21:35:13 +0200</pubDate>
+      <description><![CDATA[
+
+        <p>Hello, do you remember me? This release includes a couple of bug fixes and improvements. Sorry for the wait!</p>
+
+        <h3>What is New?</h3>
+
+        <ul>
+          <li>support for closing windows</li>
+        </ul>
+
+        <p>See the full <a href='https://github.com/kasper/phoenix/blob/2.6/CHANGELOG.md'>Changelog</a>.</p>
+
+      ]]>
+      </description>
+      <enclosure sparkle:version='62'
+                 sparkle:shortVersionString='2.6'
+                 sparkle:dsaSignature='MCwCFBc/iLWJDRimXH3QKkektqGauDWdAhRG4xgOHVl8Y75e7+KPUEvZcawXuA=='
+                 type='application/octet-stream'
+                 length='3375884'
+                 url='https://github.com/kasper/phoenix/releases/download/2.6/phoenix-2.6.tar.gz' />
+    </item>
+
     <!-- 2.5 -->
 
     <item>

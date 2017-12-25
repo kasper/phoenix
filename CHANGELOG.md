@@ -1,10 +1,10 @@
 Changelog
 =========
 
-2.6 (master)
-------------
+2.6
+---
 
-Release: dd.mm.yyyy
+Release: 25.12.2017
 
 ### New
 
