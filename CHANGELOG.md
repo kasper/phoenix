@@ -18,6 +18,7 @@ Release: dd.mm.yyyy
 ### Bug Fixes
 
 - Fix an issue where `PHShebangPreprocessor` blocks due to a race condition ([reference](https://stackoverflow.com/a/39281558), [#167](https://github.com/kasper/phoenix/issues/167), [#169](https://github.com/kasper/phoenix/issues/169)).
+- Fix an issue that removed Phoenix from the login items on reload when preference was set through the status bar menu ([#194](https://github.com/kasper/phoenix/issues/194)).
 
 2.5
 ---

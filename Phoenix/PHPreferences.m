@@ -2,6 +2,7 @@
  * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
  */
 
+#import "PHOpenAtLoginHelper.h"
 #import "PHPreferences.h"
 
 @interface PHPreferences ()
@@ -21,6 +22,7 @@ static NSString * const PHPreferencesOpenAtLoginKey = @"openAtLogin";
 
     if (self = [super init]) {
         self.preferences = [NSMutableDictionary dictionary];
+        [self load];
     }
 
     return self;
@@ -48,6 +50,11 @@ static NSString * const PHPreferencesOpenAtLoginKey = @"openAtLogin";
     [[NSNotificationCenter defaultCenter] postNotificationName:PHPreferencesDidChangeNotification object:nil];
 }
 
+- (void) load {
+
+    self.preferences[PHPreferencesOpenAtLoginKey] = @([PHOpenAtLoginHelper opensAtLogin]);
+}
+
 - (void) add:(NSDictionary<NSString *, id> *)preferences {
 
     [self.preferences addEntriesFromDictionary:preferences];
@@ -57,6 +64,7 @@ static NSString * const PHPreferencesOpenAtLoginKey = @"openAtLogin";
 - (void) reset {
 
     [self.preferences removeAllObjects];
+    [self load];
     [self preferencesDidChange];
 }
 
