@@ -13,9 +13,6 @@
 
 @implementation PHPreferences
 
-static NSString * const PHPreferencesDaemonKey = @"daemon";
-static NSString * const PHPreferencesOpenAtLoginKey = @"openAtLogin";
-
 #pragma mark - Initialising
 
 - (instancetype) init {
@@ -55,7 +52,7 @@ static NSString * const PHPreferencesOpenAtLoginKey = @"openAtLogin";
     self.preferences[PHPreferencesOpenAtLoginKey] = @([PHOpenAtLoginHelper opensAtLogin]);
 }
 
-- (void) add:(NSDictionary<NSString *, id> *)preferences {
+- (void) add:(NSDictionary<PHPreferencesPreferenceKey, id> *)preferences {
 
     [self.preferences addEntriesFromDictionary:preferences];
     [self preferencesDidChange];

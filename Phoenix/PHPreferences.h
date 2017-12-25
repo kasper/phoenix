@@ -4,7 +4,11 @@
 
 @import Foundation;
 
+typedef NSString * PHPreferencesPreferenceKey;
+
 static NSString * const PHPreferencesDidChangeNotification = @"PHPreferencesDidChangeNotification";
+static PHPreferencesPreferenceKey const PHPreferencesDaemonKey = @"daemon";
+static PHPreferencesPreferenceKey const PHPreferencesOpenAtLoginKey = @"openAtLogin";
 
 @interface PHPreferences : NSObject
 
@@ -19,7 +23,7 @@ static NSString * const PHPreferencesDidChangeNotification = @"PHPreferencesDidC
 
 #pragma mark - Preferences
 
-- (void) add:(NSDictionary<NSString *, id> *)preferences;
+- (void) add:(NSDictionary<PHPreferencesPreferenceKey, id> *)preferences;
 - (void) reset;
 
 - (BOOL) isDaemon;

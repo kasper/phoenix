@@ -102,7 +102,8 @@
 
 - (IBAction) toggleOpenAtLogin:(NSMenuItem *)sender {
 
-    [PHOpenAtLoginHelper setOpensAtLogin:sender.state == NSOffState];
+    BOOL openAtLogin = sender.state == NSOffState;
+    [[PHPreferences sharedPreferences] add:@{ PHPreferencesOpenAtLoginKey: @(openAtLogin) }];
 }
 
 @end
