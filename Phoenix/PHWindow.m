@@ -476,4 +476,13 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     }
 }
 
+#pragma mark - Closing
+
+- (BOOL) close {
+
+    id closeButtonElement = [self valueForAttribute:NSAccessibilityCloseButtonAttribute];
+    PHAXUIElement *closeButton = [[PHAXUIElement alloc] initWithElement:closeButtonElement];
+    return [closeButton performAction:NSAccessibilityPressAction];
+}
+
 @end

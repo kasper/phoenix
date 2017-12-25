@@ -638,6 +638,7 @@ class Window implements Identifiable
   boolean raise()
   boolean focus()
   boolean focusClosestNeighbour(String direction) // or focusClosestNeighbor(...)
+  boolean close()
 
 end
 ```
@@ -670,6 +671,7 @@ end
 - `raise()` makes the window the frontmost window of its app (but does not focus the app itself), returns `true` if successful
 - `focus()` focuses the window, returns `true` if successful
 - `focusClosestNeighbour(String direction)` or `focusClosestNeighbor(...)` focuses the closest window to the direction (`west|east|north|south`) of the window, returns `true` if successful
+- `close()` closes the window, returns `true` if successful
 
 ### Window Optionals
 

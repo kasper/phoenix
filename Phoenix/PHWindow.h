@@ -60,6 +60,10 @@ static NSString * const PHWindowVisibilityOptionKey = @"visible";
 - (BOOL) focus;
 - (BOOL) focusClosestNeighbor:(NSString *)direction;
 
+#pragma mark - Closing
+
+- (BOOL) close;
+
 @end
 
 @interface PHWindow : PHAXUIElement <PHWindowJSExport>

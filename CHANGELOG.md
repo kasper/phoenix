@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### New
+
+- Add support for closing windows ([#184](https://github.com/kasper/phoenix/issues/184)).
+
 ### Changes
 
 - Upgrade Sparkle to 1.18.1.
@@ -19,6 +23,12 @@ Release: dd.mm.yyyy
 
 - Fix an issue where `PHShebangPreprocessor` blocks due to a race condition ([reference](https://stackoverflow.com/a/39281558), [#167](https://github.com/kasper/phoenix/issues/167), [#169](https://github.com/kasper/phoenix/issues/169)).
 - Fix an issue that removed Phoenix from the login items on reload when preference was set through the status bar menu ([#194](https://github.com/kasper/phoenix/issues/194)).
+
+### API
+
+#### Window
+
+- New: Function `close()` closes the window, returns `true` if successful ([#184](https://github.com/kasper/phoenix/issues/184)).
 
 2.5
 ---
