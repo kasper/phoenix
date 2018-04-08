@@ -10,6 +10,33 @@
     <description>Feed for Phoenix updates.</description>
     <language>en</language>
 
+    <!-- 2.6.1 -->
+
+    <item>
+      <title>Version 2.6.1</title>
+      <pubDate>Sun, 08 Apr 2018 20:50:05 +0300</pubDate>
+      <description><![CDATA[
+
+        <p>This release includes a couple of new useful features.</p>
+
+        <h3>What is New?</h3>
+
+        <ul>
+          <li>support for one-time managed handlers for both keys and events, see <code>Key.once</code> and <code>Event.once</code></li>
+        </ul>
+
+        <p>See the full <a href='https://github.com/kasper/phoenix/blob/2.6.1/CHANGELOG.md'>Changelog</a>.</p>
+
+      ]]>
+      </description>
+      <enclosure sparkle:version='65'
+                 sparkle:shortVersionString='2.6.1'
+                 sparkle:dsaSignature='MCwCFCcJ/JxUx6Tn5Xuz3e0wbLBI7AWSAhQr6M8tBPHuHEEa+qGtkXJbqH8waw=='
+                 type='application/octet-stream'
+                 length='3629568'
+                 url='https://github.com/kasper/phoenix/releases/download/2.6.1/phoenix-2.6.1.tar.gz' />
+    </item>
+
     <!-- 2.6 -->
 
     <item>
