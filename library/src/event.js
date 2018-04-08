@@ -22,4 +22,14 @@
       delete events[identifier];
     }
   }
+
+  scope.once = function (event, callback) {
+    var identifier = scope.on(event, function () {
+      var returnValue = callback.apply(null, arguments);
+      if (returnValue === false) {
+        return;
+      }
+      scope.off(identifier);
+    });
+  }
 })(Event);

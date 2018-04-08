@@ -326,6 +326,7 @@ Use the `Key`-object to construct keys, access their properties, and enable or d
 class Key implements Identifiable
 
   static int on(String key, Array<String> modifiers, Function callback)
+  static void once(String key, Array<String> modifiers, Function callback)
   static void off(int identifier)
 
   property String key
@@ -340,6 +341,7 @@ end
 ```
 
 - `on(String key, Array<String> modifiers, Function callback)` constructs a managed handler for a key and returns the identifier for the handler, for arguments see `new Key(...)`
+- `once(String key, Array<String> modifiers, Function callback)` constructs a managed handler for a key that is by default only triggered one time and then disabled, for more control you can explicitly return `false` from the callback function and the handler will not be disabled until you return something else, for arguments see `new Key(...)`
 - `off(int identifier)` disables the managed handler for a key with the given identifier
 - `key` read-only property for the key character in lower case or case sensitive special key
 - `modifiers` read-only property for the key modifiers in lower case
@@ -356,6 +358,7 @@ Use the `Event`-object to construct events, access their properties or to disabl
 class Event implements Identifiable
 
   static int on(String event, Function callback)
+  static void once(String event, Function callback)
   static void off(int identifier)
 
   property String name
@@ -367,6 +370,7 @@ end
 ```
 
 - `on(String event, Function callback)` constructs a managed handler for an event and returns the identifier for the handler, for arguments see `new Event(...)`
+- `once(String event, Function callback)` constructs a managed handler for an event that is by default only triggered one time and then disabled, for more control you can explicitly return `false` from the callback function and the handler will not be disabled until you return something else, for arguments see `new Event(...)`
 - `off(int identifier)` disables the managed handler for an event with the given identifier
 - `name` read-only property for the event name
 - `new Event(String event, Function callback)` constructs and binds an event to a callback function and returns the handler, you must keep a reference to the handler in order for your callback to get called, you can have multiple handlers for a single event, the callback function receives its handler as the last argument, for any additional arguments see [events](#2-events)

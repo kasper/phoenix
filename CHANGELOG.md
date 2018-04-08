@@ -6,6 +6,20 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### New
+
+- Add support for one-time managed handlers for both keys and events ([#201](https://github.com/kasper/phoenix/issues/201)).
+
+### API
+
+#### Key
+
+- New: Function `once(String key, Array<String> modifiers, Function callback)` constructs a managed handler for a key that is by default only triggered one time and then disabled, for more control you can explicitly return `false` from the callback function and the handler will not be disabled until you return something else, for arguments see `new Key(...)` ([#201](https://github.com/kasper/phoenix/issues/201)).
+
+#### Event
+
+- New: Function `once(String event, Function callback)` constructs a managed handler for an event that is by default only triggered one time and then disabled, for more control you can explicitly return `false` from the callback function and the handler will not be disabled until you return something else, for arguments see `new Event(...)` ([#201](https://github.com/kasper/phoenix/issues/201)).
+
 2.6
 ---
 

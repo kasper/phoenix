@@ -22,4 +22,14 @@
       delete keys[identifier];
     }
   }
+
+  scope.once = function (key, modifiers, callback) {
+    var identifier = scope.on(key, modifiers, function () {
+      var returnValue = callback.apply(null, arguments);
+      if (returnValue === false) {
+        return;
+      }
+      scope.off(identifier);
+    });
+  }
 })(Key);
