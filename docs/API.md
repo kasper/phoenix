@@ -10,6 +10,7 @@ This documentation is an overview of the JavaScript API provided by Phoenix. Cur
 3. [Loading](#loading)
 4. [Preprocessing](#preprocessing)
 5. [About Coordinates](#about-coordinates)
+6. [Logging and Debugging](#logging-and-debugging)
 
 ## API
 
@@ -119,6 +120,12 @@ Key.on('s', [ 'ctrl', 'shift' ], () => {
 
 macOS has two commonly used coordinate systems: for higher level elements the origo `(0, 0)` is situated in the bottom-left corner of the screen, on the contrary for lower level elements the origo is situated in the top-left corner of the screen (flipped). This API has no distinction between these systems — `Point`s can represent both cases. The larger part of the API uses a flipped top-left based origin, unless otherwise is stated.
 
+## Logging and Debugging
+
+To log messages, use `Phoenix.log`. The messages are delivered to the Console (app). You can filter logs by process by searching for “Phoenix”. You can also follow the logs from a terminal by running `log stream --process Phoenix`.
+
+To debug your configuration, use Safari’s Web Inspector. You can attach to the context from Safari’s “Develop” menu under your devices name. Read a more comprehensive [instruction](https://github.com/kasper/phoenix/wiki/Attaching-to-Web-Inspector-for-Debugging/) to get started. In the Web Inspector’s Console you can also see messages outputted with `console.log`.
+
 ## 1. Keys
 
 All valid keys for binding are as follows:
@@ -224,7 +231,7 @@ end
 
 - `reload()` manually reloads the context and any changes in the configuration files
 - `set(Map<String, AnyObject> preferences)` sets the preferences from the given key–value map, any previously set preferences with the same key will be overridden
-- `log(AnyObject... arguments)` logs the arguments to the Console
+- `log(AnyObject... arguments)` logs the arguments to the Console (app)
 - `notify(String message)` delivers the message to the Notification Center
 
 ## 6. Storage
