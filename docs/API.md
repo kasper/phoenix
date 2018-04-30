@@ -564,7 +564,7 @@ Use the `App`-object to control apps. Beware that an app can get stale if you ke
 class App implements Identifiable
 
   static App get(String appName)
-  static App launch(String appName)
+  static App launch(String appName, Map<String, AnyObject> optionals)
   static App focused()
   static Array<App> all()
 
@@ -587,7 +587,7 @@ end
 ```
 
 - `get(String appName)` returns the running app with the given name, returns `undefined` if the app is not currently running
-- `launch(String appName)` launches to the background and returns the app with the given name, returns `undefined` if unsuccessful
+- `launch(String appName, Map<String, AnyObject> optionals)` launches and returns the app with the given name, returns `undefined` if unsuccessful
 - `focused()` returns the focused app
 - `all()` returns all running apps
 - `processIdentifier()` returns the process identifier (PID) for the app, returns `-1` if the app does not have a PID
@@ -612,6 +612,10 @@ end
 ### Terminate Optionals
 
 - `force` (boolean): if set `true` force terminates the app
+
+### Launch Optionals
+
+- `focus` (boolean): if set `true`, the launched app will be automatically focused. You don't need to call app.focus() to bring it forward.
 
 ## 21. Window
 
