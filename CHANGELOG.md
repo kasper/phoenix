@@ -8,6 +8,7 @@ Release: dd.mm.yyyy
 
 ### Changes
 
+- Upgrade Lodash to 4.17.5 (from 4.17.4).
 - Upgrade Sparkle to 1.19.0.
 
 2.6.1
