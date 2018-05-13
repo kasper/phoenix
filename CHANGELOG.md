@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### Changes
+
+- Upgrade Sparkle to 1.19.0.
+
 2.6.1
 -----
 
