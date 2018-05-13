@@ -16,7 +16,7 @@
 #pragma mark - Apps
 
 + (instancetype) get:(NSString *)appName;
-+ (instancetype) launch:(NSString *)appName;
++ (instancetype) launch:(NSString *)appName :(NSDictionary<NSString *, id> *)optionals;
 + (instancetype) focused;
 + (NSArray<PHApp *> *) all;
 

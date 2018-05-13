@@ -15,6 +15,7 @@
 @implementation PHApp
 
 static NSString * const PHAppForceOptionKey = @"force";
+static NSString * const PHAppLaunchFocusOptionKey = @"focus";
 
 #pragma mark - Initialising
 
@@ -41,7 +42,7 @@ static NSString * const PHAppForceOptionKey = @"force";
     return nil;
 }
 
-+ (instancetype) launch:(NSString *)appName {
++ (instancetype) launch:(NSString *)appName :(NSDictionary<NSString *, id> *)optionals {
 
     NSWorkspace *sharedWorkspace = [NSWorkspace sharedWorkspace];
     NSString *appPath = [sharedWorkspace fullPathForApplication:appName];
@@ -51,9 +52,16 @@ static NSString * const PHAppForceOptionKey = @"force";
         return nil;
     }
 
+    NSNumber *focusOption = optionals[PHAppLaunchFocusOptionKey];
+
+    NSWorkspaceLaunchOptions launchOption = NSWorkspaceLaunchWithoutActivation;
+    if (focusOption && focusOption.boolValue) {
+        launchOption = NSWorkspaceLaunchDefault;
+    }
+
     NSError *error;
     NSRunningApplication *app = [sharedWorkspace launchApplicationAtURL:[NSURL fileURLWithPath:appPath]
-                                                                options:NSWorkspaceLaunchWithoutActivation
+                                                                options:launchOption
                                                           configuration:@{}
                                                                   error:&error];
     if (error) {
