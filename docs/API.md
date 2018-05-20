@@ -605,6 +605,10 @@ end
 - `hide()` hides the app, returns `true` if successful
 - `terminate(Map<String, AnyObject> optionals)` terminates the app, returns `true` if successful
 
+### Launch Optionals
+
+- `focus` (boolean): if set `true` the app will automatically be focused on launch, by default the app launches to the background
+
 ### Window Optionals
 
 - `visible` (boolean): if set `true` returns all visible windows for the app, if set `false` returns all hidden windows for the app
@@ -612,10 +616,6 @@ end
 ### Terminate Optionals
 
 - `force` (boolean): if set `true` force terminates the app
-
-### Launch Optionals
-
-- `focus` (boolean): if set `true`, the launched app will be automatically focused. You don't need to call app.focus() to bring it forward.
 
 ## 21. Window
 

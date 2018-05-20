@@ -11,6 +11,12 @@ Release: dd.mm.yyyy
 - Upgrade Lodash to 4.17.5 (from 4.17.4).
 - Upgrade Sparkle to 1.19.0.
 
+### API
+
+#### App
+
+- Change: Function `launch(...)` now supports a focus option to focus the app automatically on launch ([#211](https://github.com/kasper/phoenix/issues/211), [#212](https://github.com/kasper/phoenix/pull/212)).
+
 2.6.1
 -----
 
