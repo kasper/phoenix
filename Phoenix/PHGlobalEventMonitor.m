@@ -6,6 +6,7 @@
 
 #import "PHEventConstants.h"
 #import "PHGlobalEventMonitor.h"
+#import "PHKeyTranslator.h"
 #import "PHMouse.h"
 
 @interface PHGlobalEventMonitor ()
@@ -98,7 +99,12 @@
             // Event for mouse
             if ([notification hasPrefix:NSStringFromClass([PHMouse class])]) {
                 CGPoint location = [PHMouse location];
-                userInfo[PHGlobalEventMonitorMouseKey] = @{ @"x": @(location.x), @"y": @(location.y) };
+                NSArray<NSString *> *modifiers = [PHKeyTranslator modifiersForModifierFlags:event.modifierFlags];
+                userInfo[PHGlobalEventMonitorMouseKey] = @{
+                   @"x": @(location.x),
+                   @"y": @(location.y),
+                   @"modifiers": modifiers,
+               };
             }
 
             [[NSNotificationCenter defaultCenter] postNotificationName:notification object:nil userInfo:userInfo];
