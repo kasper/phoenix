@@ -33,7 +33,7 @@ GEM
       fuzzy_match (~> 2.0.4)
       nap (~> 1.0)
     cocoapods-deintegrate (1.0.2)
-    cocoapods-downloader (1.2.0)
+    cocoapods-downloader (1.2.1)
     cocoapods-plugins (1.0.0)
       nap
     cocoapods-search (1.0.0)
@@ -55,11 +55,11 @@ GEM
     nanaimo (0.2.5)
     nap (1.1.0)
     netrc (0.11.0)
-    ruby-macho (1.1.0)
+    ruby-macho (1.2.0)
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    xcodeproj (1.5.8)
+    xcodeproj (1.5.9)
       CFPropertyList (>= 2.3.3, < 4.0)
       atomos (~> 0.1.2)
       claide (>= 1.0.2, < 2.0)
@@ -76,4 +76,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.16.1
+   1.16.2
