@@ -462,7 +462,7 @@ end
 - `build(Map<String, AnyObject> properties)` builds a modal with the specified properties and returns it, `origin` should be a function that receives the frame for the modal as the only argument and returns a `Point`-object which will be set as the origin for the modal
 - `origin` dynamic property for the origin of the modal, the enclosed properties are read-only so you must pass an object for this property, bottom-left based origin, by default `(0, 0)`
 - `duration` property for the duration (in seconds) before automatically closing the modal, if the duration is set to `0` the modal will remain open until closed, by default `0`
-- `animationDuration` property for the animation duration (in seconds) for opening and closing the modal, if the duration is set to `0` the animation will be disabled, by default `0.2`
+- `animationDuration` property for the animation duration (in seconds) for showing and closing the modal, if the duration is set to `0` the animation will be disabled, by default `0.2`
 - `weight` dynamic property for the weight of the modal (in points), by default `24`
 - `appearance` property for the appearance of the modal (`dark|light|transparent`), by default `dark`
 - `icon` dynamic property for the icon displayed in the modal

@@ -15,7 +15,7 @@ Release: dd.mm.yyyy
 
 #### Modal
 
-- New: Property `animationDuration` defines the animation duration (in seconds) for opening and closing the modal, if the duration is set to `0` the animation will be disabled, by default `0.2` ([#203](https://github.com/kasper/phoenix/issues/203)).
+- New: Property `animationDuration` defines the animation duration (in seconds) for showing and closing the modal, if the duration is set to `0` the animation will be disabled, by default `0.2` ([#203](https://github.com/kasper/phoenix/issues/203)).
 
 #### App
 
