@@ -13,6 +13,10 @@ Release: dd.mm.yyyy
 
 ### API
 
+#### Modal
+
+- New: Property `animationDuration` defines the animation duration (in seconds) for opening and closing the modal, if the duration is set to `0` the animation will be disabled, by default `0.2` [#203](https://github.com/kasper/phoenix/issues/203).
+
 #### App
 
 - Change: Function `launch(...)` now supports a focus option to focus the app automatically on launch ([#211](https://github.com/kasper/phoenix/issues/211), [#212](https://github.com/kasper/phoenix/pull/212)).
