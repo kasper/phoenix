@@ -1,10 +1,15 @@
 Changelog
 =========
 
-2.6.2 (master)
+2.6.3 (master)
 --------------
 
 Release: dd.mm.yyyy
+
+2.6.2
+-----
+
+Release: 7.6.2018
 
 ### Changes
 
@@ -12,6 +17,10 @@ Release: dd.mm.yyyy
 - Upgrade Sparkle to 1.19.0.
 
 ### API
+
+#### Modal
+
+- New: Property `animationDuration` defines the animation duration (in seconds) for showing and closing the modal, if the duration is set to `0` the animation will be disabled, by default `0.2` ([#203](https://github.com/kasper/phoenix/issues/203)).
 
 #### App
 

@@ -10,6 +10,35 @@
     <description>Feed for Phoenix updates.</description>
     <language>en</language>
 
+    <!-- 2.6.2 -->
+
+    <item>
+      <title>Version 2.6.2</title>
+      <pubDate>Thu, 07 Jun 2018 22:10:46 +0300</pubDate>
+      <description><![CDATA[
+
+        <p>This release includes a couple of new useful features.</p>
+
+        <h3>What is New?</h3>
+
+        <ul>
+          <li>support to focus app more responsively on launch</li>
+          <li>support to customise duration of modal animation when showing and closing</li>
+          <li>upgraded Lodash</li>
+        </ul>
+
+        <p>See the full <a href='https://github.com/kasper/phoenix/blob/2.6.2/CHANGELOG.md'>Changelog</a>.</p>
+
+      ]]>
+      </description>
+      <enclosure sparkle:version='71'
+                 sparkle:shortVersionString='2.6.2'
+                 sparkle:dsaSignature='MCwCFGcMrwzfkxb97qkbzDKV1X6m1B6eAhRi5Q1k0jrdpVjfAIskrY/JTfrvMQ=='
+                 type='application/octet-stream'
+                 length='3647486'
+                 url='https://github.com/kasper/phoenix/releases/download/2.6.2/phoenix-2.6.2.tar.gz' />
+    </item>
+
     <!-- 2.6.1 -->
 
     <item>

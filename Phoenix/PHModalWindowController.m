@@ -41,6 +41,7 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
 
         [self addObserverForKeyPaths:[PHModalWindowController keyPaths]];
 
+        self.animationDuration = 0.2;
         self.weight = 24.0;
         self.appearance = PHModalWindowControllerAppearanceDark;
         self.text = @"";
@@ -241,7 +242,7 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
 
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
 
-        context.duration = 0.2;
+        context.duration = self.animationDuration;
         [self.window animator].alphaValue = alpha;
 
     } completionHandler:completionHandler];

@@ -13,6 +13,7 @@
 
 @property NSPoint origin;
 @property NSTimeInterval duration;
+@property NSTimeInterval animationDuration;
 @property CGFloat weight;
 @property (copy) NSString *appearance;
 @property NSImage *icon;
@@ -41,6 +42,7 @@
 
 @property NSPoint origin;
 @property NSTimeInterval duration;
+@property NSTimeInterval animationDuration;
 @property CGFloat weight;
 @property (copy) NSString *appearance;
 @property NSImage *icon;
