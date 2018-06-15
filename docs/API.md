@@ -43,7 +43,7 @@ This documentation uses *pseudocode* to outline the API. Many of the classes rep
 For example, to bind a key to a function, you construct a `Key`-object. Notice that *you must keep a reference to the handler*, otherwise your callback will not get called.
 
 ```javascript
-var handler = new Key('q', [ 'ctrl', 'shift' ], function () {});
+var handler = new Key('q', [ 'control', 'shift' ], function () {});
 ```
 
 To move the focused window to a new coordinate, you can call the `setTopLeft`-function for a `Window`-instance. To get a `Window`-instance, you can for example get the focused window with the `focused`-function for the global `Window`-object.
@@ -55,7 +55,7 @@ Window.focused().setTopLeft({ x: 0, y: 0 });
 To combine, bind a key to move the focused window.
 
 ```javascript
-var handler = new Key('q', [ 'ctrl', 'shift' ], function () {
+var handler = new Key('q', [ 'control', 'shift' ], function () {
   Window.focused().setTopLeft({ x: 0, y: 0 });
 });
 ```
@@ -75,13 +75,13 @@ Obviously, in most cases you do not want to worry about the lifecycle of your ha
 For example, to bind a key to a function.
 
 ```javascript
-Key.on('q', [ 'ctrl', 'shift' ], function () {});
+Key.on('q', [ 'control', 'shift' ], function () {});
 ```
 
 You can disable the handler with its identifier.
 
 ```javascript
-var identifier = Key.on('q', [ 'ctrl', 'shift' ], function () {});
+var identifier = Key.on('q', [ 'control', 'shift' ], function () {});
 Key.off(identifier);
 ```
 
@@ -102,7 +102,7 @@ You may add JavaScript preprocessing to your configuration by adding a [Shebang]
 ```coffeescript
 #!/usr/bin/env coffee -p
 
-Key.on 's', [ 'ctrl', 'shift' ], ->
+Key.on 's', [ 'control', 'shift' ], ->
   App.launch('Safari').focus()
 ```
 
@@ -111,7 +111,7 @@ Or use [Babel](http://babeljs.io) to use ECMAScript 6 JavaScript in macOS versio
 ```javascript
 #!/usr/bin/env babel
 
-Key.on('s', [ 'ctrl', 'shift' ], () => {
+Key.on('s', [ 'control', 'shift' ], () => {
   App.launch('Safari').focus();
 });
 ```
@@ -130,7 +130,7 @@ To debug your configuration, use Safari’s Web Inspector. You can attach to the
 
 All valid keys for binding are as follows:
 
-- Modifiers: `cmd`, `alt`, `ctrl` and `shift` (case insensitive)
+- Modifiers: `command` (`cmd`), `option` (`alt`), `control` (`ctrl`) and `shift` (case insensitive)
 - Keys: case insensitive character or case sensitive special key including function keys, arrow keys, keypad keys etc. as listed below
 - You can bind any key on your local keyboard layout, for instance an `å`-character if your keyboard has one
 - If you use multiple keyboard layouts, Phoenix will use the active layout when the context is loaded
