@@ -6,6 +6,12 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### API
+
+#### Keys
+
+- New: Add support for `command`, `option` and `control` as additional key modifiers. This is purely syntactic sugar representing newer Apple keyboard layouts and they alias the existing `cmd`, `alt` and `ctrl` modifiers in this order ([#173](https://github.com/kasper/phoenix/issues/173)).
+
 2.6.2
 -----
 

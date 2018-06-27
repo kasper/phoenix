@@ -18,8 +18,11 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
 
-        modifierToFlag = @{ @"cmd": @(cmdKey),
+        modifierToFlag = @{ @"command": @(cmdKey),
+                            @"cmd": @(cmdKey),
+                            @"option": @(optionKey),
                             @"alt": @(optionKey),
+                            @"control": @(controlKey),
                             @"ctrl": @(controlKey),
                             @"shift": @(shiftKey) };
     });
