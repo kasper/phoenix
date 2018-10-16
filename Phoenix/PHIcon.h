@@ -10,7 +10,6 @@
 
 @protocol PHIconJSExport <JSExport, PHIdentifiableJSExport>
 
-#pragma mark - Properties
 + (NSImage *) getFromFile:(NSString *)path;
 + (NSImage *) getFromFile:(NSString *)path withWidth:(int)width;
 + (NSImage *) getFromFile:(NSString *)path withHeight:(int) height;
@@ -19,7 +18,5 @@
 @end
 
 @interface PHIcon : PHAXUIElement <PHIconJSExport>
-
-#pragma mark - Initialising
 
 @end
