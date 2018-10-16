@@ -65,8 +65,8 @@
 		14DA76905814ABA3258EF84C /* Pods-Phoenix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phoenix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Phoenix/Pods-Phoenix.debug.xcconfig"; sourceTree = "<group>"; };
 		1C93D6621BE11FF100649405 /* PHShebangPreprocessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHShebangPreprocessor.h; sourceTree = "<group>"; };
 		1C93D6631BE11FF100649405 /* PHShebangPreprocessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHShebangPreprocessor.m; sourceTree = "<group>"; };
-		72A76EC8217684220007AE96 /* PHIcon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PHIcon.m; path = /Users/pierre.borckmans/Dev/Perso/phoenix/Phoenix/PHIcon.m; sourceTree = "<absolute>"; };
-		72A76EC9217684220007AE96 /* PHIcon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PHIcon.h; path = /Users/pierre.borckmans/Dev/Perso/phoenix/Phoenix/PHIcon.h; sourceTree = "<absolute>"; };
+		72A76EC8217684220007AE96 /* PHIcon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PHIcon.m; path = PHIcon.m; sourceTree = "<group>"; };
+		72A76EC9217684220007AE96 /* PHIcon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PHIcon.h; path = PHIcon.h; sourceTree = "<group>"; };
 		A7183B651B6E865F00842E13 /* PHKeyHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHKeyHandler.h; sourceTree = "<group>"; };
 		A7183B661B6E865F00842E13 /* PHKeyHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHKeyHandler.m; sourceTree = "<group>"; };
 		A7288A331CC119BD00EC032B /* PHTimerHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHTimerHandler.h; sourceTree = "<group>"; };
