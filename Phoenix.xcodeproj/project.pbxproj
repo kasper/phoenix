@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C93D6641BE11FF100649405 /* PHShebangPreprocessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C93D6631BE11FF100649405 /* PHShebangPreprocessor.m */; };
+		72A76ECA217684220007AE96 /* PHIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A76EC8217684220007AE96 /* PHIcon.m */; };
 		A7183B671B6E865F00842E13 /* PHKeyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A7183B661B6E865F00842E13 /* PHKeyHandler.m */; };
 		A7288A351CC119BD00EC032B /* PHTimerHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A7288A341CC119BD00EC032B /* PHTimerHandler.m */; };
 		A7288A3B1CC14DF800EC032B /* PHWeakTimerTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = A7288A3A1CC14DF800EC032B /* PHWeakTimerTarget.m */; };
@@ -64,6 +65,8 @@
 		14DA76905814ABA3258EF84C /* Pods-Phoenix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phoenix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Phoenix/Pods-Phoenix.debug.xcconfig"; sourceTree = "<group>"; };
 		1C93D6621BE11FF100649405 /* PHShebangPreprocessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHShebangPreprocessor.h; sourceTree = "<group>"; };
 		1C93D6631BE11FF100649405 /* PHShebangPreprocessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHShebangPreprocessor.m; sourceTree = "<group>"; };
+		72A76EC8217684220007AE96 /* PHIcon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PHIcon.m; path = /Users/pierre.borckmans/Dev/Perso/phoenix/Phoenix/PHIcon.m; sourceTree = "<absolute>"; };
+		72A76EC9217684220007AE96 /* PHIcon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PHIcon.h; path = /Users/pierre.borckmans/Dev/Perso/phoenix/Phoenix/PHIcon.h; sourceTree = "<absolute>"; };
 		A7183B651B6E865F00842E13 /* PHKeyHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHKeyHandler.h; sourceTree = "<group>"; };
 		A7183B661B6E865F00842E13 /* PHKeyHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHKeyHandler.m; sourceTree = "<group>"; };
 		A7288A331CC119BD00EC032B /* PHTimerHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHTimerHandler.h; sourceTree = "<group>"; };
@@ -198,6 +201,8 @@
 				A731A7251C2C76B800EB9FD5 /* PHSpace.m */,
 				A79C46901B5BF3C100C460CF /* PHWindow.h */,
 				A79C46911B5BF3C100C460CF /* PHWindow.m */,
+				72A76EC9217684220007AE96 /* PHIcon.h */,
+				72A76EC8217684220007AE96 /* PHIcon.m */,
 			);
 			name = Elements;
 			sourceTree = "<group>";
@@ -576,6 +581,7 @@
 				A74133721BB7F556008DAF39 /* PHEventTranslator.m in Sources */,
 				A7E6DF6F1BBAC1F3001920B4 /* PHAccessibilityObserver.m in Sources */,
 				A79C46971B5BF3C100C460CF /* PHApp.m in Sources */,
+				72A76ECA217684220007AE96 /* PHIcon.m in Sources */,
 				1C93D6641BE11FF100649405 /* PHShebangPreprocessor.m in Sources */,
 				A7D1D9A91B6FD6A300E00CC9 /* PHKeyTranslator.m in Sources */,
 				A78566D11CBE77CD00036AF9 /* PHPreferences.m in Sources */,

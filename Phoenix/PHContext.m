@@ -23,6 +23,7 @@
 #import "PHTaskHandler.h"
 #import "PHTimerHandler.h"
 #import "PHWindow.h"
+#import "PHIcon.h"
 
 @interface PHContext ()
 
@@ -191,6 +192,7 @@
     self.context[@"Mouse"] = [PHMouse class];
     self.context[@"App"] = [PHApp class];
     self.context[@"Window"] = [PHWindow class];
+    self.context[@"Icon"] = [PHIcon class];
 
     self.context[@"require"] = ^(NSString *path) {
 
