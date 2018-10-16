@@ -11,7 +11,7 @@
 @implementation PHIcon
 
 + (NSImage *) set:(NSImage*)anImage Width:(int)newWidth AndHeight:(int)newHeight {
-    NSImage *sourceImage = anImage;
+    NSImage *sourceImage = anImage.copy;
     
     // Report an error if the source isn't a valid image
     if (![sourceImage isValid]){
@@ -22,10 +22,9 @@
         newSize.height = newHeight;
         NSImage *smallImage = [[NSImage alloc] initWithSize: newSize];
         [smallImage lockFocus];
-        NSImage* copy = sourceImage.copy;
-        [copy setSize: newSize];
+        [sourceImage setSize: newSize];
         [[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
-        [copy drawAtPoint:NSZeroPoint fromRect:CGRectMake(0, 0, newSize.width, newSize.height) operation:NSCompositeCopy fraction:1.0];
+        [sourceImage drawAtPoint:NSZeroPoint fromRect:CGRectMake(0, 0, newSize.width, newSize.height) operation:NSCompositeCopy fraction:1.0];
         [smallImage unlockFocus];
         return smallImage;
     }
