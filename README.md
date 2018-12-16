@@ -53,7 +53,7 @@ See the [JavaScript API](docs/API.md) to get started with your script. Your scri
 You will need some basic knowledge about installing the required languages and tools. If you need help, do not hesitate to ask! To get started, you will need:
 
 1. Git
-2. Xcode 9 or higher
+2. Xcode 10 or higher
 3. Xcode command line tools
 
 First clone the repository from a terminal:
