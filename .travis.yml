@@ -17,7 +17,5 @@ script: xcodebuild -workspace $TRAVIS_XCODE_WORKSPACE -scheme $TRAVIS_XCODE_SCHE
 
 matrix:
   include:
-    - osx_image: xcode9.3
-    - osx_image: xcode9.2
-    - osx_image: xcode9.1
-    - osx_image: xcode9
+    - osx_image: xcode10.1
+    - osx_image: xcode10
