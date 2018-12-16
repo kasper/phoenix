@@ -3,7 +3,7 @@ language: objective-c
 xcode_workspace: Phoenix.xcworkspace
 xcode_scheme: Phoenix
 
-xcode_sdk: macosx10.13
+xcode_sdk: macosx10.14
 
 notifications:
   email: false
