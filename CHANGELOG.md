@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### Changes
+
+- Xcode 10 is now required for building.
+
 ### API
 
 #### Keys
