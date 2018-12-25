@@ -7,7 +7,7 @@
     "grunt-contrib-clean": "2.0.0",
     "grunt-contrib-concat": "1.0.1",
     "grunt-contrib-uglify": "4.0.0",
-    "grunt-contrib-jshint": "1.1.0",
+    "grunt-contrib-jshint": "2.0.0",
     "grunt-jscs": "3.0.1"
   },
   "scripts": {
