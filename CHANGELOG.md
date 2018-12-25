@@ -8,6 +8,7 @@ Release: dd.mm.yyyy
 
 ### Changes
 
+- Upgrade Sparkle to 1.21.2.
 - Xcode 10 is now required for building.
 
 ### API
