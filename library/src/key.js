@@ -3,7 +3,6 @@
 /* Key */
 
 (function (scope) {
-
   var keys = {};
 
   scope.on = function (key, modifiers, callback) {
@@ -13,7 +12,7 @@
     }
     keys[keyHandler.hash()] = keyHandler;
     return keyHandler.hash();
-  }
+  };
 
   scope.off = function (identifier) {
     var key = keys[identifier];
@@ -21,7 +20,7 @@
       key.disable();
       delete keys[identifier];
     }
-  }
+  };
 
   scope.once = function (key, modifiers, callback) {
     var identifier = scope.on(key, modifiers, function () {
@@ -31,5 +30,5 @@
       }
       scope.off(identifier);
     });
-  }
-})(Key);
+  };
+}(Key));

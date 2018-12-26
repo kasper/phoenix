@@ -11,4 +11,4 @@ Modal.build = function (properties) {
     modal.origin = properties.origin(modal.frame());
   }
   return modal;
-}
+};

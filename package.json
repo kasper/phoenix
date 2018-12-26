@@ -2,21 +2,44 @@
   "name": "phoenix",
   "version": "2.6.3",
   "private": true,
+  "engines": {
+    "node": ">=11.5.0",
+    "npm": ">=6.5.0"
+  },
   "devDependencies": {
-    "jscs": "3.0.7",
-    "jshint": "2.9.7",
-    "uglify-js": "3.4.9"
+    "eslint-config-airbnb-base": "13.1.0",
+    "uglify-js": "3.4.9",
+    "xo": "0.23.0"
   },
   "scripts": {
     "build": "npm run clean && npm test && npm run build:concat && npm run build:compress",
     "build:compress": "uglifyjs Phoenix/$npm_package_name.js --compress --mangle --output Phoenix/$npm_package_name.min.js",
     "build:concat": "cat library/src/*.js > Phoenix/$npm_package_name.js",
     "clean": "rm -f Phoenix/$npm_package_name.js Phoenix/$npm_package_name.min.js",
-    "lint": "jshint --config jshint.json library/ && jscs --config jscs.json library/",
+    "lint": "xo library/",
+    "lint:fix": "xo --fix library/",
     "test": "npm run lint"
   },
-  "engines": {
-    "node": ">=11.5.0",
-    "npm": ">=6.5.0"
+  "xo": {
+    "extends": "eslint-config-airbnb-base/legacy",
+    "globals": [
+      "_",
+      "Event",
+      "Key",
+      "Modal",
+      "Phoenix",
+      "Screen",
+      "Space",
+      "Task",
+      "Timer",
+      "Window"
+    ],
+    "rules": {
+      "no-param-reassign": "off",
+      "no-var": "off",
+      "prefer-arrow-callback": "off",
+      "prefer-rest-params": "off",
+      "prefer-spread": "off"
+    }
   }
 }

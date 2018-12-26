@@ -3,7 +3,6 @@
 /* Task */
 
 (function (scope) {
-
   var tasks = {};
 
   scope.run = function (path, args, callback) {
@@ -15,7 +14,7 @@
     });
     tasks[task.hash()] = task;
     return task.hash();
-  }
+  };
 
   scope.terminate = function (identifier) {
     var task = tasks[identifier];
@@ -23,5 +22,5 @@
       task.terminate();
       delete tasks[identifier];
     }
-  }
-})(Task);
+  };
+}(Task));
