@@ -26,13 +26,6 @@ module.exports = function (grunt) {
           'Phoenix/<%= pkg.name %>.min.js': 'Phoenix/<%= pkg.name %>.js'
         }
       }
-    },
-
-    jscs: {
-      src: [ 'Gruntfile.js', 'library/src/**/*.js' ],
-      options: {
-        config: 'jscs.json'
-      }
     }
   });
 
@@ -40,11 +33,9 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-jscs');
 
   /* Register tasks */
 
-  grunt.registerTask('test', [ 'jscs' ]);
   grunt.registerTask('build', [ 'concat', 'uglify' ]);
-  grunt.registerTask('default', [ 'test', 'build' ]);
+  grunt.registerTask('default', [ 'build' ]);
 }
