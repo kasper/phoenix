@@ -3,15 +3,14 @@
   "version": "2.6.3",
   "private": true,
   "devDependencies": {
-    "grunt": "1.0.3",
     "jscs": "3.0.7",
     "jshint": "2.9.7",
     "uglify-js": "3.4.9"
   },
   "scripts": {
     "build": "npm run clean && npm test && cat library/src/*.js > Phoenix/$npm_package_name.js && uglifyjs Phoenix/$npm_package_name.js --compress --mangle --output Phoenix/$npm_package_name.min.js",
-    "clean": "rm -frv .grunt/ Phoenix/$npm_package_name.js Phoenix/$npm_package_name.min.js",
-    "lint": "jshint --config jshint.json Gruntfile.js library/ && jscs --config jscs.json Gruntfile.js library/",
+    "clean": "rm -frv Phoenix/$npm_package_name.js Phoenix/$npm_package_name.min.js",
+    "lint": "jshint --config jshint.json library/ && jscs --config jscs.json library/",
     "test": "npm run lint"
   },
   "engines": {
