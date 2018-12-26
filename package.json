@@ -4,13 +4,12 @@
   "private": true,
   "devDependencies": {
     "grunt": "1.0.3",
-    "grunt-contrib-concat": "1.0.1",
     "grunt-contrib-uglify": "4.0.0",
     "jscs": "3.0.7",
     "jshint": "2.9.7"
   },
   "scripts": {
-    "build": "npm run clean && npm test && grunt",
+    "build": "npm run clean && npm test && cat library/src/*.js > Phoenix/$npm_package_name.js && grunt",
     "clean": "rm -frv .grunt/ Phoenix/$npm_package_name.js Phoenix/$npm_package_name.min.js",
     "lint": "jshint --config jshint.json Gruntfile.js library/ && jscs --config jscs.json Gruntfile.js library/",
     "test": "npm run lint"

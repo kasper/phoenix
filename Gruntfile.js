@@ -8,17 +8,6 @@ module.exports = function (grunt) {
 
     pkg: grunt.file.readJSON('package.json'),
 
-    concat: {
-
-      library: {
-        src: 'library/src/**/*.js',
-        dest: 'Phoenix/<%= pkg.name %>.js',
-        options: {
-          separator: ';'
-        }
-      }
-    },
-
     uglify: {
 
       library: {
@@ -31,11 +20,10 @@ module.exports = function (grunt) {
 
   /* Load tasks */
 
-  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
   /* Register tasks */
 
-  grunt.registerTask('build', [ 'concat', 'uglify' ]);
+  grunt.registerTask('build', [ 'uglify' ]);
   grunt.registerTask('default', [ 'build' ]);
 }
