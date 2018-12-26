@@ -28,13 +28,6 @@ module.exports = function (grunt) {
       }
     },
 
-    jshint: {
-      src: [ 'Gruntfile.js', 'library/src/**/*.js' ],
-      options: {
-        jshintrc: 'jshint.json'
-      }
-    },
-
     jscs: {
       src: [ 'Gruntfile.js', 'library/src/**/*.js' ],
       options: {
@@ -47,12 +40,11 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-jscs');
 
   /* Register tasks */
 
-  grunt.registerTask('test', [ 'jshint', 'jscs' ]);
+  grunt.registerTask('test', [ 'jscs' ]);
   grunt.registerTask('build', [ 'concat', 'uglify' ]);
   grunt.registerTask('default', [ 'test', 'build' ]);
 }
