@@ -4,13 +4,14 @@
   "private": true,
   "devDependencies": {
     "grunt": "1.0.3",
-    "grunt-contrib-clean": "2.0.0",
     "grunt-contrib-concat": "1.0.1",
     "grunt-contrib-uglify": "4.0.0",
     "grunt-contrib-jshint": "2.0.0",
     "grunt-jscs": "3.0.1"
   },
   "scripts": {
+    "build": "npm run clean",
+    "clean": "rm -frv .grunt/ Phoenix/$npm_package_name.js Phoenix/$npm_package_name.min.js",
     "test": "grunt test"
   },
   "engines": {

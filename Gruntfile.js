@@ -8,10 +8,6 @@ module.exports = function (grunt) {
 
     pkg: grunt.file.readJSON('package.json'),
 
-    clean: {
-      build: [ '.grunt/', 'Phoenix/<%= pkg.name %>.js' ]
-    },
-
     concat: {
 
       library: {
@@ -49,7 +45,6 @@ module.exports = function (grunt) {
 
   /* Load tasks */
 
-  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -59,5 +54,5 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [ 'jshint', 'jscs' ]);
   grunt.registerTask('build', [ 'concat', 'uglify' ]);
-  grunt.registerTask('default', [ 'clean', 'test', 'build' ]);
+  grunt.registerTask('default', [ 'test', 'build' ]);
 }
