@@ -3,6 +3,7 @@
  */
 
 @import Carbon;
+@import Cocoa;
 
 #import "PHKeyTranslator.h"
 
@@ -27,6 +28,23 @@
     });
 
     return modifierToFlag[modifier];
+}
+
++ (NSArray<NSString *> *) modifiersForModifierFlags:(UInt32)modifierFlags {
+    NSMutableArray<NSString *> *modifiers = [NSMutableArray array];
+    if (modifierFlags & NSEventModifierFlagCommand) {
+        [modifiers addObject:@"cmd"];
+    }
+    if (modifierFlags & NSEventModifierFlagOption) {
+        [modifiers addObject:@"alt"];
+    }
+    if (modifierFlags & NSEventModifierFlagControl) {
+        [modifiers addObject:@"ctrl"];
+    }
+    if (modifierFlags & NSEventModifierFlagShift) {
+        [modifiers addObject:@"shift"];
+    }
+    return modifiers;
 }
 
 #pragma mark - Local Key

@@ -38,6 +38,7 @@ Release: 7.6.2018
 #### App
 
 - Change: Function `launch(...)` now supports a focus option to focus the app automatically on launch ([#211](https://github.com/kasper/phoenix/issues/211), [#212](https://github.com/kasper/phoenix/pull/212)).
+- New: Add modifier flags to mouse events ([#216](https://github.com/kasper/phoenix/issues/216)).
 
 2.6.1
 -----
