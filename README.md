@@ -53,7 +53,7 @@ See the [JavaScript API](docs/API.md) to get started with your script. Your scri
 You will need some basic knowledge about installing the required languages and tools. If you need help, do not hesitate to ask! To get started, you will need:
 
 1. Git
-2. Xcode 9 or higher
+2. Xcode 10 or higher
 3. Xcode command line tools
 
 First clone the repository from a terminal:
@@ -75,7 +75,7 @@ Once complete, you will find a newly built Phoenix app in `build/Release/`. Afte
 
 Phoenix manages dependencies with [CocoaPods](https://cocoapods.org). Note that you do not need CocoaPods for basic development. However, if you want to install new pods or update existing ones, you will also need:
 
-4. [Ruby](https://www.ruby-lang.org) (2.5.1 or higher), it is recommended that you manage Ruby versions with for instance [rbenv](https://github.com/rbenv/rbenv/)
+4. [Ruby](https://www.ruby-lang.org) (2.5.3 or higher), it is recommended that you manage Ruby versions with for instance [rbenv](https://github.com/rbenv/rbenv/)
 5. [Bundler](http://bundler.io)
 6. CocoaPods
 
@@ -87,15 +87,13 @@ Install Bundler, if you do not already have it installed. To install CocoaPods a
 
 In addition to the Objective-C core, Phoenix also uses a JavaScript-based (5.1) library to implement additional features to the API. The minified library is included in the repository in `Phoenix/phoenix-min.js` so that everything works as is. However, if you want to develop features for this library, you will also need:
 
-7. [Node.js](https://nodejs.org) (10.4.0 or higher)
-8. [Grunt](http://gruntjs.com)
+7. [Node.js](https://nodejs.org) (11.5.0 or higher)
 
-Install Grunt’s command line interface globally, if you do not already have it installed. Then, install the development packages listed in `package.json`.
+Install the development packages listed in `package.json`.
 
-    npm install -g grunt-cli
     npm install
 
-To build `phoenix-min.js` from the source, run the command `grunt` in the root directory. Grunt will then build the source from `library/src/` and install the new library to `Phoenix/phoenix-min.js`. For convenience, this is also handled automatically by Xcode when you build Phoenix.
+To build `phoenix-min.js` from the source, run the command `npm run build` in the root directory. NPM will then build the source from `library/src/` and install the new library to `Phoenix/phoenix-min.js`. For convenience, this is also handled automatically by Xcode when you build Phoenix.
 
 ## Contributing
 

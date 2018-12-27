@@ -3,7 +3,6 @@
 /* Event */
 
 (function (scope) {
-
   var events = {};
 
   scope.on = function (event, callback) {
@@ -13,7 +12,7 @@
     }
     events[eventHandler.hash()] = eventHandler;
     return eventHandler.hash();
-  }
+  };
 
   scope.off = function (identifier) {
     var event = events[identifier];
@@ -21,7 +20,7 @@
       event.disable();
       delete events[identifier];
     }
-  }
+  };
 
   scope.once = function (event, callback) {
     var identifier = scope.on(event, function () {
@@ -31,5 +30,5 @@
       }
       scope.off(identifier);
     });
-  }
-})(Event);
+  };
+}(Event));

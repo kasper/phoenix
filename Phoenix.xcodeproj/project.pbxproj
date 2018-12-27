@@ -388,7 +388,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A79C46741B5BF31200C460CF /* Build configuration list for PBXNativeTarget "Phoenix" */;
 			buildPhases = (
-				A7A6F57F1D1AD4CD000A0E5E /* Grunt */,
+				A7A6F57F1D1AD4CD000A0E5E /* Build Library */,
 				A32B0CB41F9B8F1C428EE663 /* [CP] Check Pods Manifest.lock */,
 				A79C46531B5BF31100C460CF /* Sources */,
 				A79C46541B5BF31100C460CF /* Frameworks */,
@@ -504,19 +504,19 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A7A6F57F1D1AD4CD000A0E5E /* Grunt */ = {
+		A7A6F57F1D1AD4CD000A0E5E /* Build Library */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = Grunt;
+			name = "Build Library";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if command -v grunt; then\n    grunt\nfi\n";
+			shellScript = "if command -v npm; then\n    npm run build\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A7C58EEF1C065C8A00180664 /* Sign Sparkle */ = {
@@ -730,13 +730,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14DA76905814ABA3258EF84C /* Pods-Phoenix.debug.xcconfig */;
 			buildSettings = {
+				APP_DISPLAY_NAME = "$(TARGET_NAME) (Debug)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = Phoenix/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.khirviko.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.khirviko.$(PRODUCT_NAME:rfc1034identifier).debug";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WARNING_CFLAGS = (
 					"-Wall",
@@ -749,6 +750,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DF23C77C388EEDB5B63E6130 /* Pods-Phoenix.release.xcconfig */;
 			buildSettings = {
+				APP_DISPLAY_NAME = "$(TARGET_NAME)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;

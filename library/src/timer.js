@@ -3,7 +3,6 @@
 /* Timer */
 
 (function (scope) {
-
   var timers = {};
 
   scope.after = function (interval, callback) {
@@ -13,13 +12,13 @@
     });
     timers[timer.hash()] = timer;
     return timer.hash();
-  }
+  };
 
   scope.every = function (interval, callback) {
     var timer = new Timer(interval, true, callback);
     timers[timer.hash()] = timer;
     return timer.hash();
-  }
+  };
 
   scope.off = function (identifier) {
     var timer = timers[identifier];
@@ -27,8 +26,8 @@
       timer.stop();
       delete timers[identifier];
     }
-  }
-})(Timer);
+  };
+}(Timer));
 
 /* Global Timing */
 
@@ -37,8 +36,8 @@ this.clearInterval = Timer.off;
 
 this.setTimeout = function (callback, milliseconds) {
   return Timer.after(milliseconds / 1000, callback);
-}
+};
 
 this.setInterval = function (callback, milliseconds) {
   return Timer.every(milliseconds / 1000, callback);
-}
+};

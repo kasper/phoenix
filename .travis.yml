@@ -3,21 +3,16 @@ language: objective-c
 xcode_workspace: Phoenix.xcworkspace
 xcode_scheme: Phoenix
 
-xcode_sdk: macosx10.13
+xcode_sdk: macosx10.14
 
 notifications:
   email: false
 
 before_install:
   - gem install xcpretty
-  - npm install -g grunt-cli
   - npm install
-
-script: xcodebuild -workspace $TRAVIS_XCODE_WORKSPACE -scheme $TRAVIS_XCODE_SCHEME -sdk $TRAVIS_XCODE_SDK build | xcpretty && exit ${PIPESTATUS[0]}
 
 matrix:
   include:
-    - osx_image: xcode9.3
-    - osx_image: xcode9.2
-    - osx_image: xcode9.1
-    - osx_image: xcode9
+    - osx_image: xcode10.1
+    - osx_image: xcode10
