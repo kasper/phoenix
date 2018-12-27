@@ -8,6 +8,14 @@
 
 @implementation PHKeyTranslator
 
+static NSString * const PHKeyTranslatorCommandModifier = @"command";
+static NSString * const PHKeyTranslatorCmdModifier = @"cmd";
+static NSString * const PHKeyTranslatorOptionModifier = @"option";
+static NSString * const PHKeyTranslatorAltModifier = @"alt";
+static NSString * const PHKeyTranslatorControlModifier = @"control";
+static NSString * const PHKeyTranslatorCtrlModifier = @"ctrl";
+static NSString * const PHKeyTranslatorShiftModifier = @"shift";
+
 #pragma mark - Modifier
 
 + (NSNumber *) flagForModifier:(NSString *)modifier {
@@ -17,13 +25,13 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
 
-        modifierToFlag = @{ @"command": @(cmdKey),
-                            @"cmd": @(cmdKey),
-                            @"option": @(optionKey),
-                            @"alt": @(optionKey),
-                            @"control": @(controlKey),
-                            @"ctrl": @(controlKey),
-                            @"shift": @(shiftKey) };
+        modifierToFlag = @{ PHKeyTranslatorCommandModifier: @(cmdKey),
+                            PHKeyTranslatorCmdModifier: @(cmdKey),
+                            PHKeyTranslatorOptionModifier: @(optionKey),
+                            PHKeyTranslatorAltModifier: @(optionKey),
+                            PHKeyTranslatorControlModifier: @(controlKey),
+                            PHKeyTranslatorCtrlModifier: @(controlKey),
+                            PHKeyTranslatorShiftModifier: @(shiftKey) };
     });
 
     return modifierToFlag[modifier];
@@ -235,19 +243,19 @@
     NSMutableArray<NSString *> *modifiers = [NSMutableArray array];
 
     if (modifierFlags & NSEventModifierFlagCommand) {
-        [modifiers addObjectsFromArray:@[ @"command", @"cmd" ]];
+        [modifiers addObjectsFromArray:@[ PHKeyTranslatorCommandModifier, PHKeyTranslatorCmdModifier ]];
     }
 
     if (modifierFlags & NSEventModifierFlagOption) {
-        [modifiers addObjectsFromArray:@[ @"option", @"alt" ]];
+        [modifiers addObjectsFromArray:@[ PHKeyTranslatorOptionModifier, PHKeyTranslatorAltModifier ]];
     }
 
     if (modifierFlags & NSEventModifierFlagControl) {
-        [modifiers addObjectsFromArray:@[ @"control", @"ctrl" ]];
+        [modifiers addObjectsFromArray:@[ PHKeyTranslatorControlModifier, PHKeyTranslatorCtrlModifier ]];
     }
 
     if (modifierFlags & NSEventModifierFlagShift) {
-        [modifiers addObject:@"shift"];
+        [modifiers addObject:PHKeyTranslatorShiftModifier];
     }
 
     return [modifiers copy];
