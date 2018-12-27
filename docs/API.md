@@ -160,7 +160,7 @@ Phoenix supports the following (case sensitive) events:
 
 ### Mouse
 
-All of the following mouse events receive the corresponding `Point`-object as the first argument for the callback function. The object will also contain a `modifiers` arrays which will contain the modifier keys pressed when the mouse event occurred.
+All of the following mouse events receive the corresponding `Point`-object as the first argument for the callback function. This object is also enhanced with a `modifiers` array which contains the key modifiers pressed when the mouse event is triggered.
 
 - `mouseDidMove` triggered when the mouse has moved
 - `mouseDidLeftClick` triggered when the mouse did left click
