@@ -40,6 +40,8 @@
 	<string>https://raw.githubusercontent.com/kasper/phoenix/master/sparkle.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa-phoenix-pub.pem</string>
+	<key>SUPublicEDKey</key>
+	<string>0mx14nxL3kGjtR9SgAagyiK5rd04giWuI2yqDYUkjxY=</string>
 	<key>SUScheduledCheckInterval</key>
 	<integer>604800</integer>
 </dict>
