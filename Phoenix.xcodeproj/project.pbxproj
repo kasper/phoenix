@@ -70,7 +70,7 @@
 		A7288A341CC119BD00EC032B /* PHTimerHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHTimerHandler.m; sourceTree = "<group>"; };
 		A7288A391CC14DF800EC032B /* PHWeakTimerTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHWeakTimerTarget.h; sourceTree = "<group>"; };
 		A7288A3A1CC14DF800EC032B /* PHWeakTimerTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHWeakTimerTarget.m; sourceTree = "<group>"; };
-		A72A6B031B934C2000F2C4EF /* PHIdentifiableJSExport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHIdentifiableJSExport.h; sourceTree = "<group>"; };
+		A72A6B031B934C2000F2C4EF /* PHIdentifiableJSExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHIdentifiableJSExport.h; sourceTree = "<group>"; };
 		A72EAD031B5CE34800DD537B /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		A72EAD051B5D00B800DD537B /* PHModalWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHModalWindowController.h; sourceTree = "<group>"; };
 		A72EAD061B5D00B800DD537B /* PHModalWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHModalWindowController.m; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 		A731A7251C2C76B800EB9FD5 /* PHSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHSpace.m; sourceTree = "<group>"; };
 		A73C2CA91B9088040004C663 /* PHNotificationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHNotificationHelper.h; sourceTree = "<group>"; };
 		A73C2CAA1B9088040004C663 /* PHNotificationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHNotificationHelper.m; sourceTree = "<group>"; };
-		A73FF10E1BBD982A0024CF97 /* PHEventConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHEventConstants.h; sourceTree = "<group>"; };
+		A73FF10E1BBD982A0024CF97 /* PHEventConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHEventConstants.h; sourceTree = "<group>"; };
 		A741336A1BB7EEAC008DAF39 /* PHHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHHandler.h; sourceTree = "<group>"; };
 		A741336B1BB7EEAC008DAF39 /* PHHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHHandler.m; sourceTree = "<group>"; };
 		A741336D1BB7F228008DAF39 /* PHEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHEventHandler.h; sourceTree = "<group>"; };
@@ -103,13 +103,13 @@
 		A78749631CA2BB440042DA4C /* NSProcessInfo+PHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSProcessInfo+PHExtension.m"; sourceTree = "<group>"; };
 		A79452401C2F35E3007AF8C5 /* NSArray+PHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PHExtension.h"; sourceTree = "<group>"; };
 		A79452411C2F35E3007AF8C5 /* NSArray+PHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+PHExtension.m"; sourceTree = "<group>"; };
-		A79452431C2F393A007AF8C5 /* PHIterableJSExport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHIterableJSExport.h; sourceTree = "<group>"; };
+		A79452431C2F393A007AF8C5 /* PHIterableJSExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHIterableJSExport.h; sourceTree = "<group>"; };
 		A7952E7D1C0721850062D651 /* dsa-phoenix-pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "dsa-phoenix-pub.pem"; sourceTree = "<group>"; };
 		A79B89DF1B5E74C1004DDE82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		A79B89E11B5E75CA004DDE82 /* ModalWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModalWindow.xib; sourceTree = "<group>"; };
 		A79C46571B5BF31100C460CF /* Phoenix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Phoenix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A79C465B1B5BF31100C460CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A79C465F1B5BF31200C460CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A79C465F1B5BF31200C460CF /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A79C466A1B5BF31200C460CF /* PhoenixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhoenixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A79C466F1B5BF31200C460CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A79C467A1B5BF3C100C460CF /* NSScreen+PHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScreen+PHExtension.h"; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 		A7E6DF6B1BBAB5B8001920B4 /* PHAXObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHAXObserver.m; sourceTree = "<group>"; };
 		A7E6DF6D1BBAC1F3001920B4 /* PHAccessibilityObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHAccessibilityObserver.h; sourceTree = "<group>"; };
 		A7E6DF6E1BBAC1F3001920B4 /* PHAccessibilityObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHAccessibilityObserver.m; sourceTree = "<group>"; };
-		A7EBD1C21BFDF8CE000D8E5F /* PHPreprocessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHPreprocessor.h; sourceTree = "<group>"; };
+		A7EBD1C21BFDF8CE000D8E5F /* PHPreprocessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHPreprocessor.h; sourceTree = "<group>"; };
 		A7F24F5D1C2728540013EBAE /* NSTask+PHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTask+PHExtension.h"; sourceTree = "<group>"; };
 		A7F24F5E1C2728540013EBAE /* NSTask+PHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTask+PHExtension.m"; sourceTree = "<group>"; };
 		DC5342E0734A711231D71BF1 /* libPods-Phoenix.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Phoenix.a"; sourceTree = BUILT_PRODUCTS_DIR; };
