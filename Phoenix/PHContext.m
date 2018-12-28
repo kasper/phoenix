@@ -4,6 +4,7 @@
 
 @import JavaScriptCore;
 
+#import "NSImage+PHExtension.h"
 #import "NSScreen+PHExtension.h"
 #import "PHAccessibilityObserver.h"
 #import "PHApp.h"
@@ -185,6 +186,7 @@
     self.context[@"Event"] = [PHEventHandler class];
     self.context[@"Timer"] = [PHTimerHandler class];
     self.context[@"Task"] = [PHTaskHandler class];
+    self.context[@"Image"] = [NSImage class];
     self.context[@"Modal"] = [PHModalWindowController class];
     self.context[@"Screen"] = [NSScreen class];
     self.context[@"Space"] = [PHSpace class];

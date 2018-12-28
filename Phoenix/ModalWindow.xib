@@ -30,7 +30,7 @@
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="O5f-kD-6s1">
                         <rect key="frame" x="0.0" y="0.0" width="152" height="59"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="peX-kY-Jau">
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="peX-kY-Jau">
                                 <rect key="frame" x="17" y="5" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="peX-kY-Jau" secondAttribute="height" multiplier="1:1" priority="750" id="hpt-4C-KRY"/>

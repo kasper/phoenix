@@ -29,12 +29,13 @@ This documentation is an overview of the JavaScript API provided by Phoenix. Cur
 13. [Event](#13-event)
 14. [Timer](#14-timer)
 15. [Task](#15-task)
-16. [Modal](#16-modal)
-17. [Screen](#17-screen)
-18. [Space](#18-space)
-19. [Mouse](#19-mouse)
-20. [App](#20-app)
-21. [Window](#21-window)
+16. [Image](#16-image)
+17. [Modal](#17-modal)
+18. [Screen](#18-screen)
+19. [Space](#19-space)
+20. [Mouse](#20-mouse)
+21. [App](#21-app)
+22. [Window](#22-window)
 
 ## Getting Started
 
@@ -434,7 +435,21 @@ end
 - `new Task(String path, Array arguments, Function callback)` constructs a task that asynchronously executes an absolute path with the given arguments and returns the handler, you must keep a reference to the handler in order for your callback to get called, the callback function receives its handler as the only argument
 - `terminate()` terminates the task immediately
 
-## 16. Modal
+## 16. Image
+
+Use the `Image`-object to construct images.
+
+```java
+class Image implements Identifiable
+
+  static Image fromFile(String path)
+
+end
+```
+
+- `fromFile(String path)` loads an image from the given path, the path is resolved before attempting to load the image, returns `undefined` if unsuccessful
+
+## 17. Modal
 
 Use the `Modal`-object to display content as modal windows (in front of all other windows). Modals can be used to display icons and/or text for visual cues. Properties defined as dynamic can be altered while the modal is displayed.
 
@@ -472,7 +487,7 @@ end
 - `show()` shows the modal, you must set at least an icon or text for the modal to be displayed
 - `close()` closes the modal
 
-## 17. Screen
+## 18. Screen
 
 Use the `Screen`-object to access frame sizes and other screens on a multi-screen setup. Beware that a screen can get stale if you keep a reference to it and it is for instance disconnected while you do so.
 
@@ -509,7 +524,7 @@ end
 
 - `visible` (boolean): if set `true` returns all visible windows for the screen, if set `false` returns all hidden windows for the screen
 
-## 18. Space
+## 19. Space
 
 Use the `Space`-object to control spaces. *These features are only supported on El Capitan (10.11) and upwards.* A single window can be in multiple spaces at the same time. To move a window to a different space, remove it from any existing spaces and add it to a new one. You can switch to a space by focusing on a window in that space. Beware that a space can get stale if you keep a reference to it and it is for instance closed while you do so.
 
@@ -542,7 +557,7 @@ end
 
 - `visible` (boolean): if set `true` returns all visible windows for the space, if set `false` returns all hidden windows for the space
 
-## 19. Mouse
+## 20. Mouse
 
 Use the `Mouse`-object to control the cursor.
 
@@ -558,7 +573,7 @@ end
 - `location()` returns the cursor position
 - `move(Point point)` moves the cursor to a given position, returns `true` if successful
 
-## 20. App
+## 21. App
 
 Use the `App`-object to control apps. Beware that an app can get stale if you keep a reference to it and it is for instance terminated while you do so, refer to `isTerminated()`.
 
@@ -619,7 +634,7 @@ end
 
 - `force` (boolean): if set `true` force terminates the app
 
-## 21. Window
+## 22. Window
 
 Use the `Window`-object to control windows. Every screen (i.e. display) combines to form a large rectangle. Every window lives within this rectangle and their position can be altered by giving coordinates inside this rectangle. To position a window to a specific display, you need to calculate its position within the large rectangle. To figure out the coordinates for a given screen, use the functions in `Screen`. Beware that a window can get stale if you keep a reference to it and it is for instance closed while you do so.
 

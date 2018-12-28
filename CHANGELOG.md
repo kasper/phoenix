@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### New
+
+- Add support to load images from files which can be used as custom icons in modals ([#226](https://github.com/kasper/phoenix/issues/226)).
+
 ### Changes
 
 - Upgrade Lodash to 4.17.11 (from 4.17.5).
@@ -22,6 +26,10 @@ Release: dd.mm.yyyy
 #### Events
 
 - Change: Add key modifiers to mouse events ([#216](https://github.com/kasper/phoenix/issues/216), [#217](https://github.com/kasper/phoenix/pull/217)).
+
+#### Image
+
+- New: Function `fromFile(String path)` loads an image from the given path, the path is resolved before attempting to load the image, returns `undefined` if unsuccessful ([#226](https://github.com/kasper/phoenix/issues/226)).
 
 2.6.2
 -----

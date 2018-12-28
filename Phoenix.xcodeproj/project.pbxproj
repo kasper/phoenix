@@ -16,6 +16,7 @@
 		A72ED7B61B6E25940064E35B /* PHPhoenix.m in Sources */ = {isa = PBXBuildFile; fileRef = A72ED7B51B6E25940064E35B /* PHPhoenix.m */; };
 		A731A7261C2C76B800EB9FD5 /* PHSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = A731A7251C2C76B800EB9FD5 /* PHSpace.m */; };
 		A73C2CAB1B9088040004C663 /* PHNotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A73C2CAA1B9088040004C663 /* PHNotificationHelper.m */; };
+		A73F956021D65763002FCB22 /* NSImage+PHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A73F955F21D65763002FCB22 /* NSImage+PHExtension.m */; };
 		A741336C1BB7EEAC008DAF39 /* PHHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A741336B1BB7EEAC008DAF39 /* PHHandler.m */; };
 		A741336F1BB7F228008DAF39 /* PHEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A741336E1BB7F228008DAF39 /* PHEventHandler.m */; };
 		A74133721BB7F556008DAF39 /* PHEventTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = A74133711BB7F556008DAF39 /* PHEventTranslator.m */; };
@@ -80,6 +81,8 @@
 		A731A7251C2C76B800EB9FD5 /* PHSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHSpace.m; sourceTree = "<group>"; };
 		A73C2CA91B9088040004C663 /* PHNotificationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHNotificationHelper.h; sourceTree = "<group>"; };
 		A73C2CAA1B9088040004C663 /* PHNotificationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHNotificationHelper.m; sourceTree = "<group>"; };
+		A73F955E21D6573D002FCB22 /* NSImage+PHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+PHExtension.h"; sourceTree = "<group>"; };
+		A73F955F21D65763002FCB22 /* NSImage+PHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+PHExtension.m"; sourceTree = "<group>"; };
 		A73FF10E1BBD982A0024CF97 /* PHEventConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHEventConstants.h; sourceTree = "<group>"; };
 		A741336A1BB7EEAC008DAF39 /* PHHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHHandler.h; sourceTree = "<group>"; };
 		A741336B1BB7EEAC008DAF39 /* PHHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHHandler.m; sourceTree = "<group>"; };
@@ -262,6 +265,8 @@
 			children = (
 				A79452401C2F35E3007AF8C5 /* NSArray+PHExtension.h */,
 				A79452411C2F35E3007AF8C5 /* NSArray+PHExtension.m */,
+				A73F955E21D6573D002FCB22 /* NSImage+PHExtension.h */,
+				A73F955F21D65763002FCB22 /* NSImage+PHExtension.m */,
 				A78749621CA2BB440042DA4C /* NSProcessInfo+PHExtension.h */,
 				A78749631CA2BB440042DA4C /* NSProcessInfo+PHExtension.m */,
 				A79C467A1B5BF3C100C460CF /* NSScreen+PHExtension.h */,
@@ -572,6 +577,7 @@
 				A79C46981B5BF3C100C460CF /* PHAppDelegate.m in Sources */,
 				A7288A3B1CC14DF800EC032B /* PHWeakTimerTarget.m in Sources */,
 				A72ED7B61B6E25940064E35B /* PHPhoenix.m in Sources */,
+				A73F956021D65763002FCB22 /* NSImage+PHExtension.m in Sources */,
 				A73C2CAB1B9088040004C663 /* PHNotificationHelper.m in Sources */,
 				A74133721BB7F556008DAF39 /* PHEventTranslator.m in Sources */,
 				A7E6DF6F1BBAC1F3001920B4 /* PHAccessibilityObserver.m in Sources */,
