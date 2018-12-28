@@ -17,6 +17,10 @@ Release: dd.mm.yyyy
 - Remove Grunt and use standard scripts to build library.
 - Xcode 10 is now required for building.
 
+### Bug Fixes
+
+- Fix an issue that caused a crash if accessing screens for a space under some circumstances ([#231](https://github.com/kasper/phoenix/issues/231)).
+
 ### API
 
 #### Keys
