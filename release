@@ -6,6 +6,7 @@ bold=$(tput bold)
 blue=$(tput setaf 4)
 
 app='Phoenix'
+sign_update="$PWD/Pods/Sparkle/bin/sign_update"
 
 # Exit on error
 trap 'exit' ERR
@@ -132,8 +133,15 @@ cd $output_directory
 
 describe 'Creating DSA-signature for archive...'
 
-signature=$(openssl dgst -sha1 -binary < $archive | openssl dgst -dss1 -sign "$dsa_signature_key_path" | openssl enc -base64)
-echo "DSA: $signature"
+dsa_signature=$(openssl dgst -sha1 -binary < $archive | openssl dgst -dss1 -sign "$dsa_signature_key_path" | openssl enc -base64)
+echo "DSA: $dsa_signature"
+
+# Create EdDSA-signature
+
+describe 'Creating EdDSA-signature for archive...'
+
+eddsa_signature=$($sign_update $archive | perl -ne '/sparkle:edSignature="(.+)" / && print $1')
+echo "EdDSA: $eddsa_signature"
 
 # Collect information
 
@@ -144,6 +152,7 @@ echo "Version: $version ($build_number)"
 echo "Archive: $archive"
 echo "Size: $(stat -f '%z' $archive)"
 echo "SHA-256: $(shasum -a 256 $archive)"
-echo "Signature: $signature"
+echo "DSA signature: $dsa_signature"
+echo "EdDSA signature: $eddsa_signature"
 
 describe 'Done.'
