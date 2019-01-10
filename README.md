@@ -55,11 +55,16 @@ You will need some basic knowledge about installing the required languages and t
 1. Git
 2. Xcode 10 or higher
 3. Xcode command line tools
+4. Uglify-js
 
 First clone the repository from a terminal:
 
     git clone https://github.com/kasper/phoenix.git
     cd phoenix
+
+If you don't have uglify-js, install it with npm.
+
+    npm install uglify-js -g
 
 To develop Phoenix, open `Phoenix.xcworkspace` in Xcode. Install Xcode from the App Store, if you do not already have it installed. You will also need Xcode command line tools — you will be prompted for this. Everything else should work as is — you can develop, debug, test, build and run Phoenix straight from Xcode.
 
