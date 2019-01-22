@@ -263,33 +263,6 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
 #pragma mark - Position and Size
 
-- (CGPoint) topLeft {
-
-    CGPoint topLeft;
-    CFTypeRef positionWrapper = (__bridge CFTypeRef) [self valueForAttribute:NSAccessibilityPositionAttribute];
-    AXValueGetValue(positionWrapper, kAXValueCGPointType, (void *) &topLeft);
-
-    return topLeft;
-}
-
-- (CGSize) size {
-
-    CGSize size;
-    CFTypeRef sizeWrapper = (__bridge CFTypeRef) [self valueForAttribute:NSAccessibilitySizeAttribute];
-    AXValueGetValue(sizeWrapper, kAXValueCGSizeType, (void *) &size);
-
-    return size;
-}
-
-- (CGRect) frame {
-
-    CGRect frame;
-    frame.origin = [self topLeft];
-    frame.size = [self size];
-
-    return frame;
-}
-
 - (BOOL) setTopLeft:(CGPoint)point {
 
     id positionWrapper = CFBridgingRelease(AXValueCreate(kAXValueCGPointType, (void * const) &point));

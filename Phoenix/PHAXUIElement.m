@@ -1,7 +1,7 @@
 /*
  * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
  */
-
+@import Cocoa;
 #import "PHAXUIElement.h"
 
 @interface PHAXUIElement ()
@@ -150,6 +150,35 @@
     }
 
     return error == kAXErrorSuccess;
+}
+
+#pragma mark - Position and Size
+
+- (CGPoint) topLeft {
+
+    CGPoint topLeft;
+    CFTypeRef positionWrapper = (__bridge CFTypeRef) [self valueForAttribute:NSAccessibilityPositionAttribute];
+    AXValueGetValue(positionWrapper, kAXValueCGPointType, (void *) &topLeft);
+
+    return topLeft;
+}
+
+- (CGSize) size {
+
+    CGSize size;
+    CFTypeRef sizeWrapper = (__bridge CFTypeRef) [self valueForAttribute:NSAccessibilitySizeAttribute];
+    AXValueGetValue(sizeWrapper, kAXValueCGSizeType, (void *) &size);
+
+    return size;
+}
+
+- (CGRect) frame {
+
+    CGRect frame;
+    frame.origin = [self topLeft];
+    frame.size = [self size];
+
+    return frame;
 }
 
 @end

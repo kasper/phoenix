@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16FBD10021F4659900406BBA /* PHEventTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FBD0FF21F4659900406BBA /* PHEventTap.m */; };
+		16FBD10321F46FB500406BBA /* PHPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FBD10221F46FB500406BBA /* PHPopover.m */; };
 		1C93D6641BE11FF100649405 /* PHShebangPreprocessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C93D6631BE11FF100649405 /* PHShebangPreprocessor.m */; };
 		A7183B671B6E865F00842E13 /* PHKeyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A7183B661B6E865F00842E13 /* PHKeyHandler.m */; };
 		A7288A351CC119BD00EC032B /* PHTimerHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A7288A341CC119BD00EC032B /* PHTimerHandler.m */; };
@@ -63,6 +65,10 @@
 
 /* Begin PBXFileReference section */
 		14DA76905814ABA3258EF84C /* Pods-Phoenix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phoenix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Phoenix/Pods-Phoenix.debug.xcconfig"; sourceTree = "<group>"; };
+		16FBD0FE21F4659900406BBA /* PHEventTap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHEventTap.h; sourceTree = "<group>"; };
+		16FBD0FF21F4659900406BBA /* PHEventTap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHEventTap.m; sourceTree = "<group>"; };
+		16FBD10121F46FB500406BBA /* PHPopover.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHPopover.h; sourceTree = "<group>"; };
+		16FBD10221F46FB500406BBA /* PHPopover.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHPopover.m; sourceTree = "<group>"; };
 		1C93D6621BE11FF100649405 /* PHShebangPreprocessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHShebangPreprocessor.h; sourceTree = "<group>"; };
 		1C93D6631BE11FF100649405 /* PHShebangPreprocessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHShebangPreprocessor.m; sourceTree = "<group>"; };
 		A7183B651B6E865F00842E13 /* PHKeyHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHKeyHandler.h; sourceTree = "<group>"; };
@@ -208,6 +214,8 @@
 		A73FF10B1BBD8D970024CF97 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				16FBD10121F46FB500406BBA /* PHPopover.h */,
+				16FBD10221F46FB500406BBA /* PHPopover.m */,
 				A73C2CA91B9088040004C663 /* PHNotificationHelper.h */,
 				A73C2CAA1B9088040004C663 /* PHNotificationHelper.m */,
 				A79C468A1B5BF3C100C460CF /* PHOpenAtLoginHelper.h */,
@@ -280,6 +288,8 @@
 		A77952C61BBE7E0300FC8D38 /* Observers */ = {
 			isa = PBXGroup;
 			children = (
+				16FBD0FE21F4659900406BBA /* PHEventTap.h */,
+				16FBD0FF21F4659900406BBA /* PHEventTap.m */,
 				A7E6DF6D1BBAC1F3001920B4 /* PHAccessibilityObserver.h */,
 				A7E6DF6E1BBAC1F3001920B4 /* PHAccessibilityObserver.m */,
 				A7741A271D2BBF55009E8A2F /* PHGlobalEventMonitor.h */,
@@ -580,6 +590,7 @@
 				A73F956021D65763002FCB22 /* NSImage+PHExtension.m in Sources */,
 				A73C2CAB1B9088040004C663 /* PHNotificationHelper.m in Sources */,
 				A74133721BB7F556008DAF39 /* PHEventTranslator.m in Sources */,
+				16FBD10321F46FB500406BBA /* PHPopover.m in Sources */,
 				A7E6DF6F1BBAC1F3001920B4 /* PHAccessibilityObserver.m in Sources */,
 				A79C46971B5BF3C100C460CF /* PHApp.m in Sources */,
 				1C93D6641BE11FF100649405 /* PHShebangPreprocessor.m in Sources */,
@@ -594,6 +605,7 @@
 				A7741A291D2BBF55009E8A2F /* PHGlobalEventMonitor.m in Sources */,
 				A7F24F5F1C2728540013EBAE /* NSTask+PHExtension.m in Sources */,
 				A7183B671B6E865F00842E13 /* PHKeyHandler.m in Sources */,
+				16FBD10021F4659900406BBA /* PHEventTap.m in Sources */,
 				A79C469D1B5BF3C100C460CF /* PHOpenAtLoginHelper.m in Sources */,
 				A79452421C2F35E3007AF8C5 /* NSArray+PHExtension.m in Sources */,
 				A731A7261C2C76B800EB9FD5 /* PHSpace.m in Sources */,

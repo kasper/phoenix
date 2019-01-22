@@ -26,6 +26,7 @@
 
 - (NSRect) frame;
 - (NSRect) visibleFrame;
+- (CGRect) flipFrame:(NSRect)frame;
 - (CGRect) flippedFrame;
 - (CGRect) flippedVisibleFrame;
 

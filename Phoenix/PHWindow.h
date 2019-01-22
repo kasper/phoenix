@@ -39,9 +39,6 @@ static NSString * const PHWindowVisibilityOptionKey = @"visible";
 
 #pragma mark - Position and Size
 
-- (CGPoint) topLeft;
-- (CGSize) size;
-- (CGRect) frame;
 - (BOOL) setTopLeft:(CGPoint)point;
 - (BOOL) setSize:(CGSize)size;
 - (BOOL) setFrame:(CGRect)frame;

@@ -33,4 +33,9 @@
 
 - (BOOL) performAction:(NSString *)action;
 
+#pragma mark - Position and Size
+
+- (CGPoint) topLeft;
+- (CGSize) size;
+- (CGRect) frame;
 @end

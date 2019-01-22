@@ -10,6 +10,7 @@
 #import "PHApp.h"
 #import "PHContext.h"
 #import "PHEventHandler.h"
+#import "PHEventTap.h"
 #import "PHGlobalEventMonitor.h"
 #import "PHKeyHandler.h"
 #import "PHModalWindowController.h"
@@ -32,6 +33,7 @@
 @property NSMutableSet<NSString *> *configurationPaths;
 @property PHPathWatcher *watcher;
 @property PHAccessibilityObserver *observer;
+@property PHEventTap *eventTap;
 @property PHGlobalEventMonitor *monitor;
 @property PHStorage *storage;
 
@@ -48,6 +50,7 @@
         self.configurationPaths = [NSMutableSet set];
         self.observer = [PHAccessibilityObserver observer];
         self.monitor = [PHGlobalEventMonitor monitor];
+        self.eventTap = [PHEventTap monitor];
         self.storage = [PHStorage storage];
     }
 
