@@ -33,7 +33,7 @@ static CGEventRef pTapCallback(CGEventTapProxy __unused proxy,
         NSArray *array = [[NSArray alloc] initWithObjects:@"AXZoomButton", @"AXFullScreenButton", nil];
         BOOL isZoom = [array containsObject:[element valueForAttribute:NSAccessibilitySubroleAttribute]];
 
-        if (isZoom) {
+        if (isZoom && [[element valueForAttribute:NSAccessibilityEnabledAttribute withDefaultValue:@"NO"] boolValue] == YES) {
 
             if (type == kCGEventLeftMouseDown) {
                 mouseDown = YES;
