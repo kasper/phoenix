@@ -50,7 +50,6 @@
                                                  name:PHPreferencesDidChangeNotification
                                                object:nil];
     self.context = [PHContext context];
-    [self.context load];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:PHEventDidLaunchNotification object:nil];
 }

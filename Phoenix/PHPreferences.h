@@ -9,6 +9,12 @@ typedef NSString * PHPreferencesPreferenceKey;
 static NSString * const PHPreferencesDidChangeNotification = @"PHPreferencesDidChangeNotification";
 static PHPreferencesPreferenceKey const PHPreferencesDaemonKey = @"daemon";
 static PHPreferencesPreferenceKey const PHPreferencesOpenAtLoginKey = @"openAtLogin";
+static PHPreferencesPreferenceKey const PHPreferencesZoomKey = @"zoom";
+static PHPreferencesPreferenceKey const PHPreferencesZoomEnabledKey = @"enabled";
+static PHPreferencesPreferenceKey const PHPreferencesZoomModifierKey = @"modifier";
+static PHPreferencesPreferenceKey const PHPreferencesZoomInverseModifierActionKey = @"inverseModifierAction";
+static PHPreferencesPreferenceKey const PHPreferencesZoomBringToFrontKey = @"bringToFront";
+static PHPreferencesPreferenceKey const PHPreferencesZoomActivateAfterRezieKey = @"activateAfterResize";
 
 @interface PHPreferences : NSObject
 
@@ -29,4 +35,12 @@ static PHPreferencesPreferenceKey const PHPreferencesOpenAtLoginKey = @"openAtLo
 - (BOOL) isDaemon;
 - (BOOL) openAtLogin;
 
+#pragma mark - Zoom Preferences
+
+- (NSDictionary<NSString *, id> *) zoomPreferencse;
+- (BOOL) zoomEnabled;
+- (NSString *) zoomModifier;
+- (BOOL) zoomInverseModifierAction;
+- (BOOL) zoomBringToFront;
+- (BOOL) zoomActivateAfterRezie;
 @end

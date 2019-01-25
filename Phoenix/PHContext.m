@@ -48,6 +48,7 @@
     if (self = [super init]) {
         self.primaryConfigurationPath = [self resolvePrimaryConfigurationPath];
         self.configurationPaths = [NSMutableSet set];
+        [self load];
         self.observer = [PHAccessibilityObserver observer];
         self.monitor = [PHGlobalEventMonitor monitor];
         self.eventTap = [PHEventTap monitor];

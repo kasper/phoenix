@@ -17,5 +17,7 @@
 
 - (void) show;
 - (void) close;
+- (BOOL) isClosed;
+- (BOOL) isForElement:(PHAXUIElement *)el;
 
 @end

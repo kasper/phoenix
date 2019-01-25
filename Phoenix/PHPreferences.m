@@ -75,4 +75,35 @@
     return [self.preferences[PHPreferencesOpenAtLoginKey] boolValue];
 }
 
+#pragma mark - Zoom Preferences
+
+- (NSDictionary<NSString *, id> *) zoomPreferencse {
+    id zoomPreferences = self.preferences[PHPreferencesZoomKey];
+
+    if (zoomPreferences != nil) {
+        return zoomPreferences;
+    } else {
+        return [NSDictionary dictionary];
+    }
+}
+
+- (BOOL) zoomEnabled {
+    return [[self zoomPreferencse][PHPreferencesZoomEnabledKey] boolValue];
+}
+
+- (NSString *) zoomModifier {
+    return [self zoomPreferencse][PHPreferencesZoomModifierKey];
+}
+
+- (BOOL) zoomInverseModifierAction {
+    return [[self zoomPreferencse][PHPreferencesZoomInverseModifierActionKey] boolValue];
+}
+
+- (BOOL) zoomBringToFront {
+     return [[self zoomPreferencse][PHPreferencesZoomBringToFrontKey] boolValue];
+}
+
+- (BOOL) zoomActivateAfterRezie {
+     return [[self zoomPreferencse][PHPreferencesZoomActivateAfterRezieKey] boolValue];
+}
 @end

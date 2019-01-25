@@ -4,6 +4,7 @@
 
 @import Cocoa;
 #import "PHPopover.h"
+#import "PHPreferences.h"
 #import "PHWindow.h"
 #import "NSScreen+PHExtension.h"
 
@@ -13,6 +14,7 @@
     NSPopover *popover;
     NSWindow *popoverWindow;
     PHPopover *_self;
+    BOOL closed;
 }
 
 # pragma mark - Init
@@ -21,7 +23,7 @@
 
     if (self = [super init]) {
         element = el;
-
+        closed = YES;
         // Get window by element
         AXUIElementRef _window;
         _window = (__bridge AXUIElementRef)[element valueForAttribute:NSAccessibilityWindowAttribute];
@@ -32,17 +34,32 @@
     return self;
 }
 
+- (BOOL) isForElement:(PHAXUIElement *)el {
+    return [element isEqual:el];
+}
 #pragma mark - Display
 
 - (void) show {
 
+    if ([[PHPreferences sharedPreferences] zoomBringToFront]) {
+        [window focus];
+        [window raise];
+    }
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.12 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self buildPopover];
+        self->closed = NO;
+    });
+}
+
+- (void) buildPopover {
     // Get size of the zoom button to position popover
     NSRect displayRegion = [[window screen] flipFrame:[element frame]];
 
     popoverWindow = [[NSWindow alloc] initWithContentRect:displayRegion
-                                                 styleMask:NSWindowStyleMaskBorderless
-                                                   backing:NSBackingStoreBuffered
-                                                     defer:NO];
+                                                styleMask:NSWindowStyleMaskBorderless
+                                                  backing:NSBackingStoreBuffered
+                                                    defer:NO];
     popoverWindow.releasedWhenClosed = NO;
 
     NSView *view = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 141, 29)];
@@ -69,7 +86,7 @@
     [popover showRelativeToRect:NSMakeRect(displayRegion.size.width / 2, 0, 1, 1) ofView:popoverWindow.contentView preferredEdge:NSMinYEdge];
 }
 
-- (void)buildButtons:(NSView *)view {
+- (void) buildButtons:(NSView *)view {
 
     NSButton *bFullscreen = [NSButton buttonWithImage:[NSImage imageNamed:@"fullscreen"] target:self action:@selector(moveWindowFullscreen)];
     bFullscreen.bordered = NO;
@@ -98,9 +115,10 @@
     [view addSubview:bBottom];
 }
 
-- (void)popoverDidClose:(NSNotification *)__unused notification {
+- (void) popoverDidClose:(NSNotification *)__unused notification {
     popover.delegate = nil;
     popover = nil;
+    closed = YES;
 }
 
 - (void) close {
@@ -113,22 +131,32 @@
             [self->popoverWindow close];
             self->popoverWindow = nil;
             self->_self = nil;
+            self->closed = YES;
         });
     } else {
         [popoverWindow close];
         popoverWindow = nil;
         _self = nil;
     }
+
+    if ([[PHPreferences sharedPreferences] zoomActivateAfterRezie]) {
+        [window focus];
+    }
+    closed = YES;
+}
+
+- (BOOL) isClosed {
+    return closed;
 }
 
 # pragma mark - Window positioning
 
--(void)moveWindowFullscreen {
+- (void) moveWindowFullscreen {
     [self close];
     [window maximize];
 }
 
--(void)moveWindowLeft {
+- (void) moveWindowLeft {
     [self close];
 
     CGRect screenRect = [[window screen] flippedVisibleFrame];
@@ -138,7 +166,7 @@
                                 screenRect.size.height)];
 }
 
--(void)moveWindowRight {
+- (void) moveWindowRight {
     [self close];
 
     CGRect screenRect = [[window screen] flippedVisibleFrame];
@@ -148,7 +176,7 @@
                                 screenRect.size.height)];
 }
 
--(void)moveWindowBottom {
+- (void) moveWindowBottom {
     [self close];
 
     CGRect screenRect = [[window screen] flippedVisibleFrame];
@@ -158,7 +186,7 @@
                                 screenRect.size.height / 2 )];
 }
 
--(void)moveWindowTop {
+- (void) moveWindowTop {
     [self close];
 
     CGRect screenRect = [[window screen] flippedVisibleFrame];
