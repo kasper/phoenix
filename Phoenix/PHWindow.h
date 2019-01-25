@@ -46,6 +46,9 @@ static NSString * const PHWindowVisibilityOptionKey = @"visible";
 - (BOOL) maximize;
 - (BOOL) minimize;
 - (BOOL) unminimize;
+- (CGPoint) topLeft;
+- (CGSize) size;
+- (CGRect) frame;
 
 #pragma mark - Alignment
 
