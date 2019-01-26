@@ -14,7 +14,6 @@
     NSPopover *popover;
     NSWindow *popoverWindow;
     PHPopover *_self;
-    BOOL closed;
 }
 
 # pragma mark - Init
@@ -23,7 +22,6 @@
 
     if (self = [super init]) {
         element = el;
-        closed = YES;
         // Get window by element
         AXUIElementRef _window;
         _window = (__bridge AXUIElementRef)[element valueForAttribute:NSAccessibilityWindowAttribute];
@@ -48,7 +46,6 @@
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.12 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self buildPopover];
-        self->closed = NO;
     });
 }
 
@@ -118,7 +115,6 @@
 - (void) popoverDidClose:(NSNotification *)__unused notification {
     popover.delegate = nil;
     popover = nil;
-    closed = YES;
 }
 
 - (void) close {
@@ -131,7 +127,6 @@
             [self->popoverWindow close];
             self->popoverWindow = nil;
             self->_self = nil;
-            self->closed = YES;
         });
     } else {
         [popoverWindow close];
@@ -142,11 +137,10 @@
     if ([[PHPreferences sharedPreferences] zoomActivateAfterRezie]) {
         [window focus];
     }
-    closed = YES;
 }
 
 - (BOOL) isClosed {
-    return closed;
+    return ![popover isShown];
 }
 
 # pragma mark - Window positioning
