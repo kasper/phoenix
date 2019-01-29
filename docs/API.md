@@ -197,13 +197,26 @@ Phoenix supports the following (case sensitive) preferences:
 
 - `daemon` (boolean): if set `true` Phoenix will run completely in the background, this also removes the status bar menu, defaults to `false`
 - `openAtLogin` (boolean): if set `true` Phoenix will automatically open at login, defaults to `false` if no value has been previously set
+- `zoom` (object): section responsible for configuring zoom button popover behaviour. Popup is disabled by default if this section does not exist or empty. Possible configuration keys are decribed below.
+- `zoom.enabled` (boolean): if set to `true` window size control popup will appear after zoom button click on any of the windows that could be resizes. Default is `false`.
+- `zoom.modifier` (string): modifier key such as `command` (`cmd`), `option` (`alt`), `control` (`ctrl`) and `shift` that have to be pressed with click to show popup. Default is empty which means no modifiers are applied.
+- `zoom.inverseModifierAction` (boolean): if set to `true` click with modifier key will fall back to default OS behaviour. All other modifier keys will show popup.
+- `zoom.bringToFront` (boolean): if set to `true` will bring up window that popup is shown for. Default is `false`.
+- `zoom.activateAfterResize` (boolan): if set to `true` will activate window after its size is set. Otherwise active application won't be changed. Default is `false`.
 
 Set the preferences using the `Phoenix`-object — for example:
 
 ```javascript
 Phoenix.set({
   daemon: true,
-  openAtLogin: true
+  openAtLogin: true,
+  zoom: {
+    enabled: true,
+    modifier: 'control',
+    inverseModifierAction: true,
+    bringToFront: false,
+    activateAfterResize: false
+  }
 });
 ```
 
