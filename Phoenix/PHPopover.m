@@ -8,6 +8,16 @@
 #import "PHWindow.h"
 #import "NSScreen+PHExtension.h"
 
+@interface PHPopoverWindow : NSWindow; @end
+
+@implementation PHPopoverWindow
+
+- (BOOL)canBecomeKeyWindow {
+    return YES;
+}
+
+@end
+
 @implementation PHPopover {
     PHWindow *window;
     PHAXUIElement *element;
@@ -53,7 +63,7 @@
     // Get size of the zoom button to position popover
     NSRect displayRegion = [[window screen] flipFrame:[element frame]];
 
-    popoverWindow = [[NSWindow alloc] initWithContentRect:displayRegion
+    popoverWindow = [[PHPopoverWindow alloc] initWithContentRect:displayRegion
                                                 styleMask:NSWindowStyleMaskBorderless
                                                   backing:NSBackingStoreBuffered
                                                     defer:NO];
