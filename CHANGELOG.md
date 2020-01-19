@@ -13,7 +13,7 @@ Release: dd.mm.yyyy
 ### Changes
 
 - Upgrade Lodash to 4.17.11 (from 4.17.5).
-- Upgrade Sparkle to 1.21.2.
+- Upgrade Sparkle to 1.22.0.
 - Remove Grunt and use standard scripts to build library.
 - Xcode 11 is now required for building.
 
