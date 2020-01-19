@@ -40,8 +40,8 @@ describe() {
   echo -e "\n${bold}${blue}${1}${reset}\n"
 }
 
-get_app_property() {
-  /usr/libexec/PlistBuddy -c "Print $1" $app/Info.plist
+get_build_setting() {
+  xcodebuild -showBuildSettings | grep "$1" | tr -d "$1 = "
 }
 
 # Parse arguments
@@ -95,8 +95,8 @@ fi
 
 # Build app
 
-version=$(get_app_property 'CFBundleShortVersionString')
-build_number=$(get_app_property 'CFBundleVersion')
+version=$(get_build_setting 'MARKETING_VERSION')
+build_number=$(get_build_setting 'CURRENT_PROJECT_VERSION')
 archive="phoenix-$version.tar.gz"
 
 if [ -f "$output_directory/$archive" ]; then
