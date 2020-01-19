@@ -34,12 +34,11 @@
       "Timer",
       "Window"
     ],
+    "esnext": false,
     "rules": {
       "no-param-reassign": "off",
-      "no-var": "off",
-      "prefer-arrow-callback": "off",
-      "prefer-rest-params": "off",
-      "prefer-spread": "off"
+      "strict": "off",
+      "unicorn/prefer-reflect-apply": "off"
     }
   }
 }
