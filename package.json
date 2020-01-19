@@ -7,7 +7,7 @@
     "npm": ">=6.13.6"
   },
   "devDependencies": {
-    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-config-airbnb-base": "14.0.0",
     "uglify-js": "3.4.9",
     "xo": "0.23.0"
   },
