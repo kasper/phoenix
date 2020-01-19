@@ -9,6 +9,7 @@ Release: dd.mm.yyyy
 ### New
 
 - Add support to load images from files which can be used as custom icons in modals ([#226](https://github.com/kasper/phoenix/issues/226)).
+- Notarise Phoenix with Apple to pass Gatekeeper verification ([#241](https://github.com/kasper/phoenix/issues/241)).
 
 ### Changes
 
