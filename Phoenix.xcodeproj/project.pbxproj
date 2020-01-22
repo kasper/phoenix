@@ -727,6 +727,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "--timestamp";
 				SDKROOT = macosx;
 			};
 			name = Release;
