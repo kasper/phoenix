@@ -1,10 +1,10 @@
 Changelog
 =========
 
-2.6.3 (master)
---------------
+2.6.3
+-----
 
-Release: dd.mm.yyyy
+Release: 24.1.2020
 
 ### New
 

@@ -10,6 +10,36 @@
     <description>Feed for Phoenix updates.</description>
     <language>en</language>
 
+    <!-- 2.6.3 -->
+
+    <item>
+      <title>Version 2.6.3</title>
+      <pubDate>Fri, 24 Jan 2020 23:40:51 +0200</pubDate>
+      <description><![CDATA[
+
+        <p>What happened to 2019? ⏱ Phoenix is now notarised by Apple. This release includes a couple of new useful features as well as bug fixes.</p>
+
+        <h3>What is New?</h3>
+
+        <ul>
+          <li>support to load images from files which can be used as custom icons in modals</li>
+          <li>support for <code>command</code>, <code>option</code> and <code>control</code> as additional key modifiers</li>
+          <li>support for key modifiers in mouse events</li>
+        </ul>
+
+        <p>See the full <a href='https://github.com/kasper/phoenix/blob/2.6.3/CHANGELOG.md'>Changelog</a>.</p>
+
+      ]]>
+      </description>
+      <enclosure sparkle:version='80'
+                 sparkle:shortVersionString='2.6.3'
+                 sparkle:dsaSignature='MCwCFHa/MM8NHKyelxdGd5Mj1NWpMtfSAhRGcjlS0SyeJ0dI695CHaWYAYa05A=='
+                 sparkle:edSignature='UaP0Huuh6OsIaaOmVhH8+m+XiWq8qj00kykVrMiLTFGZqL59hVDcv24OBv7ieNLjhCbBCgmu5NxCykevWmKxCw=='
+                 type='application/octet-stream'
+                 length='2162539'
+                 url='https://github.com/kasper/phoenix/releases/download/2.6.3/phoenix-2.6.3.tar.gz' />
+    </item>
+
     <!-- 2.6.2 -->
 
     <item>
