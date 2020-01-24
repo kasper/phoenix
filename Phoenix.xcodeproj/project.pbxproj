@@ -134,6 +134,7 @@
 		A79C46901B5BF3C100C460CF /* PHWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHWindow.h; sourceTree = "<group>"; };
 		A79C46911B5BF3C100C460CF /* PHWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHWindow.m; sourceTree = "<group>"; };
 		A79C46A91B5BF41900C460CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A7C3C2F823DB8D7E00FAEFED /* Phoenix.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Phoenix.entitlements; sourceTree = "<group>"; };
 		A7D1D9A71B6FD6A300E00CC9 /* PHKeyTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHKeyTranslator.h; sourceTree = "<group>"; };
 		A7D1D9A81B6FD6A300E00CC9 /* PHKeyTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHKeyTranslator.m; sourceTree = "<group>"; };
 		A7D1F7641B5BFF5B0052E646 /* PhoenixTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoenixTests.m; sourceTree = "<group>"; };
@@ -327,6 +328,7 @@
 		A79C46591B5BF31100C460CF /* Phoenix */ = {
 			isa = PBXGroup;
 			children = (
+				A7C3C2F823DB8D7E00FAEFED /* Phoenix.entitlements */,
 				A77952C41BBE7CCD00FC8D38 /* Accessibility */,
 				A77952C71BBE7E3E00FC8D38 /* Context */,
 				A72F1D761B89CE3E00835FBF /* Elements */,
@@ -739,9 +741,11 @@
 			buildSettings = {
 				APP_DISPLAY_NAME = "$(TARGET_NAME) (Debug)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Phoenix/Phoenix.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 79;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = Phoenix/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -765,9 +769,11 @@
 			buildSettings = {
 				APP_DISPLAY_NAME = "$(TARGET_NAME)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Phoenix/Phoenix.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 79;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = Phoenix/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
