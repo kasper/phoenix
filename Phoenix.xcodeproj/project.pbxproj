@@ -536,7 +536,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "LOCATION=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\ncodesign --verbose --force --sign \"$CODE_SIGN_IDENTITY\" \"$LOCATION/Sparkle.framework/Versions/A\"\n";
+			shellScript = "LOCATION=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\ncodesign --verbose --force --deep -o runtime --sign \"$CODE_SIGN_IDENTITY\" \"$LOCATION/Sparkle.framework/Versions/A/Resources/Autoupdate.app\"\ncodesign --verbose --force -o runtime --sign \"$CODE_SIGN_IDENTITY\" \"$LOCATION/Sparkle.framework/Versions/A\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D24256909AA421FF1865E794 /* [CP] Embed Pods Frameworks */ = {
