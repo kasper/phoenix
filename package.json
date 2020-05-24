@@ -38,9 +38,9 @@
     "esnext": false,
     "space": true,
     "rules": {
-      "no-param-reassign": "off",
+      "unicorn/prefer-reflect-apply": "off",
       "strict": "off",
-      "unicorn/prefer-reflect-apply": "off"
+      "no-param-reassign": "off"
     }
   }
 }
