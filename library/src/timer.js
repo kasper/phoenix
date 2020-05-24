@@ -39,5 +39,6 @@ this.setTimeout = function (callback, milliseconds) {
 };
 
 this.setInterval = function (callback, milliseconds) {
+  // eslint-disable-next-line unicorn/no-fn-reference-in-iterator
   return Timer.every(milliseconds / 1000, callback);
 };
