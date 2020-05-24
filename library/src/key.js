@@ -31,4 +31,4 @@
       scope.off(identifier);
     });
   };
-}(Key));
+})(Key);

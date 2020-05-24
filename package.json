@@ -34,7 +34,9 @@
       "Timer",
       "Window"
     ],
+    "prettier": true,
     "esnext": false,
+    "space": true,
     "rules": {
       "no-param-reassign": "off",
       "strict": "off",

@@ -27,7 +27,7 @@
       delete timers[identifier];
     }
   };
-}(Timer));
+})(Timer);
 
 /* Global Timing */
 

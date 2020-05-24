@@ -23,4 +23,4 @@
       delete tasks[identifier];
     }
   };
-}(Task));
+})(Task);
