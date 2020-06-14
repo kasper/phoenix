@@ -10,6 +10,34 @@
     <description>Feed for Phoenix updates.</description>
     <language>en</language>
 
+    <!-- 2.6.4 -->
+
+    <item>
+      <title>Version 2.6.4</title>
+      <pubDate>Sun, 14 Jun 2020 17:55:56 +0300</pubDate>
+      <description><![CDATA[
+
+        <p>This release includes general improvements and bug fixes.</p>
+
+        <h3>What is New?</h3>
+
+        <ul>
+          <li>fixes issue that caused Phoenix to crash when binding keys with some keyboard layouts</li>
+        </ul>
+
+        <p>See the full <a href='https://github.com/kasper/phoenix/blob/2.6.4/CHANGELOG.md'>Changelog</a>.</p>
+
+      ]]>
+      </description>
+      <enclosure sparkle:version='86'
+                 sparkle:shortVersionString='2.6.4'
+                 sparkle:dsaSignature='MCwCFGHqgp2s8pul6DSo+cKXglTs5To8AhQ9eUNXe/EGLRynR9cOGRLGrsjNBw=='
+                 sparkle:edSignature='jn1evKGi+C9ds8e+czvvu97U5ucHWpfCeYXjGJ/gaE1s0zpHp89A29qwJavmwmC0NbNHegpKqXSUvaKHGo0wDg=='
+                 type='application/octet-stream'
+                 length='2159227'
+                 url='https://github.com/kasper/phoenix/releases/download/2.6.4/phoenix-2.6.4.tar.gz' />
+    </item>
+
     <!-- 2.6.3 -->
 
     <item>
