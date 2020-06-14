@@ -10,6 +10,10 @@ Release: dd.mm.yyyy
 
 - Upgrade Sparkle to 1.23.0.
 
+### Bug Fixes
+
+- Fix issue that caused Phoenix to crash when binding keys with some keyboard layouts ([#196](https://github.com/kasper/phoenix/issues/196)).
+
 2.6.3
 -----
 

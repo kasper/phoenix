@@ -41,16 +41,12 @@ static NSString * const PHKeyTranslatorShiftModifier = @"shift";
 
 + (NSString *) characterForKeyCode:(unsigned short)keyCode {
 
-    id currentKeyboard = CFBridgingRelease(TISCopyCurrentKeyboardInputSource());
-
-    // Unicode layout
-    CFDataRef layoutData = TISGetInputSourceProperty((__bridge TISInputSourceRef) currentKeyboard,
+    id currentKeyboardLayout = CFBridgingRelease(TISCopyCurrentKeyboardLayoutInputSource());
+    CFDataRef layoutData = TISGetInputSourceProperty((__bridge TISInputSourceRef) currentKeyboardLayout,
                                                      kTISPropertyUnicodeKeyLayoutData);
-    // Non-unicode layout
     if (!layoutData) {
-        currentKeyboard = CFBridgingRelease(TISCopyCurrentASCIICapableKeyboardInputSource());
-        layoutData = TISGetInputSourceProperty((__bridge TISInputSourceRef) currentKeyboard,
-                                               kTISPropertyUnicodeKeyLayoutData);
+        NSLog(@"Error: Could not get Unicode keyboard layout for translating key.");
+        return nil;
     }
 
     UCKeyboardLayout * const keyboardLayout = (UCKeyboardLayout * const) CFDataGetBytePtr(layoutData);
