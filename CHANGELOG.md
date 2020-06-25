@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### Changes
+
+- Improve first launch experience by removing custom alert before accessibility prompt and terminating Phoenix.
+
 2.6.4
 -----
 

@@ -17,14 +17,6 @@
     if (universalAccessEnabled) {
         return;
     }
-
-    // Ask for permission
-    NSAlert *alert = [[NSAlert alloc] init];
-    alert.messageText = NSLocalizedString(@"Enable Accessibility", nil);
-    alert.informativeText = NSLocalizedString(@"Find the dialog right behind this one to enable accessibility for Phoenix in System Preferences. Once complete, launch Phoenix again.", nil);
-    [alert runModal];
-
-    [NSApp terminate:self];
 }
 
 @end
