@@ -157,6 +157,7 @@
 
     NSError *error;
     NSString *script = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
+    NSURL *url = [NSURL fileURLWithPath:path relativeToURL:[NSURL fileURLWithPath:path.stringByDeletingLastPathComponent isDirectory:true]];
 
     if (error) {
         script = @"";
@@ -172,7 +173,7 @@
         [PHNotificationHelper deliver:@"Preprocessing failed. Refer to the logs for more information."];
     }
 
-    [self.context evaluateScript:script];
+    [self.context evaluateScript:script withSourceURL:url];
     [self.configurationPaths addObject:path];
 }
 
