@@ -9,6 +9,8 @@ Release: dd.mm.yyyy
 ### Changes
 
 - Improve first launch experience by removing custom alert before accessibility prompt and terminating Phoenix.
+- Improve debug capabilites in the Safari context by listing of configuration file(s) in the
+developer tools sidebar
 
 2.6.4
 -----
