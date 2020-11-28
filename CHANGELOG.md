@@ -9,8 +9,7 @@ Release: dd.mm.yyyy
 ### Changes
 
 - Improve first launch experience by removing custom alert before accessibility prompt and terminating Phoenix.
-- Improve debug capabilites in the Safari context by listing of configuration file(s) in the
-developer tools sidebar
+- Improve debug capabilities in Safari Web Inspector by listing configuration file sources ([#265](https://github.com/kasper/phoenix/pull/265)).
 
 2.6.4
 -----
