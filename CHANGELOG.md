@@ -10,6 +10,7 @@ Release: dd.mm.yyyy
 
 - Improve first launch experience by removing custom alert before accessibility prompt and terminating Phoenix.
 - Improve debug capabilities in Safari Web Inspector by listing configuration file sources ([#265](https://github.com/kasper/phoenix/pull/265)).
+- Xcode 12 is now required for building.
 
 2.6.4
 -----
