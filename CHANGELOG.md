@@ -8,6 +8,7 @@ Release: dd.mm.yyyy
 
 ### Changes
 
+- Add support for Apple Silicon.
 - Improve first launch experience by removing custom alert before accessibility prompt and terminating Phoenix.
 - Improve debug capabilities in Safari Web Inspector by listing configuration file sources ([#265](https://github.com/kasper/phoenix/pull/265)).
 - Upgrade Sparkle to 1.24.0.
