@@ -91,7 +91,7 @@
 
 - (IBAction) editConfiguration:(id)__unused sender {
 
-    [[NSWorkspace sharedWorkspace] openFile:self.context.primaryConfigurationPath];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL fileURLWithPath:self.context.primaryConfigurationPath]];
 }
 
 - (IBAction) showAboutPanel:(id)sender {
