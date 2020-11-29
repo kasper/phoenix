@@ -1,6 +1,6 @@
 {
   "name": "phoenix",
-  "version": "2.6.5",
+  "version": "2.6.6",
   "private": true,
   "engines": {
     "node": ">=15.3.0",
