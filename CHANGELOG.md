@@ -1,10 +1,10 @@
 Changelog
 =========
 
-2.6.5 (master)
---------------
+2.6.5
+-----
 
-Release: dd.mm.yyyy
+Release: 29.11.2020
 
 ### Changes
 

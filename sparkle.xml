@@ -10,6 +10,36 @@
     <description>Feed for Phoenix updates.</description>
     <language>en</language>
 
+    <!-- 2.6.5 -->
+
+    <item>
+      <title>Version 2.6.5</title>
+      <pubDate>Sun, 29 Nov 2020 15:39:57 +0200</pubDate>
+      <description><![CDATA[
+
+        <p>This release includes general improvements.</p>
+
+        <h3>What is New?</h3>
+
+        <ul>
+          <li>adds support for Apple Silicon</li>
+          <li>improves first launch experience by removing custom alert before accessibility prompt and terminating Phoenix</li>
+          <li>improves debug capabilities in Safari Web Inspector by listing configuration file sources</li>
+        </ul>
+
+        <p>See the full <a href='https://github.com/kasper/phoenix/blob/2.6.5/CHANGELOG.md'>Changelog</a>.</p>
+
+      ]]>
+      </description>
+      <enclosure sparkle:version='91'
+                 sparkle:shortVersionString='2.6.5'
+                 sparkle:dsaSignature='MCwCFCPe4H7+nqeHx89nAIknG1tfSJDYAhRyYIg44jAEADV2p173OsjL65p7IA=='
+                 sparkle:edSignature='SoEB7PNsI0uQQ2I0RcIid0lTyWimS1aAWPOrgnpJCyW9ZPUla39RSjXrhNcOi4XzsfXh/6+s9/istnnkpLOMCg=='
+                 type='application/octet-stream'
+                 length='2588797'
+                 url='https://github.com/kasper/phoenix/releases/download/2.6.5/phoenix-2.6.5.tar.gz' />
+    </item>
+
     <!-- 2.6.4 -->
 
     <item>
