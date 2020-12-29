@@ -166,7 +166,19 @@ static NSString * const PHAppForceOptionKey = @"force";
 
 - (BOOL) focus {
 
-    return [self.app activateWithOptions:NSApplicationActivateIgnoringOtherApps];
+    // Source https://stackoverflow.com/a/65464683/525411
+    if (!self.app || self.app.processIdentifier == -1) {
+        return false;
+    }
+    
+    ProcessSerialNumber process;
+    OSStatus error = GetProcessForPID(self.app.processIdentifier, &process);
+    if (error) {
+        return false;
+    }
+
+    error = SetFrontProcessWithOptions(&process, kSetFrontProcessFrontWindowOnly);
+    return (error == 0) ? true : false;
 }
 
 - (BOOL) show {
