@@ -27,7 +27,7 @@ A lightweight macOS window and app manager scriptable with JavaScript. You can a
 
 To install, extract the downloaded archive and just drag-and-drop Phoenix to your `Applications`-folder. When you run Phoenix for the first time, you will be asked to allow it to control your UI. macOS will ask you to open `Security & Privacy` in System Preferences. Once open, go to the `Accessibility`-section and click the checkbox next to Phoenix to enable control. An admin account is required to accomplish this.
 
-Alternatively, if you have [Homebrew Cask](https://caskroom.github.io) installed, you can simply run `brew install --cask phoenix`.
+Alternatively, if you have [Homebrew](https://brew.sh) installed, you can simply run `brew install --cask phoenix`.
 
 ## Uninstall
 
