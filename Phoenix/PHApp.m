@@ -2,6 +2,7 @@
  * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
  */
 
+#import "NSProcessInfo+PHExtension.h"
 #import "PHApp.h"
 #import "PHWindow.h"
 
@@ -166,19 +167,27 @@ static NSString * const PHAppForceOptionKey = @"force";
 
 - (BOOL) focus {
 
-    // Source https://stackoverflow.com/a/65464683/525411
-    if (!self.app || self.app.processIdentifier == -1) {
-        return false;
-    }
-    
-    ProcessSerialNumber process;
-    OSStatus error = GetProcessForPID(self.app.processIdentifier, &process);
-    if (error) {
-        return false;
-    }
+    if (![NSProcessInfo isOperatingSystemAtLeastBigSur]) {
 
-    error = SetFrontProcessWithOptions(&process, kSetFrontProcessFrontWindowOnly);
-    return (error == 0) ? true : false;
+        return [self.app activateWithOptions:NSApplicationActivateIgnoringOtherApps];
+    } else {
+
+            // Source https://stackoverflow.com/a/65464683/525411
+        if (!self.app || self.app.processIdentifier == -1) {
+            return false;
+        }
+    
+        
+
+        ProcessSerialNumber process;
+        OSStatus error = GetProcessForPID(self.app.processIdentifier, &process);
+        if (error) {
+            return false;
+        }
+
+        error = SetFrontProcessWithOptions(&process, kSetFrontProcessFrontWindowOnly);
+        return (error == 0) ? true : false;
+    }
 }
 
 - (BOOL) show {

@@ -14,4 +14,10 @@
     return [[self processInfo] isOperatingSystemAtLeastVersion:elCapitan];
 }
 
++ (BOOL) isOperatingSystemAtLeastBigSur {
+
+    NSOperatingSystemVersion bigSur = { .majorVersion = 11, .minorVersion = 0, .patchVersion = 0 };
+    return [[self processInfo] isOperatingSystemAtLeastVersion:bigSur];
+}
+
 @end

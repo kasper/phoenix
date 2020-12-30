@@ -9,5 +9,6 @@
 #pragma mark - Operating System
 
 + (BOOL) isOperatingSystemAtLeastElCapitan;
++ (BOOL) isOperatingSystemAtLeastBigSur;
 
 @end
