@@ -167,27 +167,30 @@ static NSString * const PHAppForceOptionKey = @"force";
 
 - (BOOL) focus {
 
-    if (![NSProcessInfo isOperatingSystemAtLeastBigSur]) {
-
-        return [self.app activateWithOptions:NSApplicationActivateIgnoringOtherApps];
-    } else {
-
-            // Source https://stackoverflow.com/a/65464683/525411
-        if (!self.app || self.app.processIdentifier == -1) {
+    // FIX: Workaround for the buggy focus behaviour in Big Sur, see issue #266. For
+    // reference see https://stackoverflow.com/a/65464683/525411
+    if ([NSProcessInfo isOperatingSystemAtLeastBigSur]) {
+    
+        if (!self.app || [self.app processIdentifier] == -1) {
             return false;
         }
-    
-        
 
         ProcessSerialNumber process;
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"        
         OSStatus error = GetProcessForPID(self.app.processIdentifier, &process);
-        if (error) {
+#pragma GCC diagnostic pop
+        if (error != noErr) {
             return false;
         }
 
-        error = SetFrontProcessWithOptions(&process, kSetFrontProcessFrontWindowOnly);
-        return (error == 0) ? true : false;
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"        
+        return SetFrontProcessWithOptions(&process, kSetFrontProcessFrontWindowOnly);
+#pragma GCC diagnostic pop
     }
+
+    return [self.app activateWithOptions:NSApplicationActivateIgnoringOtherApps];
 }
 
 - (BOOL) show {
