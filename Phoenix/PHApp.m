@@ -186,8 +186,9 @@ static NSString * const PHAppForceOptionKey = @"force";
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"        
-        return SetFrontProcessWithOptions(&process, kSetFrontProcessFrontWindowOnly);
+        error = SetFrontProcessWithOptions(&process, kSetFrontProcessFrontWindowOnly);
 #pragma GCC diagnostic pop
+        return error == noErr;
     }
 
     return [self.app activateWithOptions:NSApplicationActivateIgnoringOtherApps];
