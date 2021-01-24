@@ -14,4 +14,5 @@ before_install:
 
 matrix:
   include:
+    - osx_image: xcode12.3
     - osx_image: xcode12.2
