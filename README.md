@@ -1,7 +1,7 @@
 Phoenix
 =======
 
-[![Build Status](https://travis-ci.org/kasper/phoenix.svg?branch=master)](https://travis-ci.org/kasper/phoenix/)
+![Build Status](https://github.com/kasper/phoenix/workflows/CI/badge.svg)
 
 <img width='128' height='128' align='right' src='Phoenix/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png' alt='Phoenix'>
 
