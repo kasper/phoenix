@@ -2,6 +2,7 @@
  * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
  */
 
+#import "NSProcessInfo+PHExtension.h"
 #import "PHApp.h"
 #import "PHWindow.h"
 
@@ -165,6 +166,30 @@ static NSString * const PHAppForceOptionKey = @"force";
 }
 
 - (BOOL) focus {
+
+    // FIX: Workaround for the buggy focus behaviour in Big Sur, see issue #266. For
+    // reference see https://stackoverflow.com/a/65464683/525411
+    if ([NSProcessInfo isOperatingSystemAtLeastBigSur]) {
+    
+        if (!self.app || [self.app processIdentifier] == -1) {
+            return false;
+        }
+
+        ProcessSerialNumber process;
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"        
+        OSStatus error = GetProcessForPID(self.app.processIdentifier, &process);
+#pragma GCC diagnostic pop
+        if (error != noErr) {
+            return false;
+        }
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"        
+        error = SetFrontProcessWithOptions(&process, kSetFrontProcessFrontWindowOnly);
+#pragma GCC diagnostic pop
+        return error == noErr;
+    }
 
     return [self.app activateWithOptions:NSApplicationActivateIgnoringOtherApps];
 }

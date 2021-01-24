@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### Changes
+
+- Add temporary workaround for Apple bug that breaks `activateWithOptions:` starting with BigSur ([#266](https://github.com/kasper/phoenix/issues/266)).
+
 2.6.5
 -----
 
