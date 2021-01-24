@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2.6.7 (master)
+--------------
+
+Release: dd.mm.yyyy
+
 2.6.6
 -----
 
