@@ -87,7 +87,7 @@ Install Bundler, if you do not already have it installed. To install CocoaPods a
 
 In addition to the Objective-C core, Phoenix also uses a JavaScript-based (5.1) library to implement additional features to the API. The minified library is included in the repository in `Phoenix/phoenix-min.js` so that everything works as is. However, if you want to develop features for this library, you will also need:
 
-7. [Node.js](https://nodejs.org) (15.3.0 or higher)
+7. [Node.js](https://nodejs.org) (15.6.0 or higher)
 
 Install the development packages listed in `package.json`.
 
