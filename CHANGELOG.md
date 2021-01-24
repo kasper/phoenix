@@ -6,9 +6,9 @@ Changelog
 
 Release: dd.mm.yyyy
 
-### Changes
+### Bug Fixes
 
-- Add temporary workaround for Apple bug that breaks `activateWithOptions:` starting with BigSur ([#266](https://github.com/kasper/phoenix/issues/266)).
+- Add temporary workaround for macOS bug that breaks focusing an individual window of an app in Big Sur ([#266](https://github.com/kasper/phoenix/issues/266), [#268](https://github.com/kasper/phoenix/pull/268)).
 
 2.6.5
 -----
