@@ -5,7 +5,7 @@
 // TODO: Deprecated and will be removed in later versions, use Screen#flippedFrame() instead
 Screen.prototype.frameInRectangle = function () {
   Phoenix.log(
-    'Deprecated: Function Screen#frameInRectangle() is deprecated and will be removed in later versions, use Screen#flippedFrame() instead.'
+    'Deprecated: Function Screen#frameInRectangle() is deprecated and will be removed in later versions, use Screen#flippedFrame() instead.',
   );
   return this.flippedFrame();
 };
@@ -13,7 +13,7 @@ Screen.prototype.frameInRectangle = function () {
 // TODO: Deprecated and will be removed in later versions, use Screen#flippedVisibleFrame() instead
 Screen.prototype.visibleFrameInRectangle = function () {
   Phoenix.log(
-    'Deprecated: Function Screen#visibleFrameInRectangle() is deprecated and will be removed in later versions, use Screen#flippedVisibleFrame() instead.'
+    'Deprecated: Function Screen#visibleFrameInRectangle() is deprecated and will be removed in later versions, use Screen#flippedVisibleFrame() instead.',
   );
   return this.flippedVisibleFrame();
 };
