@@ -19,7 +19,7 @@ jobs:
           node-version: 15.6.0
       - run: command -v sh
       - run: command -v npm
-      - run: if command -v npm; then echo 'Should execute' fi
+      - run: if command -v npm; then echo 'Should execute'; fi
       - run: npm install
       - uses: sersoft-gmbh/xcodebuild-action@v1
         with:
