@@ -523,7 +523,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if command -v npm; then\n    npm install && npm run build\nfi\n";
+			shellScript = "if command -v npm; then\n    npm install && npm run build\nfi\necho 'SUCCESS'\n";
 			showEnvVarsInLog = 0;
 		};
 		A7C58EEF1C065C8A00180664 /* Sign Sparkle */ = {
