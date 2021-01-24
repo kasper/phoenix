@@ -10,6 +10,34 @@
     <description>Feed for Phoenix updates.</description>
     <language>en</language>
 
+    <!-- 2.6.6 -->
+
+    <item>
+      <title>Version 2.6.6</title>
+      <pubDate>Sun, 24 Jan 2021 17:53:01 +0200</pubDate>
+      <description><![CDATA[
+
+        <p>This release includes general improvements and bug fixes.</p>
+
+        <h3>What is New?</h3>
+
+        <ul>
+          <li>adds temporary workaround for macOS bug that breaks focusing an individual window of an app in Big Sur</li>
+        </ul>
+
+        <p>See the full <a href='https://github.com/kasper/phoenix/blob/2.6.6/CHANGELOG.md'>Changelog</a>.</p>
+
+      ]]>
+      </description>
+      <enclosure sparkle:version='95'
+                 sparkle:shortVersionString='2.6.6'
+                 sparkle:dsaSignature='MCwCFBgHoLkRHWWUYODpqQzDjK0JTgalAhR7e/536DLYxGyUYGpgR+/GPml8xA=='
+                 sparkle:edSignature='WGd28EzebNKjUdQ7YP7i39i6NyGpxsiLWHY6wQpDF2yPaOoznTAqQmZrWw1aJsYUBlMoLBc95gougBXQ5t2YAA=='
+                 type='application/octet-stream'
+                 length='2589585'
+                 url='https://github.com/kasper/phoenix/releases/download/2.6.6/phoenix-2.6.6.tar.gz' />
+    </item>
+
     <!-- 2.6.5 -->
 
     <item>
