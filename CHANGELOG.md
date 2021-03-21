@@ -12,6 +12,7 @@ Release: dd.mm.yyyy
 
 ### Bug Fixes
 
+- Fix issue that prevented window events to register for recently launched apps ([#264](https://github.com/kasper/phoenix/issues/264)).
 - Fix issue that caused `App#mainWindow()` to return a broken Window instance when the app is for example minimised. The function will now correctly return `undefined` in such cases ([#269](https://github.com/kasper/phoenix/issues/269)).
 
 2.6.6
