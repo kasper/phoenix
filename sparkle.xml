@@ -10,6 +10,35 @@
     <description>Feed for Phoenix updates.</description>
     <language>en</language>
 
+    <!-- 2.6.7 -->
+
+    <item>
+      <title>Version 2.6.7</title>
+      <pubDate>Sun, 21 Mar 2021 21:59:21 +0200</pubDate>
+      <description><![CDATA[
+
+        <p>This release includes general improvements and bug fixes.</p>
+
+        <h3>What is New?</h3>
+
+        <ul>
+          <li>fixes issue that prevented window events to register for recently launched apps</li>
+          <li>fixes issue that caused incorrect API behaviour when an app does not have a main window</li>
+        </ul>
+
+        <p>See the full <a href='https://github.com/kasper/phoenix/blob/2.6.7/CHANGELOG.md'>Changelog</a>.</p>
+
+      ]]>
+      </description>
+      <enclosure sparkle:version='98'
+                 sparkle:shortVersionString='2.6.7'
+                 sparkle:dsaSignature='MCwCFDLRHceSB93aKTLWK6Cvx747kJk8AhQDRyt4gjSvsc3UG/nNgTcjmq/1bg=='
+                 sparkle:edSignature='F0WV4AFoqSv7WROZw6EgMltwvMubc1GNT2J+RgwqDuGeKmQijkxMOeOhzjfgUHduhJxa1mH8mBOjQtqjDAyUCA=='
+                 type='application/octet-stream'
+                 length='1848523'
+                 url='https://github.com/kasper/phoenix/releases/download/2.6.7/phoenix-2.6.7.tar.gz' />
+    </item>
+
     <!-- 2.6.6 -->
 
     <item>
