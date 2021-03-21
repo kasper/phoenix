@@ -9,7 +9,7 @@
   "devDependencies": {
     "eslint-config-airbnb-base": "14.2.1",
     "uglify-js": "3.13.1",
-    "xo": "0.37.1"
+    "xo": "0.38.2"
   },
   "scripts": {
     "build": "npm run clean && npm test && npm run build:concat && npm run build:compress",
