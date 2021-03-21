@@ -614,7 +614,7 @@ end
 - `isActive()` returns `true` if the app is currently frontmost
 - `isHidden()` returns `true` if the app is hidden
 - `isTerminated()` returns `true` if the app has been terminated
-- `mainWindow()` returns the main window for the app
+- `mainWindow()` returns the main window for the app, returns `undefined` if the app does not currently have a main window
 - `windows(Map<String, AnyObject> optionals)` returns all windows for the app if no optionals are given
 - `activate()` activates the app and brings its windows forward, returns `true` if successful
 - `focus()` activates the app and brings its windows to focus, returns `true` if successful

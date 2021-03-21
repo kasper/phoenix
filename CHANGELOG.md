@@ -10,6 +10,10 @@ Release: dd.mm.yyyy
 
 - Upgrade Sparkle to 1.26.0.
 
+### Bug Fixes
+
+- Fix issue that caused `App#mainWindow()` to return a broken Window instance when the app is for example minimised. The function will now correctly return `undefined` in such cases ([#269](https://github.com/kasper/phoenix/issues/269)).
+
 2.6.6
 -----
 

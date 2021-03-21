@@ -131,7 +131,13 @@ static NSString * const PHAppForceOptionKey = @"force";
 
 - (PHWindow *) mainWindow {
 
-    return [[PHWindow alloc] initWithElement:[self valueForAttribute:NSAccessibilityMainWindowAttribute]];
+    id mainWindow = [self valueForAttribute:NSAccessibilityMainWindowAttribute];
+
+    if (!mainWindow) {
+        return nil;
+    }
+
+    return [[PHWindow alloc] initWithElement:mainWindow];
 }
 
 - (NSArray<PHWindow *> *) windows {
