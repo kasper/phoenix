@@ -99,7 +99,7 @@
     AXError error = AXUIElementCopyAttributeValue((__bridge AXUIElementRef) self.element, (__bridge CFStringRef) attribute, &value);
 
     if (error != kAXErrorSuccess) {
-        NSLog(@"Info: Could not get value for attribute %@ from element %@. (%d)", attribute, self.element, error);
+        NSLog(@"Info: Could not get value for attribute “%@” from element %@. (%d)", attribute, self.element, error);
     }
 
     return CFBridgingRelease(value);

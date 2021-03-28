@@ -87,17 +87,23 @@ static void PHAXObserverCallback(__unused AXObserverRef observer,
 
 - (void) addNotification:(NSString *)notification {
 
-    AXObserverAddNotification((__bridge AXObserverRef) self.observer,
-                              (__bridge AXUIElementRef) self.element,
-                              (__bridge CFStringRef) notification,
-                              NULL);
+    AXError error = AXObserverAddNotification((__bridge AXObserverRef) self.observer,
+                                              (__bridge AXUIElementRef) self.element,
+                                              (__bridge CFStringRef) notification,
+                                              NULL);
+    if (error != kAXErrorSuccess) {
+        NSLog(@"Info: Could not add notification “%@” for element %@. (%d)", notification, self.element, error);
+    }
 }
 
 - (void) removeNotification:(NSString *)notification {
 
-    AXObserverRemoveNotification((__bridge AXObserverRef) self.observer,
-                                 (__bridge AXUIElementRef) self.element,
-                                 (__bridge CFStringRef) notification);
+    AXError error = AXObserverRemoveNotification((__bridge AXObserverRef) self.observer,
+                                                 (__bridge AXUIElementRef) self.element,
+                                                 (__bridge CFStringRef) notification);
+    if (error != kAXErrorSuccess) {
+        NSLog(@"Info: Could not remove notification “%@” for element %@. (%d)", notification, self.element, error);
+    }
 }
 
 #pragma mark - Setting up
