@@ -8,7 +8,7 @@ function prettifyError(error) {
       .trim()
       .split('\n')
       .map(function (line) {
-        return '\t at ' + line;
+        return '\tat ' + line;
       })
       .join('\n');
   }
