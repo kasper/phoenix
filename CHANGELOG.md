@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### Changes
+
+- Forward `console.log(...)` to `Phoenix.log(...)` for convenience.
+
 2.6.7
 -----
 
