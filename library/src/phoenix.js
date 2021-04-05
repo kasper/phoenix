@@ -1,3 +1,7 @@
+'use strict';
+
+/* Phoenix */
+
 var consoleLogFn = console.log; // eslint-disable-line no-console
 var logFn = Phoenix.log;
 
