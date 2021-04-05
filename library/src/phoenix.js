@@ -1,6 +1,6 @@
-var consoleFn = console.log; // eslint-disable-line no-console
+var consoleLogFn = console.log; // eslint-disable-line no-console
 // eslint-disable-next-line no-console
 console.log = function () {
-  consoleFn.apply(console, arguments);
+  consoleLogFn.apply(console, arguments);
   Phoenix.log.apply(Phoenix, arguments);
 };
