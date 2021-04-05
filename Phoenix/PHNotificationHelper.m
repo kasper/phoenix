@@ -12,6 +12,7 @@
 
     NSUserNotification *notification = [[NSUserNotification alloc] init];
     notification.informativeText = message;
+    notification.hasActionButton = NO;
 
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
 }

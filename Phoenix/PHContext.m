@@ -212,9 +212,9 @@
 - (void) setupContext {
 
     self.context = [[JSContext alloc] initWithVirtualMachine:[[JSVirtualMachine alloc] init]];
-    self.context.exceptionHandler = ^(__unused JSContext *context, JSValue *value) {
+    self.context.exceptionHandler = ^(__unused JSContext *context, JSValue *exception) {
 
-        NSLog(@"%@ (%@:%@)", value, value[@"line"], value[@"column"]);
+        NSLog(@"%@ (%@:%@)", exception, exception[@"line"], exception[@"column"]);
         [PHNotificationHelper deliver:@"Exception raised. Refer to the logs for more information."];
     };
 
