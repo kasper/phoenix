@@ -20,7 +20,7 @@ function prettifyError(error) {
 }
 
 Phoenix.log = function () {
-  var isError = arguments[0] instanceof Error;
+  var isError = arguments.length === 1 && arguments[0] instanceof Error;
   if (isError) {
     logFn.call(Phoenix, prettifyError(arguments[0]));
     return;
