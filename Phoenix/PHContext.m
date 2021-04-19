@@ -212,10 +212,11 @@
 - (void) setupContext {
 
     self.context = [[JSContext alloc] initWithVirtualMachine:[[JSVirtualMachine alloc] init]];
-    self.context.exceptionHandler = ^(__unused JSContext *context, JSValue *exception) {
+    self.context.exceptionHandler = ^(JSContext *context, JSValue *exception) {
 
-        NSLog(@"%@ (%@:%@)", exception, exception[@"line"], exception[@"column"]);
-        [PHNotificationHelper deliver:@"Exception raised. Refer to the logs for more information."];
+        JSValue *log = [context[@"Phoenix"] objectForKeyedSubscript:@"log"];
+        [log callWithArguments:@[ exception ]];
+        [PHNotificationHelper deliver:@"Uncaught exception raised. Refer to the logs for more information."];
     };
 
     [self setupAPI];
