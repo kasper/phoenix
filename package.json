@@ -35,11 +35,14 @@
       "Window"
     ],
     "prettier": true,
-    "esnext": false,
     "space": true,
     "rules": {
       "no-param-reassign": "off",
+      "prefer-arrow-callback": "off",
+      "prefer-rest-params": "off",
+      "prefer-spread": "off",
       "strict": "off",
+      "unicorn/prefer-module": "off",
       "unicorn/prefer-reflect-apply": "off",
       "vars-on-top": "off"
     }
