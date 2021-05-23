@@ -11,6 +11,8 @@
 #import "PHAXUIElement.h"
 #import "PHIdentifiableJSExport.h"
 
+static NSString * const PHAppFocusOptionKey = @"focus";
+
 @protocol PHAppJSExport <JSExport, PHIdentifiableJSExport>
 
 #pragma mark - Apps

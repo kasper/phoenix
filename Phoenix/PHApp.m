@@ -15,7 +15,6 @@
 
 @implementation PHApp
 
-static NSString * const PHAppFocusOptionKey = @"focus";
 static NSString * const PHAppForceOptionKey = @"force";
 
 #pragma mark - Initialising

@@ -8,13 +8,20 @@
 
 #pragma mark - Delivering
 
-+ (void) deliver:(NSString *)message {
++ (void) deliver:(NSString *)message withDelegate:(id<NSUserNotificationCenterDelegate>)delegate {
+
+    NSUserNotificationCenter *center = [NSUserNotificationCenter defaultUserNotificationCenter];
+    center.delegate = delegate;
 
     NSUserNotification *notification = [[NSUserNotification alloc] init];
     notification.informativeText = message;
     notification.hasActionButton = NO;
 
-    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+    if (delegate) {
+        notification.hasActionButton = YES;
+    }
+
+    [center deliverNotification:notification];
 }
 
 @end

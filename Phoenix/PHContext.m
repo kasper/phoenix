@@ -150,7 +150,7 @@
         return;
     }
 
-    [PHNotificationHelper deliver:[NSString stringWithFormat:@"Configuration file “%@” was created.", path]];
+    [PHNotificationHelper deliver:[NSString stringWithFormat:@"Configuration file “%@” was created.", path] withDelegate:nil];
 }
 
 - (void) loadScript:(NSString *)path {
@@ -170,7 +170,7 @@
     if (preprocessError) {
         NSError *underlyingError = preprocessError.userInfo[NSUnderlyingErrorKey];
         NSLog(@"Error: Preprocessing failed. (%@)", underlyingError.localizedFailureReason);
-        [PHNotificationHelper deliver:@"Preprocessing failed. Refer to the logs for more information."];
+        [PHNotificationHelper deliver:@"Preprocessing failed. Refer to the logs for more information." withDelegate:self];
     }
 
     [self.context evaluateScript:script withSourceURL:url];
@@ -211,18 +211,28 @@
 
 - (void) setupContext {
 
+    PHContext * __weak weakSelf = self;
     self.context = [[JSContext alloc] initWithVirtualMachine:[[JSVirtualMachine alloc] init]];
     self.context.exceptionHandler = ^(JSContext *context, JSValue *exception) {
 
         JSValue *log = [context[@"Phoenix"] objectForKeyedSubscript:@"log"];
         [log callWithArguments:@[ exception ]];
-        [PHNotificationHelper deliver:@"Uncaught exception raised. Refer to the logs for more information."];
+        [PHNotificationHelper deliver:@"Uncaught exception raised. Refer to the logs for more information."
+                         withDelegate:weakSelf];
     };
 
     [self setupAPI];
     [self loadScript:[[NSBundle mainBundle] pathForResource:@"lodash.min" ofType:@"js"]];
     [self loadScript:[[NSBundle mainBundle] pathForResource:@"phoenix.min" ofType:@"js"]];
     [self loadScript:self.primaryConfigurationPath];
+}
+
+#pragma mark - NSUserNotificationCenterDelegate
+
+- (void) userNotificationCenter:(NSUserNotificationCenter *)__unused center
+        didActivateNotification:(NSUserNotification *)__unused notification {
+
+    [PHApp launch:@"Console" withOptionals:@{ PHAppFocusOptionKey: @YES }];
 }
 
 #pragma mark - PHContextDelegate

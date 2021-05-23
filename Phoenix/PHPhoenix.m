@@ -50,7 +50,7 @@
 
 - (void) notify:(NSString *)message {
 
-    [PHNotificationHelper deliver:message];
+    [PHNotificationHelper deliver:message withDelegate:nil];
 }
 
 @end

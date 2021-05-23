@@ -11,6 +11,6 @@
 
 #pragma mark - Delivering
 
-+ (void) deliver:(NSString *)message;
++ (void) deliver:(NSString *)message withDelegate:(id<NSUserNotificationCenterDelegate>)delegate;
 
 @end

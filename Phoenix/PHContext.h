@@ -16,7 +16,7 @@
 
 @end
 
-@interface PHContext : NSObject <PHContextDelegate>
+@interface PHContext : NSObject <NSUserNotificationCenterDelegate, PHContextDelegate>
 
 @property (readonly) NSString *primaryConfigurationPath;
 
