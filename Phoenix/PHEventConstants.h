@@ -16,3 +16,7 @@ static NSString * const PHMouseDidLeftClickNotification = @"PHMouseDidLeftClickN
 static NSString * const PHMouseDidRightClickNotification = @"PHMouseDidRightClickNotification";
 static NSString * const PHMouseDidLeftDragNotification = @"PHMouseDidLeftDragNotification";
 static NSString * const PHMouseDidRightDragNotification = @"PHMouseDidRightDragNotification";
+
+#pragma mark - Apple scripting notifications
+
+static NSString * const PHAppleScriptDispatchNotification = @"PHDispatchNotification";

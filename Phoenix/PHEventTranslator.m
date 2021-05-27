@@ -70,6 +70,10 @@
                                  @"mouseDidRightClick": PHMouseDidRightClickNotification,
                                  @"mouseDidLeftDrag": PHMouseDidLeftDragNotification,
                                  @"mouseDidRightDrag": PHMouseDidRightDragNotification,
+                                 
+                                 /* Apple Scripting Notifications */
+
+                                 @"dispatch": PHAppleScriptDispatchNotification,
 
                                  /* App Notifications */
 

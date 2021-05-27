@@ -10,6 +10,7 @@
 #import "PHEventTranslator.h"
 #import "PHGlobalEventMonitor.h"
 #import "PHWindow.h"
+#import "PHEventConstants.h"
 
 @interface PHEventHandler ()
 
@@ -69,6 +70,7 @@
     NSDictionary<NSString *, id> *mouse = notification.userInfo[PHGlobalEventMonitorMouseKey];
     NSRunningApplication *runningApp = notification.userInfo[NSWorkspaceApplicationKey];
     PHWindow *window = notification.userInfo[PHAXObserverWindowKey];
+    NSString *dispatchData = notification.userInfo[PHAppleScriptDispatchNotification];
 
     // Notification for mouse
     if (mouse) {
@@ -86,6 +88,12 @@
     // Notification for window
     if (window) {
         [self callWithArguments:@[ window, self ]];
+        return;
+    }
+
+    // AppleScript Dispatch event with data
+    if (dispatchData) {
+        [self callWithArguments:@[ self, dispatchData ]];
         return;
     }
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
+
+<dictionary title="Standard Terminology">
+    
+    <suite name="Phoenix Suite" code="PhSu" description="Phoenix suite.">
+        
+        <class name="application" code="capp" description="The application's top level scripting object.">
+            <cocoa class="NSApplication"/>
+        </class>
+        
+        <command name="dispatch" code="aevtdisp" description="Dispatch an application event.">
+            <cocoa class="PHDispatchCommand"/>
+
+            <parameter name="event with" code="eVnW" type="text" optional="yes" description="optional event data">
+                <cocoa key="data"/>
+            </parameter>
+        </command>
+        
+    </suite>
+  
+</dictionary>

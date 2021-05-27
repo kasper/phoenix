@@ -49,6 +49,8 @@
 		A7E6DF6F1BBAC1F3001920B4 /* PHAccessibilityObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E6DF6E1BBAC1F3001920B4 /* PHAccessibilityObserver.m */; };
 		A7F24F5F1C2728540013EBAE /* NSTask+PHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F24F5E1C2728540013EBAE /* NSTask+PHExtension.m */; };
 		B1CB3438E933A38FD2BBF573 /* libPods-Phoenix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5342E0734A711231D71BF1 /* libPods-Phoenix.a */; };
+		E868C1B1265A82CD00AC8F4D /* Phoenix.sdef in Resources */ = {isa = PBXBuildFile; fileRef = E868C1B0265A82CD00AC8F4D /* Phoenix.sdef */; };
+		E8FC82AF265FC9F700F66151 /* PHDispatchCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E8FC82AE265FC9F700F66151 /* PHDispatchCommand.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +149,9 @@
 		A7F24F5E1C2728540013EBAE /* NSTask+PHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTask+PHExtension.m"; sourceTree = "<group>"; };
 		DC5342E0734A711231D71BF1 /* libPods-Phoenix.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Phoenix.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF23C77C388EEDB5B63E6130 /* Pods-Phoenix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phoenix.release.xcconfig"; path = "Pods/Target Support Files/Pods-Phoenix/Pods-Phoenix.release.xcconfig"; sourceTree = "<group>"; };
+		E868C1B0265A82CD00AC8F4D /* Phoenix.sdef */ = {isa = PBXFileReference; lastKnownFileType = text; path = Phoenix.sdef; sourceTree = "<group>"; };
+		E8FC82AE265FC9F700F66151 /* PHDispatchCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHDispatchCommand.m; sourceTree = "<group>"; };
+		E8FC82B0265FCA3A00F66151 /* PHDispatchCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHDispatchCommand.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,6 +333,7 @@
 		A79C46591B5BF31100C460CF /* Phoenix */ = {
 			isa = PBXGroup;
 			children = (
+				E8FC82B2266258B600F66151 /* AppleScript */,
 				A7C3C2F823DB8D7E00FAEFED /* Phoenix.entitlements */,
 				A77952C41BBE7CCD00FC8D38 /* Accessibility */,
 				A77952C71BBE7E3E00FC8D38 /* Context */,
@@ -344,6 +350,7 @@
 				A7EBD1C11BFDF7E1000D8E5F /* Preprocessors */,
 				A79C465A1B5BF31100C460CF /* Supporting Files */,
 				A73FF10C1BBD8F350024CF97 /* Translators */,
+				E868C1B0265A82CD00AC8F4D /* Phoenix.sdef */,
 			);
 			path = Phoenix;
 			sourceTree = "<group>";
@@ -386,6 +393,15 @@
 				1C93D6631BE11FF100649405 /* PHShebangPreprocessor.m */,
 			);
 			name = Preprocessors;
+			sourceTree = "<group>";
+		};
+		E8FC82B2266258B600F66151 /* AppleScript */ = {
+			isa = PBXGroup;
+			children = (
+				E8FC82B0265FCA3A00F66151 /* PHDispatchCommand.h */,
+				E8FC82AE265FC9F700F66151 /* PHDispatchCommand.m */,
+			);
+			name = AppleScript;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -480,6 +496,7 @@
 				A79B89E01B5E74C1004DDE82 /* MainMenu.xib in Resources */,
 				A77AB3261DD73F00003B5872 /* lodash.min.js in Resources */,
 				A7952E7E1C0721850062D651 /* dsa-phoenix-pub.pem in Resources */,
+				E868C1B1265A82CD00AC8F4D /* Phoenix.sdef in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,6 +607,7 @@
 				A72EAD071B5D00B800DD537B /* PHModalWindowController.m in Sources */,
 				A741336C1BB7EEAC008DAF39 /* PHHandler.m in Sources */,
 				A741336F1BB7F228008DAF39 /* PHEventHandler.m in Sources */,
+				E8FC82AF265FC9F700F66151 /* PHDispatchCommand.m in Sources */,
 				A7741A291D2BBF55009E8A2F /* PHGlobalEventMonitor.m in Sources */,
 				A7F24F5F1C2728540013EBAE /* NSTask+PHExtension.m in Sources */,
 				A7183B671B6E865F00842E13 /* PHKeyHandler.m in Sources */,
