@@ -487,6 +487,18 @@ end
 - `show()` shows the modal, you must set at least an icon or text for the modal to be displayed
 - `close()` closes the modal
 
+Example:
+
+```javascript
+var modal = Modal.build({
+    text: "Hello World!",
+    appearance: "dark",
+    weight: 48,
+    icon: App.get('Phoenix').icon(),
+    duration: 0.5
+}).show()
+```
+
 ## 18. Screen
 
 Use the `Screen`-object to access frame sizes and other screens on a multi-screen setup. Beware that a screen can get stale if you keep a reference to it and it is for instance disconnected while you do so.
