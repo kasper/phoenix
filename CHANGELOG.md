@@ -14,6 +14,7 @@ Release: dd.mm.yyyy
 ### Improvements
 
 - Launch Console app when clicking a notification for an exception.
+- Clarify the documentation about `Point`, `Size` and `Rectangle` being simple struct objects and not being extendable ([#273](https://github.com/kasper/phoenix/issues/273)).
 
 2.6.7
 -----

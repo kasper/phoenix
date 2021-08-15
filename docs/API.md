@@ -258,7 +258,7 @@ end
 A simple point object for 2D-coordinates.
 
 ```java
-class Point
+struct Point
 
   property double x
   property double y
@@ -271,7 +271,7 @@ end
 A simple 2D-size object.
 
 ```java
-class Size
+struct Size
 
   property double width
   property double height
@@ -284,7 +284,7 @@ end
 A 2D-rectangle representation of a `Point` and `Size`.
 
 ```java
-class Rectangle
+struct Rectangle
 
   property double x
   property double y
