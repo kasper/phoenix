@@ -73,6 +73,16 @@ To install Phoenix from the source, you will need to build the workspace from a 
 
 Once complete, you will find a newly built Phoenix app in `build/Release/`. After this, you can follow the normal install guide.
 
+To create a debug build, simply change the `-configuration` flag to "Debug":
+
+    xcodebuild -workspace Phoenix.xcworkspace \
+                   -scheme Phoenix \
+                   -configuration Debug \
+                   SYMROOT="$PWD/build/" \
+                   clean build
+
+This will place a debug build of the app in `build/Debug`.
+
 Phoenix manages dependencies with [CocoaPods](https://cocoapods.org). Note that you do not need CocoaPods for basic development. However, if you want to install new pods or update existing ones, you will also need:
 
 4. [Ruby](https://www.ruby-lang.org) (2.7.4 or higher), it is recommended that you manage Ruby versions with for instance [rbenv](https://github.com/rbenv/rbenv/)
