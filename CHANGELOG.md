@@ -10,6 +10,7 @@ Release: dd.mm.yyyy
 
 - Forward `console.log(...)` to `Phoenix.log(...)` for convenience.
 - Log stack trace when passing an error to `Phoenix.log(...)` ([#181](https://github.com/kasper/phoenix/issues/181)).
+- Xcode 13 is now required for building.
 
 ### Improvements
 
