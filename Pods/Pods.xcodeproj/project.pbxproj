@@ -16,16 +16,15 @@
 			dependencies = (
 			);
 			name = Sparkle;
-			productName = Sparkle;
 		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		0B96FAE4137DC0662A0CA06344BC77B8 /* Pods-Phoenix-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AD19A293FB2F32D661D4D173E9802A95 /* Pods-Phoenix-dummy.m */; };
+		500921FCC8D3D463C795D730EA4970D9 /* Pods-Phoenix-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AD19A293FB2F32D661D4D173E9802A95 /* Pods-Phoenix-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F0DEA057602AF6091519754F24D48092 /* PBXContainerItemProxy */ = {
+		6578FD91C6BDDBA9CCEA10B1C4888044 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -36,22 +35,23 @@
 
 /* Begin PBXFileReference section */
 		0FA6C315CC39C04A6325D6C2EA0183AE /* SPUURLRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUURLRequest.h; path = Sparkle.framework/Versions/A/Headers/SPUURLRequest.h; sourceTree = "<group>"; };
+		16B7579C7FE971542B4DD9927A143575 /* Sparkle-copy-dsyms.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Sparkle-copy-dsyms.sh"; sourceTree = "<group>"; };
 		1E5E81070AEE122E1F275B71DB14E3D7 /* SUExport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUExport.h; path = Sparkle.framework/Versions/A/Headers/SUExport.h; sourceTree = "<group>"; };
 		21DF7D1A6661B3857DEFB225AE0F9F57 /* Sparkle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Sparkle.h; path = Sparkle.framework/Versions/A/Headers/Sparkle.h; sourceTree = "<group>"; };
 		2C361855DC1AFB00DF244777AF2D56CB /* Pods-Phoenix-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Phoenix-acknowledgements.plist"; sourceTree = "<group>"; };
 		417C88C51B3BE16948654F2FCB66EB2E /* SUCodeSigningVerifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUCodeSigningVerifier.h; path = Sparkle.framework/Versions/A/Headers/SUCodeSigningVerifier.h; sourceTree = "<group>"; };
-		41B59738C0BCF0042F3713929FCF7B7D /* Sparkle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sparkle.debug.xcconfig; sourceTree = "<group>"; };
 		47C03DB72D276BED7D2C4894868BA0D7 /* SPUDownloadData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloadData.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloadData.h; sourceTree = "<group>"; };
 		5A0823E2AE8831A8ED58C760E1636CBE /* Pods-Phoenix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Phoenix.debug.xcconfig"; sourceTree = "<group>"; };
 		5C92312628B52C174AFF30CD58D77E20 /* Pods-Phoenix-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Phoenix-acknowledgements.markdown"; sourceTree = "<group>"; };
-		76CFF7FAE80F347862737AE6269F7628 /* Sparkle-copy-dsyms.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Sparkle-copy-dsyms.sh"; sourceTree = "<group>"; };
+		5FBF75E57515B6295CE7B03A2D9631A5 /* Sparkle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sparkle.release.xcconfig; sourceTree = "<group>"; };
 		787B488EE9EF857E94CEF6672C97EF62 /* SUUpdater.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUUpdater.h; path = Sparkle.framework/Versions/A/Headers/SUUpdater.h; sourceTree = "<group>"; };
 		81E131AFC8D32F9AA0C215287DDB3932 /* Pods-Phoenix-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Phoenix-frameworks.sh"; sourceTree = "<group>"; };
+		8C3D691DA8C093A8F024633A9BB46945 /* Sparkle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sparkle.debug.xcconfig; sourceTree = "<group>"; };
 		8D39ABBEF76CF8A84E6F2C1AACCDCB19 /* SPUDownloaderSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloaderSession.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloaderSession.h; sourceTree = "<group>"; };
-		974B67E3B24FECB952F60C655F750742 /* libPods-Phoenix.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Phoenix.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		974B67E3B24FECB952F60C655F750742 /* Pods-Phoenix */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "Pods-Phoenix"; path = "libPods-Phoenix.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C51D500C5AF818BF538AF18D0D86B3A /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		9D35C631A7581BD57A71651785354937 /* SUErrors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUErrors.h; path = Sparkle.framework/Versions/A/Headers/SUErrors.h; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E1AD7D07431A286629E6BEEEA51EB77 /* SUAppcast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUAppcast.h; path = Sparkle.framework/Versions/A/Headers/SUAppcast.h; sourceTree = "<group>"; };
 		AD19A293FB2F32D661D4D173E9802A95 /* Pods-Phoenix-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Phoenix-dummy.m"; sourceTree = "<group>"; };
 		B217038D7B712A7655CBB0518096B093 /* SUVersionComparisonProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUVersionComparisonProtocol.h; path = Sparkle.framework/Versions/A/Headers/SUVersionComparisonProtocol.h; sourceTree = "<group>"; };
@@ -62,12 +62,11 @@
 		CD9899C66FC40CC2CEDDAC1865C31E1B /* SUAppcastItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUAppcastItem.h; path = Sparkle.framework/Versions/A/Headers/SUAppcastItem.h; sourceTree = "<group>"; };
 		E4EE7BF6910193424BB3060730E8CCDB /* Pods-Phoenix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Phoenix.release.xcconfig"; sourceTree = "<group>"; };
 		FA7CB0E555617928B4851C18596C8956 /* SPUDownloaderProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloaderProtocol.h; path = Sparkle.framework/Versions/A/Headers/SPUDownloaderProtocol.h; sourceTree = "<group>"; };
-		FC9050852DC5DAC3FBA159FEAF5D9914 /* Sparkle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sparkle.release.xcconfig; sourceTree = "<group>"; };
 		FFFDD30491C8F42CB506FC77969DAC9D /* SUStandardVersionComparator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUStandardVersionComparator.h; path = Sparkle.framework/Versions/A/Headers/SUStandardVersionComparator.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		ACC00BDCAA5AC8AB13779FD7F3AE887B /* Frameworks */ = {
+		82F4C168E930C7F7C9806D2BE7A40428 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -85,6 +84,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1CC697E3E40BCEEFB6A7C2587ADC1B18 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				974B67E3B24FECB952F60C655F750742 /* Pods-Phoenix */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		3CDCAEA3474616E2BD7AC3B22FFF546E /* Pods-Phoenix */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,17 +104,6 @@
 			);
 			name = "Pods-Phoenix";
 			path = "Target Support Files/Pods-Phoenix";
-			sourceTree = "<group>";
-		};
-		69953E9B818D813AF298B9DCEC3D8B55 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				76CFF7FAE80F347862737AE6269F7628 /* Sparkle-copy-dsyms.sh */,
-				41B59738C0BCF0042F3713929FCF7B7D /* Sparkle.debug.xcconfig */,
-				FC9050852DC5DAC3FBA159FEAF5D9914 /* Sparkle.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Sparkle";
 			sourceTree = "<group>";
 		};
 		79C52F67EF122FA1365E0CBC92B4B05F /* Pods */ = {
@@ -126,12 +122,15 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		B8311FAD0A39CDFC7514F82CF92BE181 /* Products */ = {
+		89072685FB386ECAE1A25DBCC1998E59 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				974B67E3B24FECB952F60C655F750742 /* libPods-Phoenix.a */,
+				16B7579C7FE971542B4DD9927A143575 /* Sparkle-copy-dsyms.sh */,
+				8C3D691DA8C093A8F024633A9BB46945 /* Sparkle.debug.xcconfig */,
+				5FBF75E57515B6295CE7B03A2D9631A5 /* Sparkle.release.xcconfig */,
 			);
-			name = Products;
+			name = "Support Files";
+			path = "../Target Support Files/Sparkle";
 			sourceTree = "<group>";
 		};
 		CDF6C56D29DFCD6A812A937FB3B9516F /* Sparkle */ = {
@@ -155,8 +154,9 @@
 				B217038D7B712A7655CBB0518096B093 /* SUVersionComparisonProtocol.h */,
 				C1F617395A6F92CDD3356A6FC6F15D4F /* SUVersionDisplayProtocol.h */,
 				0158964EF082911E5F65CA6796078282 /* Frameworks */,
-				69953E9B818D813AF298B9DCEC3D8B55 /* Support Files */,
+				89072685FB386ECAE1A25DBCC1998E59 /* Support Files */,
 			);
+			name = Sparkle;
 			path = Sparkle;
 			sourceTree = "<group>";
 		};
@@ -166,7 +166,7 @@
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
 				79C52F67EF122FA1365E0CBC92B4B05F /* Pods */,
-				B8311FAD0A39CDFC7514F82CF92BE181 /* Products */,
+				1CC697E3E40BCEEFB6A7C2587ADC1B18 /* Products */,
 				8774B4DEBFB509507F63FAF171E6C1EE /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -181,7 +181,7 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		A2B1E8A6AD00C5B329A0D9250EB565A5 /* Headers */ = {
+		AE7EE38C2889833BA099F9965B923E10 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -193,20 +193,20 @@
 /* Begin PBXNativeTarget section */
 		20EF6DE67F22D234801C739CF26B7460 /* Pods-Phoenix */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9EDD913ACF9961B425B6FD230590AAAA /* Build configuration list for PBXNativeTarget "Pods-Phoenix" */;
+			buildConfigurationList = 6596840480071A23A6349B1369A3F740 /* Build configuration list for PBXNativeTarget "Pods-Phoenix" */;
 			buildPhases = (
-				A2B1E8A6AD00C5B329A0D9250EB565A5 /* Headers */,
-				1CD33CF5CECAA685BC05E351165EA58C /* Sources */,
-				ACC00BDCAA5AC8AB13779FD7F3AE887B /* Frameworks */,
+				AE7EE38C2889833BA099F9965B923E10 /* Headers */,
+				1EBFD942211F84B4F6335DDF7B69C73F /* Sources */,
+				82F4C168E930C7F7C9806D2BE7A40428 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CFD055AC18AF1DDC09B5357112942CB0 /* PBXTargetDependency */,
+				DCCED7D3978B40273B6B4F20BE095ADF /* PBXTargetDependency */,
 			);
 			name = "Pods-Phoenix";
 			productName = "Pods-Phoenix";
-			productReference = 974B67E3B24FECB952F60C655F750742 /* libPods-Phoenix.a */;
+			productReference = 974B67E3B24FECB952F60C655F750742 /* Pods-Phoenix */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -216,18 +216,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1240;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = B8311FAD0A39CDFC7514F82CF92BE181 /* Products */;
+			productRefGroup = 1CC697E3E40BCEEFB6A7C2587ADC1B18 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -258,22 +258,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1CD33CF5CECAA685BC05E351165EA58C /* Sources */ = {
+		1EBFD942211F84B4F6335DDF7B69C73F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B96FAE4137DC0662A0CA06344BC77B8 /* Pods-Phoenix-dummy.m in Sources */,
+				500921FCC8D3D463C795D730EA4970D9 /* Pods-Phoenix-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		CFD055AC18AF1DDC09B5357112942CB0 /* PBXTargetDependency */ = {
+		DCCED7D3978B40273B6B4F20BE095ADF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Sparkle;
 			target = ED77B4B88587C894E85C361023D67C53 /* Sparkle */;
-			targetProxy = F0DEA057602AF6091519754F24D48092 /* PBXContainerItemProxy */;
+			targetProxy = 6578FD91C6BDDBA9CCEA10B1C4888044 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -340,11 +340,34 @@
 			};
 			name = Release;
 		};
-		52CD20CCC1434BC504B862FCC8CB21B9 /* Debug */ = {
+		48D40B20A1C4A682CC395283794EA4D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4EE7BF6910193424BB3060730E8CCDB /* Pods-Phoenix.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				EXECUTABLE_PREFIX = lib;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		5EF5884A0CFE0BEFB8BE7C1C1EBAF04B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A0823E2AE8831A8ED58C760E1636CBE /* Pods-Phoenix.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -427,31 +450,11 @@
 			};
 			name = Debug;
 		};
-		964E6FE7881ECA544F363CB7D6120E9C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E4EE7BF6910193424BB3060730E8CCDB /* Pods-Phoenix.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				EXECUTABLE_PREFIX = lib;
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		DBBD2247B2CC6D15A7DE9D05CA4C30E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41B59738C0BCF0042F3713929FCF7B7D /* Sparkle.debug.xcconfig */;
+			baseConfigurationReference = 8C3D691DA8C093A8F024633A9BB46945 /* Sparkle.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -466,8 +469,9 @@
 		};
 		F84E7A7485F0E2F1E055E5C2D5BB7B7A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC9050852DC5DAC3FBA159FEAF5D9914 /* Sparkle.release.xcconfig */;
+			baseConfigurationReference = 5FBF75E57515B6295CE7B03A2D9631A5 /* Sparkle.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -501,11 +505,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9EDD913ACF9961B425B6FD230590AAAA /* Build configuration list for PBXNativeTarget "Pods-Phoenix" */ = {
+		6596840480071A23A6349B1369A3F740 /* Build configuration list for PBXNativeTarget "Pods-Phoenix" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				52CD20CCC1434BC504B862FCC8CB21B9 /* Debug */,
-				964E6FE7881ECA544F363CB7D6120E9C /* Release */,
+				5EF5884A0CFE0BEFB8BE7C1C1EBAF04B /* Debug */,
+				48D40B20A1C4A682CC395283794EA4D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
