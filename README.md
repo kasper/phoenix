@@ -7,7 +7,7 @@ Phoenix
 
 A lightweight macOS window and app manager scriptable with JavaScript. You can also easily use languages which compile to JavaScript such as CoffeeScript. Phoenix aims for efficiency and a very small footprint. If you like the idea of scripting your own window or app management toolkit with JavaScript, Phoenix is probably going to give you the things you want. With Phoenix you can bind keyboard shortcuts and system events, and use these to interact with macOS.
 
-- Current version: 2.6.7 ([Changelog](CHANGELOG.md))
+- Current version: 2.6.8 ([Changelog](CHANGELOG.md))
 - Requires: macOS 10.10 or higher
 
 **Note:** the default `master`-branch will always be stable.
@@ -22,7 +22,7 @@ A lightweight macOS window and app manager scriptable with JavaScript. You can a
 
 ## Install
 
-- [**Download Phoenix**](https://github.com/kasper/phoenix/releases/download/2.6.7/phoenix-2.6.7.tar.gz)
+- [**Download Phoenix**](https://github.com/kasper/phoenix/releases/download/2.6.8/phoenix-2.6.8.tar.gz)
 - See previous [releases](https://github.com/kasper/phoenix/releases/)
 
 To install, extract the downloaded archive and just drag-and-drop Phoenix to your `Applications`-folder. When you run Phoenix for the first time, you will be asked to allow it to control your UI. macOS will ask you to open `Security & Privacy` in System Preferences. Once open, go to the `Accessibility`-section and click the checkbox next to Phoenix to enable control. An admin account is required to accomplish this.
@@ -44,7 +44,7 @@ Phoenix lives on your status bar (or as a background daemon) and can be scripted
 See the [JavaScript API](docs/API.md) to get started with your script. Your script should reside in `~/.phoenix.js` — the file will be created when you launch Phoenix for the first time. Alternatively — if you prefer — you may also have your script in `~/Library/Application Support/Phoenix/phoenix.js` or `~/.config/phoenix/phoenix.js`. For ideas, see what other people have built in their configurations in the [Wiki](https://github.com/kasper/phoenix/wiki/). Feel free to add your own configuration to the Wiki to show other people the nice things you can do. Previous configurations (<= 1.5) are not compatible with 2.0, see Changelog for what changes are needed.
 
 - [JavaScript API](docs/API.md) (master)
-- [JavaScript API](https://github.com/kasper/phoenix/blob/2.6.7/docs/API.md) (current)
+- [JavaScript API](https://github.com/kasper/phoenix/blob/2.6.8/docs/API.md) (current)
 - [Examples](https://github.com/kasper/phoenix/wiki#examples)
 - [Changelog](CHANGELOG.md)
 

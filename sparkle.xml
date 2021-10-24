@@ -10,6 +10,36 @@
     <description>Feed for Phoenix updates.</description>
     <language>en</language>
 
+    <!-- 2.6.8 -->
+
+    <item>
+      <title>Version 2.6.8</title>
+      <pubDate>Sun, 24 Oct 2021 16:23:11 +0300</pubDate>
+      <description><![CDATA[
+
+        <p>This release includes general improvements.</p>
+
+        <h3>What is New?</h3>
+
+        <ul>
+          <li>forward <code>console.log(...)</code> to <code>Phoenix.log(...)</code> for convenience</li>
+          <li>log stack trace when passing an error to <code>Phoenix.log(...)</code></li>
+          <li>launch Console app when clicking a notification for an exception</li>
+        </ul>
+
+        <p>See the full <a href='https://github.com/kasper/phoenix/blob/2.6.8/CHANGELOG.md'>Changelog</a>.</p>
+
+      ]]>
+      </description>
+      <enclosure sparkle:version='104'
+                 sparkle:shortVersionString='2.6.8'
+                 sparkle:dsaSignature='MCwCFDa41+bk0y32CG8oHAuSaF+69ialAhQ1IGInjtqh88ChCgqFGi5+iADFlg=='
+                 sparkle:edSignature='MbqQH27UfMXQrA6XN0PoUpcOa3qhDxpSaI4B7hSGn1XdTrgBvMmQcUSo/xZZabB5eqnU9A25u1dfThWFZLbyBw=='
+                 type='application/octet-stream'
+                 length='1866060'
+                 url='https://github.com/kasper/phoenix/releases/download/2.6.8/phoenix-2.6.8.tar.gz' />
+    </item>
+
     <!-- 2.6.7 -->
 
     <item>
