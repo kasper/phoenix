@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### Changes
+
+- Add support for Xcode 13.1 by properly importing the “Application Services” framework for Accessibility APIs ([#285](https://github.com/kasper/phoenix/issues/285)).
+
 2.6.8
 -----
 
