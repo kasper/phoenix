@@ -96,6 +96,8 @@ The following locations are valid configuration paths and the first existing fil
 2. `~/Library/Application Support/Phoenix/phoenix.js`
 3. `~/.config/phoenix/phoenix.js`
 
+> Please note: If you delete your main configuration file while Phoenix is still running, Phoenix will create a blank file in its place. Be sure and quit Phoenix when switching between using the `~/.phoenix.js`, `~/Library/Application Support/Phoenix/phoenix.js` or `~/.config/phoenix/phoenix.js` configuration files.
+
 ## Preprocessing
 
 You may add JavaScript preprocessing to your configuration by adding a [Shebang](https://en.wikipedia.org/wiki/Shebang_(Unix))-directive to the beginning of your file. It must be the first statement in your file. Phoenix should support all popular JavaScript compilers, but be aware that you need to have the compiler installed on your setup and accessible through your shell’s `PATH` for Phoenix to find it. You also need to ask the compiler to output to the standard output so Phoenix is able to evaluate the result. For example, use [CoffeeScript](http://coffeescript.org) to write your configuration:
