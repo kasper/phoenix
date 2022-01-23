@@ -1,12 +1,8 @@
-//
-//  LauncherTests.m
-//  LauncherTests
-//
-//  Created by Kasper Hirvikoski on 23.1.2022.
-//  Copyright © 2022 Phoenix. All rights reserved.
-//
+/*
+ * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
+ */
 
-#import <XCTest/XCTest.h>
+@import XCTest;
 
 @interface LauncherTests : XCTestCase
 
@@ -14,24 +10,9 @@
 
 @implementation LauncherTests
 
-- (void)setUp {
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
+- (void) testPass {
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-}
-
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+    XCTAssert(YES, @"Pass");
 }
 
 @end

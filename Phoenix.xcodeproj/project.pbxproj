@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1C93D6641BE11FF100649405 /* PHShebangPreprocessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C93D6631BE11FF100649405 /* PHShebangPreprocessor.m */; };
 		A7183B671B6E865F00842E13 /* PHKeyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A7183B661B6E865F00842E13 /* PHKeyHandler.m */; };
+		A718725F279DCFE90085CBA3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A718725E279DCFE90085CBA3 /* Info.plist */; };
 		A7288A351CC119BD00EC032B /* PHTimerHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A7288A341CC119BD00EC032B /* PHTimerHandler.m */; };
 		A7288A3B1CC14DF800EC032B /* PHWeakTimerTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = A7288A3A1CC14DF800EC032B /* PHWeakTimerTarget.m */; };
 		A72EAD041B5CE34800DD537B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A72EAD031B5CE34800DD537B /* Credits.rtf */; };
@@ -91,6 +92,7 @@
 		1C93D6631BE11FF100649405 /* PHShebangPreprocessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHShebangPreprocessor.m; sourceTree = "<group>"; };
 		A7183B651B6E865F00842E13 /* PHKeyHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHKeyHandler.h; sourceTree = "<group>"; };
 		A7183B661B6E865F00842E13 /* PHKeyHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHKeyHandler.m; sourceTree = "<group>"; };
+		A718725E279DCFE90085CBA3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7288A331CC119BD00EC032B /* PHTimerHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHTimerHandler.h; sourceTree = "<group>"; };
 		A7288A341CC119BD00EC032B /* PHTimerHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHTimerHandler.m; sourceTree = "<group>"; };
 		A7288A391CC14DF800EC032B /* PHWeakTimerTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHWeakTimerTarget.h; sourceTree = "<group>"; };
@@ -166,7 +168,6 @@
 		A7D1C618279D9999008363EE /* Launcher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Launcher.entitlements; sourceTree = "<group>"; };
 		A7D1C61D279D9999008363EE /* LauncherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LauncherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7D1C621279D9999008363EE /* LauncherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LauncherTests.m; sourceTree = "<group>"; };
-		A7D1C639279D9FC5008363EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7D1D9A71B6FD6A300E00CC9 /* PHKeyTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHKeyTranslator.h; sourceTree = "<group>"; };
 		A7D1D9A81B6FD6A300E00CC9 /* PHKeyTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHKeyTranslator.m; sourceTree = "<group>"; };
 		A7D1F7641B5BFF5B0052E646 /* PhoenixTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoenixTests.m; sourceTree = "<group>"; };
@@ -229,6 +230,15 @@
 				DC5342E0734A711231D71BF1 /* libPods-Phoenix.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A7187260279DCFFE0085CBA3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A718725E279DCFE90085CBA3 /* Info.plist */,
+				A7D1C616279D9999008363EE /* main.m */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		A72F1D761B89CE3E00835FBF /* Elements */ = {
@@ -434,7 +444,7 @@
 				A7D1C618279D9999008363EE /* Launcher.entitlements */,
 				A7D1C60B279D9998008363EE /* PHLauncherAppDelegate.h */,
 				A7D1C60C279D9998008363EE /* PHLauncherAppDelegate.m */,
-				A7D1C638279D9F5E008363EE /* Supporting Files */,
+				A7187260279DCFFE0085CBA3 /* Supporting Files */,
 			);
 			path = Launcher;
 			sourceTree = "<group>";
@@ -445,15 +455,6 @@
 				A7D1C621279D9999008363EE /* LauncherTests.m */,
 			);
 			path = LauncherTests;
-			sourceTree = "<group>";
-		};
-		A7D1C638279D9F5E008363EE /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A7D1C639279D9FC5008363EE /* Info.plist */,
-				A7D1C616279D9999008363EE /* main.m */,
-			);
-			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		A7EBD1C11BFDF7E1000D8E5F /* Preprocessors */ = {
@@ -616,6 +617,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A718725F279DCFE90085CBA3 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
