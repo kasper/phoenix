@@ -328,7 +328,6 @@
 		A79C46591B5BF31100C460CF /* Phoenix */ = {
 			isa = PBXGroup;
 			children = (
-				A7C3C2F823DB8D7E00FAEFED /* Phoenix.entitlements */,
 				A77952C41BBE7CCD00FC8D38 /* Accessibility */,
 				A77952C71BBE7E3E00FC8D38 /* Context */,
 				A72F1D761B89CE3E00835FBF /* Elements */,
@@ -341,6 +340,7 @@
 				A77952C61BBE7E0300FC8D38 /* Observers */,
 				A79C46801B5BF3C100C460CF /* PHAppDelegate.h */,
 				A79C46811B5BF3C100C460CF /* PHAppDelegate.m */,
+				A7C3C2F823DB8D7E00FAEFED /* Phoenix.entitlements */,
 				A7EBD1C11BFDF7E1000D8E5F /* Preprocessors */,
 				A79C465A1B5BF31100C460CF /* Supporting Files */,
 				A73FF10C1BBD8F350024CF97 /* Translators */,
