@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1C93D6641BE11FF100649405 /* PHShebangPreprocessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C93D6631BE11FF100649405 /* PHShebangPreprocessor.m */; };
 		A7183B671B6E865F00842E13 /* PHKeyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A7183B661B6E865F00842E13 /* PHKeyHandler.m */; };
-		A718725F279DCFE90085CBA3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A718725E279DCFE90085CBA3 /* Info.plist */; };
 		A7288A351CC119BD00EC032B /* PHTimerHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A7288A341CC119BD00EC032B /* PHTimerHandler.m */; };
 		A7288A3B1CC14DF800EC032B /* PHWeakTimerTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = A7288A3A1CC14DF800EC032B /* PHWeakTimerTarget.m */; };
 		A72EAD041B5CE34800DD537B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A72EAD031B5CE34800DD537B /* Credits.rtf */; };
@@ -617,7 +616,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A718725F279DCFE90085CBA3 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
