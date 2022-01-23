@@ -84,20 +84,10 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
 
 + (instancetype) active {
 
-    // Only supported from 10.11 upwards
-    if (![NSProcessInfo isOperatingSystemAtLeastElCapitan]) {
-        return nil;
-    }
-
     return [(PHSpace *) [self alloc] initWithIdentifier:CGSGetActiveSpace(CGSMainConnectionID())];
 }
 
 + (NSArray<PHSpace *> *) all {
-
-    // Only supported from 10.11 upwards
-    if (![NSProcessInfo isOperatingSystemAtLeastElCapitan]) {
-        return @[];
-    }
 
     NSMutableArray *spaces = [NSMutableArray array];
     NSArray *displaySpacesInfo = CFBridgingRelease(CGSCopyManagedDisplaySpaces(CGSMainConnectionID()));
@@ -116,11 +106,6 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
 
 + (instancetype) currentSpaceForScreen:(NSScreen *)screen {
 
-    // Only supported from 10.11 upwards
-    if (![NSProcessInfo isOperatingSystemAtLeastElCapitan]) {
-        return nil;
-    }
-
     NSUInteger identifier = CGSManagedDisplayGetCurrentSpace(CGSMainConnectionID(),
                                                              (__bridge CFStringRef) [screen identifier]);
 
@@ -128,11 +113,6 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
 }
 
 + (NSArray<PHSpace *> *) spacesForWindow:(PHWindow *)window {
-
-    // Only supported from 10.11 upwards
-    if (![NSProcessInfo isOperatingSystemAtLeastElCapitan]) {
-        return @[];
-    }
 
     NSMutableArray *spaces = [NSMutableArray array];
     NSArray<NSNumber *> *identifiers = CFBridgingRelease(CGSCopySpacesForWindows(CGSMainConnectionID(),
