@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "eslint-config-airbnb-base": "15.0.0",
-    "uglify-js": "3.14.2",
+    "uglify-js": "3.14.5",
     "xo": "0.45.0"
   },
   "scripts": {
