@@ -37,7 +37,7 @@
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa-phoenix-pub.pem</string>
 	<key>SUPublicEDKey</key>
-	<string>ZSfyNmnD/CrYWTWDRzrlkey4zUnX5TO2uBrBTMdiNco=</string>
+	<string>lafbJATldtGHrXCewaXd5mPhftgeM9YSZhLu5WgkxxM=</string>
 	<key>SUScheduledCheckInterval</key>
 	<integer>604800</integer>
 </dict>
