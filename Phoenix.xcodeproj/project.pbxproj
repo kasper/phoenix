@@ -43,6 +43,10 @@
 		A79C469F1B5BF3C100C460CF /* PHUniversalAccessHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A79C468F1B5BF3C100C460CF /* PHUniversalAccessHelper.m */; };
 		A79C46A01B5BF3C100C460CF /* PHWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A79C46911B5BF3C100C460CF /* PHWindow.m */; };
 		A79C46AA1B5BF41900C460CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A79C46A91B5BF41900C460CF /* Images.xcassets */; };
+		A7D1C60D279D9998008363EE /* PHLauncherAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D1C60C279D9998008363EE /* PHLauncherAppDelegate.m */; };
+		A7D1C617279D9999008363EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D1C616279D9999008363EE /* main.m */; };
+		A7D1C622279D9999008363EE /* LauncherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D1C621279D9999008363EE /* LauncherTests.m */; };
+		A7D1C63B279DAD6B008363EE /* Launcher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = A7D1C609279D9998008363EE /* Launcher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A7D1D9A91B6FD6A300E00CC9 /* PHKeyTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D1D9A81B6FD6A300E00CC9 /* PHKeyTranslator.m */; };
 		A7D1F7651B5BFF5B0052E646 /* PhoenixTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D1F7641B5BFF5B0052E646 /* PhoenixTests.m */; };
 		A7E6DF6C1BBAB5B8001920B4 /* PHAXObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E6DF6B1BBAB5B8001920B4 /* PHAXObserver.m */; };
@@ -59,7 +63,27 @@
 			remoteGlobalIDString = A79C46561B5BF31100C460CF;
 			remoteInfo = Phoenix;
 		};
+		A7D1C61E279D9999008363EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A79C464F1B5BF31100C460CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7D1C608279D9998008363EE;
+			remoteInfo = Launcher;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A7D1C63A279DAD29008363EE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				A7D1C63B279DAD6B008363EE /* Launcher.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		14DA76905814ABA3258EF84C /* Pods-Phoenix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phoenix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Phoenix/Pods-Phoenix.debug.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +159,14 @@
 		A79C46911B5BF3C100C460CF /* PHWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHWindow.m; sourceTree = "<group>"; };
 		A79C46A91B5BF41900C460CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A7C3C2F823DB8D7E00FAEFED /* Phoenix.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Phoenix.entitlements; sourceTree = "<group>"; };
+		A7D1C609279D9998008363EE /* Launcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Launcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7D1C60B279D9998008363EE /* PHLauncherAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHLauncherAppDelegate.h; sourceTree = "<group>"; };
+		A7D1C60C279D9998008363EE /* PHLauncherAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHLauncherAppDelegate.m; sourceTree = "<group>"; };
+		A7D1C616279D9999008363EE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A7D1C618279D9999008363EE /* Launcher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Launcher.entitlements; sourceTree = "<group>"; };
+		A7D1C61D279D9999008363EE /* LauncherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LauncherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7D1C621279D9999008363EE /* LauncherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LauncherTests.m; sourceTree = "<group>"; };
+		A7D1C639279D9FC5008363EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7D1D9A71B6FD6A300E00CC9 /* PHKeyTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHKeyTranslator.h; sourceTree = "<group>"; };
 		A7D1D9A81B6FD6A300E00CC9 /* PHKeyTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHKeyTranslator.m; sourceTree = "<group>"; };
 		A7D1F7641B5BFF5B0052E646 /* PhoenixTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoenixTests.m; sourceTree = "<group>"; };
@@ -159,6 +191,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A79C46671B5BF31200C460CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7D1C606279D9998008363EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7D1C61A279D9999008363EE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -309,6 +355,8 @@
 			children = (
 				A79C46591B5BF31100C460CF /* Phoenix */,
 				A79C466D1B5BF31200C460CF /* PhoenixTests */,
+				A7D1C60A279D9998008363EE /* Launcher */,
+				A7D1C620279D9999008363EE /* LauncherTests */,
 				A79C46581B5BF31100C460CF /* Products */,
 				2CE9C194092BF570024CE706 /* Pods */,
 				3FD1F01694B5F862DC0938DA /* Frameworks */,
@@ -321,6 +369,8 @@
 			children = (
 				A79C46571B5BF31100C460CF /* Phoenix.app */,
 				A79C466A1B5BF31200C460CF /* PhoenixTests.xctest */,
+				A7D1C609279D9998008363EE /* Launcher.app */,
+				A7D1C61D279D9999008363EE /* LauncherTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -378,6 +428,34 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A7D1C60A279D9998008363EE /* Launcher */ = {
+			isa = PBXGroup;
+			children = (
+				A7D1C618279D9999008363EE /* Launcher.entitlements */,
+				A7D1C60B279D9998008363EE /* PHLauncherAppDelegate.h */,
+				A7D1C60C279D9998008363EE /* PHLauncherAppDelegate.m */,
+				A7D1C638279D9F5E008363EE /* Supporting Files */,
+			);
+			path = Launcher;
+			sourceTree = "<group>";
+		};
+		A7D1C620279D9999008363EE /* LauncherTests */ = {
+			isa = PBXGroup;
+			children = (
+				A7D1C621279D9999008363EE /* LauncherTests.m */,
+			);
+			path = LauncherTests;
+			sourceTree = "<group>";
+		};
+		A7D1C638279D9F5E008363EE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A7D1C639279D9FC5008363EE /* Info.plist */,
+				A7D1C616279D9999008363EE /* main.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		A7EBD1C11BFDF7E1000D8E5F /* Preprocessors */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,8 +478,8 @@
 				A79C46531B5BF31100C460CF /* Sources */,
 				A79C46541B5BF31100C460CF /* Frameworks */,
 				A79C46551B5BF31100C460CF /* Resources */,
+				A7D1C63A279DAD29008363EE /* CopyFiles */,
 				D24256909AA421FF1865E794 /* [CP] Embed Pods Frameworks */,
-				A7C58EEF1C065C8A00180664 /* Sign Sparkle */,
 			);
 			buildRules = (
 			);
@@ -430,6 +508,41 @@
 			productReference = A79C466A1B5BF31200C460CF /* PhoenixTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		A7D1C608279D9998008363EE /* Launcher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7D1C62F279D9999008363EE /* Build configuration list for PBXNativeTarget "Launcher" */;
+			buildPhases = (
+				A7D1C605279D9998008363EE /* Sources */,
+				A7D1C606279D9998008363EE /* Frameworks */,
+				A7D1C607279D9998008363EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Launcher;
+			productName = Launcher;
+			productReference = A7D1C609279D9998008363EE /* Launcher.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A7D1C61C279D9999008363EE /* LauncherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7D1C632279D9999008363EE /* Build configuration list for PBXNativeTarget "LauncherTests" */;
+			buildPhases = (
+				A7D1C619279D9999008363EE /* Sources */,
+				A7D1C61A279D9999008363EE /* Frameworks */,
+				A7D1C61B279D9999008363EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A7D1C61F279D9999008363EE /* PBXTargetDependency */,
+			);
+			name = LauncherTests;
+			productName = LauncherTests;
+			productReference = A7D1C61D279D9999008363EE /* LauncherTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -437,7 +550,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = PH;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = Phoenix;
 				TargetAttributes = {
 					A79C46561B5BF31100C460CF = {
@@ -446,6 +559,13 @@
 					A79C46691B5BF31200C460CF = {
 						CreatedOnToolsVersion = 6.4;
 						TestTargetID = A79C46561B5BF31100C460CF;
+					};
+					A7D1C608279D9998008363EE = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					A7D1C61C279D9999008363EE = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = A7D1C608279D9998008363EE;
 					};
 				};
 			};
@@ -464,6 +584,8 @@
 			targets = (
 				A79C46561B5BF31100C460CF /* Phoenix */,
 				A79C46691B5BF31200C460CF /* PhoenixTests */,
+				A7D1C608279D9998008363EE /* Launcher */,
+				A7D1C61C279D9999008363EE /* LauncherTests */,
 			);
 		};
 /* End PBXProject section */
@@ -484,6 +606,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A79C46681B5BF31200C460CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7D1C607279D9998008363EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7D1C61B279D9999008363EE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -524,21 +660,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if command -v npm; then\n    npm install && npm run build\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		A7C58EEF1C065C8A00180664 /* Sign Sparkle */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Sign Sparkle";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "LOCATION=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\ncodesign --verbose --force --deep -o runtime --sign \"$CODE_SIGN_IDENTITY\" \"$LOCATION/Sparkle.framework/Versions/A/Resources/Autoupdate.app\"\ncodesign --verbose --force -o runtime --sign \"$CODE_SIGN_IDENTITY\" \"$LOCATION/Sparkle.framework/Versions/A\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D24256909AA421FF1865E794 /* [CP] Embed Pods Frameworks */ = {
@@ -609,6 +730,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A7D1C605279D9998008363EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7D1C617279D9999008363EE /* main.m in Sources */,
+				A7D1C60D279D9998008363EE /* PHLauncherAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7D1C619279D9999008363EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7D1C622279D9999008363EE /* LauncherTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -616,6 +754,11 @@
 			isa = PBXTargetDependency;
 			target = A79C46561B5BF31100C460CF /* Phoenix */;
 			targetProxy = A79C466B1B5BF31200C460CF /* PBXContainerItemProxy */;
+		};
+		A7D1C61F279D9999008363EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A7D1C608279D9998008363EE /* Launcher */;
+			targetProxy = A7D1C61E279D9999008363EE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -812,7 +955,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.khirviko.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Phoenix.app/Contents/MacOS/Phoenix";
@@ -834,10 +977,148 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.khirviko.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Phoenix.app/Contents/MacOS/Phoenix";
+			};
+			name = Release;
+		};
+		A7D1C630279D9999008363EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = Launcher/Launcher.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Launcher/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Kasper Hirvikoski.";
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.khirviko.Phoenix.Launcher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+				);
+			};
+			name = Debug;
+		};
+		A7D1C631279D9999008363EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = Launcher/Launcher.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Launcher/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Kasper Hirvikoski.";
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.khirviko.Phoenix.Launcher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+				);
+			};
+			name = Release;
+		};
+		A7D1C633279D9999008363EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.khirviko.Phoenix.LauncherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Launcher.app/Contents/MacOS/Launcher";
+			};
+			name = Debug;
+		};
+		A7D1C634279D9999008363EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.khirviko.Phoenix.LauncherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Launcher.app/Contents/MacOS/Launcher";
 			};
 			name = Release;
 		};
@@ -867,6 +1148,24 @@
 			buildConfigurations = (
 				A79C46781B5BF31200C460CF /* Debug */,
 				A79C46791B5BF31200C460CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7D1C62F279D9999008363EE /* Build configuration list for PBXNativeTarget "Launcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7D1C630279D9999008363EE /* Debug */,
+				A7D1C631279D9999008363EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7D1C632279D9999008363EE /* Build configuration list for PBXNativeTarget "LauncherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7D1C633279D9999008363EE /* Debug */,
+				A7D1C634279D9999008363EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
