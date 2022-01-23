@@ -33,6 +33,8 @@ Alternatively, if you have [Homebrew](https://brew.sh) installed, you can simply
 
 To uninstall Phoenix, delete the app from your `Applications`-folder. The configuration file created by Phoenix itself is located in your home folder. Delete `~/.phoenix.js` and any related configurations if desired. For developers, you may also need to delete `~/.phoenix.debug.js`.
 
+Application preferences are stored in `~/Library/Preferences/org.khirviko.Phoenix.plist`. For developers, in `~/Library/Preferences/org.khirviko.Phoenix.debug.plist`.
+
 If you have used the storage, also delete the file `~/Library/Application Support/Phoenix/storage.json`. Again for developers, you may also need to delete `~/Library/Application Support/Phoenix/storage.debug.json`.
 
 ## Usage
