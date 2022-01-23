@@ -9,6 +9,7 @@ Release: dd.mm.yyyy
 ### Changes
 
 - Breaking: Phoenix now requires OS X El Capitan (10.11) or higher.
+- Breaking: “Open at Login” is now using a launcher app instead of adding Phoenix to the deprecated login items of your user account. The setting will not be reflected anymore in the list and you can remove the app from the list.
 - Upgrade Sparkle to 2.0.0.
 - Add support for Xcode 13.1 by properly importing the “Application Services” framework for Accessibility APIs ([#285](https://github.com/kasper/phoenix/issues/285)).
 
