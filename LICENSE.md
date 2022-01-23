@@ -90,6 +90,8 @@ Phoenix uses Sparkle, licensed under the MIT License.
 
 Phoenix bundles Lodash, licensed under the MIT License.
 
+> The MIT License
+>
 > Copyright JS Foundation and other contributors <https://js.foundation/>
 >
 > Based on Underscore.js, copyright Jeremy Ashkenas,
