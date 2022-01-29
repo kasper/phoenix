@@ -1,4 +1,4 @@
-name: CI
+name: Build Phoenix
 
 on:
   push:
@@ -17,12 +17,14 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 17.4.0
-      - uses: sersoft-gmbh/xcodebuild-action@v1
+      - name: Build Launcher
+        uses: sersoft-gmbh/xcodebuild-action@v1
         with:
           workspace: Phoenix.xcworkspace
           scheme: Launcher
           action: test build
-      - uses: sersoft-gmbh/xcodebuild-action@v1
+      - name: Build Phoenix
+        uses: sersoft-gmbh/xcodebuild-action@v1
         with:
           workspace: Phoenix.xcworkspace
           scheme: Phoenix
