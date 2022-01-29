@@ -81,7 +81,7 @@ Phoenix manages dependencies with [CocoaPods](https://cocoapods.org). Note that 
 5. [Bundler](http://bundler.io)
 6. CocoaPods
 
-Install Bundler, if you do not already have it installed. To install CocoaPods and its dependencies, use Bundler inside the `phoenix`-directory to install the required Ruby gems according to the `Gemfile`. Once complete, you can install the pods listed in the `Podfile` with CocoaPods.
+Install Bundler, if you do not already have it installed. To install CocoaPods and its dependencies, use Bundler inside the `phoenix` directory to install the required Ruby gems according to the `Gemfile`. Once complete, you can install the pods listed in the `Podfile` with CocoaPods.
 
     gem install bundler
     bundle install
@@ -96,6 +96,13 @@ Install the development packages listed in `package.json`.
     npm install
 
 To build `phoenix-min.js` from the source, run the command `npm run build` in the root directory. NPM will then build the source from `library/src/` and install the new library to `Phoenix/phoenix-min.js`. For convenience, this is also handled automatically by Xcode when you build Phoenix.
+
+### Documentation
+
+The [documentation](https://kasper.github.io/phoenix/) for Phoenix is built from the `docs/` directory using [Docusaurus](https://docusaurus.io). To develop the documentation locally, navigate to the directory and run the following:
+
+    npm install
+    npm start
 
 ## Contributing
 
