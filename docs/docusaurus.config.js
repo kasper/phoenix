@@ -32,6 +32,11 @@ const config = {
       },
       items: [
         {
+          href: 'https://github.com/kasper/phoenix/issues/',
+          label: 'Report an Issue',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/kasper/phoenix/',
           label: 'GitHub',
           position: 'right',

@@ -41,3 +41,7 @@ This documentation is an overview of the JavaScript API provided by Phoenix. Cur
 Your script should reside in `~/.phoenix.js`. Alternatively — if you prefer — you may also have your script in `~/Library/Application Support/Phoenix/phoenix.js` or `~/.config/phoenix/phoenix.js`.
 
 Phoenix includes [Lodash](https://lodash.com) (4.17.15) — you can use its features in your configuration. Lodash provides useful helpers for handling JavaScript functions and objects. You may also use JavaScript [preprocessing](getting-started/preprocessing) and languages such as CoffeeScript to write your Phoenix-configuration.
+
+## Contact
+
+If you have any questions, feedback or just want to say hi, you can [open an issue](https://github.com/kasper/phoenix/issues/), [email](mailto:kasper@kytkemo.com) or [tweet](https://twitter.com/kasper/).
