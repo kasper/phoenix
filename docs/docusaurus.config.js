@@ -4,7 +4,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Phoenix',
   url: 'https://kasper.github.io',
-  baseUrl: '/',
+  baseUrl: '/phoenix/',
   favicon: 'img/favicon.ico',
   organizationName: 'kasper',
   projectName: 'phoenix',
