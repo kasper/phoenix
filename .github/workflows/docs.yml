@@ -1,0 +1,27 @@
+name: Deploy docs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - docs/**
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 17.4.0
+      - name: Build docs
+        working-directory: docs
+        run: |
+          npm ci
+          npm run lint
+          npm run build
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          publish_dir: ./docs/build
