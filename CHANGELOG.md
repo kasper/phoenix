@@ -13,6 +13,10 @@ Release: dd.mm.yyyy
 - Upgrade Sparkle to 2.0.0.
 - Add support for Xcode 13.1 by properly importing the “Application Services” framework for Accessibility APIs ([#285](https://github.com/kasper/phoenix/issues/285)).
 
+### Bug Fixes
+
+- Fix crash if `Space#addWindows` or `Space#removeWindows` are passed an object that is not an instance of a Window.
+
 2.6.8
 -----
 

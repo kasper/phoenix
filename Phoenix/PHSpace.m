@@ -43,7 +43,6 @@ typedef enum {
 static NSString * const CGSScreenIDKey = @"Display Identifier";
 static NSString * const CGSSpaceIDKey = @"ManagedSpaceID";
 static NSString * const CGSSpacesKey = @"Spaces";
-static NSString * const PHWindowIDKey = @"identifier";
 
 // XXX: Undocumented private API to get the CGSConnectionID for the default connection for this process
 CGSConnectionID CGSMainConnectionID(void);
@@ -210,17 +209,30 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
     return [self windows];
 }
 
+- (NSArray<NSNumber *> *) identifiersForWindows:(NSArray<PHWindow *> *)windows {
+
+    NSMutableArray<NSNumber *> *identifiers = [NSMutableArray array];
+
+    for (PHWindow *window in windows) {
+        if ([window respondsToSelector:@selector(identifier)]) {
+            [identifiers addObject:@([window identifier])];
+        }
+    }
+
+    return identifiers;
+}
+
 - (void) addWindows:(NSArray<PHWindow *> *)windows {
 
     CGSAddWindowsToSpaces(CGSMainConnectionID(),
-                          (__bridge CFArrayRef) [windows valueForKey:PHWindowIDKey],
+                          (__bridge CFArrayRef) [self identifiersForWindows:windows],
                           (__bridge CFArrayRef) @[ @(self.identifier) ]);
 }
 
 - (void) removeWindows:(NSArray<PHWindow *> *)windows {
 
     CGSRemoveWindowsFromSpaces(CGSMainConnectionID(),
-                               (__bridge CFArrayRef) [windows valueForKey:PHWindowIDKey],
+                               (__bridge CFArrayRef) [self identifiersForWindows:windows],
                                (__bridge CFArrayRef) @[ @(self.identifier) ]);
 }
 
