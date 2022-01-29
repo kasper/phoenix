@@ -7,12 +7,12 @@ Obviously, in most cases you do not want to worry about the lifecycle of your ha
 For example, to bind a key to a function.
 
 ```javascript
-Key.on('q', [ 'control', 'shift' ], function () {});
+Key.on('q', ['control', 'shift'], () => {});
 ```
 
 You can disable the handler with its identifier.
 
 ```javascript
-var identifier = Key.on('q', [ 'control', 'shift' ], function () {});
+const identifier = Key.on('q', ['control', 'shift'], () => {});
 Key.off(identifier);
 ```

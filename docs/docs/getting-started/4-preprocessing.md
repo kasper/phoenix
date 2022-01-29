@@ -5,7 +5,7 @@ You may add JavaScript preprocessing to your configuration by adding a [Shebang]
 ```coffeescript
 #!/usr/bin/env coffee -p
 
-Key.on 's', [ 'control', 'shift' ], ->
+Key.on 's', ['control', 'shift'], ->
   App.launch('Safari').focus()
 ```
 
@@ -14,7 +14,7 @@ Or use [Babel](http://babeljs.io) to use ECMAScript 6 JavaScript in macOS versio
 ```javascript
 #!/usr/bin/env babel
 
-Key.on('s', [ 'control', 'shift' ], () => {
+Key.on('s', ['control', 'shift'], () => {
   App.launch('Safari').focus();
 });
 ```
