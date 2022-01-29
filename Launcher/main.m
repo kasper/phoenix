@@ -4,7 +4,13 @@
 
 @import Cocoa;
 
+#import "PHLauncherAppDelegate.h"
+
 int main(int argc, const char * argv[]) {
 
-    return NSApplicationMain(argc, argv);
+    @autoreleasepool {
+        PHLauncherAppDelegate *delegate = [[PHLauncherAppDelegate alloc] init];
+        [NSApplication sharedApplication].delegate = delegate;
+        return NSApplicationMain(argc, argv);
+    }
 }

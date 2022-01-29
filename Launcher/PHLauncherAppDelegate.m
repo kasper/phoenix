@@ -26,6 +26,8 @@ static NSString * const PHMainBundleIdentifier = @"org.khirviko.Phoenix";
     }
 
     if (!isRunning) {
+        NSLog(@"Info: Launching Phoenix...");
+
         NSError *error;
         [sharedWorkspace launchApplicationAtURL:[sharedWorkspace URLForApplicationWithBundleIdentifier:PHMainBundleIdentifier]
                                         options:NSWorkspaceLaunchWithoutActivation
