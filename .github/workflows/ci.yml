@@ -20,5 +20,10 @@ jobs:
       - uses: sersoft-gmbh/xcodebuild-action@v1
         with:
           workspace: Phoenix.xcworkspace
+          scheme: Launcher
+          action: test build
+      - uses: sersoft-gmbh/xcodebuild-action@v1
+        with:
+          workspace: Phoenix.xcworkspace
           scheme: Phoenix
           action: test build
