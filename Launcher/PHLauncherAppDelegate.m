@@ -10,7 +10,11 @@
 
 @implementation PHLauncherAppDelegate
 
+#if DEBUG
+static NSString * const PHMainBundleIdentifier = @"org.khirviko.Phoenix.debug";
+#else
 static NSString * const PHMainBundleIdentifier = @"org.khirviko.Phoenix";
+#endif
 
 #pragma mark - NSApplicationDelegate
 
