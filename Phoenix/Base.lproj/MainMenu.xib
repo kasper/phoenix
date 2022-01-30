@@ -677,7 +677,7 @@
                         <action selector="reloadContext:" target="rNM-Wb-aci" id="E9f-eT-5pH"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Edit configuration" id="Cl9-v8-MX6">
+                <menuItem title="Edit Configuration" id="Cl9-v8-MX6">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="editConfiguration:" target="rNM-Wb-aci" id="MyM-4W-7eP"/>
