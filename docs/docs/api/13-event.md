@@ -1,6 +1,8 @@
 # Event
 
-Use the `Event`-object to construct events, access their properties or to disable them. You can have multiple handlers for a single event.
+Use Event to construct events, bind callbacks, access their properties or disable them. You can have multiple handlers for a single event.
+
+See [Events](events) for a list available events for binding.
 
 ## Interface
 
@@ -36,3 +38,12 @@ end
 ## Instance Methods
 
 - `disable()` disables the event handler
+
+## Example
+
+```javascript
+// Bind appDidLaunch event to a callback function
+Event.on('appDidLaunch', (app) => {
+  console.log('App did launch:', app.name()); // -> 'App did launch: Safari'
+});
+```

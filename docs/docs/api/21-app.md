@@ -1,6 +1,6 @@
 # App
 
-Use the `App`-object to control apps. Beware that an app can get stale if you keep a reference to it and it is for instance terminated while you do so, refer to `isTerminated()`.
+Use App to control apps. Beware that an app can get stale if you keep a reference to it and it is for instance terminated while you do so, refer to `isTerminated()`.
 
 ## Interface
 
@@ -65,3 +65,19 @@ end
 ### Terminate Optionals
 
 - `force` (boolean): if set `true` force terminates the app
+
+## Example
+
+```javascript
+// Launch Safari with focus
+App.launch('Safari', { focus: true });
+
+// Get focused app
+const focused = App.focused();
+
+// Get windows for focused app
+const windows = focused.windows();
+
+// Get Safari
+const safari = App.get('Safari');
+```

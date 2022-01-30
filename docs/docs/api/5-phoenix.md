@@ -1,6 +1,6 @@
 # Phoenix
 
-Use the `Phoenix`-object for API-level tasks.
+Use Phoenix for global APIs and actions.
 
 ## Interface
 
@@ -21,3 +21,16 @@ end
 - `set(Map<String, AnyObject> preferences)` sets the preferences from the given key–value map, any previously set preferences with the same key will be overridden
 - `log(AnyObject... arguments)` logs the arguments to the Console (app)
 - `notify(String message)` delivers the message to the Notification Center
+
+## Example
+
+```javascript
+// Reload the configuration
+Phoenix.reload();
+
+// Log a message
+Phoenix.log('Message');
+
+// Display a message in Notification Center
+Phoenix.notify('Notice this!');
+```

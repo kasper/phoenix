@@ -1,6 +1,6 @@
 # Storage
 
-Use the `Storage`-object to store values across reloads and reboots as JSON.
+Use Storage to store values across reloads and reboots as JSON.
 
 ## Interface
 
@@ -19,3 +19,19 @@ end
 - `set(String key, AnyObject value)` stores the value for the key, any previously set value with the same key will be overridden
 - `get(String key)` retrieves and returns the value for the key (`undefined` if no value has been set)
 - `remove(String key)` removes the key and the value associated with it
+
+## Example
+
+```javascript
+// Set value
+Storage.set('key', 'String value');
+Storage.set('isEnabled', true);
+Storage.set('settings', { isEnabled: true });
+
+// Get value
+const value = Storage.get('key');
+Phoenix.log(value); // -> 'String value'
+
+// Remove value
+Storage.remove('key');
+```

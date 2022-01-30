@@ -1,6 +1,6 @@
 # Point
 
-A simple point object for 2D-coordinates.
+A simple point object for 2D coordinates.
 
 ## Interface
 
@@ -11,4 +11,12 @@ struct Point
   property double y
 
 end
+```
+
+## Example
+
+```javascript
+// Read point properties
+const point = Window.focused().topLeft();
+Phoenix.log(point.x, point.y); // -> 100 0
 ```

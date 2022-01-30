@@ -1,6 +1,6 @@
 # Task
 
-Use the `Task`-object to construct tasks, access their properties or to terminate them. Beware that some task properties are only set after the task has completed.
+Use Task to construct external tasks (such as running scripts), access their properties or terminate them. Beware that some task properties are only set after the task has completed.
 
 ## Interface
 
@@ -38,3 +38,12 @@ end
 ## Instance Methods
 
 - `terminate()` terminates the task immediately
+
+## Example
+
+```javascript
+// Run uptime and log output
+Task.run('/usr/bin/uptime', [], (task) => {
+  console.log('Uptime:', task.output); // -> 'Uptime: 13:30  up  2:08, 3 users, load averages: 4,18 3,83 5,25'
+});
+```

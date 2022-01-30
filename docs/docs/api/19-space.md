@@ -1,6 +1,6 @@
 # Space
 
-Use the `Space`-object to control spaces. *These features are only supported on El Capitan (10.11) and upwards.* A single window can be in multiple spaces at the same time. To move a window to a different space, remove it from any existing spaces and add it to a new one. You can switch to a space by focusing on a window in that space. Beware that a space can get stale if you keep a reference to it and it is for instance closed while you do so.
+Use the Space to control spaces. *These features are only supported on El Capitan (10.11) and upwards.* A single window can be in multiple spaces at the same time. To move a window to a different space, remove it from any existing spaces and add it to a new one. You can switch to a space by focusing on a window in that space. Beware that a space can get stale if you keep a reference to it and it is for instance closed while you do so.
 
 ## Interface
 
@@ -37,3 +37,14 @@ end
 ### Optionals
 
 - `visible` (boolean): if set `true` returns all visible windows for the space, if set `false` returns all hidden windows for the space
+
+## Example
+
+```javascript
+// Move focused window to the next space
+const space = Space.active();
+const window = Window.focused();
+space.next().addWindows([window]);
+space.removeWindows([window]);
+window.focus();
+```

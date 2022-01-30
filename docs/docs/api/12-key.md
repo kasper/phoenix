@@ -1,6 +1,8 @@
 # Key
 
-Use the `Key`-object to construct keys, access their properties, and enable or disable them. You can have multiple handlers for a single key combination, however only one can be enabled at a time. Enabling a key combination that has been exclusively registered by another app will fail.
+Use Key to construct keys, bind callbacks, access their properties, and enable or disable them. You can have multiple handlers for a single key combination, however only one can be enabled at a time. Enabling a key combination that has been exclusively registered by another app will fail.
+
+See [Keys](keys) for a list available keys for binding.
 
 ## Interface
 
@@ -42,3 +44,12 @@ end
 - `isEnabled()` returns `true` if the key handler is enabled, by default `true`
 - `enable()` enables the key handler, any previous handler for the same key combination will automatically be disabled, returns `true` if successful
 - `disable()` disables the key handler, returns `true` if successful
+
+## Example
+
+```javascript
+// Bind Control + Shift + Q to a callback function
+Key.on('q', ['control', 'shift'], () => {
+  console.log('Key combination pressed.');
+});
+```

@@ -1,6 +1,6 @@
 # Window
 
-Use the `Window`-object to control windows. Every screen (i.e. display) combines to form a large rectangle. Every window lives within this rectangle and their position can be altered by giving coordinates inside this rectangle. To position a window to a specific display, you need to calculate its position within the large rectangle. To figure out the coordinates for a given screen, use the functions in `Screen`. Beware that a window can get stale if you keep a reference to it and it is for instance closed while you do so.
+Use Window to control app windows. Every screen (i.e. display) combines to form a large rectangle. Every window lives within this rectangle and their position can be altered by giving coordinates inside this rectangle. To position a window to a specific display, you need to calculate its position within the large rectangle. To figure out the coordinates for a given screen, use the functions in `Screen`. Beware that a window can get stale if you keep a reference to it and it is for instance closed while you do so.
 
 ## Interface
 
@@ -84,3 +84,16 @@ end
 
 - `visible` (boolean): if set `true` returns visible windows, if set `false` returns hidden windows
 - `screen` (Screen): returns all other windows on the specified screen
+
+## Example
+
+```javascript
+// Move focused window to origo
+Window.focused().setTopLeft({ x: 0, y: 0 });
+
+// Resize focused window
+Window.focused().setSize({ width: 1000, height: 500 });
+
+// Resize focused window to fill the full screen
+Window.focused().maximise();
+```

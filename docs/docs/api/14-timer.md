@@ -1,6 +1,6 @@
 # Timer
 
-Use the `Timer`-object to construct and control timers. A timer can fire only once or be repeating.
+Use Timer to construct and control timers. A timer can fire only once or be repeating.
 
 ## Interface
 
@@ -30,3 +30,12 @@ end
 ## Instance Methods
 
 - `stop()` stops the timer immediately
+
+## Example
+
+```javascript
+// Call callback after 5 seconds
+Timer.after(5.0, () => {
+  console.log('5 seconds passed.');
+});
+```

@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Phoenix
 
-A lightweight macOS window and app manager scriptable with JavaScript. You can also easily use languages which compile to JavaScript such as CoffeeScript. Phoenix aims for efficiency and a very small footprint. If you like the idea of scripting your own window or app management toolkit with JavaScript, Phoenix is probably going to give you the things you want. With Phoenix you can bind keyboard shortcuts and system events, and use these to interact with macOS.
+A lightweight macOS window and app manager scriptable with JavaScript. You can also easily use languages which compile to JavaScript such as TypeScript. Phoenix aims for efficiency and a very small footprint. If you like the idea of scripting your own window or app management toolkit with JavaScript, Phoenix is probably going to give you the things you want. With Phoenix you can bind keyboard shortcuts and system events, and use these to interact with macOS.
 
 - Current version: 2.6.8 ([Changelog](https://github.com/kasper/phoenix/blob/master/CHANGELOG.md))
 - Requires: macOS 10.10 or higher
@@ -40,13 +40,13 @@ Key.on('z', ['ctrl', 'shift'], () => {
 - [**Download Phoenix**](https://github.com/kasper/phoenix/releases/download/2.6.8/phoenix-2.6.8.tar.gz)
 - See previous [releases](https://github.com/kasper/phoenix/releases/)
 
-To install, extract the downloaded archive and just drag-and-drop Phoenix to your `Applications`-folder. When you run Phoenix for the first time, you will be asked to allow it to control your UI. macOS will ask you to open `Security & Privacy` in System Preferences. Once open, go to the `Accessibility`-section and click the checkbox next to Phoenix to enable control. An admin account is required to accomplish this.
+To install, extract the downloaded archive and just drag-and-drop Phoenix to your `Applications` folder. When you run Phoenix for the first time, you will be asked to allow it to control your UI. macOS will ask you to open `Security & Privacy` in System Preferences. Once open, go to the `Accessibility` section and click the checkbox next to Phoenix to enable control. An admin account is required to accomplish this.
 
 Alternatively, if you have [Homebrew](https://brew.sh) installed, you can simply run `brew install --cask phoenix`.
 
 ## Uninstall
 
-To uninstall Phoenix, delete the app from your `Applications`-folder. The configuration file created by Phoenix itself is located in your home folder. Delete `~/.phoenix.js` and any related configurations if desired.
+To uninstall Phoenix, delete the app from your `Applications` folder. The configuration file created by Phoenix itself is located in your home folder. Delete `~/.phoenix.js` and any related configurations if desired.
 
 Application preferences are stored in `~/Library/Preferences/org.khirviko.Phoenix.plist`.
 
@@ -58,7 +58,7 @@ This documentation is an overview of the JavaScript API provided by Phoenix. Cur
 
 Your script should reside in `~/.phoenix.js`. Alternatively — if you prefer — you may also have your script in `~/Library/Application Support/Phoenix/phoenix.js` or `~/.config/phoenix/phoenix.js`.
 
-Phoenix includes [Lodash](https://lodash.com) (4.17.15) — you can use its features in your configuration. Lodash provides useful helpers for handling JavaScript functions and objects. You may also use JavaScript [preprocessing](getting-started/preprocessing) and languages such as CoffeeScript to write your Phoenix-configuration.
+Phoenix includes [Lodash](https://lodash.com) (4.17.15) — you can use its features in your configuration. Lodash provides useful helpers for handling JavaScript functions and objects. You may also use JavaScript [preprocessing](getting-started/preprocessing) and languages such as TypeScript to write your Phoenix configuration.
 
 ## Contact
 

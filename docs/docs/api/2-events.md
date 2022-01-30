@@ -1,6 +1,6 @@
 # Events
 
-Phoenix supports the following (case sensitive) events:
+Phoenix supports the following (case sensitive) events. Use these to construct an [Event](event).
 
 ## Phoenix
 
@@ -17,7 +17,7 @@ Phoenix supports the following (case sensitive) events:
 
 ## Mouse
 
-All of the following mouse events receive the corresponding `Point`-object as the first argument for the callback function. This object is also enhanced with a `modifiers` array which contains the key modifiers pressed when the mouse event is triggered.
+All of the following mouse events receive the corresponding `Point` object as the first argument for the callback function. This object is also enhanced with a `modifiers` array which contains the key modifiers pressed when the mouse event is triggered.
 
 - `mouseDidMove` triggered when the mouse has moved
 - `mouseDidLeftClick` triggered when the mouse did left click
@@ -27,7 +27,7 @@ All of the following mouse events receive the corresponding `Point`-object as th
 
 ## App
 
-All of the following app events receive the corresponding `App`-instance as the first argument for the callback function.
+All of the following app events receive the corresponding `App` instance as the first argument for the callback function.
 
 - `appDidLaunch` triggered when an app has launched
 - `appDidTerminate` triggered when an app has terminated
@@ -37,7 +37,7 @@ All of the following app events receive the corresponding `App`-instance as the 
 
 ## Window
 
-All of the following window events receive the corresponding `Window`-instance as the first argument for the callback function.
+All of the following window events receive the corresponding `Window` instance as the first argument for the callback function.
 
 - `windowDidOpen` triggered when a window has opened
 - `windowDidClose` triggered when a window has closed

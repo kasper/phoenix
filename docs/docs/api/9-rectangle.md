@@ -1,6 +1,6 @@
 # Rectangle
 
-A 2D-rectangle representation of a `Point` and `Size`.
+A 2D rectangle representation of a `Point` and `Size`.
 
 ## Interface
 
@@ -14,3 +14,12 @@ struct Rectangle
 
 end
 ```
+
+## Example
+
+```javascript
+// Read rectangle properties
+const frame = Window.focused().frame();
+Phoenix.log(frame.x, frame.y, frame.width, frame.height); // -> 100 0 1000 500
+```
+

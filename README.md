@@ -5,12 +5,12 @@ Phoenix
 
 <img width='128' height='128' align='right' src='Phoenix/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png' alt='Phoenix'>
 
-A lightweight macOS window and app manager scriptable with JavaScript. You can also easily use languages which compile to JavaScript such as CoffeeScript. Phoenix aims for efficiency and a very small footprint. If you like the idea of scripting your own window or app management toolkit with JavaScript, Phoenix is probably going to give you the things you want. With Phoenix you can bind keyboard shortcuts and system events, and use these to interact with macOS.
+A lightweight macOS window and app manager scriptable with JavaScript. You can also easily use languages which compile to JavaScript such as TypeScript. Phoenix aims for efficiency and a very small footprint. If you like the idea of scripting your own window or app management toolkit with JavaScript, Phoenix is probably going to give you the things you want. With Phoenix you can bind keyboard shortcuts and system events, and use these to interact with macOS.
 
 - Current version: 2.6.8 ([Changelog](CHANGELOG.md))
 - Requires: macOS 10.10 or higher
 
-**Note:** the default `master`-branch will always be stable.
+**Note:** the default `master` branch will always be stable.
 
 ## Key Features
 
@@ -25,13 +25,13 @@ A lightweight macOS window and app manager scriptable with JavaScript. You can a
 - [**Download Phoenix**](https://github.com/kasper/phoenix/releases/download/2.6.8/phoenix-2.6.8.tar.gz)
 - See previous [releases](https://github.com/kasper/phoenix/releases/)
 
-To install, extract the downloaded archive and just drag-and-drop Phoenix to your `Applications`-folder. When you run Phoenix for the first time, you will be asked to allow it to control your UI. macOS will ask you to open `Security & Privacy` in System Preferences. Once open, go to the `Accessibility`-section and click the checkbox next to Phoenix to enable control. An admin account is required to accomplish this.
+To install, extract the downloaded archive and just drag-and-drop Phoenix to your `Applications` folder. When you run Phoenix for the first time, you will be asked to allow it to control your UI. macOS will ask you to open `Security & Privacy` in System Preferences. Once open, go to the `Accessibility` section and click the checkbox next to Phoenix to enable control. An admin account is required to accomplish this.
 
 Alternatively, if you have [Homebrew](https://brew.sh) installed, you can simply run `brew install --cask phoenix`.
 
 ## Uninstall
 
-To uninstall Phoenix, delete the app from your `Applications`-folder. The configuration file created by Phoenix itself is located in your home folder. Delete `~/.phoenix.js` and any related configurations if desired. For developers, you may also need to delete `~/.phoenix.debug.js`.
+To uninstall Phoenix, delete the app from your `Applications` folder. The configuration file created by Phoenix itself is located in your home folder. Delete `~/.phoenix.js` and any related configurations if desired. For developers, you may also need to delete `~/.phoenix.debug.js`.
 
 Application preferences are stored in `~/Library/Preferences/org.khirviko.Phoenix.plist`. For developers, in `~/Library/Preferences/org.khirviko.Phoenix.debug.plist`.
 
@@ -74,6 +74,8 @@ To install Phoenix from the source, you will need to build the workspace from a 
                clean build
 
 Once complete, you will find a newly built Phoenix app in `build/Release/`. After this, you can follow the normal install guide.
+
+For a debug build, change the `-configuration` flag to `Debug` in the above command. This will place a debug build of the app in `build/Debug`.
 
 Phoenix manages dependencies with [CocoaPods](https://cocoapods.org). Note that you do not need CocoaPods for basic development. However, if you want to install new pods or update existing ones, you will also need:
 

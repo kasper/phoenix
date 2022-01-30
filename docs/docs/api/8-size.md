@@ -1,6 +1,6 @@
 # Size
 
-A simple 2D-size object.
+A simple 2D size object.
 
 ## Interface
 
@@ -11,4 +11,12 @@ struct Size
   property double height
 
 end
+```
+
+## Example
+
+```javascript
+// Read size properties
+const size = Window.focused().size();
+Phoenix.log(size.width, size.height); // -> 1000 500
 ```
