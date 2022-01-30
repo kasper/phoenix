@@ -17,6 +17,12 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 17.4.0
+      - name: Build docs
+        working-directory: docs
+        run: |
+          npm ci
+          npm run lint
+          npm run build
       - name: Build Launcher
         uses: sersoft-gmbh/xcodebuild-action@v1
         with:
