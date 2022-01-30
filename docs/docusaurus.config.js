@@ -32,6 +32,11 @@ const config = {
       },
       items: [
         {
+          href: 'https://github.com/kasper/phoenix/blob/master/CHANGELOG.md',
+          label: 'Changelog',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/kasper/phoenix/issues/',
           label: 'Report an Issue',
           position: 'right',
