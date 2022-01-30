@@ -690,6 +690,12 @@
                         <action selector="showAboutPanel:" target="rNM-Wb-aci" id="TZu-ab-5ub"/>
                     </connections>
                 </menuItem>
+                <menuItem title="View Documentation" id="ODH-1t-7D2">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="viewDocumentation:" target="rNM-Wb-aci" id="Ngk-0h-1gE"/>
+                    </connections>
+                </menuItem>
                 <menuItem title="Check for Updates…" id="FWE-Co-2eZ">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -712,6 +718,7 @@
             <connections>
                 <outlet property="delegate" destination="rNM-Wb-aci" id="GyG-uy-eLr"/>
             </connections>
+            <point key="canvasLocation" x="139" y="151"/>
         </menu>
     </objects>
 </document>

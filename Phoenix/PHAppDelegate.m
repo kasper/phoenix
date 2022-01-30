@@ -22,6 +22,8 @@
 
 @implementation PHAppDelegate
 
+static NSString * const PHDocumentationURL = @"https://kasper.github.io/phoenix/";
+
 #pragma mark - Initialising
 
 - (void) toggleStatusItem:(BOOL)enabled {
@@ -92,6 +94,11 @@
 - (IBAction) editConfiguration:(id)__unused sender {
 
     [[NSWorkspace sharedWorkspace] openURL:[NSURL fileURLWithPath:self.context.primaryConfigurationPath]];
+}
+
+- (IBAction) viewDocumentation:(id)__unused sender {
+
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:PHDocumentationURL]];
 }
 
 - (IBAction) showAboutPanel:(id)sender {
