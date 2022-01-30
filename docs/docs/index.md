@@ -35,6 +35,8 @@ Key.on('z', ['ctrl', 'shift'], () => {
 });
 ```
 
+![Screenshot of Phoenix](https://raw.githubusercontent.com/kasper/phoenix/master/assets/screenshot.gif)
+
 ## Install
 
 - [**Download Phoenix**](https://github.com/kasper/phoenix/releases/download/2.6.8/phoenix-2.6.8.tar.gz)
