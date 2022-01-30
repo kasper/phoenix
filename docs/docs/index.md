@@ -17,6 +17,24 @@ A lightweight macOS window and app manager scriptable with JavaScript. You can a
 - log messages, deliver notifications or display content as modals
 - run external commands
 
+## Example Configuration
+
+Below you will find a basic configuration example. Copy and paste it to `~/.phoenix.js`. When you press the key combination <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd> on your keyboard, the focused window will be moved to the centre of your main screen. Happy hacking! 👩🏼‍💻
+
+```javascript
+Key.on('z', ['ctrl', 'shift'], () => {
+  const screen = Screen.main().flippedVisibleFrame();
+  const window = Window.focused();
+
+  if (window) {
+    window.setTopLeft({
+      x: screen.x + (screen.width / 2) - (window.frame().width / 2),
+      y: screen.y + (screen.height / 2) - (window.frame().height / 2)
+    });
+  }
+});
+```
+
 ## Install
 
 - [**Download Phoenix**](https://github.com/kasper/phoenix/releases/download/2.6.8/phoenix-2.6.8.tar.gz)
