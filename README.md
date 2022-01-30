@@ -39,7 +39,7 @@ If you have used the storage, also delete the file `~/Library/Application Suppor
 
 ## Usage
 
-Phoenix lives on your status bar (or as a background daemon) and can be scripted in JavaScript (or languages which compile to JavaScript such as CoffeeScript).
+Phoenix lives on your status bar (or as a background daemon) and can be scripted in JavaScript (or languages which compile to JavaScript such as TypeScript).
 
 ![Screenshot of Phoenix](assets/screenshot.gif)
 

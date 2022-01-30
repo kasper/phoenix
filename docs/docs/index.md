@@ -35,6 +35,8 @@ Key.on('z', ['ctrl', 'shift'], () => {
 });
 ```
 
+Phoenix lives on your status bar (or as a background daemon). Here, Phoenix is being used to move a window to different corners of the screen.
+
 ![Screenshot of Phoenix](https://raw.githubusercontent.com/kasper/phoenix/master/assets/screenshot.gif)
 
 ## Install
