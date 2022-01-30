@@ -34,8 +34,16 @@ end
 ## Example
 
 ```javascript
-// Call callback after 5 seconds
-Timer.after(5.0, () => {
+// Call callback once after 500 ms
+Timer.after(0.5, () => {
+  console.log('500 ms passed.');
+});
+
+// Call callback every 5 seconds
+const identifier = Timer.every(5, () => {
   console.log('5 seconds passed.');
 });
+
+// Disable the handler
+Timer.off(identifier);
 ```

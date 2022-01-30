@@ -42,8 +42,9 @@ end
 ## Example
 
 ```javascript
-// Run uptime and log output
+// Run “uptime” and log output
 Task.run('/usr/bin/uptime', [], (task) => {
-  console.log('Uptime:', task.output); // -> 'Uptime: 13:30  up  2:08, 3 users, load averages: 4,18 3,83 5,25'
+  console.log('Status:', task.status); // -> 'Status: 0'
+  console.log('Output:', task.output); // -> 'Output: 13:30  up  2:08, 3 users, load averages: 4,18 3,83 5,25'
 });
 ```

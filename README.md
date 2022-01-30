@@ -43,10 +43,9 @@ Phoenix lives on your status bar (or as a background daemon) and can be scripted
 
 ![Screenshot of Phoenix](assets/screenshot.gif)
 
-See the [JavaScript API](https://kasper.github.io/phoenix/) to get started with your script. Your script should reside in `~/.phoenix.js` — the file will be created when you launch Phoenix for the first time. Alternatively — if you prefer — you may also have your script in `~/Library/Application Support/Phoenix/phoenix.js` or `~/.config/phoenix/phoenix.js`. For ideas, see what other people have built in their configurations in the [Wiki](https://github.com/kasper/phoenix/wiki/). Feel free to add your own configuration to the Wiki to show other people the nice things you can do. Previous configurations (<= 1.5) are not compatible with 2.0, see Changelog for what changes are needed.
+See the [documentation](https://kasper.github.io/phoenix/) to get started with your script. Your script should reside in `~/.phoenix.js` — the file will be created when you launch Phoenix for the first time. Alternatively — if you prefer — you may also have your script in `~/Library/Application Support/Phoenix/phoenix.js` or `~/.config/phoenix/phoenix.js`. For ideas, see what other people have built in their configurations in the [Wiki](https://github.com/kasper/phoenix/wiki/). Feel free to add your own configuration to the Wiki to show other people the nice things you can do. Previous configurations (<= 1.5) are not compatible with 2.0, see Changelog for what changes are needed.
 
-- [JavaScript API](https://kasper.github.io/phoenix/) (master)
-- [JavaScript API](https://github.com/kasper/phoenix/blob/2.6.8/docs/API.md) (current)
+- [Documentation](https://kasper.github.io/phoenix/)
 - [Examples](https://github.com/kasper/phoenix/wiki#examples)
 - [Changelog](CHANGELOG.md)
 

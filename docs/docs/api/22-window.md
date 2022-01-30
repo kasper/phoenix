@@ -88,12 +88,15 @@ end
 ## Example
 
 ```javascript
-// Move focused window to origo
+// Return all windows across all screens
+const windows = Window.all();
+
+// Move the focused window to origo
 Window.focused().setTopLeft({ x: 0, y: 0 });
 
-// Resize focused window
+// Resize the focused window
 Window.focused().setSize({ width: 1000, height: 500 });
 
-// Resize focused window to fill the full screen
+// Resize the focused window to fill the full screen
 Window.focused().maximise();
 ```

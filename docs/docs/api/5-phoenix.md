@@ -31,6 +31,6 @@ Phoenix.reload();
 // Log a message
 Phoenix.log('Message');
 
-// Display a message in Notification Center
+// Display a notification in Notification Center
 Phoenix.notify('Notice this!');
 ```

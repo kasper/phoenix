@@ -21,10 +21,10 @@ end
 ## Example
 
 ```javascript
-// Get cursor location
+// Get the cursor location
 const location = Mouse.location();
-console.log('Location:', location.x, location.y); // -> 'Location: 100 25'
+console.log('Location:', location.x, location.y); // -> 'Location: 2023 301'
 
-// Move cursor to origo
+// Move the cursor to origo
 Mouse.move({ x: 0, y: 0 });
 ```

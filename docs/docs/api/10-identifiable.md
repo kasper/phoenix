@@ -21,12 +21,12 @@ end
 ## Example
 
 ```javascript
-// Get hash
+// Get the hash value for a window
 const hash = Window.focused().hash();
 Phoenix.log(hash); // -> 1668246523
 
-// Compare equality of windows
+// Compare equality of two windows
 const focusedWindow = Window.focused();
 const mainSafariWindow = App.get('Safari').mainWindow();
-Phoenix.log(focusedWindow.isEqual(mainSafariWindow)); // -> true
+Phoenix.log(focusedWindow.isEqual(mainSafariWindow)); // -> true or false
 ```

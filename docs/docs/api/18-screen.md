@@ -50,4 +50,10 @@ const screens = Screen.all();
 
 // Get visible frame for the main screen
 const frame = Screen.main().visibleFrame();
+
+// Get all windows on the main screen
+Screen.main().windows();
+
+// Get all visible windows on the main screen
+Screen.main().windows({ visible: true });
 ```

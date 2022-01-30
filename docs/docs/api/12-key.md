@@ -1,6 +1,10 @@
 # Key
 
-Use Key to construct keys, bind callbacks, access their properties, and enable or disable them. You can have multiple handlers for a single key combination, however only one can be enabled at a time. Enabling a key combination that has been exclusively registered by another app will fail.
+Use Key to construct keys, bind callbacks, access their properties, and enable or disable them. You can have multiple handlers for a single key combination, however only one can be enabled at a time.
+
+:::info
+Enabling a key combination that has been exclusively registered by another app will fail. macOS gives exclusivity to the first app that requests the key combination.
+:::
 
 See [Keys](keys) for a list available keys for binding.
 
@@ -48,8 +52,11 @@ end
 ## Example
 
 ```javascript
-// Bind Control + Shift + Q to a callback function
-Key.on('q', ['control', 'shift'], () => {
+// Bind “Control + Shift + Q” to a callback function
+const identifier = Key.on('q', ['control', 'shift'], () => {
   console.log('Key combination pressed.');
 });
+
+// Disable the handler and release the key combination
+Key.off(identifier);
 ```

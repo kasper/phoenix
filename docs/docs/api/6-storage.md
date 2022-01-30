@@ -23,15 +23,16 @@ end
 ## Example
 
 ```javascript
-// Set value
-Storage.set('key', 'String value');
+// Set a value
+Storage.set('key', 'value');
+Storage.set('height', 100);
 Storage.set('isEnabled', true);
 Storage.set('settings', { isEnabled: true });
 
-// Get value
+// Get a value
 const value = Storage.get('key');
-Phoenix.log(value); // -> 'String value'
+Phoenix.log(value); // -> 'value'
 
-// Remove value
+// Remove a value
 Storage.remove('key');
 ```

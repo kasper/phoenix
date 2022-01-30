@@ -72,10 +72,10 @@ end
 // Launch Safari with focus
 App.launch('Safari', { focus: true });
 
-// Get focused app
+// Get the focused app
 const focused = App.focused();
 
-// Get windows for focused app
+// Get all windows for the focused app
 const windows = focused.windows();
 
 // Get Safari

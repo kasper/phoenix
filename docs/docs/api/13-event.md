@@ -42,8 +42,11 @@ end
 ## Example
 
 ```javascript
-// Bind appDidLaunch event to a callback function
-Event.on('appDidLaunch', (app) => {
+// Bind “appDidLaunch” event to a callback function
+const identifier = Event.on('appDidLaunch', (app) => {
   console.log('App did launch:', app.name()); // -> 'App did launch: Safari'
 });
+
+// Disable the handler
+Event.off(identifier);
 ```

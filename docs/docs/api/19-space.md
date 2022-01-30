@@ -41,7 +41,7 @@ end
 ## Example
 
 ```javascript
-// Move focused window to the next space
+// Move focused window to the next space and focus to the space
 const space = Space.active();
 const window = Window.focused();
 space.next().addWindows([window]);

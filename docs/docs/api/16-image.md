@@ -19,6 +19,6 @@ end
 ## Example
 
 ```javascript
-// Load image from the file system
-const image = Image.fromFile('~/Pictures/image.png');
+// Load an image from the file system
+const image = Image.fromFile('/path/to/image.png');
 ```

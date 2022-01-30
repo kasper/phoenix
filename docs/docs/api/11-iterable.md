@@ -21,7 +21,7 @@ end
 ## Example
 
 ```javascript
-// Traverse screens
-const next = Screen.main().next();
-const previous = Screen.main().previous();
+// Traverse between screens starting from the main screen
+const nextScreen = Screen.main().next();
+const previousScreen = Screen.main().previous();
 ```

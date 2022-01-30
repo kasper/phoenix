@@ -18,5 +18,5 @@ end
 ```javascript
 // Read size properties
 const size = Window.focused().size();
-Phoenix.log(size.width, size.height); // -> 1000 500
+Phoenix.log(size.width, size.height); // -> 1024 512
 ```

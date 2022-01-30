@@ -17,6 +17,6 @@ end
 
 ```javascript
 // Read point properties
-const point = Window.focused().topLeft();
-Phoenix.log(point.x, point.y); // -> 100 0
+const location = Window.focused().topLeft();
+Phoenix.log(location.x, location.y); // -> 100 0
 ```
