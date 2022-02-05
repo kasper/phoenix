@@ -34,7 +34,7 @@ end
 - `addWindows(Array<Window> windows)` adds the given windows to the space (< macOS 12.0)
 - `removeWindows(Array<Window> windows)` removes the given windows from the space (< macOS 12.0)
 
-### 2.7.0
+### 2.7.0+
 
 - `moveWindows(Array<Window> windows)` moves the given windows to the space (macOS 12.0+)
 
