@@ -32,7 +32,7 @@ Release: dd.mm.yyyy
 
 #### Space
 
-- New: Function `moveWindows(...)` moves the given windows to the space (macOS 12.0+) ([#289](https://github.com/kasper/phoenix/issues/289)).
+- New: Function `moveWindows(...)` moves the given windows to the space (macOS 10.13+) ([#289](https://github.com/kasper/phoenix/issues/289)).
 
 2.6.8
 -----

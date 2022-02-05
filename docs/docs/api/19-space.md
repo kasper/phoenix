@@ -36,7 +36,7 @@ end
 
 ### 2.7.0+
 
-- `moveWindows(Array<Window> windows)` moves the given windows to the space (macOS 12.0+)
+- `moveWindows(Array<Window> windows)` moves the given windows to the space (macOS 10.13+)
 
 ### Optionals
 

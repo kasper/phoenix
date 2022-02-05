@@ -251,8 +251,8 @@ void CGSMoveWindowsToManagedSpace(CGSConnectionID connection, CFArrayRef windowI
 
 - (void) moveWindows:(NSArray<PHWindow *> *)windows {
 
-    // Only supported from 12.0 upwards
-    if (![NSProcessInfo isOperatingSystemAtLeastMonterey]) {
+    // Only supported from 10.13 upwards
+    if (![NSProcessInfo isOperatingSystemAtLeastHighSierra]) {
         return;
     }
 
