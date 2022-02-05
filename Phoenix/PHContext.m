@@ -217,7 +217,9 @@
 
         JSValue *log = [context[@"Phoenix"] objectForKeyedSubscript:@"log"];
         [log callWithArguments:@[ exception ]];
-        [PHNotificationHelper deliver:@"Uncaught exception raised. Refer to the logs for more information."
+
+        NSString *description = [NSString stringWithFormat:@"Uncaught exception raised: “%@” (%@:%@). Refer to the logs for more information.", exception[@"message"], exception[@"line"], exception[@"column"]];
+        [PHNotificationHelper deliver:description
                          withDelegate:weakSelf];
     };
 
