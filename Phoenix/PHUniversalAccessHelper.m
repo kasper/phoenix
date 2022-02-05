@@ -10,13 +10,14 @@
 
 #pragma mark - Universal Access
 
-+ (void) askPermissionIfNeeded {
++ (BOOL) hasPermission {
 
-    BOOL universalAccessEnabled = AXIsProcessTrustedWithOptions((__bridge CFDictionaryRef) @{ (__bridge NSString *) kAXTrustedCheckOptionPrompt: @YES });
+    return AXIsProcessTrusted();
+}
 
-    if (universalAccessEnabled) {
-        return;
-    }
++ (BOOL) askPermissionIfNeeded {
+
+    return AXIsProcessTrustedWithOptions((__bridge CFDictionaryRef) @{ (__bridge NSString *) kAXTrustedCheckOptionPrompt: @YES });
 }
 
 @end

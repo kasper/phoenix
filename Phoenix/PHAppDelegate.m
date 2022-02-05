@@ -11,6 +11,7 @@
 
 @interface PHAppDelegate ()
 
+@property BOOL hasAccessibilityPermission;
 @property PHContext *context;
 @property NSStatusItem *statusItem;
 
@@ -49,7 +50,14 @@ static NSString * const PHDocumentationURL = @"https://kasper.github.io/phoenix/
 
 - (void) applicationDidFinishLaunching:(NSNotification *)__unused notification {
 
-    [PHUniversalAccessHelper askPermissionIfNeeded];
+    self.hasAccessibilityPermission = [PHUniversalAccessHelper askPermissionIfNeeded];
+
+    // Observe accessibility permission
+    [NSTimer scheduledTimerWithTimeInterval:30
+                                     target:self
+                                   selector:@selector(observeAccessibilityPermission)
+                                   userInfo:nil
+                                    repeats:YES];
 
     // Observe changes in preferences
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -81,7 +89,23 @@ static NSString * const PHDocumentationURL = @"https://kasper.github.io/phoenix/
     [menu itemWithTitle:@"Open at Login"].state = [PHOpenAtLoginHelper opensAtLogin] ? NSOnState : NSOffState;
 }
 
-#pragma mark - Notification Handling
+#pragma mark - Event Handling
+
+- (void) observeAccessibilityPermission {
+
+    BOOL hasPermission = [PHUniversalAccessHelper hasPermission];
+
+    if (!hasPermission) {
+        NSLog(@"Info: No “Accessibility” permission. Please enable “Accessibility” for Phoenix in “System Preferences”.");
+    }
+
+    // Reload context when permission is granted
+    if (!self.hasAccessibilityPermission && hasPermission) {
+        [self.context load];
+    }
+
+    self.hasAccessibilityPermission = hasPermission;
+}
 
 - (void) preferencesDidChange:(NSNotification *)__unused notification {
 

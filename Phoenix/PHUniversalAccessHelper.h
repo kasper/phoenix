@@ -11,6 +11,7 @@
 
 #pragma mark - Universal Access
 
-+ (void) askPermissionIfNeeded;
++ (BOOL) hasPermission;
++ (BOOL) askPermissionIfNeeded;
 
 @end
