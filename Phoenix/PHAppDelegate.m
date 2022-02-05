@@ -28,6 +28,11 @@ static NSString * const PHDocumentationURL = @"https://kasper.github.io/phoenix/
 
 - (void) toggleStatusItem:(BOOL)enabled {
 
+    // Status item is already up-to-date
+    if ((self.statusItem && enabled) || (!self.statusItem && !enabled)) {
+        return;
+    }
+
     // Remove status item
     if (!enabled) {
         [[NSStatusBar systemStatusBar] removeStatusItem:self.statusItem];

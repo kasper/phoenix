@@ -18,6 +18,7 @@ Release: dd.mm.yyyy
 ### Bug Fixes
 
 - Fix crash if `Space#addWindows` or `Space#removeWindows` are passed an object that is not an instance of a Window.
+- Fix issue that could cause the status bar item to be rendered multiple times when reloading the configuration.
 
 ### API
 
