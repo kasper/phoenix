@@ -8,15 +8,22 @@ Release: dd.mm.yyyy
 
 ### Changes
 
-- Breaking: Phoenix now requires OS X El Capitan (10.11) or higher.
-- Breaking: “Open at Login” is now using a launcher app instead of adding Phoenix to the deprecated login items of your user account. This setting will not be reflected anymore in the list and you can remove the app from it. You may need to enable this setting again for Phoenix to launch automatically after this update, depending on how you setup it the first time.
+- **Breaking:** Phoenix now requires OS X El Capitan (10.11) or higher.
+- **Breaking:** “Open at Login” is now using a launcher app instead of adding Phoenix to the deprecated login items of your user account. This setting will not be reflected anymore in the list and you can remove the app from it. You may need to enable this setting again for Phoenix to launch automatically after this update, depending on how you setup it the first time.
 - Improved documentation! 👩🏼‍💻 The documentation is now powered by Docusaurus and hosted at https://kasper.github.io/phoenix/.
+- Add support for moving windows to spaces in macOS 12.0 with `Space#moveWindows(...)` ([#289](https://github.com/kasper/phoenix/issues/289)).
 - Upgrade Sparkle to 2.0.0.
 - Add support for Xcode 13.1 by properly importing the “Application Services” framework for Accessibility APIs ([#285](https://github.com/kasper/phoenix/issues/285)).
 
 ### Bug Fixes
 
 - Fix crash if `Space#addWindows` or `Space#removeWindows` are passed an object that is not an instance of a Window.
+
+### API
+
+#### Space
+
+- New: Function `moveWindows(...)` moves the given windows to the space (macOS 12.0+) ([#289](https://github.com/kasper/phoenix/issues/289)).
 
 2.6.8
 -----

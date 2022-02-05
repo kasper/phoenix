@@ -68,6 +68,9 @@ void CGSAddWindowsToSpaces(CGSConnectionID connection, CFArrayRef windowIds, CFA
 // XXX: Undocumented private API to remove the given windows (CGWindowIDs) from the given spaces (CGSSpaceIDs)
 void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds, CFArrayRef spaceIds);
 
+// XXX: Undocumented private API to move the given windows (CGWindowIDs) to the given space
+void CGSMoveWindowsToManagedSpace(CGSConnectionID connection, CFArrayRef windowIds, CGSSpaceID spaceId);
+
 #pragma mark - Initialising
 
 - (instancetype) initWithIdentifier:(NSUInteger)identifier {
@@ -224,6 +227,11 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
 
 - (void) addWindows:(NSArray<PHWindow *> *)windows {
 
+    if ([NSProcessInfo isOperatingSystemAtLeastMonterey]) {
+        NSLog(@"Deprecated: Function Space#addWindows(...) is deprecated and will be removed in later versions, use Space#moveWindows(...) instead.");
+        return;
+    }
+
     CGSAddWindowsToSpaces(CGSMainConnectionID(),
                           (__bridge CFArrayRef) [self identifiersForWindows:windows],
                           (__bridge CFArrayRef) @[ @(self.identifier) ]);
@@ -231,9 +239,26 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
 
 - (void) removeWindows:(NSArray<PHWindow *> *)windows {
 
+    if ([NSProcessInfo isOperatingSystemAtLeastMonterey]) {
+        NSLog(@"Deprecated: Function Space#removeWindows(...) is deprecated and will be removed in later versions, use Space#moveWindows(...) instead.");
+        return;
+    }
+
     CGSRemoveWindowsFromSpaces(CGSMainConnectionID(),
                                (__bridge CFArrayRef) [self identifiersForWindows:windows],
                                (__bridge CFArrayRef) @[ @(self.identifier) ]);
+}
+
+- (void) moveWindows:(NSArray<PHWindow *> *)windows {
+
+    // Only supported from 12.0 upwards
+    if (![NSProcessInfo isOperatingSystemAtLeastMonterey]) {
+        return;
+    }
+
+    CGSMoveWindowsToManagedSpace(CGSMainConnectionID(),
+                                 (__bridge CFArrayRef) [self identifiersForWindows:windows],
+                                 self.identifier);
 }
 
 @end

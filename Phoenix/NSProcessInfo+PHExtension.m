@@ -14,4 +14,10 @@
     return [[self processInfo] isOperatingSystemAtLeastVersion:bigSur];
 }
 
++ (BOOL) isOperatingSystemAtLeastMonterey {
+
+    NSOperatingSystemVersion monterey = { .majorVersion = 12, .minorVersion = 0, .patchVersion = 0 };
+    return [[self processInfo] isOperatingSystemAtLeastVersion:monterey];
+}
+
 @end

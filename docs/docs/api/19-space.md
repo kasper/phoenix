@@ -31,8 +31,12 @@ end
 - `isFullScreen()` returns `true` if the space is a full screen space
 - `screens()` returns all screens to which the space belongs to
 - `windows(Map<String, AnyObject> optionals)` returns all windows for the space if no optionals are given
-- `addWindows(Array<Window> windows)` adds the given windows to the space
-- `removeWindows(Array<Window> windows)` removes the given windows from the space
+- `addWindows(Array<Window> windows)` adds the given windows to the space (< macOS 12.0)
+- `removeWindows(Array<Window> windows)` removes the given windows from the space (< macOS 12.0)
+
+### 2.7.0
+
+- `moveWindows(Array<Window> windows)` moves the given windows to the space (macOS 12.0+)
 
 ### Optionals
 
@@ -41,7 +45,13 @@ end
 ## Example
 
 ```javascript
-// Move focused window to the next space and focus to the space
+// Move focused window to the next space and focus to the space (macOS 12.0+)
+const space = Space.active();
+const window = Window.focused();
+space.moveWindows([window]);
+window.focus();
+
+// Move focused window to the next space and focus to the space (< macOS 12.0)
 const space = Space.active();
 const window = Window.focused();
 space.next().addWindows([window]);

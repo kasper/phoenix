@@ -30,6 +30,7 @@
 - (NSArray<PHWindow *> *) windows:(NSDictionary<NSString *, id> *)optionals;
 - (void) addWindows:(NSArray<PHWindow *> *)windows;
 - (void) removeWindows:(NSArray<PHWindow *> *)windows;
+- (void) moveWindows:(NSArray<PHWindow *> *)windows;
 
 @end
 
