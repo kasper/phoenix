@@ -9,6 +9,7 @@ Release: dd.mm.yyyy
 ### New
 
 - Improved documentation! 👩🏼‍💻 The documentation is now powered by Docusaurus and hosted at https://kasper.github.io/phoenix/.
+- Add support for device sleep events ([#282](https://github.com/kasper/phoenix/issues/282)).
 - Add support for moving windows to spaces in macOS 12.0 with `Space#moveWindows(...)` ([#289](https://github.com/kasper/phoenix/issues/289)).
 
 ### Changes
@@ -29,6 +30,11 @@ Release: dd.mm.yyyy
 - Fix issue that could cause the status bar item to be rendered multiple times when reloading the configuration.
 
 ### API
+
+#### Events
+
+- New: Event `deviceWillSleep` is triggered when the device will sleep ([#282](https://github.com/kasper/phoenix/issues/282)).
+- New: Event `deviceDidWake` is triggered when the device did wake ([#282](https://github.com/kasper/phoenix/issues/282)).
 
 #### Space
 

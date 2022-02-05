@@ -7,6 +7,13 @@ Phoenix supports the following (case sensitive) events. Use these to construct a
 - `didLaunch` triggered once when Phoenix has launched and the context is ready
 - `willTerminate` triggered when Phoenix will terminate, use this event to perform any tasks before the application terminates
 
+## Device
+
+### 2.7.0+
+
+- `deviceWillSleep` triggered when the device will sleep
+- `deviceDidWake` triggered when the device did wake
+
 ## Screen
 
 - `screensDidChange` triggered when screens (i.e. displays) are added, removed, or dynamically reconfigured

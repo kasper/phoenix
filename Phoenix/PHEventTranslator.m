@@ -20,7 +20,12 @@
 
         NSNotificationCenter *workspaceNotificationCenter = [NSWorkspace sharedWorkspace].notificationCenter;
 
-        notificationToNotificationCenter = @{ /* Space Notifications */
+        notificationToNotificationCenter = @{ /* Device Notifications */
+
+                                              NSWorkspaceWillSleepNotification: workspaceNotificationCenter,
+                                              NSWorkspaceDidWakeNotification: workspaceNotificationCenter,
+
+                                              /* Space Notifications */
 
                                               NSWorkspaceActiveSpaceDidChangeNotification: workspaceNotificationCenter,
 
@@ -54,6 +59,11 @@
 
                                  @"didLaunch": PHEventDidLaunchNotification,
                                  @"willTerminate": PHEventWillTerminateNotification,
+
+                                 /* Device Notifications */
+
+                                 @"deviceWillSleep": NSWorkspaceWillSleepNotification,
+                                 @"deviceDidWake": NSWorkspaceDidWakeNotification,
 
                                  /* Screen Notifications */
 
