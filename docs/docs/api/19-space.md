@@ -16,6 +16,7 @@ class Space implements Identifiable, Iterable
   Array<Window> windows(Map<String, AnyObject> optionals)
   void addWindows(Array<Window> windows)
   void removeWindows(Array<Window> windows)
+  void moveWindows(Array<Window> windows)
 
 end
 ```
