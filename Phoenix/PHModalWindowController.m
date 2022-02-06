@@ -82,16 +82,6 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
     return @"ModalWindow";
 }
 
-- (void) windowDidLoad {
-
-    self.window.alphaValue = 0.0;
-    self.window.animationBehavior = NSWindowAnimationBehaviorAlertPanel;
-    self.window.backgroundColor = [NSColor clearColor];
-    self.window.ignoresMouseEvents = YES;
-    self.window.level = NSFloatingWindowLevel;
-    self.window.opaque = NO;
-}
-
 #pragma mark - Appearance
 
 - (PHModalWindowControllerAppearanceMaterial) material {

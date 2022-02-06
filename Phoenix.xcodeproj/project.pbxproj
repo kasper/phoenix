@@ -43,6 +43,7 @@
 		A79C469F1B5BF3C100C460CF /* PHUniversalAccessHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A79C468F1B5BF3C100C460CF /* PHUniversalAccessHelper.m */; };
 		A79C46A01B5BF3C100C460CF /* PHWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A79C46911B5BF3C100C460CF /* PHWindow.m */; };
 		A79C46AA1B5BF41900C460CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A79C46A91B5BF41900C460CF /* Images.xcassets */; };
+		A7C1935227B0110F00244AFB /* PHModalWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C1935127B0110F00244AFB /* PHModalWindow.m */; };
 		A7D1C60D279D9998008363EE /* PHLauncherAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D1C60C279D9998008363EE /* PHLauncherAppDelegate.m */; };
 		A7D1C617279D9999008363EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D1C616279D9999008363EE /* main.m */; };
 		A7D1C622279D9999008363EE /* LauncherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D1C621279D9999008363EE /* LauncherTests.m */; };
@@ -159,6 +160,8 @@
 		A79C46901B5BF3C100C460CF /* PHWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHWindow.h; sourceTree = "<group>"; };
 		A79C46911B5BF3C100C460CF /* PHWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHWindow.m; sourceTree = "<group>"; };
 		A79C46A91B5BF41900C460CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A7C1935027B0110F00244AFB /* PHModalWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHModalWindow.h; sourceTree = "<group>"; };
+		A7C1935127B0110F00244AFB /* PHModalWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHModalWindow.m; sourceTree = "<group>"; };
 		A7C3C2F823DB8D7E00FAEFED /* Phoenix.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Phoenix.entitlements; sourceTree = "<group>"; };
 		A7D1C609279D9998008363EE /* Launcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Launcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7D1C60B279D9998008363EE /* PHLauncherAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHLauncherAppDelegate.h; sourceTree = "<group>"; };
@@ -247,6 +250,8 @@
 				A79C467F1B5BF3C100C460CF /* PHApp.m */,
 				A72A6B031B934C2000F2C4EF /* PHIdentifiableJSExport.h */,
 				A79452431C2F393A007AF8C5 /* PHIterableJSExport.h */,
+				A7C1935027B0110F00244AFB /* PHModalWindow.h */,
+				A7C1935127B0110F00244AFB /* PHModalWindow.m */,
 				A72EAD051B5D00B800DD537B /* PHModalWindowController.h */,
 				A72EAD061B5D00B800DD537B /* PHModalWindowController.m */,
 				A79C46861B5BF3C100C460CF /* PHMouse.h */,
@@ -703,6 +708,7 @@
 				A7E6DF6F1BBAC1F3001920B4 /* PHAccessibilityObserver.m in Sources */,
 				A79C46971B5BF3C100C460CF /* PHApp.m in Sources */,
 				1C93D6641BE11FF100649405 /* PHShebangPreprocessor.m in Sources */,
+				A7C1935227B0110F00244AFB /* PHModalWindow.m in Sources */,
 				A7D1D9A91B6FD6A300E00CC9 /* PHKeyTranslator.m in Sources */,
 				A78566D11CBE77CD00036AF9 /* PHPreferences.m in Sources */,
 				A79C46A01B5BF3C100C460CF /* PHWindow.m in Sources */,
