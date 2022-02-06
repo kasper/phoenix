@@ -27,10 +27,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="152" height="58"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="O5f-kD-6s1">
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="O5f-kD-6s1" userLabel="Container View">
                         <rect key="frame" x="0.0" y="0.0" width="152" height="58"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="peX-kY-Jau">
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="peX-kY-Jau" userLabel="Icon View">
                                 <rect key="frame" x="17" y="5" width="47" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="peX-kY-Jau" secondAttribute="height" multiplier="1:1" priority="750" id="hpt-4C-KRY"/>
@@ -41,7 +41,7 @@
                                     <binding destination="-2" name="value" keyPath="self.icon" id="Ixv-nc-huL"/>
                                 </connections>
                             </imageView>
-                            <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eu9-Hf-kgC">
+                            <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eu9-Hf-kgC" userLabel="Text Field">
                                 <rect key="frame" x="72" y="15" width="65" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="800" id="lWe-ze-4L4"/>
