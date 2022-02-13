@@ -232,7 +232,7 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
 - (void) layout {
 
     self.iconViewZeroWidthConstraint.priority = !self.icon ? 999 : NSLayoutPriorityDefaultLow;
-    self.separatorConstraint.constant = (!self.icon || ![self hasText]) ? 0.0 : 10.0;
+    self.separatorConstraint.constant = (!self.icon || (!self.isInput && ![self hasText])) ? 0.0 : 10.0;
     self.textFieldTextWidthConstraint.priority = self.isInput ? NSLayoutPriorityDefaultLow : NSLayoutPriorityDefaultHigh;
     self.textFieldInputWidthConstraint.priority = self.isInput ? NSLayoutPriorityDefaultHigh : NSLayoutPriorityDefaultLow;
 }
