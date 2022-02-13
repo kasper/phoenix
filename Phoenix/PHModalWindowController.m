@@ -48,6 +48,7 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
         self.appearance = PHModalWindowControllerAppearanceDark;
         self.hasShadow = YES;
         self.text = @"";
+        self.inputPlaceholder = @"";
     }
 
     return self;
@@ -270,6 +271,8 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
     self.window.hasShadow = self.hasShadow;
 
     if (self.isInput) {
+        self.textField.placeholderString = self.inputPlaceholder;
+
         // Required for text field to become key
         [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
     }

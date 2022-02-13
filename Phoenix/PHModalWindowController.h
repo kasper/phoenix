@@ -20,6 +20,7 @@
 @property NSImage *icon;
 @property (copy) NSString *text;
 @property BOOL isInput;
+@property (copy) NSString *inputPlaceholder;
 @property JSValue *textDidChange;
 
 // TODO: Deprecated and will be removed in later versions, use “text” instead
@@ -52,6 +53,7 @@
 @property NSImage *icon;
 @property (copy) NSString *text;
 @property BOOL isInput;
+@property (copy) NSString *inputPlaceholder;
 @property JSValue *textDidChange;
 
 // TODO: Deprecated and will be removed in later versions, use “text” instead
