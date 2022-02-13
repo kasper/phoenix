@@ -41,7 +41,7 @@ end
 - `icon` dynamic property for the icon displayed in the modal
 - `text` dynamic property for the text displayed in the modal
 
-### 2.7.0+
+### 3.0.0+
 
 - `isInput` dynamic property for whether the modal behaves as an input modal
 - `textDidChange` callback function to call when the input modal’s text field value changes, receives the value as the first argument for the callback

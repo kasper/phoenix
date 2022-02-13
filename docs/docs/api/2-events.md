@@ -9,7 +9,7 @@ Phoenix supports the following (case sensitive) events. Use these to construct a
 
 ## Device
 
-### 2.7.0+
+### 3.0.0+
 
 - `deviceWillSleep` triggered when the device will sleep
 - `deviceDidWake` triggered when the device did wake
