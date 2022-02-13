@@ -19,6 +19,7 @@
 @property BOOL hasShadow;
 @property NSImage *icon;
 @property (copy) NSString *text;
+@property (copy) NSString *font;
 @property BOOL isInput;
 @property (copy) NSString *inputPlaceholder;
 @property JSValue *textDidChange;
@@ -52,6 +53,7 @@
 @property BOOL hasShadow;
 @property NSImage *icon;
 @property (copy) NSString *text;
+@property (copy) NSString *font;
 @property BOOL isInput;
 @property (copy) NSString *inputPlaceholder;
 @property JSValue *textDidChange;

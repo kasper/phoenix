@@ -55,13 +55,14 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
+                                    <binding destination="-2" name="fontName" keyPath="self.font" id="IWK-dI-mLP"/>
+                                    <binding destination="-2" name="fontSize" keyPath="self.weight" previousBinding="IWK-dI-mLP" id="bmn-Kk-zcg"/>
                                     <binding destination="-2" name="editable" keyPath="self.isInput" id="1T6-Bi-8Xd"/>
                                     <binding destination="-2" name="value" keyPath="self.text" id="b1H-8L-8X6">
                                         <dictionary key="options">
                                             <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                         </dictionary>
                                     </binding>
-                                    <binding destination="-2" name="fontSize" keyPath="self.weight" id="cKK-hg-40t"/>
                                     <outlet property="delegate" destination="-2" id="9es-G1-SKC"/>
                                 </connections>
                             </textField>

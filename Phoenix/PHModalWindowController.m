@@ -48,6 +48,7 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
         self.appearance = PHModalWindowControllerAppearanceDark;
         self.hasShadow = YES;
         self.text = @"";
+        self.font = @"System";
         self.inputPlaceholder = @"";
     }
 

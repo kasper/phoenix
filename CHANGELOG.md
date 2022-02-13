@@ -40,6 +40,7 @@ Release: dd.mm.yyyy
 #### Modal
 
 - New: Property `hasShadow` for whether the modal has a shadow.
+- New: Property `font` for the font name used for the text ([#158](https://github.com/kasper/phoenix/issues/158)).
 - New: Property `isInput` for whether the modal behaves as an input modal ([#163](https://github.com/kasper/phoenix/issues/163)).
 - New: Property `inputPlaceholder` for the placeholder string that will be displayed when the input is empty ([#163](https://github.com/kasper/phoenix/issues/163)).
 - New: Property `textDidChange` callback function to call when the input modal’s text field value changes ([#163](https://github.com/kasper/phoenix/issues/163)).
