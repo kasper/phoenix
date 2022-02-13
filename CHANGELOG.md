@@ -39,8 +39,9 @@ Release: dd.mm.yyyy
 
 #### Modal
 
-- New: Property `isInput` for setting whether the modal behaves as an input modal ([#163](https://github.com/kasper/phoenix/issues/163)).
-- New: Property `textDidChange` for setting the callback function to call when the input modal’s text field value changes ([#163](https://github.com/kasper/phoenix/issues/163)).
+- New: Property `hasShadow` for whether the modal has a shadow.
+- New: Property `isInput` for whether the modal behaves as an input modal ([#163](https://github.com/kasper/phoenix/issues/163)).
+- New: Property `textDidChange` callback function to call when the input modal’s text field value changes ([#163](https://github.com/kasper/phoenix/issues/163)).
 
 #### Space
 

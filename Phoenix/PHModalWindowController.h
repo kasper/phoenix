@@ -16,6 +16,7 @@
 @property NSTimeInterval animationDuration;
 @property CGFloat weight;
 @property (copy) NSString *appearance;
+@property BOOL hasShadow;
 @property NSImage *icon;
 @property (copy) NSString *text;
 @property BOOL isInput;
@@ -47,6 +48,7 @@
 @property NSTimeInterval animationDuration;
 @property CGFloat weight;
 @property (copy) NSString *appearance;
+@property BOOL hasShadow;
 @property NSImage *icon;
 @property (copy) NSString *text;
 @property BOOL isInput;

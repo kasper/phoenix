@@ -14,6 +14,7 @@ class Modal implements Identifiable
   property double animationDuration
   property double weight
   property String appearance
+  property boolean hasShadow
   property Image icon
   property String text
   property boolean isInput
@@ -43,7 +44,8 @@ end
 
 ### 3.0.0+
 
-- `isInput` dynamic property for whether the modal behaves as an input modal
+- `hasShadow` property for whether the modal has a shadow, by default `true`
+- `isInput` property for whether the modal behaves as an input modal, by default `false`
 - `textDidChange` callback function to call when the input modal’s text field value changes, receives the value as the first argument for the callback
 
 ## Constructor

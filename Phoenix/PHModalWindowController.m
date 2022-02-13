@@ -46,6 +46,7 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
         self.animationDuration = 0.2;
         self.weight = 24.0;
         self.appearance = PHModalWindowControllerAppearanceDark;
+        self.hasShadow = YES;
         self.text = @"";
     }
 
@@ -266,6 +267,7 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
     }
 
     self.window.ignoresMouseEvents = !self.isInput;
+    self.window.hasShadow = self.hasShadow;
 
     if (self.isInput) {
         // Required for text field to become key
