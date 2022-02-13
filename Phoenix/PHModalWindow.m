@@ -28,4 +28,11 @@
     return self;
 }
 
+#pragma mark - Key Status
+
+- (BOOL) canBecomeKeyWindow {
+
+    return YES;
+}
+
 @end

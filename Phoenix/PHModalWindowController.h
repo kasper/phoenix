@@ -18,6 +18,8 @@
 @property (copy) NSString *appearance;
 @property NSImage *icon;
 @property (copy) NSString *text;
+@property BOOL isInput;
+@property JSValue *textDidChange;
 
 // TODO: Deprecated and will be removed in later versions, use “text” instead
 @property (copy) NSString *message;
@@ -47,6 +49,8 @@
 @property (copy) NSString *appearance;
 @property NSImage *icon;
 @property (copy) NSString *text;
+@property BOOL isInput;
+@property JSValue *textDidChange;
 
 // TODO: Deprecated and will be removed in later versions, use “text” instead
 @property (copy) NSString *message;

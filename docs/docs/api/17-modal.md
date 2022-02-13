@@ -16,6 +16,8 @@ class Modal implements Identifiable
   property String appearance
   property Image icon
   property String text
+  property boolean isInput
+  property Function textDidChange
 
   constructor Modal Modal()
   Rectangle frame()
@@ -39,6 +41,11 @@ end
 - `icon` dynamic property for the icon displayed in the modal
 - `text` dynamic property for the text displayed in the modal
 
+### 2.7.0+
+
+- `isInput` dynamic property for whether the modal behaves as an input modal
+- `textDidChange` callback function to call when the input modal’s text field value changes, receives the value as the first argument for the callback
+
 ## Constructor
 
 - `new Modal()` constructs and returns a new modal
@@ -59,5 +66,19 @@ Modal.build({
   appearance: 'dark',
   icon: App.get('Phoenix').icon(),
   text: 'Hello World!',
-}).show()
+}).show();
+
+// Show an input modal in the middle of the main screen
+const screenFrame = Screen.main().flippedVisibleFrame();
+const modal = new Modal();
+modal.isInput = true;
+modal.appearance = 'light';
+modal.origin = {
+  x: screenFrame.width / 2 - modal.frame().width / 2,
+  y: screenFrame.height / 2 - modal.frame().height / 2,
+};
+modal.textDidChange = (value) => {
+  console.log('Text did change:', value);
+};
+modal.show();
 ```

@@ -16,6 +16,8 @@
 
 @property (weak) IBOutlet NSLayoutConstraint *iconViewZeroWidthConstraint;
 @property (weak) IBOutlet NSLayoutConstraint *separatorConstraint;
+@property (weak) IBOutlet NSLayoutConstraint *textFieldTextWidthConstraint;
+@property (weak) IBOutlet NSLayoutConstraint *textFieldInputWidthConstraint;
 
 @end
 
@@ -80,6 +82,18 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
 - (NSString *) windowNibName {
 
     return @"ModalWindow";
+}
+
+#pragma mark - NSControlTextEditingDelegate
+
+- (void) controlTextDidChange:(NSNotification *)__unused notification {
+
+    JSValue *callback = self.textDidChange;
+    NSString *value = self.text ? self.text : @"";
+
+    if (!callback.isUndefined) {
+        [callback callWithArguments:@[ value ]];
+    }
 }
 
 #pragma mark - Appearance
@@ -212,13 +226,15 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
 
 - (BOOL) isDisplayable {
 
-    return self.icon || [self hasText];
+    return self.icon || self.isInput || [self hasText];
 }
 
 - (void) layout {
 
     self.iconViewZeroWidthConstraint.priority = !self.icon ? 999 : NSLayoutPriorityDefaultLow;
     self.separatorConstraint.constant = (!self.icon || ![self hasText]) ? 0.0 : 10.0;
+    self.textFieldTextWidthConstraint.priority = self.isInput ? NSLayoutPriorityDefaultLow : NSLayoutPriorityDefaultHigh;
+    self.textFieldInputWidthConstraint.priority = self.isInput ? NSLayoutPriorityDefaultHigh : NSLayoutPriorityDefaultLow;
 }
 
 - (NSRect) frame {
@@ -247,6 +263,13 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
     // Set vibrant appearance
     if ([self material] != PHModalWindowControllerAppearanceMaterialTransparent) {
         [self setupVibrantAppearance];
+    }
+
+    self.window.ignoresMouseEvents = !self.isInput;
+
+    if (self.isInput) {
+        // Required for text field to become key
+        [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
     }
 
     [self showWindow:self];

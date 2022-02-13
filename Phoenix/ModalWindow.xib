@@ -13,6 +13,8 @@
                 <outlet property="iconViewZeroWidthConstraint" destination="xs9-PA-Xeb" id="uGS-va-MjZ"/>
                 <outlet property="separatorConstraint" destination="tpi-5b-ira" id="bfF-oB-1yG"/>
                 <outlet property="textField" destination="Eu9-Hf-kgC" id="Mro-8U-aEF"/>
+                <outlet property="textFieldInputWidthConstraint" destination="Eq4-Dg-snr" id="53D-vv-zna"/>
+                <outlet property="textFieldTextWidthConstraint" destination="lWe-ze-4L4" id="sxi-Se-X2W"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="VWl-Ud-pAe"/>
             </connections>
         </customObject>
@@ -21,14 +23,14 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hasShadow="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g" customClass="PHModalWindow">
             <windowStyleMask key="styleMask" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="0.0" y="0.0" width="152" height="59"/>
+            <rect key="contentRect" x="0.0" y="0.0" width="148" height="58"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1512" height="944"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="152" height="58"/>
+                <rect key="frame" x="0.0" y="0.0" width="148" height="58"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="O5f-kD-6s1" userLabel="Container View">
-                        <rect key="frame" x="0.0" y="0.0" width="152" height="58"/>
+                        <rect key="frame" x="0.0" y="0.0" width="148" height="58"/>
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="peX-kY-Jau" userLabel="Icon View">
                                 <rect key="frame" x="17" y="5" width="47" height="47"/>
@@ -41,19 +43,26 @@
                                     <binding destination="-2" name="value" keyPath="self.icon" id="Ixv-nc-huL"/>
                                 </connections>
                             </imageView>
-                            <textField horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eu9-Hf-kgC" userLabel="Text Field">
-                                <rect key="frame" x="72" y="15" width="65" height="28"/>
+                            <textField focusRingType="none" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eu9-Hf-kgC" userLabel="Text Field">
+                                <rect key="frame" x="72" y="15" width="61" height="28"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="800" id="lWe-ze-4L4"/>
+                                    <constraint firstAttribute="width" priority="250" constant="600" id="Eq4-Dg-snr"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" priority="750" constant="800" id="lWe-ze-4L4"/>
                                 </constraints>
-                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="FT7-fN-TGb">
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" focusRingType="none" alignment="left" title="Label" id="FT7-fN-TGb">
                                     <font key="font" metaFont="system" size="24"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="-2" name="value" keyPath="self.text" id="wWV-Bb-h0C"/>
+                                    <binding destination="-2" name="editable" keyPath="self.isInput" id="1T6-Bi-8Xd"/>
+                                    <binding destination="-2" name="value" keyPath="self.text" id="b1H-8L-8X6">
+                                        <dictionary key="options">
+                                            <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                        </dictionary>
+                                    </binding>
                                     <binding destination="-2" name="fontSize" keyPath="self.weight" id="cKK-hg-40t"/>
+                                    <outlet property="delegate" destination="-2" id="9es-G1-SKC"/>
                                 </connections>
                             </textField>
                         </subviews>

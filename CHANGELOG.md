@@ -9,6 +9,7 @@ Release: dd.mm.yyyy
 ### New
 
 - Improved documentation! 👩🏼‍💻 The documentation is now powered by Docusaurus and hosted at https://kasper.github.io/phoenix/.
+- Add support for an input modal 🚀 ([#163](https://github.com/kasper/phoenix/issues/163)).
 - Add support for device sleep events ([#282](https://github.com/kasper/phoenix/issues/282)).
 - Add support for moving windows to spaces in macOS 12.0 with `Space#moveWindows(...)` ([#289](https://github.com/kasper/phoenix/issues/289)).
 
@@ -35,6 +36,11 @@ Release: dd.mm.yyyy
 
 - New: Event `deviceWillSleep` is triggered when the device will sleep ([#282](https://github.com/kasper/phoenix/issues/282)).
 - New: Event `deviceDidWake` is triggered when the device did wake ([#282](https://github.com/kasper/phoenix/issues/282)).
+
+#### Modal
+
+- New: Property `isInput` for setting whether the modal behaves as an input modal ([#163](https://github.com/kasper/phoenix/issues/163)).
+- New: Property `textDidChange` for setting the callback function to call when the input modal’s text field value changes ([#163](https://github.com/kasper/phoenix/issues/163)).
 
 #### Space
 
