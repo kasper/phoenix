@@ -2,6 +2,8 @@
 
 /* Modal */
 
+Modal.prototype.setTextColour = Modal.prototype.setTextColor;
+
 Modal.build = function (properties) {
   var modal = new Modal();
   _(properties)

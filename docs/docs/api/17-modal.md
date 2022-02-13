@@ -23,6 +23,7 @@ class Modal implements Identifiable
   property Function textDidChange
 
   constructor Modal Modal()
+  void setTextColour(double red, double green, double blue, double alpha) // or setTextColor(...)
   Rectangle frame()
   void show()
   void close()
@@ -61,6 +62,10 @@ end
 - `frame()` returns the frame for the modal, the frame is adjusted for the current content, therefor you must first set the weight, icon and text to get an accurate frame, bottom left based origin
 - `show()` shows the modal, you must set at least an icon or text for the modal to be displayed
 - `close()` closes the modal
+
+### 3.0.0+
+
+- `setTextColour(double red, double green, double blue, double alpha)` or `setTextColor(...)` sets a custom text colour with the given RGBA values, for example `setTextColor(34, 139, 34, 1)`
 
 ## Example
 

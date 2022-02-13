@@ -6,6 +6,8 @@
 
 @interface PHModalWindowController ()
 
+@property NSColor *textColor;
+
 #pragma mark - Views
 
 @property (weak) IBOutlet NSView *containerView;
@@ -134,7 +136,7 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
     // Use light material
     if ([self material] == PHModalWindowControllerAppearanceMaterialLight) {
         visualEffectView.material = NSVisualEffectMaterialLight;
-        self.textField.textColor = [NSColor blackColor];
+        self.textField.textColor = self.textColor ? self.textColor : [NSColor blackColor];
     }
 
     // Set mask image to rounded rectangle
@@ -173,6 +175,15 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
                                                                                views:views]];
     // Set visual effect view as the content view
     self.window.contentView = visualEffectView;
+}
+
+- (void) setTextColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha {
+
+    self.textColor = [NSColor colorWithCalibratedRed:red / 255
+                                               green:green / 255
+                                                blue:blue / 255
+                                               alpha:alpha];
+    self.textField.textColor = self.textColor;
 }
 
 #pragma mark - Properties
