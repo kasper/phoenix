@@ -31,7 +31,7 @@ end
 - `isNormal()` returns `true` if the space is a normal space
 - `isFullScreen()` returns `true` if the space is a full screen space
 - `screens()` returns all screens to which the space belongs to
-- `windows(Map<String, AnyObject> optionals)` returns all windows for the space if no optionals are given
+- `windows(Map<String, AnyObject> optionals)` returns all windows for the space if no optionals are given; be aware that it only returns the windows of the currently visible spaces. When a space is not on a visible, the returned list will be empty.
 - `addWindows(Array<Window> windows)` adds the given windows to the space (< macOS 12.0)
 - `removeWindows(Array<Window> windows)` removes the given windows from the space (< macOS 12.0)
 
