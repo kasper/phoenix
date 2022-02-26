@@ -50,7 +50,7 @@ end
 - `hasShadow` property for whether the modal has a shadow, by default `true`
 - `font` dynamic property for the font name used for the text, by default `System`
 - `isInput` property for whether the modal behaves as an input modal, by default `false`
-- `inputPlaceholder` property for the placeholder string that will be displayed when the input is empty, by default ``
+- `inputPlaceholder` property for the placeholder string that will be displayed when the input is empty, by default empty
 - `textDidChange` callback function to call when the input modal’s text field value changes, receives the value as the first argument for the callback
 
 ## Constructor
