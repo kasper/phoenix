@@ -19,6 +19,7 @@
 @property BOOL hasShadow;
 @property NSImage *icon;
 @property (copy) NSString *text;
+@property (copy) NSString *textAlignment;
 @property (copy) NSString *font;
 @property BOOL isInput;
 @property (copy) NSString *inputPlaceholder;
@@ -57,6 +58,7 @@ JSExportAs(setTextColor, - (void) setTextColorWithRed:(CGFloat)red green:(CGFloa
 @property BOOL hasShadow;
 @property NSImage *icon;
 @property (copy) NSString *text;
+@property (copy) NSString *textAlignment;
 @property (copy) NSString *font;
 @property BOOL isInput;
 @property (copy) NSString *inputPlaceholder;

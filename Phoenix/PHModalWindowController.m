@@ -51,6 +51,7 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
         self.appearance = PHModalWindowControllerAppearanceDark;
         self.hasShadow = YES;
         self.text = @"";
+        self.textAlignment = @"left";
         self.font = @"System";
         self.inputPlaceholder = @"";
 
@@ -110,6 +111,28 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
 }
 
 #pragma mark - Appearance
+
+- (NSTextAlignment) alignment {
+
+    static NSDictionary<NSString *, NSNumber *> *alignments;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+
+        alignments = @{ @"left": @0,
+                        @"right": @2,
+                        @"center": @1,
+                        @"centre": @1 };
+    });
+
+    NSNumber *value = alignments[self.textAlignment.lowercaseString];
+
+    if (!value) {
+        return NSTextAlignmentLeft;
+    }
+
+    return value.integerValue;
+}
 
 - (PHModalWindowControllerAppearanceMaterial) material {
 
@@ -289,6 +312,7 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
 
     self.window.ignoresMouseEvents = !self.isInput;
     self.window.hasShadow = self.hasShadow;
+    self.textField.alignment = [self alignment];
 
     if (self.isInput) {
         self.textField.placeholderString = self.inputPlaceholder;

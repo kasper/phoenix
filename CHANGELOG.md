@@ -10,7 +10,7 @@ Release: dd.mm.yyyy
 
 - Improved documentation! 👩🏼‍💻 The documentation is now powered by Docusaurus and hosted at https://kasper.github.io/phoenix/.
 - Add support for an input modal 🚀 ([#163](https://github.com/kasper/phoenix/issues/163)).
-- Add support to customise text font and colour in modal ([#158](https://github.com/kasper/phoenix/issues/158), [#242](https://github.com/kasper/phoenix/issues/242)).
+- Add support to customise text alignment, font and colour in modal ([#158](https://github.com/kasper/phoenix/issues/158), [#242](https://github.com/kasper/phoenix/issues/242)).
 - Add support for device sleep events ([#282](https://github.com/kasper/phoenix/issues/282)).
 - Add support for moving windows to spaces in macOS 12.0 with `Space#moveWindows(...)` ([#289](https://github.com/kasper/phoenix/issues/289)).
 
@@ -42,6 +42,7 @@ Release: dd.mm.yyyy
 #### Modal
 
 - New: Property `hasShadow` for whether the modal has a shadow.
+- New: Property `textAlignment` for the alignment of the text ([#158](https://github.com/kasper/phoenix/issues/158)).
 - New: Property `font` for the font name used for the text ([#158](https://github.com/kasper/phoenix/issues/158)).
 - New: Property `isInput` for whether the modal behaves as an input modal ([#163](https://github.com/kasper/phoenix/issues/163)).
 - New: Property `inputPlaceholder` for the placeholder string that will be displayed when the input is empty ([#163](https://github.com/kasper/phoenix/issues/163)).

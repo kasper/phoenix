@@ -17,6 +17,7 @@ class Modal implements Identifiable
   property boolean hasShadow
   property Image icon
   property String text
+  property String textAlignment
   property String font
   property boolean isInput
   property String inputPlaceholder
@@ -48,6 +49,7 @@ end
 ### 3.0.0+
 
 - `hasShadow` property for whether the modal has a shadow, by default `true`
+- `textAlignment` property for the alignment of the text (`left|right|centre|center`), by default `left`
 - `font` dynamic property for the font name used for the text, by default `System`
 - `isInput` property for whether the modal behaves as an input modal, by default `false`
 - `inputPlaceholder` property for the placeholder string that will be displayed when the input is empty, by default empty
