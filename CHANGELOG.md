@@ -1,6 +1,11 @@
 Changelog
 =========
 
+3.0.1 (master)
+--------------
+
+Release: dd.mm.yyyy
+
 3.0.0
 -----
 

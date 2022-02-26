@@ -1,6 +1,6 @@
 {
   "name": "@phoenix/docs",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "private": true,
   "engines": {
     "node": ">=17.6.0",
