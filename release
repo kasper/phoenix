@@ -90,6 +90,7 @@ fi
 
 # Build app
 
+build_directory="$PWD/build"
 version=$(get_build_setting 'MARKETING_VERSION')
 build_number=$(get_build_setting 'CURRENT_PROJECT_VERSION')
 notarisation_archive="phoenix-$version.zip"
@@ -104,18 +105,25 @@ fi
 
 describe "Building $app..."
 
+rm -rf $build_directory
+
 xcodebuild -workspace $app.xcworkspace \
            -scheme $app \
            -configuration Release \
-           SYMROOT="$PWD/build/" \
+           -archivePath "$build_directory/$app.xcarchive" \
            CODE_SIGN_IDENTITY="$code_sign_identity" \
-           clean build
+           clean archive
+
+xcodebuild -archivePath "$build_directory/$app.xcarchive" \
+           -exportArchive \
+           -exportPath $build_directory \
+           -exportOptionsPlist export.plist
 
 # Verify app
 
 describe 'Verifying signed app...'
 
-cd build/Release/
+cd $build_directory
 codesign --verbose=4 --verify $app.app
 spctl --verbose=4 --assess --type execute $app.app
 
@@ -147,10 +155,17 @@ do
                > $notarisation_info_plist
 
   notarisation_status=$(get_property 'notarization-info:Status' $notarisation_info_plist)
+
   if [ "$notarisation_status" = 'success' ]; then
     notarisation_log=$(get_property 'notarization-info:LogFileURL' $notarisation_info_plist)
     echo "Notarisation succeeded. Log: $notarisation_log"
     break
+  fi
+
+  if [ "$notarisation_status" = 'invalid' ]; then
+    notarisation_log=$(get_property 'notarization-info:LogFileURL' $notarisation_info_plist)
+    echo "Notarisation failed. Log: $notarisation_log"
+    exit 1
   fi
 
   echo "Current status is “"$notarisation_status"”. Waiting..."
