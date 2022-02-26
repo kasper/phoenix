@@ -29,3 +29,9 @@ html[data-theme='dark'] {
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+img[src$='#example'] {
+  display: block;
+  width: auto;
+  height: 100px;
+}

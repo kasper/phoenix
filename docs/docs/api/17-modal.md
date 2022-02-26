@@ -2,6 +2,15 @@
 
 Use Modal to display content as modal windows (in front of all other windows). Modals can be used to display icons and/or text for visual cues. Properties defined as dynamic can be altered while the modal is displayed.
 
+![Example icon modal](/img/modal/icon-modal.png#example)
+**Above:** Ligth modal with icon
+
+![Example text modal](/img/modal/text-modal.png#example)
+**Above:** Dark modal with icon and text
+
+![Example input modal](/img/modal/input-modal.png#example)
+**Above:** Light input modal with icon
+
 ## Interface
 
 ```javascript
