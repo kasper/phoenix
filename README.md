@@ -111,7 +111,7 @@ Feel free to contribute to this project by creating issues, pull requests and ed
 
 ## Contact
 
-If you have any questions, feedback or just want to say hi, you can open an issue, [email](mailto:kasper@kytkemo.com) or [tweet](https://twitter.com/kasper/).
+If you have any questions, feedback or just want to say hi, you can [open an issue](https://github.com/kasper/phoenix/issues/), [start a discussion](https://github.com/kasper/phoenix/discussions/), [email](mailto:kasper@kytkemo.com) or [tweet](https://twitter.com/kasper/).
 
 ## Thanks
 
