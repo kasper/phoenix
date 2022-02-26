@@ -1,6 +1,6 @@
 # Modal
 
-Use Modal to display content as modal windows (in front of all other windows). Modals can be used to display icons and/or text for visual cues. Properties defined as dynamic can be altered while the modal is displayed.
+Use Modal to display content as modal windows (in front of all other windows). Modals can be used to display icons and/or text for visual cues. An input modal can be used to input text for example to give commands. Properties defined as dynamic can be altered while the modal is displayed.
 
 ![Example icon modal](/img/modal/icon-modal.png#example)
 **Above:** Ligth modal with icon
