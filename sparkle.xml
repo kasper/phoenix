@@ -10,6 +10,42 @@
     <description>Feed for Phoenix updates.</description>
     <language>en</language>
 
+    <!-- 3.0.0 -->
+
+    <item>
+      <title>Version 3.0.0</title>
+      <sparkle:version>127</sparkle:version>
+      <sparkle:shortVersionString>3.0.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>10.11.0</sparkle:minimumSystemVersion>
+      <pubDate>Sat, 26 Feb 2022 19:20:55 +0200</pubDate>
+      <description><![CDATA[
+
+        <p>I’m excited to release the next major version of Phoenix! 🚀 This release includes new features as well as general improvements and bug fixes. Thanks for using Phoenix, it’s a great feeling building something that many of you love and use daily as part of your setups! 🙌</p>
+
+        <h3>What is New?</h3>
+
+        <ul>
+          <li>New app icon by <a href='https://parakeet.co'>Parakeet</a>!</li>
+          <li>Improved documentation! 👩🏼‍💻 The documentation is now powered by Docusaurus and hosted at <a href='https://kasper.github.io/phoenix/'>https://kasper.github.io/phoenix/</a>.</li>
+          <li>Support for input modals. Build new functionality by reacting to textual commands.</li>
+          <li>Support to customise text alignment, font and colour in modals. Customise modals even more!</li>
+          <li>Support to listen for device sleep events</li>
+          <li>Support for moving windows to spaces in macOS 12.0 with <code>Space#moveWindows(...)</code></li>
+          <li><b>Breaking:</b> Phoenix now requires OS X El Capitan (10.11) or higher</li>
+          <li><b>Breaking:</b> “Open at Login” is now using a launcher app instead of adding Phoenix to the deprecated login items of your user account. This setting will not be reflected anymore in the list and you can remove the app from it. You may need to enable this setting again for Phoenix to launch automatically after this update, depending on how you setup it the first time.</li>
+        </ul>
+
+        <p>See the full <a href='https://github.com/kasper/phoenix/blob/3.0.0/CHANGELOG.md'>Changelog</a>.</p>
+
+      ]]>
+      </description>
+      <enclosure sparkle:dsaSignature='MC0CFQCbPsHxG6XTTR1pdJgo8/AZ+w29fgIUTklSczGbQfEG4z6oH6Yjedn16SU='
+                 sparkle:edSignature='lIZYwKf1r6McYiQRyRo4ItROVFgM7q9LMn7l9CPvxN4gvRLb6cTng+CAVf+u0y6Y838vNDK1S9ejTviPiLnkAQ=='
+                 type='application/octet-stream'
+                 length='5775089'
+                 url='https://github.com/kasper/phoenix/releases/download/3.0.0/phoenix-3.0.0.tar.gz' />
+    </item>
+
     <!-- 2.6.8 -->
 
     <item>

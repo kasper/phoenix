@@ -1,17 +1,17 @@
 Changelog
 =========
 
-3.0.0 (master)
---------------
+3.0.0
+-----
 
-Release: dd.mm.yyyy
+Release: 26.2.2022
 
 ### New
 
 - New app icon by [Parakeet](https://parakeet.co) ([#286](https://github.com/kasper/phoenix/issues/286))!
 - Improved documentation! 👩🏼‍💻 The documentation is now powered by Docusaurus and hosted at https://kasper.github.io/phoenix/.
 - Add support for an input modal 🚀 ([#163](https://github.com/kasper/phoenix/issues/163)).
-- Add support to customise text alignment, font and colour in modal ([#158](https://github.com/kasper/phoenix/issues/158), [#242](https://github.com/kasper/phoenix/issues/242)).
+- Add support to customise text alignment, font and colour in modals ([#158](https://github.com/kasper/phoenix/issues/158), [#242](https://github.com/kasper/phoenix/issues/242)).
 - Add support for device sleep events ([#282](https://github.com/kasper/phoenix/issues/282)).
 - Add support for moving windows to spaces in macOS 12.0 with `Space#moveWindows(...)` ([#289](https://github.com/kasper/phoenix/issues/289)).
 
