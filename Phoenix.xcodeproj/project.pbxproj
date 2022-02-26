@@ -90,6 +90,7 @@
 		14DA76905814ABA3258EF84C /* Pods-Phoenix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phoenix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Phoenix/Pods-Phoenix.debug.xcconfig"; sourceTree = "<group>"; };
 		1C93D6621BE11FF100649405 /* PHShebangPreprocessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHShebangPreprocessor.h; sourceTree = "<group>"; };
 		1C93D6631BE11FF100649405 /* PHShebangPreprocessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHShebangPreprocessor.m; sourceTree = "<group>"; };
+		A712F6E227CA979D00129D82 /* PhoenixDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhoenixDebug.entitlements; sourceTree = "<group>"; };
 		A7183B651B6E865F00842E13 /* PHKeyHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHKeyHandler.h; sourceTree = "<group>"; };
 		A7183B661B6E865F00842E13 /* PHKeyHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHKeyHandler.m; sourceTree = "<group>"; };
 		A718725E279DCFE90085CBA3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -405,6 +406,7 @@
 				A79C46801B5BF3C100C460CF /* PHAppDelegate.h */,
 				A79C46811B5BF3C100C460CF /* PHAppDelegate.m */,
 				A7C3C2F823DB8D7E00FAEFED /* Phoenix.entitlements */,
+				A712F6E227CA979D00129D82 /* PhoenixDebug.entitlements */,
 				A7EBD1C11BFDF7E1000D8E5F /* Preprocessors */,
 				A79C465A1B5BF31100C460CF /* Supporting Files */,
 				A73FF10C1BBD8F350024CF97 /* Translators */,
@@ -892,7 +894,7 @@
 			buildSettings = {
 				APP_DISPLAY_NAME = "$(TARGET_NAME) (Debug)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Phoenix/Phoenix.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Phoenix/PhoenixDebug.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 127;
