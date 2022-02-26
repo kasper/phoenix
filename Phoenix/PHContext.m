@@ -241,6 +241,8 @@
 
 - (void) load {
 
+    [[NSNotificationCenter defaultCenter] postNotificationName:PHContextWillLoadNotification object:nil];
+
     [[PHPreferences sharedPreferences] reset];
     [self resetConfigurationPaths];
 

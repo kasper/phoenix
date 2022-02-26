@@ -25,6 +25,7 @@ Release: dd.mm.yyyy
 
 - Reload configuration automatically when “Accessibility” permission changes.
 - Show more details about raised exception in the notification message.
+- Close open modals when configuration is reloaded.
 
 ### Bug Fixes
 

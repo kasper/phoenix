@@ -4,6 +4,8 @@
 
 @import Foundation;
 
+static NSString * const PHContextWillLoadNotification = @"PHContextWillLoadNotification";
+
 @protocol PHContextDelegate <NSObject>
 
 #pragma mark - Loading

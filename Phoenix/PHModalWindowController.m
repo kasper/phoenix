@@ -2,6 +2,7 @@
  * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
  */
 
+#import "PHContext.h"
 #import "PHModalWindowController.h"
 
 @interface PHModalWindowController ()
@@ -52,6 +53,12 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
         self.text = @"";
         self.font = @"System";
         self.inputPlaceholder = @"";
+
+        // Observe context load
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(close)
+                                                     name:PHContextWillLoadNotification
+                                                   object:nil];
     }
 
     return self;
@@ -62,6 +69,7 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
 - (void) dealloc {
 
     [self removeObserverForKeyPaths:[PHModalWindowController keyPaths]];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:PHContextWillLoadNotification object:nil];
 }
 
 #pragma mark - Key Paths
