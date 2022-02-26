@@ -1,7 +1,7 @@
 License
 =======
 
-Released under the MIT License. Phoenix was originally authored by Steven Degutis. As it stands now, it has been rewritten from the ground up by Kasper Hirvikoski. It is currently being developed by Kasper Hirvikoski. This software consists of contributions made by many individuals.
+Released under the MIT License. Phoenix is currently being developed by Kasper Hirvikoski with the generous help of contributions made by many individuals. It was originally authored by Steven Degutis. As it stands now, it has been rewritten from the ground up by Kasper Hirvikoski.
 
 Please note that the app icon assets found in `Phoenix/Images.xcassets/AppIcon.appiconset/` have been solely licensed by [Parakeet](https://parakeet.co) to Kasper Hirvikoski (for this project: https://github.com/kasper/phoenix/) and they are not under the MIT License. You may only use these assets in direct association with this parent project — such as with forks intended for contributing.
 
