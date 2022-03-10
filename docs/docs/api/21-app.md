@@ -51,7 +51,7 @@ end
 - `isHidden()` returns `true` if the app is hidden
 - `isTerminated()` returns `true` if the app has been terminated
 - `mainWindow()` returns the main window for the app, returns `undefined` if the app does not currently have a main window
-- `windows(Map<String, AnyObject> optionals)` returns all windows for the app if no optionals are given
+- `windows(Map<String, AnyObject> optionals)` returns all windows for the app if no optionals are given; be aware that it only returns the windows of the currently visible spaces. When an app is not on a visible space, the returned list will be empty.
 - `activate()` activates the app and brings its windows forward, returns `true` if successful
 - `focus()` activates the app and brings its windows to focus, returns `true` if successful
 - `show()` shows the app, returns `true` if successful
