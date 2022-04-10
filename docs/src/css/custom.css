@@ -33,5 +33,5 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 img[src$='#example'] {
   display: block;
   width: auto;
-  height: 100px;
+  max-height: 100px;
 }
