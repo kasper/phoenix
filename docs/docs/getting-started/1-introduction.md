@@ -29,7 +29,7 @@ const handler = new Event('screensDidChange', () => {});
 ```
 
 :::tip Managed Handlers
-You most likely do not want to handle the references manually. Therefor Phoenix supports “[Managed Handlers](managing-handlers)”. This way you can let Phoenix take care of the state management for you.
+You most likely do not want to handle the references manually. Therefore Phoenix supports “[Managed Handlers](managing-handlers)”. This way you can let Phoenix take care of the state management for you.
 
 ```javascript
 Key.on('q', ['control', 'shift'], () => {});
