@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -56,13 +56,13 @@
                                 </textFieldCell>
                                 <connections>
                                     <binding destination="-2" name="fontName" keyPath="self.font" id="IWK-dI-mLP"/>
-                                    <binding destination="-2" name="fontSize" keyPath="self.weight" previousBinding="IWK-dI-mLP" id="bmn-Kk-zcg"/>
                                     <binding destination="-2" name="editable" keyPath="self.isInput" id="1T6-Bi-8Xd"/>
                                     <binding destination="-2" name="value" keyPath="self.text" id="b1H-8L-8X6">
                                         <dictionary key="options">
                                             <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                         </dictionary>
                                     </binding>
+                                    <binding destination="-2" name="fontSize" keyPath="self.weight" previousBinding="IWK-dI-mLP" id="bmn-Kk-zcg"/>
                                     <outlet property="delegate" destination="-2" id="9es-G1-SKC"/>
                                 </connections>
                             </textField>
