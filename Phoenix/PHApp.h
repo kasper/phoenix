@@ -19,6 +19,7 @@ static NSString * const PHAppFocusOptionKey = @"focus";
 
 + (instancetype) get:(NSString *)appName;
 JSExportAs(launch, + (instancetype) launch:(NSString *)appName withOptionals:(NSDictionary<NSString *, id> *)optionals);
+JSExportAs(open, + (instancetype) open:(NSString *)filePath withOptionals:(NSDictionary<NSString *, id> *)optionals);
 + (instancetype) focused;
 + (NSArray<PHApp *> *) all;
 

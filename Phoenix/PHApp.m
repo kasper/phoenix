@@ -42,17 +42,9 @@ static NSString * const PHAppForceOptionKey = @"force";
     return nil;
 }
 
-+ (instancetype) launch:(NSString *)appName withOptionals:(NSDictionary<NSString *, id> *)optionals {
-
++ (instancetype) open:(NSString *)filePath withOptionals:(NSDictionary<NSString *, id> *)optionals {
     NSWorkspace *sharedWorkspace = [NSWorkspace sharedWorkspace];
-    NSString *appPath = [sharedWorkspace fullPathForApplication:appName];
     NSWorkspaceLaunchOptions launchOptions = NSWorkspaceLaunchWithoutActivation;
-
-    if (!appPath) {
-        NSLog(@"Error: Could not find an app with the name “%@”.", appName);
-        return nil;
-    }
-
     NSNumber *focusOption = optionals[PHAppFocusOptionKey];
 
     // Focus on launch
@@ -61,16 +53,23 @@ static NSString * const PHAppForceOptionKey = @"force";
     }
 
     NSError *error;
-    NSRunningApplication *app = [sharedWorkspace launchApplicationAtURL:[NSURL fileURLWithPath:appPath]
+    NSRunningApplication *app = [sharedWorkspace openURL:[NSURL fileURLWithPath:filePath]
                                                                 options:launchOptions
-                                                          configuration:@{}
-                                                                  error:&error];
+                                                                configuration:@{}
+                                                                error:&error];
     if (error) {
-        NSLog(@"Error: Could not launch app “%@”. (%@)", appName, error);
+        NSLog(@"Error: Could not open file “%@”. (%@)", filePath, error);
         return nil;
     }
 
     return [[self alloc] initWithApp:app];
+}
+
++ (instancetype) launch:(NSString *)appName withOptionals:(NSDictionary<NSString *, id> *)optionals {
+    NSWorkspace *sharedWorkspace = [NSWorkspace sharedWorkspace];
+    NSString *appPath = [sharedWorkspace fullPathForApplication:appName];
+
+    return [self open:appPath withOptionals:optionals];
 }
 
 + (instancetype) focused {
