@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### Bug Fixes
+
+- Fix issue that prevented moving or resizing some windows properly. Notably, this fixes issues and makes the window movement immediate with Google Chrome windows ([#301](https://github.com/kasper/phoenix/issues/301)).
+
 3.0.0
 -----
 
