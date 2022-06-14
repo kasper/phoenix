@@ -26,12 +26,48 @@ typedef NS_ENUM(NSInteger, PHWindowDirection) {
 // XXX: Undocumented private attribute for full screen mode
 static NSString * const NSAccessibilityFullScreenAttribute = @"AXFullScreen";
 
+// XXX: Undocumented private attribute for enhanced user interface
+static NSString * const NSAccessibilityEnhancedUserInterfaceAttribute = @"AXEnhancedUserInterface";
+
 static NSString * const PHScreenOptionKey = @"screen";
 static NSString * const PHWindowKey = @"window";
 static NSString * const PHWindowScoreKey = @"score";
 
 // XXX: Undocumented private API to get the CGWindowID for an AXUIElementRef
 AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
+
+#pragma mark - Private helpers
+
+- (BOOL) setPositionAttribute:(CGPoint)point {
+
+    id positionWrapper = CFBridgingRelease(AXValueCreate(kAXValueCGPointType, (void * const) &point));
+
+    return [self setAttribute:NSAccessibilityPositionAttribute withValue:positionWrapper];
+}
+
+- (BOOL) setSizeAttribute:(CGSize)size {
+
+    id sizeWrapper = CFBridgingRelease(AXValueCreate(kAXValueCGSizeType, (void * const) &size));
+
+    return [self setAttribute:NSAccessibilitySizeAttribute withValue:sizeWrapper];
+}
+
+- (BOOL) withEnhancedUserInterfaceDisabled:(BOOL(^)(void))callback {
+
+    BOOL isEnhancedUserInterfaceEnabledInApp = [[self.app valueForAttribute:NSAccessibilityEnhancedUserInterfaceAttribute withDefaultValue:@NO] boolValue];
+
+    if (isEnhancedUserInterfaceEnabledInApp) {
+        [self.app setAttribute:NSAccessibilityEnhancedUserInterfaceAttribute withValue:@NO];
+    }
+
+    BOOL success = callback();
+
+    if (isEnhancedUserInterfaceEnabledInApp) {
+        [self.app setAttribute:NSAccessibilityEnhancedUserInterfaceAttribute withValue:@YES];
+    }
+
+    return success;
+}
 
 #pragma mark - Initialising
 
@@ -292,23 +328,26 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
 - (BOOL) setTopLeft:(CGPoint)point {
 
-    id positionWrapper = CFBridgingRelease(AXValueCreate(kAXValueCGPointType, (void * const) &point));
-    return [self setAttribute:NSAccessibilityPositionAttribute withValue:positionWrapper];
+    return [self withEnhancedUserInterfaceDisabled:^{
+        return [self setPositionAttribute:point];
+    }];
 }
 
 - (BOOL) setSize:(CGSize)size {
 
-    id sizeWrapper = CFBridgingRelease(AXValueCreate(kAXValueCGSizeType, (void * const) &size));
-    return [self setAttribute:NSAccessibilitySizeAttribute withValue:sizeWrapper];
+    return [self withEnhancedUserInterfaceDisabled:^{
+        return [self setSizeAttribute:size];
+    }];
 }
 
 - (BOOL) setFrame:(CGRect)frame {
 
-    [self setSize:frame.size];
-    [self setTopLeft:frame.origin];
-    [self setSize:frame.size];
-
-    return CGRectEqualToRect([self frame], frame);
+    return [self withEnhancedUserInterfaceDisabled:^{
+        [self setSizeAttribute:frame.size];
+        [self setPositionAttribute:frame.origin];
+        [self setSizeAttribute:frame.size];
+        return (BOOL) !!CGRectEqualToRect([self frame], frame);
+    }];
 }
 
 - (BOOL) setFullScreen:(BOOL)value {
