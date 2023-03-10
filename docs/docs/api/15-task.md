@@ -47,4 +47,12 @@ Task.run('/usr/bin/uptime', [], (task) => {
   console.log('Status:', task.status); // -> 'Status: 0'
   console.log('Output:', task.output); // -> 'Output: 13:30  up  2:08, 3 users, load averages: 4,18 3,83 5,25'
 });
+
+// Open a file
+Task.run('/usr/bin/open', ['/path/to/file.txt']);
+
+// Fetch a JSON
+Task.run('/usr/bin/curl', ['-s', 'https://api.github.com/repos/kasper/phoenix/releases'], (task) => {
+  console.log('Result:', JSON.parse(task.output));
+});
 ```
