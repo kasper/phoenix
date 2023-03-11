@@ -52,11 +52,6 @@ const config = {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
     },
-    algolia: {
-      appId: 'DVABGAPL6M',
-      apiKey: '7ab7c9ee6b39b67fbffb13358f4f1422',
-      indexName: 'documentation',
-    },
   },
 };
 
