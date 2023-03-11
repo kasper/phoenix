@@ -9,6 +9,7 @@ Release: dd.mm.yyyy
 ### Changes
 
 - **Breaking:** Phoenix now requires macOS Mojave (10.14) or higher.
+- Upgrade Sparkle to 2.3.2.
 - Xcode 14 is now required for building.
 
 3.0.0
