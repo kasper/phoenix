@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.0.1 (master)
+4.0.0 (master)
 --------------
 
 Release: dd.mm.yyyy
