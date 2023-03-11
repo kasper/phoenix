@@ -43,6 +43,10 @@ end
 
 - `visible` (boolean): if set `true` returns all visible windows for the space, if set `false` returns all hidden windows for the space
 
+## Events
+
+See [Events](events#space) for a list of available events for Space.
+
 ## Example
 
 ```javascript

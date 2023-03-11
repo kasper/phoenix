@@ -22,6 +22,10 @@ end
 - `log(AnyObject... arguments)` logs the arguments to the Console (app)
 - `notify(String message)` delivers the message to the Notification Center
 
+## Events
+
+See [Events](events#phoenix) for a list of available events for Phoenix.
+
 ## Example
 
 ```javascript

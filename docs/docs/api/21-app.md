@@ -66,6 +66,10 @@ end
 
 - `force` (boolean): if set `true` force terminates the app
 
+## Events
+
+See [Events](events#app) for a list of available events for App.
+
 ## Example
 
 ```javascript

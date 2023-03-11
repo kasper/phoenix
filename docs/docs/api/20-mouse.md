@@ -18,6 +18,10 @@ end
 - `location()` returns the cursor position
 - `move(Point point)` moves the cursor to a given position, returns `true` if successful
 
+## Events
+
+See [Events](events#mouse) for a list of available events for Mouse.
+
 ## Example
 
 ```javascript

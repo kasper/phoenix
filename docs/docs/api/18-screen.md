@@ -42,6 +42,10 @@ end
 
 - `visible` (boolean): if set `true` returns all visible windows for the screen, if set `false` returns all hidden windows for the screen
 
+## Events
+
+See [Events](events#screen) for a list of available events for Screen.
+
 ## Example
 
 ```javascript

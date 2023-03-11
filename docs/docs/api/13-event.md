@@ -2,7 +2,7 @@
 
 Use Event to construct events, bind callbacks, access their properties or disable them. You can have multiple handlers for a single event.
 
-See [Events](events) for a list available events for binding.
+See [Events](events) for a list of available events for binding.
 
 ## Interface
 
