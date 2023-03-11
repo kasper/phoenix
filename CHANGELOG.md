@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### Changes
+
+- Xcode 14 is now required for building.
+
 3.0.0
 -----
 
