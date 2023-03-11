@@ -8,7 +8,7 @@ Release: dd.mm.yyyy
 
 ### Changes
 
-- **Breaking:** Phoenix now requires macOS High Sierra (10.13) or higher.
+- **Breaking:** Phoenix now requires macOS Mojave (10.14) or higher.
 - Xcode 14 is now required for building.
 
 3.0.0
