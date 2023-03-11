@@ -14,19 +14,17 @@ sign_update="$PWD/Pods/Sparkle/bin/sign_update"
 # Unset arguments
 unset username
 unset code_sign_identity
-unset dsa_signature_key_path
 unset output_directory
 
 # Helpers
 
 help() {
   echo >&2 "\
-${bold}Usage:${reset} $(basename $0) -u username -s code-sign-identity -d dsa-signature-key-path -o output-directory
+${bold}Usage:${reset} $(basename $0) -u username -s code-sign-identity -o output-directory
 
 Arguments:
   -u username               Apple Developer username for notarisation, password is obtained from keychain item “AC_PASSWORD”
   -s code-sign-identity     used to sign the app
-  -d dsa-signature-key-path used to create the DSA-signature
   -o output-directory       where the app archive is created"
 }
 
@@ -55,7 +53,6 @@ while getopts 'u:s:d:o:' opt; do
   case $opt in
     u) username=$OPTARG;;
     s) code_sign_identity=$OPTARG;;
-    d) dsa_signature_key_path=$OPTARG;;
     o) output_directory=$OPTARG;;
 
     :)
@@ -71,17 +68,12 @@ while getopts 'u:s:d:o:' opt; do
 done
 
 # Invalid arguments
-if [ ! "$username" ] || [ ! "$code_sign_identity" ] || [ ! "$dsa_signature_key_path" ] || [ ! "$output_directory" ]; then
+if [ ! "$username" ] || [ ! "$code_sign_identity" ] || [ ! "$output_directory" ]; then
   help
   exit 1
 fi
 
 # Verify paths
-
-if [ ! -f "$dsa_signature_key_path" ]; then
-  non_existent_path "$dsa_signature_key_path"
-  exit 1
-fi
 
 if [ ! -d "$output_directory" ]; then
   non_existent_path "$output_directory"
@@ -186,13 +178,6 @@ tar czf "$output_directory/$archive" $app.app
 echo "Archived to “"$output_directory/$archive"”."
 cd $output_directory
 
-# Create DSA-signature
-
-describe 'Creating DSA-signature for archive...'
-
-dsa_signature=$(openssl dgst -sha1 -binary < $archive | openssl dgst -dss1 -sign "$dsa_signature_key_path" | openssl enc -base64)
-echo "DSA: $dsa_signature"
-
 # Create EdDSA-signature
 
 describe 'Creating EdDSA-signature for archive...'
@@ -209,7 +194,6 @@ echo "Version: $version ($build_number)"
 echo "Archive: $archive"
 echo "Size: $(stat -f '%z' $archive)"
 echo "SHA-256: $(shasum -a 256 $archive)"
-echo "DSA signature: $dsa_signature"
 echo "EdDSA signature: $eddsa_signature"
 
 describe 'Done.'

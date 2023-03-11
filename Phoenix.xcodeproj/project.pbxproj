@@ -29,7 +29,6 @@
 		A78566D11CBE77CD00036AF9 /* PHPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = A78566D01CBE77CD00036AF9 /* PHPreferences.m */; };
 		A78749641CA2BB440042DA4C /* NSProcessInfo+PHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A78749631CA2BB440042DA4C /* NSProcessInfo+PHExtension.m */; };
 		A79452421C2F35E3007AF8C5 /* NSArray+PHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A79452411C2F35E3007AF8C5 /* NSArray+PHExtension.m */; };
-		A7952E7E1C0721850062D651 /* dsa-phoenix-pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = A7952E7D1C0721850062D651 /* dsa-phoenix-pub.pem */; };
 		A79B89E01B5E74C1004DDE82 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A79B89DE1B5E74C1004DDE82 /* MainMenu.xib */; };
 		A79B89E21B5E75CA004DDE82 /* ModalWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A79B89E11B5E75CA004DDE82 /* ModalWindow.xib */; };
 		A79C46601B5BF31200C460CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A79C465F1B5BF31200C460CF /* main.m */; };
@@ -135,7 +134,6 @@
 		A79452401C2F35E3007AF8C5 /* NSArray+PHExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PHExtension.h"; sourceTree = "<group>"; };
 		A79452411C2F35E3007AF8C5 /* NSArray+PHExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+PHExtension.m"; sourceTree = "<group>"; };
 		A79452431C2F393A007AF8C5 /* PHIterableJSExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHIterableJSExport.h; sourceTree = "<group>"; };
-		A7952E7D1C0721850062D651 /* dsa-phoenix-pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "dsa-phoenix-pub.pem"; sourceTree = "<group>"; };
 		A79B89DF1B5E74C1004DDE82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		A79B89E11B5E75CA004DDE82 /* ModalWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModalWindow.xib; sourceTree = "<group>"; };
 		A79C46571B5BF31100C460CF /* Phoenix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Phoenix.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -419,7 +417,6 @@
 			isa = PBXGroup;
 			children = (
 				A72EAD031B5CE34800DD537B /* Credits.rtf */,
-				A7952E7D1C0721850062D651 /* dsa-phoenix-pub.pem */,
 				A79C465B1B5BF31100C460CF /* Info.plist */,
 				A77AB3251DD73F00003B5872 /* lodash.min.js */,
 				A79C465F1B5BF31200C460CF /* main.m */,
@@ -610,7 +607,6 @@
 				A77AB3281DD75715003B5872 /* phoenix.min.js in Resources */,
 				A79B89E01B5E74C1004DDE82 /* MainMenu.xib in Resources */,
 				A77AB3261DD73F00003B5872 /* lodash.min.js in Resources */,
-				A7952E7E1C0721850062D651 /* dsa-phoenix-pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

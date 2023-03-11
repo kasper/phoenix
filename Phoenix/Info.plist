@@ -34,8 +34,6 @@
 	<true/>
 	<key>SUFeedURL</key>
 	<string>https://raw.githubusercontent.com/kasper/phoenix/master/sparkle.xml</string>
-	<key>SUPublicDSAKeyFile</key>
-	<string>dsa-phoenix-pub.pem</string>
 	<key>SUPublicEDKey</key>
 	<string>lafbJATldtGHrXCewaXd5mPhftgeM9YSZhLu5WgkxxM=</string>
 	<key>SUScheduledCheckInterval</key>
