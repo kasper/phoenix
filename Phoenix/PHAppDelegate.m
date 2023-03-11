@@ -86,7 +86,7 @@ static NSString * const PHDocumentationURL = @"https://kasper.github.io/phoenix/
 
 - (void) menuNeedsUpdate:(NSMenu *)menu {
 
-    [menu itemWithTitle:@"Open at Login"].state = [PHOpenAtLoginHelper opensAtLogin] ? NSOnState : NSOffState;
+    [menu itemWithTitle:@"Open at Login"].state = [PHOpenAtLoginHelper opensAtLogin] ? NSControlStateValueOn : NSControlStateValueOff;
 }
 
 #pragma mark - Event Handling
@@ -138,7 +138,7 @@ static NSString * const PHDocumentationURL = @"https://kasper.github.io/phoenix/
 
 - (IBAction) toggleOpenAtLogin:(NSMenuItem *)sender {
 
-    BOOL openAtLogin = sender.state == NSOffState;
+    BOOL openAtLogin = sender.state == NSControlStateValueOff;
     [[PHPreferences sharedPreferences] add:@{ PHPreferencesOpenAtLoginKey: @(openAtLogin) }];
 }
 
