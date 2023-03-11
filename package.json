@@ -3,8 +3,8 @@
   "version": "3.0.1",
   "private": true,
   "engines": {
-    "node": ">=17.9.0",
-    "npm": ">=8.6.0"
+    "node": ">=19.7.0",
+    "npm": ">=9.6.1"
   },
   "devDependencies": {
     "eslint-config-airbnb-base": "15.0.0",
