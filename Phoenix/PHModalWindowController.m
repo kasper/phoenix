@@ -161,12 +161,12 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
     NSDictionary<NSString *, id> *views = @{ @"container": self.containerView };
 
     NSVisualEffectView *visualEffectView = [[NSVisualEffectView alloc] initWithFrame:self.window.contentView.frame];
-    visualEffectView.material = NSVisualEffectMaterialDark;
+    visualEffectView.appearance = [NSAppearance appearanceNamed:NSAppearanceNameVibrantDark];
     visualEffectView.state = NSVisualEffectStateActive;
 
-    // Use light material
+    // Use light appearance
     if ([self material] == PHModalWindowControllerAppearanceMaterialLight) {
-        visualEffectView.material = NSVisualEffectMaterialLight;
+        visualEffectView.appearance = [NSAppearance appearanceNamed:NSAppearanceNameVibrantLight];
         self.textField.textColor = self.textColor ? self.textColor : [NSColor blackColor];
     }
 
