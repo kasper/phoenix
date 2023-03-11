@@ -8,6 +8,7 @@ const config = {
   favicon: 'img/favicon.ico',
   organizationName: 'kasper',
   projectName: 'phoenix',
+  plugins: [require.resolve('docusaurus-lunr-search')],
   presets: [
     [
       'classic',
