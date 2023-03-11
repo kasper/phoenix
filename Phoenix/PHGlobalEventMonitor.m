@@ -52,11 +52,11 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
 
-        masks = @[ @(NSMouseMovedMask),
-                   @(NSLeftMouseUpMask),
-                   @(NSRightMouseUpMask),
-                   @(NSLeftMouseDraggedMask),
-                   @(NSRightMouseDraggedMask) ];
+        masks = @[ @(NSEventMaskMouseMoved),
+                   @(NSEventMaskLeftMouseUp),
+                   @(NSEventMaskRightMouseUp),
+                   @(NSEventMaskLeftMouseDragged),
+                   @(NSEventMaskRightMouseDragged) ];
     });
 
     return masks;
@@ -71,11 +71,11 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
 
-        notifications = @{ @(NSMouseMoved): PHMouseDidMoveNotification,
-                           @(NSLeftMouseUp): PHMouseDidLeftClickNotification,
-                           @(NSRightMouseUp): PHMouseDidRightClickNotification,
-                           @(NSLeftMouseDragged): PHMouseDidLeftDragNotification,
-                           @(NSRightMouseDragged): PHMouseDidRightDragNotification };
+        notifications = @{ @(NSEventTypeMouseMoved): PHMouseDidMoveNotification,
+                           @(NSEventTypeLeftMouseUp): PHMouseDidLeftClickNotification,
+                           @(NSEventTypeRightMouseUp): PHMouseDidRightClickNotification,
+                           @(NSEventTypeLeftMouseDragged): PHMouseDidLeftDragNotification,
+                           @(NSEventTypeRightMouseDragged): PHMouseDidRightDragNotification };
     });
 
     return notifications;
