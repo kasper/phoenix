@@ -12,6 +12,10 @@ Release: dd.mm.yyyy
 - Upgrade Sparkle to 2.3.2.
 - Xcode 14 is now required for building.
 
+### Improvements
+
+- Documentation improvements and clarifications. Add support for searching API documentation.
+
 3.0.0
 -----
 
