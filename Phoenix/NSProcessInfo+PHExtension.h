@@ -8,7 +8,6 @@
 
 #pragma mark - Operating System
 
-+ (BOOL) isOperatingSystemAtLeastHighSierra;
 + (BOOL) isOperatingSystemAtLeastBigSur;
 + (BOOL) isOperatingSystemAtLeastMonterey;
 
