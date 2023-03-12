@@ -52,7 +52,7 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
         self.hasShadow = YES;
         self.text = @"";
         self.textAlignment = @"left";
-        self.font = @"System";
+        self.font = [NSFont systemFontOfSize:self.weight].fontName;
         self.inputPlaceholder = @"";
 
         // Observe context load

@@ -16,6 +16,10 @@ Release: dd.mm.yyyy
 
 - Documentation improvements and clarifications. Add support for searching API documentation.
 
+### Bug Fixes
+
+- Fix issue that caused modals not to adjust to a custom weight if no font was provided ([#314](https://github.com/kasper/phoenix/issues/314)).
+
 3.0.0
 -----
 
