@@ -18,7 +18,7 @@ A lightweight macOS window and app manager scriptable with JavaScript. You can a
 - bind keyboard shortcuts and system events to your callback functions
 - control and interact with your screens, spaces, mouse, apps and windows
 - log messages, deliver notifications, display content or ask input with modals
-- run external commands
+- run external commands like you would in the command line
 
 ## Install
 
