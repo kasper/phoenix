@@ -53,6 +53,6 @@ Task.run('/usr/bin/open', ['/path/to/file.txt']);
 
 // Fetch a JSON
 Task.run('/usr/bin/curl', ['-s', 'https://api.github.com/repos/kasper/phoenix/releases'], (task) => {
-  console.log('Result:', JSON.parse(task.output));
+  console.log('Result:', JSON.parse(task.output)); // -> '[object Object], ...'
 });
 ```
