@@ -749,7 +749,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo 'Building library...'\n\nif [ -f /opt/homebrew/bin/brew ]; then\n    echo 'Found Homebrew, adding it to environment...'\n    eval \"$(/opt/homebrew/bin/brew shellenv)\"\nfi\n\nif command -v npm; then\n    echo 'Found npm, building library...'\n    npm install && npm run build\n    echo 'Built library succesfully.'\nfi\n\necho 'Done.'\n";
+			shellScript = "echo 'Building library...'\n\nif [ -f /opt/homebrew/opt/nvm/nvm.sh ]; then\n    echo 'Found NVM in Homebrew, adding it to environment...'\n    . /opt/homebrew/opt/nvm/nvm.sh\nfi\n\nif command -v npm; then\n    echo 'Found npm, building library...'\n    npm install && npm run build\n    echo 'Built library succesfully.'\nfi\n\necho 'Done.'\n";
 			showEnvVarsInLog = 0;
 		};
 		D24256909AA421FF1865E794 /* [CP] Embed Pods Frameworks */ = {
