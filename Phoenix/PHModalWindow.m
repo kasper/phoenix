@@ -8,15 +8,11 @@
 
 #pragma mark - Initialising
 
-- (instancetype) initWithContentRect:(NSRect)contentRect
-                           styleMask:(NSWindowStyleMask)style
-                             backing:(NSBackingStoreType)backingStoreType
-                               defer:(BOOL)flag {
-
-    if (self = [super initWithContentRect:contentRect
-                                styleMask:style
-                                  backing:backingStoreType
-                                    defer:flag]) {
+- (instancetype)initWithContentRect:(NSRect)contentRect
+                          styleMask:(NSWindowStyleMask)style
+                            backing:(NSBackingStoreType)backingStoreType
+                              defer:(BOOL)flag {
+    if (self = [super initWithContentRect:contentRect styleMask:style backing:backingStoreType defer:flag]) {
         self.alphaValue = 0.0;
         self.animationBehavior = NSWindowAnimationBehaviorAlertPanel;
         self.backgroundColor = [NSColor clearColor];
@@ -30,8 +26,7 @@
 
 #pragma mark - Key Status
 
-- (BOOL) canBecomeKeyWindow {
-
+- (BOOL)canBecomeKeyWindow {
     return YES;
 }
 

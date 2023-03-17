@@ -9,14 +9,14 @@
 
 #pragma mark - Position
 
-+ (CGPoint) location;
-+ (BOOL) move:(CGPoint)point;
++ (CGPoint)location;
++ (BOOL)move:(CGPoint)point;
 
 @end
 
 @interface PHMouse : NSObject <PHMouseJSExport>
 
-+ (instancetype) new NS_UNAVAILABLE;
-- (instancetype) init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end

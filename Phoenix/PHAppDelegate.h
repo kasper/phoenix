@@ -6,14 +6,14 @@
 
 @interface PHAppDelegate : NSObject <NSApplicationDelegate, NSMenuDelegate>
 
-+ (instancetype) new NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
 
 #pragma mark - IBAction
 
-- (IBAction) reloadContext:(id)sender;
-- (IBAction) editConfiguration:(id)sender;
-- (IBAction) viewDocumentation:(id)sender;
-- (IBAction) showAboutPanel:(id)sender;
-- (IBAction) toggleOpenAtLogin:(NSMenuItem *)sender;
+- (IBAction)reloadContext:(id)sender;
+- (IBAction)editConfiguration:(id)sender;
+- (IBAction)viewDocumentation:(id)sender;
+- (IBAction)showAboutPanel:(id)sender;
+- (IBAction)toggleOpenAtLogin:(NSMenuItem *)sender;
 
 @end

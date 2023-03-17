@@ -8,15 +8,13 @@
 
 #pragma mark - Operating System
 
-+ (BOOL) isOperatingSystemAtLeastBigSur {
-
-    NSOperatingSystemVersion bigSur = { .majorVersion = 11, .minorVersion = 0, .patchVersion = 0 };
++ (BOOL)isOperatingSystemAtLeastBigSur {
+    NSOperatingSystemVersion bigSur = {.majorVersion = 11, .minorVersion = 0, .patchVersion = 0};
     return [[self processInfo] isOperatingSystemAtLeastVersion:bigSur];
 }
 
-+ (BOOL) isOperatingSystemAtLeastMonterey {
-
-    NSOperatingSystemVersion monterey = { .majorVersion = 12, .minorVersion = 0, .patchVersion = 0 };
++ (BOOL)isOperatingSystemAtLeastMonterey {
+    NSOperatingSystemVersion monterey = {.majorVersion = 12, .minorVersion = 0, .patchVersion = 0};
     return [[self processInfo] isOperatingSystemAtLeastVersion:monterey];
 }
 

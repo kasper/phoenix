@@ -8,24 +8,22 @@
 
 @implementation PHOpenAtLoginHelper
 
-static NSString * const PHUserDefaultsOpenAtLoginKey = @"PHOpenAtLogin";
+static NSString* const PHUserDefaultsOpenAtLoginKey = @"PHOpenAtLogin";
 
 #if DEBUG
-static NSString * const PHLauncherBundleIdentifier = @"org.khirviko.Phoenix.Launcher.debug";
+static NSString* const PHLauncherBundleIdentifier = @"org.khirviko.Phoenix.Launcher.debug";
 #else
-static NSString * const PHLauncherBundleIdentifier = @"org.khirviko.Phoenix.Launcher";
+static NSString* const PHLauncherBundleIdentifier = @"org.khirviko.Phoenix.Launcher";
 #endif
 
 #pragma mark - Login Item
 
-+ (BOOL) opensAtLogin {
-
++ (BOOL)opensAtLogin {
     return [[NSUserDefaults standardUserDefaults] boolForKey:PHUserDefaultsOpenAtLoginKey];
 }
 
-+ (void) setOpensAtLogin:(BOOL)opensAtLogin {
-
-    BOOL didSet = SMLoginItemSetEnabled((__bridge CFStringRef) PHLauncherBundleIdentifier, opensAtLogin);
++ (void)setOpensAtLogin:(BOOL)opensAtLogin {
+    BOOL didSet = SMLoginItemSetEnabled((__bridge CFStringRef)PHLauncherBundleIdentifier, opensAtLogin);
 
     if (didSet) {
         [[NSUserDefaults standardUserDefaults] setBool:opensAtLogin forKey:PHUserDefaultsOpenAtLoginKey];

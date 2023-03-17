@@ -5,18 +5,18 @@
 @import Foundation;
 
 static NSInteger const NSTaskErrorCode = -1;
-static NSString * const NSTaskErrorDomain = @"NSTaskErrorDomain";
+static NSString *const NSTaskErrorDomain = @"NSTaskErrorDomain";
 
 @interface NSTask (PHExtension)
 
 #pragma mark - Environment
 
-+ (NSString *) searchPath;
++ (NSString *)searchPath;
 
 #pragma mark - Launching
 
-+ (NSString *) outputFromLaunchedTaskWithEnvironment:(NSDictionary<NSString *, NSString *> *)environment
-                                           arguments:(NSArray<NSString *> *)arguments
-                                               error:(NSError **)error;
++ (NSString *)outputFromLaunchedTaskWithEnvironment:(NSDictionary<NSString *, NSString *> *)environment
+                                          arguments:(NSArray<NSString *> *)arguments
+                                              error:(NSError **)error;
 
 @end

@@ -2,15 +2,14 @@
  * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
  */
 
-#import "NSTask+PHExtension.h"
 #import "PHShebangPreprocessor.h"
+#import "NSTask+PHExtension.h"
 
 @implementation PHShebangPreprocessor
 
 #pragma mark - Scanning
 
-+ (NSString *) scanCommand:(NSScanner *)scanner {
-
++ (NSString *)scanCommand:(NSScanner *)scanner {
     // Shebang (#!) was not found
     if (![scanner scanString:@"#!" intoString:NULL]) {
         return nil;
@@ -24,8 +23,7 @@
 
 #pragma mark - Preprocessing
 
-+ (NSString *) process:(NSString *)script atPath:(NSString *)path error:(NSError **)error {
-
++ (NSString *)process:(NSString *)script atPath:(NSString *)path error:(NSError **)error {
     NSScanner *scanner = [NSScanner scannerWithString:script];
     NSString *command = [self scanCommand:scanner];
 
@@ -35,16 +33,18 @@
 
     // Process
     NSError *taskError;
-    NSString *output = [NSTask outputFromLaunchedTaskWithEnvironment:@{ @"PATH": [NSTask searchPath] }
-                                                           arguments:@[ @"-c", [NSString stringWithFormat:@"%@ %@", command, path] ]
-                                                               error:&taskError];
+    NSString *output =
+        [NSTask outputFromLaunchedTaskWithEnvironment:@{@"PATH" : [NSTask searchPath]}
+                                            arguments:@[ @"-c", [NSString stringWithFormat:@"%@ %@", command, path] ]
+                                                error:&taskError];
     if (taskError) {
-
         if (error) {
             *error = [NSError errorWithDomain:PHShebangPreprocessorErrorDomain
                                          code:PHShebangPreprocessorErrorCode
-                                     userInfo:@{ NSLocalizedDescriptionKey: @"Preprocessing failed.",
-                                                 NSUnderlyingErrorKey: taskError }];
+                                     userInfo:@{
+                                         NSLocalizedDescriptionKey : @"Preprocessing failed.",
+                                         NSUnderlyingErrorKey : taskError
+                                     }];
         }
 
         return @"";

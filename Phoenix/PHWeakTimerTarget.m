@@ -6,7 +6,7 @@
 
 @interface PHWeakTimerTarget ()
 
-@property (weak) id target;
+@property(weak) id target;
 @property SEL selector;
 
 @end
@@ -15,8 +15,7 @@
 
 #pragma mark - Initialising
 
-- (instancetype) initWithTarget:(id)target selector:(SEL)selector {
-
+- (instancetype)initWithTarget:(id)target selector:(SEL)selector {
     if (self = [super init]) {
         self.target = target;
         self.selector = selector;
@@ -25,24 +24,21 @@
     return self;
 }
 
-+ (instancetype) withTarget:(id)target selector:(SEL)selector {
-
++ (instancetype)withTarget:(id)target selector:(SEL)selector {
     return [[self alloc] initWithTarget:target selector:selector];
 }
 
 #pragma mark - Timing
 
-- (void) timerDidFireProxy:(NSTimer *)timer {
-
+- (void)timerDidFireProxy:(NSTimer *)timer {
     // Target is still alive
     if (self.target) {
-
-        #pragma clang diagnostic push
-        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 
         [self.target performSelector:self.selector];
 
-        #pragma clang diagnostic pop
+#pragma clang diagnostic pop
 
         return;
     }

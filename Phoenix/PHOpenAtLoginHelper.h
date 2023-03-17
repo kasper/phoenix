@@ -6,12 +6,12 @@
 
 @interface PHOpenAtLoginHelper : NSObject
 
-+ (instancetype) new NS_UNAVAILABLE;
-- (instancetype) init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 #pragma mark - Login Item
 
-+ (BOOL) opensAtLogin;
-+ (void) setOpensAtLogin:(BOOL)opensAtLogin;
++ (BOOL)opensAtLogin;
++ (void)setOpensAtLogin:(BOOL)opensAtLogin;
 
 @end

@@ -10,8 +10,7 @@
 
 @implementation LauncherTests
 
-- (void) testPass {
-
+- (void)testPass {
     XCTAssert(YES, @"Pass");
 }
 

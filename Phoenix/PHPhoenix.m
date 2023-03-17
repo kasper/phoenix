@@ -2,13 +2,13 @@
  * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
  */
 
-#import "PHNotificationHelper.h"
 #import "PHPhoenix.h"
+#import "PHNotificationHelper.h"
 #import "PHPreferences.h"
 
 @interface PHPhoenix ()
 
-@property (weak) id<PHContextDelegate> delegate;
+@property(weak) id<PHContextDelegate> delegate;
 
 @end
 
@@ -16,8 +16,7 @@
 
 #pragma mark - Initialising
 
-- (instancetype) initWithDelegate:(id<PHContextDelegate>)delegate {
-
+- (instancetype)initWithDelegate:(id<PHContextDelegate>)delegate {
     if (self = [super init]) {
         self.delegate = delegate;
     }
@@ -25,31 +24,26 @@
     return self;
 }
 
-+ (instancetype) withDelegate:(id<PHContextDelegate>)delegate {
-
++ (instancetype)withDelegate:(id<PHContextDelegate>)delegate {
     return [[self alloc] initWithDelegate:delegate];
 }
 
 #pragma mark - Actions
 
-- (void) reload {
-
+- (void)reload {
     [self.delegate load];
 }
 
-- (void) set:(NSDictionary<NSString *, id> *)preferences {
-
+- (void)set:(NSDictionary<NSString *, id> *)preferences {
     [[PHPreferences sharedPreferences] add:preferences];
 }
 
-- (void) log {
-
+- (void)log {
     NSArray<NSString *> *components = [[JSContext currentArguments] valueForKey:@"toString"];
     NSLog(@"%@", [components componentsJoinedByString:@" "]);
 }
 
-- (void) notify:(NSString *)message {
-
+- (void)notify:(NSString *)message {
     [PHNotificationHelper deliver:message withDelegate:nil];
 }
 

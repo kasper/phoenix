@@ -8,6 +8,6 @@
 
 #pragma mark - Preprocessing
 
-+ (NSString *) process:(NSString *)script atPath:(NSString *)path error:(NSError **)error;
++ (NSString *)process:(NSString *)script atPath:(NSString *)path error:(NSError **)error;
 
 @end

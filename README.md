@@ -64,6 +64,8 @@ First clone the repository from a terminal:
 
 To develop Phoenix, open `Phoenix.xcworkspace` in Xcode. Install Xcode from the App Store, if you do not already have it installed. You will also need Xcode command line tools — you will be prompted for this. Everything else should work as is — you can develop, debug, test, build and run Phoenix straight from Xcode.
 
+For code formatting, Phoenix uses [ClangFormat](https://clang.llvm.org/docs/ClangFormat.html). You will need to have it in your path to be able to make sure any code changes align with the formatting rules. If you do not have ClangFormat installed, the build process will simply skip linting.
+
 To install Phoenix from the source, you will need to build the workspace from a terminal:
 
     xcodebuild -workspace Phoenix.xcworkspace \

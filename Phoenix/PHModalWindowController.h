@@ -15,38 +15,42 @@
 @property NSTimeInterval duration;
 @property NSTimeInterval animationDuration;
 @property CGFloat weight;
-@property (copy) NSString *appearance;
+@property(copy) NSString *appearance;
 @property BOOL hasShadow;
 @property NSImage *icon;
-@property (copy) NSString *text;
-@property (copy) NSString *textAlignment;
-@property (copy) NSString *font;
+@property(copy) NSString *text;
+@property(copy) NSString *textAlignment;
+@property(copy) NSString *font;
 @property BOOL isInput;
-@property (copy) NSString *inputPlaceholder;
+@property(copy) NSString *inputPlaceholder;
 @property JSValue *textDidChange;
 
 // TODO: Deprecated and will be removed in later versions, use “text” instead
-@property (copy) NSString *message;
+@property(copy) NSString *message;
 
 #pragma mark - Constructing
 
-- (instancetype) init;
+- (instancetype)init;
 
 #pragma mark - Appearance
 
-JSExportAs(setTextColor, - (void) setTextColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha);
+JSExportAs(setTextColor, -(void)setTextColorWithRed
+           : (CGFloat)red green
+           : (CGFloat)green blue
+           : (CGFloat)blue alpha
+           : (CGFloat)alpha);
 
 #pragma mark - Displaying
 
-- (NSRect) frame;
-- (void) show;
-- (void) close;
+- (NSRect)frame;
+- (void)show;
+- (void)close;
 
 @end
 
 @interface PHModalWindowController : NSWindowController <PHModalWindowControllerJSExport>
 
-+ (instancetype) new NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
 
 #pragma mark - Properties
 
@@ -54,17 +58,17 @@ JSExportAs(setTextColor, - (void) setTextColorWithRed:(CGFloat)red green:(CGFloa
 @property NSTimeInterval duration;
 @property NSTimeInterval animationDuration;
 @property CGFloat weight;
-@property (copy) NSString *appearance;
+@property(copy) NSString *appearance;
 @property BOOL hasShadow;
 @property NSImage *icon;
-@property (copy) NSString *text;
-@property (copy) NSString *textAlignment;
-@property (copy) NSString *font;
+@property(copy) NSString *text;
+@property(copy) NSString *textAlignment;
+@property(copy) NSString *font;
 @property BOOL isInput;
-@property (copy) NSString *inputPlaceholder;
+@property(copy) NSString *inputPlaceholder;
 @property JSValue *textDidChange;
 
 // TODO: Deprecated and will be removed in later versions, use “text” instead
-@property (copy) NSString *message;
+@property(copy) NSString *message;
 
 @end

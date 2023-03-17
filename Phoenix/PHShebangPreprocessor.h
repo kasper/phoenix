@@ -7,11 +7,11 @@
 #import "PHPreprocessor.h"
 
 static NSInteger const PHShebangPreprocessorErrorCode = -1;
-static NSString * const PHShebangPreprocessorErrorDomain = @"PHShebangPreprocessorErrorDomain";
+static NSString* const PHShebangPreprocessorErrorDomain = @"PHShebangPreprocessorErrorDomain";
 
 @interface PHShebangPreprocessor : NSObject <PHPreprocessor>
 
-+ (instancetype) new NS_UNAVAILABLE;
-- (instancetype) init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end

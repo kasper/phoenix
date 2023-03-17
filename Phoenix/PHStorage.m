@@ -6,24 +6,23 @@
 
 @interface PHStorage ()
 
-@property (copy) NSString *path;
+@property(copy) NSString *path;
 @property NSMutableDictionary<NSString *, id> *storage;
-@property (getter=isPersisting) BOOL persisting;
+@property(getter=isPersisting) BOOL persisting;
 
 @end
 
 @implementation PHStorage
 
 #if DEBUG
-static NSString * const PHStoragePath = @"~/Library/Application Support/Phoenix/storage.debug.json";
+static NSString *const PHStoragePath = @"~/Library/Application Support/Phoenix/storage.debug.json";
 #else
-static NSString * const PHStoragePath = @"~/Library/Application Support/Phoenix/storage.json";
+static NSString *const PHStoragePath = @"~/Library/Application Support/Phoenix/storage.json";
 #endif
 
 #pragma mark - Initialising
 
-- (instancetype) init {
-
+- (instancetype)init {
     if (self = [super init]) {
         self.path = PHStoragePath.stringByExpandingTildeInPath;
         self.storage = [NSMutableDictionary dictionary];
@@ -33,15 +32,13 @@ static NSString * const PHStoragePath = @"~/Library/Application Support/Phoenix/
     return self;
 }
 
-+ (instancetype) storage {
-
++ (instancetype)storage {
     return [[self alloc] init];
 }
 
 #pragma mark - Loading
 
-- (void) load {
-
+- (void)load {
     // No storage file to load
     if (![[NSFileManager defaultManager] fileExistsAtPath:self.path]) {
         return;
@@ -64,8 +61,7 @@ static NSString * const PHStoragePath = @"~/Library/Application Support/Phoenix/
 
 #pragma mark - Persisting
 
-- (BOOL) ensureStorageDirectory {
-
+- (BOOL)ensureStorageDirectory {
     NSError *error;
     NSString *directory = self.path.stringByDeletingLastPathComponent;
 
@@ -82,8 +78,7 @@ static NSString * const PHStoragePath = @"~/Library/Application Support/Phoenix/
     return YES;
 }
 
-- (void) persist {
-
+- (void)persist {
     self.persisting = YES;
 
     if (![self ensureStorageDirectory]) {
@@ -108,8 +103,7 @@ static NSString * const PHStoragePath = @"~/Library/Application Support/Phoenix/
 
 #pragma mark - Storing
 
-- (void) forKey:(NSString *)key setObject:(id)object {
-
+- (void)forKey:(NSString *)key setObject:(id)object {
     if (![NSJSONSerialization isValidJSONObject:@[ object ]]) {
         NSLog(@"Error: Value for key “%@” is not a valid JSON-object.", key);
         return;
@@ -119,13 +113,11 @@ static NSString * const PHStoragePath = @"~/Library/Application Support/Phoenix/
     [self performSelectorInBackground:@selector(persist) withObject:nil];
 }
 
-- (id) objectForKey:(NSString *)key {
-
+- (id)objectForKey:(NSString *)key {
     return self.storage[key];
 }
 
-- (void) removeObjectForKey:(NSString *)key {
-
+- (void)removeObjectForKey:(NSString *)key {
     [self.storage removeObjectForKey:key];
     [self performSelectorInBackground:@selector(persist) withObject:nil];
 }

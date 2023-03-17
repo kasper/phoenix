@@ -10,15 +10,15 @@
 
 @protocol PHEventHandlerJSExport <JSExport, PHIdentifiableJSExport>
 
-@property (readonly) NSString *name;
+@property(readonly) NSString *name;
 
 #pragma mark - Constructing
 
-- (instancetype) initWithEvent:(NSString *)event callback:(JSValue *)callback;
+- (instancetype)initWithEvent:(NSString *)event callback:(JSValue *)callback;
 
 #pragma mark - Binding
 
-- (void) disable;
+- (void)disable;
 
 @end
 
@@ -26,6 +26,6 @@
 
 #pragma mark - Initialising
 
-- (instancetype) initWithEvent:(NSString *)event callback:(JSValue *)callback NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithEvent:(NSString *)event callback:(JSValue *)callback NS_DESIGNATED_INITIALIZER;
 
 @end

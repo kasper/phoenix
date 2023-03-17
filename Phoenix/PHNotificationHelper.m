@@ -8,8 +8,7 @@
 
 #pragma mark - Delivering
 
-+ (void) deliver:(NSString *)message withDelegate:(id<NSUserNotificationCenterDelegate>)delegate {
-
++ (void)deliver:(NSString *)message withDelegate:(id<NSUserNotificationCenterDelegate>)delegate {
     NSUserNotificationCenter *center = [NSUserNotificationCenter defaultUserNotificationCenter];
     center.delegate = delegate;
 

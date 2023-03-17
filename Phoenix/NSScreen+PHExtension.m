@@ -9,14 +9,12 @@
 
 @implementation NSScreen (PHExtension)
 
-static NSString * const NSScreenNumberKey = @"NSScreenNumber";
+static NSString *const NSScreenNumberKey = @"NSScreenNumber";
 
 #pragma mark - Screens
 
-+ (instancetype) screenForIdentifier:(NSString *)identifier {
-
++ (instancetype)screenForIdentifier:(NSString *)identifier {
     for (NSScreen *screen in [self screens]) {
-
         if ([[screen identifier] isEqualToString:identifier]) {
             return screen;
         }
@@ -25,40 +23,35 @@ static NSString * const NSScreenNumberKey = @"NSScreenNumber";
     return nil;
 }
 
-+ (instancetype) main {
-
++ (instancetype)main {
     return [self mainScreen];
 }
 
-+ (NSArray<NSScreen *> *) all {
-
++ (NSArray<NSScreen *> *)all {
     return [self screens];
 }
 
 #pragma mark - PHIterableJSExport
 
-- (instancetype) next {
-
+- (instancetype)next {
     return [[NSScreen screens] nextFrom:self];
 }
 
-- (instancetype) previous {
-
+- (instancetype)previous {
     return [[NSScreen screens] previousFrom:self];
 }
 
 #pragma mark - Properties
 
-- (NSString *) identifier {
-
-    id uuid = CFBridgingRelease(CGDisplayCreateUUIDFromDisplayID([self.deviceDescription[NSScreenNumberKey] unsignedIntValue]));
-    return CFBridgingRelease(CFUUIDCreateString(NULL, (__bridge CFUUIDRef) uuid));
+- (NSString *)identifier {
+    id uuid = CFBridgingRelease(
+        CGDisplayCreateUUIDFromDisplayID([self.deviceDescription[NSScreenNumberKey] unsignedIntValue]));
+    return CFBridgingRelease(CFUUIDCreateString(NULL, (__bridge CFUUIDRef)uuid));
 }
 
 #pragma mark - Frame
 
-- (CGRect) flipFrame:(NSRect)frame {
-
+- (CGRect)flipFrame:(NSRect)frame {
     // Use top-left origin
     NSScreen *primaryScreen = [NSScreen screens].firstObject;
     frame.origin.y = primaryScreen.frame.size.height - frame.size.height - frame.origin.y;
@@ -66,46 +59,39 @@ static NSString * const NSScreenNumberKey = @"NSScreenNumber";
     return frame;
 }
 
-- (CGRect) flippedFrame {
-
+- (CGRect)flippedFrame {
     return [self flipFrame:self.frame];
 }
 
-- (CGRect) flippedVisibleFrame {
-
+- (CGRect)flippedVisibleFrame {
     return [self flipFrame:self.visibleFrame];
 }
 
 #pragma mark - Spaces
 
-- (PHSpace *) currentSpace {
-
+- (PHSpace *)currentSpace {
     return [PHSpace currentSpaceForScreen:self];
 }
 
-- (NSArray<PHSpace *> *) spaces {
-
-    NSPredicate *spaceIsOnThisScreen = [NSPredicate predicateWithBlock:
-                                        ^BOOL (PHSpace *space, __unused NSDictionary<NSString *, id> *bindings) {
-
-        return [[space screens] containsObject:self];
-    }];
+- (NSArray<PHSpace *> *)spaces {
+    NSPredicate *spaceIsOnThisScreen =
+        [NSPredicate predicateWithBlock:^BOOL(PHSpace *space, __unused NSDictionary<NSString *, id> *bindings) {
+            return [[space screens] containsObject:self];
+        }];
 
     return [[PHSpace all] filteredArrayUsingPredicate:spaceIsOnThisScreen];
 }
 
 #pragma mark - Windows
 
-- (NSArray<PHWindow *> *) windows {
-
-    return [PHWindow filteredWindowsUsingPredicateBlock:^BOOL (PHWindow *window,
-                                                               __unused NSDictionary<NSString *, id> *bindings) {
-        return [[window screen] isEqualTo:self];
-    }];
+- (NSArray<PHWindow *> *)windows {
+    return [PHWindow
+        filteredWindowsUsingPredicateBlock:^BOOL(PHWindow *window, __unused NSDictionary<NSString *, id> *bindings) {
+            return [[window screen] isEqualTo:self];
+        }];
 }
 
-- (NSArray<PHWindow *> *) windows:(NSDictionary<NSString *, id> *)optionals {
-
+- (NSArray<PHWindow *> *)windows:(NSDictionary<NSString *, id> *)optionals {
     NSNumber *visibilityOption = optionals[PHWindowVisibilityOptionKey];
 
     // Filter based on visibility

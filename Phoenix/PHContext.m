@@ -4,11 +4,11 @@
 
 @import JavaScriptCore;
 
+#import "PHContext.h"
 #import "NSImage+PHExtension.h"
 #import "NSScreen+PHExtension.h"
 #import "PHAccessibilityObserver.h"
 #import "PHApp.h"
-#import "PHContext.h"
 #import "PHEventHandler.h"
 #import "PHGlobalEventMonitor.h"
 #import "PHKeyHandler.h"
@@ -28,7 +28,7 @@
 @interface PHContext ()
 
 @property JSContext *context;
-@property (copy) NSString *primaryConfigurationPath;
+@property(copy) NSString *primaryConfigurationPath;
 @property NSMutableSet<NSString *> *configurationPaths;
 @property PHPathWatcher *watcher;
 @property PHAccessibilityObserver *observer;
@@ -41,8 +41,7 @@
 
 #pragma mark - Initialising
 
-- (instancetype) init {
-
+- (instancetype)init {
     if (self = [super init]) {
         self.primaryConfigurationPath = [self resolvePrimaryConfigurationPath];
         self.configurationPaths = [NSMutableSet set];
@@ -54,45 +53,42 @@
     return self;
 }
 
-+ (instancetype) context {
-
++ (instancetype)context {
     return [[self alloc] init];
 }
 
 #pragma mark - Resetting
 
-- (void) resetConfigurationPaths {
-
+- (void)resetConfigurationPaths {
     [self.configurationPaths removeAllObjects];
 }
 
-- (void) resetWatcher {
+- (void)resetWatcher {
+    PHContext *__weak weakSelf = self;
 
-    PHContext * __weak weakSelf = self;
+    self.watcher = [PHPathWatcher watcherFor:self.configurationPaths.allObjects
+                                     handler:^{
+                                         [[weakSelf class] cancelPreviousPerformRequestsWithTarget:weakSelf
+                                                                                          selector:@selector(load)
+                                                                                            object:nil];
 
-    self.watcher = [PHPathWatcher watcherFor:self.configurationPaths.allObjects handler:^{
-
-        [[weakSelf class] cancelPreviousPerformRequestsWithTarget:weakSelf
-                                                         selector:@selector(load)
-                                                           object:nil];
-
-        [weakSelf performSelector:@selector(load) withObject:nil afterDelay:0.5];
-    }];
+                                         [weakSelf performSelector:@selector(load) withObject:nil afterDelay:0.5];
+                                     }];
 }
 
 #pragma mark - Setting up
 
-- (NSString *) resolvePrimaryConfigurationPath {
-
+- (NSString *)resolvePrimaryConfigurationPath {
     static NSArray<NSString *> *primaryConfigurationPaths;
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
 
 #if DEBUG
-        primaryConfigurationPaths = @[ @"~/.phoenix.debug.js",
-                                       @"~/Library/Application Support/Phoenix/phoenix.debug.js",
-                                       @"~/.config/phoenix/phoenix.debug.js" ];
+        primaryConfigurationPaths = @[
+            @"~/.phoenix.debug.js", @"~/Library/Application Support/Phoenix/phoenix.debug.js",
+            @"~/.config/phoenix/phoenix.debug.js"
+        ];
 #else
         primaryConfigurationPaths = @[ @"~/.phoenix.js",
                                        @"~/Library/Application Support/Phoenix/phoenix.js",
@@ -102,7 +98,6 @@
 
     // Look for the first existing configuration location
     for (NSString *primaryConfigurationPath in primaryConfigurationPaths) {
-
         NSString *resolvedPrimaryConfigurationPath = primaryConfigurationPath.stringByResolvingSymlinksInPath;
 
         if ([[NSFileManager defaultManager] fileExistsAtPath:resolvedPrimaryConfigurationPath]) {
@@ -114,12 +109,11 @@
     return primaryConfigurationPaths.firstObject.stringByResolvingSymlinksInPath;
 }
 
-- (NSString *) resolvePath:(NSString *)path {
-
+- (NSString *)resolvePath:(NSString *)path {
     path = path.stringByResolvingSymlinksInPath;
 
     // Resolve relative path
-    if(![path isAbsolutePath]) {
+    if (![path isAbsolutePath]) {
         NSURL *relativeUrl = [NSURL URLWithString:self.primaryConfigurationPath];
         path = [NSURL URLWithString:path relativeToURL:relativeUrl].absoluteString;
     }
@@ -127,8 +121,7 @@
     return path.stringByStandardizingPath;
 }
 
-- (void) createConfigurationFile:(NSString *)path {
-
+- (void)createConfigurationFile:(NSString *)path {
     NSError *error;
     NSString *directory = path.stringByDeletingLastPathComponent;
 
@@ -150,14 +143,16 @@
         return;
     }
 
-    [PHNotificationHelper deliver:[NSString stringWithFormat:@"Configuration file “%@” was created.", path] withDelegate:nil];
+    [PHNotificationHelper deliver:[NSString stringWithFormat:@"Configuration file “%@” was created.", path]
+                     withDelegate:nil];
 }
 
-- (void) loadScript:(NSString *)path {
-
+- (void)loadScript:(NSString *)path {
     NSError *error;
     NSString *script = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
-    NSURL *url = [NSURL fileURLWithPath:path relativeToURL:[NSURL fileURLWithPath:path.stringByDeletingLastPathComponent isDirectory:true]];
+    NSURL *url = [NSURL fileURLWithPath:path
+                          relativeToURL:[NSURL fileURLWithPath:path.stringByDeletingLastPathComponent
+                                                   isDirectory:true]];
 
     if (error) {
         script = @"";
@@ -170,16 +165,16 @@
     if (preprocessError) {
         NSError *underlyingError = preprocessError.userInfo[NSUnderlyingErrorKey];
         NSLog(@"Error: Preprocessing failed. (%@)", underlyingError.localizedFailureReason);
-        [PHNotificationHelper deliver:@"Preprocessing failed. Refer to the logs for more information." withDelegate:self];
+        [PHNotificationHelper deliver:@"Preprocessing failed. Refer to the logs for more information."
+                         withDelegate:self];
     }
 
     [self.context evaluateScript:script withSourceURL:url];
     [self.configurationPaths addObject:path];
 }
 
-- (void) setupAPI {
-
-    PHContext * __weak weakSelf = self;
+- (void)setupAPI {
+    PHContext *__weak weakSelf = self;
 
     self.context[@"Phoenix"] = [PHPhoenix withDelegate:self];
     self.context[@"Storage"] = weakSelf.storage;
@@ -196,10 +191,9 @@
     self.context[@"Window"] = [PHWindow class];
 
     self.context[@"require"] = ^(NSString *path) {
-
         path = [weakSelf resolvePath:path];
 
-        if(![[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
             NSString *message = [NSString stringWithFormat:@"Require: File “%@” does not exist.", path];
             weakSelf.context.exception = [JSValue valueWithNewErrorFromMessage:message inContext:weakSelf.context];
             return;
@@ -209,18 +203,17 @@
     };
 }
 
-- (void) setupContext {
-
-    PHContext * __weak weakSelf = self;
+- (void)setupContext {
+    PHContext *__weak weakSelf = self;
     self.context = [[JSContext alloc] initWithVirtualMachine:[[JSVirtualMachine alloc] init]];
     self.context.exceptionHandler = ^(JSContext *context, JSValue *exception) {
-
         JSValue *log = [context[@"Phoenix"] objectForKeyedSubscript:@"log"];
         [log callWithArguments:@[ exception ]];
 
-        NSString *description = [NSString stringWithFormat:@"Uncaught exception raised: “%@” (%@:%@). Refer to the logs for more information.", exception[@"message"], exception[@"line"], exception[@"column"]];
-        [PHNotificationHelper deliver:description
-                         withDelegate:weakSelf];
+        NSString *description = [NSString
+            stringWithFormat:@"Uncaught exception raised: “%@” (%@:%@). Refer to the logs for more information.",
+                             exception[@"message"], exception[@"line"], exception[@"column"]];
+        [PHNotificationHelper deliver:description withDelegate:weakSelf];
     };
 
     [self setupAPI];
@@ -231,16 +224,14 @@
 
 #pragma mark - NSUserNotificationCenterDelegate
 
-- (void) userNotificationCenter:(NSUserNotificationCenter *)__unused center
-        didActivateNotification:(NSUserNotification *)__unused notification {
-
-    [PHApp launch:@"Console" withOptionals:@{ PHAppFocusOptionKey: @YES }];
+- (void)userNotificationCenter:(NSUserNotificationCenter *)__unused center
+       didActivateNotification:(NSUserNotification *)__unused notification {
+    [PHApp launch:@"Console" withOptionals:@{PHAppFocusOptionKey : @YES}];
 }
 
 #pragma mark - PHContextDelegate
 
-- (void) load {
-
+- (void)load {
     [[NSNotificationCenter defaultCenter] postNotificationName:PHContextWillLoadNotification object:nil];
 
     [[PHPreferences sharedPreferences] reset];
@@ -257,8 +248,7 @@
     NSLog(@"Context loaded.");
 }
 
-- (void) shouldTerminate:(void (^)(void))terminate {
-
+- (void)shouldTerminate:(void (^)(void))terminate {
     if (![self.storage isPersisting]) {
         terminate();
         return;
@@ -269,8 +259,8 @@
                                                       object:nil
                                                        queue:nil
                                                   usingBlock:^(__unused NSNotification *notification) {
-        terminate();
-    }];
+                                                      terminate();
+                                                  }];
 }
 
 @end

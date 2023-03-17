@@ -6,12 +6,12 @@
 
 #import "PHAXUIElement.h"
 
-static NSString * const PHAXObserverWindowKey = @"PHAXObserverWindow";
+static NSString *const PHAXObserverWindowKey = @"PHAXObserverWindow";
 
 @interface PHAXObserver : PHAXUIElement
 
 #pragma mark - Initialising
 
-- (instancetype) initWithApp:(NSRunningApplication *)app;
+- (instancetype)initWithApp:(NSRunningApplication *)app;
 
 @end

@@ -12,11 +12,11 @@
 
 #pragma mark - Constructing
 
-- (instancetype) initWithInterval:(NSTimeInterval)interval repeats:(BOOL)repeats callback:(JSValue *)callback;
+- (instancetype)initWithInterval:(NSTimeInterval)interval repeats:(BOOL)repeats callback:(JSValue *)callback;
 
 #pragma mark - Timing
 
-- (void) stop;
+- (void)stop;
 
 @end
 
@@ -24,8 +24,8 @@
 
 #pragma mark - Initialising
 
-- (instancetype) initWithInterval:(NSTimeInterval)interval
-                          repeats:(BOOL)repeats
-                         callback:(JSValue *)callback NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithInterval:(NSTimeInterval)interval
+                         repeats:(BOOL)repeats
+                        callback:(JSValue *)callback NS_DESIGNATED_INITIALIZER;
 
 @end

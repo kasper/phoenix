@@ -4,9 +4,9 @@
 
 @import Foundation;
 
-typedef NSString * PHPreferencesPreferenceKey;
+typedef NSString *PHPreferencesPreferenceKey;
 
-static NSString * const PHPreferencesDidChangeNotification = @"PHPreferencesDidChangeNotification";
+static NSString *const PHPreferencesDidChangeNotification = @"PHPreferencesDidChangeNotification";
 static PHPreferencesPreferenceKey const PHPreferencesDaemonKey = @"daemon";
 static PHPreferencesPreferenceKey const PHPreferencesOpenAtLoginKey = @"openAtLogin";
 
@@ -14,19 +14,19 @@ static PHPreferencesPreferenceKey const PHPreferencesOpenAtLoginKey = @"openAtLo
 
 #pragma mark - Initialising
 
-+ (instancetype) new NS_UNAVAILABLE;
-- (instancetype) init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 #pragma mark - Shared Preferences
 
-+ (instancetype) sharedPreferences;
++ (instancetype)sharedPreferences;
 
 #pragma mark - Preferences
 
-- (void) add:(NSDictionary<PHPreferencesPreferenceKey, id> *)preferences;
-- (void) reset;
+- (void)add:(NSDictionary<PHPreferencesPreferenceKey, id> *)preferences;
+- (void)reset;
 
-- (BOOL) isDaemon;
-- (BOOL) openAtLogin;
+- (BOOL)isDaemon;
+- (BOOL)openAtLogin;
 
 @end

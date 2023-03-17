@@ -15,10 +15,8 @@
 
 #pragma mark - Initialising
 
-- (instancetype) initWithInterval:(NSTimeInterval)interval repeats:(BOOL)repeats callback:(JSValue *)callback {
-
+- (instancetype)initWithInterval:(NSTimeInterval)interval repeats:(BOOL)repeats callback:(JSValue *)callback {
     if (self = [super initWithCallback:callback]) {
-
         PHWeakTimerTarget *weakTarget = [PHWeakTimerTarget withTarget:self selector:@selector(timerDidFire)];
 
         self.timer = [NSTimer scheduledTimerWithTimeInterval:interval
@@ -33,20 +31,17 @@
 
 #pragma mark - Deallocing
 
-- (void) dealloc {
-
+- (void)dealloc {
     [self stop];
 }
 
 #pragma mark - Timing
 
-- (void) timerDidFire {
-
+- (void)timerDidFire {
     [self callWithArguments:@[ self ]];
 }
 
-- (void) stop {
-
+- (void)stop {
     [self.timer invalidate];
 }
 

@@ -6,12 +6,12 @@
 
 @interface PHEventTranslator : NSObject
 
-+ (instancetype) new NS_UNAVAILABLE;
-- (instancetype) init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 #pragma mark - Translating
 
-+ (NSNotificationCenter *) notificationCenterForNotification:(NSString *)notification;
-+ (NSString *) notificationForEvent:(NSString *)event;
++ (NSNotificationCenter *)notificationCenterForNotification:(NSString *)notification;
++ (NSString *)notificationForEvent:(NSString *)event;
 
 @end

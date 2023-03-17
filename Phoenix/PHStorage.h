@@ -5,15 +5,15 @@
 @import Foundation;
 @import JavaScriptCore;
 
-static NSString * const PHStorageDidPersistNotification = @"PHStorageDidPersistNotification";
+static NSString *const PHStorageDidPersistNotification = @"PHStorageDidPersistNotification";
 
 @protocol PHStorageJSExport <JSExport>
 
 #pragma mark - Storing
 
-JSExportAs(set, - (void) forKey:(NSString *)key setObject:(id)object);
-JSExportAs(get, - (id) objectForKey:(NSString *)key);
-JSExportAs(remove, - (void) removeObjectForKey:(NSString *)key);
+JSExportAs(set, -(void)forKey : (NSString *)key setObject : (id)object);
+JSExportAs(get, -(id)objectForKey : (NSString *)key);
+JSExportAs(remove, -(void)removeObjectForKey : (NSString *)key);
 
 @end
 
@@ -21,11 +21,11 @@ JSExportAs(remove, - (void) removeObjectForKey:(NSString *)key);
 
 #pragma mark - Initialising
 
-+ (instancetype) new NS_UNAVAILABLE;
-+ (instancetype) storage;
++ (instancetype)new NS_UNAVAILABLE;
++ (instancetype)storage;
 
 #pragma mark - Persisting
 
-- (BOOL) isPersisting;
+- (BOOL)isPersisting;
 
 @end

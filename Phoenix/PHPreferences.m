@@ -2,8 +2,8 @@
  * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
  */
 
-#import "PHOpenAtLoginHelper.h"
 #import "PHPreferences.h"
+#import "PHOpenAtLoginHelper.h"
 
 @interface PHPreferences ()
 
@@ -15,8 +15,7 @@
 
 #pragma mark - Initialising
 
-- (instancetype) init {
-
+- (instancetype)init {
     if (self = [super init]) {
         self.preferences = [NSMutableDictionary dictionary];
         [self load];
@@ -27,13 +26,11 @@
 
 #pragma mark - Shared Preferences
 
-+ (instancetype) sharedPreferences {
-
++ (instancetype)sharedPreferences {
     static id sharedPreferences;
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-
         sharedPreferences = [[self alloc] init];
     });
 
@@ -42,36 +39,30 @@
 
 #pragma mark - Preferences
 
-- (void) preferencesDidChange {
-
+- (void)preferencesDidChange {
     [[NSNotificationCenter defaultCenter] postNotificationName:PHPreferencesDidChangeNotification object:nil];
 }
 
-- (void) load {
-
+- (void)load {
     self.preferences[PHPreferencesOpenAtLoginKey] = @([PHOpenAtLoginHelper opensAtLogin]);
 }
 
-- (void) add:(NSDictionary<PHPreferencesPreferenceKey, id> *)preferences {
-
+- (void)add:(NSDictionary<PHPreferencesPreferenceKey, id> *)preferences {
     [self.preferences addEntriesFromDictionary:preferences];
     [self preferencesDidChange];
 }
 
-- (void) reset {
-
+- (void)reset {
     [self.preferences removeAllObjects];
     [self load];
     [self preferencesDidChange];
 }
 
-- (BOOL) isDaemon {
-
+- (BOOL)isDaemon {
     return [self.preferences[PHPreferencesDaemonKey] boolValue];
 }
 
-- (BOOL) openAtLogin {
-
+- (BOOL)openAtLogin {
     return [self.preferences[PHPreferencesOpenAtLoginKey] boolValue];
 }
 

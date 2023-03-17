@@ -11,15 +11,14 @@
 @implementation PHLauncherAppDelegate
 
 #if DEBUG
-static NSString * const PHMainBundleIdentifier = @"org.khirviko.Phoenix.debug";
+static NSString *const PHMainBundleIdentifier = @"org.khirviko.Phoenix.debug";
 #else
-static NSString * const PHMainBundleIdentifier = @"org.khirviko.Phoenix";
+static NSString *const PHMainBundleIdentifier = @"org.khirviko.Phoenix";
 #endif
 
 #pragma mark - NSApplicationDelegate
 
-- (void) applicationDidFinishLaunching:(NSNotification *)__unused notification {
-
+- (void)applicationDidFinishLaunching:(NSNotification *)__unused notification {
     BOOL isRunning = NO;
     NSWorkspace *sharedWorkspace = [NSWorkspace sharedWorkspace];
 
@@ -33,10 +32,11 @@ static NSString * const PHMainBundleIdentifier = @"org.khirviko.Phoenix";
         NSLog(@"Info: Launching Phoenix...");
 
         NSError *error;
-        [sharedWorkspace launchApplicationAtURL:[sharedWorkspace URLForApplicationWithBundleIdentifier:PHMainBundleIdentifier]
-                                        options:NSWorkspaceLaunchWithoutActivation
-                                  configuration:@{}
-                                          error:&error];
+        [sharedWorkspace
+            launchApplicationAtURL:[sharedWorkspace URLForApplicationWithBundleIdentifier:PHMainBundleIdentifier]
+                           options:NSWorkspaceLaunchWithoutActivation
+                     configuration:@{}
+                             error:&error];
         if (error) {
             NSLog(@"Error: Could not launch Phoenix. (%@)", error);
         }

@@ -8,7 +8,7 @@
 
 #pragma mark - Initialising
 
-+ (instancetype) new NS_UNAVAILABLE;
-+ (instancetype) observer;
++ (instancetype)new NS_UNAVAILABLE;
++ (instancetype)observer;
 
 @end

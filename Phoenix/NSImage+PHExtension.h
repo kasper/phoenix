@@ -11,7 +11,7 @@
 
 #pragma mark - Constructing
 
-+ (instancetype) fromFile:(NSString *)path;
++ (instancetype)fromFile:(NSString *)path;
 
 @end
 
@@ -19,6 +19,6 @@
 
 #pragma mark - Initialising
 
-+ (instancetype) fromFile:(NSString *)path;
++ (instancetype)fromFile:(NSString *)path;
 
 @end

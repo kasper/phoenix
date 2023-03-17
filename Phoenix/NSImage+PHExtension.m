@@ -8,8 +8,7 @@
 
 #pragma mark - Initialising
 
-+ (instancetype) fromFile:(NSString *)path {
-
++ (instancetype)fromFile:(NSString *)path {
     NSString *resolvedPath = path.stringByResolvingSymlinksInPath;
 
     if (![[NSFileManager defaultManager] fileExistsAtPath:resolvedPath]) {

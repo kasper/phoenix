@@ -11,8 +11,8 @@
 @property NSMutableData *errorData;
 
 @property int status;
-@property (copy) NSString *output;
-@property (copy) NSString *error;
+@property(copy) NSString *output;
+@property(copy) NSString *error;
 
 @end
 
@@ -20,10 +20,8 @@
 
 #pragma mark - Initialising
 
-- (instancetype) initWithPath:(NSString *)path arguments:(NSArray<NSString *> *)arguments callback:(JSValue *)callback {
-
+- (instancetype)initWithPath:(NSString *)path arguments:(NSArray<NSString *> *)arguments callback:(JSValue *)callback {
     if (self = [super initWithCallback:callback]) {
-
         self.task = [[NSTask alloc] init];
         self.outputData = [NSMutableData data];
         self.errorData = [NSMutableData data];
@@ -46,35 +44,29 @@
 
 #pragma mark - Deallocing
 
-- (void) dealloc {
-
+- (void)dealloc {
     [self terminate];
 }
 
 #pragma mark - Setting up
 
-- (void) setupReadabilityHandlers {
-
+- (void)setupReadabilityHandlers {
     // Read standard output asynchronously
     [self.task.standardOutput fileHandleForReading].readabilityHandler = ^(NSFileHandle *file) {
-
         [self.outputData appendData:file.availableData];
     };
 
     // Read standard error asynchronously
     [self.task.standardError fileHandleForReading].readabilityHandler = ^(NSFileHandle *file) {
-
         [self.errorData appendData:file.availableData];
     };
 }
 
-- (void) setupTerminationHandler {
-
-    PHTaskHandler * __weak weakSelf = self;
+- (void)setupTerminationHandler {
+    PHTaskHandler *__weak weakSelf = self;
 
     // Wait termination asynchronously
     self.task.terminationHandler = ^(NSTask *task) {
-
         // Close file handlers
         [task.standardOutput fileHandleForReading].readabilityHandler = nil;
         [task.standardError fileHandleForReading].readabilityHandler = nil;
@@ -89,26 +81,24 @@
 
 #pragma mark - Launching
 
-- (void) launch {
-
+- (void)launch {
     @try {
         [self.task launch];
     }
 
     @catch (NSException *exception) {
-        NSLog(@"Error: Could not launch task in path “%@” with arguments “%@”. Exception: %@.", self.task.launchPath, self.task.arguments, exception);
+        NSLog(@"Error: Could not launch task in path “%@” with arguments “%@”. Exception: %@.", self.task.launchPath,
+              self.task.arguments, exception);
     }
 }
 
 #pragma mark - Terminating
 
-- (void) terminate {
-
+- (void)terminate {
     [self.task terminate];
 }
 
-- (void) taskDidTerminate {
-
+- (void)taskDidTerminate {
     [self performSelectorOnMainThread:@selector(callWithArguments:) withObject:@[ self ] waitUntilDone:NO];
 }
 

@@ -10,14 +10,12 @@
 
 #pragma mark - Position
 
-+ (CGPoint) location {
-
++ (CGPoint)location {
     id event = CFBridgingRelease(CGEventCreate(NULL));
-    return CGEventGetLocation((__bridge CGEventRef) event);
+    return CGEventGetLocation((__bridge CGEventRef)event);
 }
 
-+ (BOOL) move:(CGPoint)point {
-
++ (BOOL)move:(CGPoint)point {
     CGError error = CGWarpMouseCursorPosition(point);
 
     if (error != kCGErrorSuccess) {

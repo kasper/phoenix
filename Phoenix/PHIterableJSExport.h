@@ -9,7 +9,7 @@
 
 #pragma mark - Iterating
 
-- (instancetype) next;
-- (instancetype) previous;
+- (instancetype)next;
+- (instancetype)previous;
 
 @end

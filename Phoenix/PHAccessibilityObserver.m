@@ -15,14 +15,12 @@
 
 @implementation PHAccessibilityObserver
 
-static NSString * const NSWorkspaceRunningApplicationsKeyPath = @"runningApplications";
+static NSString *const NSWorkspaceRunningApplicationsKeyPath = @"runningApplications";
 
 #pragma mark - Initialising
 
-- (instancetype) init {
-
+- (instancetype)init {
     if (self = [super init]) {
-
         self.observers = [NSMutableDictionary dictionary];
 
         // Initialise observers for currently running applications
@@ -38,29 +36,25 @@ static NSString * const NSWorkspaceRunningApplicationsKeyPath = @"runningApplica
     return self;
 }
 
-+ (instancetype) observer {
-
++ (instancetype)observer {
     return [[self alloc] init];
 }
 
 #pragma mark - Deallocing
 
-- (void) dealloc {
-
+- (void)dealloc {
     [[NSWorkspace sharedWorkspace] removeObserver:self forKeyPath:NSWorkspaceRunningApplicationsKeyPath];
 }
 
 #pragma mark - Observing
 
-- (void) observeApps:(NSArray<NSRunningApplication *> *)apps {
-
+- (void)observeApps:(NSArray<NSRunningApplication *> *)apps {
     for (NSRunningApplication *app in apps) {
         self.observers[@(app.processIdentifier)] = [[PHAXObserver alloc] initWithApp:app];
     }
 }
 
-- (void) removeApps:(NSArray<NSRunningApplication *> *)apps {
-
+- (void)removeApps:(NSArray<NSRunningApplication *> *)apps {
     for (NSRunningApplication *app in apps) {
         [self.observers removeObjectForKey:@(app.processIdentifier)];
     }
@@ -68,13 +62,11 @@ static NSString * const NSWorkspaceRunningApplicationsKeyPath = @"runningApplica
 
 #pragma mark - KVO
 
-- (void) observeValueForKeyPath:(NSString *)keyPath
-                       ofObject:(id)__unused object
-                         change:(NSDictionary<NSString *, id> *)change
-                        context:(void *)__unused context {
-
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)__unused object
+                        change:(NSDictionary<NSString *, id> *)change
+                       context:(void *)__unused context {
     if ([keyPath isEqualToString:NSWorkspaceRunningApplicationsKeyPath]) {
-
         NSUInteger kind = [change[NSKeyValueChangeKindKey] unsignedIntegerValue];
 
         // Observe new apps

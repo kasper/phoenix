@@ -6,11 +6,11 @@
 
 @interface PHNotificationHelper : NSObject
 
-+ (instancetype) new NS_UNAVAILABLE;
-- (instancetype) init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 #pragma mark - Delivering
 
-+ (void) deliver:(NSString *)message withDelegate:(id<NSUserNotificationCenterDelegate>)delegate;
++ (void)deliver:(NSString *)message withDelegate:(id<NSUserNotificationCenterDelegate>)delegate;
 
 @end

@@ -2,8 +2,8 @@
  * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
  */
 
-#import "PHContext.h"
 #import "PHModalWindowController.h"
+#import "PHContext.h"
 
 @interface PHModalWindowController ()
 
@@ -11,16 +11,16 @@
 
 #pragma mark - Views
 
-@property (weak) IBOutlet NSView *containerView;
-@property (weak) IBOutlet NSImageView *iconView;
-@property (weak) IBOutlet NSTextField *textField;
+@property(weak) IBOutlet NSView *containerView;
+@property(weak) IBOutlet NSImageView *iconView;
+@property(weak) IBOutlet NSTextField *textField;
 
 #pragma mark - Constraints
 
-@property (weak) IBOutlet NSLayoutConstraint *iconViewZeroWidthConstraint;
-@property (weak) IBOutlet NSLayoutConstraint *separatorConstraint;
-@property (weak) IBOutlet NSLayoutConstraint *textFieldTextWidthConstraint;
-@property (weak) IBOutlet NSLayoutConstraint *textFieldInputWidthConstraint;
+@property(weak) IBOutlet NSLayoutConstraint *iconViewZeroWidthConstraint;
+@property(weak) IBOutlet NSLayoutConstraint *separatorConstraint;
+@property(weak) IBOutlet NSLayoutConstraint *textFieldTextWidthConstraint;
+@property(weak) IBOutlet NSLayoutConstraint *textFieldInputWidthConstraint;
 
 @end
 
@@ -32,18 +32,16 @@ typedef NS_ENUM(NSInteger, PHModalWindowControllerAppearanceMaterial) {
     PHModalWindowControllerAppearanceMaterialTransparent
 };
 
-static NSString * const PHModalWindowControllerAppearanceDark = @"dark";
-static NSString * const PHModalWindowControllerIconKeyPath = @"icon";
-static NSString * const PHModalWindowControllerMessageKeyPath = @"message";
-static NSString * const PHModalWindowControllerOriginKeyPath = @"origin";
-static NSString * const PHModalWindowControllerTextKeyPath = @"text";
+static NSString *const PHModalWindowControllerAppearanceDark = @"dark";
+static NSString *const PHModalWindowControllerIconKeyPath = @"icon";
+static NSString *const PHModalWindowControllerMessageKeyPath = @"message";
+static NSString *const PHModalWindowControllerOriginKeyPath = @"origin";
+static NSString *const PHModalWindowControllerTextKeyPath = @"text";
 
 #pragma mark - Initialising
 
-- (instancetype) init {
-
+- (instancetype)init {
     if (self = [super init]) {
-
         [self addObserverForKeyPaths:[PHModalWindowController keyPaths]];
 
         self.animationDuration = 0.2;
@@ -67,25 +65,22 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
 
 #pragma mark - Deallocing
 
-- (void) dealloc {
-
+- (void)dealloc {
     [self removeObserverForKeyPaths:[PHModalWindowController keyPaths]];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:PHContextWillLoadNotification object:nil];
 }
 
 #pragma mark - Key Paths
 
-+ (NSArray<NSString *> *) keyPaths {
-
++ (NSArray<NSString *> *)keyPaths {
     static NSArray<NSString *> *keyPaths;
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-
-        keyPaths = @[ PHModalWindowControllerIconKeyPath,
-                      PHModalWindowControllerMessageKeyPath,
-                      PHModalWindowControllerOriginKeyPath,
-                      PHModalWindowControllerTextKeyPath ];
+        keyPaths = @[
+            PHModalWindowControllerIconKeyPath, PHModalWindowControllerMessageKeyPath,
+            PHModalWindowControllerOriginKeyPath, PHModalWindowControllerTextKeyPath
+        ];
     });
 
     return keyPaths;
@@ -93,15 +88,13 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
 
 #pragma mark - NSWindowController
 
-- (NSString *) windowNibName {
-
+- (NSString *)windowNibName {
     return @"ModalWindow";
 }
 
 #pragma mark - NSControlTextEditingDelegate
 
-- (void) controlTextDidChange:(NSNotification *)__unused notification {
-
+- (void)controlTextDidChange:(NSNotification *)__unused notification {
     JSValue *callback = self.textDidChange;
     NSString *value = self.text ? self.text : @"";
 
@@ -112,17 +105,12 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
 
 #pragma mark - Appearance
 
-- (NSTextAlignment) alignment {
-
+- (NSTextAlignment)alignment {
     static NSDictionary<NSString *, NSNumber *> *alignments;
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-
-        alignments = @{ @"left": @0,
-                        @"right": @2,
-                        @"center": @1,
-                        @"centre": @1 };
+        alignments = @{@"left" : @0, @"right" : @2, @"center" : @1, @"centre" : @1};
     });
 
     NSNumber *value = alignments[self.textAlignment.lowercaseString];
@@ -134,16 +122,12 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
     return value.integerValue;
 }
 
-- (PHModalWindowControllerAppearanceMaterial) material {
-
+- (PHModalWindowControllerAppearanceMaterial)material {
     static NSDictionary<NSString *, NSNumber *> *appearances;
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-
-        appearances = @{ PHModalWindowControllerAppearanceDark: @0,
-                         @"light": @1,
-                         @"transparent": @2 };
+        appearances = @{PHModalWindowControllerAppearanceDark : @0, @"light" : @1, @"transparent" : @2};
     });
 
     NSNumber *value = appearances[self.appearance.lowercaseString];
@@ -155,10 +139,9 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
     return value.integerValue;
 }
 
-- (void) setupVibrantAppearance {
-
+- (void)setupVibrantAppearance {
     CGFloat cornerRadius = 10.0;
-    NSDictionary<NSString *, id> *views = @{ @"container": self.containerView };
+    NSDictionary<NSString *, id> *views = @{@"container" : self.containerView};
 
     NSVisualEffectView *visualEffectView = [[NSVisualEffectView alloc] initWithFrame:self.window.contentView.frame];
     visualEffectView.appearance = [NSAppearance appearanceNamed:NSAppearanceNameVibrantDark];
@@ -173,11 +156,14 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
     // Set mask image to rounded rectangle
     CGFloat edgeSize = 1.0 + (2 * cornerRadius);
     NSSize maskSize = NSMakeSize(edgeSize, edgeSize);
-    visualEffectView.maskImage = [NSImage imageWithSize:maskSize flipped:NO drawingHandler:^BOOL (NSRect destination) {
-
-        [[NSBezierPath bezierPathWithRoundedRect:destination xRadius:cornerRadius yRadius:cornerRadius] fill];
-        return YES;
-    }];
+    visualEffectView.maskImage = [NSImage imageWithSize:maskSize
+                                                flipped:NO
+                                         drawingHandler:^BOOL(NSRect destination) {
+                                             [[NSBezierPath bezierPathWithRoundedRect:destination
+                                                                              xRadius:cornerRadius
+                                                                              yRadius:cornerRadius] fill];
+                                             return YES;
+                                         }];
 
     // Make edges smooth
     visualEffectView.maskImage.capInsets = NSEdgeInsetsMake(cornerRadius, cornerRadius, cornerRadius, cornerRadius);
@@ -208,48 +194,41 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
     self.window.contentView = visualEffectView;
 }
 
-- (void) setTextColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha {
-
-    self.textColor = [NSColor colorWithCalibratedRed:red / 255
-                                               green:green / 255
-                                                blue:blue / 255
-                                               alpha:alpha];
+- (void)setTextColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha {
+    self.textColor = [NSColor colorWithCalibratedRed:red / 255 green:green / 255 blue:blue / 255 alpha:alpha];
     self.textField.textColor = self.textColor;
 }
 
 #pragma mark - Properties
 
-- (BOOL) hasText {
-
+- (BOOL)hasText {
     return ![self.text isEqualToString:@""];
 }
 
 #pragma mark - KVO
 
-- (void) addObserverForKeyPaths:(NSArray<NSString *> *)keyPaths {
-
+- (void)addObserverForKeyPaths:(NSArray<NSString *> *)keyPaths {
     for (NSString *keyPath in keyPaths) {
         [self addObserver:self forKeyPath:keyPath options:0 context:NULL];
     }
 }
 
-- (void) removeObserverForKeyPaths:(NSArray<NSString *> *)keyPaths {
-
+- (void)removeObserverForKeyPaths:(NSArray<NSString *> *)keyPaths {
     for (NSString *keyPath in keyPaths) {
         [self removeObserver:self forKeyPath:keyPath];
     }
 }
 
-- (void) observeValueForKeyPath:(NSString *)keyPath
-                       ofObject:(id)__unused object
-                         change:(NSDictionary<NSString *, id> *)__unused change
-                        context:(void *)__unused context {
-
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)__unused object
+                        change:(NSDictionary<NSString *, id> *)__unused change
+                       context:(void *)__unused context {
     [self window];
 
     // Update text-property
     if ([keyPath isEqualToString:PHModalWindowControllerMessageKeyPath]) {
-        NSLog(@"Deprecated: Property “message” for modal is deprecated and will be removed in later versions, use “text” instead.");
+        NSLog(@"Deprecated: Property “message” for modal is deprecated and will be removed in later versions, use "
+              @"“text” instead.");
         self.text = self.message;
     }
 
@@ -269,38 +248,35 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
 
 #pragma mark - Displaying
 
-- (BOOL) isDisplayable {
-
+- (BOOL)isDisplayable {
     return self.icon || self.isInput || [self hasText];
 }
 
-- (void) layout {
-
+- (void)layout {
     self.iconViewZeroWidthConstraint.priority = !self.icon ? 999 : NSLayoutPriorityDefaultLow;
     self.separatorConstraint.constant = (!self.icon || (!self.isInput && ![self hasText])) ? 0.0 : 10.0;
-    self.textFieldTextWidthConstraint.priority = self.isInput ? NSLayoutPriorityDefaultLow : NSLayoutPriorityDefaultHigh;
-    self.textFieldInputWidthConstraint.priority = self.isInput ? NSLayoutPriorityDefaultHigh : NSLayoutPriorityDefaultLow;
+    self.textFieldTextWidthConstraint.priority =
+        self.isInput ? NSLayoutPriorityDefaultLow : NSLayoutPriorityDefaultHigh;
+    self.textFieldInputWidthConstraint.priority =
+        self.isInput ? NSLayoutPriorityDefaultHigh : NSLayoutPriorityDefaultLow;
 }
 
-- (NSRect) frame {
-
+- (NSRect)frame {
     [self layout];
     [self.window layoutIfNeeded];
     return self.window.frame;
 }
 
-- (void) fadeWindowToAlpha:(CGFloat)alpha completionHandler:(void (^)(void))completionHandler {
-
-    [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
-
-        context.duration = self.animationDuration;
-        [self.window animator].alphaValue = alpha;
-
-    } completionHandler:completionHandler];
+- (void)fadeWindowToAlpha:(CGFloat)alpha completionHandler:(void (^)(void))completionHandler {
+    [NSAnimationContext
+        runAnimationGroup:^(NSAnimationContext *context) {
+            context.duration = self.animationDuration;
+            [self.window animator].alphaValue = alpha;
+        }
+        completionHandler:completionHandler];
 }
 
-- (void) show {
-
+- (void)show {
     if (![self isDisplayable]) {
         return;
     }
@@ -322,23 +298,22 @@ static NSString * const PHModalWindowControllerTextKeyPath = @"text";
     }
 
     [self showWindow:self];
-    [self fadeWindowToAlpha:1.0 completionHandler:^{
+    [self fadeWindowToAlpha:1.0
+          completionHandler:^{
+              // Keep window open until closed
+              if (self.duration == 0) {
+                  return;
+              }
 
-        // Keep window open until closed
-        if (self.duration == 0) {
-            return;
-        }
-
-        [self performSelector:@selector(close) withObject:nil afterDelay:self.duration];
-    }];
+              [self performSelector:@selector(close) withObject:nil afterDelay:self.duration];
+          }];
 }
 
-- (void) close {
-
-    [self fadeWindowToAlpha:0.0 completionHandler:^{
-
-        [super close];
-    }];
+- (void)close {
+    [self fadeWindowToAlpha:0.0
+          completionHandler:^{
+              [super close];
+          }];
 }
 
 @end

@@ -14,11 +14,11 @@
 @property UInt32 keyCode;
 @property UInt32 modifierFlags;
 @property EventHotKeyRef reference;
-@property (getter=isEnabled) BOOL enabled;
+@property(getter=isEnabled) BOOL enabled;
 @property NSTimer *timer;
 
-@property (copy) NSString *key;
-@property (copy) NSArray<NSString *> *modifiers;
+@property(copy) NSString *key;
+@property(copy) NSArray<NSString *> *modifiers;
 
 @end
 
@@ -27,69 +27,51 @@
 static UInt32 PHKeyHandlerIdentifierSequence;
 static FourCharCode const PHKeyHandlerSignature = 'FNIX';
 
-static NSString * const PHKeyHandlerIdentifierKey = @"PHKeyHandlerIdentifier";
-static NSString * const PHKeyHandlerKeyDownNotification = @"PHKeyHandlerKeyDownNotification";
-static NSString * const PHKeyHandlerKeyUpNotification = @"PHKeyHandlerKeyUpNotification";
-static NSString * const PHKeyHandlerWillEnableNotification = @"PHKeyHandlerWillEnableNotification";
+static NSString *const PHKeyHandlerIdentifierKey = @"PHKeyHandlerIdentifier";
+static NSString *const PHKeyHandlerKeyDownNotification = @"PHKeyHandlerKeyDownNotification";
+static NSString *const PHKeyHandlerKeyUpNotification = @"PHKeyHandlerKeyUpNotification";
+static NSString *const PHKeyHandlerWillEnableNotification = @"PHKeyHandlerWillEnableNotification";
 
 #pragma mark - CarbonEventCallback
 
-static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
-                                      EventRef event,
-                                      __unused void *data) {
+static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler, EventRef event, __unused void *data) {
     @autoreleasepool {
-
         EventHotKeyID identifier;
-        OSStatus error = GetEventParameter(event,
-                                           kEventParamDirectObject,
-                                           typeEventHotKeyID,
-                                           NULL,
-                                           sizeof(identifier),
-                                           NULL,
-                                           &identifier);
+        OSStatus error = GetEventParameter(event, kEventParamDirectObject, typeEventHotKeyID, NULL, sizeof(identifier),
+                                           NULL, &identifier);
         if (error != noErr) {
             NSLog(@"Error: Could not get key event identifier. (%d)", error);
             return error;
         }
 
-        NSString *notification = (GetEventKind(event) == kEventHotKeyPressed) ?
-                                 PHKeyHandlerKeyDownNotification :
-                                 PHKeyHandlerKeyUpNotification;
+        NSString *notification = (GetEventKind(event) == kEventHotKeyPressed) ? PHKeyHandlerKeyDownNotification
+                                                                              : PHKeyHandlerKeyUpNotification;
 
         [[NSNotificationCenter defaultCenter] postNotificationName:notification
                                                             object:nil
-                                                          userInfo:@{ PHKeyHandlerIdentifierKey: @(identifier.id) }];
+                                                          userInfo:@{
+                                                              PHKeyHandlerIdentifierKey : @(identifier.id)
+                                                          }];
         return noErr;
     }
 }
 
 #pragma mark - Initialising
 
-+ (void) initialize {
-
++ (void)initialize {
     if (self == [PHKeyHandler self]) {
+        EventTypeSpec events[] = {{.eventClass = kEventClassKeyboard, .eventKind = kEventHotKeyPressed},
+                                  {.eventClass = kEventClassKeyboard, .eventKind = kEventHotKeyReleased}};
 
-        EventTypeSpec events[] = {
-            { .eventClass = kEventClassKeyboard, .eventKind = kEventHotKeyPressed },
-            { .eventClass = kEventClassKeyboard, .eventKind = kEventHotKeyReleased }
-        };
-
-        OSStatus error = InstallEventHandler(GetEventDispatcherTarget(),
-                                             PHCarbonEventCallback,
-                                             2,
-                                             events,
-                                             NULL,
-                                             NULL);
+        OSStatus error = InstallEventHandler(GetEventDispatcherTarget(), PHCarbonEventCallback, 2, events, NULL, NULL);
         if (error != noErr) {
             NSLog(@"Error: Could not install key event handler. (%d)", error);
         }
     }
 }
 
-- (instancetype) initWithKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers callback:(JSValue *)callback {
-
+- (instancetype)initWithKey:(NSString *)key modifiers:(NSArray<NSString *> *)modifiers callback:(JSValue *)callback {
     if (self = [super initWithCallback:callback]) {
-
         self.key = (key.length == 1) ? key.lowercaseString : key;
         self.modifiers = [modifiers valueForKey:@"lowercaseString"];
         self.keyCode = [PHKeyTranslator keyCodeForKey:self.key];
@@ -126,8 +108,7 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
 
 #pragma mark - Deallocing
 
-- (void) dealloc {
-
+- (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:PHKeyHandlerWillEnableNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:PHKeyHandlerKeyDownNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:PHKeyHandlerKeyUpNotification object:nil];
@@ -136,8 +117,7 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
 
 #pragma mark - Identifying
 
-- (NSUInteger) hashForKeyCombination {
-
+- (NSUInteger)hashForKeyCombination {
     NSUInteger hash = self.key.hash;
 
     for (NSString *modifier in self.modifiers) {
@@ -149,8 +129,7 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
 
 #pragma mark - Binding
 
-- (BOOL) enable {
-
+- (BOOL)enable {
     // Already enabled
     if ([self isEnabled]) {
         return YES;
@@ -158,15 +137,12 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
 
     [[NSNotificationCenter defaultCenter] postNotificationName:PHKeyHandlerWillEnableNotification object:self];
 
-    EventHotKeyID identifier = { .signature = PHKeyHandlerSignature, .id = self.identifier };
-    OSStatus error = RegisterEventHotKey(self.keyCode,
-                                         self.modifierFlags,
-                                         identifier,
-                                         GetEventDispatcherTarget(),
-                                         kEventHotKeyExclusive,
-                                         &_reference);
+    EventHotKeyID identifier = {.signature = PHKeyHandlerSignature, .id = self.identifier};
+    OSStatus error = RegisterEventHotKey(self.keyCode, self.modifierFlags, identifier, GetEventDispatcherTarget(),
+                                         kEventHotKeyExclusive, &_reference);
     if (error != noErr) {
-        NSLog(@"Error: Could not register key %d (%d) with modifiers %d. (%d)", self.keyCode, identifier.id, self.modifierFlags, error);
+        NSLog(@"Error: Could not register key %d (%d) with modifiers %d. (%d)", self.keyCode, identifier.id,
+              self.modifierFlags, error);
         return NO;
     }
 
@@ -174,8 +150,7 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
     return YES;
 }
 
-- (BOOL) disable {
-
+- (BOOL)disable {
     // Not enabled
     if (![self isEnabled]) {
         return YES;
@@ -198,20 +173,17 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
 
 #pragma mark - Notification Handling
 
-- (void) willEnable:(NSNotification *)notification {
-
+- (void)willEnable:(NSNotification *)notification {
     // Yield for other key handler
     if ([self hashForKeyCombination] == [notification.object hashForKeyCombination]) {
-        [self.timer invalidate]; // Invalidate repeat immediately
+        [self.timer invalidate];  // Invalidate repeat immediately
         [self disable];
     }
 }
 
-- (void) keyDown:(NSNotification *)notification {
-
+- (void)keyDown:(NSNotification *)notification {
     // This handler should handle this notification
     if (self.identifier == [notification.userInfo[PHKeyHandlerIdentifierKey] unsignedIntegerValue]) {
-
         [self callWithArguments:@[ self, @NO ]];
 
         // Delay repeat timer
@@ -223,8 +195,7 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
     }
 }
 
-- (void) keyUp:(NSNotification *)notification {
-
+- (void)keyUp:(NSNotification *)notification {
     // This handler should handle this notification
     if (self.identifier == [notification.userInfo[PHKeyHandlerIdentifierKey] unsignedIntegerValue]) {
         [self.timer invalidate];
@@ -233,10 +204,8 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
 
 #pragma mark - Timing
 
-- (void) delayTimerDidFire:(NSTimer *)__unused timer {
-
+- (void)delayTimerDidFire:(NSTimer *)__unused timer {
     if ([self isEnabled]) {
-
         [self callWithArguments:@[ self, @YES ]];
 
         // Repeat until key up
@@ -248,8 +217,7 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler,
     }
 }
 
-- (void) repeatTimerDidFire:(NSTimer *)__unused timer {
-
+- (void)repeatTimerDidFire:(NSTimer *)__unused timer {
     if ([self isEnabled]) {
         [self callWithArguments:@[ self, @YES ]];
     }

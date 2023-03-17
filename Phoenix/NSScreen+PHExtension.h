@@ -15,28 +15,28 @@
 
 #pragma mark - Exported Screens
 
-+ (instancetype) main;
-+ (NSArray<NSScreen *> *) all;
++ (instancetype)main;
++ (NSArray<NSScreen *> *)all;
 
 #pragma mark - Properties
 
-- (NSString *) identifier;
+- (NSString *)identifier;
 
 #pragma mark - Frame
 
-- (NSRect) frame;
-- (NSRect) visibleFrame;
-- (CGRect) flippedFrame;
-- (CGRect) flippedVisibleFrame;
+- (NSRect)frame;
+- (NSRect)visibleFrame;
+- (CGRect)flippedFrame;
+- (CGRect)flippedVisibleFrame;
 
 #pragma mark - Spaces
 
-- (PHSpace *) currentSpace;
-- (NSArray<PHSpace *> *) spaces;
+- (PHSpace *)currentSpace;
+- (NSArray<PHSpace *> *)spaces;
 
 #pragma mark - Windows
 
-- (NSArray<PHWindow *> *) windows:(NSDictionary<NSString *, id> *)optionals;
+- (NSArray<PHWindow *> *)windows:(NSDictionary<NSString *, id> *)optionals;
 
 @end
 
@@ -44,6 +44,6 @@
 
 #pragma mark - Screens
 
-+ (instancetype) screenForIdentifier:(NSString *)identifier;
++ (instancetype)screenForIdentifier:(NSString *)identifier;
 
 @end

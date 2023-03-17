@@ -14,8 +14,7 @@
 
 #pragma mark - Initialising
 
-- (instancetype) initWithCallback:(JSValue *)callback {
-
+- (instancetype)initWithCallback:(JSValue *)callback {
     if (self = [super init]) {
         self.callback = [JSManagedValue managedValueWithValue:callback andOwner:self];
     }
@@ -25,8 +24,7 @@
 
 #pragma mark - Calling
 
-- (void) callWithArguments:(NSArray *)arguments {
-
+- (void)callWithArguments:(NSArray *)arguments {
     JSValue *function = self.callback.value;
 
     if (!function.isUndefined) {

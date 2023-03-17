@@ -7,8 +7,8 @@
 @interface PHPathWatcher ()
 
 @property FSEventStreamRef stream;
-@property (copy) NSArray<NSString *> *paths;
-@property (copy) void (^handler)(void);
+@property(copy) NSArray<NSString *> *paths;
+@property(copy) void (^handler)(void);
 
 @end
 
@@ -16,25 +16,19 @@
 
 #pragma mark - FSEventStreamCallback
 
-static void PHFSEventStreamCallback(__unused ConstFSEventStreamRef stream,
-                                    void *callback,
-                                    __unused size_t count,
-                                    __unused void *paths,
-                                    __unused FSEventStreamEventFlags const flags[],
+static void PHFSEventStreamCallback(__unused ConstFSEventStreamRef stream, void *callback, __unused size_t count,
+                                    __unused void *paths, __unused FSEventStreamEventFlags const flags[],
                                     __unused FSEventStreamEventId const ids[]) {
     @autoreleasepool {
-
-        PHPathWatcher *watcher = (__bridge PHPathWatcher *) callback;
+        PHPathWatcher *watcher = (__bridge PHPathWatcher *)callback;
         [watcher fileDidChange];
     }
 }
 
 #pragma mark - Initialising
 
-- (instancetype) initWithPaths:(NSArray<NSString *> *)paths handler:(void (^)(void))handler {
-
+- (instancetype)initWithPaths:(NSArray<NSString *> *)paths handler:(void (^)(void))handler {
     if (self = [super init]) {
-
         self.paths = paths;
         self.handler = handler;
 
@@ -44,15 +38,13 @@ static void PHFSEventStreamCallback(__unused ConstFSEventStreamRef stream,
     return self;
 }
 
-+ (instancetype) watcherFor:(NSArray<NSString *> *)paths handler:(void (^)(void))handler {
-
++ (instancetype)watcherFor:(NSArray<NSString *> *)paths handler:(void (^)(void))handler {
     return [[self alloc] initWithPaths:paths handler:handler];
 }
 
 #pragma mark - Deallocing
 
-- (void) dealloc {
-
+- (void)dealloc {
     FSEventStreamStop(self.stream);
     FSEventStreamInvalidate(self.stream);
     FSEventStreamRelease(self.stream);
@@ -60,24 +52,18 @@ static void PHFSEventStreamCallback(__unused ConstFSEventStreamRef stream,
 
 #pragma mark - Setting up
 
-- (void) setup {
-
+- (void)setup {
     FSEventStreamContext context;
 
     context.version = 0;
-    context.info = (__bridge void *) self;
+    context.info = (__bridge void *)self;
     context.retain = NULL;
     context.release = NULL;
     context.copyDescription = NULL;
 
-    self.stream = FSEventStreamCreate(NULL,
-                                      PHFSEventStreamCallback,
-                                      &context,
-                                      (__bridge CFArrayRef) self.paths,
-                                      kFSEventStreamEventIdSinceNow,
-                                      1.0,
-                                      kFSEventStreamCreateFlagWatchRoot |
-                                      kFSEventStreamCreateFlagFileEvents);
+    self.stream = FSEventStreamCreate(NULL, PHFSEventStreamCallback, &context, (__bridge CFArrayRef)self.paths,
+                                      kFSEventStreamEventIdSinceNow, 1.0,
+                                      kFSEventStreamCreateFlagWatchRoot | kFSEventStreamCreateFlagFileEvents);
 
     FSEventStreamScheduleWithRunLoop(self.stream, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
     BOOL started = FSEventStreamStart(self.stream);
@@ -89,8 +75,7 @@ static void PHFSEventStreamCallback(__unused ConstFSEventStreamRef stream,
 
 #pragma mark - Event Handling
 
-- (void) fileDidChange {
-
+- (void)fileDidChange {
     self.handler();
 }
 

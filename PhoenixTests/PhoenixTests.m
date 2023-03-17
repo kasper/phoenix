@@ -10,8 +10,7 @@
 
 @implementation PhoenixTests
 
-- (void) testPass {
-
+- (void)testPass {
     XCTAssert(YES, @"Pass");
 }
 

@@ -6,8 +6,7 @@
 
 #import "PHLauncherAppDelegate.h"
 
-int main(int argc, const char * argv[]) {
-
+int main(int argc, const char *argv[]) {
     @autoreleasepool {
         PHLauncherAppDelegate *delegate = [[PHLauncherAppDelegate alloc] init];
         [NSApplication sharedApplication].delegate = delegate;

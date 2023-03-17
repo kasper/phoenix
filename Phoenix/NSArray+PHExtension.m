@@ -8,8 +8,7 @@
 
 #pragma mark - Iterating
 
-- (id) nextFrom:(id)object {
-
+- (id)nextFrom:(id)object {
     NSArray *objects = [NSArray arrayWithArray:self];
     NSUInteger nextIndex = [objects indexOfObject:object] + 1;
 
@@ -21,8 +20,7 @@
     return objects[nextIndex];
 }
 
-- (id) previousFrom:(id)object {
-
+- (id)previousFrom:(id)object {
     NSArray *objects = [NSArray arrayWithArray:self];
     NSInteger previousIndex = [objects indexOfObject:object] - 1;
 

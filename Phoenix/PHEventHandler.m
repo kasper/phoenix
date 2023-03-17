@@ -4,18 +4,18 @@
 
 @import Cocoa;
 
-#import "PHApp.h"
-#import "PHAXObserver.h"
 #import "PHEventHandler.h"
+#import "PHAXObserver.h"
+#import "PHApp.h"
 #import "PHEventTranslator.h"
 #import "PHGlobalEventMonitor.h"
 #import "PHWindow.h"
 
 @interface PHEventHandler ()
 
-@property (weak) NSNotificationCenter *notificationCenter;
-@property (copy) NSString *name;
-@property (copy) NSString *notification;
+@property(weak) NSNotificationCenter *notificationCenter;
+@property(copy) NSString *name;
+@property(copy) NSString *notification;
 
 @end
 
@@ -23,10 +23,8 @@
 
 #pragma mark - Initialising
 
-- (instancetype) initWithEvent:(NSString *)event callback:(JSValue *)callback {
-
+- (instancetype)initWithEvent:(NSString *)event callback:(JSValue *)callback {
     if (self = [super initWithCallback:callback]) {
-
         self.name = event;
         self.notification = [PHEventTranslator notificationForEvent:event];
 
@@ -50,22 +48,19 @@
 
 #pragma mark - Deallocing
 
-- (void) dealloc {
-
+- (void)dealloc {
     [self disable];
 }
 
 #pragma mark - Binding
 
-- (void) disable {
-
+- (void)disable {
     [self.notificationCenter removeObserver:self name:self.notification object:nil];
 }
 
 #pragma mark - Notification Handling
 
-- (void) didReceiveNotification:(NSNotification *)notification {
-
+- (void)didReceiveNotification:(NSNotification *)notification {
     NSDictionary<NSString *, id> *mouse = notification.userInfo[PHGlobalEventMonitorMouseKey];
     NSRunningApplication *runningApp = notification.userInfo[NSWorkspaceApplicationKey];
     PHWindow *window = notification.userInfo[PHAXObserverWindowKey];

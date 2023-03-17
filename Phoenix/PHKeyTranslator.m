@@ -8,30 +8,30 @@
 
 @implementation PHKeyTranslator
 
-static NSString * const PHKeyTranslatorCommandModifier = @"command";
-static NSString * const PHKeyTranslatorCmdModifier = @"cmd";
-static NSString * const PHKeyTranslatorOptionModifier = @"option";
-static NSString * const PHKeyTranslatorAltModifier = @"alt";
-static NSString * const PHKeyTranslatorControlModifier = @"control";
-static NSString * const PHKeyTranslatorCtrlModifier = @"ctrl";
-static NSString * const PHKeyTranslatorShiftModifier = @"shift";
+static NSString *const PHKeyTranslatorCommandModifier = @"command";
+static NSString *const PHKeyTranslatorCmdModifier = @"cmd";
+static NSString *const PHKeyTranslatorOptionModifier = @"option";
+static NSString *const PHKeyTranslatorAltModifier = @"alt";
+static NSString *const PHKeyTranslatorControlModifier = @"control";
+static NSString *const PHKeyTranslatorCtrlModifier = @"ctrl";
+static NSString *const PHKeyTranslatorShiftModifier = @"shift";
 
 #pragma mark - Modifier
 
-+ (NSNumber *) flagForModifier:(NSString *)modifier {
-
++ (NSNumber *)flagForModifier:(NSString *)modifier {
     static NSDictionary<NSString *, NSNumber *> *modifierToFlag;
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-
-        modifierToFlag = @{ PHKeyTranslatorCommandModifier: @(cmdKey),
-                            PHKeyTranslatorCmdModifier: @(cmdKey),
-                            PHKeyTranslatorOptionModifier: @(optionKey),
-                            PHKeyTranslatorAltModifier: @(optionKey),
-                            PHKeyTranslatorControlModifier: @(controlKey),
-                            PHKeyTranslatorCtrlModifier: @(controlKey),
-                            PHKeyTranslatorShiftModifier: @(shiftKey) };
+        modifierToFlag = @{
+            PHKeyTranslatorCommandModifier : @(cmdKey),
+            PHKeyTranslatorCmdModifier : @(cmdKey),
+            PHKeyTranslatorOptionModifier : @(optionKey),
+            PHKeyTranslatorAltModifier : @(optionKey),
+            PHKeyTranslatorControlModifier : @(controlKey),
+            PHKeyTranslatorCtrlModifier : @(controlKey),
+            PHKeyTranslatorShiftModifier : @(shiftKey)
+        };
     });
 
     return modifierToFlag[modifier];
@@ -39,96 +39,57 @@ static NSString * const PHKeyTranslatorShiftModifier = @"shift";
 
 #pragma mark - Local Key
 
-+ (NSString *) characterForKeyCode:(unsigned short)keyCode {
-
++ (NSString *)characterForKeyCode:(unsigned short)keyCode {
     id currentKeyboardLayout = CFBridgingRelease(TISCopyCurrentKeyboardLayoutInputSource());
-    CFDataRef layoutData = TISGetInputSourceProperty((__bridge TISInputSourceRef) currentKeyboardLayout,
-                                                     kTISPropertyUnicodeKeyLayoutData);
+    CFDataRef layoutData =
+        TISGetInputSourceProperty((__bridge TISInputSourceRef)currentKeyboardLayout, kTISPropertyUnicodeKeyLayoutData);
     if (!layoutData) {
         NSLog(@"Error: Could not get Unicode keyboard layout for translating key.");
         return nil;
     }
 
-    UCKeyboardLayout * const keyboardLayout = (UCKeyboardLayout * const) CFDataGetBytePtr(layoutData);
+    UCKeyboardLayout *const keyboardLayout = (UCKeyboardLayout *const)CFDataGetBytePtr(layoutData);
 
     UInt32 deadKeyState = 0;
     UniCharCount maxStringLength = 4;
     UniCharCount actualStringLength;
     UniChar unicodeString[maxStringLength];
 
-    OSStatus error = UCKeyTranslate(keyboardLayout,
-                                    keyCode,
-                                    kUCKeyActionDisplay,
-                                    0,
-                                    LMGetKbdType(),
-                                    kUCKeyTranslateNoDeadKeysBit,
-                                    &deadKeyState,
-                                    maxStringLength,
-                                    &actualStringLength,
-                                    unicodeString);
+    OSStatus error =
+        UCKeyTranslate(keyboardLayout, keyCode, kUCKeyActionDisplay, 0, LMGetKbdType(), kUCKeyTranslateNoDeadKeysBit,
+                       &deadKeyState, maxStringLength, &actualStringLength, unicodeString);
     if (error != noErr) {
-        NSLog(@"Error: Could not translate key code %hu to a Unicode character using the keyboard layout. (%d)", keyCode, error);
+        NSLog(@"Error: Could not translate key code %hu to a Unicode character using the keyboard layout. (%d)",
+              keyCode, error);
         return nil;
     }
 
     return [NSString stringWithCharacters:unicodeString length:actualStringLength];
 }
 
-+ (NSNumber *) keyCodeForLocalKey:(NSString *)key {
-
++ (NSNumber *)keyCodeForLocalKey:(NSString *)key {
     static NSMutableDictionary<NSString *, NSNumber *> *localKeyToKeyCode;
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-
-        NSArray<NSNumber *> *localKeyCodes = @[ @(kVK_ANSI_A),
-                                                @(kVK_ANSI_B),
-                                                @(kVK_ANSI_C),
-                                                @(kVK_ANSI_D),
-                                                @(kVK_ANSI_E),
-                                                @(kVK_ANSI_F),
-                                                @(kVK_ANSI_G),
-                                                @(kVK_ANSI_H),
-                                                @(kVK_ANSI_I),
-                                                @(kVK_ANSI_J),
-                                                @(kVK_ANSI_K),
-                                                @(kVK_ANSI_L),
-                                                @(kVK_ANSI_M),
-                                                @(kVK_ANSI_N),
-                                                @(kVK_ANSI_O),
-                                                @(kVK_ANSI_P),
-                                                @(kVK_ANSI_Q),
-                                                @(kVK_ANSI_R),
-                                                @(kVK_ANSI_S),
-                                                @(kVK_ANSI_T),
-                                                @(kVK_ANSI_U),
-                                                @(kVK_ANSI_V),
-                                                @(kVK_ANSI_W),
-                                                @(kVK_ANSI_X),
-                                                @(kVK_ANSI_Y),
-                                                @(kVK_ANSI_Z),
-                                                @(kVK_ANSI_0),
-                                                @(kVK_ANSI_1),
-                                                @(kVK_ANSI_2),
-                                                @(kVK_ANSI_3),
-                                                @(kVK_ANSI_4),
-                                                @(kVK_ANSI_5),
-                                                @(kVK_ANSI_6),
-                                                @(kVK_ANSI_7),
-                                                @(kVK_ANSI_8),
-                                                @(kVK_ANSI_9),
-                                                @(kVK_ANSI_Equal),
-                                                @(kVK_ANSI_Minus),
-                                                @(kVK_ANSI_RightBracket),
-                                                @(kVK_ANSI_LeftBracket),
-                                                @(kVK_ANSI_Quote),
-                                                @(kVK_ANSI_Semicolon),
-                                                @(kVK_ANSI_Backslash),
-                                                @(kVK_ANSI_Comma),
-                                                @(kVK_ANSI_Slash),
-                                                @(kVK_ANSI_Period),
-                                                @(kVK_ANSI_Grave),
-                                                @(kVK_ISO_Section) ];
+        NSArray<NSNumber *> *localKeyCodes = @[
+            @(kVK_ANSI_A),           @(kVK_ANSI_B),     @(kVK_ANSI_C),
+            @(kVK_ANSI_D),           @(kVK_ANSI_E),     @(kVK_ANSI_F),
+            @(kVK_ANSI_G),           @(kVK_ANSI_H),     @(kVK_ANSI_I),
+            @(kVK_ANSI_J),           @(kVK_ANSI_K),     @(kVK_ANSI_L),
+            @(kVK_ANSI_M),           @(kVK_ANSI_N),     @(kVK_ANSI_O),
+            @(kVK_ANSI_P),           @(kVK_ANSI_Q),     @(kVK_ANSI_R),
+            @(kVK_ANSI_S),           @(kVK_ANSI_T),     @(kVK_ANSI_U),
+            @(kVK_ANSI_V),           @(kVK_ANSI_W),     @(kVK_ANSI_X),
+            @(kVK_ANSI_Y),           @(kVK_ANSI_Z),     @(kVK_ANSI_0),
+            @(kVK_ANSI_1),           @(kVK_ANSI_2),     @(kVK_ANSI_3),
+            @(kVK_ANSI_4),           @(kVK_ANSI_5),     @(kVK_ANSI_6),
+            @(kVK_ANSI_7),           @(kVK_ANSI_8),     @(kVK_ANSI_9),
+            @(kVK_ANSI_Equal),       @(kVK_ANSI_Minus), @(kVK_ANSI_RightBracket),
+            @(kVK_ANSI_LeftBracket), @(kVK_ANSI_Quote), @(kVK_ANSI_Semicolon),
+            @(kVK_ANSI_Backslash),   @(kVK_ANSI_Comma), @(kVK_ANSI_Slash),
+            @(kVK_ANSI_Period),      @(kVK_ANSI_Grave), @(kVK_ISO_Section)
+        ];
 
         localKeyToKeyCode = [NSMutableDictionary dictionary];
 
@@ -144,13 +105,11 @@ static NSString * const PHKeyTranslatorShiftModifier = @"shift";
 
 #pragma mark - Special Key
 
-+ (NSNumber *) keyCodeForSpecialKey:(NSString *)key {
-
++ (NSNumber *)keyCodeForSpecialKey:(NSString *)key {
     static NSDictionary<NSString *, NSNumber *> *specialKeyToKeyCode;
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-
         specialKeyToKeyCode = @{ /* Action Keys */
 
                                  @"return": @(kVK_Return),
@@ -218,12 +177,10 @@ static NSString * const PHKeyTranslatorShiftModifier = @"shift";
 
 #pragma mark - Translating
 
-+ (UInt32) modifierFlagsForModifiers:(NSArray<NSString *> *)modifiers {
-
++ (UInt32)modifierFlagsForModifiers:(NSArray<NSString *> *)modifiers {
     UInt32 flags = 0;
 
     for (NSString *modifier in modifiers) {
-
         NSNumber *flag = [self flagForModifier:modifier];
 
         if (flag) {
@@ -234,8 +191,7 @@ static NSString * const PHKeyTranslatorShiftModifier = @"shift";
     return flags;
 }
 
-+ (NSArray<NSString *> *) modifiersForModifierFlags:(NSEventModifierFlags)modifierFlags {
-
++ (NSArray<NSString *> *)modifiersForModifierFlags:(NSEventModifierFlags)modifierFlags {
     NSMutableArray<NSString *> *modifiers = [NSMutableArray array];
 
     if (modifierFlags & NSEventModifierFlagCommand) {
@@ -257,8 +213,7 @@ static NSString * const PHKeyTranslatorShiftModifier = @"shift";
     return [modifiers copy];
 }
 
-+ (UInt32) keyCodeForKey:(NSString *)key {
-
++ (UInt32)keyCodeForKey:(NSString *)key {
     // Local key
     NSNumber *keyCode = [self keyCodeForLocalKey:key];
 

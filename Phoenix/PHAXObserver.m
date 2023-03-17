@@ -18,26 +18,21 @@
 
 #pragma mark - AXObserverCallback
 
-static void PHAXObserverCallback(__unused AXObserverRef observer,
-                                 AXUIElementRef element,
-                                 CFStringRef notification,
+static void PHAXObserverCallback(__unused AXObserverRef observer, AXUIElementRef element, CFStringRef notification,
                                  __unused void *data) {
     @autoreleasepool {
-
         PHWindow *window = [[PHWindow alloc] initWithElement:CFBridgingRelease(CFRetain(element))];
 
-        [[NSNotificationCenter defaultCenter] postNotificationName:(__bridge NSString *) notification
+        [[NSNotificationCenter defaultCenter] postNotificationName:(__bridge NSString *)notification
                                                             object:nil
-                                                          userInfo:@{ PHAXObserverWindowKey: window }];
+                                                          userInfo:@{PHAXObserverWindowKey : window}];
     }
 }
 
 #pragma mark - Initialising
 
-- (instancetype) initWithApp:(NSRunningApplication *)app {
-
+- (instancetype)initWithApp:(NSRunningApplication *)app {
     if (self = [super initWithElement:CFBridgingRelease(AXUIElementCreateApplication(app.processIdentifier))]) {
-
         AXObserverRef observer = NULL;
         AXError error = AXObserverCreate(app.processIdentifier, PHAXObserverCallback, &observer);
 
@@ -55,8 +50,7 @@ static void PHAXObserverCallback(__unused AXObserverRef observer,
 
 #pragma mark - Deallocing
 
-- (void) dealloc {
-
+- (void)dealloc {
     for (NSString *notification in [PHAXObserver notifications]) {
         [self removeNotification:notification];
     }
@@ -64,20 +58,17 @@ static void PHAXObserverCallback(__unused AXObserverRef observer,
 
 #pragma mark - Notifications
 
-+ (NSArray<NSString *> *) notifications {
-
++ (NSArray<NSString *> *)notifications {
     static NSArray<NSString *> *notifications;
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-
-        notifications = @[ NSAccessibilityWindowCreatedNotification,
-                           NSAccessibilityUIElementDestroyedNotification,
-                           NSAccessibilityFocusedWindowChangedNotification,
-                           NSAccessibilityWindowMovedNotification,
-                           NSAccessibilityWindowResizedNotification,
-                           NSAccessibilityWindowMiniaturizedNotification,
-                           NSAccessibilityWindowDeminiaturizedNotification ];
+        notifications = @[
+            NSAccessibilityWindowCreatedNotification, NSAccessibilityUIElementDestroyedNotification,
+            NSAccessibilityFocusedWindowChangedNotification, NSAccessibilityWindowMovedNotification,
+            NSAccessibilityWindowResizedNotification, NSAccessibilityWindowMiniaturizedNotification,
+            NSAccessibilityWindowDeminiaturizedNotification
+        ];
     });
 
     return notifications;
@@ -85,22 +76,19 @@ static void PHAXObserverCallback(__unused AXObserverRef observer,
 
 #pragma mark - Observing
 
-- (void) addNotification:(NSString *)notification {
-
-    AXError error = AXObserverAddNotification((__bridge AXObserverRef) self.observer,
-                                              (__bridge AXUIElementRef) self.element,
-                                              (__bridge CFStringRef) notification,
-                                              NULL);
+- (void)addNotification:(NSString *)notification {
+    AXError error =
+        AXObserverAddNotification((__bridge AXObserverRef)self.observer, (__bridge AXUIElementRef)self.element,
+                                  (__bridge CFStringRef)notification, NULL);
     if (error != kAXErrorSuccess) {
         NSLog(@"Info: Could not add notification “%@” for element %@. (%d)", notification, self.element, error);
     }
 }
 
-- (void) removeNotification:(NSString *)notification {
-
-    AXError error = AXObserverRemoveNotification((__bridge AXObserverRef) self.observer,
-                                                 (__bridge AXUIElementRef) self.element,
-                                                 (__bridge CFStringRef) notification);
+- (void)removeNotification:(NSString *)notification {
+    AXError error =
+        AXObserverRemoveNotification((__bridge AXObserverRef)self.observer, (__bridge AXUIElementRef)self.element,
+                                     (__bridge CFStringRef)notification);
     if (error != kAXErrorSuccess) {
         NSLog(@"Info: Could not remove notification “%@” for element %@. (%d)", notification, self.element, error);
     }
@@ -108,10 +96,8 @@ static void PHAXObserverCallback(__unused AXObserverRef observer,
 
 #pragma mark - Setting up
 
-- (void) setup {
-
-    CFRunLoopAddSource(CFRunLoopGetCurrent(),
-                       AXObserverGetRunLoopSource((__bridge AXObserverRef) self.observer),
+- (void)setup {
+    CFRunLoopAddSource(CFRunLoopGetCurrent(), AXObserverGetRunLoopSource((__bridge AXObserverRef)self.observer),
                        kCFRunLoopDefaultMode);
 
     for (NSString *notification in [PHAXObserver notifications]) {

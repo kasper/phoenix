@@ -16,21 +16,21 @@
 
 #pragma mark - Exported Spaces
 
-+ (instancetype) active;
-+ (NSArray<PHSpace *> *) all;
++ (instancetype)active;
++ (NSArray<PHSpace *> *)all;
 
 #pragma mark - Properties
 
-- (BOOL) isNormal;
-- (BOOL) isFullScreen;
-- (NSArray<NSScreen *> *) screens;
+- (BOOL)isNormal;
+- (BOOL)isFullScreen;
+- (NSArray<NSScreen *> *)screens;
 
 #pragma mark - Windows
 
-- (NSArray<PHWindow *> *) windows:(NSDictionary<NSString *, id> *)optionals;
-- (void) addWindows:(NSArray<PHWindow *> *)windows;
-- (void) removeWindows:(NSArray<PHWindow *> *)windows;
-- (void) moveWindows:(NSArray<PHWindow *> *)windows;
+- (NSArray<PHWindow *> *)windows:(NSDictionary<NSString *, id> *)optionals;
+- (void)addWindows:(NSArray<PHWindow *> *)windows;
+- (void)removeWindows:(NSArray<PHWindow *> *)windows;
+- (void)moveWindows:(NSArray<PHWindow *> *)windows;
 
 @end
 
@@ -38,14 +38,14 @@
 
 #pragma mark - Initialising
 
-+ (instancetype) new NS_UNAVAILABLE;
-- (instancetype) init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype) initWithIdentifier:(NSUInteger)identifier NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithIdentifier:(NSUInteger)identifier NS_DESIGNATED_INITIALIZER;
 
 #pragma mark - Spaces
 
-+ (instancetype) currentSpaceForScreen:(NSScreen *)screen;
-+ (NSArray<PHSpace *> *) spacesForWindow:(PHWindow *)window;
++ (instancetype)currentSpaceForScreen:(NSScreen *)screen;
++ (NSArray<PHSpace *> *)spacesForWindow:(PHWindow *)window;
 
 @end

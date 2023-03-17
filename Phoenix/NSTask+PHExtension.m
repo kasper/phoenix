@@ -8,8 +8,7 @@
 
 #pragma mark - Environment
 
-+ (NSString *) searchPath {
-
++ (NSString *)searchPath {
     NSError *error;
     NSString *path = [self outputFromLaunchedTaskWithEnvironment:@{}
                                                        arguments:@[ @"-l", @"-c", @"echo $PATH" ]
@@ -23,9 +22,9 @@
 
 #pragma mark - Launching
 
-+ (NSString *) outputFromLaunchedTaskWithEnvironment:(NSDictionary<NSString *, NSString *> *)environment
-                                           arguments:(NSArray<NSString *> *)arguments
-                                               error:(NSError **)error {
++ (NSString *)outputFromLaunchedTaskWithEnvironment:(NSDictionary<NSString *, NSString *> *)environment
+                                          arguments:(NSArray<NSString *> *)arguments
+                                              error:(NSError **)error {
     NSTask *task = [[self alloc] init];
     NSPipe *standardOutput = [NSPipe pipe];
     NSPipe *standardError = [NSPipe pipe];
@@ -49,10 +48,10 @@
 
     // Report any errors
     if (error && task.terminationStatus != 0) {
-        *error = [NSError errorWithDomain:NSTaskErrorDomain
-                                     code:NSTaskErrorCode
-                                 userInfo:@{ NSLocalizedDescriptionKey: @"Task failed.",
-                                             NSLocalizedFailureReasonErrorKey: reason }];
+        *error = [NSError
+            errorWithDomain:NSTaskErrorDomain
+                       code:NSTaskErrorCode
+                   userInfo:@{NSLocalizedDescriptionKey : @"Task failed.", NSLocalizedFailureReasonErrorKey : reason}];
     }
 
     return output;

@@ -9,7 +9,7 @@
 
 #pragma mark - Identifying
 
-- (NSUInteger) hash;
-- (BOOL) isEqual:(id)object;
+- (NSUInteger)hash;
+- (BOOL)isEqual:(id)object;
 
 @end

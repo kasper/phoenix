@@ -11,10 +11,10 @@
 
 #pragma mark - Actions
 
-- (void) reload;
-- (void) set:(NSDictionary<NSString *, id> *)preferences;
-- (void) log;
-- (void) notify:(NSString *)message;
+- (void)reload;
+- (void)set:(NSDictionary<NSString *, id> *)preferences;
+- (void)log;
+- (void)notify:(NSString *)message;
 
 @end
 
@@ -22,10 +22,10 @@
 
 #pragma mark - Initialising
 
-+ (instancetype) new NS_UNAVAILABLE;
-- (instancetype) init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype) initWithDelegate:(id<PHContextDelegate>)delegate NS_DESIGNATED_INITIALIZER;
-+ (instancetype) withDelegate:(id<PHContextDelegate>)delegate;
+- (instancetype)initWithDelegate:(id<PHContextDelegate>)delegate NS_DESIGNATED_INITIALIZER;
++ (instancetype)withDelegate:(id<PHContextDelegate>)delegate;
 
 @end

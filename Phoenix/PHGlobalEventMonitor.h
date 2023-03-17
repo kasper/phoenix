@@ -4,13 +4,13 @@
 
 @import Foundation;
 
-static NSString * const PHGlobalEventMonitorMouseKey = @"PHGlobalEventMonitorMouse";
+static NSString* const PHGlobalEventMonitorMouseKey = @"PHGlobalEventMonitorMouse";
 
 @interface PHGlobalEventMonitor : NSObject
 
 #pragma mark - Initialising
 
-+ (instancetype) new NS_UNAVAILABLE;
-+ (instancetype) monitor;
++ (instancetype)new NS_UNAVAILABLE;
++ (instancetype)monitor;
 
 @end

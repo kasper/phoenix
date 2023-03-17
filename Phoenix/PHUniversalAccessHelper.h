@@ -6,12 +6,12 @@
 
 @interface PHUniversalAccessHelper : NSObject
 
-+ (instancetype) new NS_UNAVAILABLE;
-- (instancetype) init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 #pragma mark - Universal Access
 
-+ (BOOL) hasPermission;
-+ (BOOL) askPermissionIfNeeded;
++ (BOOL)hasPermission;
++ (BOOL)askPermissionIfNeeded;
 
 @end

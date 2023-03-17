@@ -4,11 +4,11 @@
 
 @import Foundation;
 
-@interface NSArray<ObjectType> (PHExtension)
+@interface NSArray <ObjectType>(PHExtension)
 
 #pragma mark - Iterating
 
-- (ObjectType) nextFrom:(ObjectType)object;
-- (ObjectType) previousFrom:(ObjectType)object;
+- (ObjectType)nextFrom:(ObjectType)object;
+- (ObjectType)previousFrom:(ObjectType)object;
 
 @end

@@ -8,14 +8,14 @@
 
 #pragma mark - Initialising
 
-+ (instancetype) new NS_UNAVAILABLE;
-- (instancetype) init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype) initWithTarget:(id)target selector:(SEL)selector NS_DESIGNATED_INITIALIZER;
-+ (instancetype) withTarget:(id)target selector:(SEL)selector;
+- (instancetype)initWithTarget:(id)target selector:(SEL)selector NS_DESIGNATED_INITIALIZER;
++ (instancetype)withTarget:(id)target selector:(SEL)selector;
 
 #pragma mark - Timing
 
-- (void) timerDidFireProxy:(NSTimer *)timer;
+- (void)timerDidFireProxy:(NSTimer *)timer;
 
 @end

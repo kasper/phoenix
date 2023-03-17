@@ -2,10 +2,10 @@
  * Phoenix is released under the MIT License. Refer to https://github.com/kasper/phoenix/blob/master/LICENSE.md
  */
 
+#import "PHWindow.h"
 #import "NSScreen+PHExtension.h"
 #import "PHApp.h"
 #import "PHSpace.h"
-#import "PHWindow.h"
 
 @interface PHWindow ()
 
@@ -24,21 +24,21 @@ typedef NS_ENUM(NSInteger, PHWindowDirection) {
 };
 
 // XXX: Undocumented private attribute for full screen mode
-static NSString * const NSAccessibilityFullScreenAttribute = @"AXFullScreen";
+static NSString *const NSAccessibilityFullScreenAttribute = @"AXFullScreen";
 
-static NSString * const PHScreenOptionKey = @"screen";
-static NSString * const PHWindowKey = @"window";
-static NSString * const PHWindowScoreKey = @"score";
+static NSString *const PHScreenOptionKey = @"screen";
+static NSString *const PHWindowKey = @"window";
+static NSString *const PHWindowScoreKey = @"score";
 
 // XXX: Undocumented private API to get the CGWindowID for an AXUIElementRef
 AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
 #pragma mark - Initialising
 
-- (instancetype) initWithElement:(id)element {
-
+- (instancetype)initWithElement:(id)element {
     if (self = [super initWithElement:element]) {
-        self.app = [[PHApp alloc] initWithApp:[NSRunningApplication runningApplicationWithProcessIdentifier:[self processIdentifier]]];
+        self.app = [[PHApp alloc]
+            initWithApp:[NSRunningApplication runningApplicationWithProcessIdentifier:[self processIdentifier]]];
     }
 
     return self;
@@ -46,17 +46,12 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
 #pragma mark - Directions
 
-+ (PHWindowDirection) directionFromString:(NSString *)direction {
-
++ (PHWindowDirection)directionFromString:(NSString *)direction {
     static NSDictionary<NSString *, NSNumber *> *directions;
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-
-        directions = @{ @"west": @0,
-                        @"east": @1,
-                        @"north": @2,
-                        @"south": @3 };
+        directions = @{@"west" : @0, @"east" : @1, @"north" : @2, @"south" : @3};
     });
 
     NSNumber *value = directions[direction.lowercaseString];
@@ -70,20 +65,17 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
 #pragma mark - Predicates
 
-+ (NSPredicate *) isVisible:(BOOL)visible {
-
-    return [NSPredicate predicateWithBlock:^BOOL (PHWindow *window, __unused NSDictionary<NSString *, id> *bindings) {
-
++ (NSPredicate *)isVisible:(BOOL)visible {
+    return [NSPredicate predicateWithBlock:^BOOL(PHWindow *window, __unused NSDictionary<NSString *, id> *bindings) {
         return visible ? [window isVisible] : ![window isVisible];
     }];
 }
 
 #pragma mark - Windows
 
-+ (instancetype) focused {
-
-    id focusedWindow = [[self elementForSystemAttribute:(NSString *) kAXFocusedApplicationAttribute]
-                        valueForAttribute:NSAccessibilityFocusedWindowAttribute];
++ (instancetype)focused {
+    id focusedWindow = [[self elementForSystemAttribute:(NSString *)kAXFocusedApplicationAttribute]
+        valueForAttribute:NSAccessibilityFocusedWindowAttribute];
 
     if (!focusedWindow) {
         return nil;
@@ -92,8 +84,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return [[self alloc] initWithElement:focusedWindow];
 }
 
-+ (instancetype) at:(CGPoint)point {
-
++ (instancetype)at:(CGPoint)point {
     id window = [[self elementAtPosition:point] valueForAttribute:NSAccessibilityWindowAttribute];
 
     if (!window) {
@@ -103,8 +94,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return [[self alloc] initWithElement:window];
 }
 
-+ (NSArray<PHWindow *> *) windows {
-
++ (NSArray<PHWindow *> *)windows {
     NSMutableArray<PHWindow *> *windows = [NSMutableArray array];
 
     for (PHApp *app in [PHApp all]) {
@@ -114,13 +104,12 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return windows;
 }
 
-+ (NSArray<PHWindow *> *) filteredWindowsUsingPredicateBlock:(BOOL (^)(PHWindow *window, NSDictionary<NSString *, id> *bindings))block {
-
++ (NSArray<PHWindow *> *)filteredWindowsUsingPredicateBlock:(BOOL (^)(PHWindow *window,
+                                                                      NSDictionary<NSString *, id> *bindings))block {
     return [[self windows] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:block]];
 }
 
-+ (NSArray<PHWindow *> *) all:(NSDictionary<NSString *, id> *)optionals {
-
++ (NSArray<PHWindow *> *)all:(NSDictionary<NSString *, id> *)optionals {
     NSNumber *visibilityOption = optionals[PHWindowVisibilityOptionKey];
 
     // Filter based on visibility
@@ -131,21 +120,18 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return [self windows];
 }
 
-+ (NSArray<PHWindow *> *) recent {
-
++ (NSArray<PHWindow *> *)recent {
     NSArray<PHWindow *> *windows = [self windows];
     NSMutableArray<PHWindow *> *orderedWindows = [NSMutableArray array];
 
     // Windows returned in order from front to back
-    NSArray *visibleWindowInfo = CFBridgingRelease(CGWindowListCopyWindowInfo(kCGWindowListOptionOnScreenOnly |
-                                                                              kCGWindowListExcludeDesktopElements,
-                                                                              kCGNullWindowID));
+    NSArray *visibleWindowInfo = CFBridgingRelease(CGWindowListCopyWindowInfo(
+        kCGWindowListOptionOnScreenOnly | kCGWindowListExcludeDesktopElements, kCGNullWindowID));
 
     for (NSMutableDictionary<NSString *, id> *windowInfo in visibleWindowInfo) {
-
-        int layer = [windowInfo[(NSString *) kCGWindowLayer] intValue];
-        float alpha = [windowInfo[(NSString *) kCGWindowAlpha] floatValue];
-        CGWindowID identifier = [windowInfo[(NSString *) kCGWindowNumber] intValue];
+        int layer = [windowInfo[(NSString *)kCGWindowLayer] intValue];
+        float alpha = [windowInfo[(NSString *)kCGWindowAlpha] floatValue];
+        CGWindowID identifier = [windowInfo[(NSString *)kCGWindowNumber] intValue];
 
         // Window is not visible
         if (layer != 0 || alpha == 0.0) {
@@ -154,7 +140,6 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
         // Find window object
         for (PHWindow *window in windows) {
-
             if ([window identifier] == identifier) {
                 [orderedWindows addObject:window];
                 break;
@@ -165,16 +150,14 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return orderedWindows;
 }
 
-- (NSArray<PHWindow *> *) others:(NSDictionary<NSString *, id> *)optionals {
-
+- (NSArray<PHWindow *> *)others:(NSDictionary<NSString *, id> *)optionals {
     NSNumber *visibilityOption = optionals[PHWindowVisibilityOptionKey];
     NSNumber *screenOption = optionals[PHScreenOptionKey];
-    NSArray<PHWindow *> *others = [PHWindow filteredWindowsUsingPredicateBlock:
-                                   ^BOOL (PHWindow *window, __unused NSDictionary<NSString *, id> *bindings) {
-
-        BOOL isOtherWindow = ![self isEqual:window];
-        return screenOption ? isOtherWindow && [[window screen] isEqual:screenOption] : isOtherWindow;
-    }];
+    NSArray<PHWindow *> *others = [PHWindow
+        filteredWindowsUsingPredicateBlock:^BOOL(PHWindow *window, __unused NSDictionary<NSString *, id> *bindings) {
+            BOOL isOtherWindow = ![self isEqual:window];
+            return screenOption ? isOtherWindow && [[window screen] isEqual:screenOption] : isOtherWindow;
+        }];
 
     // Filter based on visibility
     if (visibilityOption) {
@@ -184,64 +167,53 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return others;
 }
 
-- (NSArray<PHWindow *> *) others {
-
+- (NSArray<PHWindow *> *)others {
     return [self others:nil];
 }
 
 #pragma mark - Properties
 
-- (CGWindowID) identifier {
-
+- (CGWindowID)identifier {
     CGWindowID identifier;
-    _AXUIElementGetWindow((__bridge AXUIElementRef) self.element, &identifier);
+    _AXUIElementGetWindow((__bridge AXUIElementRef)self.element, &identifier);
 
     return identifier;
 }
 
-- (NSString *) subrole {
-
+- (NSString *)subrole {
     return [self valueForAttribute:NSAccessibilitySubroleAttribute withDefaultValue:@""];
 }
 
-- (NSString *) title {
-
+- (NSString *)title {
     return [self valueForAttribute:NSAccessibilityTitleAttribute withDefaultValue:@""];
 }
 
-- (BOOL) isMain {
-
+- (BOOL)isMain {
     return [[self valueForAttribute:NSAccessibilityMainAttribute withDefaultValue:@NO] boolValue];
 }
 
-- (BOOL) isNormal {
-
+- (BOOL)isNormal {
     return [[self subrole] isEqualToString:NSAccessibilityStandardWindowSubrole];
 }
 
-- (BOOL) isFullScreen {
-
+- (BOOL)isFullScreen {
     return [[self valueForAttribute:NSAccessibilityFullScreenAttribute withDefaultValue:@NO] boolValue];
 }
 
-- (BOOL) isMinimized {
-
+- (BOOL)isMinimized {
     return [[self valueForAttribute:NSAccessibilityMinimizedAttribute withDefaultValue:@NO] boolValue];
 }
 
-- (BOOL) isVisible {
-
+- (BOOL)isVisible {
     return ![self.app isHidden] && [self isNormal] && ![self isMinimized];
 }
 
-- (NSScreen *) screen {
-
+- (NSScreen *)screen {
     CGRect windowFrame = [self frame];
     CGFloat volume = 0;
     NSScreen *appScreen;
 
     for (NSScreen *screen in [NSScreen screens]) {
-
         CGRect screenFrame = [screen flippedFrame];
         CGRect intersection = CGRectIntersection(windowFrame, screenFrame);
         CGFloat intersectionVolume = intersection.size.width * intersection.size.height;
@@ -256,33 +228,29 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return appScreen;
 }
 
-- (NSArray<PHSpace *> *) spaces {
-
+- (NSArray<PHSpace *> *)spaces {
     return [PHSpace spacesForWindow:self];
 }
 
 #pragma mark - Position and Size
 
-- (CGPoint) topLeft {
-
+- (CGPoint)topLeft {
     CGPoint topLeft;
-    CFTypeRef positionWrapper = (__bridge CFTypeRef) [self valueForAttribute:NSAccessibilityPositionAttribute];
-    AXValueGetValue(positionWrapper, kAXValueCGPointType, (void *) &topLeft);
+    CFTypeRef positionWrapper = (__bridge CFTypeRef)[self valueForAttribute:NSAccessibilityPositionAttribute];
+    AXValueGetValue(positionWrapper, kAXValueCGPointType, (void *)&topLeft);
 
     return topLeft;
 }
 
-- (CGSize) size {
-
+- (CGSize)size {
     CGSize size;
-    CFTypeRef sizeWrapper = (__bridge CFTypeRef) [self valueForAttribute:NSAccessibilitySizeAttribute];
-    AXValueGetValue(sizeWrapper, kAXValueCGSizeType, (void *) &size);
+    CFTypeRef sizeWrapper = (__bridge CFTypeRef)[self valueForAttribute:NSAccessibilitySizeAttribute];
+    AXValueGetValue(sizeWrapper, kAXValueCGSizeType, (void *)&size);
 
     return size;
 }
 
-- (CGRect) frame {
-
+- (CGRect)frame {
     CGRect frame;
     frame.origin = [self topLeft];
     frame.size = [self size];
@@ -290,20 +258,17 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return frame;
 }
 
-- (BOOL) setTopLeft:(CGPoint)point {
-
-    id positionWrapper = CFBridgingRelease(AXValueCreate(kAXValueCGPointType, (void * const) &point));
+- (BOOL)setTopLeft:(CGPoint)point {
+    id positionWrapper = CFBridgingRelease(AXValueCreate(kAXValueCGPointType, (void *const)&point));
     return [self setAttribute:NSAccessibilityPositionAttribute withValue:positionWrapper];
 }
 
-- (BOOL) setSize:(CGSize)size {
-
-    id sizeWrapper = CFBridgingRelease(AXValueCreate(kAXValueCGSizeType, (void * const) &size));
+- (BOOL)setSize:(CGSize)size {
+    id sizeWrapper = CFBridgingRelease(AXValueCreate(kAXValueCGSizeType, (void *const)&size));
     return [self setAttribute:NSAccessibilitySizeAttribute withValue:sizeWrapper];
 }
 
-- (BOOL) setFrame:(CGRect)frame {
-
+- (BOOL)setFrame:(CGRect)frame {
     [self setSize:frame.size];
     [self setTopLeft:frame.origin];
     [self setSize:frame.size];
@@ -311,32 +276,27 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return CGRectEqualToRect([self frame], frame);
 }
 
-- (BOOL) setFullScreen:(BOOL)value {
-
+- (BOOL)setFullScreen:(BOOL)value {
     return [self setAttribute:NSAccessibilityFullScreenAttribute withValue:@(value)];
 }
 
-- (BOOL) maximize {
-
+- (BOOL)maximize {
     CGRect screenRect = [[self screen] flippedVisibleFrame];
     return [self setFrame:screenRect];
 }
 
-- (BOOL) minimize {
-
+- (BOOL)minimize {
     return [self setAttribute:NSAccessibilityMinimizedAttribute withValue:@YES];
 }
 
-- (BOOL) unminimize {
-
+- (BOOL)unminimize {
     return [self setAttribute:NSAccessibilityMinimizedAttribute withValue:@NO];
 }
 
 #pragma mark - Alignment
 
-- (NSArray<PHWindow *> *) windowsInDirection:(double (^)(double angle))direction
-                        shouldDisregardDelta:(BOOL (^)(double deltaX, double deltaY))shouldDisregard {
-
+- (NSArray<PHWindow *> *)windowsInDirection:(double (^)(double angle))direction
+                       shouldDisregardDelta:(BOOL (^)(double deltaX, double deltaY))shouldDisregard {
     CGRect frame = [self frame];
     CGPoint centrePoint = CGPointMake(CGRectGetMidX(frame), CGRectGetMidY(frame));
 
@@ -345,7 +305,6 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     NSMutableArray *closestOtherWindows = [NSMutableArray arrayWithCapacity:otherWindows.count];
 
     for (PHWindow *window in otherWindows) {
-
         CGRect otherFrame = [window frame];
         CGPoint otherPoint = CGPointMake(CGRectGetMidX(otherFrame), CGRectGetMidY(otherFrame));
 
@@ -363,52 +322,61 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
         double angleDifference = direction(angle);
         double score = distance / cos(angleDifference / 2.0);
 
-        [closestOtherWindows addObject:@{ PHWindowKey: window, PHWindowScoreKey: @(score) }];
+        [closestOtherWindows addObject:@{PHWindowKey : window, PHWindowScoreKey : @(score)}];
     }
 
     // Sort other windows based on distance score
-    NSArray<PHWindow *> *sortedOtherWindows = [closestOtherWindows sortedArrayUsingComparator:
-                                               ^NSComparisonResult(NSDictionary<NSString *, id> *window,
-                                                                   NSDictionary<NSString *, id> *otherWindow) {
-
-        return [window[PHWindowScoreKey] compare:otherWindow[PHWindowScoreKey]];
-    }];
+    NSArray<PHWindow *> *sortedOtherWindows =
+        [closestOtherWindows sortedArrayUsingComparator:^NSComparisonResult(NSDictionary<NSString *, id> *window,
+                                                                            NSDictionary<NSString *, id> *otherWindow) {
+            return [window[PHWindowScoreKey] compare:otherWindow[PHWindowScoreKey]];
+        }];
 
     return sortedOtherWindows;
 }
 
-- (NSArray<PHWindow *> *) neighborsToWest {
-
-    return [[self windowsInDirection:^double (double angle) { return M_PI - fabs(angle); }
-                shouldDisregardDelta:^BOOL (double deltaX, __unused double deltaY) { return (deltaX >= 0); }]
-            valueForKeyPath:PHWindowKey];
+- (NSArray<PHWindow *> *)neighborsToWest {
+    return [[self
+        windowsInDirection:^double(double angle) {
+            return M_PI - fabs(angle);
+        }
+        shouldDisregardDelta:^BOOL(double deltaX, __unused double deltaY) {
+            return (deltaX >= 0);
+        }] valueForKeyPath:PHWindowKey];
 }
 
-- (NSArray<PHWindow *> *) neighborsToEast {
-
-    return [[self windowsInDirection:^double (double angle) { return 0.0 - angle; }
-                shouldDisregardDelta:^BOOL (double deltaX, __unused double deltaY) { return (deltaX <= 0); }]
-            valueForKeyPath:PHWindowKey];
+- (NSArray<PHWindow *> *)neighborsToEast {
+    return [[self
+        windowsInDirection:^double(double angle) {
+            return 0.0 - angle;
+        }
+        shouldDisregardDelta:^BOOL(double deltaX, __unused double deltaY) {
+            return (deltaX <= 0);
+        }] valueForKeyPath:PHWindowKey];
 }
 
-- (NSArray<PHWindow *> *) neighborsToNorth {
-
-    return [[self windowsInDirection:^double (double angle) { return -M_PI_2 - angle; }
-                shouldDisregardDelta:^BOOL (__unused double deltaX, double deltaY) { return (deltaY >= 0); }]
-            valueForKeyPath:PHWindowKey];
+- (NSArray<PHWindow *> *)neighborsToNorth {
+    return [[self
+        windowsInDirection:^double(double angle) {
+            return -M_PI_2 - angle;
+        }
+        shouldDisregardDelta:^BOOL(__unused double deltaX, double deltaY) {
+            return (deltaY >= 0);
+        }] valueForKeyPath:PHWindowKey];
 }
 
-- (NSArray<PHWindow *> *) neighborsToSouth {
-
-    return [[self windowsInDirection:^double (double angle) { return M_PI_2 - angle; }
-                shouldDisregardDelta:^BOOL (__unused double deltaX, double deltaY) { return (deltaY <= 0); }]
-            valueForKeyPath:PHWindowKey];
+- (NSArray<PHWindow *> *)neighborsToSouth {
+    return [[self
+        windowsInDirection:^double(double angle) {
+            return M_PI_2 - angle;
+        }
+        shouldDisregardDelta:^BOOL(__unused double deltaX, double deltaY) {
+            return (deltaY <= 0);
+        }] valueForKeyPath:PHWindowKey];
 }
 
-- (NSArray<PHWindow *> *) neighbors:(NSString *)direction {
-
+- (NSArray<PHWindow *> *)neighbors:(NSString *)direction {
     switch ([PHWindow directionFromString:direction]) {
-
         case PHWindowDirectionWest:
             return [self neighborsToWest];
 
@@ -428,13 +396,11 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
 #pragma mark - Focusing
 
-- (BOOL) raise {
-
+- (BOOL)raise {
     return [self performAction:NSAccessibilityRaiseAction];
 }
 
-- (BOOL) focus {
-
+- (BOOL)focus {
     // Set this window as the main window
     if (![self setAttribute:NSAccessibilityMainAttribute withValue:@YES]) {
         return NO;
@@ -444,8 +410,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return [self.app focus];
 }
 
-- (BOOL) focusFirstClosestWindow:(NSArray<PHWindow *> *)closestWindows {
-
+- (BOOL)focusFirstClosestWindow:(NSArray<PHWindow *> *)closestWindows {
     for (PHWindow *window in closestWindows) {
         if ([window focus]) {
             return YES;
@@ -455,10 +420,8 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
     return NO;
 }
 
-- (BOOL) focusClosestNeighbor:(NSString *)direction {
-
+- (BOOL)focusClosestNeighbor:(NSString *)direction {
     switch ([PHWindow directionFromString:direction]) {
-
         case PHWindowDirectionWest:
             return [self focusFirstClosestWindow:[self neighborsToWest]];
 
@@ -478,8 +441,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
 #pragma mark - Closing
 
-- (BOOL) close {
-
+- (BOOL)close {
     id closeButtonElement = [self valueForAttribute:NSAccessibilityCloseButtonAttribute];
     PHAXUIElement *closeButton = [[PHAXUIElement alloc] initWithElement:closeButtonElement];
     return [closeButton performAction:NSAccessibilityPressAction];

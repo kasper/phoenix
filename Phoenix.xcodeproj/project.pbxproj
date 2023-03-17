@@ -479,6 +479,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A79C46741B5BF31200C460CF /* Build configuration list for PBXNativeTarget "Phoenix" */;
 			buildPhases = (
+				A7142FFE29C4A9CB00EF5F54 /* Lint Objective-C */,
 				A7A6F57F1D1AD4CD000A0E5E /* Build Library */,
 				A32B0CB41F9B8F1C428EE663 /* [CP] Check Pods Manifest.lock */,
 				A79C46531B5BF31100C460CF /* Sources */,
@@ -500,6 +501,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A79C46771B5BF31200C460CF /* Build configuration list for PBXNativeTarget "PhoenixTests" */;
 			buildPhases = (
+				A7142FFF29C4B75200EF5F54 /* Lint Objective-C */,
 				A79C46661B5BF31200C460CF /* Sources */,
 				A79C46671B5BF31200C460CF /* Frameworks */,
 				A79C46681B5BF31200C460CF /* Resources */,
@@ -518,6 +520,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7D1C62F279D9999008363EE /* Build configuration list for PBXNativeTarget "Launcher" */;
 			buildPhases = (
+				A714300029C4B7D000EF5F54 /* Lint Objective-C */,
 				A7D1C605279D9998008363EE /* Sources */,
 				A7D1C606279D9998008363EE /* Frameworks */,
 				A7D1C607279D9998008363EE /* Resources */,
@@ -535,6 +538,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7D1C632279D9999008363EE /* Build configuration list for PBXNativeTarget "LauncherTests" */;
 			buildPhases = (
+				A714300129C4B82400EF5F54 /* Lint Objective-C */,
 				A7D1C619279D9999008363EE /* Sources */,
 				A7D1C61A279D9999008363EE /* Frameworks */,
 				A7D1C61B279D9999008363EE /* Resources */,
@@ -650,6 +654,86 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7142FFE29C4A9CB00EF5F54 /* Lint Objective-C */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Lint Objective-C";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f /opt/homebrew/bin/brew ]; then\n    eval \"$(/opt/homebrew/bin/brew shellenv)\"\nfi\n\nif command -v clang-format; then\n    clang-format --dry-run --Werror Phoenix/*.h Phoenix/*.m\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A7142FFF29C4B75200EF5F54 /* Lint Objective-C */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Lint Objective-C";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f /opt/homebrew/bin/brew ]; then\n    eval \"$(/opt/homebrew/bin/brew shellenv)\"\nfi\n\nif command -v clang-format; then\n    clang-format --dry-run --Werror PhoenixTests/*.m\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A714300029C4B7D000EF5F54 /* Lint Objective-C */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Lint Objective-C";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f /opt/homebrew/bin/brew ]; then\n    eval \"$(/opt/homebrew/bin/brew shellenv)\"\nfi\n\nif command -v clang-format; then\n    clang-format --dry-run --Werror Launcher/*.h Launcher/*.m\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A714300129C4B82400EF5F54 /* Lint Objective-C */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Lint Objective-C";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f /opt/homebrew/bin/brew ]; then\n    eval \"$(/opt/homebrew/bin/brew shellenv)\"\nfi\n\nif command -v clang-format; then\n    clang-format --dry-run --Werror LauncherTests/*.m\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A7A6F57F1D1AD4CD000A0E5E /* Build Library */ = {
