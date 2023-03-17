@@ -23,6 +23,8 @@ jobs:
           npm ci
           npm run lint
           npm run build
+      - name: Install ClangFormat
+        run: brew install clang-format
       - name: Build Launcher
         uses: sersoft-gmbh/xcodebuild-action@v2
         with:
