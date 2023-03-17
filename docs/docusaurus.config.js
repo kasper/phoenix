@@ -6,7 +6,7 @@ const config = {
   url: 'https://kasper.github.io',
   baseUrl: '/phoenix/',
   favicon: 'img/favicon.ico',
-  organizationName:'kasper',
+  organizationName: 'kasper',
   projectName: 'phoenix',
   plugins: [require.resolve('docusaurus-lunr-search')],
   presets: [
