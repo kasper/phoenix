@@ -16,8 +16,11 @@
 
 #pragma mark - FSEventStreamCallback
 
-static void PHFSEventStreamCallback(__unused ConstFSEventStreamRef stream, void *callback, __unused size_t count,
-                                    __unused void *paths, __unused FSEventStreamEventFlags const flags[],
+static void PHFSEventStreamCallback(__unused ConstFSEventStreamRef stream,
+                                    void *callback,
+                                    __unused size_t count,
+                                    __unused void *paths,
+                                    __unused FSEventStreamEventFlags const flags[],
                                     __unused FSEventStreamEventId const ids[]) {
     @autoreleasepool {
         PHPathWatcher *watcher = (__bridge PHPathWatcher *)callback;

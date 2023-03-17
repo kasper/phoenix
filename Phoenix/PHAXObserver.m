@@ -18,7 +18,9 @@
 
 #pragma mark - AXObserverCallback
 
-static void PHAXObserverCallback(__unused AXObserverRef observer, AXUIElementRef element, CFStringRef notification,
+static void PHAXObserverCallback(__unused AXObserverRef observer,
+                                 AXUIElementRef element,
+                                 CFStringRef notification,
                                  __unused void *data) {
     @autoreleasepool {
         PHWindow *window = [[PHWindow alloc] initWithElement:CFBridgingRelease(CFRetain(element))];
