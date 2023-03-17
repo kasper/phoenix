@@ -34,6 +34,7 @@ jobs:
       - name: Build Phoenix
         uses: sersoft-gmbh/xcodebuild-action@v2
         with:
+          use-xcpretty: false
           workspace: Phoenix.xcworkspace
           scheme: Phoenix
           action: test build
