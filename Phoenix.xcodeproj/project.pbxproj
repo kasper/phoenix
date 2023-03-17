@@ -673,7 +673,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -f /opt/homebrew/bin/brew ]; then\n    eval \"$(/opt/homebrew/bin/brew shellenv)\"\nfi\n\nif command -v clang-format; then\n    clang-format --dry-run --Werror Phoenix/*.h Phoenix/*.m\nfi\n";
+			shellScript = "echo 'Linting Objective-C...'\n\nif [ -f /opt/homebrew/bin/brew ]; then\n    echo 'Found Homebrew, adding it to environment...'\n    eval \"$(/opt/homebrew/bin/brew shellenv)\"\nfi\n\nif command -v clang-format; then\n    echo 'Found clang-format, linting files...'\n    clang-format --dry-run --Werror Phoenix/*.h Phoenix/*.m\n    echo 'Files linted succesfully.'\nfi\n\necho 'Done.'\n";
 			showEnvVarsInLog = 0;
 		};
 		A7142FFF29C4B75200EF5F54 /* Lint Objective-C */ = {
@@ -693,7 +693,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -f /opt/homebrew/bin/brew ]; then\n    eval \"$(/opt/homebrew/bin/brew shellenv)\"\nfi\n\nif command -v clang-format; then\n    clang-format --dry-run --Werror PhoenixTests/*.m\nfi\n";
+			shellScript = "echo 'Linting Objective-C...'\n\nif [ -f /opt/homebrew/bin/brew ]; then\n    echo 'Found Homebrew, adding it to environment...'\n    eval \"$(/opt/homebrew/bin/brew shellenv)\"\nfi\n\nif command -v clang-format; then\n    echo 'Found clang-format, linting files...'\n    clang-format --dry-run --Werror PhoenixTests/*.m\n    echo 'Files linted succesfully.'\nfi\n\necho 'Done.'\n";
 			showEnvVarsInLog = 0;
 		};
 		A714300029C4B7D000EF5F54 /* Lint Objective-C */ = {
@@ -713,7 +713,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -f /opt/homebrew/bin/brew ]; then\n    eval \"$(/opt/homebrew/bin/brew shellenv)\"\nfi\n\nif command -v clang-format; then\n    clang-format --dry-run --Werror Launcher/*.h Launcher/*.m\nfi\n";
+			shellScript = "echo 'Linting Objective-C...'\n\nif [ -f /opt/homebrew/bin/brew ]; then\n    echo 'Found Homebrew, adding it to environment...'\n    eval \"$(/opt/homebrew/bin/brew shellenv)\"\nfi\n\nif command -v clang-format; then\n    echo 'Found clang-format, linting files...'\n    clang-format --dry-run --Werror Launcher/*.h Launcher/*.m\n    echo 'Files linted succesfully.'\nfi\n\necho 'Done.'\n";
 			showEnvVarsInLog = 0;
 		};
 		A714300129C4B82400EF5F54 /* Lint Objective-C */ = {
@@ -733,7 +733,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -f /opt/homebrew/bin/brew ]; then\n    eval \"$(/opt/homebrew/bin/brew shellenv)\"\nfi\n\nif command -v clang-format; then\n    clang-format --dry-run --Werror LauncherTests/*.m\nfi\n";
+			shellScript = "echo 'Linting Objective-C...'\n\nif [ -f /opt/homebrew/bin/brew ]; then\n    echo 'Found Homebrew, adding it to environment...'\n    eval \"$(/opt/homebrew/bin/brew shellenv)\"\nfi\n\nif command -v clang-format; then\n    echo 'Found clang-format, linting files...'\n    clang-format --dry-run --Werror LauncherTests/*.m\n    echo 'Files linted succesfully.'\nfi\n\necho 'Done.'\n";
 			showEnvVarsInLog = 0;
 		};
 		A7A6F57F1D1AD4CD000A0E5E /* Build Library */ = {
