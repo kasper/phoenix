@@ -61,8 +61,12 @@ static void PHFSEventStreamCallback(__unused ConstFSEventStreamRef stream, void 
     context.release = NULL;
     context.copyDescription = NULL;
 
-    self.stream = FSEventStreamCreate(NULL, PHFSEventStreamCallback, &context, (__bridge CFArrayRef)self.paths,
-                                      kFSEventStreamEventIdSinceNow, 1.0,
+    self.stream = FSEventStreamCreate(NULL,
+                                      PHFSEventStreamCallback,
+                                      &context,
+                                      (__bridge CFArrayRef)self.paths,
+                                      kFSEventStreamEventIdSinceNow,
+                                      1.0,
                                       kFSEventStreamCreateFlagWatchRoot | kFSEventStreamCreateFlagFileEvents);
 
     FSEventStreamScheduleWithRunLoop(self.stream, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);

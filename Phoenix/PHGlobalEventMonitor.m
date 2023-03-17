@@ -48,8 +48,11 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         masks = @[
-            @(NSEventMaskMouseMoved), @(NSEventMaskLeftMouseUp), @(NSEventMaskRightMouseUp),
-            @(NSEventMaskLeftMouseDragged), @(NSEventMaskRightMouseDragged)
+            @(NSEventMaskMouseMoved),
+            @(NSEventMaskLeftMouseUp),
+            @(NSEventMaskRightMouseUp),
+            @(NSEventMaskLeftMouseDragged),
+            @(NSEventMaskRightMouseDragged)
         ];
     });
 

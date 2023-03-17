@@ -78,8 +78,10 @@ static NSString *const PHModalWindowControllerTextKeyPath = @"text";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         keyPaths = @[
-            PHModalWindowControllerIconKeyPath, PHModalWindowControllerMessageKeyPath,
-            PHModalWindowControllerOriginKeyPath, PHModalWindowControllerTextKeyPath
+            PHModalWindowControllerIconKeyPath,
+            PHModalWindowControllerMessageKeyPath,
+            PHModalWindowControllerOriginKeyPath,
+            PHModalWindowControllerTextKeyPath
         ];
     });
 

@@ -86,7 +86,8 @@
 
 #if DEBUG
         primaryConfigurationPaths = @[
-            @"~/.phoenix.debug.js", @"~/Library/Application Support/Phoenix/phoenix.debug.js",
+            @"~/.phoenix.debug.js",
+            @"~/Library/Application Support/Phoenix/phoenix.debug.js",
             @"~/.config/phoenix/phoenix.debug.js"
         ];
 #else
@@ -212,7 +213,9 @@
 
         NSString *description = [NSString
             stringWithFormat:@"Uncaught exception raised: “%@” (%@:%@). Refer to the logs for more information.",
-                             exception[@"message"], exception[@"line"], exception[@"column"]];
+                             exception[@"message"],
+                             exception[@"line"],
+                             exception[@"column"]];
         [PHNotificationHelper deliver:description withDelegate:weakSelf];
     };
 

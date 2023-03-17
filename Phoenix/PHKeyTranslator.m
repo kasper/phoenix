@@ -55,12 +55,20 @@ static NSString *const PHKeyTranslatorShiftModifier = @"shift";
     UniCharCount actualStringLength;
     UniChar unicodeString[maxStringLength];
 
-    OSStatus error =
-        UCKeyTranslate(keyboardLayout, keyCode, kUCKeyActionDisplay, 0, LMGetKbdType(), kUCKeyTranslateNoDeadKeysBit,
-                       &deadKeyState, maxStringLength, &actualStringLength, unicodeString);
+    OSStatus error = UCKeyTranslate(keyboardLayout,
+                                    keyCode,
+                                    kUCKeyActionDisplay,
+                                    0,
+                                    LMGetKbdType(),
+                                    kUCKeyTranslateNoDeadKeysBit,
+                                    &deadKeyState,
+                                    maxStringLength,
+                                    &actualStringLength,
+                                    unicodeString);
     if (error != noErr) {
         NSLog(@"Error: Could not translate key code %hu to a Unicode character using the keyboard layout. (%d)",
-              keyCode, error);
+              keyCode,
+              error);
         return nil;
     }
 

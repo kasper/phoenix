@@ -37,8 +37,8 @@ static NSString *const PHKeyHandlerWillEnableNotification = @"PHKeyHandlerWillEn
 static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler, EventRef event, __unused void *data) {
     @autoreleasepool {
         EventHotKeyID identifier;
-        OSStatus error = GetEventParameter(event, kEventParamDirectObject, typeEventHotKeyID, NULL, sizeof(identifier),
-                                           NULL, &identifier);
+        OSStatus error = GetEventParameter(
+            event, kEventParamDirectObject, typeEventHotKeyID, NULL, sizeof(identifier), NULL, &identifier);
         if (error != noErr) {
             NSLog(@"Error: Could not get key event identifier. (%d)", error);
             return error;
@@ -138,11 +138,14 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler, Even
     [[NSNotificationCenter defaultCenter] postNotificationName:PHKeyHandlerWillEnableNotification object:self];
 
     EventHotKeyID identifier = {.signature = PHKeyHandlerSignature, .id = self.identifier};
-    OSStatus error = RegisterEventHotKey(self.keyCode, self.modifierFlags, identifier, GetEventDispatcherTarget(),
-                                         kEventHotKeyExclusive, &_reference);
+    OSStatus error = RegisterEventHotKey(
+        self.keyCode, self.modifierFlags, identifier, GetEventDispatcherTarget(), kEventHotKeyExclusive, &_reference);
     if (error != noErr) {
-        NSLog(@"Error: Could not register key %d (%d) with modifiers %d. (%d)", self.keyCode, identifier.id,
-              self.modifierFlags, error);
+        NSLog(@"Error: Could not register key %d (%d) with modifiers %d. (%d)",
+              self.keyCode,
+              identifier.id,
+              self.modifierFlags,
+              error);
         return NO;
     }
 

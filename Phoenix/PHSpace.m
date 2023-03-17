@@ -213,7 +213,8 @@ void CGSMoveWindowsToManagedSpace(CGSConnectionID connection, CFArrayRef windowI
         return;
     }
 
-    CGSAddWindowsToSpaces(CGSMainConnectionID(), (__bridge CFArrayRef)[self identifiersForWindows:windows],
+    CGSAddWindowsToSpaces(CGSMainConnectionID(),
+                          (__bridge CFArrayRef)[self identifiersForWindows:windows],
                           (__bridge CFArrayRef) @[ @(self.identifier) ]);
 }
 
@@ -224,13 +225,14 @@ void CGSMoveWindowsToManagedSpace(CGSConnectionID connection, CFArrayRef windowI
         return;
     }
 
-    CGSRemoveWindowsFromSpaces(CGSMainConnectionID(), (__bridge CFArrayRef)[self identifiersForWindows:windows],
+    CGSRemoveWindowsFromSpaces(CGSMainConnectionID(),
+                               (__bridge CFArrayRef)[self identifiersForWindows:windows],
                                (__bridge CFArrayRef) @[ @(self.identifier) ]);
 }
 
 - (void)moveWindows:(NSArray<PHWindow *> *)windows {
-    CGSMoveWindowsToManagedSpace(CGSMainConnectionID(), (__bridge CFArrayRef)[self identifiersForWindows:windows],
-                                 self.identifier);
+    CGSMoveWindowsToManagedSpace(
+        CGSMainConnectionID(), (__bridge CFArrayRef)[self identifiersForWindows:windows], self.identifier);
 }
 
 @end

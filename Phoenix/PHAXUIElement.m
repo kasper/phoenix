@@ -48,8 +48,8 @@
     PHAXUIElement *systemWideElement = [self systemWideElement];
 
     AXUIElementRef element = NULL;
-    AXError error = AXUIElementCopyElementAtPosition((__bridge AXUIElementRef)systemWideElement.element, position.x,
-                                                     position.y, &element);
+    AXError error = AXUIElementCopyElementAtPosition(
+        (__bridge AXUIElementRef)systemWideElement.element, position.x, position.y, &element);
     if (error != kAXErrorSuccess) {
         NSLog(@"Error: Could not get accessibility element at position %@. (%d)", NSStringFromPoint(position), error);
     }
@@ -108,8 +108,8 @@
 
 - (NSArray *)valuesForAttribute:(NSString *)attribute fromIndex:(NSUInteger)index count:(NSUInteger)count {
     CFArrayRef values = NULL;
-    AXUIElementCopyAttributeValues((__bridge AXUIElementRef)self.element, (__bridge CFStringRef)attribute, index, count,
-                                   &values);
+    AXUIElementCopyAttributeValues(
+        (__bridge AXUIElementRef)self.element, (__bridge CFStringRef)attribute, index, count, &values);
 
     return CFBridgingRelease(values);
 }
@@ -117,12 +117,15 @@
 #pragma mark - Setters
 
 - (BOOL)setAttribute:(NSString *)attribute withValue:(id)value {
-    AXError error = AXUIElementSetAttributeValue((__bridge AXUIElementRef)self.element, (__bridge CFStringRef)attribute,
-                                                 (__bridge CFTypeRef)value);
+    AXError error = AXUIElementSetAttributeValue(
+        (__bridge AXUIElementRef)self.element, (__bridge CFStringRef)attribute, (__bridge CFTypeRef)value);
 
     if (error != kAXErrorSuccess) {
-        NSLog(@"Error: Could not set accessibility attribute “%@” with value “%@” for element %@. (%d)", attribute,
-              value, self.element, error);
+        NSLog(@"Error: Could not set accessibility attribute “%@” with value “%@” for element %@. (%d)",
+              attribute,
+              value,
+              self.element,
+              error);
     }
 
     return error == kAXErrorSuccess;

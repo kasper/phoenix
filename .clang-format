@@ -1,4 +1,5 @@
 BasedOnStyle: Google
+BinPackArguments: false
 ColumnLimit: 120
 IndentWidth: 4
 ObjCBlockIndentWidth: 4
