@@ -673,7 +673,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo 'Linting Objective-C...'\n\nif [ -f /opt/homebrew/bin/brew ]; then\n    echo 'Found Homebrew, adding it to environment...'\n    eval \"$(/opt/homebrew/bin/brew shellenv)\"\nfi\n\nif command -v clang-format; then\n    echo 'Found clang-format, linting files...'\n    clang-format --dry-run --Werror Phoenix/*.h Phoenix/*.m\n    echo 'Files linted succesfully.'\nfi\n\necho 'Done.'\n";
+			shellScript = "# Exit on error\ntrap 'exit' ERR\n\necho 'Linting Objective-C...'\n\nif [ -f /opt/homebrew/bin/brew ]; then\n    echo 'Found Homebrew, adding it to environment...'\n    eval \"$(/opt/homebrew/bin/brew shellenv)\"\nfi\n\nif command -v clang-format; then\n    echo 'Found clang-format, linting files...'\n    clang-format --dry-run --Werror Phoenix/*.h Phoenix/*.m\n    echo 'Files linted succesfully.'\nfi\n\necho 'Done.'\n";
 			showEnvVarsInLog = 0;
 		};
 		A7142FFF29C4B75200EF5F54 /* Lint Objective-C */ = {
@@ -693,7 +693,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo 'Linting Objective-C...'\n\nif [ -f /opt/homebrew/bin/brew ]; then\n    echo 'Found Homebrew, adding it to environment...'\n    eval \"$(/opt/homebrew/bin/brew shellenv)\"\nfi\n\nif command -v clang-format; then\n    echo 'Found clang-format, linting files...'\n    clang-format --dry-run --Werror PhoenixTests/*.m\n    echo 'Files linted succesfully.'\nfi\n\necho 'Done.'\n";
+			shellScript = "# Exit on error\ntrap 'exit' ERR\n\necho 'Linting Objective-C...'\n\nif [ -f /opt/homebrew/bin/brew ]; then\n    echo 'Found Homebrew, adding it to environment...'\n    eval \"$(/opt/homebrew/bin/brew shellenv)\"\nfi\n\nif command -v clang-format; then\n    echo 'Found clang-format, linting files...'\n    clang-format --dry-run --Werror PhoenixTests/*.m\n    echo 'Files linted succesfully.'\nfi\n\necho 'Done.'\n";
 			showEnvVarsInLog = 0;
 		};
 		A714300029C4B7D000EF5F54 /* Lint Objective-C */ = {
@@ -713,7 +713,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo 'Linting Objective-C...'\n\nif [ -f /opt/homebrew/bin/brew ]; then\n    echo 'Found Homebrew, adding it to environment...'\n    eval \"$(/opt/homebrew/bin/brew shellenv)\"\nfi\n\nif command -v clang-format; then\n    echo 'Found clang-format, linting files...'\n    clang-format --dry-run --Werror Launcher/*.h Launcher/*.m\n    echo 'Files linted succesfully.'\nfi\n\necho 'Done.'\n";
+			shellScript = "# Exit on error\ntrap 'exit' ERR\n\necho 'Linting Objective-C...'\n\nif [ -f /opt/homebrew/bin/brew ]; then\n    echo 'Found Homebrew, adding it to environment...'\n    eval \"$(/opt/homebrew/bin/brew shellenv)\"\nfi\n\nif command -v clang-format; then\n    echo 'Found clang-format, linting files...'\n    clang-format --dry-run --Werror Launcher/*.h Launcher/*.m\n    echo 'Files linted succesfully.'\nfi\n\necho 'Done.'\n";
 			showEnvVarsInLog = 0;
 		};
 		A714300129C4B82400EF5F54 /* Lint Objective-C */ = {
@@ -733,7 +733,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo 'Linting Objective-C...'\n\nif [ -f /opt/homebrew/bin/brew ]; then\n    echo 'Found Homebrew, adding it to environment...'\n    eval \"$(/opt/homebrew/bin/brew shellenv)\"\nfi\n\nif command -v clang-format; then\n    echo 'Found clang-format, linting files...'\n    clang-format --dry-run --Werror LauncherTests/*.m\n    echo 'Files linted succesfully.'\nfi\n\necho 'Done.'\n";
+			shellScript = "# Exit on error\ntrap 'exit' ERR\n\necho 'Linting Objective-C...'\n\nif [ -f /opt/homebrew/bin/brew ]; then\n    echo 'Found Homebrew, adding it to environment...'\n    eval \"$(/opt/homebrew/bin/brew shellenv)\"\nfi\n\nif command -v clang-format; then\n    echo 'Found clang-format, linting files...'\n    clang-format --dry-run --Werror LauncherTests/*.m\n    echo 'Files linted succesfully.'\nfi\n\necho 'Done.'\n";
 			showEnvVarsInLog = 0;
 		};
 		A7A6F57F1D1AD4CD000A0E5E /* Build Library */ = {
@@ -749,7 +749,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo 'Building library...'\n\nif [ -f /opt/homebrew/opt/nvm/nvm.sh ]; then\n    echo 'Found NVM in Homebrew, adding it to environment...'\n    . /opt/homebrew/opt/nvm/nvm.sh\nfi\n\nif command -v npm; then\n    echo 'Found npm, building library...'\n    npm install && npm run build\n    echo 'Built library succesfully.'\nfi\n\necho 'Done.'\n";
+			shellScript = "# Exit on error\ntrap 'exit' ERR\n\necho 'Building library...'\n\nif [ -f /opt/homebrew/opt/nvm/nvm.sh ]; then\n    echo 'Found NVM in Homebrew, adding it to environment...'\n    . /opt/homebrew/opt/nvm/nvm.sh\nfi\n\nif command -v npm; then\n    echo 'Found npm, building library...'\n    npm install && npm run build\n    echo 'Built library succesfully.'\nfi\n\necho 'Done.'\n";
 			showEnvVarsInLog = 0;
 		};
 		D24256909AA421FF1865E794 /* [CP] Embed Pods Frameworks */ = {
