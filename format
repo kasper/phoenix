@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Exit on error
+trap 'exit' ERR
+
+clang-format -i Launcher/*.h Launcher/*.m
+clang-format -i LauncherTests/*.m
+clang-format -i Phoenix/*.h Phoenix/*.m
+clang-format -i PhoenixTests/*.m
