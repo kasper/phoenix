@@ -129,7 +129,7 @@ static NSString *const PHDocumentationURL = @"https://kasper.github.io/phoenix/"
 
 - (IBAction)toggleOpenAtLogin:(NSMenuItem *)sender {
     BOOL openAtLogin = sender.state == NSControlStateValueOff;
-    [[PHPreferences sharedPreferences] add:@{PHPreferencesOpenAtLoginKey : @(openAtLogin)}];
+    [[PHPreferences sharedPreferences] add:@{PHPreferencesOpenAtLoginKey: @(openAtLogin)}];
 }
 
 @end

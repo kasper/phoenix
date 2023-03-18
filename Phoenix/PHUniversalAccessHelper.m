@@ -16,7 +16,7 @@
 
 + (BOOL)askPermissionIfNeeded {
     return AXIsProcessTrustedWithOptions((__bridge CFDictionaryRef)
-                                             @{(__bridge NSString *)kAXTrustedCheckOptionPrompt : @YES});
+                                             @{(__bridge NSString *)kAXTrustedCheckOptionPrompt: @YES});
 }
 
 @end

@@ -67,11 +67,11 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         notifications = @{
-            @(NSEventTypeMouseMoved) : PHMouseDidMoveNotification,
-            @(NSEventTypeLeftMouseUp) : PHMouseDidLeftClickNotification,
-            @(NSEventTypeRightMouseUp) : PHMouseDidRightClickNotification,
-            @(NSEventTypeLeftMouseDragged) : PHMouseDidLeftDragNotification,
-            @(NSEventTypeRightMouseDragged) : PHMouseDidRightDragNotification
+            @(NSEventTypeMouseMoved): PHMouseDidMoveNotification,
+            @(NSEventTypeLeftMouseUp): PHMouseDidLeftClickNotification,
+            @(NSEventTypeRightMouseUp): PHMouseDidRightClickNotification,
+            @(NSEventTypeLeftMouseDragged): PHMouseDidLeftDragNotification,
+            @(NSEventTypeRightMouseDragged): PHMouseDidRightDragNotification
         };
     });
 
@@ -98,9 +98,9 @@
                                                   NSArray<NSString *> *modifiers =
                                                       [PHKeyTranslator modifiersForModifierFlags:event.modifierFlags];
                                                   userInfo[PHGlobalEventMonitorMouseKey] = @{
-                                                      @"x" : @(location.x),
-                                                      @"y" : @(location.y),
-                                                      @"modifiers" : modifiers,
+                                                      @"x": @(location.x),
+                                                      @"y": @(location.y),
+                                                      @"modifiers": modifiers,
                                                   };
                                               }
 

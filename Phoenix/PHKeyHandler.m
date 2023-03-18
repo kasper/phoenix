@@ -50,7 +50,7 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler, Even
         [[NSNotificationCenter defaultCenter] postNotificationName:notification
                                                             object:nil
                                                           userInfo:@{
-                                                              PHKeyHandlerIdentifierKey : @(identifier.id)
+                                                              PHKeyHandlerIdentifierKey: @(identifier.id)
                                                           }];
         return noErr;
     }
@@ -187,7 +187,7 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler, Even
 - (void)keyDown:(NSNotification *)notification {
     // This handler should handle this notification
     if (self.identifier == [notification.userInfo[PHKeyHandlerIdentifierKey] unsignedIntegerValue]) {
-        [self callWithArguments:@[ self, @NO ]];
+        [self callWithArguments:@[self, @NO]];
 
         // Delay repeat timer
         self.timer = [NSTimer scheduledTimerWithTimeInterval:[NSEvent keyRepeatDelay]
@@ -209,7 +209,7 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler, Even
 
 - (void)delayTimerDidFire:(NSTimer *)__unused timer {
     if ([self isEnabled]) {
-        [self callWithArguments:@[ self, @YES ]];
+        [self callWithArguments:@[self, @YES]];
 
         // Repeat until key up
         self.timer = [NSTimer scheduledTimerWithTimeInterval:[NSEvent keyRepeatInterval]
@@ -222,7 +222,7 @@ static OSStatus PHCarbonEventCallback(__unused EventHandlerCallRef handler, Even
 
 - (void)repeatTimerDidFire:(NSTimer *)__unused timer {
     if ([self isEnabled]) {
-        [self callWithArguments:@[ self, @YES ]];
+        [self callWithArguments:@[self, @YES]];
     }
 }
 

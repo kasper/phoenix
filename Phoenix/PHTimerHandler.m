@@ -38,7 +38,7 @@
 #pragma mark - Timing
 
 - (void)timerDidFire {
-    [self callWithArguments:@[ self ]];
+    [self callWithArguments:@[self]];
 }
 
 - (void)stop {

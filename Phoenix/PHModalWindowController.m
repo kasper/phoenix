@@ -101,7 +101,7 @@ static NSString *const PHModalWindowControllerTextKeyPath = @"text";
     NSString *value = self.text ? self.text : @"";
 
     if (!callback.isUndefined) {
-        [callback callWithArguments:@[ value ]];
+        [callback callWithArguments:@[value]];
     }
 }
 
@@ -112,7 +112,7 @@ static NSString *const PHModalWindowControllerTextKeyPath = @"text";
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        alignments = @{@"left" : @0, @"right" : @2, @"center" : @1, @"centre" : @1};
+        alignments = @{@"left": @0, @"right": @2, @"center": @1, @"centre": @1};
     });
 
     NSNumber *value = alignments[self.textAlignment.lowercaseString];
@@ -129,7 +129,7 @@ static NSString *const PHModalWindowControllerTextKeyPath = @"text";
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        appearances = @{PHModalWindowControllerAppearanceDark : @0, @"light" : @1, @"transparent" : @2};
+        appearances = @{PHModalWindowControllerAppearanceDark: @0, @"light": @1, @"transparent": @2};
     });
 
     NSNumber *value = appearances[self.appearance.lowercaseString];
@@ -143,7 +143,7 @@ static NSString *const PHModalWindowControllerTextKeyPath = @"text";
 
 - (void)setupVibrantAppearance {
     CGFloat cornerRadius = 10.0;
-    NSDictionary<NSString *, id> *views = @{@"container" : self.containerView};
+    NSDictionary<NSString *, id> *views = @{@"container": self.containerView};
 
     NSVisualEffectView *visualEffectView = [[NSVisualEffectView alloc] initWithFrame:self.window.contentView.frame];
     visualEffectView.appearance = [NSAppearance appearanceNamed:NSAppearanceNameVibrantDark];

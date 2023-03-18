@@ -112,7 +112,7 @@ void CGSMoveWindowsToManagedSpace(CGSConnectionID connection, CFArrayRef windowI
 + (NSArray<PHSpace *> *)spacesForWindow:(PHWindow *)window {
     NSMutableArray *spaces = [NSMutableArray array];
     NSArray<NSNumber *> *identifiers = CFBridgingRelease(CGSCopySpacesForWindows(
-        CGSMainConnectionID(), kCGSAllSpacesMask, (__bridge CFArrayRef) @[ @([window identifier]) ]));
+        CGSMainConnectionID(), kCGSAllSpacesMask, (__bridge CFArrayRef) @[@([window identifier])]));
     for (PHSpace *space in [self all]) {
         NSNumber *identifier = @([space hash]);
 
@@ -167,7 +167,7 @@ void CGSMoveWindowsToManagedSpace(CGSConnectionID connection, CFArrayRef windowI
 
         if ([identifiers containsObject:@(self.identifier)]) {
             NSScreen *screen = [NSScreen screenForIdentifier:screenIdentifier];
-            return screen ? @[ screen ] : @[];
+            return screen ? @[screen] : @[];
         }
     }
 
@@ -215,7 +215,7 @@ void CGSMoveWindowsToManagedSpace(CGSConnectionID connection, CFArrayRef windowI
 
     CGSAddWindowsToSpaces(CGSMainConnectionID(),
                           (__bridge CFArrayRef)[self identifiersForWindows:windows],
-                          (__bridge CFArrayRef) @[ @(self.identifier) ]);
+                          (__bridge CFArrayRef) @[@(self.identifier)]);
 }
 
 - (void)removeWindows:(NSArray<PHWindow *> *)windows {
@@ -227,7 +227,7 @@ void CGSMoveWindowsToManagedSpace(CGSConnectionID connection, CFArrayRef windowI
 
     CGSRemoveWindowsFromSpaces(CGSMainConnectionID(),
                                (__bridge CFArrayRef)[self identifiersForWindows:windows],
-                               (__bridge CFArrayRef) @[ @(self.identifier) ]);
+                               (__bridge CFArrayRef) @[@(self.identifier)]);
 }
 
 - (void)moveWindows:(NSArray<PHWindow *> *)windows {

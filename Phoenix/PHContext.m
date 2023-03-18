@@ -209,7 +209,7 @@
     self.context = [[JSContext alloc] initWithVirtualMachine:[[JSVirtualMachine alloc] init]];
     self.context.exceptionHandler = ^(JSContext *context, JSValue *exception) {
         JSValue *log = [context[@"Phoenix"] objectForKeyedSubscript:@"log"];
-        [log callWithArguments:@[ exception ]];
+        [log callWithArguments:@[exception]];
 
         NSString *description = [NSString
             stringWithFormat:@"Uncaught exception raised: “%@” (%@:%@). Refer to the logs for more information.",
@@ -229,7 +229,7 @@
 
 - (void)userNotificationCenter:(NSUserNotificationCenter *)__unused center
        didActivateNotification:(NSUserNotification *)__unused notification {
-    [PHApp launch:@"Console" withOptionals:@{PHAppFocusOptionKey : @YES}];
+    [PHApp launch:@"Console" withOptionals:@{PHAppFocusOptionKey: @YES}];
 }
 
 #pragma mark - PHContextDelegate

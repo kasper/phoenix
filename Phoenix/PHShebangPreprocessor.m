@@ -34,16 +34,16 @@
     // Process
     NSError *taskError;
     NSString *output =
-        [NSTask outputFromLaunchedTaskWithEnvironment:@{@"PATH" : [NSTask searchPath]}
-                                            arguments:@[ @"-c", [NSString stringWithFormat:@"%@ %@", command, path] ]
+        [NSTask outputFromLaunchedTaskWithEnvironment:@{@"PATH": [NSTask searchPath]}
+                                            arguments:@[@"-c", [NSString stringWithFormat:@"%@ %@", command, path]]
                                                 error:&taskError];
     if (taskError) {
         if (error) {
             *error = [NSError errorWithDomain:PHShebangPreprocessorErrorDomain
                                          code:PHShebangPreprocessorErrorCode
                                      userInfo:@{
-                                         NSLocalizedDescriptionKey : @"Preprocessing failed.",
-                                         NSUnderlyingErrorKey : taskError
+                                         NSLocalizedDescriptionKey: @"Preprocessing failed.",
+                                         NSUnderlyingErrorKey: taskError
                                      }];
         }
 

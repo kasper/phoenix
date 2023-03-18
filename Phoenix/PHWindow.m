@@ -51,7 +51,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        directions = @{@"west" : @0, @"east" : @1, @"north" : @2, @"south" : @3};
+        directions = @{@"west": @0, @"east": @1, @"north": @2, @"south": @3};
     });
 
     NSNumber *value = directions[direction.lowercaseString];
@@ -322,7 +322,7 @@ AXError _AXUIElementGetWindow(AXUIElementRef element, CGWindowID *identifier);
         double angleDifference = direction(angle);
         double score = distance / cos(angleDifference / 2.0);
 
-        [closestOtherWindows addObject:@{PHWindowKey : window, PHWindowScoreKey : @(score)}];
+        [closestOtherWindows addObject:@{PHWindowKey: window, PHWindowScoreKey: @(score)}];
     }
 
     // Sort other windows based on distance score

@@ -24,13 +24,13 @@ static NSString *const PHKeyTranslatorShiftModifier = @"shift";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         modifierToFlag = @{
-            PHKeyTranslatorCommandModifier : @(cmdKey),
-            PHKeyTranslatorCmdModifier : @(cmdKey),
-            PHKeyTranslatorOptionModifier : @(optionKey),
-            PHKeyTranslatorAltModifier : @(optionKey),
-            PHKeyTranslatorControlModifier : @(controlKey),
-            PHKeyTranslatorCtrlModifier : @(controlKey),
-            PHKeyTranslatorShiftModifier : @(shiftKey)
+            PHKeyTranslatorCommandModifier: @(cmdKey),
+            PHKeyTranslatorCmdModifier: @(cmdKey),
+            PHKeyTranslatorOptionModifier: @(optionKey),
+            PHKeyTranslatorAltModifier: @(optionKey),
+            PHKeyTranslatorControlModifier: @(controlKey),
+            PHKeyTranslatorCtrlModifier: @(controlKey),
+            PHKeyTranslatorShiftModifier: @(shiftKey)
         };
     });
 
@@ -203,15 +203,15 @@ static NSString *const PHKeyTranslatorShiftModifier = @"shift";
     NSMutableArray<NSString *> *modifiers = [NSMutableArray array];
 
     if (modifierFlags & NSEventModifierFlagCommand) {
-        [modifiers addObjectsFromArray:@[ PHKeyTranslatorCommandModifier, PHKeyTranslatorCmdModifier ]];
+        [modifiers addObjectsFromArray:@[PHKeyTranslatorCommandModifier, PHKeyTranslatorCmdModifier]];
     }
 
     if (modifierFlags & NSEventModifierFlagOption) {
-        [modifiers addObjectsFromArray:@[ PHKeyTranslatorOptionModifier, PHKeyTranslatorAltModifier ]];
+        [modifiers addObjectsFromArray:@[PHKeyTranslatorOptionModifier, PHKeyTranslatorAltModifier]];
     }
 
     if (modifierFlags & NSEventModifierFlagControl) {
-        [modifiers addObjectsFromArray:@[ PHKeyTranslatorControlModifier, PHKeyTranslatorCtrlModifier ]];
+        [modifiers addObjectsFromArray:@[PHKeyTranslatorControlModifier, PHKeyTranslatorCtrlModifier]];
     }
 
     if (modifierFlags & NSEventModifierFlagShift) {

@@ -11,7 +11,7 @@
 + (NSString *)searchPath {
     NSError *error;
     NSString *path = [self outputFromLaunchedTaskWithEnvironment:@{}
-                                                       arguments:@[ @"-l", @"-c", @"echo $PATH" ]
+                                                       arguments:@[@"-l", @"-c", @"echo $PATH"]
                                                            error:&error];
     if (error) {
         return @"";
@@ -51,7 +51,7 @@
         *error = [NSError
             errorWithDomain:NSTaskErrorDomain
                        code:NSTaskErrorCode
-                   userInfo:@{NSLocalizedDescriptionKey : @"Task failed.", NSLocalizedFailureReasonErrorKey : reason}];
+                   userInfo:@{NSLocalizedDescriptionKey: @"Task failed.", NSLocalizedFailureReasonErrorKey: reason}];
     }
 
     return output;

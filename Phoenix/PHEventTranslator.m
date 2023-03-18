@@ -21,20 +21,20 @@
         notificationToNotificationCenter = @{
             /* Device Notifications */
 
-            NSWorkspaceWillSleepNotification : workspaceNotificationCenter,
-            NSWorkspaceDidWakeNotification : workspaceNotificationCenter,
+            NSWorkspaceWillSleepNotification: workspaceNotificationCenter,
+            NSWorkspaceDidWakeNotification: workspaceNotificationCenter,
 
             /* Space Notifications */
 
-            NSWorkspaceActiveSpaceDidChangeNotification : workspaceNotificationCenter,
+            NSWorkspaceActiveSpaceDidChangeNotification: workspaceNotificationCenter,
 
             /* App Notifications */
 
-            NSWorkspaceDidLaunchApplicationNotification : workspaceNotificationCenter,
-            NSWorkspaceDidTerminateApplicationNotification : workspaceNotificationCenter,
-            NSWorkspaceDidActivateApplicationNotification : workspaceNotificationCenter,
-            NSWorkspaceDidHideApplicationNotification : workspaceNotificationCenter,
-            NSWorkspaceDidUnhideApplicationNotification : workspaceNotificationCenter
+            NSWorkspaceDidLaunchApplicationNotification: workspaceNotificationCenter,
+            NSWorkspaceDidTerminateApplicationNotification: workspaceNotificationCenter,
+            NSWorkspaceDidActivateApplicationNotification: workspaceNotificationCenter,
+            NSWorkspaceDidHideApplicationNotification: workspaceNotificationCenter,
+            NSWorkspaceDidUnhideApplicationNotification: workspaceNotificationCenter
         };
     });
 
@@ -56,49 +56,49 @@
         eventToNotification = @{
             /* Event Notifications */
 
-            @"didLaunch" : PHEventDidLaunchNotification,
-            @"willTerminate" : PHEventWillTerminateNotification,
+            @"didLaunch": PHEventDidLaunchNotification,
+            @"willTerminate": PHEventWillTerminateNotification,
 
             /* Device Notifications */
 
-            @"deviceWillSleep" : NSWorkspaceWillSleepNotification,
-            @"deviceDidWake" : NSWorkspaceDidWakeNotification,
+            @"deviceWillSleep": NSWorkspaceWillSleepNotification,
+            @"deviceDidWake": NSWorkspaceDidWakeNotification,
 
             /* Screen Notifications */
 
-            @"screensDidChange" : NSApplicationDidChangeScreenParametersNotification,
+            @"screensDidChange": NSApplicationDidChangeScreenParametersNotification,
 
             /* Space Notifications */
 
-            @"spaceDidChange" : NSWorkspaceActiveSpaceDidChangeNotification,
+            @"spaceDidChange": NSWorkspaceActiveSpaceDidChangeNotification,
 
             /* Mouse Notifications */
 
-            @"mouseDidMove" : PHMouseDidMoveNotification,
-            @"mouseDidLeftClick" : PHMouseDidLeftClickNotification,
-            @"mouseDidRightClick" : PHMouseDidRightClickNotification,
-            @"mouseDidLeftDrag" : PHMouseDidLeftDragNotification,
-            @"mouseDidRightDrag" : PHMouseDidRightDragNotification,
+            @"mouseDidMove": PHMouseDidMoveNotification,
+            @"mouseDidLeftClick": PHMouseDidLeftClickNotification,
+            @"mouseDidRightClick": PHMouseDidRightClickNotification,
+            @"mouseDidLeftDrag": PHMouseDidLeftDragNotification,
+            @"mouseDidRightDrag": PHMouseDidRightDragNotification,
 
             /* App Notifications */
 
-            @"appDidLaunch" : NSWorkspaceDidLaunchApplicationNotification,
-            @"appDidTerminate" : NSWorkspaceDidTerminateApplicationNotification,
-            @"appDidActivate" : NSWorkspaceDidActivateApplicationNotification,
-            @"appDidHide" : NSWorkspaceDidHideApplicationNotification,
-            @"appDidShow" : NSWorkspaceDidUnhideApplicationNotification,
+            @"appDidLaunch": NSWorkspaceDidLaunchApplicationNotification,
+            @"appDidTerminate": NSWorkspaceDidTerminateApplicationNotification,
+            @"appDidActivate": NSWorkspaceDidActivateApplicationNotification,
+            @"appDidHide": NSWorkspaceDidHideApplicationNotification,
+            @"appDidShow": NSWorkspaceDidUnhideApplicationNotification,
 
             /* Window Notifications */
 
-            @"windowDidOpen" : NSAccessibilityWindowCreatedNotification,
-            @"windowDidClose" : NSAccessibilityUIElementDestroyedNotification,
-            @"windowDidFocus" : NSAccessibilityFocusedWindowChangedNotification,
-            @"windowDidMove" : NSAccessibilityWindowMovedNotification,
-            @"windowDidResize" : NSAccessibilityWindowResizedNotification,
-            @"windowDidMinimise" : NSAccessibilityWindowMiniaturizedNotification,
-            @"windowDidMinimize" : NSAccessibilityWindowMiniaturizedNotification,
-            @"windowDidUnminimise" : NSAccessibilityWindowDeminiaturizedNotification,
-            @"windowDidUnminimize" : NSAccessibilityWindowDeminiaturizedNotification
+            @"windowDidOpen": NSAccessibilityWindowCreatedNotification,
+            @"windowDidClose": NSAccessibilityUIElementDestroyedNotification,
+            @"windowDidFocus": NSAccessibilityFocusedWindowChangedNotification,
+            @"windowDidMove": NSAccessibilityWindowMovedNotification,
+            @"windowDidResize": NSAccessibilityWindowResizedNotification,
+            @"windowDidMinimise": NSAccessibilityWindowMiniaturizedNotification,
+            @"windowDidMinimize": NSAccessibilityWindowMiniaturizedNotification,
+            @"windowDidUnminimise": NSAccessibilityWindowDeminiaturizedNotification,
+            @"windowDidUnminimize": NSAccessibilityWindowDeminiaturizedNotification
         };
     });
 

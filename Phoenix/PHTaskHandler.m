@@ -101,7 +101,7 @@
 }
 
 - (void)taskDidTerminate {
-    [self performSelectorOnMainThread:@selector(callWithArguments:) withObject:@[ self ] waitUntilDone:NO];
+    [self performSelectorOnMainThread:@selector(callWithArguments:) withObject:@[self] waitUntilDone:NO];
 }
 
 @end

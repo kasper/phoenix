@@ -67,24 +67,24 @@
 
     // Notification for mouse
     if (mouse) {
-        [self callWithArguments:@[ mouse, self ]];
+        [self callWithArguments:@[mouse, self]];
         return;
     }
 
     // Notification for app
     if (runningApp) {
         PHApp *app = [[PHApp alloc] initWithApp:runningApp];
-        [self callWithArguments:@[ app, self ]];
+        [self callWithArguments:@[app, self]];
         return;
     }
 
     // Notification for window
     if (window) {
-        [self callWithArguments:@[ window, self ]];
+        [self callWithArguments:@[window, self]];
         return;
     }
 
-    [self callWithArguments:@[ self ]];
+    [self callWithArguments:@[self]];
 }
 
 @end

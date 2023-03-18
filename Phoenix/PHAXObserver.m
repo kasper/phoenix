@@ -27,7 +27,7 @@ static void PHAXObserverCallback(__unused AXObserverRef observer,
 
         [[NSNotificationCenter defaultCenter] postNotificationName:(__bridge NSString *)notification
                                                             object:nil
-                                                          userInfo:@{PHAXObserverWindowKey : window}];
+                                                          userInfo:@{PHAXObserverWindowKey: window}];
     }
 }
 
