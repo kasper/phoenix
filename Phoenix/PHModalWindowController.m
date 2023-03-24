@@ -66,6 +66,7 @@ static NSString *const PHModalWindowControllerTextKeyPath = @"text";
 #pragma mark - Deallocing
 
 - (void)dealloc {
+    [super close];
     [self removeObserverForKeyPaths:[PHModalWindowController keyPaths]];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:PHContextWillLoadNotification object:nil];
 }

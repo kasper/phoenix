@@ -25,6 +25,7 @@ Release: dd.mm.yyyy
 
 - Fix issue that caused modals not to adjust to a custom weight if no font was provided ([#314](https://github.com/kasper/phoenix/issues/314)).
 - Fix issue that caused input modals not to have a fixed width ([#324](https://github.com/kasper/phoenix/issues/324)).
+- Fix issue that caused modals to stay on screen if they were released from memory ([#326](https://github.com/kasper/phoenix/issues/326)).
 
 ### API
 
