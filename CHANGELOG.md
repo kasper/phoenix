@@ -32,6 +32,10 @@ Release: dd.mm.yyyy
 - New: Event `mouseDidOtherClick` is triggered when the mouse did tertiary click ([#322](https://github.com/kasper/phoenix/issues/322)).
 - New: Event `mouseDidOtherDrag` is triggered when the mouse did tertiary drag ([#322](https://github.com/kasper/phoenix/issues/322)).
 
+#### Modal
+
+- Change: Function `show()` returns the modal ([#326](https://github.com/kasper/phoenix/issues/326)).
+
 #### Window
 
 - Change: Clarify function `screen()` can return `undefined` if a window is out of bounds of any screen ([#321](https://github.com/kasper/phoenix/issues/321)).

@@ -43,7 +43,7 @@ JSExportAs(setTextColor, -(void)setTextColorWithRed
 #pragma mark - Displaying
 
 - (NSRect)frame;
-- (void)show;
+- (instancetype)show;
 - (void)close;
 
 @end

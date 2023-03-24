@@ -278,9 +278,9 @@ static NSString *const PHModalWindowControllerTextKeyPath = @"text";
         completionHandler:completionHandler];
 }
 
-- (void)show {
+- (instancetype)show {
     if (![self isDisplayable]) {
-        return;
+        return self;
     }
 
     // Set vibrant appearance
@@ -310,6 +310,8 @@ static NSString *const PHModalWindowControllerTextKeyPath = @"text";
 
               [self performSelector:@selector(close) withObject:nil afterDelay:self.duration];
           }];
+
+    return self;
 }
 
 - (void)close {

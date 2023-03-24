@@ -36,6 +36,7 @@ class Modal implements Identifiable
   void setTextColour(double red, double green, double blue, double alpha) // or setTextColor(...)
   Rectangle frame()
   void show()
+  Modal show() // 4.0.0+
   void close()
 
 end
@@ -71,7 +72,7 @@ end
 ## Instance Methods
 
 - `frame()` returns the frame for the modal, the frame is adjusted for the current content, therefore you must first set the weight, icon and text to get an accurate frame, an input modal has a fixed width of 600, bottom left based origin
-- `show()` shows the modal, you must set at least an icon or text for the modal to be displayed
+- `show()` shows the modal, you must set at least an icon or text for the modal to be displayed, in 4.0.0+ returns the modal, in prior versions returns nothing
 - `close()` closes the modal
 
 ### 3.0.0+
