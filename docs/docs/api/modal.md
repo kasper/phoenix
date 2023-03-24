@@ -71,8 +71,8 @@ end
 
 ## Instance Methods
 
-- `frame()` returns the frame for the modal, the frame is adjusted for the current content, therefore you must first set the weight, icon and text to get an accurate frame, an input modal has a fixed width of 600, bottom left based origin
-- `show()` shows the modal, you must set at least an icon or text for the modal to be displayed, in 4.0.0+ returns the modal, in prior versions returns nothing
+- `frame()` returns the frame for the modal, the frame is adjusted for the current content, therefore you must first set the weight, icon, text and/or set it as an input to get an accurate frame, an input modal has a fixed width of 600, bottom left based origin
+- `show()` shows the modal, you must set at least an icon, text and/or set it as an input for the modal to be displayed, in 4.0.0+ returns the modal, in prior versions returns nothing
 - `close()` closes the modal
 
 ### 3.0.0+
