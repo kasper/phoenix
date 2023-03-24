@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### New
+
+- Add support for tertiary mouse events ([#322](https://github.com/kasper/phoenix/issues/322)).
+
 ### Changes
 
 - **Breaking:** Phoenix now requires macOS Mojave (10.14) or higher (required by Xcode 14).
