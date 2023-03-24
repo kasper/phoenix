@@ -19,6 +19,7 @@ Release: dd.mm.yyyy
 ### Improvements
 
 - Documentation improvements and clarifications. Add support for searching API documentation.
+- Clarify in documentation you must keep a reference to a modal in order for it to stay active ([#326](https://github.com/kasper/phoenix/issues/326)).
 
 ### Bug Fixes
 

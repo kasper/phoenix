@@ -44,7 +44,7 @@ end
 
 ## Static Methods
 
-- `build(Map<String, AnyObject> properties)` builds a modal with the specified properties and returns it, `origin` should be a function that receives the frame for the modal as the only argument and returns a `Point` object which will be set as the origin for the modal
+- `build(Map<String, AnyObject> properties)` builds a modal with the specified properties and returns it, `origin` should be a function that receives the frame for the modal as the only argument and returns a `Point` object which will be set as the origin for the modal, you must keep a reference to the modal in order for it to stay active
 
 ## Instance Properties
 
@@ -67,7 +67,7 @@ end
 
 ## Constructor
 
-- `new Modal()` constructs and returns a new modal
+- `new Modal()` constructs and returns a new modal, you must keep a reference to the modal in order for it to stay active
 
 ## Instance Methods
 
@@ -83,7 +83,7 @@ end
 
 ```javascript
 // Build and show a modal for half a second
-Modal.build({
+const modal = Modal.build({
   duration: 0.5,
   weight: 48,
   appearance: 'dark',
