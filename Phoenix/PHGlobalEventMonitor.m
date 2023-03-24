@@ -51,8 +51,10 @@
             @(NSEventMaskMouseMoved),
             @(NSEventMaskLeftMouseUp),
             @(NSEventMaskRightMouseUp),
+            @(NSEventMaskOtherMouseUp),
             @(NSEventMaskLeftMouseDragged),
-            @(NSEventMaskRightMouseDragged)
+            @(NSEventMaskRightMouseDragged),
+            @(NSEventMaskOtherMouseDragged)
         ];
     });
 
@@ -70,8 +72,10 @@
             @(NSEventTypeMouseMoved): PHMouseDidMoveNotification,
             @(NSEventTypeLeftMouseUp): PHMouseDidLeftClickNotification,
             @(NSEventTypeRightMouseUp): PHMouseDidRightClickNotification,
+            @(NSEventTypeOtherMouseUp): PHMouseDidOtherClickNotification,
             @(NSEventTypeLeftMouseDragged): PHMouseDidLeftDragNotification,
-            @(NSEventTypeRightMouseDragged): PHMouseDidRightDragNotification
+            @(NSEventTypeRightMouseDragged): PHMouseDidRightDragNotification,
+            @(NSEventTypeOtherMouseDragged): PHMouseDidOtherDragNotification
         };
     });
 

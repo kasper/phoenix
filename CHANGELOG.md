@@ -22,6 +22,11 @@ Release: dd.mm.yyyy
 
 ### API
 
+#### Events
+
+- New: Event `mouseDidOtherClick` is triggered when the mouse did tertiary click ([#322](https://github.com/kasper/phoenix/issues/322)).
+- New: Event `mouseDidOtherDrag` is triggered when the mouse did tertiary drag ([#322](https://github.com/kasper/phoenix/issues/322)).
+
 #### Window
 
 - Change: Clarify function `screen()` can return `undefined` if a window is out of bounds of any screen ([#321](https://github.com/kasper/phoenix/issues/321)).

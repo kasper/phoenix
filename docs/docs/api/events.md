@@ -32,6 +32,11 @@ All of the following mouse events receive the corresponding `Point` object as th
 - `mouseDidLeftDrag` triggered when the mouse did left drag
 - `mouseDidRightDrag` triggered when the mouse did right drag
 
+### 4.0.0+
+
+- `mouseDidOtherClick` triggered when the mouse did tertiary click
+- `mouseDidOtherDrag` triggered when the mouse did tertiary drag
+
 ## App
 
 All of the following app events receive the corresponding `App` instance as the first argument for the callback function.

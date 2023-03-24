@@ -77,8 +77,10 @@
             @"mouseDidMove": PHMouseDidMoveNotification,
             @"mouseDidLeftClick": PHMouseDidLeftClickNotification,
             @"mouseDidRightClick": PHMouseDidRightClickNotification,
+            @"mouseDidOtherClick": PHMouseDidOtherClickNotification,
             @"mouseDidLeftDrag": PHMouseDidLeftDragNotification,
             @"mouseDidRightDrag": PHMouseDidRightDragNotification,
+            @"mouseDidOtherDrag": PHMouseDidOtherDragNotification,
 
             /* App Notifications */
 
