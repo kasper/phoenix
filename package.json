@@ -22,6 +22,8 @@
   },
   "xo": {
     "extends": "eslint-config-airbnb-base/legacy",
+    "prettier": true,
+    "space": true,
     "globals": [
       "_",
       "Event",
@@ -34,8 +36,6 @@
       "Timer",
       "Window"
     ],
-    "prettier": true,
-    "space": true,
     "rules": {
       "no-param-reassign": "off",
       "prefer-arrow-callback": "off",
