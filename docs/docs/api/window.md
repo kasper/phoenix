@@ -62,7 +62,7 @@ end
 - `isMinimised()` or `isMinimized()` returns `true` if the window is minimised
 - `isVisible()` returns `true` if the window is a normal and unminimised window that belongs to an unhidden app
 - `app()` returns the app for the window
-- `screen()` returns the screen where most or all of the window is currently present
+- `screen()` returns the screen where most or all of the window is currently present, can be `undefined` if a window is out of bounds of any screen
 - `spaces()` returns the spaces where the window is currently present (macOS 10.11+, returns an empty list otherwise)
 - `topLeft()` returns the top left point for the window
 - `size()` returns the size for the window

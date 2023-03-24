@@ -20,6 +20,12 @@ Release: dd.mm.yyyy
 
 - Fix issue that caused modals not to adjust to a custom weight if no font was provided ([#314](https://github.com/kasper/phoenix/issues/314)).
 
+### API
+
+#### Window
+
+- Change: Clarify function `screen()` can return `undefined` if a window is out of bounds of any screen ([#321](https://github.com/kasper/phoenix/issues/321)).
+
 3.0.0
 -----
 
