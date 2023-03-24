@@ -19,6 +19,7 @@ Release: dd.mm.yyyy
 ### Bug Fixes
 
 - Fix issue that caused modals not to adjust to a custom weight if no font was provided ([#314](https://github.com/kasper/phoenix/issues/314)).
+- Fix issue that caused input modals not to have a fixed width ([#324](https://github.com/kasper/phoenix/issues/324)).
 
 ### API
 

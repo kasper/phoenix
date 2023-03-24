@@ -299,6 +299,7 @@ static NSString *const PHModalWindowControllerTextKeyPath = @"text";
         [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
     }
 
+    [self layout];
     [self showWindow:self];
     [self fadeWindowToAlpha:1.0
           completionHandler:^{
