@@ -106,6 +106,28 @@ static NSString *const PHModalWindowControllerTextKeyPath = @"text";
     }
 }
 
+- (void)controlTextDidEndEditing:(NSNotification *)notification {
+    static NSDictionary<NSNumber *, NSString *> *actions;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        actions =
+            @{@(NSTextMovementReturn): @"return",
+              @(NSTextMovementTab): @"tab",
+              @(NSTextMovementBacktab): @"backtab"};
+    });
+
+    JSValue *callback = self.textDidCommit;
+    NSString *value = self.text ? self.text : @"";
+    NSNumber *textMovement = notification.userInfo[NSTextMovementUserInfoKey];
+    NSString *action = actions[textMovement];
+
+    if (!callback.isUndefined) {
+        NSArray *arguments = action ? @[value, action] : @[value];
+        [callback callWithArguments:arguments];
+    }
+}
+
 #pragma mark - Appearance
 
 - (NSTextAlignment)alignment {

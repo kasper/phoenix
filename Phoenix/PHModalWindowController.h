@@ -24,6 +24,7 @@
 @property BOOL isInput;
 @property(copy) NSString *inputPlaceholder;
 @property JSValue *textDidChange;
+@property JSValue *textDidCommit;
 
 // TODO: Deprecated and will be removed in later versions, use “text” instead
 @property(copy) NSString *message;
@@ -68,6 +69,7 @@ JSExportAs(setTextColor, -(void)setTextColorWithRed
 @property BOOL isInput;
 @property(copy) NSString *inputPlaceholder;
 @property JSValue *textDidChange;
+@property JSValue *textDidCommit;
 
 // TODO: Deprecated and will be removed in later versions, use “text” instead
 @property(copy) NSString *message;

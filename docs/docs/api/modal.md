@@ -31,6 +31,7 @@ class Modal implements Identifiable
   property boolean isInput
   property String inputPlaceholder
   property Function textDidChange
+  property Function textDidCommit
 
   constructor Modal Modal()
   void setTextColour(double red, double green, double blue, double alpha) // or setTextColor(...)
@@ -65,6 +66,10 @@ end
 - `isInput` property for whether the modal behaves as an input modal, by default `false`
 - `inputPlaceholder` property for the placeholder string that will be displayed when the input is empty, by default empty
 - `textDidChange` callback function to call when the input modal’s text field value changes, receives the value as the first argument for the callback
+
+### 4.0.0+
+
+- `textDidCommit` callback function to call when the input modal’s text field is committed, receives the value as the first argument and the action (`return|tab|backtab|undefined`) as the second argument for the callback
 
 ## Constructor
 
@@ -107,6 +112,9 @@ modal.origin = {
 };
 modal.textDidChange = (value) => {
   console.log('Text did change:', value);
+};
+modal.textDidCommit = (value, action) => {
+  console.log('Text did commit:', value, action);
 };
 modal.show();
 ```
