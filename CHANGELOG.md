@@ -8,6 +8,7 @@ Release: dd.mm.yyyy
 
 ### New
 
+- Improve modals by adding the ability to react to text commits, modal resizes and allowing to focus modals easily ([#304](https://github.com/kasper/phoenix/issues/304))! 🤖 Fix various bugs related to modals.
 - Add support for tertiary mouse events ([#322](https://github.com/kasper/phoenix/issues/322)).
 
 ### Changes
