@@ -95,6 +95,16 @@ static NSString *const PHModalWindowControllerTextKeyPath = @"text";
     return @"ModalWindow";
 }
 
+#pragma mark - NSWindowDelegate
+
+- (void)windowDidResize:(NSNotification *)__unused notification {
+    JSValue *callback = self.didResize;
+
+    if (!callback.isUndefined) {
+        [callback callWithArguments:@[]];
+    }
+}
+
 #pragma mark - NSControlTextEditingDelegate
 
 - (void)controlTextDidChange:(NSNotification *)__unused notification {

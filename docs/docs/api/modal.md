@@ -30,6 +30,7 @@ class Modal implements Identifiable
   property String font
   property boolean isInput
   property String inputPlaceholder
+  property Function didResize
   property Function textDidChange
   property Function textDidCommit
 
@@ -46,7 +47,7 @@ end
 
 ## Static Methods
 
-- `build(Map<String, AnyObject> properties)` builds a modal with the specified properties and returns it, `origin` should be a function that receives the frame for the modal as the only argument and returns a `Point` object which will be set as the origin for the modal, you must keep a reference to the modal in order for it to stay active
+- `build(Map<String, AnyObject> properties)` builds a modal with the specified properties and returns it, `origin` should be a function that receives the frame for the modal as the only argument and returns a `Point` object which will be set as the origin for the modal, in 4.0.0+ for convenience the `origin` function will also be bound to `didResize` so the modal will reposition automatically on resize, you must keep a reference to the modal in order for it to stay active
 
 ## Instance Properties
 
@@ -69,6 +70,7 @@ end
 
 ### 4.0.0+
 
+- `didResize` callback function to call when the modal resizes
 - `textDidCommit` callback function to call when the input modal’s text field is committed, receives the value as the first argument and the action (`return|tab|backtab|undefined`) as the second argument for the callback
 
 ## Constructor
@@ -99,6 +101,16 @@ const modal = Modal.build({
   appearance: 'dark',
   icon: App.get('Phoenix').icon(),
   text: 'Hello World!',
+}).show();
+
+// Build and show a modal in the middle of the main screen
+const screenFrame = Screen.main().flippedVisibleFrame();
+const modal = Modal.build({
+  text: 'Hello World!',
+  origin: (frame) => ({
+    x: screenFrame.width / 2 - frame.width / 2,
+    y: screenFrame.height / 2 - frame.height / 2,
+  }),
 }).show();
 
 // Show an input modal in the middle of the main screen

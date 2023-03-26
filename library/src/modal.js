@@ -13,6 +13,9 @@ Modal.build = function (properties) {
     });
   if (_(properties.origin).isFunction()) {
     modal.origin = properties.origin(modal.frame());
+    modal.didResize = function () {
+      modal.origin = properties.origin(modal.frame());
+    };
   }
   return modal;
 };

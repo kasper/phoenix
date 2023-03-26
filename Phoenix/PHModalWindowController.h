@@ -23,6 +23,7 @@
 @property(copy) NSString *font;
 @property BOOL isInput;
 @property(copy) NSString *inputPlaceholder;
+@property JSValue *didResize;
 @property JSValue *textDidChange;
 @property JSValue *textDidCommit;
 
@@ -50,7 +51,7 @@ JSExportAs(setTextColor, -(void)setTextColorWithRed
 
 @end
 
-@interface PHModalWindowController : NSWindowController <PHModalWindowControllerJSExport>
+@interface PHModalWindowController : NSWindowController <NSWindowDelegate, PHModalWindowControllerJSExport>
 
 + (instancetype)new NS_UNAVAILABLE;
 
@@ -68,6 +69,7 @@ JSExportAs(setTextColor, -(void)setTextColorWithRed
 @property(copy) NSString *font;
 @property BOOL isInput;
 @property(copy) NSString *inputPlaceholder;
+@property JSValue *didResize;
 @property JSValue *textDidChange;
 @property JSValue *textDidCommit;
 
