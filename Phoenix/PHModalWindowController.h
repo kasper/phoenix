@@ -44,6 +44,7 @@ JSExportAs(setTextColor, -(void)setTextColorWithRed
 
 - (NSRect)frame;
 - (instancetype)show;
+- (void)focus;
 - (void)close;
 
 @end

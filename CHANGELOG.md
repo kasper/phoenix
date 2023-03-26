@@ -36,6 +36,7 @@ Release: dd.mm.yyyy
 
 #### Modal
 
+- New: Function `focus()` focuses the modal and makes it the key window to receive events ([#304](https://github.com/kasper/phoenix/issues/304)).
 - Change: Function `show()` returns the modal ([#326](https://github.com/kasper/phoenix/issues/326)).
 
 #### Window

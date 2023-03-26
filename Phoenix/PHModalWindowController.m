@@ -315,6 +315,11 @@ static NSString *const PHModalWindowControllerTextKeyPath = @"text";
     return self;
 }
 
+- (void)focus {
+    [self.window makeKeyWindow];
+    [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
+}
+
 - (void)close {
     [self fadeWindowToAlpha:0.0
           completionHandler:^{

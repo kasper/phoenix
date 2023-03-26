@@ -37,6 +37,7 @@ class Modal implements Identifiable
   Rectangle frame()
   void show()
   Modal show() // 4.0.0+
+  void focus()
   void close()
 
 end
@@ -78,6 +79,10 @@ end
 ### 3.0.0+
 
 - `setTextColour(double red, double green, double blue, double alpha)` or `setTextColor(...)` sets a custom text colour with the given RGBA values, for example `setTextColor(34, 139, 34, 1)`
+
+### 4.0.0+
+
+- `focus()` focuses the modal and makes it the key window to receive events
 
 ## Example
 
