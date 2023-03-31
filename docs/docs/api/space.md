@@ -1,6 +1,10 @@
 # Space
 
-Use the Space to control spaces. *These features are only supported on El Capitan (10.11) and upwards.* A single window can be in multiple spaces at the same time. To move a window to a different space, remove it from any existing spaces and add it to a new one. You can switch to a space by focusing on a window in that space. Beware that a space can get stale if you keep a reference to it and it is for instance closed while you do so.
+Use the Space to control spaces. *These features are only supported on El Capitan (10.11) and upwards.* A single window can be in multiple spaces at the same time. To move a window to a different space, remove it from any existing spaces and add it to a new one. In 3.0.0+, you can use the `moveWindows(...)` function. Beware that a space can get stale if you keep a reference to it and it is for instance closed while you do so.
+
+:::tip Switching to a Space
+You can switch to a space by focusing on a window in that space.
+:::
 
 ## Interface
 
