@@ -56,8 +56,8 @@ end
 - `animationDuration` property for the animation duration (in seconds) for showing and closing the modal, if the duration is set to `0` the animation will be disabled, by default `0.2`
 - `weight` dynamic property for the weight of the modal (in points), by default `24`
 - `appearance` property for the appearance of the modal (`dark|light|transparent`), by default `dark`
-- `icon` dynamic property for the icon displayed in the modal
-- `text` dynamic property for the text displayed in the modal
+- `icon` dynamic property for the icon displayed in the modal, by default `undefined`, set to `null` to remove icon
+- `text` dynamic property for the text displayed in the modal, by default empty
 
 ### 3.0.0+
 
