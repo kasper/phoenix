@@ -19,10 +19,10 @@ A lightweight macOS window and app manager scriptable with JavaScript. You can a
 
 ## Example Configuration
 
-Below you will find a basic configuration example. Copy and paste it to `~/.phoenix.js`. When you press the key combination <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd> on your keyboard, the focused window will be moved to the centre of your main screen. Happy hacking! 👩🏼‍💻
+Below you will find a basic configuration example. Copy and paste it to `~/.phoenix.js`. When you press the key combination <kbd>Control</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd> on your keyboard, the focused window will be moved to the centre of your main screen. Happy hacking! 👩🏼‍💻
 
 ```javascript
-Key.on('z', ['ctrl', 'shift'], () => {
+Key.on('z', ['control', 'shift'], () => {
   const screen = Screen.main().flippedVisibleFrame();
   const window = Window.focused();
 
