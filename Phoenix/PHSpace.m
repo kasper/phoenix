@@ -16,21 +16,13 @@ typedef NSUInteger CGSConnectionID;
 typedef NSUInteger CGSSpaceID;
 
 typedef enum {
-
     kCGSSpaceIncludesCurrent = 1 << 0,
     kCGSSpaceIncludesOthers = 1 << 1,
     kCGSSpaceIncludesUser = 1 << 2,
-
     kCGSAllSpacesMask = kCGSSpaceIncludesCurrent | kCGSSpaceIncludesOthers | kCGSSpaceIncludesUser
-
 } CGSSpaceMask;
 
-typedef enum {
-
-    kCGSSpaceUser,
-    kCGSSpaceFullScreen = 4
-
-} CGSSpaceType;
+typedef enum { kCGSSpaceUser, kCGSSpaceFullScreen = 4 } CGSSpaceType;
 
 @interface PHSpace ()
 
