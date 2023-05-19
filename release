@@ -141,8 +141,8 @@ echo "Uploaded. Request is “"$notarisation_request_uuid"”."
 while :
 do
   xcrun altool --notarization-info $notarisation_request_uuid \
-               -u $username \
-               -p '@keychain:AC_PASSWORD' \
+               --username $username \
+               --password '@keychain:AC_PASSWORD' \
                --output-format xml \
                > $notarisation_info_plist
 
