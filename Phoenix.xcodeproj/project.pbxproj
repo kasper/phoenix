@@ -559,8 +559,9 @@
 		A79C464F1B5BF31100C460CF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				CLASSPREFIX = PH;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = Phoenix;
 				TargetAttributes = {
 					A79C46561B5BF31100C460CF = {
