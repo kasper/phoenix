@@ -7,8 +7,8 @@
     "npm": ">=9.6.7"
   },
   "dependencies": {
-    "@docusaurus/core": "2.3.1",
-    "@docusaurus/preset-classic": "2.3.1",
+    "@docusaurus/core": "2.4.1",
+    "@docusaurus/preset-classic": "2.4.1",
     "@mdx-js/react": "1.6.22",
     "docusaurus-lunr-search": "2.3.2",
     "eslint-config-airbnb-base": "15.0.0",
