@@ -10,6 +10,37 @@
     <description>Feed for Phoenix updates.</description>
     <language>en</language>
 
+    <!-- 4.0.0 -->
+
+    <item>
+      <title>Version 4.0.0</title>
+      <sparkle:version>134</sparkle:version>
+      <sparkle:shortVersionString>4.0.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>10.14.0</sparkle:minimumSystemVersion>
+      <pubDate>Fri, 19 May 2023 14:35:59 +0300</pubDate>
+      <description><![CDATA[
+
+        <p>I’m excited to release the next major version of Phoenix! ☀️ This release focuses on improvements on modals as well as general improvements and bug fixes. Thanks for using Phoenix, it’s a great feeling building something that many of you love and use daily as part of your setups! Keep the feedback coming! ❤️</p>
+
+        <h3>What is New?</h3>
+
+        <ul>
+          <li>Improved modals by adding the ability to react to text commits, modal resizes and allowing to focus modals easily! 🤖 Fixed various bugs related to modals.</li>
+          <li>Support for tertiary mouse events</li>
+          <li>Documentation improvements and clarifications. Added support for easily searching the API documentation.</li>
+          <li><b>Breaking:</b> Phoenix now requires macOS Mojave (10.14) or higher</li>
+        </ul>
+
+        <p>See the full <a href='https://github.com/kasper/phoenix/blob/4.0.0/CHANGELOG.md'>Changelog</a>.</p>
+
+      ]]>
+      </description>
+      <enclosure sparkle:edSignature='mCW8N+DF5My0lmEb9ORpyqSSQQqHuBMk3dImrE7o5mGoiF7Ht1dVco+OgCManAoG4vU/1DOXRlHkp9h/Sh32AQ=='
+                 type='application/octet-stream'
+                 length='3992909'
+                 url='https://github.com/kasper/phoenix/releases/download/4.0.0/phoenix-4.0.0.tar.gz' />
+    </item>
+
     <!-- 3.0.0 -->
 
     <item>
