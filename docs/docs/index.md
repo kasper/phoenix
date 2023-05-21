@@ -44,7 +44,7 @@ Phoenix lives on your status bar (or as a background daemon). Here, Phoenix is b
 - [**Download Phoenix**](https://github.com/kasper/phoenix/releases/download/4.0.0/phoenix-4.0.0.tar.gz)
 - See previous [releases](https://github.com/kasper/phoenix/releases/)
 
-To install, extract the downloaded archive and just drag-and-drop Phoenix to your `Applications` folder. When you run Phoenix for the first time, you will be asked to allow it to control your UI. macOS will ask you to open `Security & Privacy` in System Preferences. Once open, go to the `Accessibility` section and click the checkbox next to Phoenix to enable control. An admin account is required to accomplish this.
+To install, extract the downloaded archive and just drag-and-drop Phoenix to your `Applications` folder. When you run Phoenix for the first time, you will be asked to allow it to control your UI. macOS will ask you to open `Privacy & Security` in System Settings. Once open, go to the `Accessibility` section and enable with the toggle next to Phoenix. An admin account is required to accomplish this.
 
 Alternatively, if you have [Homebrew](https://brew.sh) installed, you can simply run `brew install --cask phoenix`.
 
