@@ -56,6 +56,18 @@ Application preferences are stored in `~/Library/Preferences/org.khirviko.Phoeni
 
 If you have used the storage, also delete the file `~/Library/Application Support/Phoenix/storage.json`.
 
+For uninstalling additional support files, see the following folders.
+
+:::info Support Files
+```
+~/Library/Application Scripts/org.khirviko.Phoenix.Launcher
+~/Library/Caches/org.khirviko.Phoenix
+~/Library/Containers/org.khirviko.Phoenix.Launcher
+~/Library/HTTPStorages/org.khirviko.Phoenix
+~/Library/WebKit/org.khirviko.Phoenix
+```
+:::
+
 ## JavaScript API
 
 This documentation is an overview of the JavaScript API provided by Phoenix. Currently, the supported version of JavaScript is based on the ECMAScript 6 standard. macOS versions prior to Sierra (10.12) support ECMAScript 5.1. Use this as a guide for writing your window management script.

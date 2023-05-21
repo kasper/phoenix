@@ -37,6 +37,23 @@ Application preferences are stored in `~/Library/Preferences/org.khirviko.Phoeni
 
 If you have used the storage, also delete the file `~/Library/Application Support/Phoenix/storage.json`. Again for developers, you may also need to delete `~/Library/Application Support/Phoenix/storage.debug.json`.
 
+For uninstalling additional support files, see the following folders:
+
+```
+~/Library/Application Scripts/org.khirviko.Phoenix.Launcher
+~/Library/Caches/org.khirviko.Phoenix
+~/Library/Containers/org.khirviko.Phoenix.Launcher
+~/Library/HTTPStorages/org.khirviko.Phoenix
+~/Library/WebKit/org.khirviko.Phoenix
+
+# For developers
+~/Library/Application Scripts/org.khirviko.Phoenix.Launcher.debug
+~/Library/Caches/org.khirviko.Phoenix.debug
+~/Library/Containers/org.khirviko.Phoenix.Launcher.debug
+~/Library/HTTPStorages/org.khirviko.Phoenix.debug
+~/Library/WebKit/org.khirviko.Phoenix.debug
+```
+
 ## Usage
 
 Phoenix lives on your status bar (or as a background daemon) and can be scripted in JavaScript (or languages which compile to JavaScript such as TypeScript).
