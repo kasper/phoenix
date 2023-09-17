@@ -1,7 +1,7 @@
 Phoenix
 =======
 
-![Build Status](https://github.com/kasper/phoenix/workflows/CI/badge.svg)
+![Build Status](https://github.com/kasper/phoenix/actions/workflows/build.yml/badge.svg)
 
 <img width='128' height='128' align='right' src='Phoenix/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png' alt='Phoenix'>
 
