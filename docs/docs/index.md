@@ -78,4 +78,4 @@ Phoenix includes [Lodash](https://lodash.com) (4.17.15) — you can use its feat
 
 ## Contact
 
-If you have any questions, feedback or just want to say hi, you can [open an issue](https://github.com/kasper/phoenix/issues/), [start a discussion](https://github.com/kasper/phoenix/discussions/), [email](mailto:kasper@kytkemo.com) or [tweet](https://twitter.com/kasper/).
+If you have any questions, feedback or just want to say hi, you can [open an issue](https://github.com/kasper/phoenix/issues/), [start a discussion](https://github.com/kasper/phoenix/discussions/), [email](mailto:kasper@kytkemo.com) or message on [Threads](https://threads.net/@kasperhirvikoski/).
