@@ -57,7 +57,7 @@ See [Events](events#space) for a list of available events for Space.
 // Move focused window to the next space and focus to the space (macOS 12.0+)
 const space = Space.active();
 const window = Window.focused();
-space.moveWindows([window]);
+space.next().moveWindows([window]);
 window.focus();
 
 // Move focused window to the next space and focus to the space (< macOS 12.0)
