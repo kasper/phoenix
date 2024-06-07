@@ -72,7 +72,7 @@ void CGSMoveWindowsToManagedSpace(CGSConnectionID connection, CFArrayRef windowI
 // XXX: Undocumented private API to set a space’s (legacy) compatId
 CGError CGSSpaceSetCompatID(CGSConnectionID connection, CGSSpaceID spaceId, CGSMoveWindowCompatID compatID);
 
-// XXX: Undocumented private API to move the given windows (CGWindowIDs) to the given space by (legacy) compatId
+// XXX: Undocumented private API to move the given windows (CGWindowIDs) to the given space by its (legacy) compatId
 CGError CGSSetWindowListWorkspace(CGSConnectionID connection,
                                   CGWindowID *windowIds,
                                   NSUInteger windowCount,
