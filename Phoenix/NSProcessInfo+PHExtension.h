@@ -10,6 +10,6 @@
 
 + (BOOL)isOperatingSystemAtLeastBigSur;
 + (BOOL)isOperatingSystemAtLeastMonterey;
-+ (BOOL)canMoveWindowsToManagedSpace;
++ (BOOL)isOperatingSystemAtLeastSonoma145;
 
 @end

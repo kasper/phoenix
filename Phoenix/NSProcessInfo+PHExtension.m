@@ -18,9 +18,9 @@
     return [[self processInfo] isOperatingSystemAtLeastVersion:monterey];
 }
 
-+ (BOOL)canMoveWindowsToManagedSpace {
++ (BOOL)isOperatingSystemAtLeastSonoma145 {
     NSOperatingSystemVersion sonoma145 = {.majorVersion = 14, .minorVersion = 5, .patchVersion = 0};
-    return ![[self processInfo] isOperatingSystemAtLeastVersion:sonoma145];
+    return [[self processInfo] isOperatingSystemAtLeastVersion:sonoma145];
 }
 
 @end
