@@ -70,7 +70,7 @@ void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds
 void CGSMoveWindowsToManagedSpace(CGSConnectionID connection, CFArrayRef windowIds, CGSSpaceID spaceId);
 
 // XXX: Undocumented private API to set a space’s (legacy) compatId
-CGError CGSSpaceSetCompatID(CGSConnectionID connection, CGSSpaceID spaceId, CGSMoveWindowCompatID compatID);
+CGError CGSSpaceSetCompatID(CGSConnectionID connection, CGSSpaceID spaceId, CGSMoveWindowCompatID compatId);
 
 // XXX: Undocumented private API to move the given windows (CGWindowIDs) to the given space by its (legacy) compatId
 CGError CGSSetWindowListWorkspace(CGSConnectionID connection,
@@ -237,17 +237,6 @@ CGError CGSSetWindowListWorkspace(CGSConnectionID connection,
                                (__bridge CFArrayRef) @[@(self.identifier)]);
 }
 
-- (void)moveWindows:(NSArray<PHWindow *> *)windows {
-    if (![NSProcessInfo isOperatingSystemAtLeastSonoma145]) {
-        CGSMoveWindowsToManagedSpace(
-            CGSMainConnectionID(), (__bridge CFArrayRef)[self identifiersForWindows:windows], self.identifier);
-        return;
-    }
-
-    // CGSMoveWindowsToManagedSpace is broken in MacOS 14.5, so use the legacy Compat ID API instead.
-    [self moveWindowsWithCompatId:windows];
-}
-
 /**
  * - https://github.com/kasper/phoenix/issues/348
  * - https://github.com/koekeishiya/yabai/issues/2240#issuecomment-2116326165
@@ -266,6 +255,17 @@ CGError CGSSetWindowListWorkspace(CGSConnectionID connection,
     CGSSpaceSetCompatID(connection, self.identifier, MoveWindowsCompatId);
     CGSSetWindowListWorkspace(connection, (CGWindowID *)[windowIdSequence bytes], windowCount, MoveWindowsCompatId);
     CGSSpaceSetCompatID(connection, self.identifier, 0x0);
+}
+
+- (void)moveWindows:(NSArray<PHWindow *> *)windows {
+    if (![NSProcessInfo isOperatingSystemAtLeastSonoma145]) {
+        CGSMoveWindowsToManagedSpace(
+            CGSMainConnectionID(), (__bridge CFArrayRef)[self identifiersForWindows:windows], self.identifier);
+        return;
+    }
+
+    // CGSMoveWindowsToManagedSpace is broken in MacOS 14.5, so use the legacy Compat ID API instead.
+    [self moveWindowsWithCompatId:windows];
 }
 
 @end
