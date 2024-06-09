@@ -246,8 +246,8 @@ CGError CGSSetWindowListWorkspace(CGSConnectionID connection,
     NSArray<NSNumber *> *windowIds = [self identifiersForWindows:windows];
     NSUInteger windowCount = [windowIds count];
     NSMutableData *windowIdSequence = [[NSMutableData alloc] initWithCapacity:windowCount * sizeof(CGWindowID)];
-    for (NSNumber *item in windowIds) {
-        CGWindowID value = item.unsignedIntValue;
+    for (NSNumber *windowId in windowIds) {
+        CGWindowID value = windowId.unsignedIntValue;
         [windowIdSequence appendBytes:&value length:sizeof(CGWindowID)];
     }
 
