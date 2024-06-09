@@ -14,6 +14,8 @@
 
 typedef NSUInteger CGSConnectionID;
 typedef NSUInteger CGSSpaceID;
+typedef NSUInteger CGSWorkspaceID;
+typedef NSUInteger CGSMoveWindowCompatID;
 
 typedef enum {
     kCGSSpaceIncludesCurrent = 1 << 0,
@@ -35,6 +37,9 @@ typedef enum { kCGSSpaceUser, kCGSSpaceFullScreen = 4 } CGSSpaceType;
 static NSString *const CGSScreenIDKey = @"Display Identifier";
 static NSString *const CGSSpaceIDKey = @"ManagedSpaceID";
 static NSString *const CGSSpacesKey = @"Spaces";
+
+// An arbitrary ID we can use with CGSSpaceSetCompatID
+static const CGSMoveWindowCompatID PHMoveWindowsCompatId = 0x79616265;
 
 // XXX: Undocumented private API to get the CGSConnectionID for the default connection for this process
 CGSConnectionID CGSMainConnectionID(void);
@@ -60,8 +65,18 @@ void CGSAddWindowsToSpaces(CGSConnectionID connection, CFArrayRef windowIds, CFA
 // XXX: Undocumented private API to remove the given windows (CGWindowIDs) from the given spaces (CGSSpaceIDs)
 void CGSRemoveWindowsFromSpaces(CGSConnectionID connection, CFArrayRef windowIds, CFArrayRef spaceIds);
 
-// XXX: Undocumented private API to move the given windows (CGWindowIDs) to the given space
+// XXX: Undocumented private API to move the given windows (CGWindowIDs) to the given space,
+// only works prior to macOS 14.5
 void CGSMoveWindowsToManagedSpace(CGSConnectionID connection, CFArrayRef windowIds, CGSSpaceID spaceId);
+
+// XXX: Undocumented private API to set a space’s (legacy) compatId
+CGError CGSSpaceSetCompatID(CGSConnectionID connection, CGSSpaceID spaceId, CGSMoveWindowCompatID compatId);
+
+// XXX: Undocumented private API to move the given windows (CGWindowIDs) to the given space by its (legacy) compatId
+CGError CGSSetWindowListWorkspace(CGSConnectionID connection,
+                                  CGWindowID windowIds[],
+                                  NSUInteger windowCount,
+                                  CGSMoveWindowCompatID compatId);
 
 #pragma mark - Initialising
 
@@ -222,9 +237,35 @@ void CGSMoveWindowsToManagedSpace(CGSConnectionID connection, CFArrayRef windowI
                                (__bridge CFArrayRef) @[@(self.identifier)]);
 }
 
+/**
+ * - https://github.com/kasper/phoenix/issues/348
+ * - https://github.com/koekeishiya/yabai/issues/2240#issuecomment-2116326165
+ * - https://github.com/ianyh/Amethyst/issues/1643#issuecomment-2132519682
+ */
+- (void)moveWindowsWithCompatId:(NSArray<PHWindow *> *)windows {
+    NSArray<NSNumber *> *windowIds = [self identifiersForWindows:windows];
+    NSUInteger windowCount = [windowIds count];
+    NSMutableData *windowIdSequence = [[NSMutableData alloc] initWithCapacity:windowCount * sizeof(CGWindowID)];
+    for (NSNumber *windowId in windowIds) {
+        CGWindowID value = windowId.unsignedIntValue;
+        [windowIdSequence appendBytes:&value length:sizeof(CGWindowID)];
+    }
+
+    CGSConnectionID connection = CGSMainConnectionID();
+    CGSSpaceSetCompatID(connection, self.identifier, PHMoveWindowsCompatId);
+    CGSSetWindowListWorkspace(connection, (CGWindowID *)[windowIdSequence bytes], windowCount, PHMoveWindowsCompatId);
+    CGSSpaceSetCompatID(connection, self.identifier, 0x0);
+}
+
 - (void)moveWindows:(NSArray<PHWindow *> *)windows {
-    CGSMoveWindowsToManagedSpace(
-        CGSMainConnectionID(), (__bridge CFArrayRef)[self identifiersForWindows:windows], self.identifier);
+    if (![NSProcessInfo isOperatingSystemAtLeastSonoma145]) {
+        CGSMoveWindowsToManagedSpace(
+            CGSMainConnectionID(), (__bridge CFArrayRef)[self identifiersForWindows:windows], self.identifier);
+        return;
+    }
+
+    // CGSMoveWindowsToManagedSpace is broken in macOS 14.5+, so use the legacy Compat ID API instead
+    [self moveWindowsWithCompatId:windows];
 }
 
 @end
