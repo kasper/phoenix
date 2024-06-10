@@ -39,7 +39,8 @@ static NSString *const CGSSpaceIDKey = @"ManagedSpaceID";
 static NSString *const CGSSpacesKey = @"Spaces";
 
 // An arbitrary ID we can use with CGSSpaceSetCompatID
-static const CGSMoveWindowCompatID PHMoveWindowsCompatId = 0x79616265;
+static const CGSMoveWindowCompatID PHMoveWindowsCompatId = 4000;
+static const CGSMoveWindowCompatID PHMoveWindowsResetCompatId = 0;
 
 // XXX: Undocumented private API to get the CGSConnectionID for the default connection for this process
 CGSConnectionID CGSMainConnectionID(void);
@@ -237,8 +238,7 @@ CGError CGSSetWindowListWorkspace(CGSConnectionID connection,
                                (__bridge CFArrayRef) @[@(self.identifier)]);
 }
 
-/**
- * - https://github.com/kasper/phoenix/issues/348
+/* Fixes https://github.com/kasper/phoenix/issues/348, referencing:
  * - https://github.com/koekeishiya/yabai/issues/2240#issuecomment-2116326165
  * - https://github.com/ianyh/Amethyst/issues/1643#issuecomment-2132519682
  */
@@ -254,7 +254,7 @@ CGError CGSSetWindowListWorkspace(CGSConnectionID connection,
     CGSConnectionID connection = CGSMainConnectionID();
     CGSSpaceSetCompatID(connection, self.identifier, PHMoveWindowsCompatId);
     CGSSetWindowListWorkspace(connection, (CGWindowID *)[windowIdSequence bytes], windowCount, PHMoveWindowsCompatId);
-    CGSSpaceSetCompatID(connection, self.identifier, 0x0);
+    CGSSpaceSetCompatID(connection, self.identifier, PHMoveWindowsResetCompatId);
 }
 
 - (void)moveWindows:(NSArray<PHWindow *> *)windows {

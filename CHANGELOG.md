@@ -13,7 +13,7 @@ Release: dd.mm.yyyy
 
 ### Bug Fixes
 
-- Fix `Space#moveWindows` on Sonoma 14.5 ([#348](https://github.com/kasper/phoenix/issues/348), [#349](https://github.com/kasper/phoenix/issues/349)).
+- Fix `Space#moveWindows` on macOS Sonoma (14.5) ([#348](https://github.com/kasper/phoenix/issues/348), [#349](https://github.com/kasper/phoenix/issues/349)).
 
 4.0.0
 -----
