@@ -479,9 +479,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A79C46741B5BF31200C460CF /* Build configuration list for PBXNativeTarget "Phoenix" */;
 			buildPhases = (
+				A32B0CB41F9B8F1C428EE663 /* [CP] Check Pods Manifest.lock */,
 				A7142FFE29C4A9CB00EF5F54 /* Lint Files */,
 				A7A6F57F1D1AD4CD000A0E5E /* Build Library */,
-				A32B0CB41F9B8F1C428EE663 /* [CP] Check Pods Manifest.lock */,
 				A79C46531B5BF31100C460CF /* Sources */,
 				A79C46541B5BF31100C460CF /* Frameworks */,
 				A79C46551B5BF31100C460CF /* Resources */,

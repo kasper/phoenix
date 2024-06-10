@@ -8,6 +8,7 @@ Release: dd.mm.yyyy
 
 ### Changes
 
+- Upgrade Sparkle to 2.6.3.
 - Xcode 15 is now required for building.
 
 ### Bug Fixes
