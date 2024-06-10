@@ -12,7 +12,6 @@ app='Phoenix'
 sign_update="$PWD/Pods/Sparkle/bin/sign_update"
 
 # Unset arguments
-unset username
 unset code_sign_identity
 unset output_directory
 
@@ -20,10 +19,9 @@ unset output_directory
 
 help() {
   echo >&2 "\
-${bold}Usage:${reset} $(basename $0) -u username -s code-sign-identity -o output-directory
+${bold}Usage:${reset} $(basename $0) -s code-sign-identity -o output-directory
 
 Arguments:
-  -u username               Apple Developer username for notarisation, password is obtained from keychain item “AC_PASSWORD”
   -s code-sign-identity     used to sign the app
   -o output-directory       where the app archive is created"
 }
@@ -51,7 +49,6 @@ get_build_setting() {
 # Parse arguments
 while getopts 'u:s:d:o:' opt; do
   case $opt in
-    u) username=$OPTARG;;
     s) code_sign_identity=$OPTARG;;
     o) output_directory=$OPTARG;;
 
@@ -68,7 +65,7 @@ while getopts 'u:s:d:o:' opt; do
 done
 
 # Invalid arguments
-if [ ! "$username" ] || [ ! "$code_sign_identity" ] || [ ! "$output_directory" ]; then
+if [ ! "$code_sign_identity" ] || [ ! "$output_directory" ]; then
   help
   exit 1
 fi
@@ -86,8 +83,6 @@ build_directory="$PWD/build"
 version=$(get_build_setting 'MARKETING_VERSION')
 build_number=$(get_build_setting 'CURRENT_PROJECT_VERSION')
 notarisation_archive="phoenix-$version.zip"
-notarisation_upload_plist='notarisation-upload.plist'
-notarisation_info_plist='notarisation-info.plist'
 archive="phoenix-$version.tar.gz"
 
 if [ -f "$output_directory/$archive" ]; then
@@ -127,42 +122,7 @@ echo 'Creating archive for notarisation...'
 ditto -c -k --keepParent $app.app $notarisation_archive
 
 echo 'Uploading archive to notarisation service...'
-xcrun altool --notarize-app \
-             --primary-bundle-id 'org.khirviko.Phoenix' \
-             --username $username \
-             --password '@keychain:AC_PASSWORD' \
-             --file $notarisation_archive \
-             --output-format xml \
-             > $notarisation_upload_plist
-
-notarisation_request_uuid=$(get_property 'notarization-upload:RequestUUID' $notarisation_upload_plist)
-echo "Uploaded. Request is “"$notarisation_request_uuid"”."
-
-while :
-do
-  xcrun altool --notarization-info $notarisation_request_uuid \
-               --username $username \
-               --password '@keychain:AC_PASSWORD' \
-               --output-format xml \
-               > $notarisation_info_plist
-
-  notarisation_status=$(get_property 'notarization-info:Status' $notarisation_info_plist)
-
-  if [ "$notarisation_status" = 'success' ]; then
-    notarisation_log=$(get_property 'notarization-info:LogFileURL' $notarisation_info_plist)
-    echo "Notarisation succeeded. Log: $notarisation_log"
-    break
-  fi
-
-  if [ "$notarisation_status" = 'invalid' ]; then
-    notarisation_log=$(get_property 'notarization-info:LogFileURL' $notarisation_info_plist)
-    echo "Notarisation failed. Log: $notarisation_log"
-    exit 1
-  fi
-
-  echo "Current status is “"$notarisation_status"”. Waiting..."
-  sleep 30
-done
+xcrun notarytool submit --wait --keychain-profile 'NOTARISATION_PASSWORD' $notarisation_archive
 
 # Staple app
 
