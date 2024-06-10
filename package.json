@@ -44,6 +44,7 @@
       "strict": "off",
       "unicorn/prefer-module": "off",
       "unicorn/prefer-reflect-apply": "off",
+      "unicorn/prevent-abbreviations": "off",
       "vars-on-top": "off"
     }
   }
