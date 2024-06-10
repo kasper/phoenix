@@ -3,8 +3,8 @@
   "version": "4.0.1",
   "private": true,
   "engines": {
-    "node": ">=20.2.0",
-    "npm": ">=9.6.7"
+    "node": ">=22.2.0",
+    "npm": ">=10.8.1"
   },
   "dependencies": {
     "@docusaurus/core": "2.4.1",
