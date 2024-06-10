@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### Changes
+
+- Xcode 15 is now required for building.
+
 ### Bug Fixes
 
 - Fix `Space#moveWindows` on Sonoma 14.5 ([#348](https://github.com/kasper/phoenix/issues/348), [#349](https://github.com/kasper/phoenix/issues/349)).
