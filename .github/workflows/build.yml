@@ -26,13 +26,13 @@ jobs:
       - name: Install ClangFormat
         run: brew install clang-format
       - name: Build Launcher
-        uses: sersoft-gmbh/xcodebuild-action@v2
+        uses: sersoft-gmbh/xcodebuild-action@v3
         with:
           workspace: Phoenix.xcworkspace
           scheme: Launcher
           action: test build
       - name: Build Phoenix
-        uses: sersoft-gmbh/xcodebuild-action@v2
+        uses: sersoft-gmbh/xcodebuild-action@v3
         with:
           workspace: Phoenix.xcworkspace
           scheme: Phoenix
