@@ -10,6 +10,28 @@
     <description>Feed for Phoenix updates.</description>
     <language>en</language>
 
+    <!-- 4.0.1 -->
+
+    <item>
+      <title>Version 4.0.1</title>
+      <sparkle:version>137</sparkle:version>
+      <sparkle:shortVersionString>4.0.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>10.14.0</sparkle:minimumSystemVersion>
+      <pubDate>Tue, 11 Jun 2024 00:48:17 +0300</pubDate>
+      <description><![CDATA[
+
+        <p>This release fixes the ability to move windows between Spaces in macOS Sonoma 14.5+. 🤖</p>
+
+        <p>See the full <a href='https://github.com/kasper/phoenix/blob/4.0.1/CHANGELOG.md'>Changelog</a>.</p>
+
+      ]]>
+      </description>
+      <enclosure sparkle:edSignature='tLwJlmJgd4Smw2p8214HwAmroPnTKZjZuGd/ec5Tqh1OMC548B1RbeUvDPypy9mYqeTv+6yBlhJ/dib6TvITCg=='
+                 type='application/octet-stream'
+                 length='3997849'
+                 url='https://github.com/kasper/phoenix/releases/download/4.0.1/phoenix-4.0.1.tar.gz' />
+    </item>
+
     <!-- 4.0.0 -->
 
     <item>

@@ -1,10 +1,10 @@
 Changelog
 =========
 
-4.0.1 (master)
---------------
+4.0.1
+-----
 
-Release: dd.mm.yyyy
+Release: 11.6.2024
 
 ### Changes
 
