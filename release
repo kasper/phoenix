@@ -21,6 +21,9 @@ help() {
   echo >&2 "\
 ${bold}Usage:${reset} $(basename $0) -s code-sign-identity -o output-directory
 
+notarytool will use a Keychain profile with the name “NOTARISATION_PASSWORD” for authentication.
+Use “xcrun notarytool store-credentials” to store the credentials.
+
 Arguments:
   -s code-sign-identity     used to sign the app
   -o output-directory       where the app archive is created"
