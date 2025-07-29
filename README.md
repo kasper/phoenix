@@ -134,7 +134,7 @@ If you have any questions, feedback or just want to say hi, you can [open an iss
 
 ## Thanks
 
-Phoenix is currently being developed by Kasper Hirvikoski ([@kasper](https://github.com/kasper/)) with the generous help of contributions made by many [individuals](https://github.com/kasper/phoenix/graphs/contributors/). It was originally authored by Steven Degutis ([@sdegutis](https://github.com/sdegutis/)). As it stands now, it has been rewritten from the ground up by Kasper Hirvikoski.
+Phoenix is currently being developed by Kasper Hirvikoski ([@kasper](https://github.com/kasper/)) with the generous help of contributions made by many [individuals](https://github.com/kasper/phoenix/graphs/contributors/). It has been written from the ground up by Kasper Hirvikoski.
 
 ## License
 

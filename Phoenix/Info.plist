@@ -27,7 +27,7 @@
 	<key>LSUIElement</key>
 	<true/>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2013 Steven Degutis, 2014 Jason Milkins and 2015 Kasper Hirvikoski.</string>
+	<string>Copyright © 2014 Jason Milkins and 2015 Kasper Hirvikoski.</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
