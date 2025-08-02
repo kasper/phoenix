@@ -71,7 +71,7 @@ See the [documentation](https://kasper.github.io/phoenix/) to get started with y
 You will need some basic knowledge about installing the required languages and tools. If you need help, do not hesitate to ask! To get started, you will need:
 
 1. Git
-2. Xcode 15 or higher
+2. Xcode 16 or higher
 3. Xcode command line tools
 
 First clone the repository from a terminal:

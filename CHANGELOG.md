@@ -6,6 +6,10 @@ Changelog
 
 Release: dd.mm.yyyy
 
+### Changes
+
+- Xcode 16 is now required for building.
+
 4.0.1
 -----
 
