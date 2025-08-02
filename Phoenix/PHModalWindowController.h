@@ -36,11 +36,9 @@
 
 #pragma mark - Appearance
 
-JSExportAs(setTextColor, -(void)setTextColorWithRed
-           : (CGFloat)red green
-           : (CGFloat)green blue
-           : (CGFloat)blue alpha
-           : (CGFloat)alpha);
+JSExportAs(setTextColor,
+           -(void)setTextColorWithRed : (CGFloat)red green : (CGFloat)green blue : (CGFloat)blue alpha : (CGFloat)
+               alpha);
 
 #pragma mark - Displaying
 
