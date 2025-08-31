@@ -18,5 +18,5 @@ Or alternatively, use [CoffeeScript](http://coffeescript.org) to write your conf
 #!/usr/bin/env coffee -p
 
 Key.on 's', ['control', 'shift'], ->
-  App.launch('Safari', { focus: true })
+  App.launch 'Safari', focus: true
 ```
