@@ -10,6 +10,7 @@ Release: dd.mm.yyyy
 
 - **Breaking:** Phoenix now requires macOS Big Sur (11) or higher (required by Xcode 16).
 - **Breaking:** Function `App#launch(...)` is now asynchronous and the function does not return the app. Pass a callback function as the third argument to receive the app after launching.
+- **Breaking:** Moving windows between spaces is not anymore supported if you have macOS 13.6+, 14.5+ or 15.0+ ([#354](https://github.com/kasper/phoenix/issues/354)).
 - Upgrade Sparkle to 2.7.1.
 - Xcode 16 is now required for building.
 
@@ -18,6 +19,10 @@ Release: dd.mm.yyyy
 #### App
 
 - Change: Function `launch(...)` is now asynchronous and the function does not return the app. Pass a callback function as the third argument to receive the app after launching.
+
+### Space
+
+- Deprecation: Function `Space#moveWindows` is not anymore supported if you have macOS 13.6+, 14.5+ or 15.0+. Apple has restricted the access for 3rd party apps to call the relevant APIs ([#354](https://github.com/kasper/phoenix/issues/354)).
 
 4.0.1
 -----

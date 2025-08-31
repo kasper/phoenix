@@ -6,6 +6,10 @@ Use the Space to control spaces. *These features are only supported on El Capita
 You can switch to a space by focusing on a window in that space. By default, macOS also supports the keyboard shortcut <kbd>Control</kbd> + <kbd>←/→</kbd> to navigate between spaces.
 :::
 
+:::warning Moving Windows Between Spaces
+Moving windows between spaces is not anymore supported if you have macOS 13.6+, 14.5+ or 15.0+. Apple has restricted the access for 3rd party apps to call the relevant APIs.
+:::
+
 ## Interface
 
 ```javascript
@@ -41,7 +45,7 @@ end
 
 ### 3.0.0+
 
-- `moveWindows(Array<Window> windows)` moves the given windows to the space (macOS 10.13+)
+- `moveWindows(Array<Window> windows)` moves the given windows to the space (macOS 10.13+, <13.6, <14.5, <15.0)
 
 ### Optionals
 

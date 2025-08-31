@@ -10,6 +10,8 @@
 
 + (BOOL)isOperatingSystemAtLeastBigSur;
 + (BOOL)isOperatingSystemAtLeastMonterey;
++ (BOOL)isOperatingSystemAtLeastVentura136;
 + (BOOL)isOperatingSystemAtLeastSonoma145;
++ (BOOL)isOperatingSystemAtLeastSequoia;
 
 @end

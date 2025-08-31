@@ -18,9 +18,19 @@
     return [[self processInfo] isOperatingSystemAtLeastVersion:monterey];
 }
 
++ (BOOL)isOperatingSystemAtLeastVentura136 {
+    NSOperatingSystemVersion ventura136 = {.majorVersion = 13, .minorVersion = 6, .patchVersion = 0};
+    return [[self processInfo] isOperatingSystemAtLeastVersion:ventura136];
+}
+
 + (BOOL)isOperatingSystemAtLeastSonoma145 {
     NSOperatingSystemVersion sonoma145 = {.majorVersion = 14, .minorVersion = 5, .patchVersion = 0};
     return [[self processInfo] isOperatingSystemAtLeastVersion:sonoma145];
+}
+
++ (BOOL)isOperatingSystemAtLeastSequoia {
+    NSOperatingSystemVersion sequoia = {.majorVersion = 15, .minorVersion = 0, .patchVersion = 0};
+    return [[self processInfo] isOperatingSystemAtLeastVersion:sequoia];
 }
 
 @end
