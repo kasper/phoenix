@@ -8,6 +8,7 @@ Release: dd.mm.yyyy
 
 ### Changes
 
+- **Breaking:** Phoenix now requires macOS Big Sur (11) or higher (required by Xcode 16).
 - **Breaking:** Function `App#launch(...)` is now asynchronous and the function does not return the app. Pass a callback function as the third argument to receive the app after launching.
 - Xcode 16 is now required for building.
 
