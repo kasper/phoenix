@@ -29,6 +29,39 @@ static NSString *const PHAppForceOptionKey = @"force";
 
 #pragma mark - Apps
 
++ (NSArray<NSString *> *)primaryAppPaths {
+    static NSArray<NSString *> *appPaths;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        appPaths = @[
+            @"/Applications",
+            @"/Applications/Utilities",
+            @"/System/Applications",
+            @"/System/Applications/Utilities",
+            @"/System/Library/CoreServices",
+            @"/System/Library/CoreServices/Applications",
+            [@"~/Applications" stringByExpandingTildeInPath]
+        ];
+    });
+
+    return appPaths;
+}
+
++ (NSString *)findPathWithAppName:(NSString *)name {
+    NSFileManager *manager = [NSFileManager defaultManager];
+
+    for (NSString *searchPath in [self primaryAppPaths]) {
+        NSString *candidatePath =
+            [searchPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.app", name]];
+        if ([manager fileExistsAtPath:candidatePath]) {
+            return candidatePath;
+        }
+    }
+
+    return nil;
+}
+
 + (instancetype)get:(NSString *)appName {
     for (PHApp *app in [self all]) {
         if ([[app name] isEqualToString:appName]) {
@@ -39,34 +72,47 @@ static NSString *const PHAppForceOptionKey = @"force";
     return nil;
 }
 
-+ (instancetype)launch:(NSString *)appName withOptionals:(NSDictionary<NSString *, id> *)optionals {
-    NSWorkspace *sharedWorkspace = [NSWorkspace sharedWorkspace];
-    NSString *appPath = [sharedWorkspace fullPathForApplication:appName];
-    NSWorkspaceLaunchOptions launchOptions = NSWorkspaceLaunchWithoutActivation;
++ (void)launch:(NSString *)appName
+    withOptionals:(NSDictionary<NSString *, id> *)optionals
+         callback:(JSValue *)callback {
+    NSString *appPath = [self findPathWithAppName:appName];
 
     if (!appPath) {
         NSLog(@"Error: Could not find an app with the name “%@”.", appName);
-        return nil;
+        if (!callback.isUndefined) {
+            [callback callWithArguments:@[]];
+        }
+        return;
     }
+
+    NSWorkspace *sharedWorkspace = [NSWorkspace sharedWorkspace];
+    NSBundle *appBundle = [NSBundle bundleWithPath:appPath];
+    NSURL *appUrl = [sharedWorkspace URLForApplicationWithBundleIdentifier:appBundle.bundleIdentifier];
+    NSWorkspaceOpenConfiguration *configuration = [NSWorkspaceOpenConfiguration configuration];
+    configuration.activates = NO;
 
     NSNumber *focusOption = optionals[PHAppFocusOptionKey];
 
     // Focus on launch
     if (focusOption && focusOption.boolValue) {
-        launchOptions = NSWorkspaceLaunchDefault;
+        configuration.activates = YES;
     }
 
-    NSError *error;
-    NSRunningApplication *app = [sharedWorkspace launchApplicationAtURL:[NSURL fileURLWithPath:appPath]
-                                                                options:launchOptions
-                                                          configuration:@{}
-                                                                  error:&error];
-    if (error) {
-        NSLog(@"Error: Could not launch app “%@”. (%@)", appName, error);
-        return nil;
-    }
+    [sharedWorkspace openApplicationAtURL:appUrl
+                            configuration:configuration
+                        completionHandler:^(__unused NSRunningApplication *app, NSError *error) {
+                            if (error) {
+                                NSLog(@"Error: Could not launch app “%@”. (%@)", appName, error);
+                                if (!callback.isUndefined) {
+                                    [callback callWithArguments:@[]];
+                                }
+                                return;
+                            }
 
-    return [[self alloc] initWithApp:app];
+                            if (!callback.isUndefined) {
+                                [callback callWithArguments:@[[[self alloc] initWithApp:app]]];
+                            }
+                        }];
 }
 
 + (instancetype)focused {

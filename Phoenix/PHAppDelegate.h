@@ -3,6 +3,7 @@
  */
 
 @import Cocoa;
+@import UserNotifications;
 
 @interface PHAppDelegate : NSObject <NSApplicationDelegate, NSMenuDelegate>
 

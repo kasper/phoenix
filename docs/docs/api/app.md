@@ -9,6 +9,7 @@ class App implements Identifiable
 
   static App get(String appName)
   static App launch(String appName, Map<String, AnyObject> optionals)
+  static void launch(String appName, Map<String, AnyObject> optionals, Function callback) // 5.0.0+
   static App focused()
   static Array<App> all()
 
@@ -36,6 +37,10 @@ end
 - `launch(String appName, Map<String, AnyObject> optionals)` launches and returns the app with the given name, returns `undefined` if unsuccessful
 - `focused()` returns the focused app
 - `all()` returns all running apps
+
+### 5.0.0+
+
+- `launch(String appName, Map<String, AnyObject> optionals, Function callback)` launches the app with the given name and calls the callback function if provided, the callback receives the app as the first argument or `undefined` if unsuccessful
 
 ### Launch Optionals
 

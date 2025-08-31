@@ -49,7 +49,8 @@ JSExportAs(setTextColor,
 
 @end
 
-@interface PHModalWindowController : NSWindowController <NSWindowDelegate, PHModalWindowControllerJSExport>
+@interface PHModalWindowController
+    : NSWindowController <NSControlTextEditingDelegate, NSWindowDelegate, PHModalWindowControllerJSExport>
 
 + (instancetype)new NS_UNAVAILABLE;
 

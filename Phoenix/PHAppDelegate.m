@@ -48,7 +48,17 @@ static NSString *const PHDocumentationURL = @"https://kasper.github.io/phoenix/"
 #pragma mark - NSApplicationDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)__unused notification {
+    // Ask permission for accessibility
     self.hasAccessibilityPermission = [PHUniversalAccessHelper askPermissionIfNeeded];
+
+    // Ask permission for notifications
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    [center requestAuthorizationWithOptions:UNAuthorizationOptionAlert
+                          completionHandler:^(__unused BOOL granted, NSError *error) {
+                              if (error) {
+                                  NSLog(@"Error: Could not request authorisation for notifications. (%@)", error);
+                              }
+                          }];
 
     // Observe accessibility permission
     [NSTimer scheduledTimerWithTimeInterval:30
@@ -63,6 +73,8 @@ static NSString *const PHDocumentationURL = @"https://kasper.github.io/phoenix/"
                                                  name:PHPreferencesDidChangeNotification
                                                object:nil];
     self.context = [PHContext context];
+    center.delegate = self.context;
+    [self.context setupNotificationCategories];
     [self.context load];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:PHEventDidLaunchNotification object:nil];

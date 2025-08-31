@@ -8,7 +8,7 @@ For example, use [Babel](http://babeljs.io) to use ECMAScript 6 JavaScript in ma
 #!/usr/bin/env babel
 
 Key.on('s', ['control', 'shift'], () => {
-  App.launch('Safari').focus();
+  App.launch('Safari', { focus: true });
 });
 ```
 
@@ -18,5 +18,5 @@ Or alternatively, use [CoffeeScript](http://coffeescript.org) to write your conf
 #!/usr/bin/env coffee -p
 
 Key.on 's', ['control', 'shift'], ->
-  App.launch('Safari').focus()
+  App.launch('Safari', { focus: true })
 ```

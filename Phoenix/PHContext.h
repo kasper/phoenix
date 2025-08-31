@@ -3,10 +3,15 @@
  */
 
 @import Foundation;
+@import UserNotifications;
 
 static NSString *const PHContextWillLoadNotification = @"PHContextWillLoadNotification";
 
 @protocol PHContextDelegate <NSObject>
+
+#pragma mark - Initialising
+
+- (void)setupNotificationCategories;
 
 #pragma mark - Loading
 
@@ -18,7 +23,7 @@ static NSString *const PHContextWillLoadNotification = @"PHContextWillLoadNotifi
 
 @end
 
-@interface PHContext : NSObject <NSUserNotificationCenterDelegate, PHContextDelegate>
+@interface PHContext : NSObject <UNUserNotificationCenterDelegate, PHContextDelegate>
 
 @property(readonly) NSString *primaryConfigurationPath;
 

@@ -39,6 +39,9 @@
 
 @implementation PHContext
 
+static NSString *const PHContextNotificationDebugActionIdentifier = @"DEBUG_ACTION";
+static NSString *const PHContextNotificationDebugCategoryIdentifier = @"DEBUG_CATEGORY";
+
 #pragma mark - Initialising
 
 - (instancetype)init {
@@ -145,7 +148,7 @@
     }
 
     [PHNotificationHelper deliver:[NSString stringWithFormat:@"Configuration file “%@” was created.", path]
-                     withDelegate:nil];
+               categoryIdentifier:nil];
 }
 
 - (void)loadScript:(NSString *)path {
@@ -167,7 +170,7 @@
         NSError *underlyingError = preprocessError.userInfo[NSUnderlyingErrorKey];
         NSLog(@"Error: Preprocessing failed. (%@)", underlyingError.localizedFailureReason);
         [PHNotificationHelper deliver:@"Preprocessing failed. Refer to the logs for more information."
-                         withDelegate:self];
+                   categoryIdentifier:nil];
     }
 
     [self.context evaluateScript:script withSourceURL:url];
@@ -205,7 +208,6 @@
 }
 
 - (void)setupContext {
-    PHContext *__weak weakSelf = self;
     self.context = [[JSContext alloc] initWithVirtualMachine:[[JSVirtualMachine alloc] init]];
     self.context.exceptionHandler = ^(JSContext *context, JSValue *exception) {
         JSValue *log = [context[@"Phoenix"] objectForKeyedSubscript:@"log"];
@@ -216,7 +218,7 @@
                              exception[@"message"],
                              exception[@"line"],
                              exception[@"column"]];
-        [PHNotificationHelper deliver:description withDelegate:weakSelf];
+        [PHNotificationHelper deliver:description categoryIdentifier:PHContextNotificationDebugCategoryIdentifier];
     };
 
     [self setupAPI];
@@ -225,14 +227,30 @@
     [self loadScript:self.primaryConfigurationPath];
 }
 
-#pragma mark - NSUserNotificationCenterDelegate
+#pragma mark - UNUserNotificationCenterDelegate
 
-- (void)userNotificationCenter:(NSUserNotificationCenter *)__unused center
-       didActivateNotification:(NSUserNotification *)__unused notification {
-    [PHApp launch:@"Console" withOptionals:@{PHAppFocusOptionKey: @YES}];
+- (void)userNotificationCenter:(UNUserNotificationCenter *)__unused center
+    didReceiveNotificationResponse:(UNNotificationResponse *)__unused response
+             withCompletionHandler:(void (^)(void))__unused completionHandler {
+    // Open Console for debugging
+    if ([response.actionIdentifier isEqualToString:PHContextNotificationDebugActionIdentifier]) {
+        [PHApp launch:@"Console" withOptionals:@{PHAppFocusOptionKey: @YES} callback:nil];
+    }
 }
 
 #pragma mark - PHContextDelegate
+
+- (void)setupNotificationCategories {
+    UNNotificationAction *debugAction =
+        [UNNotificationAction actionWithIdentifier:PHContextNotificationDebugActionIdentifier title:@"Debug" options:0];
+    UNNotificationCategory *debugCategory =
+        [UNNotificationCategory categoryWithIdentifier:PHContextNotificationDebugCategoryIdentifier
+                                               actions:@[debugAction]
+                                     intentIdentifiers:@[]
+                                               options:UNNotificationCategoryOptionCustomDismissAction];
+    [[UNUserNotificationCenter currentNotificationCenter]
+        setNotificationCategories:[NSSet setWithObject:debugCategory]];
+}
 
 - (void)load {
     [[NSNotificationCenter defaultCenter] postNotificationName:PHContextWillLoadNotification object:nil];

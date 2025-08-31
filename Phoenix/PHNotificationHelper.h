@@ -11,6 +11,6 @@
 
 #pragma mark - Delivering
 
-+ (void)deliver:(NSString *)message withDelegate:(id<NSUserNotificationCenterDelegate>)delegate;
++ (void)deliver:(NSString *)message categoryIdentifier:(NSString *)identifier;
 
 @end

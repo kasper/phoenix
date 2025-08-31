@@ -44,7 +44,7 @@
 }
 
 - (void)notify:(NSString *)message {
-    [PHNotificationHelper deliver:message withDelegate:nil];
+    [PHNotificationHelper deliver:message categoryIdentifier:nil];
 }
 
 @end

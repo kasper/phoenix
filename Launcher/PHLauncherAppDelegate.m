@@ -31,15 +31,16 @@ static NSString *const PHMainBundleIdentifier = @"org.khirviko.Phoenix";
     if (!isRunning) {
         NSLog(@"Info: Launching Phoenix...");
 
-        NSError *error;
+        NSWorkspaceOpenConfiguration *configuration = [NSWorkspaceOpenConfiguration configuration];
+        configuration.activates = NO;
         [sharedWorkspace
-            launchApplicationAtURL:[sharedWorkspace URLForApplicationWithBundleIdentifier:PHMainBundleIdentifier]
-                           options:NSWorkspaceLaunchWithoutActivation
-                     configuration:@{}
-                             error:&error];
-        if (error) {
-            NSLog(@"Error: Could not launch Phoenix. (%@)", error);
-        }
+            openApplicationAtURL:[sharedWorkspace URLForApplicationWithBundleIdentifier:PHMainBundleIdentifier]
+                   configuration:configuration
+               completionHandler:^(__unused NSRunningApplication *app, NSError *error) {
+                   if (error) {
+                       NSLog(@"Error: Could not launch Phoenix. (%@)", error);
+                   }
+               }];
     }
 }
 
