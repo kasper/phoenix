@@ -5,7 +5,7 @@ GEM
       base64
       nkf
       rexml
-    activesupport (7.2.2.1)
+    activesupport (7.2.2.2)
       base64
       benchmark (>= 0.3)
       bigdecimal
@@ -69,7 +69,7 @@ GEM
     connection_pool (2.5.3)
     drb (2.2.3)
     escape (0.0.4)
-    ethon (0.16.0)
+    ethon (0.17.0)
       ffi (>= 1.15.0)
     ffi (1.17.2-arm64-darwin)
     ffi (1.17.2-x86_64-darwin)
@@ -90,7 +90,7 @@ GEM
     netrc (0.11.0)
     nkf (0.2.0)
     public_suffix (4.0.7)
-    rexml (3.4.1)
+    rexml (3.4.2)
     ruby-macho (2.5.1)
     securerandom (0.4.1)
     typhoeus (1.4.1)
